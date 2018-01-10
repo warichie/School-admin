@@ -1,7 +1,6 @@
-Selamat Datang
+Welcome
 ---------------------------
  
-Jibas merupakan sebuah sistem informasi sekolah (http://www.jibas.net), disini kita mencoba mempelajari jibas keuangan, dengan cara 
-melakukan proses E[T]L  data dari OpenThink SAS ke Jibas. 
+Jibas is a school information system (http://www.jibas.net), where we will learn about jibas finance, using data E[T]L process of OpenThink SAS to Jibas.
 
-Untuk informasi lebih lanjut tentang OpenThink SAS silahkan kunjungi http://sas.openthinklabs.com
+For more info about OpenThink SAS, please visit http://sas.openthinklabs.com
