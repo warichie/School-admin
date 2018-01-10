@@ -25,7 +25,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="../../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Blank_Cari</title>
+<title>Blank_Search</title>
 <script language="javascript" src="../../script/tables.js"></script>
 <script language="javascript" src="../../script/tools.js"></script>
 <script language="JavaScript" src="../../script/tooltips.js"></script>
@@ -36,8 +36,8 @@
 <table width="100%" height="100%" border="0" align="center" cellspacing="0">
   <tr height="100%">
     <td><div align="center"><strong>
-Untuk Menampilkan Kelas, silakan pilih Departemen, Tahun Ajaran, dan Tingkat <br />
-lalu Klik Ikon <img src="images/ico/lihat.png" width="16" height="16" /> di atas..
+To show Class, please select Department, Year of Teaching, and Grade <br />
+then Click on <img src="images/ico/lihat.png" width="16" height="16" /> icon above
     </strong></div></td>
   </tr>
 </table>

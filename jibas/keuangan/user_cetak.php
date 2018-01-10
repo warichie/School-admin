@@ -40,7 +40,7 @@ $urutan = $_REQUEST['urutan'];
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Cetak Pengguna]</title>
+<title>JIBAS FINANCE [Print User]</title>
 </head>
 
 <body>
@@ -49,22 +49,22 @@ $urutan = $_REQUEST['urutan'];
 
 <?=getHeader('yayasan')?>
 
-	<center><font size="4"><strong>DAFTAR PENGGUNA<br />SISTEM MANAJEMEN KEUANGAN</strong></font><br /> </center><br /><br />
+	<center><font size="4"><strong>USER LIST<br />SISTEM MANAJEMEN FINANCE</strong></font><br /> </center><br /><br />
 
     <table id="table" class="tab" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse" width="100%" bordercolor="#000000">
 	<tr height="30">
-        <td class="header" width="5%" align="center">No</td>
+        <td class="header" width="5%" align="center">#</td>
         <td class="header" width="10%" align="center">Login</td>
-        <td class="header" width="20%" align="center">Nama</td>
-        <td class="header" width="12%" align="center">Departemen</td>
-        <td class="header" width="15%" align="center">Tingkat</td>
+        <td class="header" width="20%" align="center">Name</td>
+        <td class="header" width="12%" align="center">Department</td>
+        <td class="header" width="15%" align="center">Grade</td>
         <td width="10%" class="header" align="center">Status</td>
-        <td class="header" width="*" align="center">Keterangan</td>
-        <td class="header" width="16%" align="center">Login Terakhir</td>
+        <td class="header" width="*" align="center">Info</td>
+        <td class="header" width="16%" align="center">Last Login</td>
 	</tr>
-<?	//$sql = "SELECT p.nama,p.nip,h.tingkat,h.departemen,date_format(l.lastlogin, '%d-%b-%Y %h:%i:%s') AS lastlogin,h.keterangan,l.replid as replid FROM jbsuser.hakakses h, jbsuser.login l, jbssdm.pegawai p WHERE h.modul='KEUANGAN' AND h.login=p.nip AND p.nip=l.login AND l.login=h.login ORDER BY lastlogin"; 
+<?	//$sql = "SELECT p.nama,p.nip,h.tingkat,h.departemen,date_format(l.lastlogin, '%d-%b-%Y %h:%i:%s') AS lastlogin,h.keterangan,l.replid as replid FROM jbsuser.hakakses h, jbsuser.login l, jbssdm.pegawai p WHERE h.modul='FINANCE' AND h.login=p.nip AND p.nip=l.login AND l.login=h.login ORDER BY lastlogin"; 
 	OpenDb();
-	$sql="SELECT h.login, h.replid,  h.tingkat, h.departemen, h.keterangan, p.nama, p.aktif,  DATE_FORMAT(h.lastlogin,'%Y-%m-%d') AS tanggal, TIME(h.lastlogin) as jam FROM jbsuser.hakakses h, jbssdm.pegawai p, jbsuser.login l WHERE h.modul='KEUANGAN' AND h.login = l.login AND l.login = p.nip ORDER BY $urut $urutan LIMIT ".(int)$page*(int)$varbaris.",$varbaris";
+	$sql="SELECT h.login, h.replid,  h.tingkat, h.departemen, h.keterangan, p.nama, p.aktif,  DATE_FORMAT(h.lastlogin,'%Y-%m-%d') AS tanggal, TIME(h.lastlogin) as jam FROM jbsuser.hakakses h, jbssdm.pegawai p, jbsuser.login l WHERE h.modul='FINANCE' AND h.login = l.login AND l.login = p.nip ORDER BY $urut $urutan LIMIT ".(int)$page*(int)$varbaris.",$varbaris";
 	
 	$result = QueryDb($sql);
 	
@@ -80,16 +80,16 @@ $urutan = $_REQUEST['urutan'];
         <td align="center"><?=$row['login'] ?></td>
         <td><?=$row['nama'] ?></td>
         <td align="center"><? if ($row['tingkat'] == 1) {
-					echo  "Semua Departemen";
+					echo  "All Department";
 				} else {
 					echo  $row['departemen'];
 				}
 		?></td>
         <td align="center"><? if ($row['tingkat'] == 1)
-					echo  "Manajer Keuangan";
+					echo  "Manajer Finance";
 				else
-					echo  "Staf Keuangan"; ?>  </td>
-        <td align="center"><? if ($row['aktif'] == 1) echo  'Aktif'; else echo  'Tidak Aktif'; ?></td>
+					echo  "Finance Staff"; ?>  </td>
+        <td align="center"><? if ($row['aktif'] == 1) echo  'Active'; else echo  'Inactive'; ?></td>
         <td><?=$row['keterangan'] ?></td>
         <td align="center"><?=LongDateFormat($row['tanggal'])?> <?=$row['jam']?></td>
     </tr>
@@ -101,7 +101,7 @@ $urutan = $_REQUEST['urutan'];
 	</td>
 </tr>
 <tr>
-   	<td align="right">Halaman <strong><?=$page+1?></strong> dari <strong><?=$total?></strong> halaman</td>
+   	<td align="right">Page <strong><?=$page+1?></strong> from <strong><?=$total?></strong> halaman</td>
 </tr>
 </table>
 </body>

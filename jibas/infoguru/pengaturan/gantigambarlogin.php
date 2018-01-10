@@ -103,7 +103,7 @@ function get_fresh() {
 }
 function setaktif(replid) {
 	var msg;
-	msg = "Apakah anda yakin akan mengubah gambar ini menjadi AKTIF,\nDan gambar yang lain menjdai tidak aktif?";
+	msg = "Are you sure want to change this image to ACTIVE,\nAnd other images to inactive?";
 	if (confirm(msg)) 
 		document.location.href = "gantigambarlogin.php?op=dw8dxn8w9ms8zs22&replid="+replid;
 }
@@ -116,7 +116,7 @@ function show_wait(areaId) {
 }
 function hapus(replid) {
 	var msg;
-	msg = "Apakah anda yakin akan menghapus gambar ini?";
+	msg = "Are you sure want to delete this image?";
 	if (confirm(msg)) 
 		document.location.href = "gantigambarlogin.php?op=fckgwrhqq2yxrkt8tg6w2b7q8&replid="+replid;
 }
@@ -124,17 +124,17 @@ function hapus(replid) {
 </head>
 <body leftmargin="0" topmargin="0">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/ico/loading.gif" border="0" />&nbsp;Silakan&nbsp;tunggu...
+<img src="../images/ico/loading.gif" border="0" />Please wait...
 </div>
 
-<div align="left"><a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')" />&nbsp;Tambah Gambar</a></div><br />
+<div align="left"><a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')" />&nbsp;Add Image</a></div><br />
 <table width="950" border="0" cellspacing="0">
   <tr>
     <th width="400" scope="row" valign="top"><table width="400" border="1" cellspacing="0" class="tab" align="left">
   <tr>
-    <th width="3%" height="30" align="center" class="header">No.</th>
-    <td width="62%" height="30" align="center" class="header">Gambar</td>
-    <td width="18%" height="30" align="center" class="header">Aktif</td>
+    <th width="3%" height="30" align="center" class="header">#</th>
+    <td width="62%" height="30" align="center" class="header">Image</td>
+    <td width="18%" height="30" align="center" class="header">Active</td>
     <td width="17%" height="30" align="center" class="header">&nbsp;</td>
   </tr>
   <?
@@ -149,17 +149,17 @@ function hapus(replid) {
   ?>
   <tr>
     <th align="center" valign="top" width="5"><?=$cnt?></th>
-    <td align="center" width="150"><img title="Klik untuk Preview, Dobel Klik untuk mengaktifkan Gambar" src="../<?=$row[direktori].$row[namafile]?>" width="80" height="60" onclick="view('<?=$row[direktori].$row[namafile]?>')" ondblclick="setaktif('<?=$row[replid] ?>')" style="cursor:pointer;"/></td>
+    <td align="center" width="150"><img title="Click to Preview, Double Click to activated the Image" src="../<?=$row[direktori].$row[namafile]?>" width="80" height="60" onclick="view('<?=$row[direktori].$row[namafile]?>')" ondblclick="setaktif('<?=$row[replid] ?>')" style="cursor:pointer;"/></td>
     <td align="center" valign="top" width="7"><? if ($aktif == 1) { ?>
-				<img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')"/>
+				<img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '50px')"/>
 <?			} else { ?>
-				<a href="JavaScript:setaktif('<?=$row[replid] ?>')"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '50px')"/></a>
+				<a href="JavaScript:setaktif('<?=$row[replid] ?>')"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Inactive', this, event, '50px')"/></a>
 <?			} ?></td>
-    <td align="center" valign="top" width="8"><img onclick="hapus('<?=$row[replid] ?>')" title="Hapus gambar ini" src="../images/ico/hapus.png" width="16" height="16" style="cursor:pointer;"/></td>
+    <td align="center" valign="top" width="8"><img onclick="hapus('<?=$row[replid] ?>')" title="Delete this image" src="../images/ico/hapus.png" width="16" height="16" style="cursor:pointer;"/></td>
   </tr>
   <? $cnt++; } } else { ?>
   <tr>
-    <th align="center" scope="row" colspan="4">Tidak ada Gambar Login</th>
+    <th align="center" scope="row" colspan="4">No Login Image</th>
   </tr>
   <? } ?>
 </table></th>

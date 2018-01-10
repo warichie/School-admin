@@ -33,7 +33,7 @@ OpenDb();
 
 <table width="100%" border="1" cellspacing="0" class="tab">
           <tr class="header" height="30">
-            <td width="50"><div align="center">Bulan</div></td>
+            <td width="50"><div align="center">Month</div></td>
             <td width="35%"><div align="center">#</div></td>
           </tr>
           <?
@@ -46,7 +46,7 @@ OpenDb();
 		  	$res_cnt=QueryDb($sql_cnt);
 			$row_cnt=@mysql_fetch_row($res_cnt);
 		  ?>
-		  <tr onClick="show_ck('<?=$row[bulan]?>','<?=$tahun?>')" style="cursor:pointer;" title="Klik untuk menampilkan daftar Catatan Siswa">
+		  <tr onClick="show_ck('<?=$row[bulan]?>','<?=$tahun?>')" style="cursor:pointer;" title="Click to show Student Note list">
             <td width="50"><?=$bulan_pjg[$row[bulan]]?></td>
             <td><div align="center">
               <?=$row_cnt[0]?>
@@ -57,7 +57,7 @@ OpenDb();
 		  } else {
 		  ?>
 		  <tr>
-            <td colspan="2">Tidak ada Data</td>
+            <td colspan="2">Data Not Found.</td>
           </tr>
 		  <? } ?>
         </table>

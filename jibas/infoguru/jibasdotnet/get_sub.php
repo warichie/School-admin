@@ -42,7 +42,7 @@ $kat=$_REQUEST[kat];
 		}
 		} else {
 		?>
-        <option value="">Tidak ada sub kategori</option>
+        <option value="">No subcategory</option>
         <?
 		}
 		CloseDb();

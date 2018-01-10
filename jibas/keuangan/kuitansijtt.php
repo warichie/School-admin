@@ -69,7 +69,7 @@ $idtahunbuku = $row[11];
 
 if ($status == "calon")
 {
-	$kname = "Kelompok";
+	$kname = "Group";
 	$sql = "SELECT k.kelompok
 			  FROM jbsakad.calonsiswa cs, jbsakad.kelompokcalonsiswa k
 			 WHERE cs.idkelompok = k.replid
@@ -77,7 +77,7 @@ if ($status == "calon")
 }
 else
 {
-	$kname = "Kelas";
+	$kname = "Class";
 	$sql = "SELECT k.kelas
 			  FROM jbsakad.siswa s, jbsakad.kelas k
 			 WHERE s.idkelas = k.replid
@@ -112,7 +112,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Kuitansi Pembayaran]</title>
+<title>JIBAS FINANCE [Kuitansi Payment]</title>
 </head>
 
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
@@ -140,7 +140,7 @@ CloseDb();
 	<? } ?>
 	<tr>
 		<td align="right" colspan='2'>
-			<font size="1"><strong>No. <?=$nokas ?></strong></font>
+			<font size="1"><strong># <?=$nokas ?></strong></font>
 		</td>
 	</tr>
     <tr>
@@ -150,16 +150,16 @@ CloseDb();
 	</tr>
     <tr>
 		<td align="left" colspan='2'>
-		Telah terima dari:
+		Received from:
         <table border="0" cellpadding="2" cellspacing="0" width="100%">
         <tr>
         	<td width="20">&nbsp;</td>
-        	<td width="60"><? if ($_REQUEST["status"] == "calon") echo  "No Pendaftaran"; else echo  "N I S"; ?> </td>
+        	<td width="60"><? if ($_REQUEST["status"] == "calon") echo  "Registration Number"; else echo  "N I S"; ?> </td>
             <td>:&nbsp;<strong><?=$nis ?></strong></td>
         </tr>
         <tr>
         	<td>&nbsp;</td>
-        	<td>Nama</td>
+        	<td>Name</td>
             <td>:&nbsp;<strong><?=$nama?></strong></td>
         </tr>
 		<tr>
@@ -169,7 +169,7 @@ CloseDb();
         </tr>
 		<tr>
         	<td>&nbsp;</td>
-        	<td>Tanggal</td>
+        	<td>Date</td>
             <td>:&nbsp;<strong><?= $tanggal ?></strong></td>
         </tr>
         <tr>
@@ -189,15 +189,15 @@ CloseDb();
 			<table border="1" cellpadding="2" cellspacing="0" style="border-width:1px" width="100%">
 			<tr>
 				<td valign="top">
-				<strong>Keterangan:</strong><br>					
+				<strong>Info:</strong><br>					
 				<? if ($jumlahbayar + $jumlahdiskon < $total) { ?>
 				&#149;&nbsp;<em>Sisa pembayaran: <?=FormatRupiah($total - $jumlahbayar - $jumlahdiskon)?></em><br>
 				<? } ?>
 				<? if ($diskon != 0 ) { ?>
 				&#149;&nbsp;<em>Sudah dipotong diskon: <?=FormatRupiah($diskon)?></em><br>
 				<? } ?>
-				&#149;&nbsp;<em>Tgl cetak: <?= date('d/m/Y H:i:s') ?></em><br>
-				&#149;&nbsp;<em>Petugas: <?= $petugas ?></em><br>
+				&#149;&nbsp;<em>Date cetak: <?= date('d/m/Y H:i:s') ?></em><br>
+				&#149;&nbsp;<em>Officer: <?= $petugas ?></em><br>
 				</td></tr>
 			</table>
             

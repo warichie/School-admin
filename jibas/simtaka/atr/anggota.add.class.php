@@ -62,7 +62,7 @@ class CAnggotaAdd{
 	function exist(){
 		?>
         <script language="javascript">
-			alert('Kode sudah digunakan!');
+			alert('The Code has been used');
 			document.location.href="format.add.php";
 		</script>
         <?
@@ -82,22 +82,22 @@ class CAnggotaAdd{
           <tr>
             <td colspan="2" align="left">
             	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        		<font style="font-size:18px; color:#999999">Tambah Anggota</font></td>
+        		<font style="font-size:18px; color:#999999">Add Member</font></td>
   		  </tr>
           <tr>
-            <td width="6%">&nbsp;<strong>No.Registrasi</strong></td>
+            <td width="6%">&nbsp;<strong>Reg Number</strong></td>
             <td width="94%"><input name="noreg" type="text" class="cmbfrm2" id="noreg" readonly="readonly" value="<?=$this->get_noreg()?>" ></td>
           </tr>
           <tr>
-            <td>&nbsp;<strong>Nama</strong></td>
+            <td>&nbsp;<strong>Name</strong></td>
             <td><input name="nama" type="text" class="inputtxt" id="nama" size="35"></td>
           </tr>
           <tr>
-            <td>&nbsp;<strong>Alamat</strong></td>
+            <td>&nbsp;<strong>Address</strong></td>
             <td><textarea name="alamat" cols="45" rows="3" class="areatxt" id="alamat"></textarea></td>
           </tr>
           <tr>
-            <td>&nbsp;Kodepos</td>
+            <td>&nbsp;Postal Code</td>
             <td><input name="kodepos" type="text" class="inputtxt" id="kodepos" /></td>
           </tr>
           <tr>
@@ -105,31 +105,31 @@ class CAnggotaAdd{
             <td><input name="email" type="text" class="inputtxt" id="email" size="40" /></td>
           </tr>
           <tr>
-            <td>&nbsp;Telepon</td>
+            <td>&nbsp;Phone</td>
             <td><input name="telpon" type="text" class="inputtxt" id="telpon" /></td>
           </tr>
           <tr>
-            <td>&nbsp;HP</td>
+            <td>&nbsp;Mobile</td>
             <td><input name="hp" type="text" class="inputtxt" id="hp" /></td>
           </tr>
           <tr>
-            <td>&nbsp;Pekerjaan</td>
+            <td>&nbsp;Occupation</td>
             <td><input name="kerja" type="text" class="inputtxt" id="kerja" size="40" /></td>
           </tr>
           <tr>
-            <td>&nbsp;Institusi</td>
+            <td>&nbsp;Institution</td>
             <td><input name="institusi" type="text" class="inputtxt" id="institusi" size="50" /></td>
           </tr>
           <tr>
-            <td>&nbsp;Foto</td>
+            <td>&nbsp;Photo</td>
             <td><input type="file" name="foto" id="foto"  class="cmbfrm2"/></td>
           </tr>
           <tr>
-            <td>&nbsp;Keterangan</td>
+            <td>&nbsp;Info</td>
             <td><textarea name="keterangan" cols="45" rows="5" class="areatxt" id="keterangan"></textarea></td>
           </tr>
           <tr>
-            <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Simpan" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Batal" onClick="window.close()" ></td>
+            <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Save" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Cancel" onClick="window.close()" ></td>
           </tr>
         </table>
 		</form>

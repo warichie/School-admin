@@ -48,7 +48,7 @@ if(isset($_POST["departemen"])){
       var nilai = document.ubah_nilai_au.kode.value;
 
         if(nilai.length == 0) {
-            alert("Nilai tidak boleh kosong");
+            alert("Point For should not leave empty");
             document.ubah_nilai_au.nilai.value = "";
             document.ubah_nilai_au.nilai.focus();
             return false;
@@ -115,20 +115,20 @@ $row = @mysql_fetch_array($result);
 	<input type="hidden" name="departemen" value="<?=$departemen ?>">
 	<table border="0" align="center" width="95%">
         <tr>
-            <td class="header">Ubah Nilai Akhir Ujian</td>
+            <td class="header">Edit Exam Final Point</td>
         </tr>
 		<tr>
 			<td>
-			<fieldset><legend><b>Data Nilai Ujian</b></legend>
+			<fieldset><legend><b>Exam Point Data</b></legend>
 			<table width="100%">
         <tr>
-            <td width="19%">NIS</td>
+            <td width="19%">Student ID</td>
             <td width="81%">
             <input type="hidden" name="u_nis" value="<?=$row[nis]; ?>">
             <input type="text" size="45" name="nis" value="<?=$row[nis]; ?>" readonly></td>
         </tr>
         <tr>
-            <td>Nama</td><td>
+            <td>Name</td><td>
 			<?
 			$query_nm = "SELECT * FROM jbsakad.siswa WHERE siswa.nis = '$row[nis]'";
 			$result_nm = QueryDb($query_nm);
@@ -138,7 +138,7 @@ $row = @mysql_fetch_array($result);
         </tr>
        
 		<tr>
-			<td>Nilai Akhir</td>
+			<td>Grade Point</td>
 			<td><input type="text" name="nilai" size="5" value="<?=$row[nilaiAU] ?>" maxlength="8"></td>
 		</tr>
 		</table>
@@ -147,8 +147,8 @@ $row = @mysql_fetch_array($result);
         <tr>
             <td>
               <div align="center">
-                <input type="button" value="Batal" name="batal" class="but" onClick="window.close();">
-                <input type="submit" value="Simpan" name="ubah" class="but">			
+                <input type="button" value="Cancel" name="batal" class="but" onClick="window.close();">
+                <input type="submit" value="Save" name="ubah" class="but">			
               </div></td>
           </tr>
     </table>

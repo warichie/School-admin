@@ -39,12 +39,12 @@ function validate(){
 	var username = document.getElementById('username').value;
 	var password = document.getElementById('password').value;
 	if (username.length==0){
-		alert ('Username harus diisi!');
+		alert ('Username is required');
 		document.getElementById('username').focus();
 		return false;
 	}
 	if (password.length==0){
-		alert ('Password harus diisi!');
+		alert ('Password is required');
 		document.getElementById('password').focus();
 		return false;
 	}
@@ -157,7 +157,7 @@ $(document).ready(function () {
                     <td style="padding-right:4px"><input name="passwordfake" id="passwordsfake" style="color:#636363; display:block;width:80px; border:1px #666666 solid; font-size:11px" value="Password" onfocus="ChgInputPass('passwordsfake','passwords','1')" type="text"    />
                 <input name="password" id="passwords" style="color:#000000; display:none;width:80px; border:1px #666666 solid; font-size:11px" value="" onblur="ChgInputPass('passwordsfake','passwords','0')"  type="password"    /></td>
                     <td style="padding-right:4px"><input type="submit" style=" background-color:#c9c9c9;font-weight:bold; border:#666666 1px solid;font-size:11px" value="Login" /></td>
-                    <td><a title="Kembali ke Menu Utama" href="../" style="color:#2fcced; font-weight:bold;  font-family:Arial; font-size:12px; text-decoration:underline">Menu Utama</a></td>
+                    <td><a title="Back to Main Menu" href="../" style="color:#2fcced; font-weight:bold;  font-family:Arial; font-size:12px; text-decoration:underline">Main Menu</a></td>
                   </tr>
                 </table>                
                 </td>

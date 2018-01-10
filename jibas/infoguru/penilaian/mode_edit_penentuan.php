@@ -34,9 +34,9 @@ openDb();
 //===========================================++++++++++++++++++++++++++++++=====================================
 if($num == 0) {
         echo "
-            <font color='red' size='2'><b>Nilai Akhir Ujian untuk pelajaran</font>
-            <font color='black' size='2'>$row_p[nama] </font><font color='red' size='2'>belum ada.
-            Masukkanlah terlebih dahulu nilai akhir pelajaran tersebut !</b></font>
+            <font color='red' size='2'><b>Grade Point Exam for</font>
+            <font color='black' size='2'>$row_p[nama] </font><font color='red' size='2'>is not existed.
+            Please enter Final Point for the lesson first</b></font>
         ";
 }else {
         $n = 0;
@@ -60,9 +60,9 @@ if($num == 0) {
     </table>
     <table width="95%" class="tab" border="1" id="table">
     <tr>
-        <td rowspan="2" class="headerlong" width="30">No</td>
-        <td rowspan="2" class="headerlong" width="70">NIS</td>
-        <td rowspan="2" class="headerlong" width="150">Nama</td>
+        <td rowspan="2" class="headerlong" width="30">#</td>
+        <td rowspan="2" class="headerlong" width="70">Student ID</td>
+        <td rowspan="2" class="headerlong" width="150">Name</td>
         <?
         $query_ju = "SELECT replid, jenisujian FROM jbsakad.jenisujian WHERE idpelajaran = '$pelajaran'";
         $result_ju = QueryDb($query_ju) or die(mysql_error());
@@ -76,7 +76,7 @@ if($num == 0) {
 		$result_ju = QueryDb($query_ju) or die(mysql_error());
         ?>
 
-        <td class="headerlong" colspan="<?=$num_ju;?>" align="center">Nilai Akhir</td>
+        <td class="headerlong" colspan="<?=$num_ju;?>" align="center">Grade Point</td>
 
         <?
         $query_nhb = "SELECT replid, dasarpenilaian, bobot ".
@@ -106,7 +106,7 @@ if($num == 0) {
 						}
 					    $as[$cnt] = $bobot;
                     }
-					if ($row_nhb[dasarpenilaian] == "Praktik") {
+					if ($row_nhb[dasarpenilaian] == "Practice") {
 						$idpraktek = $idpraktek . "[" . $ujian . "]";
 					} else {
 						$idkonsep = $idkonsep . "[" . $ujian . "]";
@@ -116,17 +116,17 @@ if($num == 0) {
             $v++;
 			$r_aturan[] = $row_nhb[replid];
 			$color = "white";
-			if ($row_nhb[dasarpenilaian] == "Praktik")
+			if ($row_nhb[dasarpenilaian] == "Practice")
 				$color = "cyan";
-			else if ($row_nhb[dasarpenilaian] == "Pemahaman Konsep")
+			else if ($row_nhb[dasarpenilaian] == "Conceptual Comprehension")
 				$color = "yellow";
             echo "<td class='headerlong' colspan='2' align='center'>
                 <input type='hidden' name='aturan$v' value='$row_nhb[replid]'>
-                <font size='1' color='$color'>Nilai $row_nhb[dasarpenilaian]</font></td>";
+                <font size='1' color='$color'>Point $row_nhb[dasarpenilaian]</font></td>";
         }
         ?>
         <td rowspan="2" class="headerlong" align="center">
-        <input type='hidden' name='num_nhb' value='<?=$num_nhb?>'>Predikat</td>
+        <input type='hidden' name='num_nhb' value='<?=$num_nhb?>'>Predicate</td>
     </tr>
     <tr>
         <?
@@ -155,7 +155,7 @@ if($num == 0) {
         }
 
         for($i=1;$i<=$num_nhb;$i++) {
-            echo "<td class='headerlong' align='center'>Angka</td><td class='header' align='center'>Huruf</td>";
+            echo "<td class='headerlong' align='center'>Letter</td><td class='header' align='center'>Number</td>";
         }
         ?>
     </tr>
@@ -221,7 +221,7 @@ if($num == 0) {
 				$nilaiangka1[$id_aturan1] = $ttl_nau_b1[$id_aturan1]/$ttl_bbt1[$id_aturan1];
                 $f1 = sprintf("%01.2f", $nilaiangka1[$id_aturan1]);
                 
-                //Nilai akhir harus nya sesuai perhitungan ->$f hehehehe.....
+                //Nilai akhir harus nya according to perhitungan ->$f hehehehe.....
                  echo "
                     <td align='center'><input type='text' name='nA$i$t' value='$row_nap[nilaiangka]' size='5'></td>
                     <td align='center'><input type='text' name='nH$i$t' value='$row_nap[nilaihuruf]' maxlength='2' size='5'></td>
@@ -275,12 +275,12 @@ if($num == 0) {
             echo "
                 <td align='center'><select name='predikat$i'>
                 <option value='0' $sel1></option>
-                <option value='1' $sel2>Amat Baik</option>
-                <option value='2' $sel3>Baik</option>
-                <option value='3' $sel4>Cukup</option>
-                <option value='4' $sel5>Kurang</option>
+                <option value='1' $sel2>Excellent</option>
+                <option value='2' $sel3>Good</option>
+                <option value='3' $sel4>Average</option>
+                <option value='4' $sel5>Not Good</option>
                 </select>
-				<img src='../images/ico/refresh.png' onMouseOver=\"showhint('Perhitungan Ulang Nilai Rapor',this,event,'100px')\" border=0 onclick='javascript:hitungulang($ns)'>
+				<img src='../images/ico/refresh.png' onMouseOver=\"showhint('Reports Recalculation',this,event,'100px')\" border=0 onclick='javascript:hitungulang($ns)'>
                 </td>
                 </tr>
             ";
@@ -293,11 +293,11 @@ if($num == 0) {
         </script>
 	<input type="hidden" name="num_t" value="<?=$t ?>">
     <table width="95%" bgcolor="#a5ae0e" border="1">
-        <tr><td align='left'>Nilai Standar Kelulusan : <input type="text" name="nlulus" value="<?=$row_cek[nilaimin]?>">
-            <input type="submit" value="Ubah" name="simpan" class="but">
-            <input type="button" value="Tambah Siswa" name="" class="but" onClick="newWindow('tambah_siswa_pn.php?departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&idinfo=<?=$row_cek[replid] ?>',
-            'Penilaian Pelajaran','900','250','resizable=1,scrollbars=1,status=0,toolbar=0')">
-			<a href="#" onClick="delnap()"><img src="../images/ico/hapus.png" border="0">Hapus Nilai dan Komentar Rapor Pelajaran Ini</a>
+        <tr><td align='left'>Standard Graduation Point : <input type="text" name="nlulus" value="<?=$row_cek[nilaimin]?>">
+            <input type="submit" value="Edit" name="simpan" class="but">
+            <input type="button" value="Add Student" name="" class="but" onClick="newWindow('tambah_siswa_pn.php?departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&idinfo=<?=$row_cek[replid] ?>',
+            'Class Subject Assessment','900','250','resizable=1,scrollbars=1,status=0,toolbar=0')">
+			<a href="#" onClick="delnap()"><img src="../images/ico/hapus.png" border="0">Delete this Class Subject Report Card Points and Comments</a>
         </td></tr>
     </table>
     </form>

@@ -43,7 +43,7 @@ $total = $_REQUEST['total'];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Daftar Alumni]</title>
+<title>JIBAS SIMAKA [Alumni List]</title>
 </head>
 
 <body>
@@ -53,15 +53,15 @@ $total = $_REQUEST['total'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DAFTAR ALUMNI</strong></font><br />
+  <font size="4"><strong>ALUMNI LIST</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td><strong>Departemen</strong> </td> 
+	<td><strong>Department</strong> </td> 
 	<td><strong>:&nbsp;<?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Lulus</strong></td>
+	<td><strong>Graduated</strong></td>
 	<td><strong>:&nbsp;<?=$tahun?></strong></td>
 </tr>
 
@@ -69,12 +69,12 @@ $total = $_REQUEST['total'];
     <br />
       <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="0" width="100%" align="center" bordercolor="#000000">
     <tr height="30" class="header" align="center">
-    	<td width="4%">No</td>
-        <td width="13%">N I S</td>
-        <td width="*">Nama </td>
-        <td width="10%">Angkatan </td>
-        <td width="20%">Kelas Terakhir </td>
-		<td width="22%">Tanggal Lulus </td>
+    	<td width="4%">#</td>
+        <td width="13%">Student ID</td>
+        <td width="*">Name </td>
+        <td width="10%">Graduates </td>
+        <td width="20%">Last Class </td>
+		<td width="22%">Date Graduated </td>
     </tr>
 <? 	
 	//$sql_siswa = "SELECT s.replid, s.nis, s.nama, k.kelas, al.tgllulus, al.klsakhir, al.tktakhir, al.replid, t.tingkat, a.angkatan FROM alumni al, kelas k, tingkat t, siswa s, angkatan a WHERE k.idtingkat=t.replid AND t.replid=al.tktakhir AND k.replid=al.klsakhir AND YEAR(al.tgllulus) = '$tahun' AND al.departemen = '$departemen' AND s.nis = al.nis AND s.idangkatan = a.replid ORDER BY $urut $urutan LIMIT ".(int)$page*(int)$varbaris.",$varbaris";
@@ -102,7 +102,7 @@ $total = $_REQUEST['total'];
     <!-- END TABLE CONTENT -->
     </table>
 <!--<tr>
-    <td align="right">Halaman <strong><?=$page+1?></strong> dari <strong><?=$total?></strong> halaman</td>
+    <td align="right">Page <strong><?=$page+1?></strong> from <strong><?=$total?></strong> halaman</td>
 </tr>-->
 </table>	
 </body>

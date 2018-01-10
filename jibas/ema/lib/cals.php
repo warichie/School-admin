@@ -185,8 +185,8 @@ function ambil(tgl,elementid) {
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr><td width="70%" align="center"><input type="button" class="cmbfrm2" onclick="GoToLastMonth()" value="  <  ">
 <select name="bulan" class="cmbfrm" id="bulan" onchange="ChangeCal()">
-<? $namabulan = array("Jan","Feb","Mar","Apr","Mei","Jun","Jul","Ags","Sep","Okt","Nov","Des");
-   $namabulanpjg = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+<? $namabulan = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Ags","Sep","Oct","Nov","Dec");
+   $namabulanpjg = array("January","February","March","April","May","June","July","August","September","October","November","December");
    for ($i = 1; $i <= 12; $i++) { ?>
 	<option value="<?=$i?>" <?=IntIsSelected($i, $bulan)?>><?=$namabulanpjg[$i - 1]?></option>
 <? } ?>
@@ -203,13 +203,13 @@ function ambil(tgl,elementid) {
 </table>
 <table border="0" cellpadding="5" cellspacing="1" width="100%" style="border-color:#999999">
 <tr height="20" bgcolor="#DFFFDF">
-	<td width="30" align="center" style="background-color:#990000; color:#FFFFFF"><b>Minggu</b></td>
-    <td width="30" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Senin</b></td>
-    <td width="30" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Selasa</b></td>
-    <td width="30" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Rabu</b></td>
-    <td width="30" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Kamis</b></td>
-    <td width="30" align="center" style="background-color:#339900; color:#FFFFFF"><b>Jum'at</b></td>
-    <td width="30" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Sabtu</b></td>
+	<td width="30" align="center" style="background-color:#990000; color:#FFFFFF"><b>Sunday</b></td>
+    <td width="30" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Monday</b></td>
+    <td width="30" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Tuesday</b></td>
+    <td width="30" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Wednesday</b></td>
+    <td width="30" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Thursday</b></td>
+    <td width="30" align="center" style="background-color:#339900; color:#FFFFFF"><b>Friday</b></td>
+    <td width="30" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Saturday</b></td>
 </tr>
 <?
 for ($i = 0; $i < count($cal); $i++) { 

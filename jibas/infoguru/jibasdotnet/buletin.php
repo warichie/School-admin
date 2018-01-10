@@ -69,14 +69,14 @@ function chg_sub_kat(){
 <body leftmargin="0" topmargin="0">
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th scope="row" align="right">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>BULETIN JIBAS.NET</strong></font><br /><br /></th>
+    <th scope="row" align="right">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>BULLETIN JIBAS.NET</strong></font><br /><br /></th>
   </tr><br />
   <tr>
     <th scope="row">
     <div align="left">
     <table width="320" border="0" cellspacing="0">
   <tr>
-    <th width="140" scope="row"><div align="left">Kategori</div></th>
+    <th width="140" scope="row"><div align="left">Category</div></th>
     <td width="172"><select name="kat" size="1" id="kat" onchange="chg_kat()">
     	<? 
 		OpenDb();
@@ -93,7 +93,7 @@ function chg_sub_kat(){
 		}
 		} else {
 		?>
-        <option value="">Tidak ada kategori</option>
+        <option value="">No category</option>
         <?
 		}
 		CloseDb();
@@ -101,7 +101,7 @@ function chg_sub_kat(){
     </select></td>
   </tr>
   <tr>
-    <th width="140" scope="row"><div align="left">Sub Kategori</div></th>
+    <th width="140" scope="row"><div align="left">Subcategory</div></th>
     <td><select name="subkat" size="1" id="subkat" onchange="chg_sub_kat()">
     	<? 
 		OpenDb();
@@ -117,7 +117,7 @@ function chg_sub_kat(){
 		}
 		} else {
 		?>
-        <option value="">Tidak ada sub kategori</option>
+        <option value="">No subcategory</option>
         <?
 		}
 		CloseDb();
@@ -149,7 +149,7 @@ if (@mysql_num_rows($result2)>0){
 	$row3=@mysql_fetch_array($result3);
 	$nama=$row3[nama];
 	} else {
-	$nama="Administrator JIBAS INFOGURU";
+	$nama="Administrator JIBAS TEACHERS INFO";
 	}
 }
 ?>
@@ -169,7 +169,7 @@ if (@mysql_num_rows($result2)>0){
 	  </td>
   </tr>
   <tr style="border:none;">
-  <td><div align="right"><img src="../images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacabuletin('<?=$row[replid]?>')" >Baca Selengkapnya</a></div><div align="left"><font color="#666666" size="1" face="Arial"><br /><em>Posted By : <?=$nama?>&nbsp; ,On : <?=LongDateFormat($row['tanggalbuletin'])?>&nbsp;<?=$row['jam']?></em></font></div></td>
+  <td><div align="right"><img src="../images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacabuletin('<?=$row[replid]?>')" >Read more</a></div><div align="left"><font color="#666666" size="1" face="Arial"><br /><em>Posted By : <?=$nama?>&nbsp; ,On : <?=LongDateFormat($row['tanggalbuletin'])?>&nbsp;<?=$row['jam']?></em></font></div></td>
   </tr>
 </table>
 	</th>
@@ -186,7 +186,7 @@ if (@mysql_num_rows($result2)>0){
     <th scope="row">
 <table width="80%" border="1" style="border:dotted; border-color:#999999;" align="center">
   <tr>
-    <td><br /><div align="center"><span class="style1">Tidak ada Buletin yang sesuai dengan sub kategori terpilih</span></div><br /></td>
+    <td><br /><div align="center"><span class="style1">No Bulletin in selected subcategory</span></div><br /></td>
   </tr>
 </table>
 	</th>

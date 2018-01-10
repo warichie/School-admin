@@ -34,9 +34,9 @@ $sql = "SELECT k.kelas, round(SUM(nilaiujian)/(COUNT(DISTINCT u.replid)*COUNT(DI
 //echo "ada nih".$sql;
 
 
-$title = "Rata-rata Nilai Ujian Kelas per RPP";
-$xtitle = "Kelas";
-$ytitle = "Rata-rata Nilai Ujian";
+$title = "Class Exam Index Point by Lesson Plans";
+$xtitle = "Class";
+$ytitle = "Exam Index Point";
 
 
 /*$CF = new ChartFactory();

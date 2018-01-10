@@ -74,12 +74,12 @@ function validate(){
 	var judul=document.getElementById('judul').value;
 	var pesan=tinyMCE.get('pesan').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Pesan');
+		alert ('Message Title should not leave empty');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (pesan.length==0){
-		alert ('Anda harus mengisikan data untuk Pesan');
+		alert ('Message should not leave empty');
 		document.getElementById('pesan').focus();
 		return false;
 	}
@@ -122,21 +122,21 @@ function simpan(){
 <input type="hidden" name="sender" id="sender" value="tambah" />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td scope="row" align="left"><strong><font size="2" color="#999999">Pesan Baru :</font></strong><br /><br /></td>
+    <td scope="row" align="left"><strong><font size="2" color="#999999">New Message :</font></strong><br /><br /></td>
   </tr>
   <tr>
     <td scope="row" align="left">
     <table width="100%" border="0" cellspacing="2" cellpadding="2" >
   <tr>
-    <th width="19%" scope="row">Judul</th>
+    <th width="19%" scope="row">Title</th>
     <td width="81%"><input type="text" name="judul" id="judul" size="50" /></td>
   </tr>
   <tr>
-    <th scope="row">Tanggal&nbsp;Tampil</th>
-    <td><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <th scope="row">Date&nbsp;Published</th>
+    <td><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
   <tr>
-    <th colspan="2" valign="top" scope="row">Pesan<br />
+    <th colspan="2" valign="top" scope="row">Message<br />
       <textarea name="pesan" id="pesan" rows="27"></textarea></th>
     </tr>
 </table>
@@ -144,17 +144,17 @@ function simpan(){
       <tr>
         <th scope="row">&nbsp;</th>
         <td><div align="center">#1</div></td>
-        <td><input size="25" type="file" id="file1" name="file1"/><img src="../../images/ico/hapus.png" onclick="hapusfile('file1')" title="Hapus file ini !" style="cursor:pointer" />&nbsp;</td>
+        <td><input size="25" type="file" id="file1" name="file1"/><img src="../../images/ico/hapus.png" onclick="hapusfile('file1')" title="Delete this file" style="cursor:pointer" />&nbsp;</td>
       </tr>
       <tr>
-        <th scope="row">Lampiran</th>
+        <th scope="row">Attachment</th>
         <td><div align="center">#2</div></td>
-        <td><input size="25" type="file" name="file2" id="file3" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file2')" title="Hapus file ini !" style="cursor:pointer" />&nbsp;</td>
+        <td><input size="25" type="file" name="file2" id="file3" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file2')" title="Delete this file" style="cursor:pointer" />&nbsp;</td>
       </tr>
       <tr>
         <th scope="row">&nbsp;</th>
         <td><div align="center">#3</div></td>
-        <td><input size="25" type="file" name="file3" id="file2" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file3')" title="Hapus file ini !" style="cursor:pointer" />&nbsp;</td>
+        <td><input size="25" type="file" name="file3" id="file2" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file3')" title="Delete this file" style="cursor:pointer" />&nbsp;</td>
       </tr>
     </table></td>
   </tr>

@@ -46,7 +46,7 @@ OpenDb();
 ?>
 <table border="0" width="100%" align="center">
 <tr>
-    <td width="20%"><font color="#000000"><strong>Departemen</strong></font></td>
+    <td width="20%"><font color="#000000"><strong>Department</strong></font></td>
     <td>
     <!--<input type="text" name="departemen" id="departemen" value="<?=$_REQUEST['departemen']?>" readonly="readonly" style="background-color:#CCCC99;width:150px">
     <input type="hidden" name="depart" id="depart" value="<?=$_REQUEST['departemen']?>" />-->
@@ -64,7 +64,7 @@ OpenDb();
     </td>
 </tr>
 <tr>
-    <td><font color="#000000"><strong>Angkatan </strong></font></td>
+    <td><font color="#000000"><strong>Graduates </strong></font></td>
     <td><select name="angkatan" id="angkatan" onChange="change()" style="width:155px;" onkeypress="return focusNext('tingkat', event)">
    		 	<?
 			$sql = "SELECT replid,angkatan,aktif FROM jbsakad.angkatan where departemen='$departemen' AND aktif = 1 ORDER BY replid";
@@ -104,7 +104,7 @@ OpenDb();
     	</select>        </td>
 </tr>-->
 <tr>
-    <td><font color="#000000"><strong>Kelas</strong></font></td>
+    <td><font color="#000000"><strong>Class</strong></font></td>
     <td><select name="tingkat" id="tingkat" onChange="change()" style="width:50px;" onkeypress="return focusNext('kelas', event)">
         <?
 			$sql="SELECT * FROM jbsakad.tingkat WHERE departemen='$departemen' AND aktif = 1 ORDER BY urutan";
@@ -119,7 +119,7 @@ OpenDb();
             <!--</td>
 </tr>
 <tr>
-    <td><font color="#000000"><strong>Kelas</strong></font></td>
+    <td><font color="#000000"><strong>Class</strong></font></td>
     <td> -->
     
     <select name="kelas" id="kelas" onChange="change_kelas()" style="width:98px" onkeypress="return focusNext1('siswa', event, 'pilih', 1, 0)">
@@ -152,9 +152,9 @@ if ($kelas <> "" && $tingkat <> "" && $angkatan <> "") {
 ?>
 	<table width="100%" id="table" class="tab" align="center" border="1" bordercolor="#000000">
 	<tr height="30" align="center" class="header">
-        <td width="7%" >No</td>
-        <td width="15%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>','daftar')">N I S <?=change_urut('s.nis',$urut,$urutan)?></td>
-        <td onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>','daftar')">Nama <?=change_urut('s.nama',$urut,$urutan)?></td>
+        <td width="7%" >#</td>
+        <td width="15%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>','daftar')">Student ID <?=change_urut('s.nis',$urut,$urutan)?></td>
+        <td onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>','daftar')">Name <?=change_urut('s.nama',$urut,$urutan)?></td>
 	</tr>
 <?
 	$cnt = 1;
@@ -177,7 +177,7 @@ if ($kelas <> "" && $tingkat <> "" && $angkatan <> "") {
 	<tr height="20" align="center">
 		<td>   
    
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br />Belum ada siswa yang menempati kelas ini.</font>	
+	<font size = "2" color ="red"><b>Data Not Found<br />No siswa yang menempati this class.</font>	
 	<br /><br />
    		</td>
     </tr>
@@ -188,7 +188,7 @@ if ($kelas <> "" && $tingkat <> "" && $angkatan <> "") {
 	<tr height="20" align="center">
 		<td>   
    
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data</b></font>	
+	<font size = "2" color ="red"><b>Data Not Found</b></font>	
 	<br /><br />
    		</td>
     </tr>

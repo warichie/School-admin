@@ -45,7 +45,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Daftar Calon Siswa</title>
+<title>Student Candidate List</title>
 </head>
 
 <body>
@@ -55,19 +55,19 @@ CloseDb();
 <?=getHeader($departemen)?>
 <? OpenDb(); ?>
 <center>
-  <font size="4"><strong>DAFTAR CALON SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT CANDIDATE LIST</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td><strong>Departemen</strong> </td> 
+	<td><strong>Department</strong> </td> 
 	<td><strong>:&nbsp;<?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Penerimaan</strong></td>
+	<td><strong>Admission</strong></td>
 	<td><strong>:&nbsp;<?=$row['proses']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelompok</strong></td>
+	<td><strong>Group</strong></td>
 	<td><strong>:&nbsp;<?=$row['kelompok']?></strong></td>
 </tr>
 
@@ -75,10 +75,10 @@ CloseDb();
     <br />
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="0" width="100%" align="left">
    <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">No Pendaftaran</td>
-        <td width="30%" class="header" align="center">Nama</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Registration Number</td>
+        <td width="30%" class="header" align="center">Name</td>
+        <td width="*" class="header" align="center">Info</td>
     </tr>
 <? 	
 	OpenDb();
@@ -99,7 +99,7 @@ CloseDb();
 </tr>
 <tr>
 	<td align="center">
- 	<input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+ 	<input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 </table>	

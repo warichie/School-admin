@@ -39,7 +39,7 @@ $show = $_REQUEST['show'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 
 <script language="javascript" src="../script/tables.js"></script>
@@ -93,9 +93,9 @@ function Refresh() {
 <body style="background-color:#F0F0F0">
 <table border="0" cellpadding="2" cellspacing="2" width="100%" class="tab" id="table">
 <tr height="30">
-	<td class="header" width="15" align="center">No</td>
-    <td class="header" width="70" align="center">NIP</td>
-    <td class="header" width="130" align="center">Nama</td>
+	<td class="header" width="15" align="center">#</td>
+    <td class="header" width="70" align="center">Employee ID</td>
+    <td class="header" width="130" align="center">Name</td>
     <td class="header" width="15" align="center">&nbsp;</td>
 </tr>
 <?

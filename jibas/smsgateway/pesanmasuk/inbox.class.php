@@ -29,7 +29,7 @@ class Inbox{
         <div align="left" style="padding-bottom:10px">
         	<table border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td style="padding-right:4px">Bulan</td>
+                <td style="padding-right:4px">Month</td>
                 <td style="padding-right:4px">
                 <select id="Month" class="Cmb" onchange="ChgCmb()">
                     <?
@@ -62,10 +62,10 @@ class Inbox{
         <div id="Inbox">
         <table width="100%" border="1" id="InboxTable" class="tab" cellspacing="0" cellpadding="0">
           <tr class="Header">
-            <td>No</td>
-            <td>No HP</td>
-            <td>Tanggal</td>
-            <td>Pesan</td>
+            <td>#</td>
+            <td>Mobile</td>
+            <td>Date</td>
+            <td>Message</td>
             <td>&nbsp;</td>
           </tr>
           <?

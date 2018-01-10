@@ -43,7 +43,7 @@ if (isset($_REQUEST['satker']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 </head>
 <body>
@@ -51,7 +51,7 @@ if (isset($_REQUEST['satker']))
 <tr>
   <td align="left" valign="top"><? include("../include/headercetak.php") ?>
     <center>
-      <font size="4"><strong>Daftar Urut Kepangkatan</strong></font><br />
+      <font size="4"><strong>Employee Affair Sort List</strong></font><br />
     </center><br />
   <br />
   <?
@@ -59,7 +59,7 @@ OpenDb();
 
 $arridpeg;
 
-$namasatker = "Semua";
+$namasatker = "All";
 if ($satker == "all")
 {
 	$sql = "SELECT p.replid FROM jbssdm.pegawai p, jbssdm.peglastdata pl, jbssdm.peggol pg, jbssdm.golongan g 
@@ -92,37 +92,37 @@ $minrownum = ($pagenum - 1) * $PAGING_SIZE + 1;
 $maxrownum = $pagenum * $PAGING_SIZE;
 ?>
 
-<strong>Satuan Kerja: <?=$namasatker?></strong><br /><br />
+<strong>Work Unit: <?=$namasatker?></strong><br /><br />
 <table border="1" cellpadding="2" cellspacing="0" width="1395" class="tab" id="table">
 <tr height="20">
-	<td class="header"  width="20" align="center" valign="middle" rowspan="2">No</td>
-    <td class="header"  width="160" align="center" valign="middle" rowspan="2">Nama</td>
-    <td class="header"  width="120" align="center" valign="middle" rowspan="2">NIP</td>
-    <td class="header"  width="120" align="center" valign="middle" colspan="2">Pangkat</td>
-    <td class="header"  width="200" align="center" valign="middle" colspan="2">Jabatan</td>
-    <td class="header"  width="100" align="center" valign="middle" colspan="2">Masa Kerja</td>
-    <td class="header"  width="100" align="center" valign="middle" colspan="2">Diklat</td>
-    <td class="header"  width="125" align="center" valign="middle" colspan="3">Pendidikan</td>
-    <td class="header"  width="40" align="center" valign="middle" rowspan="2">Usia</td>
-    <td class="header"  width="120" align="center" valign="middle" rowspan="2">Kelahiran</td>
-	<td class="header"  width="200" align="left" valign="middle" rowspan="2">Ket.</td>
+	<td class="header"  width="20" align="center" valign="middle" rowspan="2">#</td>
+    <td class="header"  width="160" align="center" valign="middle" rowspan="2">Name</td>
+    <td class="header"  width="120" align="center" valign="middle" rowspan="2">Employee ID</td>
+    <td class="header"  width="120" align="center" valign="middle" colspan="2">Rank</td>
+    <td class="header"  width="200" align="center" valign="middle" colspan="2">Position</td>
+    <td class="header"  width="100" align="center" valign="middle" colspan="2">Years of Service</td>
+    <td class="header"  width="100" align="center" valign="middle" colspan="2">Education and Training</td>
+    <td class="header"  width="125" align="center" valign="middle" colspan="3">Education</td>
+    <td class="header"  width="40" align="center" valign="middle" rowspan="2">Age</td>
+    <td class="header"  width="120" align="center" valign="middle" rowspan="2">Year of Birth</td>
+	<td class="header"  width="200" align="left" valign="middle" rowspan="2">Others</td>
 </tr>
 <tr height="20">
-	<td class="header"  width="60" align="center" valign="middle">GOL</td>
+	<td class="header"  width="60" align="center" valign="middle">ORDER</td>
     <td class="header"  width="60" align="center" valign="middle">TMT</td>
     
-    <td class="header"  width="140" align="center" valign="middle">NAMA</td>
+    <td class="header"  width="140" align="center" valign="middle">NAME</td>
     <td class="header"  width="60" align="center" valign="middle">TMT</td>
     
-    <td class="header"  width="50" align="center" valign="middle">GOL</td>
+    <td class="header"  width="50" align="center" valign="middle">ORDER</td>
     <td class="header"  width="50" align="center" valign="middle">SEL</td>
     
-    <td class="header"  width="50" align="center" valign="middle">Nama</td>
-    <td class="header"  width="50" align="center" valign="middle">Th</td>
+    <td class="header"  width="50" align="center" valign="middle">Name</td>
+    <td class="header"  width="50" align="center" valign="middle">Year</td>
     
-    <td class="header"  width="65" align="center" valign="middle">Nama</td>
-    <td class="header"  width="30" align="center" valign="middle">Lls</td>
-    <td class="header"  width="30" align="center" valign="middle">Tk</td>
+    <td class="header"  width="65" align="center" valign="middle">Name</td>
+    <td class="header"  width="30" align="center" valign="middle">Pass</td>
+    <td class="header"  width="30" align="center" valign="middle">Rank</td>
 </tr>
 
 <?

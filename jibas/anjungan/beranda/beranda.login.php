@@ -21,7 +21,7 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <br><br><br><br><br><br>
-<center><h2>LOGIN HALAMAN BERANDA</h2></center>
+<center><h2>HOME LOGIN</h2></center>
 <table border='0' cellpadding='2' cellspacing='2' align='center'>
 <tr>
     <td align='right'>
@@ -42,7 +42,7 @@
 <tr>
     <td colspan="2" align="center">
         <input type="button" onclick="b_Login()" value="Login" style="font-size:16px; color: #fff;" class="but">
-        <input type="button" onclick="b_Cancel()" value="Batal" style="font-size:16px; color: #fff;" class="but">
+        <input type="button" onclick="b_Cancel()" value="Cancel" style="font-size:16px; color: #fff;" class="but">
     </td>
 </tr>
 <tr>

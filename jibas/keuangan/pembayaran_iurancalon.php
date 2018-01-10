@@ -55,7 +55,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) {
 		//CloseDb();
-		trigger_error("Tidak ditemukan data penerimaan!", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} else {
 		$row = mysql_fetch_row($result);
 		$namapenerimaan = $row[0];
@@ -70,19 +70,19 @@ if (1 == (int)$_REQUEST['issubmit'])
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) {
 		//CloseDb();
-		trigger_error("Tidak ditemukan data calon siswa!", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} else {
 		$row = mysql_fetch_row($result);
 		$namasiswa = $row[0];
 		$no = $row[1];
 	}
 	
-	//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+	//Ambil awalan and cacah tahunbuku untuk bikin nokas;
 	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) {
 		//CloseDb();
-		trigger_error("Tidak ditemukan data tahun buku!", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} else {
 		$row = mysql_fetch_row($result);
 		$awalan = $row[0];
@@ -95,7 +95,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	BeginTrans();
 
 	//Simpan ke jurnal
-	$ketjurnal = "Pembayaran $namapenerimaan tanggal $_REQUEST[tbayar] calon siswa $namasiswa ($no)";
+	$ketjurnal = "Payment $namapenerimaan tanggal $_REQUEST[tbayar] student candidate $namasiswa ($no)";
 	$idjurnal = 0;
 	$success = SimpanJurnal($idtahunbuku, $tbayar, $ketjurnal, $nokas, "", $petugas, "penerimaaniurancalon", $idjurnal);
 	
@@ -163,7 +163,7 @@ if (isset($_REQUEST['keterangan']))
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="style/calendar-green.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pembayaran Iuran Calon Siswa</title>
+<title>Payment Contribution Student Candidate</title>
 <script type="text/javascript" src="script/calendar.js"></script>
 <script type="text/javascript" src="script/lang/calendar-en.js"></script>
 <script type="text/javascript" src="script/calendar-setup.js"></script>
@@ -194,7 +194,7 @@ function newWindow(mypage,myname,w,h,features) {
 
 function val2()
 {
-	if (confirm('Data sudah benar?'))
+	if (confirm('The data is correct?'))
 		return true;
 	else 
 		return false;
@@ -202,10 +202,10 @@ function val2()
 
 function ValidateSubmit() 
 {
-	var isok = 	validateEmptyText('besar','Jumlah Pembayaran') &&
+	var isok = 	validateEmptyText('besar','Jumlah Payment') &&
 		   		validasiAngka() &&
-		   		validateEmptyText('tbayar','Tanggal Pembayaran') && 
-		   		validateMaxText('keterangan', 255, 'Keterangan Pembayaran');
+		   		validateEmptyText('tbayar','Date Payment') && 
+		   		validateMaxText('keterangan', 255, 'Info Payment');
 				
 	document.getElementById('issubmit').value = isok ? 1 : 0;
 	if (isok)
@@ -223,14 +223,14 @@ function salinangka(){
 function validasiAngka() {
 	var angka = document.getElementById("angkabesar").value;
 	if(isNaN(angka)) {
-		alert ('Jumlah pembayaran harus berupa bilangan!');
+		alert ('Jumlah pembayaran must be numeric');
 		document.getElementById('besar').value = "";
 		document.getElementById('besar').focus();
 		return false;
 	}
 	else if (angka <= 0)
 	{
-		alert ('Jumlah pembayaran harus positif!');
+		alert ('Jumlah pembayaran harus positif');
 		document.getElementById('besar').focus();
 		return false;
 	}
@@ -296,20 +296,20 @@ function focusNext(elemName, evt) {
             <table border="0" cellpadding="2" cellspacing="2" align="center">
                     
             <tr height="25">
-                <td colspan="3" class="header" align="center">Iuran <?=$namapenerimaan?></td>
+                <td colspan="3" class="header" align="center">Contribution <?=$namapenerimaan?></td>
             </tr>
             <tr>
-                <td width="25%"><strong>Pembayaran</strong></td>
+                <td width="25%"><strong>Payment</strong></td>
                 <td colspan="2"><input type="text" readonly="readonly" size="20" value="<?=$namapenerimaan?>" style="background-color:#CCCC99" /></td>
             </tr>
             <tr>
-                <td><strong>Jumlah</strong></td>
+                <td><strong>Sum</strong></td>
                 <td colspan="2"><input type="text" name="besar" id="besar" size="20" value="<?=FormatRupiah($besar) ?>" onblur="formatRupiah('besar')" onfocus="unformatRupiah('besar')" onKeyPress="return focusNext('keterangan', event)" <?=$dis?> onkeyup="salinangka()" />
                 <input type="hidden" name="angkabesar" id="angkabesar" value="<?=$besar ?>" />
                 </td>
             </tr>
             <tr>
-                <td><strong>Tanggal</strong></td>
+                <td><strong>Date</strong></td>
                 <td>
                 <input type="text" name="tbayar" id="tbayar" readonly size="15" value="<?=$tanggal ?>" onKeyPress="return focusNext('keterangan', event)" style="background-color:#CCCC99"> </td>
                 <td width="60%">
@@ -317,7 +317,7 @@ function focusNext(elemName, evt) {
                 </td>        
             </tr>
             <tr>
-                <td valign="top">Keterangan</td>
+                <td valign="top">Info</td>
             </tr>
             <tr>
                 <td colspan="3"><textarea id="keterangan" name="keterangan" rows="3" cols="35" onKeyPress="return focusNext('simpan', event)" <?=$dis?> style="width:225px; height:50px"><?=$keterangan ?></textarea>
@@ -325,7 +325,7 @@ function focusNext(elemName, evt) {
             </tr> 
             <tr>
                 <td colspan="3" align="center" height="30">
-                <input type="button" name="simpan" id="simpan" class="but" value="Simpan" value="1" onclick="this.disabled = true; ValidateSubmit();" style="width:100px"/>
+                <input type="button" name="simpan" id="simpan" class="but" value="Save" value="1" onclick="this.disabled = true; ValidateSubmit();" style="width:100px"/>
                 </td>
             </tr>
             </table>
@@ -337,43 +337,43 @@ function focusNext(elemName, evt) {
             <legend></legend>
             <table border="0" width="100%" cellpadding="2" cellspacing="2">
             <tr height="25">
-                <td colspan="4" class="header" align="center">Data Calon Siswa</td>
+                <td colspan="4" class="header" align="center">Student Candidate Data</td>
             </tr>
             <tr valign="top">                    
-                <td width="5%"><strong>Pendaftaran</strong></td>
+                <td width="5%"><strong>Registration</strong></td>
                 <td><strong>:</strong></td>
                	<td><strong><?=$no ?></strong> </td>
                 <td rowspan="5" width="25%">
                 <img src='<?="library/gambar.php?replid=".$replid."&table=jbsakad.calonsiswa";?>' width='100' height='100'></td>
             </tr>
             <tr>
-                <td valign="top"><strong>Nama</strong></td>
+                <td valign="top"><strong>Name</strong></td>
                 <td valign="top"><strong>:</strong></td> 
 				<td><strong><?=$nama ?></strong></td>
             </tr>
             <tr>
-                <td valign="top"><strong>Proses</strong></td>
+                <td valign="top"><strong>Process</strong></td>
                 <td valign="top"><strong>:</strong></td>
                 <td><strong><?=$namaproses ?></strong></td>
             </tr>
             <tr>
-                <td valign="top"><strong>Kelompok</strong></td>
+                <td valign="top"><strong>Group</strong></td>
                 <td valign="top"><strong>:</strong></td>
                 <td><strong><?=$namakelompok ?></strong></td>
             </tr>
             <tr>
-                <td><strong>HP</strong></td>
+                <td><strong>Mobile</strong></td>
                 <td><strong>:</strong></td>
                 <td><strong><?=$hp ?></strong></td>
             </tr>
             <tr>
-                <td><strong>Telepon</strong></td>
+                <td><strong>Phone</strong></td>
                  <td><strong>:</strong></td>
                 <td><strong><?=$telpon ?></strong></td>
             </tr>
             
             <tr>
-                <td valign="top"><strong>Alamat</strong></td>
+                <td valign="top"><strong>Address</strong></td>
                 <td valign="top"><strong>:</strong></td>
                 <td colspan="2" valign="top" height="76"><strong>
                   <?=$alamattinggal ?>
@@ -405,19 +405,19 @@ function focusNext(elemName, evt) {
             <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
         	<tr>
                 <td align="right">
-                <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;
-                <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
+                <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;
+                <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
                 </td>
             </tr>
             </table>
             <br />
             <table class="tab" id="table" border="0" style="border-collapse:collapse" width="100%" align="center">
             <tr height="30" align="center">
-                <td class="header" width="5%">No</td>
-                <td class="header" width="20%">No. Jurnal/Tgl</td>
-                <td class="header" width="21%">Jumlah</td>
-                <td class="header" width="*">Keterangan</td>
-                <td class="header" width="12%">Petugas</td>
+                <td class="header" width="5%">#</td>
+                <td class="header" width="20%">Journal/Date</td>
+                <td class="header" width="21%">Sum</td>
+                <td class="header" width="*">Info</td>
+                <td class="header" width="12%">Officer</td>
                 <td class="header">&nbsp;</td>
             </tr>
             <? 
@@ -434,9 +434,9 @@ function focusNext(elemName, evt) {
                 <td align="left"><?=$row['keterangan'] ?></td>
                 <td align="center"><?=$row['petugas'] ?></td>
                 <td align="center">
-                <a href="javascript:cetakkuitansi(<?=$row['id'] ?>)" ><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak Kuitansi Pembayaran!', this, event, '100px')"/></a>&nbsp;
+                <a href="javascript:cetakkuitansi(<?=$row['id'] ?>)" ><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print Kuitansi Payment', this, event, '100px')"/></a>&nbsp;
             <?  if (getLevel() != 2) { ?>    
-                <a href="javascript:editpembayaran(<?=$row['id'] ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Pembayaran Cicilan!', this, event, '120px')" /></a>
+                <a href="javascript:editpembayaran(<?=$row['id'] ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Payment Cicilan', this, event, '120px')" /></a>
            	<?	} ?>	                 
                 </td>
             </tr>
@@ -444,7 +444,7 @@ function focusNext(elemName, evt) {
             }
             ?>
             <tr height="35">
-                <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+                <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
                 <td bgcolor="#996600" align="right"><font color="#FFFFFF">
                 <strong><?=FormatRupiah($total); ?></strong></font></td>
                 <td bgcolor="#996600" colspan="3">&nbsp;</td>

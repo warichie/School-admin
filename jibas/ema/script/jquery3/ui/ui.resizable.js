@@ -61,7 +61,7 @@ $.widget("ui.resizable", $.extend({}, $.ui.mouse, {
 
 		o._nodeName = this.element[0].nodeName;
 
-		//Wrap the element if it cannot hold child nodes
+		//Wrap the element if it should not hold child nodes
 		if(o._nodeName.match(/canvas|textarea|input|select|button|img/i)) {
 			var el = this.element;
 

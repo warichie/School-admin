@@ -75,20 +75,20 @@ function cetak() {
    	<tr>
     	<td><span class="news_title1"><?=$nama ?></span></td>
     	<td align="right">
-    	<!--<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')" />&nbsp;Refresh</a>&nbsp;&nbsp;-->
-    	<a href="JavaScript:cetak('<?=$idpengeluaran?>')"><img src="../img/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;    	</td>
+    	<!--<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')" />&nbsp;Refresh</a>&nbsp;&nbsp;-->
+    	<a href="JavaScript:cetak('<?=$idpengeluaran?>')"><img src="../img/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;    	</td>
 	</tr>
 	</table>
     <br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
     <tr height="30" align="center" >
-        <td class="header" width="4%" >No</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="20%">Pemohon</td>
-        <td class="header" width="10%">Penerima</td>
-        <td class="header" width="11%">Jumlah</td>
-        <td class="header" width="*">Keperluan</td>
-        <td class="header" width="7%">Petugas</td>
+        <td class="header" width="4%" >#</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="20%">Applicant</td>
+        <td class="header" width="10%">Recipient</td>
+        <td class="header" width="11%">Sum</td>
+        <td class="header" width="*">Necessities</td>
+        <td class="header" width="7%">Officer</td>
     </tr>
 <?
 	$sql = "SELECT p.replid AS id, p.keperluan, p.keterangan, p.jenispemohon, p.nip, p.nis, p.pemohonlain, p.penerima, date_format(p.tanggal, '%d-%b-%Y') as tanggal, date_format(p.tanggalkeluar, '%d-%b-%Y') as tanggalkeluar, p.petugas, p.jumlah FROM $db_name_fina.pengeluaran p, $db_name_fina.datapengeluaran d WHERE p.idpengeluaran = d.replid AND d.replid = $idpengeluaran AND d.departemen = '$departemen' AND p.tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY p.tanggal";
@@ -127,15 +127,15 @@ function cetak() {
         <td valign="top"><?=$row['penerima'] ?></td>
         <td align="right" valign="top"><?=FormatRupiah($row['jumlah']) ?></td>
         <td valign="top">
-        <strong>Keperluan: </strong><?=$row['keperluan'] ?><br />
-        <strong>Keterangan: </strong><?=$row['keterangan'] ?>
+        <strong>Necessities: </strong><?=$row['keperluan'] ?><br />
+        <strong>Info: </strong><?=$row['keterangan'] ?>
         </td>
         <td valign="top" align="center"><?=$row['petugas'] ?></td>
     </tr>
 <? } ?>
     <tr height="30">
         <td colspan="3" align="center" bgcolor="#999900">
-        <font color="#FFFFFF"><strong>T O T A L</strong></font>
+        <font color="#FFFFFF"><strong>Total</strong></font>
         </td>
         <td align="right" bgcolor="#999900" colspan="2"><font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font></td>
         <td colspan="3" bgcolor="#999900">&nbsp;</td>

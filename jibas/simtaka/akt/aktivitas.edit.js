@@ -9,7 +9,7 @@ function validate(){
 	var aktivitas = tinyMCE.get('aktivitas').getContent();
 	if (aktivitas.length==0)
 	{
-		alert ('Anda harus mengisikan aktivitas!');
+		alert ('You must fill the activity');
 		return false;
 	}
 }

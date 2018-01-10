@@ -50,7 +50,7 @@ if (isset($_REQUEST['idtahunbuku']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Neraca Percobaan]</title>
+<title>JIBAS FINANCE [Trial Balance Sheet Reports]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -65,12 +65,12 @@ if (isset($_REQUEST['idtahunbuku']))
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) ?> s/d <?=LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) ?> to <?=LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -86,11 +86,11 @@ if (isset($_REQUEST['idtahunbuku']))
 	?>
     <table class="tab" style="border-collapse:collapse" id="table" border="1" cellpadding="2"  width="100%" bordercolor="#000000" />
     <tr height="30">
-        <td class="header" width="5%" align="center">No</td>
-        <td class="header" width="8%" align="center">Kode</td>
-        <td class="header" width="*" align="center">Rekening</td>
-        <td class="header" width="20%" align="center">Debet</td>
-        <td class="header" width="20%" align="center">Kredit</td>
+        <td class="header" width="5%" align="center">#</td>
+        <td class="header" width="8%" align="center">Code</td>
+        <td class="header" width="*" align="center">Bank Account</td>
+        <td class="header" width="20%" align="center">Debit</td>
+        <td class="header" width="20%" align="center">Credit</td>
     </tr>
 	<?
     $cnt = 0;
@@ -99,10 +99,10 @@ if (isset($_REQUEST['idtahunbuku']))
     while($row = mysql_fetch_array($result)) {
         $kategori = $row['kategori'];
         switch($kategori) {
-            case 'HARTA':
-			case 'PIUTANG':
-            case 'INVENTARIS':
-            case 'BIAYA':
+            case 'WEALTH':
+			case 'DEBT':
+            case 'INVESTMENT':
+            case 'COST':
                 $debet1 = $row['debet'] - $row['kredit'];
                 $debet = FormatRupiah($debet1);
                 $kredit = "$nbsp";
@@ -129,7 +129,7 @@ if (isset($_REQUEST['idtahunbuku']))
     CloseDb();
     ?>
     <tr height="30">
-        <td colspan="3" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+        <td colspan="3" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>
     </tr>
@@ -141,7 +141,7 @@ if (isset($_REQUEST['idtahunbuku']))
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="300">
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data transaksi keuangan pada departemen <?=$departemen?> antara tanggal <?=LongDateFormat($tanggal1)?> s/d <?=LongDateFormat($tanggal2)?>.</b></font>
+            <font size = "2" color ="red"><b>No transactions found on Department <?=$departemen?> between <?=LongDateFormat($tanggal1)?> to <?=LongDateFormat($tanggal2)?>.</b></font>
             
         </td>
     </tr>

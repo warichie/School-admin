@@ -72,7 +72,7 @@ function simpankatbaru(){
 		var katbaru=document.getElementById("kat").value;
 		var kat=document.getElementById("listkat"+x).value;
 		if (kat==katbaru){
-			alert ('Kategori '+katbaru+' sudah digunakan\nSilakan gabung atau buat dengan nama lain !');
+			alert ('Category '+katbaru+' has been used \nYou may join or make a new one');
 			document.getElementById("kat").value="";
 			document.getElementById('kat').focus();
 		} else {
@@ -98,11 +98,11 @@ function pilihkat(){
 <body>
 <table width="261" border="1">
   <tr>
-    <td colspan="2" class="header"><div align="center">Kategori Chatting</div></td>
+    <td colspan="2" class="header"><div align="center">Chat Category</div></td>
   </tr>
   <? if ($op==""){ ?>
   <tr>
-    <td width="48">Kategori</td>
+    <td width="48">Category</td>
     <td width="197"><label>
       <select name="kat" id="kat">
 	  <?
@@ -120,12 +120,12 @@ function pilihkat(){
 	  <option value="">Belum Ada kategori</option>
       <? } ?>
 	  </select>
-    </label><img src="../../images/ico/tambah.png" width="16" height="16" title="Tambah kategori" style="cursor:pointer;" onClick="tambah_kat();"/></td>
+    </label><img src="../../images/ico/tambah.png" width="16" height="16" title="Add category" style="cursor:pointer;" onClick="tambah_kat();"/></td>
   </tr>
   <tr>
     <td colspan="2"><div align="center">
-      <input name="pilih" type="button" class="but" id="pilih" value="Pilih" onclick="pilihkat()" <?=$dis?>/>      
-      <input name="button" type="button" class="but" id="button" onClick="window.close();" value="Tutup"/>
+      <input name="pilih" type="button" class="but" id="pilih" value="Select" onclick="pilihkat()" <?=$dis?>/>      
+      <input name="button" type="button" class="but" id="button" onClick="window.close();" value="Close"/>
     </div></td>
   </tr>
   <? } ?>
@@ -136,13 +136,13 @@ function pilihkat(){
   <input type="hidden" name="listkat<?=$cnt?>" id="listkat<?=$cnt?>" value="<?=$chatkat[$cnt]?>">
   <? } ?>
   <tr>
-    <td width="48">Kategori</td>
+    <td width="48">Category</td>
     <td width="197"><input type="text" name="kat" id="kat" ><input type="hidden" name="numkat" id="numkat" value="<?=$i-1?>" ></td>
   </tr>
   <tr>
     <td colspan="2"><div align="center">
-      <input name="pilih" type="button" class="but" id="pilih" value="Simpan & Pilih" onClick="simpankatbaru()"/>      
-      <input name="button" type="button" class="but" id="button" onClick="window.close();" value="Batal"/>
+      <input name="pilih" type="button" class="but" id="pilih" value="Save and Select" onClick="simpankatbaru()"/>      
+      <input name="button" type="button" class="but" id="button" onClick="window.close();" value="Cancel"/>
     </div></td>
   </tr>
   <? } ?>

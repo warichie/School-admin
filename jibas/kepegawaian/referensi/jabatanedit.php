@@ -57,7 +57,7 @@ if (isset($_REQUEST['btSimpan']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Ubah Jabatan</title>
+<title>Edit Position</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -90,18 +90,18 @@ $eselon = $row[3];
 <input type="hidden" name="id" id="id" value="<?=$id?>" />
 <table border="0" cellpadding="0" cellspacing="5" width="100%" id="table56">
 <tr>
-	<td class="header" colspan="2" align="center">Ubah Jabatan</td>
+	<td class="header" colspan="2" align="center">Edit Position</td>
 </tr>
 <tr>
-	<td align="right" width="120">Jabatan :</td>
+	<td align="right" width="120">Position :</td>
     <td align="left"><input type="text" name="txJabatan" id="txJabatan" value="<?=$jab?>" size="50" maxlength="255" /></td>
 </tr>
 <tr>
-	<td align="right">Singkatan :</td>
+	<td align="right">Abbreviation :</td>
     <td align="left"><input type="text" name="txSingkatan" id="txSingkatan" value="<?=$sing?>" size="50" maxlength="255" /></td>
 </tr>
 <tr>
-	<td align="right">Eselon :</td>
+	<td align="right">Echelon :</td>
     <td align="left">
     <select name="cbEselon" id="cbEselon" onKeyPress="return focusNext('txSingkatan', event)" onChange="CheckEselon()">
 <?	$sql = "SELECT eselon FROM eselon ORDER BY urutan";
@@ -113,7 +113,7 @@ $eselon = $row[3];
     </td>
 </tr>
 <tr>
-	<td align="right">Satuan Kerja :</td>
+	<td align="right">Work Unit :</td>
     <td align="left">
 <? 	$disabled = "";
 	if ($eselon == "Eselon I")
@@ -130,8 +130,8 @@ $eselon = $row[3];
 </tr>
 <tr>
 	<td colspan="2" align="center" bgcolor="#EAEAEA">
-    <input type="submit" class="but" name="btSimpan" value="Simpan" />&nbsp;
-    <input type="button" class="but" name="btClose" value="Tutup" onClick="window.close()" />
+    <input type="submit" class="but" name="btSimpan" value="Save" />&nbsp;
+    <input type="button" class="but" name="btClose" value="Close" onClick="window.close()" />
     </td>
 </tr>
 </table>

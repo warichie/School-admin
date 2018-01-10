@@ -26,7 +26,7 @@ require_once('../../include/sessioninfo.php');
 require_once('../../include/config.php');
 require_once('../../include/db_functions.php');
 require_once('../../sessionchecker.php');
-//Ambil dari pesannya
+//Ambil from pesannya
 $balas=$_REQUEST['balas'];
 $bulan=$_REQUEST['bulan'];
 $tahun=$_REQUEST['tahun'];
@@ -130,12 +130,12 @@ if ($file3!=""){
 if ($balas==1){
 ?>
 <script language="javascript">
-	alert ('Pesan Anda telah dikirim ...');
+	alert ('Your message has been sent');
 	document.location.href="pesanguru_footer.php";
 </script>
 <? } else { ?>
 <script language="javascript">
-	alert ('Pesan Anda telah dikirim ...');
+	alert ('Your message has been sent');
 	parent.tujuan_header.batal();
 </script>
 <? } ?>

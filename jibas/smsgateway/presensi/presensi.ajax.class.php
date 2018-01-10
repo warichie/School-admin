@@ -50,7 +50,7 @@ class PresensiAjax{
 		$dep = $this->dep;
 		?>
         <select id="kls" class="Cmb">
-        <option value="-1" <?=StringIsSelected('-1',$kls)?>>- Semua -</option>
+        <option value="-1" <?=StringIsSelected('-1',$kls)?>>- All -</option>
         <?
         $sql = "SELECT k.replid, k.kelas FROM $db_name_akad.kelas k,$db_name_akad.tahunajaran ta,$db_name_akad.tingkat ti WHERE k.aktif=1 AND ta.aktif=1 AND ti.aktif=1 AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND ta.departemen='$dep' AND ti.departemen='$dep' ORDER BY ti.urutan,k.kelas";
         $res = QueryDb($sql);

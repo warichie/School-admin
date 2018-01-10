@@ -31,7 +31,7 @@ $keyword = $_REQUEST['keyword'];
 <head>
 <link rel="stylesheet" href="style/style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Grafik Statistik</title>
+<title>Graph Statistic</title>
 <script language="javascript" src="script/tools.js"></script>
 <script  language="javascript">
 function CetakWord() {
@@ -45,7 +45,7 @@ function CetakWord() {
 <body topmargin="0" leftmargin="0">
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><td align="center">
-<a href="JavaScript:CetakWord()"><img src="../images/ico/print.png" border="0" />&nbsp;Cetak</a>
+<a href="JavaScript:CetakWord()"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>
 </td></tr>
 </table>
 <br />

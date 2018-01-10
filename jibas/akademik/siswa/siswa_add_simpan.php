@@ -148,7 +148,7 @@ $hasil_cek=QueryDb($sql_cek);
 if (mysql_fetch_row($hasil_cek)>0){
 ?>
 <script language="javascript">
-alert ('Maaf nis <?=$nis?> sudah digunakan');
+alert ('Student ID <?=$nis?> has been used');
 //opener.close();
 </script>
 <?
@@ -179,7 +179,7 @@ if ($success){
 		RollbackTrans();
 		?>
 		<script language="javascript">
-		alert ('Gagal simpan data');
+		alert ('Failed to save data');
 		</script>
 <?
 	}
@@ -192,7 +192,7 @@ if ($success){
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pendataan Siswa[ADD]</title>
+<title>Student Data Collection [Add]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="JavaScript" src="../script/tooltips.js"></script>
@@ -248,7 +248,7 @@ var keterangan=document.main.keterangan.value;
 </head>
 <body background="../images/buatdibawah_500.jpg">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />please&nbsp;wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <input type="hidden" name="departemen" id="departemen" value="<?=$departemen?>">
 <input type="hidden" name="idkelas" id="idkelas" value="<?=$idkelas?>">

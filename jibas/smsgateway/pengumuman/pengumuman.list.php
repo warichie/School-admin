@@ -33,7 +33,7 @@ OpenDb();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pengumuman List</title>
+<title>Announcement List</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <script language="javascript" src="../script/ShowError.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
@@ -44,8 +44,8 @@ OpenDb();
 </head>
 <body onresize="resize()" onload="resize()">
 <div id="SubTitle" align="right">
-<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Daftar Pengumuman</span><br />
-<a href="pengumuman.main.php">Pengumuman</a> > Daftar Pengumuman
+<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Announcement List</span><br />
+<a href="pengumuman.main.php">Announcement</a> > Announcement List
 </div>
 <table width="100%" border="0" cellspacing="3" cellpadding="3">
   <tr>
@@ -55,7 +55,7 @@ OpenDb();
         <td>
             <table border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td style="padding-right:4px">Bulan</td>
+                <td style="padding-right:4px">Month</td>
                 <td style="padding-right:4px">
                 <select id="Month" class="Cmb" onchange="ChgCmb()">
                     <?

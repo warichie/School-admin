@@ -35,16 +35,16 @@
     <!-- TABLE TITLE -->
     <tr>
      
-      <td align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Aturan Perhitungan Grading Nilai</font></td>
+      <td align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Report Card Calculation Rules</font></td>
     </tr>
     
     <tr>
       <td align="right" valign="top"><a href="../pelajaran.php" target="framecenter">
-        <font size="1" color="#000000"><b>Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Aturan Perhitungan Grading Nilai</b></font> </td>
+        <font size="1" color="#000000"><b>Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Report Card Calculation Rules</b></font> </td>
     </tr>
     
 	</table><br><br><br><br><br><br><br><br><br><br>
-        <font size="2" color="#757575"><b>Klik pada icon <img src="../images/ico/lihat.png" width="16" height="16"> untuk menampilkan daftar pelajaran berdasarkan guru yang dipilih,<br>lalu pilih <em>hyperlink</em> "Pelajaran" untuk melihat aturan perhitungan nilai rapor</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on <img src="../images/ico/lihat.png" width="16" height="16"> to show Class Subject list based on selected teacher,<br>and then select <em>hyperlink</em> Class Subject to see Report Card Calculation Rules.</b></font>    </td>
 </tr>
 </table>
 </body>

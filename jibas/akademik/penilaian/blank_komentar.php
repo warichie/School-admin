@@ -33,10 +33,8 @@
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_komentar.png"
     style="background-repeat:no-repeat;">
-        <p><font size="2" color="#757575"><b>Click pada tombol &quot;Lihat Komentar&quot;
-        untuk melihat daftar komentar atau </b></font></p>
-        <p><font size="2" color="#757575"><b>tombol &quot;Input Komentar&quot; untuk mengisi
-        komentar.</b></font></p></td>
+        <p><font size="2" color="#757575"><b>Click on See Comments to show comments list or </b></font></p>
+        <p><font size="2" color="#757575"><b>Submit Comments button to submit comments.</b></font></p></td>
 </tr>
 </table>
 </body>

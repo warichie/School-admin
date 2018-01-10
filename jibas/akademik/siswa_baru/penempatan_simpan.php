@@ -53,7 +53,7 @@ if (isset($_REQUEST['Simpan']))
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) > 0) 
 	{
-		$ERROR_MSG = "NIS ".$nis." sudah digunakan!";
+		$ERROR_MSG = "National Student ID ".$nis." has been used";
 	} 
 	else 
 	{
@@ -166,7 +166,7 @@ if (isset($_REQUEST['Simpan']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Penempatan Calon Siswa]</title>
+<title>JIBAS SIMAKA [Student Candidate Placement]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -178,8 +178,8 @@ if (isset($_REQUEST['Simpan']))
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('nis', 'NIS') &&
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('nis', 'Student ID') &&
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -201,7 +201,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
     <div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Penempatan Calon Siswa :.
+    .: Student Candidate Placement :.
     </div>
     </td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -238,43 +238,43 @@ function focusNext(elemName, evt) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
     <td><input type="text" name="dept" size="10" maxlength="50" class="disabled" readonly value="<?=$departemen?>"/></td>
 </tr>
 <tr>
-	<td width="120"><strong>Angkatan</strong></td>
+	<td width="120"><strong>Graduates</strong></td>
     <td><input type="text" name="angkt" size="20" value="<?=$angkt ?>" readonly class="disabled"/></td>
 </tr>
 <tr>
-	<td width="120"><strong>Tahun Ajaran</strong></td>
+	<td width="120"><strong>Year</strong></td>
     <td><input type="text" name="tahun" size="10" value="<?=$tahun ?>" readonly class="disabled"/></td>
 </tr>
 <tr>
-	<td width="120"><strong>Kelas</strong></td>
+	<td width="120"><strong>Class</strong></td>
     <td><input type="text" name="kls" size="10" value="<?=$kls ?>" readonly class="disabled"/></td>
 </tr>
 <tr>
-	<td><strong>NIS</strong></td>
+	<td><strong>Student ID</strong></td>
 	<td>
-    	<input type="text" name="nis" id="nis" size="15" maxlength="15" value="<?=$nis ?>" onFocus="showhint('NIS tidak boleh lebih dari 15 karakter!', this, event, '120px')" onKeyPress="return focusNext('nisn', event)"/>
+    	<input type="text" name="nis" id="nis" size="15" maxlength="15" value="<?=$nis ?>" onFocus="showhint('Student ID should not exceed 15 characters', this, event, '120px')" onKeyPress="return focusNext('nisn', event)"/>
     </td>
 </tr>
 <tr>
-	<td>N I S N</td>
+	<td>National Student ID</td>
 	<td>
-    	<input type="text" name="nisn" id="nisn" size="15" maxlength="15" value="<?=$nisn ?>" onFocus="showhint('NISN tidak boleh lebih dari 50 karakter!', this, event, '120px')" onKeyPress="return focusNext('keterangan', event)"/>
+    	<input type="text" name="nisn" id="nisn" size="15" maxlength="15" value="<?=$nisn ?>" onFocus="showhint('National Student ID should not exceed 50 characters', this, event, '120px')" onKeyPress="return focusNext('keterangan', event)"/>
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="40" onKeyPress="return focusNext('Simpan', event)"><?=$keterangan ?></textarea>
     </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
@@ -293,7 +293,7 @@ function focusNext(elemName, evt) {
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
  <!-- END OF CONTENT //--->
     </td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_06a.jpg">&nbsp;</td>

@@ -46,7 +46,7 @@ for ($i=1;$i<=17;$i++) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<title>Header Statistik</title>
+<title>Header Statistic</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <style type="text/css">
@@ -91,10 +91,10 @@ function cetak() {
 <input type="hidden" name="departemen" id="departemen" value="<?=$departemen?>" />
 <input type="hidden" name="dasar" id="dasar" value="<?=$dasar?>" />
 <input type="hidden" name="tabel" id="tabel" value="<?=$tabel?>" />
-<!--<div align="center"><font size="4"><b>STATISTIK PENERIMAN SISWA BARU<BR />BERDASARKAN <?=$judul?></b></font></div>-->
+<!--<div align="center"><font size="4"><b>NEW STUDENT ADMISSION STATISTIC<BR />BASED ON <?=$judul?></b></font></div>-->
 <div align="right"> 	
-  		<a href="#" onClick="javascript:refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-  		<a href="#" onClick="cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a href="#" onClick="javascript:refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+  		<a href="#" onClick="cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
         
 </body>

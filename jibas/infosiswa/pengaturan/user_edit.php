@@ -83,32 +83,32 @@ if(isset($_POST["status_user"])){
         kon = document.tambah_user.konfirmasi.value;
         
         if(nip.length == 0) {
-            alert("User tidak boleh kosong");
+            alert("User should not leave empty");
             document.tambah_user.nip.value = "";
             document.tambah_user.nip.focus();
             return false;
         }
         if(stat.length == 0) {
-            alert("Tingkat tidak boleh kosong");
+            alert("Grade should not leave empty");
             document.tambah_user.status_user.value = "";
             document.tambah_user.status_user.focus();
             return false;
         }
         if(dis.disabled == false) {
             if(pass.length == 0) {
-                alert("Password tidak boleh kosong");
+                alert("Password should not leave empty");
                 return false;
             }else if(kon.length == 0) {
-                alert("Konfirmasi tidak boleh kosong");
+                alert("Confirmation should not leave empty");
                 return false;
             }
             if(pass != kon) {
-                alert("Password dan konfirmasi harus sama");
+                alert("Password and confirmation should match");
                 return false;
             }
         }
         if(ket.length > 255) {
-            alert("Keterangan tidak boleh lebih dari 255 karakter");
+            alert("Info should not exceed 255 characters");
             document.tambah_user.keterangan.value = "";
             document.tambah_user.keterangan.focus();
             return false;
@@ -171,7 +171,7 @@ if (!isset($_POST['simpan'])) {
     <input type="hidden" name="replid" readonly value="<?=$_REQUEST[replid]?>" class="disabled">
     <table border="0">
         <tr>
-            <td colspan="2" class="header"><div align="center">Ubah User </div></td>
+            <td colspan="2" class="header"><div align="center">Edit User </div></td>
         </tr>
         <tr>
             <td align="left">Login</td>
@@ -179,7 +179,7 @@ if (!isset($_POST['simpan'])) {
             <input type="text" size="30" name="nip" readonly value="<?=$row_get_nip[login]?>" class="disabled"></td>
         </tr>
         <tr>
-            <td align="left">Nama</td>
+            <td align="left">Name</td>
             <td align="left">
             <input type="text" size="30" name="nama" readonly value="<?=$row_get_nama[nama]?>" class="disabled">
             </td>
@@ -206,10 +206,10 @@ if (!isset($_POST['simpan'])) {
             <td align="left"><input type="text" size="41" name="password" <?=$dis ?> id="dis"></td>
         </tr>
         <tr>
-            <td align="left">Konfirmasi</td>
+            <td align="left">Confirm</td>
             <td align="left"><input type="text" size="41" name="konfirmasi" <?=$dis ?> id="dis"></td>
         </tr>
-        <tr><td align="left">Tingkat</td>
+        <tr><td align="left">Grade</td>
             <?
             //$query_t = "SELECT Nama, Tingkat FROM sistouser.tingkatpengguna WHERE Modul = 'SIMAKA' ORDER BY Tingkat";
             //$result_t = QueryDb($query_t);
@@ -220,7 +220,7 @@ if (!isset($_POST['simpan'])) {
 						if ($status_user==1)
 						echo "selected";
 						?>
-					>Manajer Akademik</option>
+					>Academic Manager</option>
 					<option value="2"
 					<?
 						if ($status_user==2)
@@ -242,7 +242,7 @@ if (!isset($_POST['simpan'])) {
             </select></td>
         </tr>
         <tr>
-            <td align="left">Departemen</td>
+            <td align="left">Department</td>
             <td align="left" width="*"><select name="departemen" style="width:150px;" id="tt" <?=$dd ?>>
     		<?
             $query_pro = "SELECT departemen FROM jbsakad.departemen WHERE aktif=1 ORDER BY urutan ASC";
@@ -267,15 +267,15 @@ if (!isset($_POST['simpan'])) {
             </option></select></td>
         </tr>
         <tr>
-            <td align="left">Keterangan</td>
+            <td align="left">Info</td>
             <td align="left"><textarea wrap="soft" id="keterangan" name="keterangan" cols="40" rows="3"
-            onFocus="showhint('Keterangan tidak boleh lebih dari 255 karakter',
+            onFocus="showhint('Info should not exceed 255 characters',
             this, event, '100px')"><?=$row_cek[keterangan]?></textarea></td>
         </tr>
         <tr>
             <td colspan="2"><div align="center">
-              <input type="submit" value="Simpan" name="simpan" class="but">&nbsp;
-                <input type="button" value="Tutup" name="batal" class="but" onClick="window.close();">
+              <input type="submit" value="Save" name="simpan" class="but">&nbsp;
+                <input type="button" value="Close" name="batal" class="but" onClick="window.close();">
             </div></td>
           </tr>
     </table>
@@ -303,7 +303,7 @@ if (!isset($_POST['simpan'])) {
 	} else {
 	?>
 	<script language="javascript">
-		alert ('Gagal menyimpan data');
+		alert ('Failed to save data');
 
 	</script>
 	<?

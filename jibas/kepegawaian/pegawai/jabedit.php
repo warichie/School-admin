@@ -79,15 +79,15 @@ else
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Ubah Jabatan Pegawai</title>
+<title>Edit Employee Position</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 function validate() {
-	return validateEmptyText('txThnTMTJab', 'Tahun TMT Jabatan Pegawai') &&
-		   validateInteger('txThnTMTJab', 'Tahun TMT Jabatan Pegawai') &&  
-		   validateLength('txThnTMTJab', 'Tahun TMT Jabatan Pegawai', 4);
+	return validateEmptyText('txThnTMTJab', 'Year TMT Position Pegawai') &&
+		   validateInteger('txThnTMTJab', 'Year TMT Position Pegawai') &&  
+		   validateLength('txThnTMTJab', 'Year TMT Position Pegawai', 4);
 }
 
 function focusNext(elemName, evt) {
@@ -119,14 +119,14 @@ function TerimaJabatan(id, jabatan) {
 <input type="hidden" name="id" id="nip" value="<?=$id?>" />
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr height="30">
-	<td width="100%" class="header" align="center">Ubah Jabatan</td>
+	<td width="100%" class="header" align="center">Edit Position</td>
 </tr>
 <tr>
 	<td width="100%" align="center">
     
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
-        <td align="right" valign="top" width="22%"><strong>Jabatan :</strong></td>
+        <td align="right" valign="top" width="22%"><strong>Position :</strong></td>
         <td width="*" align="left" valign="top">
         <select name="cbJenisJabatan" id="cbJenisJabatan" onKeyPress="return focusNext('btJabatan', event)">
 <?		OpenDb();
@@ -142,7 +142,7 @@ function TerimaJabatan(id, jabatan) {
         </td>
 	</tr>
     <tr>
-        <td align="right" valign="top"><strong>TMT Jabatan :</strong></td>
+        <td align="right" valign="top"><strong>TMT Position :</strong></td>
         <td width="*" align="left" valign="top">
         <select id="cbTglTMTJab" name="cbTglTMTJab" onKeyPress="return focusNext('cbBlnTMTJab', event)">
     <?	for ($i = 1; $i <= 31; $i++) { ?>    
@@ -159,13 +159,13 @@ function TerimaJabatan(id, jabatan) {
         </td>
     </tr>
     <tr>
-    	<td align="right">SK : </td>
+    	<td align="right">Legal Number : </td>
 	    <td align="left" valign="top">
         <input type="text" name="txSK" value="<?=$sk?>" id="txSK" size="30" maxlength="100" onKeyPress="return focusNext('txKeterangan', event)" />
         </td>
     </tr>
     <tr>
-    	<td align="right" valign="top">Keterangan : </td>
+    	<td align="right" valign="top">Info : </td>
 	    <td align="left" valign="top">
         <textarea id="txKeterangan" name="txKeterangan" rows="2" cols="40" onKeyPress="return focusNext('txAlasan', event)"><?=$keterangan?></textarea>
         </td>
@@ -173,8 +173,8 @@ function TerimaJabatan(id, jabatan) {
     <tr>
     	<td align="right" valign="top">&nbsp;</td>
 	    <td align="left" valign="top">
-        <input type="submit" value="Simpan" name="btSubmit" class="but" />
-        <input type="button" value="Tutup" onClick="window.close()" class="but" />
+        <input type="submit" value="Save" name="btSubmit" class="but" />
+        <input type="button" value="Close" onClick="window.close()" class="but" />
         </td> 
     </tr>
     </table>

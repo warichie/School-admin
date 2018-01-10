@@ -253,7 +253,7 @@ function getCell1($r, $c, $id, $m)
 
 <html>
 <head>
-<title>Kalender Akademik</title>
+<title>Academic Calendar</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <style>	
 	.thismonth {
@@ -332,16 +332,16 @@ function refresh() {
     <table border="0" width="100%" align="center">
     <tr>
         <td width="*" align="right">
-            <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+            <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
             <? if (!isset($_REQUEST[bln])){ ?>
-			<a href="JavaScript:cetak1()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;
+			<a href="JavaScript:cetak1()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;
 			<? } else { ?>
-			<a href="JavaScript:cetak1()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;
+			<a href="JavaScript:cetak1()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;
 			<? } ?>
         </td>
         <td align="right" width="320">
         	<? 	if ($next == 1) {?>
-            		<input type="button" class="but" onClick="GoToPrevMonth()" value=" < Bulan sebelumnya " style="width:150px">
+            		<input type="button" class="but" onClick="GoToPrevMonth()" value=" < Previous " style="width:150px">
         		<? } 
 				
 				if ($next == 0 || $last == 0) {
@@ -365,7 +365,7 @@ function refresh() {
 						$result = QueryDb($sql);
 						if (mysql_num_rows($result) > 0) {
 			?>   
-            		<input type="button" class="but" onClick="GoToNextMonth()" value=" Bulan berikutnya > " style="width:150px">  
+            		<input type="button" class="but" onClick="GoToNextMonth()" value=" Next > " style="width:150px">  
         			<? } ?>
 				<? } ?>	
         </td>
@@ -377,7 +377,7 @@ function refresh() {
     <table border="0" cellpadding="5" cellspacing="1" width="100%" style="border-color:#999999" align="center">
     <tr height="30" bgcolor="#DFFFDF">
         <td width="22%" align="center" style="background-color:#3366CC; color:#FFFFFF" rowspan="2" colspan="2">
-        <b>Kegiatan</b></td>
+        <b>Activity</b></td>
         <? 	$batasthn = $thn;			
             for ($i=$bln;$i<=$bln+5;$i++) { 	
                 $n = $i;
@@ -467,7 +467,7 @@ function refresh() {
     <table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-			<font size = "2" color ="red"><b>Tidak ditemukan adanya data. </b></font>
+			<font size = "2" color ="red"><b>Data Not Found. </b></font>
       </td>
 	</tr>
 	</table> 

@@ -134,7 +134,7 @@ function send(evt) {
     <th colspan="2" scope="row">&nbsp;</th>
   </tr>
   <tr>
-    <th scope="row"><div align="left">Pesan : <br />
+    <th scope="row"><div align="left">Message : <br />
         <input type="text" name="pesan" size="150" id="pesan" onfocus="autoload()" onKeyUp="autoload()" onKeyPress="send(event)" />
     </div></th>
     <th scope="row">&nbsp;</th>

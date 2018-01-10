@@ -44,7 +44,7 @@ if (isset($_REQUEST['idtingkat']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pindah Kelas</title>
+<title>Class Transfer</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -75,17 +75,17 @@ function cari_siswa() {
 	var kelas = document.getElementById("kelas").value;	
 	
 	if (idtahunajaran==""){
-		alert ('Tahun Ajaran tidak boleh kosong!');
+		alert ('Year of Teaching should not leave empty');
 		document.getElementById("departemen").focus();
 		return false;
 	}
 	if (idtingkat==""){
-		alert ('Tingkat tidak boleh kosong');
+		alert ('Grade should not leave empty');
 		document.getElementById("tingkat").focus();
 		return false;
 	}	
 	if (kelas == 0) {
-		alert ('Belum ada Kelas yang aktif pada Tingkat ini!');	
+		alert ('No Active Class on this Grade');	
 		document.getElementById("departemen").focus();
 		return false;
 	}
@@ -118,7 +118,7 @@ function focusNext(elemName, evt) {
 	<td rowspan="2" width="36%">
 	<table width = "100%" border = "0">
     <tr>
-      	<td width = "30%"><strong>Departemen</strong>
+      	<td width = "30%"><strong>Department</strong>
       	<td width = "*">
 		<select name="departemen" id="departemen" onchange="change_departemen()" style="width:200px;" onKeyPress="return focusNext('idtingkat', event)" >
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -131,7 +131,7 @@ function focusNext(elemName, evt) {
       	</select>    	</td>
     </tr>
     <tr>
-		<td><strong>Tahun Ajaran</strong></td>    
+		<td><strong>Year</strong></td>    
 	  	<td>
       <!--<div id="tahunajaranInfo">-->
       	<?	
@@ -149,7 +149,7 @@ function focusNext(elemName, evt) {
   			<input type="hidden" name="idtahunajaran" id="idtahunajaran" value="<?=$row_tahunajaran['replid']?>">
       	<!--</div>-->      </td>
 	<tr>
-    	<td align="left" width = "13%"><strong>Tingkat</strong>
+    	<td align="left" width = "13%"><strong>Grade</strong>
       	<td>
         <!--<div id="tingkatInfo">-->
         <select name="idtingkat" id="idtingkat" onchange="change_tingkat()" style="width:200px;" onKeyPress="return focusNext('tabel', event)" >
@@ -181,11 +181,11 @@ function focusNext(elemName, evt) {
         </td>  
   	</tr>
     </table>   	</td>
-  	<td valign="middle" width="0"><a href="#" onclick="cari_siswa()" ><img src="../images/view.png" height="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Klik untuk menampilkan daftar siswa yang akan pindah kelas!', this, event, '200px')"/></a></td>
-  	<td colspan = "2" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pindah Kelas</font><br />
+  	<td valign="middle" width="0"><a href="#" onclick="cari_siswa()" ><img src="../images/view.png" height="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Click to show clsss-transferred student list', this, event, '200px')"/></a></td>
+  	<td colspan = "2" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Class Transfer</font><br />
     <a href="../siswa.php" target="content">
-      <font size="1" color="#000000"><b>Kesiswaan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Pindah Kelas</b></font>
+      <font size="1" color="#000000"><b>Student</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Class Transfer</b></font>
     </td>     
 </tr>
 </table>

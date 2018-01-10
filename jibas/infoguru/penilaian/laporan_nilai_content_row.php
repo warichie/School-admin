@@ -90,8 +90,8 @@ $tglakhir = $row_ta['tglakhir'];
   <tr>
     <td><table width="100%" border="0" bordercolor="#666666" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="6%" height="50" bgcolor="#666666"><span class="style5">&nbsp;NIS </span><span class="style4"><br>
-        <span class="style1">&nbsp;Nama </span></span></td>
+    <td width="6%" height="50" bgcolor="#666666"><span class="style5">&nbsp;Student ID </span><span class="style4"><br>
+        <span class="style1">&nbsp;Name </span></span></td>
     <td width="46%" height="40" bgcolor="#666666"><span class="style5">
       : <?=$nis?>
     </span><span class="style4"><br>
@@ -105,10 +105,10 @@ $tglakhir = $row_ta['tglakhir'];
 	   </span></span></td>
     <td width="47%" align="right" valign="bottom"><div align="right"><a href="laporan_nilai_content_row.php?departemen=<?=$departemen?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahunajaran=<?=$tahunajaran?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&nis=<?=$nis?>&harian=<?=$harian?>&prespel=<?=$prespel?>">
   <img src="../images/ico/refresh.png" border="0">Refresh</a>
-    <a href="#" onClick="newWindow('laporan_nilai_cetak_row.php?departemen=<?=$departemen?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahunajaran=<?=$tahunajaran?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&nis=<?=$nis?>&harian=<?=$harian?>&prespel=<?=$prespel?>','Cetak',750,636,'resizable=1,scrollbars=1,status=1,toolbar=0')">
-  <img src="../images/ico/print.png" border="0">Cetak</a>
-    <a href="#" onClick="newWindow('lap_cetak_word_row.php?departemen=<?=$departemen?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahunajaran=<?=$tahunajaran?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&nis=<?=$nis?>&harian=<?=$harian?>&prespel=<?=$prespel?>','Cetak',122,122,'resizable=1,scrollbars=1,status=1,toolbar=0')">
-  <img src="../images/ico/word.png" border="0">Cetak Word</a>
+    <a href="#" onClick="newWindow('laporan_nilai_cetak_row.php?departemen=<?=$departemen?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahunajaran=<?=$tahunajaran?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&nis=<?=$nis?>&harian=<?=$harian?>&prespel=<?=$prespel?>','Print',750,636,'resizable=1,scrollbars=1,status=1,toolbar=0')">
+  <img src="../images/ico/print.png" border="0">Print</a>
+    <a href="#" onClick="newWindow('lap_cetak_word_row.php?departemen=<?=$departemen?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahunajaran=<?=$tahunajaran?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&nis=<?=$nis?>&harian=<?=$harian?>&prespel=<?=$prespel?>','Print',122,122,'resizable=1,scrollbars=1,status=1,toolbar=0')">
+  <img src="../images/ico/word.png" border="0">Print MS Word</a>
   <br>
 </div></td>
   </tr>
@@ -118,20 +118,20 @@ $tglakhir = $row_ta['tglakhir'];
 	</td>
 </tr>
 <tr>
-	<td><fieldset><legend><strong>Laporan Hasil Belajar</strong></legend>
+	<td><fieldset><legend><strong>Report Card</strong></legend>
     
     <table width="100%" border="1" class="tab" bordercolor="#000000">
 	<tr>
-	    <td width="4%" rowspan="2" class="headerlong"><div align="center">No</div></td>
-		<td width="12%" rowspan="2" class="headerlong"><div align="center">Pelajaran</div></td>
-     	<td width="7%" rowspan="2" class="headerlong"><div align="center">KKM</div></td>
-		<td width="12%" rowspan="2" class="headerlong"><div align="center">Aspek<br>Penilaian</div></td>
-        <td width="35%" colspan="3" class="headerlong"><div align="center">Nilai</div></td>
+	    <td width="4%" rowspan="2" class="headerlong"><div align="center">#</div></td>
+		<td width="12%" rowspan="2" class="headerlong"><div align="center">Class Subject</div></td>
+     	<td width="7%" rowspan="2" class="headerlong"><div align="center">Minimum Completeness Criteria</div></td>
+		<td width="12%" rowspan="2" class="headerlong"><div align="center">Evaluation<br>Aspects</div></td>
+        <td width="35%" colspan="3" class="headerlong"><div align="center">Point</div></td>
   	</tr>
     <tr>
-    	<td width="5%" class="headerlong"><div align="center">Angka</div></td>
-        <td width="5%" class="headerlong"><div align="center">Huruf</div></td>
-        <td width="15%" class="headerlong"><div align="center">Terbilang</div></td>
+    	<td width="5%" class="headerlong"><div align="center">Number</div></td>
+        <td width="5%" class="headerlong"><div align="center">Letter</div></td>
+        <td width="15%" class="headerlong"><div align="center">Spelled Out</div></td>
     </tr>
     
 <? $sql = "SELECT pel.replid, pel.nama
@@ -240,12 +240,12 @@ $tglakhir = $row_ta['tglakhir'];
 	</fieldset></td>
   </tr>
   <tr>
-    <td><fieldset><legend><strong>Komentar Hasil Belajar</strong></legend>
-	<!-- Content Komentar disini -->
+    <td><fieldset><legend><strong>Comments</strong></legend>
+	<!-- Konten Komentar disini -->
 	<table border="1" id="table" class="tab" width="100%" bordercolor="#000000">
 	<tr>
-	<td width="27%" height="30" align="center" class="header">Pelajaran</td>
-	<td width="73%" height="30" align="center" class="header">Komentar</td>
+	<td width="27%" height="30" align="center" class="header">Class Subject</td>
+	<td width="73%" height="30" align="center" class="header">Comments</td>
 	</tr>
 	<!-- Ambil pelajaran per departemen-->
 	<?
@@ -286,7 +286,7 @@ $tglakhir = $row_ta['tglakhir'];
   if ($harian!="false"){
   ?>
   <tr>
-    <td><fieldset><legend><strong>Presensi Harian</strong></legend>
+    <td><fieldset><legend><strong>Daily Presence</strong></legend>
 	<?
 
 
@@ -304,22 +304,22 @@ $tglakhir = $row_ta['tglakhir'];
 	<!-- Content Presensi disini -->
 	<table width="100%" border="1" class="tab" id="table"  bordercolor="#000000">
   <tr>
-    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style1">Hadir</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Sakit</div></td>
-    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style1">Ijin</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Alpa</div></td>
-    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style1">Cuti</div></td>
+    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style1">Attend</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Ill</div></td>
+    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style1">Consent</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Absent</div></td>
+    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style1">Leave</div></td>
     </tr>
   <tr>
-    <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1">Jumlah</div></td>
+    <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1">Sum</div></td>
     <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1">Jumlah</div></td>
+    <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1">Sum</div></td>
     <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1">Jumlah</div></td>
+    <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1">Sum</div></td>
     <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1">%</div></td>
   </tr>
   <!-- Ambil pelajaran per departemen-->
@@ -394,24 +394,24 @@ $tglakhir = $row_ta['tglakhir'];
  if ($prespel!="false"){
  ?>
  <tr>
-    <td><fieldset><legend><strong>Presensi Pelajaran</strong></legend>
+    <td><fieldset><legend><strong>Class Presence</strong></legend>
 	<!-- Content Presensi disini -->
 	<table width="100%" border="1" class="tab" id="table" bordercolor="#000000">
   <tr>
-    <td width="27%" rowspan="2" class="headerlong"><div align="center">Pelajaran</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Hadir</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Sakit</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Ijin</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Alpa</div></td>
+    <td width="27%" rowspan="2" class="headerlong"><div align="center">Class Subject</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Attend</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Ill</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Consent</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Absent</div></td>
     </tr>
   <tr>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
   </tr>
   <!-- Ambil pelajaran per departemen-->

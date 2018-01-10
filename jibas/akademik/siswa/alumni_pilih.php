@@ -180,7 +180,7 @@ if (isset($_REQUEST['alumnikan'])){
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kelulusan Siswa[Pilih]</title>
+<title>Graduates Student [Select]</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -232,16 +232,16 @@ function alumnikeun() {
 	}
 	
 	if (tgl.length == 0) {	
-		alert ('Tanggal tidak boleh kosong!');	
+		alert ('Date should not leave empty');	
 		document.getElementById('tgl').focus();
 		return false;	
 	}
 		
 	if (jumalumni==0) {
-		alert ("Anda harus memberi centang setidaknya satu siswa untuk menjadikannya alumnus!");
+		alert ("You have to select at least one student to be alumni");
 		return false;
 	} else if (jumalumni > 0) {
-		if (confirm("Apakah Anda yakin akan mengalumnikan siswa yang telah diberi tanda centang?"))
+		if (confirm("Are you sure want to make the student selected to be an alumni?"))
 			return true;
 		else
 			return false;	
@@ -371,11 +371,11 @@ if ($jenis <> ""){
 	<td> 
     	<table border="0" cellspacing="0" cellpadding="0">
         <tr>
-        	<td><strong>Tanggal Lulus</strong>&nbsp;</td>
+        	<td><strong>Date Graduated</strong>&nbsp;</td>
            	<td>
             <div id = "InfoTgl" >
             <select name="tgl" id = "tgl" onChange="change_tgl()" onfocus = "panggil('tgl')" onKeyPress="focusNext('bln',event)">
-            <option value="">[Tgl]</option>
+            <option value="">[Date]</option>
         <? 	for($i=1;$i<=$n;$i++){   ?>      
             <option value="<?=$i?>" <?=IntIsSelected($tgl, $i)?>><?=$i?></option>
         <?	} ?>
@@ -402,15 +402,15 @@ if ($jenis <> ""){
 	<td align="left" valign="top">
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 	<tr align="center">
-		<td width="6%" height="30" rowspan="2" class="header">No</td>
-		<td width="15%" height="30" rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nis','<?=$urutan?>')">N I S <?=change_urut('s.nis',$urut,$urutan)?></td>
-		<td width="*" height="30" rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nama','<?=$urutan?>')" >Nama <?=change_urut('s.nama',$urut,$urutan)?></td>
-		<td height="30" width="20%"rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('k.kelas','<?=$urutan?>')">Kelas <?=change_urut('k.kelas',$urut,$urutan)?></td>
+		<td width="6%" height="30" rowspan="2" class="header">#</td>
+		<td width="15%" height="30" rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nis','<?=$urutan?>')">Student ID <?=change_urut('s.nis',$urut,$urutan)?></td>
+		<td width="*" height="30" rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nama','<?=$urutan?>')" >Name <?=change_urut('s.nama',$urut,$urutan)?></td>
+		<td height="30" width="20%"rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('k.kelas','<?=$urutan?>')">Class <?=change_urut('k.kelas',$urut,$urutan)?></td>
 		<td height="15" colspan="2" class="header">Alumni</td>
 	</tr>
 	<tr>
   		<td width="11%" class="header" colspan="2">
-  		<input type="checkbox" name="cek" id="cek" onClick="cek_all()" onMouseOver="showhint('Pilih semua!', this, event, '80px')"/>
+  		<input type="checkbox" name="cek" id="cek" onClick="cek_all()" onMouseOver="showhint('Select All', this, event, '80px')"/>
 		</td>
 	</tr>
 <?		if ($page==0)
@@ -434,11 +434,11 @@ if ($jenis <> ""){
         </td>
         <? if ($cnt==1){ ?>
         <td rowspan="<?=$jumlah?>" align="center">
-            <input name="alumnikan" id="alumnikan" type="submit" class="but" value=" > " onMouseOver="showhint('Alumnikan siswa ini', this, event, '120px')"/>
+            <input name="alumnikan" id="alumnikan" type="submit" class="but" value=" > " onMouseOver="showhint('Make this student an alumni', this, event, '120px')"/>
         </td>
         <? } ?>
 <? //if ($cnt<=1){ ?>
-<!--<td style="background-color:#C0C0C0" align="center" rowspan="<?=$ada?>" bgcolor="white"><input name="alumnikan" id="alumnikan" type="submit" class="but" value=" >> " onMouseOver="showhint('Alumnikan siswa ini', this, event, '120px')"/></td>-->
+<!--<td style="background-color:#C0C0C0" align="center" rowspan="<?=$ada?>" bgcolor="white"><input name="alumnikan" id="alumnikan" type="submit" class="but" value=" >> " onMouseOver="showhint('Make this student an alumni', this, event, '120px')"/></td>-->
 <? //} ?>
 	</tr>
 <?		$cnt++;
@@ -472,20 +472,20 @@ if ($jenis <> ""){
     <td>
     <table border="0"width="100%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="45%" align="left">Hal
+       	<td width="45%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<td align="center">
-    	<!--<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">-->
+    	<!--<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">-->
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -496,9 +496,9 @@ if ($jenis <> ""){
 				 
 	    }*/
 		?>
-	    <!--<input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">-->
+	    <!--<input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">-->
  		</td>
-        <td width="45%" align="right">Jml baris per hal
+        <td width="45%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -514,8 +514,8 @@ if ($jenis <> ""){
 	<tr>
 		<td align="center" valign="middle" height="200">
 
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
-        <br />Tambah data siswa pada departemen <?=$departemen?> di menu Kesiswaan pada bagian Pendataan Siswa.
+    	<font size = "2" color ="red"><b>Data Not Found. 
+        <br />Add Student data on Department <?=$departemen?> in the Student menu on Student Data Collection section.
        	</b></font>
         
 		</td>
@@ -527,8 +527,8 @@ if ($jenis <> ""){
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">    	  	
-    	<font size="2" color="#757575"><b>Klik pada tombol &quot;Tampil&quot; atau &quot;Cari&quot; untuk
-      menampilkan daftar siswa yang akan menjadi alumnus &nbsp;</b></font>
+    	<font size="2" color="#757575"><b>Click on Show or Search to
+      to show alumni student list</b></font>
  	</td>
 	</tr>
 	</table>

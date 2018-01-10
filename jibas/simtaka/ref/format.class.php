@@ -44,19 +44,19 @@ class CFormat{
 		<link href="../sty/style.css" rel="stylesheet" type="text/css">
         <div class="funct">
         	<a href="javascript:getfresh()"><img src="../img/ico/refresh.png" border="0">&nbsp;Refresh</a>&nbsp;&nbsp;
-			<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Cetak</a>&nbsp;&nbsp;
+			<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Print</a>&nbsp;&nbsp;
 			<? if(IsAdmin()){ ?>
-			<a href="javascript:tambah()"><img src="../img/ico/tambah.png" border="0">&nbsp;Tambah</a>&nbsp;        
+			<a href="javascript:tambah()"><img src="../img/ico/tambah.png" border="0">&nbsp;Add</a>&nbsp;        
 			<? } ?>
 		</div>
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td align="center" class="header">No</td>
-            <td height="30" align="center" class="header">Kode</td>
-            <td height="30" align="center" class="header">Nama</td>
-            <td height="30" align="center" class="header">Jumlah Judul</td>
-            <td height="30" align="center" class="header">Jumlah Pustaka</td>
-            <td height="30" align="center" class="header">Keterangan</td>
+            <td align="center" class="header">#</td>
+            <td height="30" align="center" class="header">Code</td>
+            <td height="30" align="center" class="header">Name</td>
+            <td height="30" align="center" class="header">Title Sum</td>
+            <td height="30" align="center" class="header">Library Sum</td>
+            <td height="30" align="center" class="header">Info</td>
             <? if(IsAdmin()){ ?>
 			<td height="30" align="center" class="header">&nbsp;</td>
 			<? } ?>
@@ -99,7 +99,7 @@ class CFormat{
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="7" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="7" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

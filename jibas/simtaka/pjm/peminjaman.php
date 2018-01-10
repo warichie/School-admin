@@ -34,7 +34,7 @@ require_once("../inc/session.checker.php");
 <body>
 <div id="title" align="center">
 	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-	<font style="font-size:18px; color:#999999">Peminjaman</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+	<font style="font-size:18px; color:#999999">Borrowing</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
 </div>
 <br>
 <!-- ImageReady Slices (Untitled-7) -->

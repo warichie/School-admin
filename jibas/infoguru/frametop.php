@@ -85,7 +85,7 @@ function pengaturan()
 
 function logout()
 {
-	if (confirm('Anda yakin akan keluar dari InfoGuru ?'))
+	if (confirm('Are you sure want to logout from Teacher Info?'))
 		document.location.href="logout.php";
 }
 
@@ -119,7 +119,7 @@ function ganti()
 <body style="background-color:#6a6a6a" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" onload="buletin()">
 
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="images/ico/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+<img src="images/ico/movewait.gif" border="0" />Please wait...
 </div>
 <form name="top">
 <input type="hidden" value="<?=$theme?>" id="theme" name="theme">
@@ -132,12 +132,12 @@ function ganti()
 	</td>
 	<td height="15" colspan="2" background="<?=GetThemeDir()?>InfoGuru_02.png">
 		<span style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">
-	    <a href="javascript:buletin();" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Buletin</a>&nbsp;
-	    <a href="javascript:akademik();" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Akademik</a>&nbsp;
+	    <a href="javascript:buletin();" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Bulletin</a>&nbsp;
+	    <a href="javascript:akademik();" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Academic</a>&nbsp;
 <? 		if (SI_USER_LEVEL() != 0) { ?>
-			<a href="javascript:kepegawaian();" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Kepegawaian</a>&nbsp;
+			<a href="javascript:kepegawaian();" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Employee Affair</a>&nbsp;
 <?		} ?>			
-	    <a href="javascript:pengaturan();" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Pengaturan</a>&nbsp;
+	    <a href="javascript:pengaturan();" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Settings</a>&nbsp;
 	    <a href="javascript:logout()" style="font-family:Verdana; color:#00FF00; font-size:10px; font-weight:bold; text-decoration:none">Logout</a>&nbsp;
 		</span>
 	</td>

@@ -28,7 +28,7 @@ class Pegawai{
 			?>
 			<table border='0'>
 				<tr>
-					<td>Bagian : </td>
+					<td>Section : </td>
 					<td>
 						<select id='bag' class='InputTxt'>
 							<?php
@@ -55,15 +55,15 @@ class Pegawai{
 			?>
 			<table border='0'>
 				<tr>
-					<td>NIP:</td>
+					<td>Employee ID:</td>
 					<td>
 						<input type='text' class='InputTxt' id='nip' value="<?php echo $this->nip ?>">
 					</td>
-					<td>&nbsp;&nbsp;Nama:</td>
+					<td>&nbsp;&nbsp;Name:</td>
 					<td>
 						<input type='text' class='InputTxt' id='nama' value="<?php echo $this->nama ?>">
 					</td>
-					<td><input type='button' value="Cari" id='btnCari' class="Btn"></td>
+					<td><input type='button' value="Search" id='btnCari' class="Btn"></td>
 				</tr>
 			</table>
 			<?php
@@ -89,9 +89,9 @@ class Pegawai{
 				?>
 				<table cellspacing="0" cellpadding="0" border="1" width="100%" class="tab">
 				<tr class="Header">
-					<td>No</td>
-					<td>NIP</td>
-					<td>Nama</td>
+					<td>#</td>
+					<td>Employee ID</td>
+					<td>Name</td>
 					<td>&nbsp;</td>
 				</tr>
 				<?php
@@ -106,7 +106,7 @@ class Pegawai{
 					<td style="padding: 2px;"><?php echo $row[0] ?></td>
 					<td style="padding: 2px;"><?php echo $row[1] ?></td>
 					<td align="center">
-						<img class='btnSelectPeg' nip='<?php echo $row[0] ?>' nama='<?php echo $row[1] ?>' hp='<?php echo $hp ?>' style="cursor: pointer;" alt="Pilih" src="../images/ico/down.png">
+						<img class='btnSelectPeg' nip='<?php echo $row[0] ?>' nama='<?php echo $row[1] ?>' hp='<?php echo $hp ?>' style="cursor: pointer;" alt="Select" src="../images/ico/down.png">
 					</td>
 				</tr>
 				<?php
@@ -116,7 +116,7 @@ class Pegawai{
 				</table>
 				<?php
 			} else {
-				echo "<div align='center' class='ui-state-highlight'>Tidak ditemukan data Pegawai</div>";
+				echo "<div align='center' class='ui-state-highlight'>Employee data not found</div>";
 			}
 		ob_flush();
 	}

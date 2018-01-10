@@ -44,7 +44,7 @@ if (isset($_REQUEST['nip'])){ //0
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aturan Perhitungan Nilai Rapor[Menu]</title>
+<title>Report Card Calculation Rules [Menu]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -66,7 +66,7 @@ $result = QueryDb($sql);
 $cnt = 0;
 if ((@mysql_num_rows($result))>0){
 ?>
-		<div align="center"><strong>Pelajaran yang diajar oleh guru<br /><?=$_REQUEST['nama']?></strong></div></strong><br />
+		<div align="center"><strong>Class Subject that Teachers teach<br /><?=$_REQUEST['nama']?></strong></div></strong><br />
 	<?
 	while ($row = @mysql_fetch_array($result)) {
 		$departemen=$row[0];
@@ -103,7 +103,7 @@ if ((@mysql_num_rows($result))>0){
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data <br /><br />Tambah data pelajaran yang diajar oleh guru <?=$_REQUEST['nama']?> di menu pendataan guru </b></font>
+    	<font size = "2" color ="red"><b>Data Not Found. <br /><br />Add teaching data that Teachers teach <?=$_REQUEST['nama']?> in the teacher data collection </b></font>
 		</td>
 	</tr>
 	</table> 

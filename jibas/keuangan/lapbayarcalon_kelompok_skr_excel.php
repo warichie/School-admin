@@ -60,7 +60,7 @@ $departemen = $r[departemen];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Pembayaran Iuran Sukarela Calon Siswa Per Kelompok</title>
+<title>Student Candidate Contribution Payment Reports by Group</title>
 </head>
 
 <body>
@@ -92,22 +92,22 @@ $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
 $namapenerimaan = $row[0];
 ?>
-<center><font size="4" face="Arial"><strong>LAPORAN PEMBAYARAN IURAN SUKARELA CALON SISWA</strong></font><br /> 
+<center><font size="4" face="Arial"><strong>STUDENT CANDIDATE CONTRIBUTION REPORTS</strong></font><br /> 
 </center>
 <br /><br />
 <table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width ?>" align="left" bordercolor="#333333">
 <tr height="30" align="center" class="header">
-	<td width="30" bgcolor="#CCCCCC"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="90" bgcolor="#CCCCCC"><strong><font size="2" face="Arial">No. Reg</font></strong></td>
-    <td width="160" bgcolor="#CCCCCC"><strong><font size="2" face="Arial">Nama</font></strong></td>
-    <td width="50" bgcolor="#CCCCCC"><strong><font size="2" face="Arial">Kelompok</font></strong></td>
+	<td width="30" bgcolor="#CCCCCC"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="90" bgcolor="#CCCCCC"><strong><font size="2" face="Arial">Registration Number</font></strong></td>
+    <td width="160" bgcolor="#CCCCCC"><strong><font size="2" face="Arial">Name</font></strong></td>
+    <td width="50" bgcolor="#CCCCCC"><strong><font size="2" face="Arial">Group</font></strong></td>
 <?	for($i = 0; $i < $max_n_bayar; $i++) { ?>
 	<td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Bayaran-
       <?=$i + 1 ?>
 	</font></strong></td>
 <?  } ?>
-    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Pembayaran</font></strong></td>
-    <!--<td class="header" width="200" align="center">Keterangan</td>--->
+    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Payment</font></strong></td>
+    <!--<td class="header" width="200" align="center">Info</td>--->
 </tr>
 <?
 OpenDb();
@@ -202,7 +202,7 @@ while ($row = mysql_fetch_array($result)) {
     </tr>
 <? } //end for ?>
 	<tr height="30">
-    	<td bgcolor="#999900" align="center" colspan="<?=4 + $max_n_bayar ?>"><font color="#FFFFFF" size="2" face="Arial"><strong>T O T A L</strong></font></td>
+    	<td bgcolor="#999900" align="center" colspan="<?=4 + $max_n_bayar ?>"><font color="#FFFFFF" size="2" face="Arial"><strong>Total</strong></font></td>
         <td bgcolor="#999900" align="right"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totalall ?></strong></font></td>
         <!--<td bgcolor="#999900">&nbsp;</td>-->
     </tr>

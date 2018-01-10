@@ -74,7 +74,7 @@ class NewInbox{
 				  else		
 					  $IDList .= ','.$row['ID'];
 				?>
-				<input type="text" id="Content<?=$row['ID']?>" style="width:100%" value="<span class='Link'><?=$row['SenderNumber']?></span>#><?=FullDateFormat($row['ReceivingDateTime'])?>#>
+				<input type="text" id="Class Subject<?=$row['ID']?>" style="width:100%" value="<span class='Link'><?=$row['SenderNumber']?></span>#><?=FullDateFormat($row['ReceivingDateTime'])?>#>
 				<?
 				if (strlen($row['Text'])>50)
 					echo substr($row['Text'],0,50)."...";
@@ -109,14 +109,14 @@ class NewInbox{
           <tr>
             <td colspan="2" style="padding-top:5px" align="center">
                 <div align="left" id="ReplyLabel" style="display:none; font-weight:bold">
-                Balas :
+                Reply :
                 </div>
                 <textarea id="TxtReply" class="AreaTxt" rows="7" style="width:98%;display:none"></textarea>
-                <div class="BtnSilver" align="center" id="BtnReply" style="display:block" onclick="BalasSMS('1')">Balas</div>
+                <div class="BtnSilver" align="center" id="BtnReply" style="display:block" onclick="BalasSMS('1')">Reply</div>
                 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px">
                   <tr>
-                    <td align="right" width="50%" style="padding-right:3px"><div class="BtnSilver" align="center" id="BtnSend" style="display:none; " onclick="KirimSMS('<?=$row[ID]?>')">Kirim</div></td>
-                    <td align="left" style="padding-left:3px"><div class="BtnSilver" align="center" id="BtnCancel" style="display:none" onclick="BalasSMS('0')">Batal</div></td>
+                    <td align="right" width="50%" style="padding-right:3px"><div class="BtnSilver" align="center" id="BtnSend" style="display:none; " onclick="KirimSMS('<?=$row[ID]?>')">Send</div></td>
+                    <td align="left" style="padding-left:3px"><div class="BtnSilver" align="center" id="BtnCancel" style="display:none" onclick="BalasSMS('0')">Cancel</div></td>
                   </tr>
                 </table>
             </td>
@@ -147,10 +147,10 @@ class NewInbox{
 		?>
 		<table width="100%" border="1" id="InboxTable" class="tab" cellspacing="0" cellpadding="0">
           <tr class="Header">
-            <td>No</td>
-            <td>Pengirim</td>
-            <td>Tanggal</td>
-            <td>Pesan</td>
+            <td>#</td>
+            <td>Sender</td>
+            <td>Date</td>
+            <td>Message</td>
             <td>&nbsp;</td>
           </tr>
           <?

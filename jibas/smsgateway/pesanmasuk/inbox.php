@@ -33,7 +33,7 @@ $I = new Inbox();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pesan Masuk</title>
+<title>Inbox</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <script language="javascript" src="inbox.js"></script>
 <script language="javascript" src="../script/ShowError.js"></script>
@@ -62,4 +62,4 @@ $I->Main();
 
 </body>
 </html>
-<a href='../inbox/inbox.php'>A</a>
+<a href='../inbox/inbox.php'>Ab</a>

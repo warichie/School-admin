@@ -64,7 +64,7 @@ if (isset($_REQUEST['tglakhir']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Presensi Siswa</title>
+<title>Student Presence Report</title>
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -75,7 +75,7 @@ function hapus(replid) {
 	var nip = document.getElementById('nip').value;
 	var tahunajaran = document.getElementById('tahunajaran').value;
 	
-	if (confirm("Apakah anda yakin akan menghapus data presensi ini?"))
+	if (confirm("Are you sure want to delete this presence data?"))
 		document.location.href = "lap_pengajar_footer.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&nip="+nip+"&tglawal="+tglawal+"&tglakhir="+tglakhir+"&tahunajaran="+tahunajaran+"&urut=<?=$urut?>&urutan=<?=$urutan?>";
 }
 
@@ -139,23 +139,23 @@ function change_urut(urut,urutan) {
     <tr>
     	<td align="right">
       	
-		<!--<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    	<a href="JavaScript:excel()"><img src="../images/ico/excel.png" border="0" onmouseover="showhint('Cetak dalam format Excel!', this, event, '80px')"/>&nbsp;Cetak Excel</a>&nbsp;&nbsp;-->
-        <a href="JavaScript:cetak('<?=$nip?>')"><img src="../img/print.png" border="0" onmouseover="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;        </td>
+		<!--<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    	<a href="JavaScript:excel()"><img src="../images/ico/excel.png" border="0" onmouseover="showhint('Excel', this, event, '80px')"/>&nbsp;Excel</a>&nbsp;&nbsp;-->
+        <a href="JavaScript:cetak('<?=$nip?>')"><img src="../img/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;        </td>
     </table>
     <br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
     <tr class="header" align="center" height="30">		
-		<td width="5%">No</td>
-      	<td width="8%">Tgl</td>
-      	<td width="5%">Pkl</td>            
-      	<td width="7%">Kelas</td>
-      	<td width="15%">Pelajaran</td>
+		<td width="5%">#</td>
+      	<td width="8%">Date</td>
+      	<td width="5%">Time</td>            
+      	<td width="7%">Class</td>
+      	<td width="15%">Class Subject</td>
       	<td width="14%">Status</td>
-      	<td width="7%">Telat</td>
-      	<td width="6%">Jam</td>
-      	<td width="17%" height="30" align="center" class="header">Materi</td>
-      	<td width="*" height="30" align="center" class="header">Keterangan</td>
+      	<td width="7%">Late</td>
+      	<td width="6%">Time</td>
+      	<td width="17%" height="30" align="center" class="header">Class Subject</td>
+      	<td width="*" height="30" align="center" class="header">Info</td>
 		<?	//if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>      	
         <!--<td width="3%" height="30" align="center" class="header"></td>-->
 		<? //} ?>
@@ -171,13 +171,13 @@ function change_urut(urut,urutan) {
         <td height="25" align="center"><?=$row[4]?></td>
         <td height="25"><?=$row[5]?></td>
         <td height="25"><?=$row[6]?></td>
-        <td height="25" align="center"><?=$row[7]?> menit</td>
+        <td height="25" align="center"><?=$row[7]?> minutes</td>
         <td height="25" align="center"><?=$row[8]?></td>
         <td height="25"><?=$row[9]?></td>
         <td height="25"><?=$row[10]?></td>
 	<?	//if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>            
         <!--<td height="25" align="center"> 
-        <a title="Hapus" href="JavaScript:hapus(<?=$row[11] ?>)"><img src="../images/ico/hapus.png" border="0" /></a>
+        <a title="Delete" href="JavaScript:hapus(<?=$row[11] ?>)"><img src="../images/ico/hapus.png" border="0" /></a>
    		</td>--> 
 	<?	//} ?>    
     </tr>
@@ -192,8 +192,8 @@ function change_urut(urut,urutan) {
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="400" bordercolor="#000000">
     <tr>
 		<td width="200" height="30" class="header">&nbsp;</td>
-		<td width="100" height="30" align="center" class="header">Pertemuan</td>
-		<td width="100" height="30" align="center" class="header">Jumlah Jam</td>
+		<td width="100" height="30" align="center" class="header">Meeting</td>
+		<td width="100" height="30" align="center" class="header">Hour</td>
 	</tr>
 <? 	OpenDb();	
 	$sql = "SELECT replid, status FROM statusguru ORDER BY status" ;
@@ -220,7 +220,7 @@ function change_urut(urut,urutan) {
 	 <table width="100%" border="0" align="center">         
 	<tr>
 		<td align="center" valign="middle" height="250">
-    	<span class="err">Tidak ditemukan adanya data. </span></td>
+    	<span class="err">No Data Found. </span></td>
 	</tr>
 	</table>
 <?	} ?>

@@ -4,27 +4,27 @@ var timerRunning = false;
 var timerElementId = null;
 
 var months=new Array(13);
-months[1]="Januari";
-months[2]="Februari";
-months[3]="Maret";
+months[1]="January";
+months[2]="February";
+months[3]="March";
 months[4]="April";
-months[5]="Mei";
-months[6]="Juni";
-months[7]="Juli";
-months[8]="Agustus";
+months[5]="May";
+months[6]="June";
+months[7]="July";
+months[8]="August";
 months[9]="September";
-months[10]="Oktober";
-months[11]="Nopember";
-months[12]="Desember";
+months[10]="October";
+months[11]="November";
+months[12]="December";
 
 var days = new Array(8);
-days[1]="Senin";
-days[2]="Selasa";
-days[3]="Rabu";
-days[4]="Kamis";
-days[5]="Jumat";
-days[6]="Sabtu";
-days[7]="Minggu";
+days[1]="Monday";
+days[2]="Tuesday";
+days[3]="Wednesday";
+days[4]="Thursday";
+days[5]="Friday";
+days[6]="Saturday";
+days[7]="Sunday";
 
 
 function stopclock (){

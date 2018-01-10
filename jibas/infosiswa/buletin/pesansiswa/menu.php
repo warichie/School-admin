@@ -112,7 +112,7 @@ function MM_nbGroup(event, grpName) { //v6.0
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"><!-- onload="MM_preloadImages('inbox_on.png','compose_on.png','sent_on.png','draft_on.png','inbox_off.png')">-->
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
-	<td colspan="2"><span class="style7">.: Pesan Siswa</span><br />
+	<td colspan="2"><span class="style7">.: Student Message</span><br />
     <br /><br /></td>
   </tr>
   <!--<tr>
@@ -128,20 +128,20 @@ function MM_nbGroup(event, grpName) { //v6.0
     <td><a href="pesansiswa_draft.php" target="kanan" onclick="MM_nbGroup('down','group1','draft2','draft_on.png',0)" onmouseover="MM_nbGroup('over','draft2','draft_on.png','draft_on.png',0)" onmouseout="MM_nbGroup('out')"><img src="draft_off.png" alt="" name="draft2" width="150" height="25" border="0" id="draft2" onload="" /></a></td>
   </tr>-->
   <tr>
-	<td width="31"><a href="#" onclick="go('pesansiswa_footer');" title="Kotak Masuk Anda" ><img src="../../images/ico/inbox.png" border="0" /></a></td>
-    <td width="119" class="style8"><a href="#" title="Kotak Masuk Anda" onclick="go('pesansiswa_footer');" >Kotak Masuk</a></td>
+	<td width="31"><a href="#" onclick="go('pesansiswa_footer');" title="Your Inbox" ><img src="../../images/ico/inbox.png" border="0" /></a></td>
+    <td width="119" class="style8"><a href="#" title="Your Inbox" onclick="go('pesansiswa_footer');" >Inbox</a></td>
   </tr>
   <tr>
-    <td><a href="#" onclick="go('pesansiswa_add_main');" title="Tulis Pesan Baru" ><img src="../../images/ico/compose.png" width="31" height="25" border="0" /></a></td>
-    <td class="style8"><a href="#" title="Tulis Pesan Baru" onclick="go('pesansiswa_add_main');" >Tulis Pesan</a></td>
+    <td><a href="#" onclick="go('pesansiswa_add_main');" title="New Message" ><img src="../../images/ico/compose.png" width="31" height="25" border="0" /></a></td>
+    <td class="style8"><a href="#" title="New Message" onclick="go('pesansiswa_add_main');" >Write Message</a></td>
   </tr>
   <tr>
-    <td><a href="#" onclick="go('pesansiswa_terkirim');" title="Daftar Pesan Terkirim" ><img src="../../images/ico/sent.png" width="31" height="25" border="0" /></a></td>
-    <td class="style8"><a href="#" title="Daftar Pesan Terkirim" onclick="go('pesansiswa_terkirim');" >Pesan Terkirim</a></td>
+    <td><a href="#" onclick="go('pesansiswa_terkirim');" title="Sent Message List" ><img src="../../images/ico/sent.png" width="31" height="25" border="0" /></a></td>
+    <td class="style8"><a href="#" title="Sent Message List" onclick="go('pesansiswa_terkirim');" >Sent Message</a></td>
   </tr>
   <tr>
-    <td><a href="#" onclick="go('pesansiswa_draft');" title="Daftar Pesan Tersimpan" ><img src="../../images/ico/draft.png" width="31" height="25" border="0" /></a></td>
-    <td class="style8"><a href="#" onclick="go('pesansiswa_draft');" title="Daftar Pesan Tersimpan" >Draft</a></td>
+    <td><a href="#" onclick="go('pesansiswa_draft');" title="Saved Message List" ><img src="../../images/ico/draft.png" width="31" height="25" border="0" /></a></td>
+    <td class="style8"><a href="#" onclick="go('pesansiswa_draft');" title="Saved Message List" >Draft</a></td>
   </tr>
 </table>
 <table width="150" border="0" cellspacing="0">
@@ -150,7 +150,7 @@ function MM_nbGroup(event, grpName) { //v6.0
   </tr>
   <tr>
     <th  scope="row" >
-    <span class="style3">.: Ulang Tahun Hari ini</span> <br /><hr /><span class="style6">
+    <span class="style3">.: Birthday Today</span> <br /><hr /><span class="style6">
     <?
 	$bulan=date("m");
 	$tanggal=date("j");
@@ -164,7 +164,7 @@ function MM_nbGroup(event, grpName) { //v6.0
 	echo "<a href='#' onclick=tampil('".$row[replid]."')>".$row[nis]."-".$row[nama]."</a><br><hr>";
 	}
 	} else {
-	echo "Tidak Ada Siswa yang berulang tahun hari ini";
+	echo "No student has birthday today";
 	}
 	?>
     </span>

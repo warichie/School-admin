@@ -87,7 +87,7 @@ if (isset($_POST['simpan'])) {
     if(mysql_affected_rows() >= 0) {
 ?>
             <script language="JavaScript">
-                alert("Data berhasil diubah");
+                alert("Data has been successfully changed");
                 //document.location.href="tampil_nilai_pelajaran.php?departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&jenis_penilaian=<?=$jenis_penilaian ?>";
             	parent.opener.change_sel();
 				window.close();
@@ -96,7 +96,7 @@ if (isset($_POST['simpan'])) {
     }else {
           ?>
            <script language="JavaScript">
-               alert("Gagal menambah data");
+               alert("Failed to add more data");
                //document.location.href="tampil_nilai_pelajaran.php?departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&jenis_penilaian=<?=$jenis_penilaian ?>";
 			   parent.opener.change_sel();
 				window.close();
@@ -124,11 +124,11 @@ if (isset($_POST['simpan'])) {
         deskripsi = document.ubah_nilai_pelajaran.deskripsi.value;
 
         if(tanggal.length == 0) {
-            alert("Tanggal tidak boleh kosong");
+            alert("Date should not leave empty");
             return false;
         }
         if(deskripsi.length == 0) {
-            alert("Deskripsi tidak boleh kosong");
+            alert("Description should not leave empty");
             document.ubah_nilai_pelajaran.deskripsi.value = "";
             document.ubah_nilai_pelajaran.deskripsi.focus();
             return false;
@@ -155,20 +155,20 @@ if (isset($_POST['simpan'])) {
 			
 			$row_jp = @mysql_fetch_array($result_jp);
 			?>
-			Ubah Informasi Pengujian <?=$row_jp[jenisujian] ?>
+			Change Informasi Pengujian <?=$row_jp[jenisujian] ?>
 			<input type="hidden" name="idjenis" value="<?=$row_jp[replid] ?>">			</td>
 		  </tr>
 		<tr>
 		<td>
 		<br>
-		<fieldset><legend><b>Data Nilai Pelajaran</b></legend>
+		<fieldset><legend><b>Class Subject Point Data</b></legend>
 		<table border="0" width="100%">
         <tr>
-            <td>Departemen</td>
+            <td>Department</td>
             <td><input type="text" name="departemen" size="25" value="<?=$departemen;?>" readonly></td>
         </tr>
         <tr>
-            <td>Tahun Ajaran</td>
+            <td>Year</td>
             <td>
 			<?
 			$query_thn = "SELECT * FROM jbsakad.tahunajaran WHERE tahunajaran.replid = '$tahun'";
@@ -191,7 +191,7 @@ if (isset($_POST['simpan'])) {
 			<input type="text" name="semester" size="25" value="<?=$row_smt[semester] ?>" readonly></td>
         </tr>
         <tr>
-            <td>Tingkat</td>
+            <td>Grade</td>
 			<td>
 			<?
 			$query_tkt = "SELECT * FROM jbsakad.tingkat WHERE tingkat.replid = '$tingkat'";
@@ -201,7 +201,7 @@ if (isset($_POST['simpan'])) {
 			?>
 			<input type="hidden" name="idtingkat" value="<?=$row_tkt[replid] ?>">
 			<input type="text" size="25" name="tingkat" value="<?=$row_tkt[tingkat]; ?>" readonly></td>
-			<td>Kelas</td>
+			<td>Class</td>
 			<td>
 			<?
 			$query_kls = "SELECT * FROM jbsakad.kelas WHERE kelas.replid = '$kelas'";
@@ -213,7 +213,7 @@ if (isset($_POST['simpan'])) {
 			<input type="text" name="kelas" size="25" value="<?=$row_kls[kelas] ?>" readonly></td>
         </tr>
         <tr>
-            <td>Pelajaran</td>
+            <td>Class Subject</td>
             <td>
 			<?
 			$query_pel = "SELECT * FROM jbsakad.pelajaran WHERE pelajaran.replid = '$pelajaran'";
@@ -226,7 +226,7 @@ if (isset($_POST['simpan'])) {
         </tr>
 		<tr>
 			<td colspan="4">
-			<fieldset><legend><b>Jenis Penilaian : <?=$row_jp[jenisujian] ?></b></legend>
+			<fieldset><legend><b>Assessment Type : <?=$row_jp[jenisujian] ?></b></legend>
 			<?
 			$query_uj = "SELECT * FROM jbsakad.ujian WHERE replid = '$_GET[id]'";
 			$result_uj = QueryDb($query_uj);
@@ -236,14 +236,14 @@ if (isset($_POST['simpan'])) {
 			<input type="hidden" name="iduj" value="<?=$row_uj[replid] ?>">
 			<table width="100%">
 				<tr>
-					<td>Tanggal</td>
+					<td>Date</td>
 					<td><input type="hidden" name="tanggal_baru" id="tanggal_baru" size="25" value="<?=$row_uj[tanggal] ?>" readonly>
                     <input type="text" name="tanggal" id="tanggal" size="25" value="<?=format_tgl($row_uj[tanggal]) ?>" readonly onChange="change_date();">
-					<img src="../images/ico/calendar_1.png" alt="Tampilkan Tabel" name="tabel" width="22" height="22" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '120px')"/>
+					<img src="../images/ico/calendar_1.png" alt="Show Table" name="tabel" width="22" height="22" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '120px')"/>
                    </td>
 				</tr>
 				<tr>
-					<td>Deskripsi</td>
+					<td>Description</td>
 					<td><input type="text" name="deskripsi" size="50" value="<?=$row_uj[deskripsi] ?>"></td>
 				</tr>
 			</table>
@@ -255,8 +255,8 @@ if (isset($_POST['simpan'])) {
         <tr>
             <td>
               <div align="center">
-                <input type="button" value="Batal" name="batal" class="but" onClick="window.close()">
-                &nbsp;<input type="submit" value="Ubah" name="simpan" class="but">
+                <input type="button" value="Cancel" name="batal" class="but" onClick="window.close()">
+                &nbsp;<input type="submit" value="Edit" name="simpan" class="but">
             </div></td>
           </tr>
     </table>

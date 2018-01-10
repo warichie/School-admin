@@ -73,7 +73,7 @@ CloseDb();
 	<tr>
     <th height="39" colspan="3" scope="row"><span class="style7"></span><span class="style7"></span><span class="style7">
       <label>
-      <input name="button" type="submit" class="but" id="button" value="Kembali" title="Kembali ke Halaman sebelumnya" onclick="window.self.history.back();" />
+      <input name="button" type="submit" class="but" id="button" value="Back" title="Back to previous Page" onclick="window.self.history.back();" />
       </label>
     </span></th>
    </tr>
@@ -89,24 +89,24 @@ CloseDb();
 		<td background="../../images/BGNews_04.png" width="12">
 			</td>
 		<td width="*" background="../../images/BGNews_05.png">
-            <div align="left" style="padding-bottom:10px"><span style="color:#339900; font-size:20px; font-weight:bold">.:</span><span style="color:#FF6600; font-family:Calibri; font-size:16px; font-weight:bold; ">Pesan Terkirim</span></div>
+            <div align="left" style="padding-bottom:10px"><span style="color:#339900; font-size:20px; font-weight:bold">.:</span><span style="color:#FF6600; font-family:Calibri; font-size:16px; font-weight:bold; ">Sent Message</span></div>
             <table width="95%" border="0" cellspacing="2" cellpadding="2" align="center">
               <tr>
-                <td width="11%" valign="top"><span class="style1"><span class="style5">Dari</span></span></td>
+                <td width="11%" valign="top"><span class="style1"><span class="style5">From</span></span></td>
                 <td width="2%" valign="top"><span class="style5">:</span></td>
                 <td width="87%"><span class="style1">
                   <?=$row2[nama]?>
                 </span></td>
               </tr>
               <tr>
-                <td valign="top"><span class="style6">Judul</span></td>
+                <td valign="top"><span class="style6">Title</span></td>
                 <td valign="top"><span class="style5">:</span></td>
                 <td><span class="style1">
                   <?=$row2[judul]?>
                 </span></td>
               </tr>
               <tr>
-                <td valign="top"><span class="style5">Pesan</span></td>
+                <td valign="top"><span class="style5">Message</span></td>
                 <td valign="top"><span class="style5">:</span></td>
                 <td><font style="font-size: 11px; line-height: 18px">
                   <?=$row2[pesan]?>

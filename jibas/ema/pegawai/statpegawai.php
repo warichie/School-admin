@@ -26,7 +26,7 @@ require_once('../inc/getheader.php');
 require_once('../inc/common.php');
 require_once('../inc/db_functions.php');
 
-$krit = array('','Bagian','Agama','Gelar','Jenis Kelamin','Status Aktif','Status Menikah','Suku','Tahun Kelahiran','Usia');
+$krit = array('','Section','Religion','Academic Title','Gender','Status Active','Marital Status','Ethnicity','Year of Birth','Age');
 $kriteria = '1';
 if (isset($_REQUEST[kriteria]))
 	$kriteria = $_REQUEST[kriteria];
@@ -71,14 +71,14 @@ function cetak(){
 </head>
 <body>
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-	<img src="../img/loading2.gif" border="0" />&nbsp;<span class="tab2">Please&nbsp;wait...</span>
+	<img src="../img/loading2.gif" border="0" />&nbsp;<span class="tab2">Please wait...</span>
 </div>
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr>
     <td>
 		<table width="100%" border="0" cellspacing="2" cellpadding="2">
 		  <tr>
-			<td width="4%" align="left" class="tab2">Kriteria</td>
+			<td width="4%" align="left" class="tab2">Criteria</td>
 			<td width="96%"><select name="kriteria" class="cmbfrm" id="kriteria" style="width:240px;" onchange="chg()" >
 			<? for ($i=1;$i<count($krit);$i++) { 
 				if ($kriteria=="")
@@ -95,7 +95,7 @@ function cetak(){
     <td>
 		<table width="100%" border="0" cellspacing="2" cellpadding="2">
 		  <tr>
-			<td colspan="2" align="center"><a href="javascript:cetak()"><img src="../img/print.png" width="16" height="16" border="0" />&nbsp;Cetak</a></td>
+			<td colspan="2" align="center"><a href="javascript:cetak()"><img src="../img/print.png" width="16" height="16" border="0" />&nbsp;Print</a></td>
 			</tr>
 		  <tr>
 			<td><div align="center">
@@ -116,10 +116,10 @@ function cetak(){
 			<?
 			if ($kriteria == 1) 
 			{
-				$bartitle = "Banyaknya Pegawai berdasarkan Bagian";
-				$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Bagian";
-				$xtitle = "Bagian";
-				$ytitle = "Jumlah";
+				$bartitle = "Amount of Employee based on Section";
+				$pietitle = "Amount of Employee based on Section Percentage";
+				$xtitle = "Section";
+				$ytitle = "Sum";
 			
 				$sql = "SELECT bagian, count(replid), bagian AS XX FROM 
 						$db_name_sdm.pegawai
@@ -127,10 +127,10 @@ function cetak(){
 			}
 			if ($kriteria == 2) 
 			{
-				$bartitle = "Banyaknya Pegawai berdasarkan Agama";
-				$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Agama";
-				$xtitle = "Agama";
-				$ytitle = "Jumlah";
+				$bartitle = "Amount of Employee based on Religion";
+				$pietitle = "Amount of Employee based on Religion Percentage";
+				$xtitle = "Religion";
+				$ytitle = "Sum";
 			
 				$sql = "SELECT agama, count(replid), agama AS XX FROM 
 						$db_name_sdm.pegawai
@@ -138,10 +138,10 @@ function cetak(){
 			}
 			if ($kriteria == 3) 
 			{
-				$bartitle = "Banyaknya Pegawai berdasarkan Gelar";
-				$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Gelar";
-				$xtitle = "Gelar";
-				$ytitle = "Jumlah";
+				$bartitle = "Amount of Employee based on Academic Title";
+				$pietitle = "Amount of Employee based on Academic Title Percentage";
+				$xtitle = "Academic Title";
+				$ytitle = "Sum";
 			
 				$sql = "SELECT gelar, count(replid), gelar AS XX FROM 
 						$db_name_sdm.pegawai
@@ -150,36 +150,36 @@ function cetak(){
 			
 			if ($kriteria == 4)
 			{
-				$bartitle = "Banyaknya Pegawai berdasarkan Jenis Kelamin";
-				$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Jenis Kelamin";
-				$xtitle = "Jenis Kelamin";
-				$ytitle = "Jumlah";
-				$sql	=  "SELECT IF(kelamin='l','Laki - laki','Perempuan') as X, COUNT(nip), kelamin AS XX FROM $db_name_sdm.pegawai  WHERE aktif=1 GROUP BY X";
+				$bartitle = "Amount of Employee based on Gender";
+				$pietitle = "Amount of Employee based on Gender Percentage";
+				$xtitle = "Gender";
+				$ytitle = "Sum";
+				$sql	=  "SELECT IF(kelamin='l','Male','Female') as X, COUNT(nip), kelamin AS XX FROM $db_name_sdm.pegawai  WHERE aktif=1 GROUP BY X";
 			}
 			
 			if ($kriteria == 5)
 			{
-				$bartitle = "Banyaknya Pegawai berdasarkan Status Aktif";
-				$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Status Aktif";
-				$xtitle = "Status Aktif";
-				$ytitle = "Jumlah";
-				$sql	=  "SELECT IF(aktif=1,'Aktif','Tidak Aktif') as X, COUNT(nip), aktif AS XX FROM $db_name_sdm.pegawai GROUP BY X";
+				$bartitle = "Amount of Employee based on Status Active";
+				$pietitle = "Amount of Employee based on Status Active Percentage";
+				$xtitle = "Status Active";
+				$ytitle = "Sum";
+				$sql	=  "SELECT IF(aktif=1,'Active','Inactive') as X, COUNT(nip), aktif AS XX FROM $db_name_sdm.pegawai GROUP BY X";
 			}
 			
 			if ($kriteria == 6)
 			{
-				$bartitle = "Banyaknya Pegawai berdasarkan Status Menikah";
-				$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Status Menikah";
-				$xtitle = "Menikah";
-				$ytitle = "Jumlah";
+				$bartitle = "Amount of Employee based on Marital Status";
+				$pietitle = "Amount of Employee based on Marital Status Percentage";
+				$xtitle = "Marital Status";
+				$ytitle = "Sum";
 				$sql	=  "SELECT IF(nikah='menikah','Menikah','Belum Menikah') as X, COUNT(nip), nikah AS XX FROM $db_name_sdm.pegawai  WHERE aktif=1 GROUP BY X";
 			}
 			if ($kriteria == 7) 
 			{
-				$bartitle = "Banyaknya Pegawai berdasarkan Suku";
-				$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Suku";
-				$xtitle = "Suku";
-				$ytitle = "Jumlah";
+				$bartitle = "Amount of Employee based on Ethnicity";
+				$pietitle = "Amount of Employee based on Ethnicity Percentage";
+				$xtitle = "Ethnicity";
+				$ytitle = "Sum";
 			
 				$sql = "SELECT suku, count(replid), suku AS XX FROM 
 						$db_name_sdm.pegawai
@@ -187,20 +187,20 @@ function cetak(){
 			}
 			if ($kriteria == 8)
 			{
-				$bartitle = "Banyaknya Pegawai berdasarkan Tahun Kelahiran";
-				$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Tahun Kelahiran";
-				$xtitle = "Tahun Lahir";
-				$ytitle = "Jumlah";
+				$bartitle = "Amount of Employee based on Year of Birth";
+				$pietitle = "Amount of Employee based on Year of Birth Perecentage";
+				$xtitle = "Year of Birth";
+				$ytitle = "Sum";
 				$sql = "SELECT YEAR(tgllahir) as X, count(replid), YEAR(tgllahir) AS XX FROM 
 						$db_name_sdm.pegawai
 						WHERE aktif=1 GROUP BY X ORDER BY X ";
 			}
 			if ($kriteria == 9)
 			{
-				$bartitle = "Banyaknya Pegawai berdasarkan Usia";
-				$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Usia";
-				$xtitle = "Usia (tahun)";
-				$ytitle = "Jumlah";
+				$bartitle = "Amount of Employee based on Age";
+				$pietitle = "Amount of Employee based on Age Percentage";
+				$xtitle = "Age";
+				$ytitle = "Sum";
 				$sql = "SELECT G, COUNT(nip), XX FROM (
 						  SELECT nip, IF(usia < 20, '<20',
 									  IF(usia >= 20 AND usia <= 30, '20-30',
@@ -220,7 +220,7 @@ function cetak(){
 			?>
 			<table width="100%" border="1" class="tab" align="center">
 			  <tr>
-				<td height="25" align="center" class="header">No.</td>
+				<td height="25" align="center" class="header">#</td>
 				<td height="25" align="center" class="header"><?=$xtitle?></td>
 				<td height="25" align="center" class="header"><?=$ytitle?></td>
 				<td height="25" align="center" class="header">&nbsp;</td>
@@ -234,7 +234,7 @@ function cetak(){
 			  <tr>
 				<td width="15" height="20" align="center"><?=$cnt?></td>
 				<td height="20">&nbsp;&nbsp;<?=$row[0]?></td>
-				<td height="20" align="center"><?=$row[1]?> orang</td>
+				<td height="20" align="center"><?=$row[1]?> people</td>
 				<td height="20" align="center"><a href="javascript:viewdetail('<?=$kriteria?>','<?=$row[2]?>')"><img src="../img/lihat.png" border="0" /></a></td>
 			  </tr>
 			  <?

@@ -73,7 +73,7 @@ function CariSiswa(){
 		
 	}
 	if (!next){
-		alert ('NIS,NISN atau Nama harus diisi dan tidak boleh kurang dari 3 karakter!');
+		alert ('Student ID, National Student ID, or Name is required and should not less than 3 characters.');
 		document.frmCari.nis.focus();
 		return false;
 	}

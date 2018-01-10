@@ -240,7 +240,7 @@ function getColor(elem, attr) {
 		do {
 				color = $.curCSS(elem, attr);
 
-				// Keep going until we find an element that has color, or we hit the body
+				// Keep going to we find an element that has color, or we hit the body
 				if ( color != '' && color != 'transparent' || $.nodeName(elem, "body") )
 						break;
 
@@ -311,7 +311,7 @@ var colors = {
  *
  * Open source under the BSD License.
  *
- * Copyright © 2008 George McGinley Smith
+ * Copyright ï¿½ 2008 George McGinley Smith
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -480,7 +480,7 @@ $.extend($.easing,
  *
  * Open source under the BSD License.
  *
- * Copyright © 2001 Robert Penner
+ * Copyright ï¿½ 2001 Robert Penner
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,

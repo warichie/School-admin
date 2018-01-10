@@ -44,8 +44,8 @@ $P->OnStart();
 <body>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Daftar Penerbit</font><br />
-        <a href="referensi.php" class="welc">Referensi</a><span class="welc"> > Daftar Penerbit</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Publisher List</font><br />
+        <a href="referensi.php" class="welc">Reference</a><span class="welc"> > Publisher List</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$P->Content()?>

@@ -44,7 +44,7 @@ if (isset($_REQUEST['satker']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -143,8 +143,8 @@ $maxrownum = $pagenum * $PAGING_SIZE;
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Daftar Urut Kepangkatan</font><br />
-        <a href="pegawai.php">Kepegawaian</a> &gt; Daftar Urut Kepangkatan<br />
+        <font class="subtitle">Employee Affair Sort List</font><br />
+        <a href="pegawai.php">Employee Affair</a> &gt; Sort of Rank List<br />
     </td>
 </tr>
 </table>
@@ -153,9 +153,9 @@ $maxrownum = $pagenum * $PAGING_SIZE;
 <table border="0" cellpadding="2" cellspacing="0" width="1000">
 <tr>
 	<td width="100%" colspan="2" align="left">
-	Satuan Kerja:    
+	Work Unit:    
     <select name="satker" id="satker" onchange="JavaScript:ChangeSatKer()">
-	    <option value="all" <?=StringIsSelected("all", $satker)?> >(semua)</option>
+	    <option value="all" <?=StringIsSelected("all", $satker)?> >(all)</option>
 <?	$sql = "SELECT satker, nama FROM jbssdm.satker ORDER BY replid";    
 	$result = QueryDb($sql);
 	while($row = mysql_fetch_row($result)) { ?>
@@ -165,8 +165,8 @@ $maxrownum = $pagenum * $PAGING_SIZE;
     </td>
 </tr>
 <tr>
-<td  width="50%" align="left">
-Halaman
+<td width="50%" align="left">
+Page
 <? if ($pagenum != 1) { ?>
 <input type="button" id="Left" class="but" onclick="MoveToPage(<?=$pagenum-1?>)" value=" < ">
 <? } ?>
@@ -178,46 +178,46 @@ Halaman
 <? if ($pagenum != $npage) { ?>
 <input type="button" id="Left" class="but" onclick="MoveToPage(<?=$pagenum+1?>)" value=" > ">
 <? } ?>
- dari <?= $npage ?>&nbsp;&nbsp;&nbsp;(banyaknya data: <?=$ndata?>)
+ from <?= $npage ?>&nbsp;&nbsp;&nbsp;(amount of data: <?=$ndata?>)
 </td>
 <td width="50%" align="right">
-<a href="JavaScript:refresh()" title="Refresh"><img src="../images/ico/refresh.png" border="0" />&nbsp;refresh</a>
-&nbsp;&nbsp;<a href="JavaScript:Cetak_Excel()" title="Buka di Ms Excel"><img src="../images/ico/excel.png" border="0" />&nbsp;excel</a>
-&nbsp;&nbsp;<a href="JavaScript:Cetak()" title="Cetak Halaman Ini"><img src="../images/ico/print.png" border="0" />&nbsp;cetak</a>
+<a href="JavaScript:refresh()" title="Refresh"><img src="../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>
+&nbsp;&nbsp;<a href="JavaScript:Cetak_Excel()" title="Open in Excel"><img src="../images/ico/excel.png" border="0" />&nbsp;excel</a>
+&nbsp;&nbsp;<a href="JavaScript:Cetak()" title="Print this page"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>
 </td>
 </tr>
 </table>
 
 <table border="1" cellpadding="2" cellspacing="0" width="1395" class="tab" id="table">
 <tr height="20">
-	<td class="header"  width="20" align="center" valign="middle" rowspan="2">No</td>
-    <td class="header"  width="160" align="center" valign="middle" rowspan="2">Nama</td>
-    <td class="header"  width="120" align="center" valign="middle" rowspan="2">NIP</td>
-    <td class="header"  width="120" align="center" valign="middle" colspan="2">Pangkat</td>
-    <td class="header"  width="200" align="center" valign="middle" colspan="2">Jabatan</td>
-    <td class="header"  width="100" align="center" valign="middle" colspan="2">Masa Kerja</td>
-    <td class="header"  width="100" align="center" valign="middle" colspan="2">Diklat</td>
-    <td class="header"  width="125" align="center" valign="middle" colspan="3">Pendidikan</td>
-    <td class="header"  width="40" align="center" valign="middle" rowspan="2">Usia</td>
-    <td class="header"  width="120" align="center" valign="middle" rowspan="2">Kelahiran</td>
-	<td class="header"  width="200" align="left" valign="middle" rowspan="2">Keterangan</td>
+	<td class="header"  width="20" align="center" valign="middle" rowspan="2">#</td>
+    <td class="header"  width="160" align="center" valign="middle" rowspan="2">Name</td>
+    <td class="header"  width="120" align="center" valign="middle" rowspan="2">Employee ID</td>
+    <td class="header"  width="120" align="center" valign="middle" colspan="2">Rank</td>
+    <td class="header"  width="200" align="center" valign="middle" colspan="2">Position</td>
+    <td class="header"  width="100" align="center" valign="middle" colspan="2">Years of Service</td>
+    <td class="header"  width="100" align="center" valign="middle" colspan="2">Education and Training</td>
+    <td class="header"  width="125" align="center" valign="middle" colspan="3">Education</td>
+    <td class="header"  width="40" align="center" valign="middle" rowspan="2">Age</td>
+    <td class="header"  width="120" align="center" valign="middle" rowspan="2">Year of Birth</td>
+	<td class="header"  width="200" align="left" valign="middle" rowspan="2">Info</td>
 </tr>
 <tr height="20">
-	<td class="header"  width="60" align="center" valign="middle">GOL</td>
+	<td class="header"  width="60" align="center" valign="middle">ORDER</td>
     <td class="header"  width="60" align="center" valign="middle">TMT</td>
     
-    <td class="header"  width="140" align="center" valign="middle">NAMA</td>
+    <td class="header"  width="140" align="center" valign="middle">NAME</td>
     <td class="header"  width="60" align="center" valign="middle">TMT</td>
     
-    <td class="header"  width="50" align="center" valign="middle">GOL</td>
+    <td class="header"  width="50" align="center" valign="middle">ORDER</td>
     <td class="header"  width="50" align="center" valign="middle">SEL</td>
     
-    <td class="header"  width="50" align="center" valign="middle">Nama</td>
-    <td class="header"  width="50" align="center" valign="middle">Th</td>
+    <td class="header"  width="50" align="center" valign="middle">Name</td>
+    <td class="header"  width="50" align="center" valign="middle">Year</td>
     
-    <td class="header"  width="65" align="center" valign="middle">Nama</td>
-    <td class="header"  width="30" align="center" valign="middle">Lls</td>
-    <td class="header"  width="30" align="center" valign="middle">Tk</td>
+    <td class="header"  width="65" align="center" valign="middle">Name</td>
+    <td class="header"  width="30" align="center" valign="middle">Pass</td>
+    <td class="header"  width="30" align="center" valign="middle">Rank</td>
 </tr>
 
 <?
@@ -307,7 +307,7 @@ for($i = $minrownum - 1; $i < $maxrownum && $i < $ndata; $i++)
 }
 ?>
 </table>
-<span class="style1">Tampilkan</span> 
+<span class="style1">Display</span> 
 <select name="PAGING_SIZE" id="PAGING_SIZE" onchange="chg_paging_size()">
 <?
 $i=5;
@@ -319,7 +319,7 @@ $i=$i+5;
 }
 ?>
 </select> 
-<span class="style1">data per Halaman.</span>
+<span class="style1">data per Page.</span>
 <script language='JavaScript'>
 	Tables('table', 1, 0);
 </script>

@@ -43,13 +43,13 @@ if (isset($_REQUEST['kategori']))
 if ($kategori!="ALL")	
 	$nkategori = getname2('kategori',$db_name_fina.'.katerekakun','kategori',$kategori);	
 else
-	$nkategori = "Semua Kategori";
+	$nkategori = "All Category";
 if (isset($_REQUEST['tanggal1']))
 	$tanggal1 = $_REQUEST['tanggal1'];
 
 if (isset($_REQUEST['tanggal2']))
 	$tanggal2 = $_REQUEST['tanggal2'];
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -57,7 +57,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Daftar Buku Besar]</title>
+<title>JIBAS EMA [Print Ledger List]</title>
 </head>
 
 <body>
@@ -68,22 +68,22 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>DAFTAR BUKU BESAR</strong></font><br />
+  <font size="4"><strong>LEDGER LIST</strong></font><br />
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="7%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="7%" class="news_content1"><strong>Department</strong></td>
     <td width="30%" class="news_content1">: 
       <?=$departemen ?></td>
-    <td width="5%" class="news_content1"><strong>Periode</strong></td>
+    <td width="5%" class="news_content1"><strong>Period</strong></td>
     <td width="58%" class="news_content1">:
 <?=$nperiode ?></td>
 </tr>
 <tr>
-  <td class="news_content1"><strong>Tahun Buku</strong></td>
+  <td class="news_content1"><strong>Fiscal Year</strong></td>
   <td class="news_content1">: 
       <?=$ntahunbuku ?></td>
-  <td class="news_content1"><strong>Kategori</strong></td>
+  <td class="news_content1"><strong>Category</strong></td>
   <td class="news_content1">: 
       <?=$nkategori ?></td>
 </tr>
@@ -99,10 +99,10 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
         ?>
              <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="95%" align="center" bordercolor="#000000" />
             <tr height="30">
-                <td class="header" width="4%" align="center">No</td>
-                <td class="header" width="*" align="center">Rekening</td>
-                <td class="header" width="22%" align="center">Debet</td>
-                <td class="header" width="22%" align="center">Kredit</td>
+                <td class="header" width="4%" align="center">#</td>
+                <td class="header" width="*" align="center">Bank Account</td>
+                <td class="header" width="22%" align="center">Debit</td>
+                <td class="header" width="22%" align="center">Credit</td>
             </tr>
         <?
             $cnt = 0;
@@ -120,7 +120,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             </tr>
         <? } ?>
             <tr height="30">
-                <td colspan="2" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+                <td colspan="2" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
                 <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
                 <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>
             </tr>

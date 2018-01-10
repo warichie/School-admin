@@ -182,25 +182,25 @@ class CPustaka{
 		<table width="100%" border="0" cellspacing="2" cellpadding="2">
           <tr>
             <td width="47%" valign="top">
-                <fieldset><legend><strong>Informasi Pustaka</strong></legend>
+                <fieldset><legend><strong>Library Info</strong></legend>
                     <table width="99%" border="0" cellspacing="2" cellpadding="2">
                       <tr>
-                        <td width="24%" align="right" valign="top">&nbsp;<strong>Judul</strong></td>
+                        <td width="24%" align="right" valign="top">&nbsp;<strong>Title</strong></td>
                         <td colspan="2"><textarea name="judul" cols="45" rows="3" class="areatxt2" id="judul" style="width:100%"><?=$this->judul?></textarea></td>
                       </tr>
                       <tr>
-                        <td align="right">&nbsp;<strong>Harga&nbsp;Satuan</strong></td>
+                        <td align="right">&nbsp;<strong>Unit Price</strong></td>
                         <td colspan="2">
                             <input name="harga" type="text" class="inputtxt" id="harga" value="<?=FormatRupiah($this->harga)?>" onfocus="unformatRupiah('harga')" onblur="formatRupiah('harga')"/>                        </td>
                       </tr>
                       <tr>
-                        <td align="right">&nbsp;<strong>Katalog</strong></td>
+                        <td align="right">&nbsp;<strong>Catalogue</strong></td>
                         <td colspan="2">
                             <?=$this->GetKatalog()?>
 						</td>
                       </tr>
                       <tr>
-                        <td align="right">&nbsp;<strong>Penulis</strong></td>
+                        <td align="right">&nbsp;<strong>Author</strong></td>
                         <td colspan="2">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
                               <tr>
@@ -211,7 +211,7 @@ class CPustaka{
 						</td>
                       </tr>
                       <tr>
-                        <td align="right"><strong>&nbsp;Penerbit</strong></td>
+                        <td align="right"><strong>&nbsp;Publisher</strong></td>
                         <td colspan="2">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
                               <tr>
@@ -222,7 +222,7 @@ class CPustaka{
                         </td>
                       </tr>
                       <tr>
-                        <td align="right">&nbsp;<strong>Tahun&nbsp;Terbit</strong></td>
+                        <td align="right">&nbsp;<strong>Year Published</strong></td>
                         <td width="27%"><input name="tahun" type="text" class="inputtxt" id="tahun" maxlength="4" value="<?=$this->tahun?>" /></td>
                         <td width="49%">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -237,7 +237,7 @@ class CPustaka{
                         <td colspan="2"><input name="keyword" type="text" class="inputtxt" id="keyword" size="48" value="<?=$this->keyword?>" /></td>
                       </tr>
                       <tr>
-                        <td align="right" valign="top">&nbsp;<strong>Keterangan&nbsp;Fisik</strong></td>
+                        <td align="right" valign="top">&nbsp;<strong>Physical Info</strong></td>
                         <td colspan="2"><textarea name="keteranganfisik" cols="45" rows="5" class="areatxt2" id="keteranganfisik" style="width:100%"><?=$this->keteranganfisik?></textarea></td>
                       </tr>
                 	</table>            
@@ -247,25 +247,25 @@ class CPustaka{
                 <table width="100%" border="0" cellspacing="2" cellpadding="0">
                   <tr>
                     <td>
-                    	<fieldset><legend><strong>Gambar Cover</strong></legend>
+                    	<fieldset><legend><strong>Cover Image</strong></legend>
                     		<table width="130" border="0" cellspacing="0" cellpadding="0" bgcolor="#CCCCCC">
                               <tr height="130">
                                 <td align="center" valign="middle"><img src="../inc/gambar.php?replid=<?=$this->replid?>&table=pustaka" /></td>
                               </tr>
                             </table><br />
-                        <input name="cover" id="cover" type="file" />&nbsp;<span class="posted">* Isi untuk ganti cover
+                        <input name="cover" id="cover" type="file" />&nbsp;<span class="posted">* To change the cover
                         </span>
                                                 </fieldset>                    </td>
                   </tr>
                   <tr>
                     <td>
-                    <fieldset><legend><strong>Abstraksi</strong></legend>
+                    <fieldset><legend><strong>Abstraction</strong></legend>
                     <textarea name="abstraksi" id="abstraksi" cols="" rows="" style="width:100%"><?=$this->abstraksi?></textarea>
                     </fieldset>                    </td>
                   </tr>
                   <tr>
                     <td align="left" valign="top">
-                    <fieldset><legend><strong>Keterangan&nbsp;Tambahan</strong></legend>                    
+                    <fieldset><legend><strong>Others</strong></legend>                    
                    	<textarea name="keterangan" id="keterangan" cols="45" rows="5"><?=$this->keterangan?>
                     	</textarea>
                     </fieldset>
@@ -274,13 +274,13 @@ class CPustaka{
             </table>            </td>
           </tr>
           <tr>
-            <td valign="top"><fieldset><legend><strong>Alokasi Jumlah</strong></legend>
+            <td valign="top"><fieldset><legend><strong>Allocation</strong></legend>
             <?=$this->GetPustaka()?>
             </fieldset></td>
           </tr>
           <tr>
           	<td colspan="2" align="center">
-            	<input name="simpan" type="submit" class="cmbfrm2" value="Simpan" />
+            	<input name="simpan" type="submit" class="cmbfrm2" value="Save" />
             </td>
           </tr>  
         </table>
@@ -292,8 +292,8 @@ class CPustaka{
 		?>
 		<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
              <tr>
-               <td width="63%" height="25" align="center" valign="middle" class="header">Perpustakaan</td>
-               <td width="37%" height="25" align="center" valign="middle" class="header">Jumlah</td>
+               <td width="63%" height="25" align="center" valign="middle" class="header">Library</td>
+               <td width="37%" height="25" align="center" valign="middle" class="header">Sum</td>
              </tr>
              <?
 			 $cnt=0;

@@ -63,7 +63,7 @@ $namapelajaran = $row['nama'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Cetak Daftar Rencana Program Pengajaran]</title>
+<title>JIBAS TEACHERS INFO [Print Lesson Plans List]</title>
 </head>
 
 <body>
@@ -73,17 +73,17 @@ $namapelajaran = $row['nama'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DAFTAR RENCANA PROGRAM PEMBELAJARAN </strong></font><br />
+  <font size="4"><strong>LESSON PLANS LIST </strong></font><br />
  </center><br /><br />
 
 <br />
 <table>
 <tr>
-	<td><strong>Departemen</strong> </td> 
+	<td><strong>Department</strong> </td> 
 	<td><strong>:&nbsp;<?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
 	<td><strong>:&nbsp;<?=$namatingkat?></strong></td>
 </tr>
 <tr>
@@ -91,7 +91,7 @@ $namapelajaran = $row['nama'];
 	<td><strong>:&nbsp;<?=$namasemester?></strong></td>
 </tr>
 <tr>
-	<td><strong>Pelajaran</strong></td>
+	<td><strong>Class Subject</strong></td>
 	<td><strong>:&nbsp;<?=$namapelajaran?></strong></td>
 </tr>
 
@@ -99,10 +99,10 @@ $namapelajaran = $row['nama'];
 <br />
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="8%" class="header" align="center">Kode</td>
-        <td width="25%" class="header" align="center">Materi</td>
-        <td width="*" class="header" align="center">Deskripsi</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="8%" class="header" align="center">Code</td>
+        <td width="25%" class="header" align="center">Class Subject</td>
+        <td width="*" class="header" align="center">Description</td>
         <td width="10%" class="header" align="center">Status</td>        
         
     </tr>
@@ -118,9 +118,9 @@ $namapelajaran = $row['nama'];
         <td><?=$row['deskripsi'] ?></td>
         <td align="center">
 			<? if ($row['aktif'] == 1) 
-					echo 'Aktif';
+					echo 'Active';
 				else
-					echo 'Tidak Aktif';
+					echo 'Inactive';
 			?>		
         </td>
     </tr>

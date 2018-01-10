@@ -44,7 +44,7 @@ if (isset($_REQUEST['tingkat']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kenaikan Kelas</title>
+<title>Grade Promotion</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -75,17 +75,17 @@ function tampil() {
 	var kelas = document.getElementById("kelas").value;	
 	
 	if (tahunajaran==""){
-		alert ('Tahun Ajaran tidak boleh kosong!');
+		alert ('Year of Teaching should not leave empty');
 		document.getElementById("tahunajaran").focus();
 		return false;
 	}
 	if (tingkat==""){
-		alert ('Tingkat tidak boleh kosong!');
+		alert ('Grade should not leave empty');
 		document.getElementById("tingkat").focus();
 		return false;
 	}	
 	if (kelas == 0) {
-		alert ('Belum ada Kelas yang aktif pada Tingkat ini!');	
+		alert ('No Active Class on this Grade');	
 		document.getElementById("departemen").focus();
 		return false;
 	}
@@ -117,7 +117,7 @@ function focusNext(elemName, evt) {
 	<td rowspan="2" width="36%">
 	<table width = "100%" border = "0">
     <tr>
-      	<td width = "30%"><strong>Departemen</strong>
+      	<td width = "30%"><strong>Department</strong>
       	<td width = "*">
 		<select name="departemen" id="departemen" onchange="change_departemen()" style="width:200px;" onKeyPress="return focusNext('tahunajaran', event)" >
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -130,7 +130,7 @@ function focusNext(elemName, evt) {
       	</select>    	</td>
     </tr>
     <tr>
-		<td><strong>Tahun Ajaran</strong></td>
+		<td><strong>Year</strong></td>
         <td>
     	<select name="tahunajaran" id="tahunajaran" style="width:200px;"  onchange="change_tingkat()" onKeyPress="return focusNext('tingkat', event)">
    		<? 	OpenDb();
@@ -142,7 +142,7 @@ function focusNext(elemName, evt) {
 					$tahunajaran = $row_tahunajaran['replid'];
 				$ada = "";
 				if ($row_tahunajaran['aktif'])
-					$ada = "(Aktif)";	
+					$ada = "(Active)";	
 		?>
         <option value="<?=urlencode($row_tahunajaran[replid])?>" <?=IntIsSelected($row_tahunajaran['replid'], $tahunajaran)?> >
 		<?=$row_tahunajaran['tahunajaran']." ".$ada?></option>
@@ -151,7 +151,7 @@ function focusNext(elemName, evt) {
     	</td>
    	</tr>
 	<tr>
-    	<td><strong>Tingkat</strong>
+    	<td><strong>Grade</strong>
       	<td>
         <select name="tingkat" id="tingkat" onchange="change_tingkat()" style="width:200px;" onKeyPress="return focusNext('tabel', event)" >
 		<? 	OpenDb(); 
@@ -182,11 +182,11 @@ function focusNext(elemName, evt) {
 		</td>  
   	</tr>
     </table>   	</td>
-  	<td valign="middle"><a href="#" onclick="tampil()" ><img src="../images/view.png" height="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Klik untuk menampilkan daftar siswa yang akan mutasi!', this, event, '200px')"/></a></td>
-  	<td colspan = "2" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Mutasi Siswa</font><br />
+  	<td valign="middle"><a href="#" onclick="tampil()" ><img src="../images/view.png" height="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Click to show Student List yang akan mutasi', this, event, '200px')"/></a></td>
+  	<td colspan = "2" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Mutation</font><br />
     <a href="../mutasi.php" target="content">
-      <font size="1" color="#000000"><b>Mutasi</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Mutasi Siswa</b></font>
+      <font size="1" color="#000000"><b>Mutation</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Student Mutation</b></font>
     </td>     
 </tr>
 </table>

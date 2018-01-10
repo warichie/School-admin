@@ -41,7 +41,7 @@ $tahunakhir=$_REQUEST['tahunakhir'];
 
 
 <div align="center">
-  <a href="#" onclick="newWindow('cetak_statistik_mutasi.php?departemen=<?=$departemen?>&tahunawal=<?=$tahunawal?>&tahunakhir=<?=$tahunakhir?>','s',750,650,'scrollbars=1')" /><img src="../images/ico/print.png" border="0" /><strong>Cetak</strong></a></div>
+  <a href="#" onclick="newWindow('cetak_statistik_mutasi.php?departemen=<?=$departemen?>&tahunawal=<?=$tahunawal?>&tahunakhir=<?=$tahunakhir?>','s',750,650,'scrollbars=1')" /><img src="../images/ico/print.png" border="0" /><strong>Print</strong></a></div>
 <table width="100%" border="0">
   <tr>
     <td><div align="center" id="batang">

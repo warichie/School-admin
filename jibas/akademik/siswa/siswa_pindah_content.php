@@ -108,7 +108,7 @@ if ($op=="xm8r389xemx23xb2378e23"){
 		<?
 	} else {
 		RollBackTrans();
-		$ERROR_MSG = '"Kapasitas kelas awal sudah penuh, siswa gagal kembali ke kelas awal!\nPindahkan siswa ke kelas lain"';
+		$ERROR_MSG = 'Former class capacity is full, the student should not back to the former class\nTransfer to another class';
 	}
 	CloseDb();
 	$page=0;
@@ -121,7 +121,7 @@ if ($op=="xm8r389xemx23xb2378e23"){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<title>Tampil Siswa</title>
+<title>Student Display</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/tables.js"></script>
@@ -201,7 +201,7 @@ function batal_pindah(nis){
 	var idtingkat=document.getElementById("idtingkat").value;
 	var idkelas=document.getElementById("idkelas").value;
 	
-	if (confirm("Data Siswa ini akan dihapus.\nApakah anda yakin akan mengembalikan siswa ini ke kelas sebelumnya?")) {
+	if (confirm("This student data will be deleted.\nAre you sure want to get this student back to the former class?")) {
 		document.location.href="siswa_pindah_content.php?op=xm8r389xemx23xb2378e23&nis="+nis+"&departemen="+departemen+"&idtahunajaran="+idtahunajaran+"&idkelas="+idkelas+"&idtingkat="+idtingkat+"&urut=<?=$urut?>&urutan=<?=$urutan?>&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 	}	
 }
@@ -228,7 +228,7 @@ function focusNext(elemName, evt) {
 <!-- TABLE CENTER -->
 <tr>
   	<td>    
-    <strong>Kelas Tujuan</strong>&nbsp;
+    <strong>Destination Class</strong>&nbsp;
     <select name="idkelas" id="idkelas" onChange="change_kelas()" >
 <?  OpenDb();
     $sql_kelas="SELECT replid,kelas,kapasitas FROM jbsakad.kelas WHERE idtahunajaran='$idtahunajaran' AND idtingkat='$idtingkat' ORDER BY kelas";
@@ -276,9 +276,9 @@ function focusNext(elemName, evt) {
 	?>
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 	<tr height="30" class="header" align="center">
-    	<td width="4%" >No</td>
-    	<td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('nis','<?=$urutan?>')" >N I S <?=change_urut('nis',$urut,$urutan)?></td>
-    	<td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('nama','<?=$urutan?>')" >Nama <?=change_urut('nama',$urut,$urutan)?></td>
+    	<td width="4%" >#</td>
+    	<td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('nis','<?=$urutan?>')" >Student ID <?=change_urut('nis',$urut,$urutan)?></td>
+    	<td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('nama','<?=$urutan?>')" >Name <?=change_urut('nama',$urut,$urutan)?></td>
         <td width="6%">&nbsp;</td>
   	</tr>  
   	<?
@@ -302,7 +302,7 @@ function focusNext(elemName, evt) {
     	<td><a href="#" onClick="newWindow('../library/detail_siswa.php?replid=<?=$row_siswa['replid']?>', 'DetailSiswa','800','650','resizable=0,scrollbars=1,status=0,toolbar=0')"><?=$nama?></a></td>
         <td align="center">
 			<? if ($row_riwayat['status']==3) {?>
-        	<a href="#" onClick="javascript:batal_pindah('<?=$nis?>')"><img src="../images/ico/hapus.png" width="16" height="16" border="0" onMouseOver="showhint('Batalkan kepindahan kelas!', this, event, '120px')"/></a>
+        	<a href="#" onClick="javascript:batal_pindah('<?=$nis?>')"><img src="../images/ico/hapus.png" width="16" height="16" border="0" onMouseOver="showhint('Cancel', this, event, '120px')"/></a>
         	<? } ?>
      	</td>
   	</tr>
@@ -336,20 +336,20 @@ function focusNext(elemName, evt) {
     <td>
     <table border="0"width="100%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="50%" align="left">Hal
+       	<td width="50%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--<td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value="<<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value="<<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -360,9 +360,9 @@ function focusNext(elemName, evt) {
 				 
 	    }*/
 		?>
-	    <input <?=$disnext?> type="button" class="but" name="next" value=">>" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	    <input <?=$disnext?> type="button" class="but" name="next" value=">>" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td>-->
-        <td width="50%" align="right">Jml baris per hal
+        <td width="50%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -378,8 +378,8 @@ function focusNext(elemName, evt) {
 	<tr>
 		<td align="center" valign="middle" height="300">
 
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
-        <br />Belum ada siswa yang terdaftar pada kelas <?=$kelas?>.
+    	<font size = "2" color ="red"><b>Data Not Found. 
+        <br />No registered student on class <?=$kelas?>.
        	</b></font>
 		</td>
 	</tr>
@@ -390,7 +390,7 @@ function focusNext(elemName, evt) {
 	<tr>
 		<td align="center" valign="middle" height="200">
 
-    	<font size = "2" color ="red"><b>Belum ada kelas yang dituju.
+    	<font size = "2" color ="red"><b>No Destination Class.
        	</b></font>
 		</td>
 	</tr>

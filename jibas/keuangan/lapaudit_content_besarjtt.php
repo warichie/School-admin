@@ -86,24 +86,24 @@ function excel()
   	<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
    	<tr>
 		<td><font size="2" color="#990000">
-        	<strong>Perubahan Data Iuran Wajib <?=$judul?>Siswa </strong></font>
+        	<strong>Student Mandatory Contribution Data Changing <?=$judul?> </strong></font>
         </td>
         <td align="right">
-        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
-        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka di Ms Excel!', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
+        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
+        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Open in Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
         </td>
     </tr>
     </table>
     <br />
     <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000">
     <tr height="30" align="center">
-        <td class="header" width="4%">No</td>
+        <td class="header" width="4%">#</td>
         <td class="header" width="17%">Status Data</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="15%">Jumlah</td>
-        <td class="header" width="*">Keterangan</td>
-        <td class="header" width="15%">Petugas</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="15%">Sum</td>
+        <td class="header" width="*">Info</td>
+        <td class="header" width="15%">Officer</td>
     </tr>
     <?
     OpenDb();
@@ -120,11 +120,11 @@ function excel()
     $no = 0;
     while ($row = mysql_fetch_array($result)) 
 	 {
-        $statusdata = "Data Lama";
+        $statusdata = "Old Data";
         $bgcolor = "#FFFFFF";
 	     if ($row['statusdata'] == 1) 
 		  {
-            $statusdata = "Data Perubahan";
+            $statusdata = "Changed Data";
 				$bgcolor = "#FFFFB7";
         }
 		    
@@ -132,12 +132,12 @@ function excel()
 		  { ?>
         <tr>
             <td rowspan="4" align="center" bgcolor="#CCCC66"><strong><?=++$no ?></strong></td>
-            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Perubahan dilakukan oleh <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
+            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Changed by <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
         </tr>
         <tr>
-            <td colspan="6" bgcolor="#E5E5E5" ><strong>No. Jurnal :</strong> <?=$row['nokas'] ?>   
-            &nbsp;&nbsp;<strong>Alasan : </strong><?=$row['alasan'];?>
-            <br /><strong>Transaksi :</strong> <?=$row['transaksi'] ?></td>
+            <td colspan="6" bgcolor="#E5E5E5" ><strong>Journal Number :</strong> <?=$row['nokas'] ?>   
+            &nbsp;&nbsp;<strong>Reasons : </strong><?=$row['alasan'];?>
+            <br /><strong>Transaction :</strong> <?=$row['transaksi'] ?></td>
         </tr>
     <?  } ?>
     

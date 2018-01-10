@@ -927,7 +927,7 @@ class AccBarPlot extends BarPlot {
                     if( $j === 0 ) {
                         // This gets extra complicated since we have to
                         // see all plots to see if we are negative. It could
-                        // for example be that all plots are 0 until the very
+                        // for example be that all plots are 0 to the very
                         // last one. We therefore need to save the initial setup
                         // for both the negative and positive case
 

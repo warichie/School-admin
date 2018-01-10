@@ -173,7 +173,7 @@ $sql = "SELECT replid, singkatan, jabatan FROM jbssdm.jabatan WHERE rootid=0";
 $result = QueryDb($sql);
 if (mysql_num_rows($result) == 0) 
 {
-	echo "Belum ada data";
+	echo "No data yet";
 } 
 else 
 {

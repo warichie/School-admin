@@ -41,7 +41,7 @@ $result_jam=QueryDb($sql_jam);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Definisi Jam <?=$departemen?>]</title>
+<title>JIBAS SIMAKA [Print Session Definition <?=$departemen?>]</title>
 </head>
 
 <body>
@@ -50,19 +50,19 @@ $result_jam=QueryDb($sql_jam);
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>DEFINISI JAM</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>SESSION DEFINITION</strong></font><br /> </center><br /><br />
 
 <br />
 	<table id="table" border="0" width="95%" />
     <tr><td align="left">
-    &nbsp;&nbsp;&nbsp;&nbsp;<strong>Departemen :</strong> <?=$departemen?>
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>Department :</strong> <?=$departemen?>
     </td></tr>
     </table><br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000" />
     <!-- TABLE CONTENT -->
     <tr height="30" class="header" align="center">	
-		<td width="20%">Jam ke</td>
-	  	<td width="*">Waktu</td>
+		<td width="20%">Hour</td>
+	  	<td width="*">Time</td>
 	</tr>
 	<? 
 		while ($row_jam=@mysql_fetch_row($result_jam)){

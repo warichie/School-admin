@@ -37,12 +37,12 @@ $kriteria = '1';
 if (isset($_REQUEST[kriteria]))
 	$kriteria = $_REQUEST[kriteria];
 if ($departemen=='-1'){
-	$ndepartemen = 'Semua Departemen';
+	$ndepartemen = 'All Department';
 } else {
 	$ndepartemen = $departemen;
 }	
 if ($angkatan==''){
-	$nangkatan = 'Semua Angkatan';
+	$nangkatan = 'All Graduation';
 } else {
 	OpenDb();
 	$sql = "SELECT * FROM angkatan WHERE replid=$angkatan";
@@ -50,7 +50,7 @@ if ($angkatan==''){
 	$row = @mysql_fetch_array($result);
 	$nangkatan = $row[angkatan];
 }	
-$krit = array('','Agama','Asal Sekolah','Golongan Darah','Jenis Kelamin','Kewarganegaraan','Kode Pos Siswa','Kondisi Siswa','Pekerjaan Ayah','Pekerjaan Ibu','Pendidikan Ayah','Pendidikan Ibu','Penghasilan Orang Tua','Status Aktif','Status Siswa','Suku','Tahun Kelahiran','Usia');
+$krit = array('','Religion','Past School','Blood Type','Gender','Citizenship','Student Post Code','Student Conditions','Father Occupation','Mother Occupation','Father Education','Mother Education','Parent Income','Status Active','Student Status','Ethnicity','Year of Birth','Age');
 $nkriteria = $krit[$kriteria];
 $dep = $departemen;
 if ($departemen=='-1')
@@ -61,7 +61,7 @@ if ($departemen=='-1')
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Rapor]</title>
+<title>JIBAS EMA [Print Report Card]</title>
 </head>
 
 <body>
@@ -72,21 +72,21 @@ if ($departemen=='-1')
 <? getHeader($dep) ?>
 	
 <center>
-  <font size="4"><strong>STATISTIK KESISWAAN</strong></font><br />
+  <font size="4"><strong>STUDENT STATISTIC</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td width="25%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="25%" class="news_content1"><strong>Department</strong></td>
     <td class="news_content1">: 
       <?=$ndepartemen?></td>
 </tr>
 <tr>
-	<td class="news_content1"><strong>Angkatan</strong></td>
+	<td class="news_content1"><strong>Graduates</strong></td>
     <td class="news_content1">: 
       <?=$nangkatan?></td>
 </tr>
 <tr>
-	<td class="news_content1"><strong>Kriteria</strong></td>
+	<td class="news_content1"><strong>Criteria</strong></td>
     <td class="news_content1">: 
       <?=$nkriteria ?></td>
 </tr>
@@ -115,8 +115,8 @@ if ($departemen=='-1')
 		
 		if ($kriteria == 1) 
 		{
-			$xtitle = "Agama";
-			$ytitle = "Jumlah";
+			$xtitle = "Religion";
+			$ytitle = "Sum";
 		
 			$sql = "SELECT s.agama, count(s.replid), s.agama AS XX FROM 
 					siswa s, angkatan a 
@@ -124,8 +124,8 @@ if ($departemen=='-1')
 		}
 		elseif ($kriteria == 2) 
 		{
-			$xtitle = "Asal Sekolah";
-			$ytitle = "Jumlah";
+			$xtitle = "Past School";
+			$ytitle = "Sum";
 		
 			$sql = "SELECT s.asalsekolah, count(s.replid), s.asalsekolah AS XX FROM 
 					siswa s, angkatan a 
@@ -133,8 +133,8 @@ if ($departemen=='-1')
 		}
 		elseif ($kriteria == 3) 
 		{
-			$xtitle = "Golongan Darah";
-			$ytitle = "Jumlah";
+			$xtitle = "Blood Type";
+			$ytitle = "Sum";
 		
 			$sql = "SELECT s.darah, count(s.replid), s.darah AS XX FROM 
 					siswa s, angkatan a 
@@ -142,75 +142,75 @@ if ($departemen=='-1')
 		}
 		elseif ($kriteria == 4)
 		{
-			$xtitle = "Jenis Kelamin";
-			$ytitle = "Jumlah";
-			$sql	=  "SELECT IF(s.kelamin='l','Laki - laki','Perempuan') as X, COUNT(s.nis), s.kelamin AS XX FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
+			$xtitle = "Gender";
+			$ytitle = "Sum";
+			$sql	=  "SELECT IF(s.kelamin='l','Male','Female') as X, COUNT(s.nis), s.kelamin AS XX FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
 		}
 		elseif ($kriteria == 5)
 		{
-			$xtitle = "Warga Negara";
-			$ytitle = "Jumlah";
+			$xtitle = "Citizenship";
+			$ytitle = "Sum";
 			$sql = "SELECT s.warga, count(s.replid), s.warga AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.warga ORDER BY s.warga DESC";
 		}
 		elseif ($kriteria == 6)
 		{
-			$xtitle = "Kodepos";
-			$ytitle = "Jumlah";
+			$xtitle = "Postal Code";
+			$ytitle = "Sum";
 			$sql = "SELECT s.kodepossiswa, count(s.replid), s.kodepossiswa AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.kodepossiswa ";
 		}
 		elseif ($kriteria == 7)
 		{
-			$xtitle = "Kondisi";
-			$ytitle = "Jumlah";
+			$xtitle = "Conditions";
+			$ytitle = "Sum";
 			$sql = "SELECT s.kondisi, count(s.replid), s.kondisi AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.kondisi ";
 		}
 		elseif ($kriteria == 8)
 		{
-			$xtitle = "Pekerjaan Ibu";
-			$ytitle = "Jumlah";
+			$xtitle = "Father Occupation";
+			$ytitle = "Sum";
 			$sql = "SELECT s.pekerjaanayah, count(s.replid), s.pekerjaanayah AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pekerjaanayah ";
 		}
 		elseif ($kriteria == 9)
 		{
-			$xtitle = "Pekerjaan Ibu";
-			$ytitle = "Jumlah";
+			$xtitle = "Mother Occupation";
+			$ytitle = "Sum";
 			$sql = "SELECT s.pekerjaanibu, count(s.replid), s.pekerjaanibu AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pekerjaanibu ";
 		}
 		elseif ($kriteria == 10)
 		{
-			$xtitle = "Pendidikan Ayah";
-			$ytitle = "Jumlah";
+			$xtitle = "Father Education";
+			$ytitle = "Sum";
 			$sql = "SELECT s.pendidikanayah, count(s.replid), s.pendidikanayah AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pendidikanayah ";
 		}
 		elseif ($kriteria == 11)
 		{
-			$xtitle = "Pendidikan Ibu";
-			$ytitle = "Jumlah";
+			$xtitle = "Mother Education";
+			$ytitle = "Sum";
 			$sql = "SELECT s.pendidikanibu, count(s.replid), s.pendidikanibu AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pendidikanibu ";
 		}
 		elseif ($kriteria == 12)
 		{
-			$xtitle = "Penghasilan (rupiah)";
-			$ytitle = "Jumlah";
+			$xtitle = "Income";
+			$ytitle = "Sum";
 			$sql = "SELECT G, COUNT(nis), XX FROM (
 					  SELECT nis, IF(peng < 1000000, '< 1 juta',
 								  IF(peng >= 1000001 AND peng <= 2500000, '1 juta - 2,5 juta',
 								  IF(peng >= 2500001 AND peng <= 5000000, '2,5 juta - 5 juta',
-								  IF(peng >= 5000001 , '> 5 juta', 'Tidak Ada Data')))) AS G,
+								  IF(peng >= 5000001 , '> 5 juta', 'No data.')))) AS G,
 								  IF(peng < 1000000, '1',
 								  IF(peng >= 1000001 AND peng <= 2500000, '2',
 								  IF(peng >= 2500001 AND peng <= 5000000, '3',
@@ -223,38 +223,38 @@ if ($departemen=='-1')
 		}
 		elseif ($kriteria == 13)
 		{
-			$xtitle = "Status Aktif";
-			$ytitle = "Jumlah";
-			$sql	=  "SELECT IF(s.aktif=1,'Aktif','Tidak Aktif') as X, COUNT(s.nis), s.aktif AS XX FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
+			$xtitle = "Status Active";
+			$ytitle = "Sum";
+			$sql	=  "SELECT IF(s.aktif=1,'Active','Inactive') as X, COUNT(s.nis), s.aktif AS XX FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
 		}
 		elseif ($kriteria == 14)
 		{
-			$xtitle = "Status Siswa";
-			$ytitle = "Jumlah";
+			$xtitle = "Student Status";
+			$ytitle = "Sum";
 			$sql = "SELECT s.status as X, count(s.replid), s.status AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X ";
 		}
 		elseif ($kriteria == 15)
 		{
-			$xtitle = "Suku";
-			$ytitle = "Jumlah";
+			$xtitle = "Ethnicity";
+			$ytitle = "Sum";
 			$sql = "SELECT s.suku as X, count(s.replid), s.suku AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X ";
 		}
 		elseif ($kriteria == 16)
 		{
-			$xtitle = "Tahun Lahir";
-			$ytitle = "Jumlah";
+			$xtitle = "Year of Birth";
+			$ytitle = "Sum";
 			$sql = "SELECT YEAR(s.tgllahir) as X, count(s.replid), YEAR(s.tgllahir) AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X ORDER BY X ";
 		}
 		elseif ($kriteria == 17)
 		{
-			$xtitle = "Usia (tahun)";
-			$ytitle = "Jumlah";
+			$xtitle = "Age";
+			$ytitle = "Sum";
 			$sql = "SELECT G, COUNT(nis), XX FROM (
 					  SELECT nis, IF(usia < 6, '<6',
 								  IF(usia >= 6 AND usia <= 12, '6-12',
@@ -274,7 +274,7 @@ if ($departemen=='-1')
 		?>
         <table width="100%" border="1" class="tab" align="center">
           <tr>
-            <td height="25" align="center" class="header">No.</td>
+            <td height="25" align="center" class="header">#</td>
             <td width="377" height="25" align="center" class="header"><?=$xtitle?></td>
             <td width="760" height="25" align="center" class="header"><?=$ytitle?></td>
             </tr>
@@ -287,7 +287,7 @@ if ($departemen=='-1')
           <tr>
             <td width="45" height="20" align="center"><?=$cnt?></td>
             <td height="20">&nbsp;&nbsp;<?=$row[0]?></td>
-            <td height="20" align="center"><?=$row[1]?> siswa</td>
+            <td height="20" align="center"><?=$row[1]?> student</td>
             </tr>
           <?
 		  $cnt++;

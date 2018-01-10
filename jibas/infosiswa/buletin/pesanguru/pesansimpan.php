@@ -27,7 +27,7 @@ require_once('../../include/config.php');
 require_once('../../include/getheader.php');
 require_once('../../include/db_functions.php');
 require_once('../../sessionchecker.php');
-//Ambil dari pesannya
+//Ambil from pesannya
 $bulan=$_REQUEST['tahun'];
 $tahun=$_REQUEST['tahun'];
 $updir = $UPLOAD_DIR."pesan\\";
@@ -131,7 +131,7 @@ if ($file3!=""){
 }
 ?>
 <script language="javascript">
-alert ('Pesan Anda telah dikirim ...');
+alert ('Your message has been sent');
 //parent.go('pesanguru_footer');
 parent.tujuan_header.batal();
 //parent.location.href="pesanguru_footer.php";

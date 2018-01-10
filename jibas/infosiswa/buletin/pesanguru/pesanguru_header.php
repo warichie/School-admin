@@ -89,17 +89,17 @@ function tambah(){
 <table width="100%" border="0" cellspacing="0">
   <tr>
     <th colspan="3" align="right" scope="row">
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pesan Guru</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Teacher Message</font><br />
     <a href="../../home/home.php" target="framecenter">
-      <font size="1" color="#000000"><b>Home</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Pesan Guru</b></font>    </th>
+      <font size="1" color="#000000"><b>Home</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Teacher Message</b></font>    </th>
   </tr>
   <tr>
     <td width="10%" scope="row">
-	<? if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){ ?><input type="button" name="pesanbaru" id="pesanbaru" value="Pesan Baru" class="but" title="Tambah Pesan Baru" onclick="tambah()"/><? } ?></th>
+	<? if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){ ?><input type="button" name="pesanbaru" id="pesanbaru" value="New Message" class="but" title="New Message Available" onclick="tambah()"/><? } ?></th>
     <td width="35%" scope="row">
-    Pesan Bulan : 
-      <input type="button" name="prevmonth" id="prevmonth" value=" < " class="but" title="Bulan Sebelumnya" onclick="prev()"/>&nbsp;
+    Month : 
+      <input type="button" name="prevmonth" id="prevmonth" value=" < " class="but" title="Previous Month" onclick="prev()"/>&nbsp;
     <select name="bulan" id="bulan" onchange="chg()">
     <?
 	for ($i=1;$i<=12;$i++){
@@ -122,8 +122,8 @@ function tambah(){
 	}
 	?>
     </select>
-    &nbsp;<input type="button" name="nextmonth" id="nextmonth" value=" > " class="but" title="Bulan Selanjutnya" onclick="next()"/></th>
-  <td width="55%" scope="row"><input type="button" name="pesan" id="pesan" value="Lihat Pesan" class="but" title="Lihat Pesan" onclick="lihat()"/></tr>
+    &nbsp;<input type="button" name="nextmonth" id="nextmonth" value=" > " class="but" title="Next Month" onclick="next()"/></th>
+  <td width="55%" scope="row"><input type="button" name="pesan" id="pesan" value="See Message" class="but" title="See Message" onclick="lihat()"/></tr>
 </table>
 </form>
 </body>

@@ -65,7 +65,7 @@ class CPenggunaAdd{
 	function exist(){
 		?>
         <script language="javascript">
-			alert('Kode sudah digunakan!');
+			alert('The Code has been used');
 			document.location.href="format.add.php";
 		</script>
         <?
@@ -93,27 +93,27 @@ class CPenggunaAdd{
           <tr>
             <td colspan="2" align="left">
             	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        		<font style="font-size:18px; color:#999999">Ubah Pengguna</font></td>
+        		<font style="font-size:18px; color:#999999">Edit User</font></td>
   		  </tr>
           <tr>
-            <td width="7%">&nbsp;<strong>Pegawai</strong></td>
+            <td width="7%">&nbsp;<strong>Employee</strong></td>
             <td width="93%"><input name="nip" type="text" class="cmbfrm2" id="nip" size="10" readonly="readonly" value="<?=$this->nip?>">&nbsp;<input name="nama" type="text" class="cmbfrm2" id="nama" size="35" readonly="readonly" value="<?=$this->nama?>"></td>
           </tr>
           <tr>
-            <td>&nbsp;Tingkat</td>
+            <td>&nbsp;Grade</td>
             <td>
             	<select name="tingkat" id="tingkat" onchange="ChgTkt(1)">
-                	<option value="1" <?=StringIsSelected('1',$this->tingkat)?> >Manajer Perpustakaan</option>
-                    <option value="2" <?=StringIsSelected('2',$this->tingkat)?> >Staff Perpustakaan</option>
+                	<option value="1" <?=StringIsSelected('1',$this->tingkat)?> >Library Manager</option>
+                    <option value="2" <?=StringIsSelected('2',$this->tingkat)?> >Library Staff</option>
                 </select>
             </td>
           </tr>
           <tr>
-            <td>&nbsp;Perpustakaan</td>
+            <td>&nbsp;Library</td>
             <td>
             	<select name="perpustakaan" id="perpustakaan">
                 	<? if ($this->tingkat=='1' || $this->tingkat=='') { ?>
-                	<option value="-1" >Semua Perpustakaan</option>
+                	<option value="-1" >All Libraries</option>
                 	<? } else { ?>
                     <?	$sql = "SELECT * FROM perpustakaan ORDER BY replid"; ?>
                     <?	$result = QueryDb($sql); ?>
@@ -125,11 +125,11 @@ class CPenggunaAdd{
             </td>
           </tr>
           <tr>
-            <td>&nbsp;Keterangan</td>
+            <td>&nbsp;Info</td>
             <td><textarea name="keterangan" cols="45" rows="5" class="areatxt" id="keterangan"><?=$this->keterangan?></textarea></td>
           </tr>
           <tr>
-            <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Simpan" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Batal" onClick="window.close()" ></td>
+            <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Save" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Cancel" onClick="window.close()" ></td>
           </tr>
         </table>
 		</form>

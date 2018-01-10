@@ -77,7 +77,7 @@ tinyMCE.init({
 		  </textarea>
 	 </div>
 	 <br />
-	 <input type="button" value="Simpan" onclick="b_Save()" />
-	 <input type="button" value="Tutup" onclick="b_Close()" />
+	 <input type="button" value="Save" onclick="b_Save()" />
+	 <input type="button" value="Close" onclick="b_Close()" />
 </div>
 </form>

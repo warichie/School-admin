@@ -108,10 +108,10 @@ if (isset($_REQUEST['Simpan'])) {
 	
 	if (mysql_num_rows($result3) > 0) {
 		CloseDb();		
-		$ERROR_MSG = "Ada jadwal yang bentrok!";
+		$ERROR_MSG = "Coincide schedule found";
 	} else if (mysql_num_rows($result4) > 0) {
 		CloseDb();		
-		$ERROR_MSG = "Ada jadwal di kelas ini yang bentrok!";
+		$ERROR_MSG = "Coincide schedule in this class found";
 	} else {
 		$sql = "UPDATE jadwal SET idkelas='$kelas', idpelajaran = '$pelajaran', departemen = '$departemen', infojadwal = '$info', hari = '$hari', jamke = '$jam', njam = '$jum', sifat = 1, status = '$status', keterangan='$keterangan', jam1 = '$jm1', jam2 = '$jm2', idjam1 = '$rep1', idjam2 = '$rep2' WHERE replid = '$replid'";
 		$result = QueryDb($sql);
@@ -135,7 +135,7 @@ if (isset($_REQUEST['Simpan'])) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Jadwal Guru]</title>
+<title>JIBAS SIMAKA [Edit Teacher Schedule]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -155,27 +155,27 @@ function validate() {
 	var kelas = document.getElementById('kelas').value; 
 		
 	if (kelas.length == 0) {
-		alert("Kelas tidak boleh kosong!");
+		alert("Class should not leave empty");
 		document.getElementById('kelas').focus();
 		return false;
 	} else if (jam2.length == 0 || jam2 == "0") {
-		alert("Jam akhir harus dimasukkan!");
+		alert("End Hour is required");
 		document.getElementById('jam2').focus();
 		return false;
 	} else if (ket.length > 255) {
-		alert("Panjang keterangan tidak boleh dari 255 karakter!");		
+		alert("Description length should not exceed 255 characters");		
 		document.getElementById('keterangan').focus();
 		return false;
 	} else if (isNaN(jam2)) {
-		alert ('Data isian anak ke harus berupa bilangan');
+		alert ('Child # must be numeric');
 		document.getElementById('jam2').focus();
 		return false;
 	} else if (parseInt(jam1) > parseInt(jam2)) {
-		alert ('Jam akhir tidak boleh kurang dari jam awal');
+		alert ('End Time should not less than Start Time (hour)');
 		document.getElementById('jam2').focus();
 		return false;	
 	} else if (parseInt(jam2) > parseInt(maxJam)) {
-		alert ('Jam akhir tidak boleh lebih dari jumlah jam jadwal kelas!');
+		alert ('End Time should not exceed total hours of the Class Schedule');
 		document.getElementById('jam2').focus();
 		return false;
 	}
@@ -251,10 +251,10 @@ function focusNext(elemName, evt) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-	<td class="header" colspan="2" align="center">Ubah Jadwal Guru</td>
+	<td class="header" colspan="2" align="center">Edit Teacher Schedule</td>
 </tr>
 <tr>
-    <td><strong>Guru</strong></td>
+    <td><strong>Teacher</strong></td>
     <td>
    	<input type="text" name="nipguru" id="nipguru" size="10" class="disabled" readonly value="<?=$nip?>"  /> 
     <input type="hidden" name="nip" id="nip" value="<?=$nip?>" /> 
@@ -262,18 +262,18 @@ function focusNext(elemName, evt) {
   	</td>
 </tr>
 <tr>
-	<td><strong>Departemen</strong></td>
+	<td><strong>Department</strong></td>
     <td><input type="text" name="departemen" id="departemen" size="10" class="disabled" value="<?=$departemen ?>" readonly/>
         <input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>"/></td>
 </tr>
 <tr>
-	<td width="100"><strong>Tahun Ajaran</strong></td>
+	<td width="100"><strong>Year</strong></td>
     <td><input type="text" name="tahun" size="10" value="<?=$tahun ?>" readonly class="disabled"/>
     	<input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$tahunajaran?>">
     </td>
 </tr>
 <tr>
-    <td><strong>Tingkat</strong> </td>
+    <td><strong>Grade</strong> </td>
     <td>
 		<select name="tingkat" id="tingkat" onChange="change_tingkat()" style="width:80px;" onKeyPress="return focusNext('kelas', event)">
     	<?	OpenDb();
@@ -294,7 +294,7 @@ function focusNext(elemName, evt) {
         </select></td>
 </tr>
 <tr>
-   	<td><strong>Kelas</strong> </td>
+   	<td><strong>Class</strong> </td>
     <td>
        	<select name="kelas" id="kelas" onChange="change()" style="width:180px;" onKeyPress="return focusNext('pelajaran', event)">
 		<?	OpenDb();
@@ -315,7 +315,7 @@ function focusNext(elemName, evt) {
 	</td>    
 </tr>
 <tr>
-	<td align="left"><strong>Pelajaran</strong></td>
+	<td align="left"><strong>Class Subject</strong></td>
  	<td>
       	<select name="pelajaran" id="pelajaran" onChange="change()" style="width:180px;" onKeyPress="return focusNext('jam2', event)">
    	<?	OpenDb();
@@ -333,34 +333,34 @@ function focusNext(elemName, evt) {
     	</select>		</td>  
 </tr>
 <tr>
-	<td><strong>Hari</strong> </td>
+	<td><strong>Day</strong> </td>
     <td><input type="text" name="namahari" id ="namahari" size="10" readonly class="disabled" value = "<?=NamaHari($hari)?>" /></td> 
 </tr>
 <tr>
-	<td><strong>Jam ke</strong></td>
+	<td><strong>Hour</strong></td>
     <td>    
-    	<input type="text" name="jam1" id ="jam1" size="2" readonly class="disabled" value = "<?=$jam?>" /><input type="hidden" name="jam" id="jam" value="<?=$jam ?>"/> s/d 
+    	<input type="text" name="jam1" id ="jam1" size="2" readonly class="disabled" value = "<?=$jam?>" /><input type="hidden" name="jam" id="jam" value="<?=$jam ?>"/> to 
     	<input type="text" name="jam2" id ="jam2" size="2" value="<?=$jam2 ?>" onKeyPress="return focusNext('status', event)"/></td>
 </tr>
 <tr>
 	<td><strong>Status</strong></td> 
     <td><select name="status" id="status" onKeyPress="return focusNext('keterangan', event)">     
-     	<option value=0 <?=IntIsSelected(0, $status)?>>Mengajar</option>
-        <option value=1 <?=IntIsSelected(1, $status)?>>Asistensi</option>
-        <option value=2 <?=IntIsSelected(2, $status)?>>Tambahan</option>
+     	<option value=0 <?=IntIsSelected(0, $status)?>>Teaching</option>
+        <option value=1 <?=IntIsSelected(1, $status)?>>Assistance</option>
+        <option value=2 <?=IntIsSelected(2, $status)?>>Extra</option>
      	</select>
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onKeyPress="return focusNext('Simpan', event)"><?=$keterangan ?></textarea>
     </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->

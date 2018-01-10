@@ -92,10 +92,10 @@ if (isset($_REQUEST['kelas']))
     <!-- CONTENT GOES HERE //--->	
     <table border="0" cellpadding="2"cellspacing="2" width="100%" style="color:#000000">
     <tr>
-    	<!--<td><strong>Departemen</strong>
+    	<!--<td><strong>Department</strong>
     	
     	</td>-->
-        <td width="*"><strong>Th. Ajaran</strong>
+        <td width="*"><strong>Year</strong>
         <select name="departemen" id="departemen" onChange="change_dep(2)" style="width:80px">
 		<? for ($i=0;$i<sizeof($dep);$i++) { ?>        	
             <option value="<?=$i ?>" <?=IntIsSelected($i, $departemen) ?> > <?=$dep[$i][0] ?> </option>
@@ -107,7 +107,7 @@ if (isset($_REQUEST['kelas']))
 			<?=$ajaran[$k][1]?> </option>
 		<? } ?>
     	</select>    
-		&nbsp;&nbsp;<strong>Riwayat Kelas</strong>
+		&nbsp;&nbsp;<strong>Class History</strong>
         <select name="kelas" id="kelas" onChange="change(2)" style="width:125px">
    		<? for ($j=0;$j<sizeof($kls);$j++) {
 				if ($kls[$j][3] == $tahunajaran) {
@@ -118,7 +118,7 @@ if (isset($_REQUEST['kelas']))
     	</select>    
 		</td>
         <td align="right" width="12%">
-  			<a href="#" onClick="cetak(0,2)"><img src="../images/ico/print.png" width="16" height="16" border="0" />&nbsp;Cetak</a>&nbsp;
+  			<a href="#" onClick="cetak(0,2)"><img src="../images/ico/print.png" width="16" height="16" border="0" />&nbsp;Print</a>&nbsp;
     	</td>
   	</tr>
 <? if ($kelas<> "" ) { 
@@ -142,7 +142,7 @@ if (isset($_REQUEST['kelas']))
             <?		
             
             
-            $data_title = "<font size='4'>STATISTIK PRESENSI PELAJARAN</font>"; // title for the diagram
+            $data_title = "<font size='4'>CLASS PRESENCE STATISTIC</font>"; // title for the diagram
     
             // sample data array
             $data = array();
@@ -152,8 +152,8 @@ if (isset($_REQUEST['kelas']))
                 $legend_x[] = $row1[0];			
             }
                     
-            //$legend_x = array('Jan','Feb','Maret','April','Mei');
-            $legend_y = array('Hadir','Ijin','Sakit','Alpa', 'Cuti');
+            //$legend_x = array('Jan','Feb','March','April','May');
+            $legend_y = array('Attend','Consent','Ill','Absent', 'Leave');
     
             $graph = new CAsBarDiagram;
             $graph->bwidth = 10; // set one bar width, pixels
@@ -169,12 +169,12 @@ if (isset($_REQUEST['kelas']))
         	<td>
             <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="center" bordercolor="#000000">		
             <tr height="30" align="center">		
-                <td width="*" class="header">Bulan</td>
-                <td width="15%" class="header">Hadir</td>
-                <td width="15%" class="header">Ijin</td>
-                <td width="15%" class="header">Sakit</td>
-                <td width="15%" class="header">Alpa</td>
-                <td width="15%" class="header">Cuti</td>
+                <td width="*" class="header">Month</td>
+                <td width="15%" class="header">Attend</td>
+                <td width="15%" class="header">Consent</td>
+                <td width="15%" class="header">Ill</td>
+                <td width="15%" class="header">Absent</td>
+                <td width="15%" class="header">Leave</td>
             </tr>
 			<? 
             
@@ -240,14 +240,14 @@ if (isset($_REQUEST['kelas']))
 <? } else { ?>                 
 	<tr>
 		<td align="center" valign="middle" height="120" colspan="2">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br /></font>
+    	<font size = "2" color ="red"><b>Data Not Found<br /></font>
 		</td>
 	</tr>
   	<? } ?>
 <? } else { ?>                 
 	<tr>
 		<td align="center" valign="middle" height="120" colspan="2">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br /></font>
+    	<font size = "2" color ="red"><b>Data Not Found<br /></font>
 		</td>
 	</tr>
 <? } ?>

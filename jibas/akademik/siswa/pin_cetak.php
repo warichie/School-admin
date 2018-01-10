@@ -46,7 +46,7 @@ $departemen = $row['departemen'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Pendataan PIN]</title>
+<title>JIBAS SIMAKA [Print PIN Data Collection]</title>
 </head>
 
 <body>
@@ -56,32 +56,32 @@ $departemen = $row['departemen'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>PENDATAAN PIN</strong></font><br />
+  <font size="4"><strong>PIN DATA COLLECTION</strong></font><br />
  </center><br /><br />
 
 <table width="100%">    
 	<tr>
-		<td width="15%"><strong>Departemen</strong> </td> 
+		<td width="15%"><strong>Department</strong> </td> 
 		<td width="*"><strong>:&nbsp;<?=$departemen?></strong></td>
 	</tr>
     <tr>
-		<td><strong>Tahun Ajaran </strong></td>
+		<td><strong>Year </strong></td>
 		<td><strong>:&nbsp;<?=$namatahun?></strong></td>        		
     </tr>
     <tr>
-		<td><strong>Kelas</strong></td>
+		<td><strong>Class</strong></td>
 		<td><strong>:&nbsp;<?=$namatingkat." - ".$namakelas?></strong></td>        		
     </tr>
 	</table>
 <br />
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">N I S</td>
-        <td width="*" class="header" align="center">Nama</td>
-        <td width="12%" class="header" align="center">PIN Siswa</td>        
-        <td width="12%" class="header" align="center">PIN Ayah</td>
-		<td width="12%" class="header" align="center">PIN Ibu</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Student ID</td>
+        <td width="*" class="header" align="center">Name</td>
+        <td width="12%" class="header" align="center">Student PIN</td>        
+        <td width="12%" class="header" align="center">Father PIN</td>
+		<td width="12%" class="header" align="center">Mother PIN</td>
     </tr>
 <? 	OpenDb();
 	$sql = "SELECT * FROM jbsakad.siswa s WHERE s.idkelas = '$kelas' AND s.aktif = 1 ORDER BY $urut $urutan ";   

@@ -470,15 +470,15 @@ LyteBox.prototype.updateDetails = function() {
 	object = this.doc.getElementById('lbNumberDisplay');
 	if (this.isSlideshow && this.slideArray.length > 1) {
 		object.style.display = '';
-		object.innerHTML = "Gambar ke " + eval(this.activeSlide + 1) + " dari " + this.slideArray.length;
+		object.innerHTML = "Gambar ke " + eval(this.activeSlide + 1) + " from " + this.slideArray.length;
 		this.doc.getElementById('lbNavDisplay').style.display = (this.navType == 2 && this.showNavigation ? '' : 'none');
 	} else if (this.imageArray.length > 1 && !this.isLyteframe) {
 		object.style.display = '';
-		object.innerHTML = "Gambar ke " + eval(this.activeImage + 1) + " dari " + this.imageArray.length;
+		object.innerHTML = "Gambar ke " + eval(this.activeImage + 1) + " from " + this.imageArray.length;
 		this.doc.getElementById('lbNavDisplay').style.display = (this.navType == 2 ? '' : 'none');
 	} else if (this.frameArray.length > 1 && this.isLyteframe) {
 		object.style.display = '';
-		object.innerHTML = "Hal ke " + eval(this.activeFrame + 1) + " dari " + this.frameArray.length;
+		object.innerHTML = "Hal ke " + eval(this.activeFrame + 1) + " from " + this.frameArray.length;
 		this.doc.getElementById('lbNavDisplay').style.display = '';
 	} else {
 		this.doc.getElementById('lbNavDisplay').style.display = 'none';

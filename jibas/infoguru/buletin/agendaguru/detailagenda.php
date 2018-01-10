@@ -53,8 +53,8 @@ $row=@mysql_fetch_array($result);
 </head>
 <body >
 <div align="right">
-<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Agenda Guru</font><br />
-<a href="../../home.php" style="color:#0000FF" target="framecenter">Home</a> > <strong>Agenda Guru</strong><br /><br /><br />
+<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Teacher Agenda</font><br />
+<a href="../../home.php" style="color:#0000FF" target="framecenter">Home</a> > <strong>Teacher Agenda</strong><br /><br /><br />
 <br /><br />
 </div>
 <table width="100%" style="background-color:#FFFFFF;"  border="0" cellspacing="0" cellpadding="0">

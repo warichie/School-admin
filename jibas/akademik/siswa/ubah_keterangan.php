@@ -65,7 +65,7 @@ CloseDb();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<title>JIBAS SIMAKA [Ubah Keterangan Riwayat kelas]</title>
+<title>JIBAS SIMAKA [Edit Class History Info]</title>
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/tables.js"></script>
@@ -75,9 +75,9 @@ CloseDb();
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('idnis', 'NIS') && 
+	return validateEmptyText('idnis', 'Student ID') && 
 		   validateEmptyText('idkelas', 'idkelas') && 
-		   validateMaxText('keterangan', 255, 'Keterangan');			
+		   validateMaxText('keterangan', 255, 'Info');			
 }
 
 function focusNext(elemName, evt) {
@@ -99,7 +99,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Keterangan Riwayat Kelas :.
+    .: Edit Class History Info :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -113,29 +113,29 @@ function focusNext(elemName, evt) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT 
 <tr height="25">
-	<td class="header" colspan="2"><div align="center">Ubah Keterangan Riwayat Kelas</div></td>
+	<td class="header" colspan="2"><div align="center">Edit Class History Info</div></td>
 </tr>-->
 <tr>	
-	<td width="120"><strong>NIS</strong></td>
+	<td width="120"><strong>Student ID</strong></td>
     <td><input type="text" name="nis" id="nis" readonly="readonly" value="<?=$nis?>" class="disabled" size="20" readonly="readonly"/><input type="hidden" name="idnis" id="idnis" value="<?=$nis?>" />
     </td>
 </tr>
 <tr>
-    <td><strong>Nama</strong></td>
+    <td><strong>Name</strong></td>
     <td><input type="text" name="nama" id="nama" readonly="readonly" value="<?=$nama?>" size="30" class="disabled"/></td>
   </tr>
 <tr>
-    <td><strong>Kelas</strong></td>
+    <td><strong>Class</strong></td>
     <td><input type="text" name="kelas" id="kelas" readonly="readonly" value="<?=$kelas?>" size="30" class="disabled"/><input type="hidden" name="idkelas" id="idkelas" value="<?=$idkelas?>" /></td>
 </tr>
 <tr>
-    <td valign="top"><strong>Keterangan</strong></td>
+    <td valign="top"><strong>Info</strong></td>
     <td><textarea name="ket" id="ket" rows="3" cols="35" onKeyPress="return focusNext('simpan', event)"><?=$row_ket[0]?></textarea></td>
 </tr>
 <tr>
     <td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="simpan" value="Simpan" class="but" />&nbsp;&nbsp;
-    <input type="button" name="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="simpan" value="Save" class="but" />&nbsp;&nbsp;
+    <input type="button" name="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 </table>

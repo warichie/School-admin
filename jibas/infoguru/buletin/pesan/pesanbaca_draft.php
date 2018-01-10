@@ -68,7 +68,7 @@ CloseDb();
 <body>
 <table id="Table_01" width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tr>
-    <th height="39" colspan="3" scope="row"><input name="back" type="button" class="but" id="back" value="Kembali" onclick="window.self.history.back();" /></th>
+    <th height="39" colspan="3" scope="row"><input name="back" type="button" class="but" id="back" value="Back" onclick="window.self.history.back();" /></th>
    </tr>
     <tr>
 		<td>
@@ -85,29 +85,29 @@ CloseDb();
           <div align="left" style="padding-bottom:10px"><span style="color:#339900; font-size:20px; font-weight:bold">.:</span><span style="color:#FF6600; font-family:Calibri; font-size:16px; font-weight:bold; ">Draft</span></div>
           <table width="100%" border="0" cellspacing="3">
       <tr>
-        <td width="11%" valign="top"><span class="style1"><span class="style5">Dari</span></span></td>
+        <td width="11%" valign="top"><span class="style1"><span class="style5">From</span></span></td>
         <td width="1%" valign="top"><span class="style1"><span class="style5">:</span></span></td>
         <td width="88%"><span class="style1">
           <?=$row2[nama]?>
         </span></td>
       </tr>
       <tr>
-        <td valign="top"><span class="style6">Judul</span></td>
+        <td valign="top"><span class="style6">Title</span></td>
         <td valign="top"><span class="style6">:</span></td>
         <td><?=$row2[judul]?></td>
       </tr>
       <tr>
-        <td valign="top"><span class="style5">Pesan</span></td>
+        <td valign="top"><span class="style5">Message</span></td>
         <td valign="top"><span class="style6">:</span></td>
         <td><?=$row2[pesan]?></td>
       </tr>
       <tr>
-        <td valign="top"><span class="style5">Lampiran</span></td>
+        <td valign="top"><span class="style5">Attachment</span></td>
         <td valign="top"><span class="style6">:</span></td>
         <td><? if (@mysql_num_rows($result3)>0) { ?>
           <?
           while ($row3=@mysql_fetch_array($result3)){
-         echo "<a title='Buka lampiran ini!' href='".$WEB_UPLOAD_DIR."pesan/".$row3[direktori].$row3[namafile]."' target='_blank'><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row3['namafile']."</a><br>";
+         echo "<a title='Open this attachment' href='".$WEB_UPLOAD_DIR."pesan/".$row3[direktori].$row3[namafile]."' target='_blank'><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row3['namafile']."</a><br>";
           }
           }
           ?></td>

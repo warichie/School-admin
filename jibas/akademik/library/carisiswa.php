@@ -43,7 +43,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cetak Angkatan</title>
+<title>Print Graduates</title>
 </head>
 
 <body>
@@ -53,23 +53,23 @@ CloseDb();
 <? include("../library/headercetak.php") ?>
 
 <center>
-  <font size="3"><strong>DAFTAR SISWA	</strong></font><br />
+  <font size="3"><strong>STUDENT LIST	</strong></font><br />
  </center><br /><br />
 
 <br />
-	<font size="2"><strong>Departemen : <?=$departemen?></strong></font>
+	<font size="2"><strong>Department : <?=$departemen?></strong></font>
 <br />
-	<font size="2"><strong>Tahun Ajaran : <?=$namatahunajaran?></strong></font>
+	<font size="2"><strong>Year of Teaching : <?=$namatahunajaran?></strong></font>
 <br />
-	<font size="2"><strong>Kelas : <?=$kelas?></strong></font>
+	<font size="2"><strong>Class : <?=$kelas?></strong></font>
 <br /><br />
 <br />
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="3%" class="header" align="center">No</td>
-        <td width="12%" class="header" align="center">NIS</td>
-        <td width="30%" class="header" align="center">Nama</td>
-        <td width="55%" class="header" align="center">Keterangan</td>
+    	<td width="3%" class="header" align="center">#</td>
+        <td width="12%" class="header" align="center">Student ID</td>
+        <td width="30%" class="header" align="center">Name</td>
+        <td width="55%" class="header" align="center">Info</td>
     </tr>
 <? 	OpenDb();
 	$sql = "SELECT * FROM jbsakad.siswa WHERE idkelas='$replid' AND aktif=1 ORDER BY nama";
@@ -88,6 +88,6 @@ CloseDb();
     </table>
 
 </td></tr></table>
-<p align="center">&nbsp;<input type="button" class="but" value="Tutup" onclick="Javascript:window.close()" /></p>
+<p align="center">&nbsp;<input type="button" class="but" value="Close" onclick="Javascript:window.close()" /></p>
 </body>
 </html>

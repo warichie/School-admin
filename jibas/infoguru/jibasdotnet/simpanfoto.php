@@ -81,7 +81,7 @@ for ($i=1;$i<=3;$i++){
 	if (!$result){
 	?>
 	<script language="javascript">
-		alert ('Gagal menyimpan Gambar <?=$foto[name]?>');
+		alert ('Failed to save image <?=$foto[name]?>');
 		opener.ubah_profil();
 		window.close()
 	</script>

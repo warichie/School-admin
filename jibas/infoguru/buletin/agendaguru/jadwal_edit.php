@@ -3,7 +3,7 @@
  * JIBAS Road To Community
  * Jaringan Informasi Bersama Antar Sekolah
  * 
- * @version: 2.5.0 (Juni 20, 2011)
+ * @version: 2.5.0 (June 20, 2011)
  * @notes: JIBAS Education Community will be managed by Yayasan Indonesia Membaca (http://www.indonesiamembaca.net)
  * 
  * Copyright (C) 2009 PT.Galileo Mitra Solusitama (http://www.galileoms.com)
@@ -70,7 +70,7 @@ $jam2 = $info[1];
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tambah Jadwal Pernikahan</title>
+<title>Add Marital Schedule</title>
 <script language="JavaScript" src="script/tooltips.js"></script>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
@@ -83,7 +83,7 @@ function validate() {
 		   validateEmptyText('jam2', 'menit') && 
 		   validateEmptyText('tempat', 'tempat') && 
 		   validateEmptyText('pasangan', 'pasangan') && 
-		   validateMaxText('keterangan', 255, 'Keterangan');
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function TambahPenghulu() {
@@ -96,7 +96,7 @@ function UbahPenghulu() {
 }
 
 function HapusPenghulu() {
-	if (confirm("Apakah anda yakin akan menghapus data ini?")) {
+	if (confirm("Are you sure want to delete this data?")) {
 		var nip = document.getElementById('penghulu').value;
 		
 		WaitPenghulu();
@@ -130,7 +130,7 @@ function WaitPenghulu() {
 
 <body onLoad="GetPenghulu()">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="images/movewait.gif" border="0" />Please wait...
 </div>
   
 <form name="main" onSubmit="return validate()">
@@ -138,18 +138,18 @@ function WaitPenghulu() {
 <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td class="header" colspan="2"><div align="center">Tambah Jadwal</div></td>
+<td class="header" colspan="2"><div align="center">Add Schedule</div></td>
 </tr>
 <tr>
-	<td width="120"><strong>Penghulu:</strong></td>
+	<td width="120"><strong>Headman:</strong></td>
 	<td>
     	<table border="0" cellspacing="0" cellpadding="0">
         <tr>
         	<td><div id="divPenghulu"></div></td>
             <td>
-		        &nbsp;&nbsp;<a href="JavaScript:TambahPenghulu()" title="Tambah Penghulu"><img src="images/ico/tambah.png" border="0" /></a>
-	    	    <a href="JavaScript:UbahPenghulu()" title="Ubah Penghulu"><img src="images/ico/ubah.png" border="0" /></a>&nbsp;
-        		<a href="JavaScript:HapusPenghulu()" title="Hapus Penghulu"><img src="images/ico/hapus.png" border="0" /></a>
+		        &nbsp;&nbsp;<a href="JavaScript:TambahPenghulu()" title="Add Headman"><img src="images/ico/tambah.png" border="0" /></a>
+	    	    <a href="JavaScript:UbahPenghulu()" title="Edit Headman"><img src="images/ico/ubah.png" border="0" /></a>&nbsp;
+        		<a href="JavaScript:HapusPenghulu()" title="Hapus Headman"><img src="images/ico/hapus.png" border="0" /></a>
             </td>
         </tr>
         </table>
@@ -157,33 +157,33 @@ function WaitPenghulu() {
     </td>
 </tr>
 <tr>
-	<td width="120"><strong>Jam:</strong></td>
+	<td width="120"><strong>Time:</strong></td>
 	<td>
     	<input type="text" name="jam1" id="jam1" value="<?=$jam1?>" size="2" maxlength="2"/> : <input type="text" name="jam2" id="jam2" value="<?=$jam2?>" size="2" maxlength="2"/>
     </td>
 </tr>
 <tr>
-    <td><strong>Tempat:</strong></td>
+    <td><strong>Location:</strong></td>
     <td>
     	<input type="text" name="tempat" id="tempat" value="<?=$tempat?>" size="30" maxlength="100"/>
     </td>
 </tr>
 <tr>
-	<td><strong>Pasangan:</strong></td>
+	<td><strong>Couples:</strong></td>
 	<td>
     	<input type="text" name="pasangan" id="pasangan" value="<?=$pasangan?>" size="50" maxlength="100"/>
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan:</td>
+	<td valign="top">Info:</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="40"><?=$keterangan ?></textarea>
     </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->

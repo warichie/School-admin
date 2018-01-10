@@ -89,10 +89,10 @@ if ($op=="bzux834hx8x7x934983xihxf084"){
 		//Kalo filenya uda dihapus, hapus alamatnya di tabel lampiran pesan
 		$sql_del_attch="DELETE FROM jbsvcr.lampiranpesan WHERE idpesan='$idpesan'";
 		QueryDb($sql_del_attch);
-		//Hapus dari tabel pesanterkirim
+		//Hapus from tabel pesanterkirim
 		$sql_del_terkirim="DELETE FROM jbsvcr.pesanterkirim WHERE replid='$_REQUEST[replid]'";
 		QueryDb($sql_del_terkirim);
-		//Finally, hapus dari tabel pesan
+		//Finally, hapus from tabel pesan
 		$sql_del_terkirim="DELETE FROM jbsvcr.pesan WHERE replid='$idpesan'";
 		QueryDb($sql_del_terkirim);
 
@@ -161,7 +161,7 @@ function bacapesan(replid){
 }
 function hapus(replid){
 	var page=document.getElementById("page").value;
-	if (confirm('Anda yakin akan menghapus pesan ini dan lampiran-lampirannya ?')){ 
+	if (confirm('Are you sure want to delete this message and the attachments?')){ 
 		document.location.href="pesanguru_terkirim.php?op=bzux834hx8x7x934983xihxf084&replid="+replid+"&page="+page;
 	}
 }
@@ -198,10 +198,10 @@ function delpesan(){
 	var num = document.inbox.numdel.value;
 	var list = document.inbox.listdel.value;
 	if (listdel.length==0){
-		alert ('Minimal ada satu pesan yang akan dihapus');
+		alert ('You should have at least one message to deleted');
 		return false;
 	} else {
-		if (confirm('Anda yakin akan menghapus pesan ini?')){
+		if (confirm('Are you sure want to delete this message?')){
 			document.location.href="pesanguru_terkirim.php?op=34983xihxf084bzux834hx8x7x93&listdel="+list+"&numdel="+num;
 		}
 	}
@@ -212,10 +212,10 @@ function delpesan(){
 <input type="hidden" name="bulan" id="bulan" value="<?=$bulan?>" />
 <input type="hidden" name="tahun" id="tahun" value="<?=$tahun?>" />
 <div align="right">
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pesan Terkirim</font><br />
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Sent Message</font><br />
     <a href="pesanguru.php" target="framecenter">
-      <font size="1" color="#000000"><b>Pesan Guru</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Pesan Terkirim</b></font>
+      <font size="1" color="#000000"><b>Teacher Message</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Sent</b></font>
 </div><br />
 <table width="100%" border="0" cellspacing="0">
   <tr>
@@ -251,22 +251,22 @@ function delpesan(){
 		}
 	
 	?>
-    Halaman : 
-	<input <?=$disback?> type="button" class="but" title="Sebelumnya" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    Page : 
+	<input <?=$disback?> type="button" class="but" title="Previous" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 	<select name="page" id="page" onChange="chg_page()">
 	<? for ($p=1;$p<=$total;$p++){ ?>
 		<option value="<?=$p-1?>" <?=StringIsSelected($page,$p-1)?>><?=$p;?></option>
 	<? } ?>
 	</select>   
-    <input <?=$disnext?> type="button" class="but" name="next" title="Selanjutnya" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">&nbsp;dari&nbsp;<?=$total?> 
+    <input <?=$disnext?> type="button" class="but" name="next" title="Next" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">&nbsp;from&nbsp;<?=$total?> 
 	<? } ?><br><br>
     <table width="100%" border="1" cellspacing="0" class="tab" id="table">
   <tr>
-    <th width="22" height="30" class="header" scope="row"><div align="center">No</div></th>
-    <td width="69" height="30" class="header"><div align="center">Tanggal</div></td>
-    <td width="184" height="30" class="header"><div align="center">Penerima</div></td>
-    <td width="428" height="30" class="header"><div align="center">Judul</div></td>
-    <td width="150" height="30" class="header"><div align="center">Lampiran</div></td>
+    <th width="22" height="30" class="header" scope="row"><div align="center">#</div></th>
+    <td width="69" height="30" class="header"><div align="center">Date</div></td>
+    <td width="184" height="30" class="header"><div align="center">Recipient</div></td>
+    <td width="428" height="30" class="header"><div align="center">Title</div></td>
+    <td width="150" height="30" class="header"><div align="center">Attachment</div></td>
     <td width="70" height="30" class="header">&nbsp;</td>
   </tr>
   <?
@@ -299,9 +299,9 @@ function delpesan(){
 	  while ($row3=@mysql_fetch_array($result3)){
 	  $img="<img src='../../images/ico/ok.png' />";
 	  if ($row3[baru]==1)
-		  $img="<img src='../../images/ico/ok.png' title='Belum dibaca'/>";
+		  $img="<img src='../../images/ico/ok.png' title='Not Read'/>";
 	  if ($row3[baru]==0)
-		  $img="<img src='../../images/ico/not_ok.png' title='Sudah dibaca' />";
+		  $img="<img src='../../images/ico/not_ok.png' title='Read' />";
 	  echo $img.$row3[nip]."-".$row3[nama]."<br>";
 	  }
 	 
@@ -322,12 +322,12 @@ function delpesan(){
 	$sql2="SELECT direktori,namafile FROM jbsvcr.lampiranpesan WHERE idpesan='$row1[replid]'";
 	$result2=QueryDb($sql2);
 	while ($row2=@mysql_fetch_array($result2)){
-		echo "<a title='Buka lampiran ini!' href=\"#\" onclick=newWindow('".$WEB_UPLOAD_DIR."pesan/".$row2[direktori].$row2[namafile]."','View',640,480,'resizable=1'); ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row2['namafile']."</a><br>";
+		echo "<a title='Open this attachment' href=\"#\" onclick=newWindow('".$WEB_UPLOAD_DIR."pesan/".$row2[direktori].$row2[namafile]."','View',640,480,'resizable=1'); ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row2['namafile']."</a><br>";
 	}
 	?>
     </td>
     <td><div align="center">
-    <!--<img src="../../images/ico/ubah.png" border="0" onClick="ubah('<?=$row1[replid]?>')" style="cursor:pointer;" title="Ubah Berita ini !" />&nbsp;--><img src="../../images/ico/hapus.png" border="0" onClick="hapus('<?=$row1[replid_tkrm]?>')" style="cursor:pointer;" title="Hapus Pesan ini !" />
+    <!--<img src="../../images/ico/ubah.png" border="0" onClick="ubah('<?=$row1[replid]?>')" style="cursor:pointer;" title="Edit this News" />&nbsp;--><img src="../../images/ico/hapus.png" border="0" onClick="hapus('<?=$row1[replid_tkrm]?>')" style="cursor:pointer;" title="Delete this Message" />
    </div></td>
   </tr>
   <? 
@@ -335,7 +335,7 @@ function delpesan(){
   } 
   } else {?>
    <tr>
-    <td scope="row" colspan="6"><div align="center">Tidak ada pesan</div></th>
+    <td scope="row" colspan="6"><div align="center">No message.</div></th>
    </tr>
   <? } ?>
 </table>

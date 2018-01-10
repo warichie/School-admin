@@ -32,9 +32,9 @@ $idkategori = $_REQUEST['idkategori'];
 $idpenerimaan = $_REQUEST['idpenerimaan'];
 $departemen = $_REQUEST['departemen'];
 
-$status = "Siswa";
+$status = "Student";
 if ($idkategori == "CSWJB" || $idkategori == "CSSKR") 
-	$status = "Calon Siswa";
+	$status = "Student Candidate";
 
 $page = 1;
 if (isset($_REQUEST['page']))
@@ -101,7 +101,7 @@ if ($ndata == 0)
 	<table width="100%" align="center" cellpadding="2" cellspacing="0" border="0" id="table">
 	<tr height="200" align="center"><td>   
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data</b></font>	
+	<font size = "2" color ="red"><b>Data Not Found</b></font>	
 	<br /><br />
 	</td></tr></table>
 <?	
@@ -112,9 +112,9 @@ else
   <h3>Data <?=$status?> Yang Memiliki Tunggakan</h3>
   <table width="95%" id="table" class="tab" align="center" border="1" bordercolor="#000000">
   	<tr height="30" class="header" align="center">
-		<td width="7%">No</td>
-    	<td width="15%" background="style/formbg2.gif">N I S</td>
-    	<td background="style/formbg2.gif">Nama</td>
+		<td width="7%">#</td>
+    	<td width="15%" background="style/formbg2.gif">Student ID</td>
+    	<td background="style/formbg2.gif">Name</td>
   	</tr>
 <? 
 	 if ($idkategori == "JTT")
@@ -144,14 +144,14 @@ else
 <?		$cnt++;
 	} ?>
   	</table>
-	&nbsp;&nbsp;Halaman
+	&nbsp;&nbsp;Page
   	<select name="page" id="page" onchange="change_page()">
   	<? 
 	$npage = ceil($ndata / $nitem);
 	for ($i = 1; $i <= $npage; $i++) { ?>
   		<option value="<?=$i?>" <?=IntIsSelected($page, $i)?> ><?=$i?></option>
 <? } ?>		
-  	</select>&nbsp;dari&nbsp;<?=$npage?>
+  	</select>&nbsp;from&nbsp;<?=$npage?>
 <?  
 }
 CloseDb();

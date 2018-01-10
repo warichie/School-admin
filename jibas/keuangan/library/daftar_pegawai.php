@@ -58,13 +58,13 @@ if (isset($_REQUEST['urutan']))
     <input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
     <input type="hidden" name="urut" id="urut" value="<?=$urut ?>" />
     <input type="hidden" name="urutan" id="urutan" value="<?=$urutan ?>" />
-    <font size="2" color="#000000"><strong>Daftar Pegawai</strong></font><br />
+    <font size="2" color="#000000"><strong>Employee List</strong></font><br />
     </td>
 </tr>
 <tr>
-	<td><font color="#000000"><strong>Bagian  </strong></font>
+	<td><font color="#000000"><strong>Section  </strong></font>
     <select name="bag" id="bag" onChange="change_bagian()" onKeyPress="return focusNext('pilih', event)">
-    <option value="-1" <? if ($bagian=="-1") echo  "selected"; ?>>(Semua Bagian)</option>
+    <option value="-1" <? if ($bagian=="-1") echo  "selected"; ?>>(All Sections)</option>
 	<?  $sql_bagian="SELECT bagian FROM jbssdm.bagianpegawai ORDER BY urutan ASC";
         $result_bagian=QueryDb($sql_bagian);
         while ($row_bagian=@mysql_fetch_array($result_bagian)){
@@ -103,11 +103,11 @@ if (isset($_REQUEST['urutan']))
     <!--<div id="tab_daftar">-->
     <table width="100%" id="table" class="tab" border="1" align="center" cellpadding="2" cellspacing="0">
     <tr height="30" class="header" align="center">
-        <td width="7%">No</td>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nip','<?=$urutan?>','daftar')">N I P <?=change_urut('nip',$urut,$urutan)?></td>
-        <td onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>','daftar')">Nama <?=change_urut('nama',$urut,$urutan)?></td>
+        <td width="7%">#</td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nip','<?=$urutan?>','daftar')">Employee ID <?=change_urut('nip',$urut,$urutan)?></td>
+        <td onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>','daftar')">Name <?=change_urut('nama',$urut,$urutan)?></td>
         <? if ($sql_tambahbag == "") { ?>
-      	<td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('bagian','<?=$urutan?>','daftar')">Bagian <?=change_urut('bagian',$urut,$urutan)?></td>          
+      	<td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('bagian','<?=$urutan?>','daftar')">Section <?=change_urut('bagian',$urut,$urutan)?></td>          
         <? } ?>
         <td width="10%">&nbsp;</td>
     </tr>
@@ -127,7 +127,7 @@ if (isset($_REQUEST['urutan']))
 		<td align="center" width="15%"><?=$row[2]?></td> 
         <? } ?>		
         <td align="center">
-        <input type="button" name="pilih" class="but" id="pilih" value="Pilih" onClick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
+        <input type="button" name="pilih" class="but" id="pilih" value="Select" onClick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
         </td>
     </tr>
     <? 	} ?>
@@ -155,16 +155,16 @@ if (isset($_REQUEST['urutan']))
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left"><font color="#000000">Hal
+       	<td width="30%" align="left"><font color="#000000">Page
         <select name="hal" id="hal" onChange="change_hal('daftar')">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     	// Navigasi halaman berikutnya dan sebelumnya
+     	// Navigasi halaman berikutnya and sebelumnya
         ?>
         </font></td>
     	<!--td align="center">
@@ -181,7 +181,7 @@ if (isset($_REQUEST['urutan']))
 		?>
 	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>','daftar')" >
  		</td-->
-        <td width="30%" align="right"><font color="#000000">Jml baris per hal
+        <td width="30%" align="right"><font color="#000000">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris('daftar')">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -196,8 +196,8 @@ if (isset($_REQUEST['urutan']))
 	<tr height="30" align="center">
 		<td>
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />
-			Tambah data pegawai pada bagian <?=$bagian?> di menu Kepegawaian pada bagian Referensi. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br /><br />
+			Add employee data on section <?=$bagian?> in the Employee Affair Menu on Reference section. </b></font>	
 	<br /><br />
 		</td>
 	</tr>
@@ -207,8 +207,8 @@ if (isset($_REQUEST['urutan']))
 </tr>
 <tr>
 	<td align="center" height="30">
-	<!--<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close();opener.document.getElementById('urutan').focus();" style="width:80px;"/>-->
-    <input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close();opener.tutup();" style="width:80px;"/>
+	<!--<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close();opener.document.getElementById('urutan').focus();" style="width:80px;"/>-->
+    <input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close();opener.tutup();" style="width:80px;"/>
 	</td>
 </tr>
 </table>

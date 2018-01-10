@@ -30,7 +30,7 @@ require_once("../include/sessioninfo.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 </head>
 
@@ -38,7 +38,7 @@ require_once("../include/sessioninfo.php");
 <table id="Table_01" width="800" height="416" border="0" cellpadding="0" cellspacing="0" align="center">
 <tr height="10">
 	<td colspan="5" align="center">
-    	<h3>KEPEGAWAIAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	<h3>EMPLOYEMENT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
@@ -53,22 +53,22 @@ require_once("../include/sessioninfo.php");
 	<td rowspan="3"><img src="../images/bkpegawai_06.jpg" width="1" height="416" alt=""></td>
 </tr>
 <tr>
-	<td><a href="daftar.php" title="Mencari, mengubah dan menentukan jadwal kepegawaian"><img src="../images/bkpegawai_07.jpg" width="219" height="130" alt="" border="0"></a></td>
+	<td><a href="daftar.php" title="Search, change and assign employemen schedule"><img src="../images/bkpegawai_07.jpg" width="219" height="130" alt="" border="0"></a></td>
 	<td><img src="../images/bkpegawai_08.jpg" width="156" height="130" alt=""></td>
-	<td><a href="statistik.php" title="Statistik Kepegawaian"><img src="../images/bkpegawai_09.jpg" width="105" height="130" alt="" border="0"></a></td>
+	<td><a href="statistik.php" title="Employee Affair Statistic"><img src="../images/bkpegawai_09.jpg" width="105" height="130" alt="" border="0"></a></td>
 	<td><img src="../images/bkpegawai_10.jpg" width="62" height="130" alt=""></td>
 	<td><img src="../images/bkpegawai_11.jpg" width="257" height="130" alt=""></td>
 </tr>
 <tr>
-	<td><a href="jadwal.php" title="Menentukan jadwal kepegawaian"><img src="../images/bkpegawai_12.jpg" width="219" height="137" alt="" border="0"></a><br />
-    <a href="dagenda.php">Daftar Agenda Kepegawaian</a>
+	<td><a href="jadwal.php" title="Assign employement schedule"><img src="../images/bkpegawai_12.jpg" width="219" height="137" alt="" border="0"></a><br />
+    <a href="dagenda.php">Employee Affair Agenda List</a>
     </td>
 	<td><img src="../images/bkpegawai_13.jpg" width="156" height="137" alt=""></td>
 	<td><img src="../images/bkpegawai_14.jpg" width="105" height="137" alt=""></td>
 	<td colspan="2" valign="top">
 		<br><br>
-		<a href="struktur.php">Struktur Organisasi</a><br>
-        <a href="dukpangkat.php">Daftar Urut Kepangkatan</a><br>
+		<a href="struktur.php">Organization Structure</a><br>
+        <a href="dukpangkat.php">Employee Affair Sort List</a><br>
     </td>
 </tr>
 </table>

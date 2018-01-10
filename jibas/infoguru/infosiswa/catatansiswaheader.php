@@ -73,17 +73,17 @@ function acceptSiswa(nis, nama) {
 <body leftmargin="0" topmargin="0">
 <table border="0"width="100%" align="center">
     <tr>
-        <td width="72%" rowspan="2" align="right" valign="bottom"><div align="left"><strong>Siswa</strong> 
+        <td width="72%" rowspan="2" align="right" valign="bottom"><div align="left"><strong>Student</strong> 
           <input name="nis" size="10" id="nis" type="text" onClick="carisiswa()" readonly="true" />
           <input name="nama" size="25" id="nama" type="text" onClick="carisiswa()" readonly="true" />
         <img src="../images/ico/cari.png" onClick="carisiswa();" /></div></td>
-        <td width="28%" align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Catatan Siswa</font></td>
+        <td width="28%" align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Notes</font></td>
     </tr>
     <tr>
         <td align="right">
         <a href="../catatankejadian.php" target="framecenter">
-        <font size="1" face="Verdana" color="#000000"><b>Catatan Siswa</b></font>
-        </a>&nbsp>&nbsp <font size="1" face="Verdana" color="#000000">Catatan Kategori</font>&nbsp;</td>
+        <font size="1" face="Verdana" color="#000000"><b>Student Notes</b></font>
+        </a>&nbsp;>&nbsp; <font size="1" face="Verdana" color="#000000">Category Notes</font>&nbsp;</td>
     </tr>
      
 	</table>

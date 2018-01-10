@@ -41,7 +41,7 @@ if (isset($_REQUEST['simpan'])) {
 	
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-		$MYSQL_ERROR_MSG = "Pengeluaran $_REQUEST[nama] telah ada sebelumnya!";
+		$MYSQL_ERROR_MSG = "Expenditure $_REQUEST[nama] telah ada sebelumnya";
 	} else {
 		$besar = $_REQUEST['besar'];
 		if ($besar == "") $besar = 0;
@@ -76,7 +76,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Tambah Jenis Pengeluaran]</title>
+<title>JIBAS FINANCE [Add Jenis Expenditure]</title>
 <script src="script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="script/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -88,10 +88,10 @@ CloseDb();
 <script language="javascript">
 
 function validasi() {
-	return validateEmptyText('nama', 'Nama Jenis Pengeluaran') 
+	return validateEmptyText('nama', 'Name Jenis Expenditure') 
 		&& validateEmptyText('norekkredit', 'rekening yang di kredit')
 		&& validateEmptyText('norekdebet', 'rekening yang di debet')
-		&& validateMaxText('keterangan', 255, 'Keterangan Jenis Penerimaan');
+		&& validateMaxText('keterangan', 255, 'Info Acquisition Type');
 }
 
 function accept_rekening(kode, nama, flag) {
@@ -139,7 +139,7 @@ function panggil(elem){
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Jenis Pengeluaran :.
+    .: Add Jenis Expenditure :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -153,7 +153,7 @@ function panggil(elem){
    <table border="0" cellpadding="2" cellspacing="2" align="center" background="">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td align="left"><strong>Departemen </strong></td>
+        <td align="left"><strong>Department </strong></td>
         <td align="left">
           <?php OpenDb();?>
           <input type="text" name="departemen_openthinksas" id="departemen_openthinksas" value="<?php echo getDepartemenInOpenThinkSAS($_REQUEST['departemen']);?>" readonly="readonly" maxlength="50" size="30" style="background-color:#CCCC99">
@@ -162,28 +162,28 @@ function panggil(elem){
         </td>
     </tr>
     <tr>
-        <td align="left"><strong>Nama</strong></td>
+        <td align="left"><strong>Name</strong></td>
         <td align="left"><input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama']?>" maxlength="100" size="30" onKeyPress="return focusNext('rekkredit',event);"  onFocus="panggil('nama')"></td>
     </tr>
     
     <tr>
         <td align="left"><strong>Rek. Kas</strong></td>
-        <td align="left"><input type="text" name="rekkredit" id="rekkredit" value="<?=$_REQUEST['rekkredit']?>" readonly style="background-color:#CCCC99" onClick="cari_rek(1,'HARTA')" maxlength="100" size="30" onKeyPress="cari_rek(1,'HARTA');return focusNext('rekdebet',event);" onFocus="panggil('rekkredit')">&nbsp;<a href="#" onClick="JavaScript:cari_rek(1,'HARTA')"><img src="images/ico/lihat.png" border="0" /></a>
+        <td align="left"><input type="text" name="rekkredit" id="rekkredit" value="<?=$_REQUEST['rekkredit']?>" readonly style="background-color:#CCCC99" onClick="cari_rek(1,'WEALTH')" maxlength="100" size="30" onKeyPress="cari_rek(1,'WEALTH');return focusNext('rekdebet',event);" onFocus="panggil('rekkredit')">&nbsp;<a href="#" onClick="JavaScript:cari_rek(1,'WEALTH')"><img src="images/ico/lihat.png" border="0" /></a>
         <input type="hidden" name="norekkredit" id="norekkredit"  value="" />        </td>
     </tr>
     <tr>
         <td align="left"><strong>Rek. Beban</strong></td>
-        <td align="left"><input type="text" name="rekdebet" id="rekdebet" value="<?=$_REQUEST['rekdebet']?>" readonly style="background-color:#CCCC99" onClick="cari_rek(2,'BIAYA')" maxlength="100" size="30" onKeyPress="cari_rek(2,'BIAYA');return focusNext('keterangan',event);" onFocus="panggil('rekdebet')">&nbsp;<a href="#" onClick="JavaScript:cari_rek(2,'BIAYA')"><img src="images/ico/lihat.png" border="0" /></a>
+        <td align="left"><input type="text" name="rekdebet" id="rekdebet" value="<?=$_REQUEST['rekdebet']?>" readonly style="background-color:#CCCC99" onClick="cari_rek(2,'COST')" maxlength="100" size="30" onKeyPress="cari_rek(2,'COST');return focusNext('keterangan',event);" onFocus="panggil('rekdebet')">&nbsp;<a href="#" onClick="JavaScript:cari_rek(2,'COST')"><img src="images/ico/lihat.png" border="0" /></a>
         <input type="hidden" name="norekdebet" id="norekdebet" value=""/>        </td>
     </tr>
     <tr>
-        <td align="left" valign="top">Keterangan</td>
+        <td align="left" valign="top">Info</td>
         <td align="left"><textarea name="keterangan" id="keterangan" rows="3" cols="40" onKeyPress="return focusNext('simpan',event);" onFocus="panggil('keterangan')"><?=$_REQUEST['keterangan']?></textarea></td>
     </tr>
     <tr>
         <td colspan="2" align="center">
-        	<input class="but" type="submit" value="Simpan" name="simpan" id="simpan" onFocus="panggil('simpan')">
-            <input class="but" type="button" value="Tutup" onClick="window.close();">        
+        	<input class="but" type="submit" value="Save" name="simpan" id="simpan" onFocus="panggil('simpan')">
+            <input class="but" type="button" value="Close" onClick="window.close();">        
        	</td>
     </tr>
     </table>

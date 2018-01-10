@@ -73,7 +73,7 @@ else if ($op=="xm8r389xemx23xb2378e23")
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jadwal Kelas</title>
+<title>Class Schedule</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -143,19 +143,19 @@ function tampil()
 	var departemen = document.getElementById('departemen').value;
 	
 	if (info_jadwal==""){
-		alert ('Info Jadwal tidak boleh kosong !');	
+		alert ('Schedule Info should not leave empty');	
 		document.getElementById('info_jadwal').focus();
 		return false;		
 	} else if (tingkat==""){
-		alert ('Tingkat tidak boleh kosong !');
+		alert ('Level/Grade should not leave empty');
 		document.getElementById('tingkat').focus();
 		return false;
 	} else if (tahunajaran==""){
-		alert ('Tahun ajaran tidak boleh kosong !');
+		alert ('Year should not leave empty');
 		document.getElementById('tahunajaran').focus();
 		return false;
 	} else if (kelas==""){
-		alert ('Kelas tidak boleh kosong !');
+		alert ('Class should not leave empty');
 		document.getElementById('kelas').focus();
 		return false;
 	} else {	
@@ -184,7 +184,7 @@ function focusNext(elemName, evt) {
     <td width="48%">
 	<table width = "100%" border = "0" >
     <tr>
-        <td width="25%"><strong>Departemen</strong></td>
+        <td width="25%"><strong>Department</strong></td>
         <td width="28%">
         	<select name="departemen" id="departemen" onChange="change_departemen()"  style="width:120px" onkeypress="return focusNext('tahunajaran', event)">
         <?	
@@ -195,7 +195,7 @@ function focusNext(elemName, evt) {
             <option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?> > <?=$value ?> </option>
         <?	}	?>
             </select></td>
-        <td width="12%"><strong>Tingkat</strong></td>
+        <td width="12%"><strong>Grade</strong></td>
         <td width="35%">
             <select name="tingkat" id="tingkat" onChange="change_tingkat()"  style="width:100px" onkeypress="return focusNext('kelas', event)">
         <?
@@ -210,7 +210,7 @@ function focusNext(elemName, evt) {
             </select></td>       
     </tr>	
     <tr>
-        <td><strong>Tahun Ajaran</strong></td>
+        <td><strong>Year</strong></td>
         <td>
 			<select name="tahunajaran" id="tahunajaran" onChange="change_ajaran()"  style="width:120px" onkeypress="return focusNext('tingkat', event)">
 <?          $sql_tahunajaran="SELECT * FROM jbsakad.tahunajaran WHERE departemen='$departemen' AND aktif=1 ORDER BY replid DESC";
@@ -225,7 +225,7 @@ function focusNext(elemName, evt) {
 <?			}	?> 
             </select>
 		</td>
-        <td><strong>Kelas</strong></td>
+        <td><strong>Class</strong></td>
         <td>
 			<select name="kelas" id="kelas" onChange="change(0)"  style="width:100px" onkeypress="return focusNext('info_jadwal', event)">
 <?          $sql_kelas="SELECT * FROM jbsakad.kelas WHERE idtahunajaran='$tahunajaran' AND idtingkat='$tingkat' ORDER BY kelas";
@@ -242,7 +242,7 @@ function focusNext(elemName, evt) {
 		</td>        
     </tr>
     <tr>
-        <td><strong>Info Jadwal</strong></td>
+        <td><strong>Schedule Info</strong></td>
         <td colspan="3"><select name="info_jadwal" id="info_jadwal" onChange="change(0)" style="width:285px">
 <?  		$sql_info_jadwal="SELECT * FROM jbsakad.infojadwal WHERE idtahunajaran = '$tahunajaran' AND aktif=1 ORDER BY aktif DESC";
             $result_info_jadwal=QueryDb($sql_info_jadwal);
@@ -252,7 +252,7 @@ function focusNext(elemName, evt) {
                     $info_jadwal=$row_info_jadwal['replid'];
 					
                 if ($row_info_jadwal['aktif']) 
-                    $ada = '(Aktif)';
+                    $ada = '(Active)';
                 else 
                     $ada = '';	?> 
             <option value="<?=$row_info_jadwal['replid']?>" <?=StringIsSelected($row_info_jadwal['replid'],$info_jadwal)?>>
@@ -260,19 +260,19 @@ function focusNext(elemName, evt) {
 			</option>
 <?  		} ?> 
             </select>
-			<img src="../images/ico/tambah.png" onClick="newWindow('info_jadwal.php?departemen=<?=$departemen?>&tahunajaran=<?=$tahunajaran?>','InfoJadwal','600','425','resizable=1,scrollbars=1,status=0,toolbar=0')" onMouseOver="showhint('Tambah Info Jadwal!', this, event, '80px')" />           				
+			<img src="../images/ico/tambah.png" onClick="newWindow('info_jadwal.php?departemen=<?=$departemen?>&tahunajaran=<?=$tahunajaran?>','InfoJadwal','600','425','resizable=1,scrollbars=1,status=0,toolbar=0')" onMouseOver="showhint('Add Schedule Info', this, event, '80px')" />           				
         </td>
     </tr>   
     </table>
     </td>
     <td valign="middle" rowspan="2" width="*" >
-            <a href="#" onClick="tampil()"><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Klik untuk menampilkan jadwal kelas!', this, event, '80px')"/></a>
+            <a href="#" onClick="tampil()"><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Click to show Class Schedule', this, event, '80px')"/></a>
         </td>
         <td valign="top" align="right" width="50%">
-           <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Jadwal Berdasarkan Kelas</font><br />
+           <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Class Schedule</font><br />
            <a href="../jadwal.php" target="content">
-            <font size="1" color="#000000"><b>Jadwal</b></font></a>&nbsp>&nbsp 
-            <font size="1" color="#000000"><b>Jadwal Berdasarkan Kelas</b></font><a> 	
+            <font size="1" color="#000000"><b>Schedule</b></font></a>&nbsp;>&nbsp; 
+            <font size="1" color="#000000"><b>Class Schedule</b></font><a> 	
         </td>
 </form>
 </body>

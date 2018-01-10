@@ -107,7 +107,7 @@ class PegawaiInput
     	$result = QueryDb($sql);
     	if (mysql_num_rows($result) > 0)
         {
-    		$this->ERRMSG = "Telah ada pegawai dengan NIP $this->nip";
+    		$this->ERRMSG = "There is an employee with Employee ID $this->nip";
             return;        
     	}
         
@@ -173,14 +173,14 @@ class PegawaiInput
 			CommitTrans(); 
 			CloseDb(); ?>
             <script language="javascript">
-                alert("Data telah tersimpan")
+                alert("Data saved successfully")
 				document.location.href = "pegawaiinput.php";
 	        </script>
 <?			exit();	          
 		}
         else
         {
-			$this->ERRMSG = "Gagal menyimpan data!";
+			$this->ERRMSG = "Failed to save data";
 			RollbackTrans();
             CloseDb();
 		}

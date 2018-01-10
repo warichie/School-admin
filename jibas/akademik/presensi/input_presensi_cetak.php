@@ -51,7 +51,7 @@ $hariaktif = $row['hariaktif'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan Presensi Harian Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Daily Presence Reports]</title>
 </head>
 <body>
 <table border="0" cellpadding="10" cellpadding="5" width="780" align="left">
@@ -61,16 +61,16 @@ $hariaktif = $row['hariaktif'];
 <?=getHeader($row[departemen])?>
 	
 <center>
-  <font size="4"><strong>LAPORAN PRESENSI HARIAN KELAS</strong></font><br />
+  <font size="4"><strong>CLASS DAILY PRESENCE REPORT CARD</strong></font><br />
  </center><br /><br />
 <br />
 <table>
 <tr>
-	<td width="25%"><strong>Departemen</strong></td>
+	<td width="25%"><strong>Department</strong></td>
     <td><strong>: <?=$row['departemen']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 <tr>
@@ -78,26 +78,26 @@ $hariaktif = $row['hariaktif'];
     <td><strong>: <?=$row['semester']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelas</strong></td>
+	<td><strong>Class</strong></td>
     <td><strong>: <?=$row['tingkat']. ' - '.$row['kelas']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Periode Presensi</strong></td>
-    <td><strong>: <?=$tgl1.' '.NamaBulan($bln).' '.$th.' s/d '.$tgl2.' '.NamaBulan($bln).' '.$th ?></strong></td>
+	<td><strong>Period</strong></td>
+    <td><strong>: <?=$tgl1.' '.NamaBulan($bln).' '.$th.' to '.$tgl2.' '.NamaBulan($bln).' '.$th ?></strong></td>
 </tr>
 </table>
 <br />
 <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
    	<tr height="30">    	
-    	<td class="header" align="center" width="5%">No</td>
-		<td class="header" align="center" width="10%">N I S</td>
-		<td class="header" align="center" width="*">Nama</td>            
-		<td class="header" align="center" width="5%">Hadir</td>
-        <td class="header" align="center" width="5%">Ijin</td>
-        <td class="header" align="center" width="5%">Sakit</td>
-        <td class="header" align="center" width="5%">Alpa</td>
-        <td class="header" align="center" width="5%">Cuti</td>            
-        <td class="header" align="center" width="*">Keterangan</td>    
+    	<td class="header" align="center" width="5%">#</td>
+		<td class="header" align="center" width="10%">Student ID</td>
+		<td class="header" align="center" width="*">Name</td>            
+		<td class="header" align="center" width="5%">Attend</td>
+        <td class="header" align="center" width="5%">Consent</td>
+        <td class="header" align="center" width="5%">Ill</td>
+        <td class="header" align="center" width="5%">Absent</td>
+        <td class="header" align="center" width="5%">Leave</td>            
+        <td class="header" align="center" width="*">Info</td>    
     </tr>
 <?	
 	$sql = "SELECT s.nis, s.nama, s.idkelas, k.kelas, s.aktif
@@ -123,10 +123,10 @@ $hariaktif = $row['hariaktif'];
 		$tanda = "";
 		if ($row[2] <> $kelas) {
 			$tanda = "**";					
-			$pesan = "Pindah kelas ke ".$row[3];
+			$pesan = "Transfer to class ".$row[3];
 		} else if ($row[4] == 0) {
 			$tanda = "*";
-			$pesan = "Siswa tidak aktif";
+			$pesan = "Student is inactive";
 		} 
 			
 		$sql1 = "SELECT * FROM phsiswa WHERE idpresensi = '$replid' AND nis='$row[0]'";
@@ -142,12 +142,12 @@ $hariaktif = $row['hariaktif'];
 			$ket = $row1['keterangan'];
 		
 			if ($row[4] == 1) {
-				if ($row1['keterangan'] == "Siswa baru pindah kelas")
+				if ($row1['keterangan'] == "Student has just transferred to another class")
 					$ket = "";
 			}
 		} else {
 			$cuti = $hariaktif;
-			$ket = "Siswa baru pindah kelas";
+			$ket = "Student has just transferred to another class";
 			
 		}
 		
@@ -172,7 +172,7 @@ $hariaktif = $row['hariaktif'];
 </td>
 </tr>
 <tr>
-	<td>Ket: *Siswa tidak aktif; **Pindah kelas
+	<td>PS: *Student is inactive; **Transfer to another class
     </td>
 </tr> 
 </table>

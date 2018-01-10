@@ -62,37 +62,37 @@ function show()
         
     if(departemen.length == 0)
     {
-        alert("Departemen tidak boleh kosong!");
+        alert("Department should not leave empty");
         document.main.departemen.focus();
         return false;
     }
     else if(tingkat.length == 0)
     {
-        alert("Tingkat tidak boleh kosong!");
+        alert("Grade should not leave empty");
         document.main.tingkat.focus();
         return false;
     }
     else if(tahun.length == 0)
     {
-        alert("Tahun Ajaran tidak boleh kosong!");
+        alert("Year of Teaching should not leave empty");
         document.main.tahun.focus();
         return false;
     }
     else if(semester.length == 0)
     {
-        alert("Semester tidak boleh kosong!");
+        alert("Semester should not leave empty");
         document.main.semester.focus();
         return false;
     }
     else if(kelas.length == 0)
     {
-        alert("Kelas tidak boleh kosong!");
+        alert("Class should not leave empty");
         document.main.kelas.focus();
         return false;
     }
     else if(pelajaran.length == 0)
     {
-        alert("Pelajaran tidak boleh kosong!");
+        alert("Class Subject should not leave empty");
         document.main.pelajaran.focus();
         return false;
     } 

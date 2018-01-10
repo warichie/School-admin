@@ -109,7 +109,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	{
 		RollbackTrans();
 		CloseDb();
-		$errmsg = urlencode("Gagal menyimpan data!");
+		$errmsg = urlencode("Failed to save data");
 		header("Location: pengeluaran_edit.php?idtransaksi=$idtransaksi&errmsg=$errmsg");
 		exit();	
 	}
@@ -170,13 +170,13 @@ if (isset($_REQUEST['keperluan']))
 if (isset($_REQUEST['keterangan']))
 	$keterangan = $_REQUEST['keterangan'];
 	
-//Ambil rek akun debet dan kredit dari jurnal detail
+//Ambil rek akun debet and kredit from jurnal detail
 $sql = "SELECT koderek FROM jurnaldetail WHERE idjurnal='$idjurnal' AND kredit=0";
 $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
 $rekdebet = $row[0];
 
-//Ambil rek akun debet dan kredit dari jurnal detail
+//Ambil rek akun debet and kredit from jurnal detail
 $sql = "SELECT koderek FROM jurnaldetail WHERE idjurnal='$idjurnal' AND debet=0";
 $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
@@ -199,7 +199,7 @@ $idtahunbuku = $row[0];
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Edit Pengeluaran</title>
+<title>Edit Expenditure</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 <script language="javascript" src="script/validasi.js"></script>
@@ -213,14 +213,14 @@ $idtahunbuku = $row[0];
 
 function ValidateSubmit() 
 {
-	var isok = 	validateEmptyText('idpemohon', 'Nama Pemohon') &&
-		   		validateEmptyText('tcicilan', 'Tanggal Pengeluaran') &&
-		   		validateEmptyText('jumlah', 'Jumlah Pengeluaran') && 
+	var isok = 	validateEmptyText('idpemohon', 'Applicant') &&
+		   		validateEmptyText('tcicilan', 'Date Expenditure') &&
+		   		validateEmptyText('jumlah', 'Jumlah Expenditure') && 
 		   		validasiAngka() &&
-		   		validateEmptyText('keperluan', 'Keperluan Pengeluaran') && 
+		   		validateEmptyText('keperluan', 'Necessities Expenditure') && 
 		   		validateEmptyText('alasan', 'Alasan Perubahan') && 
-		   		validateMaxText('keperluan', 255, 'Keperluan Pengeluaran') &&
-				confirm('Data sudah benar?');
+		   		validateMaxText('keperluan', 255, 'Necessities Expenditure') &&
+				confirm('The data is correct?');
 	
 	document.getElementById('issubmit').value = isok ? 1 : 0;
 	
@@ -241,14 +241,14 @@ function validasiAngka()
 	var angka = document.getElementById("angkabesar").value;
 	if(isNaN(angka)) 
 	{
-		alert ('Jumlah pengeluaran harus berupa bilangan!');
+		alert ('Jumlah pengeluaran must be numeric');
 		document.getElementById('jumlah').value = "";
 		document.getElementById('jumlah').focus();
 		return false;
 	}
 	else if(angka < 0) 
 	{
-		alert ('Jumlah pengeluaran tidak boleh negatif!');
+		alert ('Jumlah pengeluaran should not be a negative number');
 		document.getElementById('jumlah').focus();
 		return false;
 	}
@@ -347,7 +347,7 @@ function panggil(elem)
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Pembayaran Pengeluaran :.
+    .: Edit Payment Expenditure :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -361,7 +361,7 @@ function panggil(elem)
     <input type="hidden" name="idtransaksi" id="idtransaksi" value="<?=$idtransaksi ?>" />
     <table border="0" cellpadding="2" cellspacing="2" width="95%" align="center" >
     <tr>
-        <td width="20%"><strong>Tahun Buku</strong></td>
+        <td width="20%"><strong>Fiscal Year</strong></td>
         <td colspan="2">
         <? 
 			OpenDb();
@@ -375,7 +375,7 @@ function panggil(elem)
     </td>
     </tr>
     <tr>
-        <td ><strong>Pembayaran</strong> </td>
+        <td><strong>Payment</strong> </td>
         <td colspan="2">
         <select name="idpengeluaran" id="idpengeluaran" style="width:225px" onKeyPress="return focusNext('rekkredit', event)" onFocus="panggil('idpengeluaran')">
         <?		$sql = "SELECT replid, nama FROM datapengeluaran WHERE departemen = '$departemen' ORDER BY nama";	
@@ -387,7 +387,7 @@ function panggil(elem)
         </td>
     </tr>
     <tr>
-        <td><strong>Rek. Kredit</strong></td>
+        <td><strong>Rek. Credit</strong></td>
         <td colspan="2">
         <select name="rekkredit" id="rekkredit" style="width:225px" onKeyPress="return focusNext('rekdebet', event)" onFocus="panggil('rekkredit')">
     <?	$sql = "SELECT kode, nama FROM rekakun WHERE kategori IN (SELECT kategori FROM rekakun ra, datapengeluaran dp WHERE ra.kode = dp.rekkredit AND dp.replid = '$idpengeluaran') ORDER BY kode";
@@ -399,7 +399,7 @@ function panggil(elem)
         </td>
     </tr>
     <tr>
-        <td><strong>Rek. Debet</strong> </td>
+        <td><strong>Rek. Debit</strong> </td>
         <td colspan="2">
         <select name="rekdebet" id="rekdebet" style="width:225px" onKeyPress="return focusNext('penerima', event)" onFocus="panggil('rekdebet')">
     <?	$sql = "SELECT kode, nama FROM rekakun WHERE kategori IN (SELECT kategori FROM rekakun ra, datapengeluaran dp WHERE ra.kode = dp.rekdebet AND dp.replid = '$idpengeluaran') ORDER BY kode";
@@ -411,11 +411,11 @@ function panggil(elem)
         </td>
     </tr>
     <tr>
-        <td><strong>Pemohon</strong></td>
+        <td><strong>Applicant</strong></td>
         <td colspan="2">
         <input type="hidden" name="spemohon" id="spemohon" value="<?=$jenispemohon ?>" />
         <input type="radio" name="jpemohon" id="jpemohon" onClick="clearvalue(1)" <?=StringIsChecked($jenispemohon, 1) ?> />&nbsp;Pegawai&nbsp;&nbsp;
-        <input type="radio" name="jpemohon" id="jpemohon" onClick="clearvalue(2)" <?=StringIsChecked($jenispemohon, 2) ?>/>&nbsp;Siswa&nbsp;&nbsp;
+        <input type="radio" name="jpemohon" id="jpemohon" onClick="clearvalue(2)" <?=StringIsChecked($jenispemohon, 2) ?>/>&nbsp;Student&nbsp;&nbsp;
         <input type="radio" name="jpemohon" id="jpemohon" onClick="clearvalue(3)" <?=StringIsChecked($jenispemohon, 3) ?>/>&nbsp;Lainnya&nbsp;&nbsp;
         </td>
     </tr>
@@ -429,19 +429,19 @@ function panggil(elem)
         </td>
     </tr>
     <tr>
-        <td>Penerima</td>
+        <td>Recipient</td>
         <td colspan="2"><input type="text" name="penerima" id="penerima" value="<?=$penerima ?>" size="30" onKeyPress="return focusNext('tcicilan', event)" onFocus="panggil('penerima')"/></td>
     </tr>
     <tr>
-    	<td><strong>Tanggal</strong></td>
+    	<td><strong>Date</strong></td>
    		<td>
         <input type="text" name="tcicilan" id="tcicilan" readonly size="15" value="<?=$tanggal?>" onKeyPress="return focusNext('jumlah', event)" onClick="Calendar.setup()" style="background-color:#CCCC99" ></td>
         <td width="60%">
-        <img src="images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/>
+        <img src="images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '100px')"/>
         </td>
     </tr>	
     <tr>
-        <td><strong>Jumlah</strong></td>
+        <td><strong>Sum</strong></td>
         <td colspan="2">
         <input type="hidden" name="jumlahawal" id="jumlahawal" value="<?=$jumlah ?>" />
         <input type="text" name="jumlah" id="jumlah" size="18" value="<?=FormatRupiah($jumlah) ?>" onBlur="formatRupiah('jumlah')" onFocus="unformatRupiah('jumlah');panggil('jumlah')" onKeyPress="return focusNext('keperluan', event)" onKeyUp="salinangka()"/>
@@ -450,21 +450,21 @@ function panggil(elem)
     </tr>
    
     <tr>
-        <td valign="top"><strong>Keperluan</strong></td>
+        <td valign="top"><strong>Necessities</strong></td>
         <td colspan="2"><textarea name="keperluan" id="keperluan" rows="2" cols="45" onKeyPress="return focusNext('alasan', event)" onFocus="panggil('keperluan')"><?=$keperluan ?></textarea></td>
     </tr>
      <tr>
-        <td valign="top"><strong>Alasan Perubahan</strong></td>
+        <td valign="top"><strong>Reason Perubahan</strong></td>
         <td colspan="2"><textarea name="alasan" id="alasan" rows="2" cols="45" onKeyPress="return focusNext('keterangan', event)" onFocus="panggil('alasan')"><?=$_REQUEST['alasan'] ?></textarea></td>
     </tr>
     <tr>
-        <td valign="top">Keterangan</td>
+        <td valign="top">Info</td>
         <td colspan="2"><textarea name="keterangan" id="keterangan" rows="2" cols="45" onKeyPress="return focusNext('Simpan', event)" onFocus="panggil('keterangan')"><?=$keterangan ?></textarea></td>
     </tr>
     <tr>
         <td align="center" colspan="3">
-        <input type="button" name="Simpan" value="Simpan" id="Simpan" class="but" onClick="this.disabled = true; ValidateSubmit();" />&nbsp;
-        <input type="button" value="Tutup" class="but" onClick="window.close()" />
+        <input type="button" name="Simpan" value="Save" id="Simpan" class="but" onClick="this.disabled = true; ValidateSubmit();" />&nbsp;
+        <input type="button" value="Close" class="but" onClick="window.close()" />
         </td>
     </tr>
     </table>

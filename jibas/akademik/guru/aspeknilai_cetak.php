@@ -37,7 +37,7 @@ $departemen = "yayasan";
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Aspek Penilaian]</title>
+<title>JIBAS SIMAKA [Print Assessment Aspect]</title>
 </head>
 
 <body>
@@ -46,15 +46,15 @@ $departemen = "yayasan";
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>DATA ASPEK PENILAIAN</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>ASSESSMENT ASPECT DATA</strong></font><br /> </center><br /><br />
 
 <br />
 
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">Kode</td>
-        <td width="*" class="header" align="center">Aspek Penilaian</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Code</td>
+        <td width="*" class="header" align="center">Assessment Aspect</td>
     </tr>
 <? 	OpenDb();
 	$sql = "SELECT dasarpenilaian, keterangan FROM dasarpenilaian";    

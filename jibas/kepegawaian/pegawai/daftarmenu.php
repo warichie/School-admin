@@ -29,7 +29,7 @@ require_once("../include/sessioninfo.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/string.js"></script>
 <script language="javascript">
@@ -87,8 +87,8 @@ function UpdateNip(newnip)
 <tr>
     <td width="100%" align="right">
 	    <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Daftar Kepegawaian</font><br />
-        <a href="pegawai.php" target="_parent">Kepegawaian</a> &gt; Daftar Kepegawaian
+        <font class="subtitle">Employee Affair List</font><br />
+        <a href="pegawai.php" target="_parent">Employee Affair</a> &gt; Employee Affair List
         <br /><br />
     </td>
 </tr>
@@ -99,37 +99,37 @@ function UpdateNip(newnip)
 		<table border="0" cellpadding="0" cellspacing="0">
 		<tr height="30">
 			<td width="70" align="left" valign="middle" style="background-color: #E7BB1C">
-				<input type="radio" name="menu" id="menu" value="1" checked onclick="JavaScript:ChangePage(1)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(1)">Pribadi</a>	
+				<input type="radio" name="menu" id="menu" value="1" checked onclick="JavaScript:ChangePage(1)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(1)">Personal</a>	
 			</td>
 			<td width="80" align="left" valign="middle" style="background-color: #E7BB1C">
-				<input type="radio" name="menu" id="menu" value="2" onclick="JavaScript:ChangePage(2)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(2)">Golongan</a>
+				<input type="radio" name="menu" id="menu" value="2" onclick="JavaScript:ChangePage(2)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(2)">Level</a>
 			</td>
 			<td width="70" align="left" valign="middle" style="background-color: #E7BB1C">
-				<input type="radio" name="menu" id="menu" value="3" onclick="JavaScript:ChangePage(3)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(3)">Jabatan</a>
+				<input type="radio" name="menu" id="menu" value="3" onclick="JavaScript:ChangePage(3)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(3)">Position</a>
 			</td>
 			<td width="70" align="left" valign="middle" style="background-color: #E7BB1C">
-				<input type="radio" name="menu" id="menu" value="4" onclick="JavaScript:ChangePage(4)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(4)">Pensiun</a>
+				<input type="radio" name="menu" id="menu" value="4" onclick="JavaScript:ChangePage(4)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(4)">Pension</a>
 			</td>
 			<td width="50" align="left" valign="middle" style="background-color: #E7BB1C">
-				<input type="radio" name="menu" id="menu" value="5" onclick="JavaScript:ChangePage(5)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(5)">Gaji</a>
+				<input type="radio" name="menu" id="menu" value="5" onclick="JavaScript:ChangePage(5)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(5)">Salary</a>
 			</td>
 			<td width="60" align="left" valign="middle" style="background-color: #E7BB1C">
-				<input type="radio" name="menu" id="menu" value="6" onclick="JavaScript:ChangePage(6)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(6)">Diklat</a>
+				<input type="radio" name="menu" id="menu" value="6" onclick="JavaScript:ChangePage(6)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(6)">Education and Training</a>
 			</td>
 			<td width="70" align="left" valign="middle" style="background-color: #E7BB1C">
-				<input type="radio" name="menu" id="menu" value="7" onclick="JavaScript:ChangePage(7)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(7)">Sekolah</a>
+				<input type="radio" name="menu" id="menu" value="7" onclick="JavaScript:ChangePage(7)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(7)">School</a>
 			</td>
 			<td width="85" align="left" valign="middle" style="background-color: #E7BB1C">
-				<input type="radio" name="menu" id="menu" value="8" onclick="JavaScript:ChangePage(8)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(8)">Sertifikasi</a>
+				<input type="radio" name="menu" id="menu" value="8" onclick="JavaScript:ChangePage(8)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(8)">Certification</a>
 			</td>
 			<td width="60" align="left" valign="middle" style="background-color: #E7BB1C">
-				<input type="radio" name="menu" id="menu" value="9" onclick="JavaScript:ChangePage(9)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(9)">Kerja</a>
+				<input type="radio" name="menu" id="menu" value="9" onclick="JavaScript:ChangePage(9)"/><a style='font-weight:normal' href="JavaScript:ChangePage2(9)">Occupation</a>
 			</td>
 			<td width="100" align="left" valign="middle" style="background-color: #E7BB1C">
-				<input type="radio" name="menu" id="menu" value="10" onclick="JavaScript:ChangePage(10)"/><a style="font-weight:normal" href="JavaScript:ChangePage2(10)">Keluarga</a>
+				<input type="radio" name="menu" id="menu" value="10" onclick="JavaScript:ChangePage(10)"/><a style="font-weight:normal" href="JavaScript:ChangePage2(10)">Family</a>
 			</td>
 			<td width="100" align="left" valign="middle" style="background-color: #000">
-				&nbsp;<input type="radio" name="menu" id="menu" value="11" onclick="JavaScript:ChangePage(11)"/><a style="color:#FFF" href="JavaScript:ChangePage2(11)">[Semua]</a>
+				&nbsp;<input type="radio" name="menu" id="menu" value="11" onclick="JavaScript:ChangePage(11)"/><a style="color:#FFF" href="JavaScript:ChangePage2(11)">[All]</a>
 			</td>
 		</tr>
 		</table>

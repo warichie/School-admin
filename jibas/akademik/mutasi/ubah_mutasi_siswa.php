@@ -62,7 +62,7 @@ if ($Simpan=="Simpan"){
 		if ($pop==1){
 		?>
 		<SCRIPT type="text/javascript" language="javascript">
-			alert ('Mutasi siswa berhasil diubah');
+			alert ('Mutation successfully changed');
 			document.location.href="daftar_mutasi_siswa_footer.php?departemen=<?=$departemen?>";
 			//window.close();
 		</script>
@@ -70,7 +70,7 @@ if ($Simpan=="Simpan"){
 		} else {
 		?>
 		<SCRIPT type="text/javascript" language="javascript">
-			alert ('Mutasi siswa berhasil diubah');
+			alert ('Mutation successfully changed');
 			document.location.href="daftar_mutasi_siswa_footer.php?departemen=<?=$departemen?>&from_left=1";
 			//window.close();
 		</script>
@@ -80,7 +80,7 @@ if ($Simpan=="Simpan"){
 		RollBackTrans();
 	?>
 		<SCRIPT type="text/javascript" language="javascript">
-			alert ('Gagal merubah mutasi siswa !');
+			alert ('Failed to change mutation');
 			document.location.href="ubah_mutasi.php?tampil=tampil&nis=<?=$_REQUEST['nis']?>";	
 		</script>
 	<?
@@ -101,10 +101,10 @@ if ($Simpan=="Simpan"){
 <SCRIPT type="text/javascript" language="javascript" src="../script/common.js"></script>
 <SCRIPT type="text/javascript" language="javascript" src="../script/tools.js"></script>
 <link href="../style/style.css" rel="stylesheet" type="text/css">
-<title>Tambah Jenis Mutasi</title>
+<title>Add Mutation Type</title>
 <SCRIPT type="text/javascript" language="javascript">
 function verifikasi(){
-	if (confirm('Anda yakin akan merubah status mutasi siswa ini?'))
+	if (confirm('Are you sure want to change this Student Mutation Status?'))
  	 	return true;
 }
 </script>
@@ -118,7 +118,7 @@ function verifikasi(){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Mutasi Siswa :.
+    .: Edit Student Mutation :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -131,22 +131,22 @@ function verifikasi(){
 <table width="100%" border="0">
   <tr>
     <td><fieldset>
-    <legend>Siswa yang status mutasinya akan diubah</legend>
+    <legend>Student yang status mutasinya akan diubah</legend>
     <table width="100%" border="0" cellspacing="0" cellpadding="3">
                  <tr>
-                   <td>NIS</td>
+                   <td>Student ID</td>
                    <td> <input name="asal" type="hidden" class="disabled" id="asal" value="<?=$asal?>" readonly><input name="nis" type="text" id="nis" value="<?=$row_tampil[0]?>" class="disabled" readonly></td>
                  </tr>
                  <tr>
-                   <td>Nama</td>
+                   <td>Name</td>
                    <td><input name="nama" type="text" id="nama" class="disabled" value="<?=$row_tampil[1]?>" readonly><input name="departemen" type="hidden" id="departemen" value="<?=$departemen?>" readonly></td>
                  </tr>
                  <tr>
-                   <td>Kelas</td>
+                   <td>Class</td>
                    <td><input name="kelas" class="disabled" type="text" id="kelas" value="<?=$row_tampil[2]?>" readonly></td>
                  </tr>
                  <tr>
-                   <td>Angkatan</td>
+                   <td>Graduates</td>
                    <td><input name="angkatan" class="disabled" type="text" id="angkatan" value="<?=$row_tampil[3]?>" readonly></td>
                  </tr>
         </table>
@@ -155,11 +155,11 @@ function verifikasi(){
   <tr>
     <td> <table width="100%" border="0">
                      <tr>
-                       <td>&nbsp;&nbsp;Tanggal Mutasi</td>
-                       <td><input name="tanggal" class="disabled" id="tanggal" type="text" readonly="readonly" value="<?=TglText($row_tampil[6])?>">&nbsp;<img src="../images/ico/calendar_1.png" name="tabel" width="22" height="22" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '120px')"/></td>
+                       <td>&nbsp;&nbsp;Mutation Date</td>
+                       <td><input name="tanggal" class="disabled" id="tanggal" type="text" readonly="readonly" value="<?=TglText($row_tampil[6])?>">&nbsp;<img src="../images/ico/calendar_1.png" name="tabel" width="22" height="22" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '120px')"/></td>
                      </tr>
                      <tr>
-                         <td>&nbsp;&nbsp;Jenis Mutasi                         </td>
+                         <td>&nbsp;&nbsp;Mutation Type                         </td>
                          <td><select name="mutasi" id="mutasi">
           <?
 				$sql = "SELECT * FROM jbsakad.jenismutasi ORDER BY replid";
@@ -182,7 +182,7 @@ function verifikasi(){
         </select>                         </td>
                      </tr>
                        <tr>
-                       <td>&nbsp;&nbsp;Keterangan<br />&nbsp;&nbsp;Mutasi                         </td>
+                       <td>&nbsp;&nbsp;Info<br />&nbsp;&nbsp;Mutation                         </td>
                         <td><textarea name="keterangan" cols="30" rows="5" id="keterangan"><?=$row_tampil[5]?></textarea></td>
                        </tr>
                      </table>
@@ -190,14 +190,14 @@ function verifikasi(){
                  </tr>
                  <tr>
                    <td colspan="2"><div align="center">
-                     <input name="Simpan" type="Submit" class="but" value="Simpan">
+                     <input name="Simpan" type="Submit" class="but" value="Save">
                      &nbsp;
 	<?
   if ($pop==1){ ?>
-  <input name="Tutup" type="button" class="but" value="Tutup" onClick="window.close()">
+  <input name="Tutup" type="button" class="but" value="Close" onClick="window.close()">
 
 	<? } else { ?>
-  <input name="Tutup" type="button" class="but" value="Batal" onClick="window.self.history.back()">
+  <input name="Tutup" type="button" class="but" value="Cancel" onClick="window.self.history.back()">
 	<? } ?>
                      </div></td>
                  </tr>

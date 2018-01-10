@@ -56,10 +56,10 @@ $pelajaran = $_REQUEST['pelajaran'];
     <input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />    </td>
 </tr>     
 <tr>
-    <td width="9%"><font color="#000000"><strong>Departemen </strong></font><br /></td>
+    <td width="9%"><font color="#000000"><strong>Department </strong></font><br /></td>
     <td width="91%"><select name="depart" id="depart" onchange="change_departemen()" style="width:80px;" onkeypress="return focusNext('pelajaran', event)">
-      <!--<option value="-1" <? if ($departemen=="-1") echo "selected"; ?>>(Semua)</option>-->
-      <option value="-1" <?=StringIsSelected("-1", $departemen) ?>>(Semua)</option>
+      <!--<option value="-1" <? if ($departemen=="-1") echo "selected"; ?>>(All)</option>-->
+      <option value="-1" <?=StringIsSelected("-1", $departemen) ?>>(All)</option>
       <?	$dep = getDepartemen(SI_USER_ACCESS());    
 		foreach($dep as $value) {
 		if ($departemen == "")
@@ -80,9 +80,9 @@ $pelajaran = $_REQUEST['pelajaran'];
     ?></td>
 </tr>
 <tr>
-  <td><font color="#000000"><strong>Pelajaran</strong></font></td>
+  <td><font color="#000000"><strong>Class Subject</strong></font></td>
   <td><select name="pelajaran" id="pelajaran" onchange="get_guru()" <?=$disable?> style="width:250px;">
-    <option value="-1" <? if ($pelajaran=="-1") echo "selected"; ?>>(Semua Pelajaran)</option>
+    <option value="-1" <? if ($pelajaran=="-1") echo "selected"; ?>>(All Class Subject)</option>
     <?
         $sql_pel="SELECT * FROM jbsakad.pelajaran pel WHERE pel.aktif=1 $sql_tambahdep ORDER BY pel.nama";
     
@@ -118,11 +118,11 @@ $pelajaran = $_REQUEST['pelajaran'];
 		
 		<table width="100%" align="center" cellpadding="2" cellspacing="0" class="tab" border="1" id="table" bordercolor="#000000">
 		<tr height="30">
-			<td class="header" width="7%" align="center">No</td>
-    		<td class="header" width="15%" align="center">N I P</td>
-            <td class="header" align="center" >Nama</td>
+			<td class="header" width="7%" align="center">#</td>
+    		<td class="header" width="15%" align="center">Employee ID</td>
+            <td class="header" align="center" >Name</td>
             <? if ($sql_tambahdep == "") { ?>
-            <td class="header" align="center" >Departemen</td>          
+            <td class="header" align="center" >Department</td>          
             <? } ?>
     		<td class="header" width="10%" align="center">&nbsp;</td>
 		</tr>
@@ -157,7 +157,7 @@ $pelajaran = $_REQUEST['pelajaran'];
             <td align="center"><?=implode(", ",$depart) ?></td>			
             <? } ?>
     		<td align="center">
-    		<input type="button" name="pilih" class="but" id="pilih" value="Pilih" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>', '<?=$depart[0]?>', '<?=$ajar[0]?>')" />    	   	</td>
+    		<input type="button" name="pilih" class="but" id="pilih" value="Select" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>', '<?=$depart[0]?>', '<?=$ajar[0]?>')" />    	   	</td>
 		</tr>
 		<? 	} ?> 
         </table>
@@ -167,10 +167,10 @@ $pelajaran = $_REQUEST['pelajaran'];
 		<tr height="30" align="center">
         	<td>
         <br /><br />	
-		<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />
+		<font size = "2" color ="red"><b>Data Not Found. <br /><br />
         <? 	if ($pelajaran == -1 || strlen($pelajaran) == 0) { ?>
         
-			Tambah data guru pada departemen <?=$departemen?> di menu Pendataan Guru pada bagian Guru & Pelajaran. </b></font>	
+			Add teacher data on Department <?=$departemen?> in the Teacher Data menu on Teacher and Class Subject section. </b></font>	
 		
         <?  } else {
 			$sql="SELECT * FROM jbsakad.pelajaran WHERE replid = $pelajaran";
@@ -178,7 +178,7 @@ $pelajaran = $_REQUEST['pelajaran'];
 			$result=QueryDb($sql);
 			$row = mysql_fetch_array($result);
 		?> 		
-        Tambah data guru yang akan mengajar pelajaran <?=$row['nama']?> pada departemen <?=$departemen?> di menu Pendataan Guru pada bagian Guru & Pelajaran. </b></font>
+        Add teacher who will teach <?=$row['nama']?> on Department <?=$departemen?> in the Teacher Data menu on Teacher and Class Subject section. </b></font>
         <? } ?>
         <br /><br />        	</td>
         </tr>
@@ -187,6 +187,6 @@ $pelajaran = $_REQUEST['pelajaran'];
 </tr>
 <tr>
 	<td colspan="2" align="center" >
-	<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" style="width:80px;"/>	</td>
+	<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" style="width:80px;"/>	</td>
 </tr>
 </table>

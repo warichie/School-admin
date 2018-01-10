@@ -39,7 +39,7 @@ $row1 = mysql_fetch_array($result1);
 $info_jadwal = $row1['deskripsi'];
 $departemen = $row1['departemen'];
 $tahunajaran = $row1['replid'];
-$periode = format_tgl($row1['tglmulai']).' s/d '. format_tgl($row1['tglakhir']); 
+$periode = format_tgl($row1['tglmulai']).' to '. format_tgl($row1['tglakhir']); 
  	
 ?>
 
@@ -48,7 +48,7 @@ $periode = format_tgl($row1['tglmulai']).' s/d '. format_tgl($row1['tglakhir']);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Rekap Jadwal Guru</title>
+<title>Teacher Schedule Recap</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -86,30 +86,30 @@ function cetak() {
     <table width="100%" border="0" align="center">
     <!-- TABLE LINK -->
     <tr>
-    	<td><strong>Periode <?=$periode?></strong></td>
-		<!--<input type="text" class="disabled" readonly value="<?=format_tgl($row['tglmulai'])?> s/d <?=format_tgl($row['tglakhir'])?>" size="40">	-->	        
+    	<td><strong>Period <?=$periode?></strong></td>
+		<!--<input type="text" class="disabled" readonly value="<?=format_tgl($row['tglmulai'])?> to <?=format_tgl($row['tglakhir'])?>" size="40">	-->	        
 
     	<td align="right">
-        	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    		<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;		 </td>
+        	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    		<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;		 </td>
    	</tr>
     </table>
    	<br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000" />
     <!-- TABLE CONTENT -->
     <tr height="15">
-    	<td width="4%" rowspan="2 "class="header" align="center">No</td>
-        <td width="10%"rowspan="2" class="header" align="center">NIP</td>
-        <td width="*"rowspan="2" class="header" align="center">Nama</td>
-        <td colspan="6" width="60%" class="header" align="center">Jumlah</td>
+    	<td width="4%" rowspan="2 "class="header" align="center">#</td>
+        <td width="10%"rowspan="2" class="header" align="center">Employee ID</td>
+        <td width="*"rowspan="2" class="header" align="center">Name</td>
+        <td colspan="6" width="60%" class="header" align="center">Sum</td>
 	</tr>
     <tr height="15">
-        <td width="8%" class="header" align="center">Mengajar</td>
-        <td width="8%" class="header" align="center">Asistensi</td>
-        <td width="8%" class="header" align="center">Tambahan</td>
-        <td width="8%" class="header" align="center">Jam</td>
-        <td width="8%" class="header" align="center">Kelas</td>
-        <td width="8%" class="header" align="center">Hari</td>
+        <td width="8%" class="header" align="center">Teaching</td>
+        <td width="8%" class="header" align="center">Assistance</td>
+        <td width="8%" class="header" align="center">Extra</td>
+        <td width="8%" class="header" align="center">Time</td>
+        <td width="8%" class="header" align="center">Class</td>
+        <td width="8%" class="header" align="center">Day</td>
     </tr>
     <? $cnt = 0;
 		while ($row = mysql_fetch_row($result)) {
@@ -137,7 +137,7 @@ function cetak() {
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="250">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data jadwal mengajar. <br /><br />Tambah data pada jadwal mengajar untuk setiap guru atau jadwal mengajar untuk setiap kelas <br> pada <?=$info_jadwal?>  di menu Penyusunan Jadwal Setiap Guru atau Penyusunan Jadwal Setiap Kelas <br /> pada bagian Jadwal & Kalender.</b></font>
+    	<font size = "2" color ="red"><b>No Data Found. <br /><br />Add a new data for each Teacher's Schedule or Teaching Schedule for each classes <br> on <?=$info_jadwal?> in each Teachers or Class Schedule <br /> on Schedule and Calendar section.</b></font>
 		</td>
 	</tr>
 	</table>

@@ -25,7 +25,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Guru Main</title>
+<title>Teacher Main</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css"></head>
 <body bgcolor="#FFFFFF">
 <table width="100%" border="0" height="100%" >
@@ -45,7 +45,7 @@
     </tr>
     
 	</table><br><br><br><br><br><br><br><br><br><br>
-        <font size="2" color="#757575"><b>Pilih Departement, Tahun Ajaran, Tingkat untuk menampilkan data Siswa sesuai dengan yang dipilih,<br>lalu pilih <em>hyperlink</em> "Nama Siswa" yang akan ditampilkan</b></font>    </td>
+        <font size="2" color="#757575"><b>Select Department, Year, and Grade to show the Student data,<br>and then select <em>hyperlink</em> of the "Student Name" you want to see</b></font>    </td>
 </tr>
 </table>
 </body>

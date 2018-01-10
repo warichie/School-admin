@@ -81,12 +81,12 @@ function validate(){
 	var judul=document.getElementById('judul').value;
 	var pesan=tinyMCE.get('pesan').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Pesan');
+		alert ('Message Title should not leave empty');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (pesan.length==0){
-		alert ('Anda harus mengisikan data untuk Pesan');
+		alert ('Message should not leave empty');
 		document.getElementById('pesan').focus();
 		return false;
 	}
@@ -105,26 +105,26 @@ function hapusfile(field){
 <input type="hidden" name="idguru" id="idguru" value="<?=$idguru?>" />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td scope="row" align="left"><strong><font size="2" color="#999999">Balas Pesan :</font></strong><br /><br /></td>
+    <td scope="row" align="left"><strong><font size="2" color="#999999">Reply Message :</font></strong><br /><br /></td>
   </tr>
   <tr>
     <td scope="row" align="left">
     <table width="100%" border="0" cellspacing="2" cellpadding="2"  >
-  <tr >
-    <th width="134" scope="row"><div align="left">Kepada</div></th>
+  <tr>
+    <th width="134" scope="row"><div align="left">To</div></th>
     <td colspan="2"><input type="text" maxlength="254" name="receiver2" id="receiver2" size="50" value="[<?=$receiver?>] <?=$nama?>" /></td>
   </tr>
-  <tr >
-    <th width="134" scope="row"><div align="left">Judul</div></th>
+  <tr>
+    <th width="134" scope="row"><div align="left">Title</div></th>
     <td colspan="2"><input type="text" maxlength="254" name="judul" id="judul" size="50" value="Balasan : <?=$judul?>" /></td>
   </tr>
   <tr>
-    <th scope="row"><div align="left">Tanggal Tampil</div></th>
-    <td colspan="2"><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <th scope="row"><div align="left">Publish Date</div></th>
+    <td colspan="2"><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
   <tr>
-    <th colspan="3" valign="top" align="left" scope="row"  ><div align="left">Pesan<br />
-        <textarea name="pesan" rows="27" id="pesan">Pesan asli : <?=$pesan?><hr style="border:dashes;"><br />Pesan balasan :</textarea>
+    <th colspan="3" valign="top" align="left" scope="row"  ><div align="left">Message<br />
+        <textarea name="pesan" rows="27" id="pesan">Original message : <?=$pesan?><hr style="border:dashes;"><br />Reply message :</textarea>
     </div></th>
     </tr>
   <tr>
@@ -134,23 +134,23 @@ function hapusfile(field){
     <th colspan="3" scope="row">
       <table width="100%" align="left" border="0" cellspacing="0">
         <tr>
-          <th rowspan="3" scope="row"><div align="left">Lampiran</div></th>
+          <th rowspan="3" scope="row"><div align="left">Attachment</div></th>
             <td><div align="center">#1</div></td>
-            <td><input size="25" type="file" id="file1" name="file1"/><img src="../../images/ico/hapus.png" onclick="hapusfile('file1')" title="Hapus file ini !" style="cursor:pointer" />&nbsp;</td>
+            <td><input size="25" type="file" id="file1" name="file1"/><img src="../../images/ico/hapus.png" onclick="hapusfile('file1')" title="Delete this file" style="cursor:pointer" />&nbsp;</td>
           </tr>
         <tr>
           <td><div align="center">#2</div></td>
-            <td><input size="25" type="file" name="file2" id="file3" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file2')" title="Hapus file ini !" style="cursor:pointer" />&nbsp;</td>
+            <td><input size="25" type="file" name="file2" id="file3" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file2')" title="Delete this file" style="cursor:pointer" />&nbsp;</td>
           </tr>
         <tr>
           <td><div align="center">#3</div></td>
-            <td><input size="25" type="file" name="file3" id="file3" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file3')" title="Hapus file ini !" style="cursor:pointer" />&nbsp;</td>
+            <td><input size="25" type="file" name="file3" id="file3" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file3')" title="Delete this file" style="cursor:pointer" />&nbsp;</td>
           </tr>
       </table></th>
     </tr>
   <tr>
     <td colspan="3" scope="row"><div align="center">
-      <input name="kirim" type="submit" class="but" id="kirim" value="Kirim" style="width:100px;" />
+      <input name="kirim" type="submit" class="but" id="kirim" value="Send" style="width:100px;" />
     </div></td>
     </tr>
 </table>

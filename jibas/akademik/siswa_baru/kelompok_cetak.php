@@ -46,7 +46,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Kelompok Calon Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Candidate Group]</title>
 </head>
 
 <body>
@@ -56,15 +56,15 @@ CloseDb();
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DATA CALON SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT CANDIDATE DATA</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td><strong>Departemen</strong> </td> 
+	<td><strong>Department</strong> </td> 
 	<td><strong>:&nbsp;<?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Penerimaan</strong></td>
+	<td><strong>Admission</strong></td>
 	<td><strong>:&nbsp;<?=$row['proses']?></strong></td>
 </tr>
 
@@ -73,11 +73,11 @@ CloseDb();
 
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="0" width="100%" align="left" bordercolor="#000000">
    <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="25%" class="header" align="center">Kelompok</td>
-        <td width="12%" class="header" align="center">Kapasitas</td>
-        <td width="8%" class="header" align="center">Terisi</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="25%" class="header" align="center">Group</td>
+        <td width="12%" class="header" align="center">Capacity</td>
+        <td width="8%" class="header" align="center">Filled</td>
+        <td width="*" class="header" align="center">Info</td>
     </tr>
 <? 	
 	OpenDb();

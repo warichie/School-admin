@@ -156,7 +156,7 @@ if (($nday > 0) && ($nday < 7))
 }
 </style>
 
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 function GoToLastMonth() {
@@ -203,10 +203,10 @@ function Cetak() {
 <body style="background-color:#F3F3F3" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 <table border="0" cellpadding="2" cellspacing="0" width="490" align="center">
 <tr><td width="100%" align="left">
-<strong>Bulan :</strong>
+<strong>Month :</strong>
 <input type="button" class="but" onclick="GoToLastMonth()" value="  <  ">
 <select id="bulan" name="bulan" onchange="ChangeCal()">
-<? $namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+<? $namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");
    for ($i = 1; $i <= 12; $i++) { ?>
 	<option value="<?=$i?>" <?=IntIsSelected($i, $bulan)?>><?=$namabulan[$i - 1]?></option>
 <? } ?>
@@ -219,20 +219,20 @@ function Cetak() {
 </select>    
 <input type="button" class="but" onclick="GoToNextMonth()" value="  >  ">
 <a href="JavaScript:Refresh()"><img src="../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>&nbsp;&nbsp;
-<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;Cetak</a>
+<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>
 </td>
 </tr>
 </table>
 
 <table border="1" bordercolor="#CCCCCC" cellpadding="5" cellspacing="0" width="490" style="border-color:#999999" align="center">
 <tr height="30" bgcolor="#DFFFDF">
-	<td width="70" class="redheader" align="center" style="background-color:#990000; color:#FFFFFF"><b>Minggu</b></td>
-    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Senin</b></td>
-    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Selasa</b></td>
-    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Rabu</b></td>
-    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Kamis</b></td>
-    <td width="70" class="greenheader" align="center" style="background-color:#339900; color:#FFFFFF"><b>Jum'at</b></td>
-    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Sabtu</b></td>
+	<td width="70" class="redheader" align="center" style="background-color:#990000; color:#FFFFFF"><b>Sunday</b></td>
+    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Monday</b></td>
+    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Tuesday</b></td>
+    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Wednesday</b></td>
+    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Thursday</b></td>
+    <td width="70" class="greenheader" align="center" style="background-color:#339900; color:#FFFFFF"><b>Friday</b></td>
+    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Saturday</b></td>
 </tr>
 <?
 for ($i = 0; $i < count($cal); $i++) 
@@ -295,7 +295,7 @@ for ($i = 0; $i < count($cal); $i++)
 <td align="left" valign="top" width="60%">
 <br>
 <fieldset>
-<legend><font style="color:white; background-color:black; font-weight:bold">&nbsp;Agenda bulan <?= namabulan($bulan) . " $tahun" ?>&nbsp;</font></legend>	
+<legend><font style="color:white; background-color:black; font-weight:bold">&nbsp;Agenda month <?= namabulan($bulan) . " $tahun" ?>&nbsp;</font></legend>	
 <table border="0" cellspacing="0" align="left">
 <?
 $bln2=$bulan;
@@ -319,7 +319,7 @@ while ($row = mysql_fetch_row($result))
 	}
 	else
 	{
-		$jumlah = "Tidak Ada";
+		$jumlah = "None";
 		$det = "";
 	}
 	echo "<tr>".
@@ -337,11 +337,11 @@ while ($row = mysql_fetch_row($result))
 <table border="0" cellpadding="0" cellspacing="2">
 <tr>
 	<td width="30" bgcolor="#CCFF00">&nbsp;</td>
-    <td>: Ada agenda</td>
+    <td>: Agenda available</td>
 </tr>
 <tr>
 	<td bgcolor="#FFCC00">&nbsp;</td>
-    <td>: Tanggal hari ini</td>
+    <td>: Today's date</td>
 </tr>
 </table>
 </fieldset>

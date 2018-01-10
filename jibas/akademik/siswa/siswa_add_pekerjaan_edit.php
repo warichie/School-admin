@@ -39,7 +39,7 @@ if (isset($_POST['simpan'])) {
 	$hasil=QueryDb($sql_cek);
 	if (mysql_num_rows($hasil)>0){
 		CloseDb();
-		$ERROR_MSG = "Pekerjaan $pekerjaan sudah digunakan!";
+		$ERROR_MSG = "Occupation $pekerjaan has been used";
 	} else {
 		$sql = "UPDATE jbsumum.jenispekerjaan SET pekerjaan='$pekerjaan' WHERE replid = '$replid'";
 		$result = QueryDb($sql);
@@ -73,16 +73,16 @@ CloseDb();
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="JavaScript" src="../script/tooltips.js"></script>
-<title>JIBAS SIMAKA [Ubah Jenis Pekerjaan]</title>
+<title>JIBAS SIMAKA [Edit Occupation Type]</title>
 <script language="javascript">
 function cek() {
 	var pekerjaan = document.main.pekerjaan.value;
 	if (pekerjaan.length == 0) {
-		alert('Anda belum memasukkan nama pekerjaan');
+		alert('You have not enter Occupation Name yet');
 		return false;
 	}
 	if (pekerjaan.length > 100) {
-		alert('Nama pekerjaan tidak boleh lebih dari 100 karakter');
+		alert('Occupation Name should not exceed 100 characters');
 		return false;
 	}
 	return true;
@@ -118,7 +118,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Jenis Pekerjaan :.
+    .: Edit Occupation Type :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -132,7 +132,7 @@ function panggil(elem){
     <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td><strong>Pekerjaan</strong></td>
+        <td><strong>Occupation</strong></td>
         <td>
         <input type="text" name="pekerjaan" id="pekerjaan" maxlength="100" size="30" value="<?=$pekerjaan?>" onFocus="panggil('pekerjaan')" onKeyPress="return focusNext('Simpan', event)">
         <input type="hidden" name="replid" value="<?=$replid?>">
@@ -141,8 +141,8 @@ function panggil(elem){
   
    <tr>
         <td align="center" colspan="2">
-        	<input class="but" type="submit" value="Simpan" name="simpan" id="Simpan" onFocus="panggil('Simpan')">
-            <input class="but" type="button" value="Tutup" onClick="window.close();">
+        	<input class="but" type="submit" value="Save" name="simpan" id="Simpan" onFocus="panggil('Simpan')">
+            <input class="but" type="button" value="Close" onClick="window.close();">
         </td>
     </tr>
     </table>

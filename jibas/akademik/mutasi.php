@@ -26,7 +26,7 @@ require_once('include/sessioninfo.php');
 ?>
 <html>
 <head>
-<title>Mutasi</title>
+<title>Mutation</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <script type="text/javascript" src="script/tooltips.js"></script>
@@ -48,10 +48,10 @@ function change_theme(theme){
 </script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<!-- ImageReady Slices (Mutasi.psd) -->
+<!-- ImageReady Slices (Mutation.psd) -->
 <table width="100%" border="0">
   <tr>
-    <td><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>MUTASI</strong></font></p></td>
+    <td><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>MUTATION</strong></font></p></td>
   </tr>
   <tr>
     <td>
@@ -66,7 +66,7 @@ function change_theme(theme){
 		<td colspan="4" rowspan="2">
 			<img src="images/mutasi_02.jpg" width="121" height="129" alt=""></td>
 		<td>
-			<a href="mutasi/jenis_mutasi_siswa.php" onMouseOver="showhint('Pendataan Jenis Mutasi Siswa', this, event, '100px')"><img src="images/mutasi_03.jpg" alt="" width="68" height="95" border="0"></a></td>
+			<a href="mutasi/jenis_mutasi_siswa.php" onMouseOver="showhint('Student Mutation Type Data Collection', this, event, '100px')"><img src="images/mutasi_03.jpg" alt="" width="68" height="95" border="0"></a></td>
   <td colspan="4" rowspan="2">
 			<img src="images/mutasi_04.jpg" width="129" height="129" alt=""></td>
 		<td>
@@ -82,7 +82,7 @@ function change_theme(theme){
 		<td colspan="3" rowspan="3">
 			<img src="images/mutasi_06.jpg" width="114" height="133" alt=""></td>
 		<td colspan="3">
-			<a href="mutasi/mutasi_siswa.php" onMouseOver="showhint('Pendataan Siswa Yang Akan Dimutasi', this, event, '100px')"><img src="images/mutasi_07.jpg" alt="" width="84" height="95" border="0"></a></td>
+			<a href="mutasi/mutasi_siswa.php" onMouseOver="showhint('Student To Be Mutated Data Collection', this, event, '100px')"><img src="images/mutasi_07.jpg" alt="" width="84" height="95" border="0"></a></td>
   <td colspan="3" rowspan="2">
 			<img src="images/mutasi_08.jpg" width="120" height="131" alt=""></td>
 		<td>
@@ -98,7 +98,7 @@ function change_theme(theme){
 		<td rowspan="3">
 			<img src="images/mutasi_10.jpg" width="36" height="104" alt=""></td>
 		<td rowspan="2">
-			<a href="mutasi/daftar_mutasi.php" onMouseOver="showhint('Daftar Siswa Yang Sudah Dimutasi', this, event, '100px')"><img src="images/mutasi_11.jpg" alt="" width="69" height="96" border="0"></a></td>
+			<a href="mutasi/daftar_mutasi.php" onMouseOver="showhint('Student Mutated List', this, event, '100px')"><img src="images/mutasi_11.jpg" alt="" width="69" height="96" border="0"></a></td>
   <td rowspan="3">
 			<img src="images/mutasi_12.jpg" width="15" height="104" alt=""></td>
 		<td>
@@ -108,7 +108,7 @@ function change_theme(theme){
 		<td rowspan="2">
 			<img src="images/mutasi_13.jpg" width="19" height="102" alt=""></td>
 		<td>
-			<a href="mutasi/statistik_mutasi_siswa.php" onMouseOver="showhint('Statistik Mutasi Siswa', this, event, '100px')"><img src="images/mutasi_14.jpg" alt="" width="67" height="94" border="0"></a></td>
+			<a href="mutasi/statistik_mutasi_siswa.php" onMouseOver="showhint('Student Mutation Statistic', this, event, '100px')"><img src="images/mutasi_14.jpg" alt="" width="67" height="94" border="0"></a></td>
   <td rowspan="2">
 			<img src="images/mutasi_15.jpg" width="28" height="102" alt=""></td>
 		<td>

@@ -85,20 +85,20 @@ function excel() {
     <table border="0" width="100%" align="center">
     <tr>
         <td align="right">
-        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka di Ms Excel!', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
+        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
+        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Open in Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
         </td>
     </tr>
     </table>
     <br />
     <table class="tab" style="border-collapse:collapse" id="table" border="1" cellpadding="2"  width="100%" bordercolor="#000000" />
     <tr height="30">
-        <td class="header" width="5%" align="center">No</td>
-        <td class="header" width="8%" align="center">Kode</td>
-        <td class="header" width="*" align="center">Rekening</td>
-        <td class="header" width="20%" align="center">Debet</td>
-        <td class="header" width="20%" align="center">Kredit</td>
+        <td class="header" width="5%" align="center">#</td>
+        <td class="header" width="8%" align="center">Code</td>
+        <td class="header" width="*" align="center">Bank Account</td>
+        <td class="header" width="20%" align="center">Debit</td>
+        <td class="header" width="20%" align="center">Credit</td>
     </tr>
 	<?
     $cnt = 0;
@@ -107,10 +107,10 @@ function excel() {
     while($row = mysql_fetch_array($result)) {
         $kategori = $row['kategori'];
         switch($kategori) {
-            case 'HARTA':
-			case 'PIUTANG':
-            case 'INVENTARIS':
-            case 'BIAYA':
+            case 'WEALTH':
+			case 'DEBT':
+            case 'INVESTMENT':
+            case 'COST':
                 $debet1 = $row['debet'] - $row['kredit'];
                 $debet = FormatRupiah($debet1);
                 $kredit = "$nbsp";
@@ -137,7 +137,7 @@ function excel() {
     CloseDb();
     ?>
     <tr height="30">
-        <td colspan="3" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+        <td colspan="3" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>
     </tr>
@@ -149,7 +149,7 @@ function excel() {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="300">
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data transaksi keuangan pada departemen <?=$departemen?> antara tanggal <?=LongDateFormat($tanggal1)?> s/d <?=LongDateFormat($tanggal2)?>.</b></font>
+            <font size = "2" color ="red"><b>No transactions found on Department <?=$departemen?> between <?=LongDateFormat($tanggal1)?> to <?=LongDateFormat($tanggal2)?>.</b></font>
             
         </td>
     </tr>

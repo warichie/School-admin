@@ -38,13 +38,13 @@ $bagian = $_REQUEST['bagian'];
 <tr>
     <td>
     <input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
-    <font size="2"><strong>Daftar Pegawai</strong></font><br />
+    <font size="2"><strong>Employee List</strong></font><br />
     </td>
 </tr>
 <tr>
-	<td><font color="#000000"><strong>Bagian </strong></font>
+	<td><font color="#000000"><strong>Section</strong></font>
     <select name="bag" id="bag" onChange="change_bagian()">
-    <option value="-1" <? if ($departemen=="-1") echo  "selected"; ?>>(Semua Bagian)</option>
+    <option value="-1" <? if ($departemen=="-1") echo  "selected"; ?>>(All Sections)</option>
 	<?  $sql_bagian="SELECT bagian FROM jbssdm.bagianpegawai ORDER BY urutan ASC";
         $result_bagian=QueryDb($sql_bagian);
         while ($row_bagian=@mysql_fetch_array($result_bagian)){
@@ -78,11 +78,11 @@ $bagian = $_REQUEST['bagian'];
     <!--<div id="tab_daftar">-->
     <table width="100%" id="table" class="tab" border="1" align="center" cellpadding="2" cellspacing="0">
     <tr height="30">
-        <td class="header" width="7%" align="center">No</td>
-        <td class="header" width="15%" align="center">N I P</td>
-        <td class="header" >Nama</td>
+        <td class="header" width="7%" align="center">#</td>
+        <td class="header" width="15%" align="center">Employee ID</td>
+        <td class="header" >Name</td>
         <? if ($sql_tambahbag == "") { ?>
-            <td class="header" align="center" >Bagian</td>          
+            <td class="header" align="center" >Section</td>          
             <? } ?>
         <td class="header" width="10%" align="center">&nbsp;</td>
     </tr>
@@ -98,7 +98,7 @@ $bagian = $_REQUEST['bagian'];
 		<td align="center" ><?=$row[2]?></td> 
         <? } ?>		
         <td align="center">
-        <input type="button" name="pilih" class="but" id="pilih" value="Pilih" onClick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
+        <input type="button" name="pilih" class="but" id="pilih" value="Select" onClick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
         </td>
     </tr>
     <? 	} ?>
@@ -108,8 +108,8 @@ $bagian = $_REQUEST['bagian'];
 	<tr height="30" align="center">
 		<td>
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />
-			Tambah data pegawai pada bagian <?=$bagian?> di menu Kepegawaian pada bagian Referensi. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br /><br />
+			Add employee data on section <?=$bagian?> in the Employee Affair Menu on Reference section. </b></font>	
 	<br /><br />
 		</td>
 	</tr>
@@ -119,7 +119,7 @@ $bagian = $_REQUEST['bagian'];
 </tr>
 <tr>
 	<td align="center" >
-	<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" style="width:80px;"/>
+	<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" style="width:80px;"/>
 	</td>
 </tr>
 </table>

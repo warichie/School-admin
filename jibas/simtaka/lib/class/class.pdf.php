@@ -650,7 +650,7 @@ function o_fontEncoding($id,$action,$options=''){
       $onum=-100;
       foreach($o['info']['differences'] as $num=>$label){
         if ($num!=$onum+1){
-          // we cannot make use of consecutive numbering
+          // we should not make use of consecutive numbering
           $res.= "\n".$num." /".$label;
         } else {
           $res.= " /".$label;
@@ -2504,9 +2504,9 @@ function restoreState($pageEnd=0){
 }
 
 /**
-* make a loose object, the output will go into this object, until it is closed, then will revert to
+* make a loose object, the output will go into this object, to it is closed, then will revert to
 * the current one.
-* this object will not appear until it is included within a page.
+* this object will not appear to it is included within a page.
 * the function will return the object number
 */
 function openObject(){
@@ -2733,7 +2733,7 @@ function addPngFromFile($file,$x,$y,$w=0,$h=0){
           Alpha for palette index 1: 1 byte 
           ...etc... 
           */ 
-            // there will be one entry for each palette entry. up until the last non-opaque entry.
+            // there will be one entry for each palette entry. up to the last non-opaque entry.
             // set up an array, stretching over all palette entries which will be o (opaque) or 1 (transparent)
             $transparency['type']='indexed';
             $numPalette = strlen($pdata)/3;

@@ -30,7 +30,7 @@ function cari(){
 	if (num==0)	{
 		newWindow(addr, 'CariPeminjam','523','425','resizable=1,scrollbars=1,status=0,toolbar=0')
 	} else {
-		if (confirm('Peminjaman belum disimpan, \nAnda yakin akan membatalkan peminjaman?')){
+		if (confirm('Borrowing not saved yet, \nAre you sure want to cancel this borrowing?')){
 			newWindow(addr, 'CariPeminjam','523','425','resizable=1,scrollbars=1,status=0,toolbar=0')
 			CancelPeminjamanByReq(num);
 		}
@@ -65,11 +65,11 @@ function AddToChart(){
 	var maxqueue = document.getElementById('max_queue').value;
 	var kodepustaka = document.getElementById('kodepustaka').value;
 	if (borrowed>=maxqueue){
-			alert ('Tidak dapat menyimpan data\nkarena Anggota sedang meminjam '+borrowed+' pustaka dan belum mengembalikannya');
+			alert ('Cannot save the data\nbecause Member is borrowing '+borrowed+' library and has not returned it yet');
 	} else {
 		if (kodepustaka=="")
 		{
-			alert ('Anda harus mengisikan kode pustaka!');
+			alert ('You must enter the library code');
 			document.getElemntById('kodepustaka').focus();
 		} else {
 			var status = document.getElementById('statuspeminjam').value;
@@ -92,11 +92,11 @@ function ValidatePeminjaman(){
 	var idstr;
 	if (num>maxqueue)
 	{
-		alert('Jumlah peminjaman tidak boleh melebihi '+maxqueue);
+		alert('Amount of borrowing should not exceed '+maxqueue);
 	} else {
 		if (num==0)
 		{
-			alert ('Tidak ada pustaka yang akan dipinjam!');
+			alert ('No library will be borrowed');
 		} else {
 			for (i=1; i<=num; i++)
 			{
@@ -109,7 +109,7 @@ function ValidatePeminjaman(){
 				}
 				
 			}
-			if (confirm('Data sudah benar?'))
+			if (confirm('The data is correct?'))
 			{
 				document.location.href="../pjm/pinjam.php?op=Save&state="+status+"&noanggota="+noanggota+"&nama="+nama+"&idstr="+idstr;
 			}
@@ -138,7 +138,7 @@ function CancelPeminjaman(){
 	}
 	if (num>0)
 	{
-		if (confirm('Peminjaman belum disimpan, \nAnda yakin akan membatalkan peminjaman?'))
+		if (confirm('Borrowing not saved yet, \nAre you sure want to cancel the borrowing?'))
 		{
 			document.location.href = "pinjam.php?op=DontSave&state="+status+"&noanggota="+noanggota+"&nama="+nama+"&idstr="+idstr;
 		}
@@ -168,7 +168,7 @@ function HapusPeminjaman(replid){
 	var status = document.getElementById('statuspeminjam').value;
 	var noanggota = document.getElementById('noanggota').value;
 	var nama = document.getElementById('nama').value;
-	if (confirm('Anda yakin akan menghapus pustaka yang akan dipinjam ini?'))
+	if (confirm('Are you sure want to delete the library which will be borrowed?'))
 	{
 		document.location.href="../pjm/pinjam.php?op=delqueue&state="+status+"&noanggota="+noanggota+"&nama="+nama+"&replid="+replid;
 	}

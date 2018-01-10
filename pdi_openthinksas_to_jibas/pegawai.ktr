@@ -875,8 +875,8 @@ FROM pegawai
         <update>N</update>
       </value>
       <value>
-        <name>foto</name>
-        <rename>foto</rename>
+        <name>photo</name>
+        <rename>photo</rename>
         <update>N</update>
       </value>
       <value>
@@ -936,7 +936,7 @@ FROM pegawai
         <currency/>
         <decimal/>
         <group/>
-        <nullif>Akademik</nullif>
+        <nullif>Academic</nullif>
         <length>-1</length>
         <precision>-1</precision>
       </field>

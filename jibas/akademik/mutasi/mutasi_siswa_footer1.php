@@ -65,7 +65,7 @@ if ($op=="gu7jkds894h98uj32uhi9d8"){
 	} else {
 		
 		<SCRIPT type="text/javascript" language="javascript">
-		alert ('Gagal menghapus data !');
+		alert ('Failed to delete data');
 		document.location.href="jenis_mutasi_siswa.php";	
 		</script>
 		
@@ -76,7 +76,7 @@ if ($op=="gu7jkds894h98uj32uhi9d8"){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Daftar Siswa</title>
+<title>Student List</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <SCRIPT type="text/javascript" language="JavaScript" src="../script/tables.js"></SCRIPT>
 	<SCRIPT type="text/javascript" language="javascript" src="../script/common.js"></script>
@@ -96,28 +96,28 @@ if ($op=="gu7jkds894h98uj32uhi9d8"){
 </head>
 <script language="javascript">
 function mutasi(nis){
-	//alert ('NIS='+nis);
-	//if (confirm('Anda yakin akan mutasikan siswa ini ?')){
-		newWindow('siswa_mutasi.php?tampil=tampil&nis='+nis,'Mutasi',582,396,'');
+	//alert ('Student ID='+nis);
+	//if (confirm('Are you sure want to akan mutasikan this student ?')){
+		newWindow('siswa_mutasi.php?tampil=tampil&nis='+nis,'Mutation',582,396,'');
 	//}
 }
 function cetak(){
-	//alert ('NIS='+nis);
-	//if (confirm('Anda yakin akan mutasikan siswa ini ?')){
-		newWindow('mutasi_cetak.php?mode=<?=$mode?>&nis=<?=$nis?>&kelas=<?=$kelas?>&nama=<?=$nama?>&departemen=<?=$departemen?>','Mutasi',795,505,'resizable=1,scrollbars=1,status=1,toolbar=0');
+	//alert ('Student ID='+nis);
+	//if (confirm('Are you sure want to akan mutasikan this student ?')){
+		newWindow('mutasi_cetak.php?mode=<?=$mode?>&nis=<?=$nis?>&kelas=<?=$kelas?>&nama=<?=$nama?>&departemen=<?=$departemen?>','Mutation',795,505,'resizable=1,scrollbars=1,status=1,toolbar=0');
 	//}
 }
 function lihat(nis){
-	//alert ('NIS='+nis);
-	//if (confirm('Anda yakin akan mutasikan siswa ini ?')){
-		newWindow('../library/siswa_tampil.php?&nis='+nis+'&departemen=<?=$departemen?>','Mutasi',771,500,'resizable=1,scrollbars=1,status=1,toolbar=0');
+	//alert ('Student ID='+nis);
+	//if (confirm('Are you sure want to akan mutasikan this student ?')){
+		newWindow('../library/siswa_tampil.php?&nis='+nis+'&departemen=<?=$departemen?>','Mutation',771,500,'resizable=1,scrollbars=1,status=1,toolbar=0');
 	//}
 }
 
 function refresh(){
-	//alert ('NIS='+nis);
-	//if (confirm('Anda yakin akan mutasikan siswa ini ?')){
-		//newWindow('siswa_mutasi.php?tampil=tampil&nis='+nis,'Mutasi',473,330,'');
+	//alert ('Student ID='+nis);
+	//if (confirm('Are you sure want to akan mutasikan this student ?')){
+		//newWindow('siswa_mutasi.php?tampil=tampil&nis='+nis,'Mutation',473,330,'');
 	document.location.href="mutasi_siswa_footer.php?departemen=<?=$_REQUEST['departemen']?>&nis=<?=$_REQUEST['nis']?>&nama=<?=$_REQUEST['nama']?>&kelas=<?=$_REQUEST['kelas']?>&mode=<?=$_REQUEST['mode']?>";
 
 	//}
@@ -135,17 +135,17 @@ function refresh(){
           <input name="action" type="hidden" id="action2" value="<? if(!empty($_GET['action'])) echo $_GET['action'] ; else echo "tambahJenisMutasi" ;?>">
           <input name="state" type="hidden" id="state2" value="jenis"><? if (mysql_num_rows($result_mutasi)<>0) {
 		  ?>
-          <a href="#" onclick="cetak()"  onMouseOver="showhint('Cetak Daftar Siswa', this, event, '120px')">Cetak<img src="../images/ico/print.png" border="0"></a><? } ?><br>
+          <a href="#" onclick="cetak()"  onMouseOver="showhint('Print Student List', this, event, '120px')">Print<img src="../images/ico/print.png" border="0"></a><? } ?><br>
           <br></div></td>
         </tr>
       <tr>
         <td><table width="100%" border="1" class="tab" align="center" cellpadding="0" cellspacing="0" id="table" bordercolor="#000000">
           <tr class="header">
-            <td width="34" height="30"><div align="center">No</div></td>
-            <td width="139" height="30"><div align="center">NIS</div></td>
-            <td width="144" height="30"><div align="center">Nama</div></td>
-            <td width="154" height="30"><div align="center">Angkatan</div></td>
-            <td width="159" height="30"><div align="center">Kelas</div></td>
+            <td width="34" height="30"><div align="center">#</div></td>
+            <td width="139" height="30"><div align="center">Student ID</div></td>
+            <td width="144" height="30"><div align="center">Name</div></td>
+            <td width="154" height="30"><div align="center">Graduates</div></td>
+            <td width="159" height="30"><div align="center">Class</div></td>
             <td width="68" height="30">&nbsp;</td>
           </tr>
 		  <? 
@@ -160,11 +160,11 @@ function refresh(){
             <td height="25"><?=$row_mutasi[1]?></td>
             <td height="25"><?=$row_mutasi[2]?></td>
             <td height="25"><?=$row_mutasi[3]?></td>
-            <td height="25"><img src="../images/ico/lihat.png" width="16" height="16" onclick="lihat('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Lihat Siswa', this, event, '120px')">&nbsp;
+            <td height="25"><img src="../images/ico/lihat.png" width="16" height="16" onclick="lihat('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('See Student', this, event, '120px')">&nbsp;
             <? if ($row_mutasi[4]==0){ ?>
-            <img src="../images/ico/mutasi.png" width="16" height="16" onclick="mutasi('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Mutasikan siswa ini', this, event, '120px')">
+            <img src="../images/ico/mutasi.png" width="16" height="16" onclick="mutasi('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Mutate this Student', this, event, '120px')">
 			<? } else { ?>
-            <img src="../images/ico/refresh.png" width="16" height="16" onclick="batalkan_mutasi('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Batalkan mutasi', this, event, '120px')">
+            <img src="../images/ico/refresh.png" width="16" height="16" onclick="batalkan_mutasi('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Cancel', this, event, '120px')">
             <? } ?></td>
           </tr>
 		  <?
@@ -173,7 +173,7 @@ function refresh(){
 		  	{
 		?>
 		<tr>
-			<td height="25" colspan="6" align="center"> "Data Belum Ada"</td>
+			<td height="25" colspan="6" align="center">Data Not Found.</td>
 		</tr>	
 		<?	
 			}

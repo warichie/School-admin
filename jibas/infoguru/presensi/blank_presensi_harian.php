@@ -30,7 +30,7 @@
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_presharian.png"
     style="background-repeat:no-repeat;">
-        <font size="2" color="#757575"><b>Klik pada "Input Data Presensi" atau klik pada <i>hyperlink</i> "Data Presensi" di panel kiri untuk menampilkan Daftar Presensi</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on Submit Presence Data or click on <i>hyperlink</i> Presence Data on the left panel to show Presence List</b></font>    </td>
 </tr>
 </table>
 </body>

@@ -79,7 +79,7 @@ $n2 = JmlHari($bln2,$thn2);
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
-<title>Laporan Buku Besar</title>
+<title>Ledger Reports</title>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -122,15 +122,15 @@ function show_laporan()
 	var tanggal2 = escape(thn2 + "-" + bln2 + "-" + tgl2);
 	
 	if (idtahunbuku.length == 0) {	
-		alert ('Tahun Buku tidak boleh kosong!');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('departemen').focus();
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -245,7 +245,7 @@ function panggil(elem){
 	<td rowspan="3" width="60%">
     <table border="0" width = "100%">
     <tr>
-        <td width="15%" class="news_content1">Departemen </td>
+        <td width="15%" class="news_content1">Department </td>
         <td colspan="4">
         <select name="departemen" class="cmbfrm" id="departemen" style="width:188px" onchange="change_dep()">
     	        <? 	$sql = "SELECT departemen FROM departemen WHERE aktif = 1 ORDER BY urutan";
@@ -258,7 +258,7 @@ function panggil(elem){
     	        </option>
    	              <? } ?>
   	        </select>
-        <span class="news_content1">Tahun Buku</span>&nbsp;
+        <span class="news_content1">Fiscal Year</span>&nbsp;
         <select name="idtahunbuku" id="idtahunbuku" onchange="change_dep()" style="width:160px">        
 <? 		if ($departemen != "") 
 		{ 
@@ -291,10 +291,10 @@ function panggil(elem){
         </td>
     </tr>
     <tr>
-        <td class="news_content1">Buku Besar </td>
+        <td class="news_content1">Ledger </td>
         <td colspan="4">
         <select name="kategori" class="cmbfrm" id="kategori" style="width:115px" onchange="change_sel()" >
-        <option value="ALL">(Semua)</option>
+        <option value="ALL">(All)</option>
         <?
         $sql = "SELECT kategori FROM jbsfina.katerekakun ORDER BY kategori";
         $result = QueryDb($sql);
@@ -308,7 +308,7 @@ function panggil(elem){
         </select>        </td>
     </tr>
     <tr>
-        <td class="news_content1">Tanggal </td>
+        <td class="news_content1">Date </td>
        	<td width="10">
  <?		if ($tgl1 == 0)	$tgl1 = $tgl2;
 			if ($bln1 == 0) $bln1 = $bln2;
@@ -318,7 +318,7 @@ function panggil(elem){
 			$n2 = JmlHari($bln2, $thn2);	?>         
         	<div id="InfoTgl1">   
             <select name="tgl1" class="cmbfrm" id="tgl1" onchange="change_tgl1()" >
-            <option value="">[Tgl]</option>
+            <option value="">[Date]</option>
 			<? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -335,11 +335,11 @@ function panggil(elem){
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
             </select>
-            <span class="news_content1">s/d        </span></td>
+            <span class="news_content1">to        </span></td>
         <td width="10">
         	<div id="InfoTgl2">
             <select name="tgl2" class="cmbfrm" id="tgl2" onchange="change_tgl2()">
-            <option value="">[Tgl]</option>
+            <option value="">[Date]</option>
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -360,9 +360,9 @@ function panggil(elem){
     </table>
     </td>
     <td rowspan="3" valign="middle">
-    	<a href="#" onclick="show_laporan()"><img src="../img/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Klik untuk menampilkan data laporan buku besar!', this, event, '180px')" /></a>    </td>
+    	<a href="#" onclick="show_laporan()"><img src="../img/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Click to show data laporan buku besar', this, event, '180px')" /></a>    </td>
     <td width="30%" align="right" valign="top">
-    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="news_title2">Laporan Buku Besar</span>
+    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="news_title2">Ledger Reports</span>
 	</td>
 </tr>
 </table>
@@ -421,17 +421,17 @@ function showLap(x){
             <!-- TABLE TITLE -->
             <tr>
                 <td align="right">
-                <!--<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;-->
-                <a href="JavaScript:cetaklist()"><img src="../img/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;                </td>
+                <!--<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;-->
+                <a href="JavaScript:cetaklist()"><img src="../img/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;                </td>
             </tr>
             </table>
             <br />
              <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="95%" align="center" bordercolor="#000000" />
             <tr height="30">
-                <td class="header" width="4%" align="center">No</td>
-                <td class="header" width="*" align="center">Rekening</td>
-                <td class="header" width="22%" align="center">Debet</td>
-                <td class="header" width="22%" align="center">Kredit</td>
+                <td class="header" width="4%" align="center">#</td>
+                <td class="header" width="*" align="center">Bank Account</td>
+                <td class="header" width="22%" align="center">Debit</td>
+                <td class="header" width="22%" align="center">Credit</td>
                 <td class="header" width="22%" align="center">&nbsp;</td>
             </tr>
         <?
@@ -451,7 +451,7 @@ function showLap(x){
             </tr>
         <? } ?>
             <tr height="30">
-                <td colspan="2" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+                <td colspan="2" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
                 <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
                 <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>
                 <td align="right" bgcolor="#999900">&nbsp;</td>
@@ -465,7 +465,7 @@ function showLap(x){
             <table width="100%" border="0" align="center">          
             <tr>
                 <td align="center" valign="middle" height="300">    
-                    <font size = "2" color ="red"><b>Tidak ditemukan adanya data transaksi <? if ($kategori <> "ALL") echo "pada kategori ".$kategori; ?> antara tanggal <?=LongDateFormat($tanggal1)." s/d ".LongDateFormat($tanggal2) ?>.
+                    <font size = "2" color ="red"><b>No transactions found <? if ($kategori <> "ALL") echo "on kategori ".$kategori; ?> between <?=LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2) ?>.
                     </b></font>
                 </td>
             </tr>

@@ -102,7 +102,7 @@ if(!isset($_SESSION["login"]))
 if(!$user_exists) 
 {	?>
     <script language="JavaScript">
-        alert("Username atau password tidak cocok!");
+        alert("Username or password does not match");
         document.location.href = "../ema";
     </script>
  <?

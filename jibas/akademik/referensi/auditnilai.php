@@ -40,7 +40,7 @@ if (isset($_REQUEST['tahun']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Audit Perubahan Data Nilai]</title>
+<title>JIBAS SIMAKA [Assessment Data Changing Audit]</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -68,11 +68,11 @@ function change_date()
 
 	<table border="0"width="95%" align="center">
   <tr>
-  	<td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Audit Perubahan Nilai</font></td>
+  	<td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Assessment Changes Audit</font></td>
   </tr>
   <tr>
   	<td align="right"><a href="../usermenu.php" target="content">
-    <font size="1" color="#000000"><b>Pengaturan</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Audit Perubahan Nilai</b></font>
+    <font size="1" color="#000000"><b>Settings</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Assessment Changes Audit</b></font>
     </td>
   </tr>
   <tr>
@@ -85,7 +85,7 @@ function change_date()
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    Bulan:
+    Month:
     <select name="bulan" id="bulan" onchange="change_date()">
 <?	 for ($i = 1; $i <= 12; $i++) { ?>
 		 <option value="<?=$i?>" <?=IntIsSelected($i, $bulan)?> ><?=NamaBulan($i)?></option>
@@ -96,17 +96,17 @@ function change_date()
 		 <option value="<?=$i?>" <?=IntIsSelected($i, $tahun)?> ><?=$i?></option>
 <?	 } ?>
     </select> 
-    &nbsp;<a href="#" onclick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" />&nbsp;refresh</a>
+    &nbsp;<a href="#" onclick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>
     <br />
     <table class="tab" id="table" cellpadding="4" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000" />
     <tr height="30" align="center" class="header">
-    	<td width="30" align="center" background="../style/formbg2.gif">No</td>
-      <td width="120" align="center" background="../style/formbg2.gif">Tanggal</td>
-      <td width="260" align="center" background="../style/formbg2.gif">Informasi</td>
-      <td width="60" align="center" background="../style/formbg2.gif">Sebelum</td>
-      <td width="60" align="center" background="../style/formbg2.gif">Setelah</td>
-      <td width="*" align="center" background="../style/formbg2.gif">Alasan</td>
-      <td width="50" align="center" background="../style/formbg2.gif">Pengguna</td>
+    	<td width="30" align="center" background="../style/formbg2.gif">#</td>
+      <td width="120" align="center" background="../style/formbg2.gif">Date</td>
+      <td width="260" align="center" background="../style/formbg2.gif">Information</td>
+      <td width="60" align="center" background="../style/formbg2.gif">Before</td>
+      <td width="60" align="center" background="../style/formbg2.gif">After</td>
+      <td width="*" align="center" background="../style/formbg2.gif">Reason</td>
+      <td width="50" align="center" background="../style/formbg2.gif">User</td>
     </tr>
 <?	 OpenDb();
 

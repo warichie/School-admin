@@ -107,7 +107,7 @@ if (isset($_REQUEST[simpan])){
 	//delete($filename);
 	?>
 	<script language="javascript">
-		alert ('Berhasil upload gambar!');
+		alert ('The image has been successfully uploaded');
 		document.location.href="blank_uploader2.php";
     </script>
 	<?
@@ -126,7 +126,7 @@ if (isset($_REQUEST[simpan])){
     <script language="javascript">
     function validate() {
         return validateEmptyText("gambar", "File Gambar") && 
-               validateEmptyText("nama", "Nama Gambar");
+               validateEmptyText("nama", "Name Gambar");
     }
     </script>
 </head>
@@ -135,15 +135,15 @@ if (isset($_REQUEST[simpan])){
     <div>
     <table border="0" cellpadding="2" cellspacing="0" width="100%">
     <tr>
-        <td align="left" width="10%">File Gambar:</td>
+        <td align="left" width="10%">Image File:</td>
         <td><input name="gambar" id="gambar" type="file" size="60" /></td>
     </tr>
     <tr>
-        <td align="left">Nama Gambar:</td>
+        <td align="left">Image Name:</td>
         <td align="left"><textarea id="nama" name="nama" Columns="30" ></textarea></td>
     </tr>
     <tr>
-        <td align="left">Keterangan:</td>
+        <td align="left">Info:</td>
         <td align="left"><textarea id="keterangan" name="keterangan" columns="50" Rows="2" TextMode="MultiLine"></textarea></td>
     </tr>
     <tr>

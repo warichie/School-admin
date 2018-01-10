@@ -81,5 +81,5 @@ define(G_COPYRIGHT, $G_COPYRIGHT);
 
 //Pagination
 define('showList',25);// Jumlah record yg ditampilkan per halaman
-define('pageList',15);// Jumlah daftar halaman yg maksimum ditampilkan
+define('pageList',15);// Jumlah daftar halaman yg maximum ditampilkan
 ?>

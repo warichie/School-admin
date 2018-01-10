@@ -50,7 +50,7 @@ if (isset($_REQUEST['btSimpan']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Ubah Diklat</title>
+<title>Edit Education and Training</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 </head>
 
@@ -68,16 +68,16 @@ $diklat = $row[0];
 <input type="hidden" name="id" id="id" value="<?=$id?>" />
 <table border="0" cellpadding="0" cellspacing="5" width="100%" id="table56">
 <tr>
-	<td class="header" colspan="2" align="center">Ubah Diklat</td>
+	<td class="header" colspan="2" align="center">Edit Education and Training</td>
 </tr>
 <tr>
-	<td align="right" width="120">Diklat :</td>
+	<td align="right" width="120">Education and Training :</td>
     <td align="left"><input type="text" name="txDiklat" id="txDiklat" value="<?=$diklat?>" size="30" maxlength="255" /></td>
 </tr>
 <tr>
 	<td colspan="2" align="center" bgcolor="#EAEAEA">
-    <input type="submit" class="but" name="btSimpan" value="Simpan" />&nbsp;
-    <input type="button" class="but" name="btClose" value="Tutup" onClick="window.close()" />
+    <input type="submit" class="but" name="btSimpan" value="Save" />&nbsp;
+    <input type="button" class="but" name="btClose" value="Close" onClick="window.close()" />
     </td>
 </tr>
 </table>

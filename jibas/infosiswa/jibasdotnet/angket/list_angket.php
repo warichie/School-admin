@@ -48,9 +48,9 @@ $akhir =$tglakhir[2]."-".$tglakhir[1]."-".$tglakhir[0];
 $jenis=$_REQUEST['jenis'];
 $jnsangket = "";
 if ($jenis==1) {
-	$jnsangket ="Guru";
+	$jnsangket ="Teacher";
 } else {
-   $jnsangket ="Umum";
+   $jnsangket ="General";
 }
    
 
@@ -67,9 +67,9 @@ $akhir =$tglakhir[2]."-".$tglakhir[1]."-".$tglakhir[0];
 $jenis=$row[4];
 $jnsangket = "";
 if ($jenis==1) {
-	$jnsangket ="Untuk Guru";
+	$jnsangket ="For Teacher";
 } else {
-   $jnsangket ="Untuk Umum";
+   $jnsangket ="For General";
 }
 $idnya=$row[0];
 ?>
@@ -108,7 +108,7 @@ function refresh() {
 	document.location.href = "list_angket.php";
 }
 function hapus(replid) {
-	if (confirm("Apakah anda yakin akan menghapus angket ini?"))
+	if (confirm("Are you sure want to delete this questionnaire?"))
 		document.location.href = "list_angket.php?op=xm8r389xemx23xb2378e23&replid="+replid;
 }
 </script>
@@ -118,34 +118,34 @@ function hapus(replid) {
 <div align="center">
  <table width="100%" border="0">
    <tr>
-     <td width="246" align="left"><strong>Judul</strong></td>
+     <td width="246" align="left"><strong>Title</strong></td>
      <td width="15">:</td>
      <td colspan="3" align="left">&nbsp;<?=$jdl ?></td>
    </tr>
    <tr>
-     <td align="left"><strong>Rentang waktu</strong></td>
+     <td align="left"><strong>Range</strong></td>
      <td>:</td>
      <td width="145" style="text-align:left">(<?=$mulai ?> )</td>
-     <td width="18" style="text-align:center">s/d</td>
+     <td width="18" style="text-align:center">to</td>
      <td width="512" style="text-align:left">( <?=$akhir ?> )</td>
     </tr>
    <tr>
-     <td align="left"><strong>Jenis</strong></td>
+     <td align="left"><strong>Type</strong></td>
      <td>:</td>
      <td colspan="3" align="left">&nbsp;<?=$jnsangket ?></td>
    </tr>
    <tr>
      <td colspan="2"></td>
-     <td colspan="3" style="text-align:right"><a href="#" onclick="newWindow('tanyaAngket.php?replid=<?=$replid; ?>','','500','340','resizable=1,scrollbars=1,status=0,toolbar=0')" style="text-decoration:none;" title="Tambah Data Angket">
-      <img src="../../images/ico/tambah.png" alt="tambah" width="16" height="16" border="0" style="vertical-align:text-top;"/>&nbsp;Tambah</a></td>
+     <td colspan="3" style="text-align:right"><a href="#" onclick="newWindow('tanyaAngket.php?replid=<?=$replid; ?>','','500','340','resizable=1,scrollbars=1,status=0,toolbar=0')" style="text-decoration:none;" title="Add Questionnaire Data">
+      <img src="../../images/ico/tambah.png" alt="tambah" width="16" height="16" border="0" style="vertical-align:text-top;"/>&nbsp;Add</a></td>
    </tr>
  </table>
 </div><br />
 <table class="tab" id="table" border="0" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
  <tr>
- 	<td width="3%" class="header">No</td>
-    <td width="72%" class="header">Pertanyaan</td>
-    <td width="7%" class="header">Jenis</td>
+ 	<td width="3%" class="header">#</td>
+    <td width="72%" class="header">Question</td>
+    <td width="7%" class="header">Type</td>
     <td width="7%" class="header">&nbsp;</td>
  </tr>
  <? 
@@ -170,8 +170,8 @@ function hapus(replid) {
       </span></td>
       <td><?=$jns ?></td>
       <td>&nbsp;
-      <img src="../../images/ico/ubah.png" alt="ubah" width="16" height="16" title="Ubah Pertanyaan angket" border="0"/>&nbsp;&nbsp;   
-      <a href="#" onclick="hapus('<?=$idangket;?>')" style="cursor:pointer;" title="Hapus Angket ini !"><img src="../../images/ico/hapus.png" alt="hapus" width="16" height="16" border="0"/></a></td>
+      <img src="../../images/ico/ubah.png" alt="ubah" width="16" height="16" title="Edit the Question" border="0"/>&nbsp;&nbsp;   
+      <a href="#" onclick="hapus('<?=$idangket;?>')" style="cursor:pointer;" title="Delete this Questionnaire!"><img src="../../images/ico/hapus.png" alt="hapus" width="16" height="16" border="0"/></a></td>
   </tr>
    <tr>
    	  <? 
@@ -181,12 +181,12 @@ function hapus(replid) {
 			$hslPilihan=QueryDb($tplPilihan);
 			
 	  ?> 	
-      <td colspan="2">&nbsp;&nbsp;contoh pilihan</td>
+      <td colspan="2">&nbsp;&nbsp;selection example</td>
       <td></td>
       <? 
 	   } else {
 	  ?>
-      <td colspan="2">&nbsp;&nbsp;contoh Essai</td>
+      <td colspan="2">&nbsp;&nbsp;Essay example</td>
       <td width="1%"></td>
       <? 
 	   } 
@@ -197,7 +197,7 @@ function hapus(replid) {
  } else{
  ?>
  <tr>
-   <td colspan="4" style="text-align:center">Belum Ada Data untuk Angket</td>
+   <td colspan="4" style="text-align:center">No data for Questionnaire</td>
  </tr>
  <?
   }

@@ -70,7 +70,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Pendataan PIN]</title>
+<title>JIBAS SIMAKA [PIN Data Collection]</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -78,7 +78,7 @@ OpenDb();
 <script language="javascript">
 
 function gantipin(field, nis) {
-	if (confirm("Apakah anda yakin akan mengganti PIN ini?")) {
+	if (confirm("Are you sure want to change this PIN?")) {
 		var kelas = document.getElementById('kelas').value;	
 		document.location.href = "pin_footer.php?op=dw8dxn8w9ms8zs22&kelas="+kelas+"&urut=<?=$urut?>&urutan=<?=$urutan?>&field="+field+"&nis="+nis;
 	}	
@@ -128,8 +128,8 @@ function change_urut(urut,urutan) {
 	<table width="100%" border="0" align="center">          
 	<tr>
 	<td align="right">            
-    	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" name="refresh" id="refresh" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()" ><img src="../images/ico/print.png" border="0" name="cetak" id="cetak" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;   	
+    	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" name="refresh" id="refresh" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()" ><img src="../images/ico/print.png" border="0" name="cetak" id="cetak" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;   	
      	</td>
 	</tr>          
     </table>
@@ -138,12 +138,12 @@ function change_urut(urut,urutan) {
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
 <!-- TABLE CONTENT -->
     <tr height="30" class="header" align="center">
-        <td width="4%">No</td>        
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nis','<?=$urutan?>')">N I S <?=change_urut('nis',$urut,$urutan)?></td>    
-        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Nama <?=change_urut('nama',$urut,$urutan)?></td>
-        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('pinsiswa','<?=$urutan?>')">PIN Siswa <?=change_urut('pinsiswa',$urut,$urutan)?></td>
-        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('pinortu','<?=$urutan?>')">PIN Ayah <?=change_urut('pinortu',$urut,$urutan)?></td>
-		<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('pinortuibu','<?=$urutan?>')">PIN Ibu <?=change_urut('pinortuibu',$urut,$urutan)?></td>
+        <td width="4%">#</td>        
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nis','<?=$urutan?>')">Student ID <?=change_urut('nis',$urut,$urutan)?></td>    
+        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Name <?=change_urut('nama',$urut,$urutan)?></td>
+        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('pinsiswa','<?=$urutan?>')">Student PIN <?=change_urut('pinsiswa',$urut,$urutan)?></td>
+        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('pinortu','<?=$urutan?>')">Father PIN <?=change_urut('pinortu',$urut,$urutan)?></td>
+		<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('pinortuibu','<?=$urutan?>')">Mother PIN <?=change_urut('pinortuibu',$urut,$urutan)?></td>
     </tr>
     <?
 		while ($row = @mysql_fetch_array($result)) {
@@ -154,17 +154,17 @@ function change_urut(urut,urutan) {
         <td><?=$row['nama'] ?></td>      
         <td align="center"><?=$row['pinsiswa'] ?>&nbsp;
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <a href="JavaScript:gantipin('pinsiswa','<?=$row['nis']?>')" ><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Ganti PIN!', this, event, '50px')"/></a>
+        <a href="JavaScript:gantipin('pinsiswa','<?=$row['nis']?>')" ><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Edit PIN', this, event, '50px')"/></a>
         <? } ?>
         </td>      
         <td align="center"><?=$row['pinortu'] ?>&nbsp;
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <a href="JavaScript:gantipin('pinortu','<?=$row['nis']?>')" ><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Ganti PIN Ayah!', this, event, '50px')"/></a>
+        <a href="JavaScript:gantipin('pinortu','<?=$row['nis']?>')" ><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Edit Father PIN', this, event, '50px')"/></a>
         <? } ?>
         </td>
 		<td align="center"><?=$row['pinortuibu'] ?>&nbsp;
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <a href="JavaScript:gantipin('pinortuibu','<?=$row['nis']?>')" ><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Ganti PIN Ibu!', this, event, '50px')"/></a>
+        <a href="JavaScript:gantipin('pinortuibu','<?=$row['nis']?>')" ><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Edit Mother PIN', this, event, '50px')"/></a>
         <? } ?>
         </td>
     </tr>
@@ -180,7 +180,7 @@ function change_urut(urut,urutan) {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.      
+    	<font size = "2" color ="red"><b>Data Not Found.      
         </b></font>
 	</td>
 </tr>

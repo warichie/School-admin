@@ -60,10 +60,10 @@ OpenDb();
 	<input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
     <input type="hidden" name="urut" id="urut" value="<?=$urut ?>" />
     <input type="hidden" name="urutan" id="urutan" value="<?=$urutan ?>" />
-    <!--<font size="2" color="#000000"><strong>Daftar Siswa</strong></font><br />-->    </td>
+    <!--<font size="2" color="#000000"><strong>Student List</strong></font><br />-->    </td>
 </tr>
 <tr>
-    <td width="20%"><font color="#000000">Departemen</font></td>
+    <td width="20%"><font color="#000000">Department</font></td>
     <td><select name="depart" id="depart" onChange="change_departemen(0)" style="width:100%" onkeypress="return focusNext('tahunajaran', event)">
 	<?	$dep = getDepartemen(SI_USER_ACCESS());    
         foreach($dep as $value) {
@@ -76,7 +76,7 @@ OpenDb();
   	</select>    </td>
   </tr>
 <tr>
-    <td><font color="#000000">Tahun&nbsp;Ajaran</font></td>
+    <td><font color="#000000">Year&nbsp;</font></td>
 <td><select name="tahunajaran" id="tahunajaran" onChange="change()" style="width:100%" onkeypress="return focusNext('tingkat', event)">
    		 	<?
 			OpenDb();
@@ -87,7 +87,7 @@ OpenDb();
 				if ($tahunajaran == "") 
 					$tahunajaran = $row['replid'];
 				if ($row['aktif']) 
-					$ada = '(Aktif)';
+					$ada = '(Active)';
 				else 
 					$ada = '';			 
 			?>
@@ -99,7 +99,7 @@ OpenDb();
     	</select>        </td>
   </tr>
 <tr>
-  <td><font color="#000000">Tingkat</font></td>
+  <td><font color="#000000">Grade</font></td>
   <td><select name="tingkat" id="tingkat" onchange="change()" style="width:100%" onkeypress="return focusNext('kelas', event)">
     <?
             OpenDb();
@@ -116,7 +116,7 @@ OpenDb();
   </select></td>
   </tr>
 <tr>
-  <td><font color="#000000">Kelas</font></td>
+  <td><font color="#000000">Class</font></td>
   <td><select name="kelas" id="kelas" onchange="change_kelas()" style="width:100%">
     <?	if ($tahunajaran <> "") {
 		OpenDb();
@@ -156,10 +156,10 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 ?>
 	<table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
 	<tr height="30" class="header" align="center">
-        <td width="7%" >No</td>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>','daftar')">N I S <?=change_urut('s.nis',$urut,$urutan)?></td>
-        <td colspan="2" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>','daftar')" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;">Nama <?=change_urut('s.nama',$urut,$urutan)?></td>
-        <!--<td onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('k.kelas','<?=$urutan?>','daftar')">Kelas <?=change_urut('k.kelas',$urut,$urutan)?></td>-->
+        <td width="7%" >#</td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>','daftar')">Student ID <?=change_urut('s.nis',$urut,$urutan)?></td>
+        <td colspan="2" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>','daftar')" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;">Name <?=change_urut('s.nama',$urut,$urutan)?></td>
+        <!--<td onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('k.kelas','<?=$urutan?>','daftar')">Class <?=change_urut('k.kelas',$urut,$urutan)?></td>-->
         </tr>
 <?
 	if ($page==0)
@@ -202,16 +202,16 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
     <td colspan="2">
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td align="left"><font color="#000000">Hal
+       	<td align="left"><font color="#000000">Page
         <select name="hal" id="hal" onChange="change_hal('daftar')">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     	// Navigasi halaman berikutnya dan sebelumnya
+     	// Navigasi halaman berikutnya and sebelumnya
         ?>
         </font>    	</td>
     	</tr>
@@ -222,8 +222,8 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />           
-		Tambah data siswa di menu Pendataan Siswa pada bagian Kesiswaan. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br />           
+		Add student data in the Student Data menu on Student section. </b></font>	
 	<br /><br />   		</td>
     </tr>
     </table>
@@ -234,8 +234,8 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />          
-		Tambah data Tahun Ajaran, Tingkat atau Kelas pada bagian Referensi. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br />          
+		Add Year, Grade or Class data on Reference section. </b></font>	
 	<br /><br />   		</td>
     </tr>
     </table>

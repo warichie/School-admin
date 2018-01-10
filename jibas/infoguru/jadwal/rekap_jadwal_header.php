@@ -46,7 +46,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Rekap Jadwal Guru</title>
+<title>Teacher Schedule Recap</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -82,11 +82,11 @@ function tampil(){
 	var tahunajaran = document.getElementById('tahunajaran').value;
 	
 	if (tahunajaran==""){
-		alert ('Tahun Ajaran tidak boleh kosong !');
+		alert ('Year of Teaching should not leave empty');
 		document.getElementById('tahunajaran').focus();
 		return false;
 	} else if (info_jadwal==""){
-		alert ('Info Jadwal tidak boleh kosong !');	
+		alert ('Schedule Info should not leave empty');	
 		document.getElementById('info_jadwal').focus();
 		return false;
 	} else {	
@@ -115,7 +115,7 @@ function focusNext(elemName, evt) {
     <td width="40%">
 	<table width = "90%" border = "0">
     <tr>
-    	<td><strong>Departemen</strong></td>
+    	<td><strong>Department</strong></td>
         <td><select name="departemen" id="departemen" onChange="change_departemen()" style="width:200px;" onkeypress="return focusNext('tahunajaran', event)">
           <?	$dep = getDepartemen(SI_USER_ACCESS());    
 		foreach($dep as $value) {
@@ -129,7 +129,7 @@ function focusNext(elemName, evt) {
         </td>
     </tr>
     <tr>
-    	<td><strong>Tahun Ajaran </strong></td>
+    	<td><strong>Year </strong></td>
     	<td>       
         <select name="tahunajaran" id="tahunajaran" onChange="change_tahunajaran()" style="width:200px;" onkeypress="return focusNext('info_jadwal', event)">
    		 	<?
@@ -153,7 +153,7 @@ function focusNext(elemName, evt) {
     	</select>        </td>
     </tr>
    	<tr>
-        <td><strong>Info Jadwal</strong></td>
+        <td><strong>Schedule Info</strong></td>
         <td colspan="3"><select name="info_jadwal" id="info_jadwal" onChange="change_info_jadwal()" style="width:200px">
           <? 	OpenDb();
             $sql_info_jadwal="SELECT i.replid, i.deskripsi, i.aktif FROM jbsakad.infojadwal i, tahunajaran a WHERE i.idtahunajaran = a.replid AND a.departemen = '$departemen' AND i.idtahunajaran = '$tahunajaran' ORDER BY i.aktif DESC";						            
@@ -176,12 +176,12 @@ function focusNext(elemName, evt) {
     </table>
     </td>
 	<td valign="middle" rowspan="2" width="*" >
-       	<a href="#" onClick="tampil()"><img src="../images/ico/view.png" height="48" width="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Klik untuk menampilkan rekap jadwal guru !', this, event, '120px')"/></a>   	</td>
+       	<a href="#" onClick="tampil()"><img src="../images/ico/view.png" height="48" width="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Click to show Teacher Schedule recap', this, event, '120px')"/></a>   	</td>
     <td valign="top" align="right" width="50%">
-		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Rekap Jadwal Guru</font><br />
+		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Teacher Schedule Recap</font><br />
    		<a href="../jadwal.php" target="framecenter">
-        <font size="1" color="#000000"><b>Jadwal</b></font></a>&nbsp>&nbsp 
-		<font size="1" color="#000000"><b>Rekap Jadwal Guru</b></font><a> 	
+        <font size="1" color="#000000"><b>Schedule</b></font></a>&nbsp;>&nbsp; 
+		<font size="1" color="#000000"><b>Teacher Schedule Recap</b></font><a> 	
 	</td>
 </tr>
 

@@ -87,12 +87,12 @@ CloseDb();
 if ($balas==1){
 ?>
 <script language="javascript">
-	alert ('Pesan Anda telah dikirim ...');
+	alert ('Your message has been sent');
 	document.location.href="pesanguru_inbox.php";
 </script>
 <? } else { ?>
 <script language="javascript">
-	alert ('Pesan Anda telah dikirim ...');
+	alert ('Your message has been sent');
 	parent.tujuan_header.batal();
 </script>
 <? } ?>

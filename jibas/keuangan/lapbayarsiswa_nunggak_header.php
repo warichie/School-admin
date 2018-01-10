@@ -165,15 +165,15 @@ function show_pembayaran() {
 	var tanggal = document.getElementById('tcicilan').value;
 	
 	if (idangkatan.length == 0) {	
-		alert ('Pastikan angkatan sudah ada!');	
+		alert ('Make sure that year is existed');	
 		document.getElementById('idangkatan').focus();
 		return false;		
 	} else if (idkategori.length == 0) {
-		alert ('Pastikan kategori pembayaran sudah ada!');
+		alert ('Make sure that payment category is existed');
 		document.getElementById('idkategori').focus();
 		return false;	
 	} else if (idpenerimaan.length == 0) {
-		alert ('Pastikan penerimaan pembayaran sudah ada!');
+		alert ('Make sure that admission is existed');
 		document.getElementById('idpenerimaan').focus();
 		return false;	
 	}
@@ -207,7 +207,7 @@ function focusNext(elemName, evt) {
 	<td width="64%" rowspan="3">
     <table border="0" width="100%">
     <tr>
-        <td width="10%"><strong>Departemen </strong></td>
+        <td width="10%"><strong>Department </strong></td>
         <td width="49%">
     	<select id="departemen" name="departemen" style="width:188px" onchange="change_dep()" onKeyPress="return focusNext('idangkatan',event)">
    <?
@@ -219,7 +219,7 @@ function focusNext(elemName, evt) {
             <option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?>><?=$value ?></option>
         <? } ?>  
     	</select>
-        <strong>Angkatan </strong>
+        <strong>Graduates </strong>
         </td>
         <td>
         <select id="idangkatan" name="idangkatan" style="width:175px" onchange="change_ang()" onKeyPress="return focusNext('idtingkat',event)">
@@ -234,10 +234,10 @@ function focusNext(elemName, evt) {
         </td>
     </tr>
     <tr>
-    	<td><strong>Kelas </strong></td>
+    	<td><strong>Class </strong></td>
         <td>
         <select name="idtingkat" id="idtingkat" onChange="change_ang()" style="width:80px;" onKeyPress="<?=$focus?>">
-        <option value="-1">(Semua)</option>
+        <option value="-1">(All)</option>
         <?
            
 			$sql="SELECT * FROM jbsakad.tingkat WHERE departemen='$departemen' AND aktif = 1 ORDER BY urutan";
@@ -250,7 +250,7 @@ function focusNext(elemName, evt) {
         </select>
        
         <select id="idkelas" name="idkelas" style="width:103px" onchange="change_kelas()" <?=$dis?>  onKeyPress="return focusNext('telat',event)">
-        <option value="-1">(Semua)</option>
+        <option value="-1">(All)</option>
 		<?  $sql = "SELECT DISTINCT k.replid, k.kelas FROM jbsakad.tahunajaran t, jbsakad.kelas k WHERE t.replid = k.idtahunajaran AND k.aktif = 1 AND k.idtingkat = '$idtingkat' AND t.aktif = 1 ORDER BY k.kelas";
             $result = QueryDb($sql);
             while($row = mysql_fetch_row($result)) {
@@ -259,14 +259,14 @@ function focusNext(elemName, evt) {
         <? 	} ?>
                 
         </select>
-        <strong>Telat Bayar</strong>    	</td>
+        <strong>Late Payment</strong>    	</td>
         <td>
-        <input type="text" name="telat" id="telat" size="2" value="<?=$telat ?>" maxlength="3" style="text-align:center" onKeyPress="return focusNext('tcicilan',event)" /><strong> hari, dari </strong><input type="text" name="tcicilan" id="tcicilan" style="text-align:center" size="10" maxlength="10" value="<?=$tanggal?>" onclick="showCal('Calendar1')"  onKeyPress="return focusNext('idkategori',event)"/>
-        <a href="JavaScript:showCal('Calendar1')"><img src="images/calendar.jpg" border="0" onMouseOver="showhint('Buka kalender!', this, event, '100px')"/></a>
+        <input type="text" name="telat" id="telat" size="2" value="<?=$telat ?>" maxlength="3" style="text-align:center" onKeyPress="return focusNext('tcicilan',event)" /><strong> days, from </strong><input type="text" name="tcicilan" id="tcicilan" style="text-align:center" size="10" maxlength="10" value="<?=$tanggal?>" onclick="showCal('Calendar1')"  onKeyPress="return focusNext('idkategori',event)"/>
+        <a href="JavaScript:showCal('Calendar1')"><img src="images/calendar.jpg" border="0" onMouseOver="showhint('Buka kalender', this, event, '100px')"/></a>
         </td>
     </tr>
     <tr>
-        <td><strong>Pembayaran </strong></td>
+        <td><strong>Payment </strong></td>
         <td colspan="2"> 
         <select name="idkategori" id="idkategori" style="width:188px" onchange="change_kate()" onKeyPress="return focusNext('idpenerimaan',event)">
         <?  
@@ -291,19 +291,19 @@ function focusNext(elemName, evt) {
     </tr>
     <!--<tr>
         <td colspan="4">
-            <strong>Telat bayar <input type="text" name="telat" id="telat" size="3" value="<?=$telat ?>" maxlength="3" style="background-color:#FFFF99; text-align:center" /> hari, dari tanggal <input type="text" name="tcicilan" id="tcicilan" style="background-color:#FFFF99; text-align:center" size="12" maxlength="10" value="<?=$tanggal?>" /></strong>&nbsp;<a href="JavaScript:showCal('Calendar1')"><img src="images/calendar.jpg" border="0" /></a>
+            <strong>Late bayar <input type="text" name="telat" id="telat" size="3" value="<?=$telat ?>" maxlength="3" style="background-color:#FFFF99; text-align:center" /> days, from tanggal <input type="text" name="tcicilan" id="tcicilan" style="background-color:#FFFF99; text-align:center" size="12" maxlength="10" value="<?=$tanggal?>" /></strong>&nbsp;<a href="JavaScript:showCal('Calendar1')"><img src="images/calendar.jpg" border="0" /></a>
         </td>	
     </tr>-->
     </table>
     <td width="7%" rowspan="4" valign="middle">
-        <a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Klik untuk menampilkan data laporan pembayaran siswa yang menunggak!', this, event, '180px')"/></a>	</td>
+        <a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Click to show student late payment reports', this, event, '180px')"/></a>	</td>
     <td width="29%" align="right" valign="top">
    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Pembayaran<br />
-    Siswa Yang Menunggak</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Payment Reports of<br />
+    Student Late Payment</font><br />
     <a href="penerimaan.php" target="_parent">
-      <font size="1" color="#000000"><b>Penerimaan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Pembayaran <br /> Siswa Yang Menunggak</b></font>
+      <font size="1" color="#000000"><b>Admission</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Payment Reports <br /> Student Late Payment</b></font>
 	</td>
 </tr>
 <tr>	

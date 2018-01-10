@@ -76,25 +76,25 @@ class CTelat{
 		<div class="filter">
         <table width="100%" border="0" cellpadding="2" cellspacing="2">
           <tr>
-            <td width="9%">Tampilkan&nbsp;berdasarkan</td>
+            <td width="9%">Sort by</td>
             <td width="91%">
             <select name="kriteria" id="kriteria" onchange="chgKrit()" class='cmbfrm'>
-           	  <option value="all" <?=StringIsSelected('all',$this->kriteria)?> >Semua Peminjaman</option>
-              <option value="tglpinjam" <?=StringIsSelected('tglpinjam',$this->kriteria)?>>Tanggal Peminjaman</option>
-              <option value="tglkembali" <?=StringIsSelected('tglkembali',$this->kriteria)?>>Jadwal Pengembalian</option>
-           	  <option value="nis" <?=StringIsSelected('nis',$this->kriteria)?>>NIS Siswa</option>
-              <option value="nip" <?=StringIsSelected('nip',$this->kriteria)?>>NIP Pegawai</option>
+           	  <option value="all" <?=StringIsSelected('all',$this->kriteria)?> >All</option>
+              <option value="tglpinjam" <?=StringIsSelected('tglpinjam',$this->kriteria)?>>Date Borrowed</option>
+              <option value="tglkembali" <?=StringIsSelected('tglkembali',$this->kriteria)?>>Return</option>
+           	  <option value="nis" <?=StringIsSelected('nis',$this->kriteria)?>>Student ID</option>
+              <option value="nip" <?=StringIsSelected('nip',$this->kriteria)?>>Employee ID</option>
             </select>
             </td>
           </tr>
           <? if ($this->kriteria!='all'){ ?>
 		  <? if ($this->kriteria=='tglpinjam' ||$this->kriteria=='tglkembali' ) { ?>
           <tr id="tgl">
-            <td align="right">Periode</td>
+            <td align="right">Period</td>
           <td>
                 <table width="100%" border="0" cellpadding="0">
                   <tr>
-                    <td valign="bottom"><input class="inptxt" name="tglAwal" id="tglAwal" type="text" value="<?=$this->tglAwal?>" style="width:100px" readonly="readonly" />&nbsp;<a href="javascript:TakeDate('tglAwal')" >&nbsp;<img src="../../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;s.d.&nbsp;&nbsp;<input class="inptxt" name="tglAkhir" id="tglAkhir" type="text" value="<?=$this->tglAkhir?>"  style="width:100px" readonly="readonly"/><a href="javascript:TakeDate('tglAkhir')" >&nbsp;<img src="../../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;<em>*dd-mm-yyyy</em></td>
+                    <td valign="bottom"><input class="inptxt" name="tglAwal" id="tglAwal" type="text" value="<?=$this->tglAwal?>" style="width:100px" readonly="readonly" />&nbsp;<a href="javascript:TakeDate('tglAwal')" >&nbsp;<img src="../../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;to&nbsp;&nbsp;<input class="inptxt" name="tglAkhir" id="tglAkhir" type="text" value="<?=$this->tglAkhir?>"  style="width:100px" readonly="readonly"/><a href="javascript:TakeDate('tglAkhir')" >&nbsp;<img src="../../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;<em>*dd-mm-yyyy</em></td>
                   </tr>
                 </table>
             </td>
@@ -118,16 +118,16 @@ class CTelat{
         </div>
       	<div class="funct" align="right" style="padding-bottom:5px">
         	<a href="javascript:getFresh()"><img src="../../img/ico/refresh.png" border="0">&nbsp;Refresh</a>&nbsp;&nbsp;
-            <a href="javascript:cetak()"><img src="../../img/ico/print1.png" border="0">&nbsp;Cetak</a>&nbsp;&nbsp;        
+            <a href="javascript:cetak()"><img src="../../img/ico/print1.png" border="0">&nbsp;Print</a>&nbsp;&nbsp;        
         </div>
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td height="30" align="center" class="header"> Anggota</td>
-            <td height="30" align="center" class="header">Kode Pustaka</td>
-            <td height="30" align="center" class="header">Tgl Pinjam</td>
-            <td height="30" align="center" class="header">Jadwal Kembali</td>
-            <td align="center" class="header">Telat(<em>hari</em>)</td>
-            <td height="30" align="center" class="header">Keterangan</td>
+            <td height="30" align="center" class="header"> Member</td>
+            <td height="30" align="center" class="header">Library Code</td>
+            <td height="30" align="center" class="header">Date Borrowed</td>
+            <td height="30" align="center" class="header">Return</td>
+            <td align="center" class="header">Late(<em>days</em>)</td>
+            <td height="30" align="center" class="header">Info</td>
           </tr>
           <?
 		  if ($num>0){
@@ -140,12 +140,12 @@ class CTelat{
 			  $img = '<img src="../../img/ico/Valid.png" width="16" height="16" title='.$alt.' />';
 			  if ($row[tglkembali]<=$now) {
 			  	if ($row[tglkembali]==$now) {
-					$alt = 'Hari&nbsp;ini&nbsp;batas&nbsp;pengembalian&nbsp;terakhir';
+					$alt = 'Today&nbsp;is&nbsp;the&nbsp;last&nbsp;day&nbsp;for&nbsp;returning';
 					$color='#cb6e01';
 					$weight='font-weight:bold';
 				} elseif ($row[tglkembali]<$now){
 					$diff = @mysql_fetch_row(QueryDb("SELECT DATEDIFF('".$now."','".$row[tglkembali]."')"));
-					$alt = 'Terlambat&nbsp;'.$diff[0].'&nbsp;hari';
+					$alt = 'Late&nbsp;'.$diff[0].'&nbsp;days';
 					$color='red';
 					$weight='font-weight:bold';
 					$telat=$diff[0];
@@ -166,7 +166,7 @@ class CTelat{
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="6" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="6" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }
@@ -202,7 +202,7 @@ class CTelat{
 					//return $sql3;
 					return $row3[nama];
 				} else {
-					return "Tanpa Nama";
+					return "No name.";
 				}
 			}
 		}

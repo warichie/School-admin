@@ -20,4 +20,4 @@
  * 
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
-<input type="submit" name="simpan" value="Simpan" class="but" />
+<input type="submit" name="simpan" value="Save" class="but" />

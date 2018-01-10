@@ -78,14 +78,14 @@ function inputbaru(){
 </head>
 
 <body leftmargin="0" topmargin="0">
-<input name="inputbaru" onClick="inputbaru()" type="button" class="but" value="Input Catatan Baru" />
+<input name="inputbaru" onClick="inputbaru()" type="button" class="but" value="Submit New Notes" />
 <input name="nis" id="nis" type="hidden"  value="<?=$nis?>" />
 <br /><br /><br />
 <fieldset>
-<legend>Riwayat Catatan Siswa</legend>
+<legend>Student Notes History</legend>
 <table width="320" border="0" cellspacing="0">
   <tr>
-    <td width="102"><strong>Tahun Ajaran</strong></td>
+    <td width="102"><strong>Year</strong></td>
     <td width="214">
 	<select name="tahunajaran" id="tahunajaran" onChange="chg()">
     <?
@@ -93,7 +93,7 @@ function inputbaru(){
 	$sql="SELECT t.replid,t.tahunajaran,t.aktif FROM jbsakad.tahunajaran t, jbsakad.kelas k, jbsakad.riwayatkelassiswa r WHERE k.replid=r.idkelas AND k.idtahunajaran=t.replid AND r.nis='$nis' GROUP BY t.replid ";
 	$result=QueryDb($sql);
 	if (@mysql_num_rows($result)==0){
-		echo "<option value=''>Tidak ada Data</option>";
+		echo "<option value=''>Data Not Found</option>";
 	} else {
 		while ($row=@mysql_fetch_array($result)){
 			if ($tahunajaran=="")
@@ -113,8 +113,8 @@ function inputbaru(){
 <br>
 <table width="320" border="1" cellspacing="0" class="tab" id="table" bordercolor="#000000" >
   <tr>
-    <td width="29" height="30" class="header"><div align="center">No.</div></td>
-    <td width="221" height="30" class="header">Kategori</td>
+    <td width="29" height="30" class="header"><div align="center">#</div></td>
+    <td width="221" height="30" class="header">Category</td>
     <td width="38" height="30" class="header"><div align="center">#</div></td>
     <td width="24" height="30" class="header"><div align="center"></div></td>
   </tr>
@@ -139,7 +139,7 @@ function inputbaru(){
   </tr>
   <? $cnt++; } } else { ?>
   <tr>
-    <td colspan="4"><div align="center">Tidak ada kategori catatan</div></td>
+    <td colspan="4"><div align="center">No notes category.</div></td>
   </tr>
   <? } CloseDb(); ?>
 </table>

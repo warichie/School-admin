@@ -33,8 +33,7 @@
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_komentar.png"
     style="background-repeat:no-repeat;">
-        <font size="2" color="#757575"><b>Klik NIS atau Nama di panel kiri 
-        untuk melihat komentar nilai rapor setiap siswa</b></font></td>
+        <font size="2" color="#757575"><b>Click on Student ID or Name on the left panel to show Report Card Comments for each Students.</b></font></td>
 </tr>
 </table>
 </body>

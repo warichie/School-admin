@@ -39,7 +39,7 @@ require_once('inc/db_functions.php');
 <tr height="32">
 	<td width="10" background="<?=getThemeDir()?>bgmain_01.jpg">&nbsp;</td>
 	<td background="<?=getThemeDir()?>bgmain_18.jpg" width="20">&nbsp;</td>
-	<td background="<?=getThemeDir()?>bgmain_19.jpg" width="0"><span style='font-family:Calibri; color:#fff; font-size:18px'>Selamat Datang&nbsp;<?=SI_USER_NAME()?></span></td>
+	<td background="<?=getThemeDir()?>bgmain_19.jpg" width="0"><span style='font-family:Calibri; color:#fff; font-size:18px'>Welcome&nbsp;<?=SI_USER_NAME()?></span></td>
 	<td width="0" align="right" background="<?=getThemeDir()?>bgmain_19.jpg"><strong><span style='font-family:Calibri; color:#FFFF00; font-size:16px'><div id="clock"></div></strong>	  </td>
 	<td background="<?=getThemeDir()?>bgmain_20.jpg" width="17">&nbsp;</td>	
     <td width="13" background="<?=getThemeDir()?>bgmain_01.jpg">&nbsp;</td>	

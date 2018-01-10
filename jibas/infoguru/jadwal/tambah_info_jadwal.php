@@ -48,7 +48,7 @@ if ($op=="simpan"){
 	if ($row_simpan_cek=@mysql_num_rows($result_simpan_cek)){
 	?>
 		<SCRIPT type="text/javascript" language="javascript">
-			alert ('Duplikasi Data, data sudah digunakan !');
+			alert ('Data Duplication, the data has been used');
 			document.location.href="tambah_info_jadwal.php?op=simpan&deskripsi="+deskripsi+"&tglmulai="+tglmulai+"&tglakhir="+tglakhir;
 		</SCRIPT>
 	<?
@@ -73,7 +73,7 @@ if ($op=="simpan"){
 ?>
 <html>
 <head>
-<title>Tambah Info Jadwal</title>
+<title>Add Schedule Info</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <SCRIPT type="text/javascript" language="JavaScript" src="../script/tables.js"></SCRIPT>
 <SCRIPT type="text/javascript" language="javascript" src="../script/common.js"></script>
@@ -100,17 +100,17 @@ function simpan(){
 	var tahunajaran=document.main.tahunajaran.value;
 	
 	if (deskripsi==""){
-		alert ('Informasi jadwal tidak boleh kosong !');
+		alert ('Schedule information should not leave empty');
 		document.main.deskipsi.focus();
 		return false;
 	}
 	if (tglmulai==""){
-		alert ('Tanggal mulai tidak boleh kosong !');
+		alert ('Start Date should not leave empty');
 		document.main.tglmulai.focus();
 		return false;
 	}
 	if (tglakhir==""){
-		alert ('Tanggal selesai tidak boleh kosong !');
+		alert ('End Date should not leave empty');
 		document.main.tglakhir.focus();
 		return false;
 	}
@@ -135,15 +135,15 @@ function simpan(){
     <input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$tahunajaran?>">
 	<table width="350px" style="border: 1px solid black; background-color:white ">
 		<tr>
-		  <td colspan="2" class="header"><div align="center">Input Info Jadwal</div></td>
+		  <td colspan="2" class="header"><div align="center">Schedule Info</div></td>
 		</tr>
 		<tr>
-			<td>Informasi Jadwal</td>
+			<td>Schedule Information</td>
 			<td><input type="text" name="deskripsi" id="deskripsi" style="width:200px " value="<?=$deskripsi?>"></td>
 		</tr>
 		
 		<tr>
-			<td>Periode</td>
+			<td>Period</td>
 			<td>
 				<input type="text" name="tglmulai" id="tglmulai" style="width:80px" value="<?=$tglmulai?>">
 				<a href="javascript:showCal('Calendartglmulai')"><img src="../images/calendar.jpg" border="0"></a>
@@ -155,8 +155,8 @@ function simpan(){
 		
 		<tr>
 			<td colspan="2" align="center">
-				<input type="button" name="Simpan" value="Simpan" class="but" onClick="simpan()">
-				<input type="button" name="Tutup" value="Tutup" class="but" onClick="window.close()">
+				<input type="button" name="Simpan" value="Save" class="but" onClick="simpan()">
+				<input type="button" name="Tutup" value="Close" class="but" onClick="window.close()">
 			</td>
 		</tr>
 	</table>

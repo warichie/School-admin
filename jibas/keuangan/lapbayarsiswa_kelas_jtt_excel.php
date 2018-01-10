@@ -68,7 +68,7 @@ $departemen = FetchSingle($sql);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pembayaran Iuran Wajib Siswa Per Kelas]</title>
+<title>JIBAS FINANCE [Student Mandatory Contribution Payment Reports by Classes]</title>
 </head>
 
 <body>
@@ -76,7 +76,7 @@ $departemen = FetchSingle($sql);
 $sql = "SELECT replid FROM tahunbuku WHERE departemen='$departemen' AND aktif=1";
 $idtahunbuku = FetchSingle($sql);
 
-// Dapatkan banyaknya pembayaran yang telah terjadi untuk pembayaran terpilih di kelas terpilih
+// Dapatkan banyaknya pembayaran yang telah terjadi untuk pembayaran selected di kelas selected
 if ($statuslunas == -1) 
 {
 	// status belum lunas
@@ -93,7 +93,7 @@ if ($statuslunas == -1)
 	{ 
 		if ($idkelas == -1) 
 		{			
-			// semua kelas di tingkat terpilih
+			// semua kelas di tingkat selected
 			$sql = "SELECT MAX(jumlah), COUNT(nis) 
 			        FROM ((SELECT b.nis AS nis, COUNT(p.replid) AS jumlah 
 								  FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k 
@@ -102,7 +102,7 @@ if ($statuslunas == -1)
 		} 
 		else 
 		{
-			// tingkat & kelas terpilih
+			// tingkat & kelas selected
 			$sql = "SELECT MAX(jumlah), COUNT(nis) 
 			        FROM ((SELECT b.nis AS nis, COUNT(p.replid) AS jumlah 
 					           FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s 
@@ -126,7 +126,7 @@ else
 	{
 		if ($idkelas == -1) 
 		{
-			// semua kelas di tingkat terpilih						
+			// semua kelas di tingkat selected						
 			$sql = "SELECT MAX(jumlah), COUNT(nis) 
 					  FROM ((SELECT b.nis AS nis, COUNT(p.replid) AS jumlah 
 						 		  FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k 
@@ -135,7 +135,7 @@ else
 		} 
 		else 
 		{
-			// tingkat & kelas terpilih
+			// tingkat & kelas selected
 			$sql = "SELECT MAX(jumlah), COUNT(nis) 
 					  FROM ((SELECT b.nis AS nis, COUNT(p.replid) AS jumlah 
 								  FROM penerimaanjtt p RIGHT JOIN  besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s 
@@ -171,33 +171,33 @@ $angkatan = $row[0];
 $departemen = $row[1];
 ?>
 
-<center><font size="4" face="Arial"><strong>LAPORAN PEMBAYARAN IURAN WAJIB SISWA</strong></font><br /></center>
+<center><font size="4" face="Arial"><strong>STUDENT MANDATORY CONTRIBUTION PAYMENT REPORTS</strong></font><br /></center>
 <br /><br /><br />
 
 <table border="0">
 <tr>
-	<td><strong>Departemen:</strong></td>
+	<td><strong>Department:</strong></td>
    <td><?=$departemen?></td>
 </tr>
 <tr>
-	<td><strong>Angkatan:</strong></td>
+	<td><strong>Graduates:</strong></td>
    <td><?=$angkatan?></td>
 </tr>
 <tr>
-	<td><strong>Tingkat:</strong></td>
+	<td><strong>Grade:</strong></td>
    <td><?=$namatingkat?></td>
 </tr>
 <tr>
-	<td><strong>Kelas:</strong></td>
+	<td><strong>Class:</strong></td>
    <td><?=$namakelas?></td>
 </tr>
 </table>
 <table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width ?>" align="left" bordercolor="#000000">
 <tr height="30">
-	<td width="30" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="80" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">N I S</font></strong></td>
-    <td width="140" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Nama</font></strong></td>
-    <td width="50" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Kelas</font></strong></td>
+	<td width="30" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="80" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Student ID</font></strong></td>
+    <td width="140" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Name</font></strong></td>
+    <td width="50" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Class</font></strong></td>
 <? 	for($i = 0; $i < $max_n_cicilan; $i++) {
 			$n = $i + 1; ?>
     		<td width="120" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">
@@ -208,10 +208,10 @@ $departemen = $row[1];
     <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">
       <?=$namapenerimaan ?>
     </font></strong></td>
-    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Besar Pembayaran</font></strong></td>
-	<td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Diskon</font></strong></td>
-    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Tunggakan</font></strong></td>
-    <td width="200" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Keterangan</font></strong></td>
+    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Payment</font></strong></td>
+	<td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Discount</font></strong></td>
+    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Late Payment</font></strong></td>
+    <td width="200" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Info</font></strong></td>
 </tr>
 
 <?
@@ -245,7 +245,7 @@ if ($statuslunas == -1)
 	{
 		if ($idkelas == -1) 
 		{
-			// semua kelas di tingkat terpilih
+			// semua kelas di tingkat selected
 			$sql_sum_biaya = "SELECT SUM(b.besar) AS TotalBiaya
 							  FROM besarjtt b, jbsakad.siswa s, jbsakad.kelas k, jbsakad.tingkat t 
 							 WHERE b.info2 = '$idtahunbuku' AND s.nis = b.nis AND b.idpenerimaan = $idpenerimaan AND s.idangkatan = $idangkatan 
@@ -269,7 +269,7 @@ if ($statuslunas == -1)
 		} 
 		else 
 		{
-			// tingkat & kelas terpilih
+			// tingkat & kelas selected
 			$sql_sum_biaya = "SELECT SUM(b.besar) AS TotalBiaya 
 							  FROM besarjtt b, jbsakad.siswa s, jbsakad.kelas k
 							 WHERE b.info2 = '$idtahunbuku' AND s.nis = b.nis AND b.idpenerimaan = $idpenerimaan AND s.idkelas = $idkelas 
@@ -382,11 +382,11 @@ while ($row = mysql_fetch_array($result))
 	$ketjtt = $row['keterangan'];
 	$lunasjtt = $row['lunas'];
 	if ($lunasjtt == 1)
-		$infojtt = "<font color=blue><strong>Lunas</strong></font>";
+		$infojtt = "<font color=blue><strong>Paid Off</strong></font>";
 	elseif ($lunasjtt == 2)
-		$infojtt = "<font color=green><strong>Gratis</strong></font>";
+		$infojtt = "<font color=green><strong>Free</strong></font>";
 	else	
-		$infojtt = "<font color=red><strong>Belum Lunas</strong></font>";
+		$infojtt = "<font color=red><strong>No Paid Off Yet</strong></font>";
 	
 	$totalbiayaall += $besarjtt;
 	$bg1="#ffffff";
@@ -475,7 +475,7 @@ while ($row = mysql_fetch_array($result))
 	$totalDiskonAll = $row[1];
 ?>
 <tr height="40">
-	<td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong>T O T A L</strong></font></td>
+	<td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong>Total</strong></font></td>
 	<td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totalBiayaAll ?></strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totalBayarAll ?></strong></font></td>
 	<td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totalDiskonAll ?></strong></font></td>

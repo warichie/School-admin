@@ -205,7 +205,7 @@ $msg .= "User come from : ".$_SERVER["HTTP_REFERER"]; //Referrer
 	  	//You can modify the text if you want
       	echo nl2br("
 	   	<div class=\"MsgSent\">
-			<h1>Congratulations!!</h1>
+			<h1>Congratulations!</h1>
 			<p>Thank you <b><?=$name;?></b>, your message is sent!<br /> I will get back to you as soon as possible.</p>
 		</div>
 	   ");
@@ -215,8 +215,8 @@ $msg .= "User come from : ".$_SERVER["HTTP_REFERER"]; //Referrer
 	    // Display error message if the message failed to send
         echo "
 	   	<div class=\"MsgError\">
-			<h1>Error!!</h1>
-			<p>Sorry <b><?=$name;?></b>, your message failed to send. Try later!</p>
+			<h1>Error!</h1>
+			<p>Sorry <b><?=$name;?></b>, your message failed to send. Try later</p>
 		</div>";
 	}
 ?>

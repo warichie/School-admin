@@ -126,7 +126,7 @@ loadJadwal();
 
 <html>
 <head>
-<title>Jadwal Guru</title>
+<title>Teacher Schedule</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <style>
 	.jadwal {
@@ -179,14 +179,14 @@ loadJadwal();
     <br>
     <table border="1" width="100%" id="table" class="tab" align="center" style="border-collapse:collapse">
     <tr height="30">
-        <td width="110px" class="header" align="center">Jam</td>
-        <td width="110px" class="header" align="center">Senin</td>
-        <td width="110px" class="header" align="center">Selasa</td>
-        <td width="110px" class="header" align="center">Rabu</td>
-        <td width="110px" class="header" align="center">Kamis</td>
-        <td width="110px" class="header" align="center">Jumat</td>
-        <td width="110px" class="header" align="center">Sabtu</td>
-        <td width="110px" class="header" align="center">Minggu</td>
+        <td width="110px" class="header" align="center">Time</td>
+        <td width="110px" class="header" align="center">Monday</td>
+        <td width="110px" class="header" align="center">Tuesday</td>
+        <td width="110px" class="header" align="center">Wednesday</td>
+        <td width="110px" class="header" align="center">Thursday</td>
+        <td width="110px" class="header" align="center">Friday</td>
+        <td width="110px" class="header" align="center">Saturday</td>
+        <td width="110px" class="header" align="center">Sunday</td>
     </tr>
 	<?
 	
@@ -211,7 +211,7 @@ loadJadwal();
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Belum ada data Jam Belajar untuk Departemen <?=$departemen?>. </font>
+    	<font size = "2" color ="red"><b>No session data for department <?=$departemen?>. </font>
 		</td>
 	</tr>
 	</table> 
@@ -223,7 +223,7 @@ loadJadwal();
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data jadwal mengajar. <br /><br /></b></font>
+    	<font size = "2" color ="red"><b>No Data Found. </b></font><br /><br />
 		</td>
 	</tr>
 	</table> 

@@ -117,34 +117,34 @@ function InsertNewReceipt(x,y,z,w,a,b){
 		HideError('ErrNewReceiptName');
 		var PhNumber 	= document.getElementById('NewReceiptNo').value;
 		var Name 		= document.getElementById('NewReceiptName').value;
-		var NIP			= 'NULL';
+		var Employee ID			= 'NULL';
 		var PIN			= a;
 		var PIN2		= b;
 	} else {
 		var PhNumber	= x;
 		var Name		= y;
-		var NIP			= z;
+		var Employee ID			= z;
 		var PIN			= a;
 		var PIN2		= b;
 	}
 	//alert(PIN+"\n"+PIN2);
 	if (PhNumber.length==0 || Name.length==0){
 		if (Name.length==0){
-			ShowError('ErrNewReceiptName','Masukkan Nama!','NewReceiptName');
+			ShowError('ErrNewReceiptName','Please enter Name!','NewReceiptName');
 			return false;
 		}	
 		if (PhNumber.length==0){
-			ShowError('ErrNewReceiptNo','Masukkan No Ponsel!','NewReceiptNo');
+			ShowError('ErrNewReceiptNo','Please enter Mobile Phone Number!','NewReceiptNo');
 			return false;
 		} else {
 			if (isNaN(PhNumber)){
-				ShowError('ErrNewReceiptNo','No Ponsel harus berupa bilangan!','NewReceiptNo');
+				ShowError('ErrNewReceiptNo','Mobile phone number should be numeric!','NewReceiptNo');
 				return false;
 			}
 		}
 	} else {
 		if (isNaN(PhNumber)){
-			ShowError('ErrNewReceiptNo','No Ponsel harus berupa bilangan!','NewReceiptNo');
+			ShowError('ErrNewReceiptNo','Mobile phone number should be numeric!','NewReceiptNo');
 			return false;
 		}
 		var tbl = document.getElementById('ReceiptTable');
@@ -152,7 +152,7 @@ function InsertNewReceipt(x,y,z,w,a,b){
 		var found  = false;
 		for (i=1;i<=numrow;i++){
 			var s = document.getElementById('ChkReceipt'+i).value;
-			if (s==PhNumber+'>'+Name+'>'+NIP+'>'+PIN+'>'+PIN2){
+			if (s==PhNumber+'>'+Name+'>'+Employee ID+'>'+PIN+'>'+PIN2){
 				found = true;
 				break;
 			}
@@ -161,7 +161,7 @@ function InsertNewReceipt(x,y,z,w,a,b){
 			var lastRow = tbl.rows.length;
 			var iteration = lastRow;
 			var row = tbl.insertRow(lastRow);
-			row.setAttribute('id',w+NIP);
+			row.setAttribute('id',w+Employee ID);
 			
 			// cell number
 			var cellLeft = row.insertCell(0);
@@ -181,7 +181,7 @@ function InsertNewReceipt(x,y,z,w,a,b){
 			cD1.name = 'ChkReceipt' + iteration;
 			cD1.id = 'ChkReceipt' + iteration;
 			cD1.checked = 'checked';
-			cD1.value = PhNumber+">"+Name+">"+NIP+'>'+PIN+'>'+PIN2;
+			cD1.value = PhNumber+">"+Name+">"+Employee ID+'>'+PIN+'>'+PIN2;
 			cellDate.appendChild(cD1);
 			
 			//No HP
@@ -237,15 +237,15 @@ function Send(){
 	//return false;
 	var tbl = parseInt(document.getElementById('ReceiptTable').rows.length)-1;
 	if (Sender.length==0){
-		ShowError('ErrSender','Pengirim harus diisi!','Sender');
+		ShowError('ErrSender','Sender is required!','Sender');
 		return false;
 	}
 	if (Message.length==0){
-		ShowError('ErrMessage','Pesan harus diisi!','Message');
+		ShowError('ErrMessage','Message is required!','Message');
 		return false;
 	}
 	if (tbl==0){
-		ShowError('ErrNewReceiptList','Minimal ada 1 penerima!','NewReceiptName');
+		ShowError('ErrNewReceiptList','There is should be at least 1 recipient!','NewReceiptName');
 		return false;
 	}
 	var nope = "";
@@ -300,21 +300,21 @@ function Send(){
 }
 function ChgCmbBagPeg(v){
 	ShowWait('TablePegawai');
-	//sendRequestText('GetTablePegawai.php',ShowTablePegawai,'Bagian='+v+'&Source=Pilih');
-	sendRequestText('pengumuman.ajax.php',ShowTablePegawai,'Bagian='+v+'&Source=Pilih&op=GetTablePegawai');
+	//sendRequestText('GetTablePegawai.php',ShowTablePegawai,'Section='+v+'&Source=Select');
+	sendRequestText('pengumuman.ajax.php',ShowTablePegawai,'Section='+v+'&Source=Select&op=GetTablePegawai');
 }
 function SearchPeg(){
 	//alert ('Masuk');
 	HideError('ErrInpNIPPeg');
 	HideError('ErrInpNamaPeg');
-	var NIP 	= document.getElementById('InpNIPPeg').value;
+	var Employee ID 	= document.getElementById('InpNIPPeg').value;
 	var Nama 	= document.getElementById('InpNamaPeg').value;
-	if (NIP=='NIP Pegawai' && Nama=='Nama Pegawai'){
-		ShowError('ErrInpNamaPeg','Masukan kata kunci','InpNIPPeg');
+	if (Employee ID=='Employee ID' && Nama=='Employee Name'){
+		ShowError('ErrInpNamaPeg','Enter keyword','InpNIPPeg');
 		return false;
 	} else {
 		ShowWait('TablePegawai');
-		sendRequestText('pengumuman.ajax.php',ShowTablePegawai,'NIP='+NIP+'&Nama='+Nama+'&Source=Cari&op=GetTablePegawai');
+		sendRequestText('pengumuman.ajax.php',ShowTablePegawai,'Employee ID='+Employee ID+'&Nama='+Nama+'&Source=Cari&op=GetTablePegawai');
 	}
 }
 function ShowTablePegawai(x){
@@ -331,13 +331,13 @@ function ChgCmbDepSis(){
 function ChgCmbKlsSis(){
 	var Kls 	= document.getElementById('CmbKlsSis').value;
 	ShowWait('TableSiswa');
-	sendRequestText('pengumuman.ajax.php',ShowTableSiswa,'kls='+Kls+'&Source=Pilih&op=GetTableSiswa');
+	sendRequestText('pengumuman.ajax.php',ShowTableSiswa,'kls='+Kls+'&Source=Select&op=GetTableSiswa');
 }
 function ShowFilterSiswa(x){
 	document.getElementById('DivCmbKelas').innerHTML = x;
 	var Kls 	= document.getElementById('CmbKlsSis').value;
 	ShowWait('TableSiswa');
-	sendRequestText('pengumuman.ajax.php',ShowTableSiswa,'kls='+Kls+'&Source=Pilih&op=GetTableSiswa');
+	sendRequestText('pengumuman.ajax.php',ShowTableSiswa,'kls='+Kls+'&Source=Select&op=GetTableSiswa');
 }
 function ShowTableSiswa(x){
 	document.getElementById('TableSiswa').innerHTML = x;
@@ -347,14 +347,14 @@ function ShowTableSiswa(x){
 function SearchSis(){
 	HideError('ErrInpNISSis');
 	HideError('ErrInpNamaSis');
-	var NIS 	= document.getElementById('InpNISSis').value;
+	var Student ID 	= document.getElementById('InpNISSis').value;
 	var Nama 	= document.getElementById('InpNamaSis').value;
-	if (NIS=='NIS Siswa' && Nama=='Nama Siswa'){
-		ShowError('ErrInpNamaSis','Masukan kata kunci','InpNISSis');
+	if (Student ID=='Student ID' && Nama=='Student Name'){
+		ShowError('ErrInpNamaSis','Enter keyword','InpNISSis');
 		return false;
 	} else {
 		ShowWait('TableSiswa');
-		sendRequestText('pengumuman.ajax.php',ShowTableSiswa,'NIS='+NIS+'&Nama='+Nama+'&Source=Cari&op=GetTableSiswa');
+		sendRequestText('pengumuman.ajax.php',ShowTableSiswa,'Student ID='+Student ID+'&Nama='+Nama+'&Source=Cari&op=GetTableSiswa');
 	}
 }
 
@@ -375,7 +375,7 @@ function ChgCmbKlsOrtu(){
 	ShowWait('TableOrtu');
 	$.ajax({
 		url : 'pengumuman.ajax.php',
-		data : 'kls='+Kls+'&Source=Pilih&op=GetTableOrtu',
+		data : 'kls='+Kls+'&Source=Select&op=GetTableOrtu',
 		success : function(x){
 			$('#TableOrtu').html(x);
 			if ($("#TableOr").length>0)
@@ -391,17 +391,17 @@ function ShowTableOrtu(x){
 function SearchOrtu(){
 	HideError('ErrInpNISOrtu');
 	HideError('ErrInpNamaOrtu');
-	var NIS 	= document.getElementById('InpNISOrtu').value;
+	var Student ID 	= document.getElementById('InpNISOrtu').value;
 	var Nama 	= document.getElementById('InpNamaOrtu').value;
-	if (NIS=='NIS Siswa' && Nama=='Nama Siswa'){
-		ShowError('ErrInpNamaOrtu','Masukan kata kunci','InpNISOrtu');
+	if (Student ID=='Student ID' && Nama=='Student Name'){
+		ShowError('ErrInpNamaOrtu','Enter keyword','InpNISOrtu');
 		return false;
 	} else {
 		ShowWait('TableOrtu');
-		//sendRequestText('pengumuman.ajax.php',ShowTableOrtu,'NIS='+NIS+'&Nama='+Nama+'&Source=Cari&op=GetTableOrtu');
+		//sendRequestText('pengumuman.ajax.php',ShowTableOrtu,'Student ID='+Student ID+'&Nama='+Nama+'&Source=Cari&op=GetTableOrtu');
 		$.ajax({
 			url : 'pengumuman.ajax.php',
-			data : 'NIS='+NIS+'&Nama='+Nama+'&Source=Cari&op=GetTableOrtu',
+			data : 'Student ID='+Student ID+'&Nama='+Nama+'&Source=Cari&op=GetTableOrtu',
 			success : function(x){
 				$('#TableOrtu').html(x);
 				if ($("#TableOr").length>0)
@@ -413,7 +413,7 @@ function SearchOrtu(){
 
 function PengumumanAfterSend(nope){
 	if (nope>0){
-		var msg = "<div style='border:1px solid #FF6600; background-color:#FFCC66; padding:2px;'>Berhasil mengirim pengumuman ke <span style='font-weight:bold;font-size:16px;'>"+nope+"</span> penerima.</div>";
+		var msg = "<div style='border:1px solid #FF6600; background-color:#FFCC66; padding:2px;'>Announcement was sent successfully to <span style='font-weight:bold;font-size:16px;'>"+nope+"</span> recipients.</div>";
 		document.getElementById('DivLogs').innerHTML = msg;
 		document.getElementById('Sender').value = "";
 		document.getElementById('Message').value = "";
@@ -423,7 +423,7 @@ function PengumumanAfterSend(nope){
 			document.getElementById('DivLogs').innerHTML = "";
 		},2000)
 	} else {
-		var msg = "<div style='border:1px solid #FF6600; background-color:#FFCC66; padding:2px;'>Tidak ada penerima pesan pengumuman, pastikan penerima memiliki Nomor Ponsel.</div>";
+		var msg = "<div style='border:1px solid #FF6600; background-color:#FFCC66; padding:2px;'>There is no announcement recipient, make sure they have a Mobile Phone Number.</div>";
 		document.getElementById('DivLogs').innerHTML = msg;
 		
 		setTimeout(function(){

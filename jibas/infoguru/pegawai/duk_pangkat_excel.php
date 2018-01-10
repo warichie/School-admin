@@ -40,7 +40,7 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <style type="text/css">
 <!--
 .style1 {
@@ -57,7 +57,7 @@ OpenDb();
 
 $arridpeg;
 
-$namasatker = "Semua";
+$namasatker = "All";
 if ($satker == "all")
 {
 	$sql = "SELECT p.replid FROM jbssdm.pegawai p, jbssdm.peglastdata pl, jbssdm.peggol pg, jbssdm.golongan g 
@@ -86,39 +86,39 @@ $ndata = mysql_num_rows($result);
 
 <table border="1" cellpadding="2" cellspacing="0" width="1395" class="tab" id="table">
     <tr height="40">
-      <td height="40" colspan="17" align="center" valign="top"><p class="style1">Daftar Urut Kepangkatan Pegawai Negeri Sipil</p></td>
+      <td height="40" colspan="17" align="center" valign="top"><p class="style1">Government Employees Sort of Rank List</p></td>
     <tr height="20">
-      <td height="20" colspan="17" align="left" valign="top">Satuan Kerja: <?=$namasatker?></td>
+      <td height="20" colspan="17" align="left" valign="top">Work Unit: <?=$namasatker?></td>
     </tr>
   <tr height="20">
-    <td  width="20" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>No</strong></td>
-    <td  width="160" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Nama</strong></td>
-    <td  width="120" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>NIP</strong></td>
-	<td  width="120" colspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Pangkat</strong></td>
-    <td  width="200" colspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Jabatan</strong></td>
-    <td  width="100" colspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Masa Kerja</strong></td>
-    <td  width="100" colspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Diklat</strong></td>
-    <td  width="125" colspan="3" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Pendidikan</strong></td>
-    <td  width="40" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Usia</strong></td>
-    <td  width="120" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Kelahiran</strong></td>
-	<td  width="200" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Ket.</strong></td>
+    <td width="20" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>#</strong></td>
+    <td width="160" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Name</strong></td>
+    <td width="120" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Employee ID</strong></td>
+	<td width="120" colspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Rank</strong></td>
+    <td width="200" colspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Position</strong></td>
+    <td width="100" colspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Years of Service</strong></td>
+    <td width="100" colspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Education and Training</strong></td>
+    <td width="125" colspan="3" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Education</strong></td>
+    <td width="40" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Age</strong></td>
+    <td width="120" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Year of Birth</strong></td>
+	<td width="200" rowspan="2" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Others</strong></td>
   </tr>
 <tr height="20">
-  <td  width="120" align="center" valign="middle" bgcolor="#CCCCCC"><strong>GOL</strong></td>
-    <td  width="60" align="center" valign="middle" bgcolor="#CCCCCC"><strong>TMT</strong></td>
+  <td width="120" align="center" valign="middle" bgcolor="#CCCCCC"><strong>ORDER</strong></td>
+    <td width="60" align="center" valign="middle" bgcolor="#CCCCCC"><strong>TMT</strong></td>
     
-    <td  width="200" align="center" valign="middle" bgcolor="#CCCCCC"><strong>NAMA</strong></td>
-    <td  width="60" align="center" valign="middle" bgcolor="#CCCCCC"><strong>TMT</strong></td>
+    <td width="200" align="center" valign="middle" bgcolor="#CCCCCC"><strong>NAME</strong></td>
+    <td width="60" align="center" valign="middle" bgcolor="#CCCCCC"><strong>TMT</strong></td>
     
-    <td  width="100" align="center" valign="middle" bgcolor="#CCCCCC"><strong>GOL</strong></td>
-    <td  width="50" align="center" valign="middle" bgcolor="#CCCCCC"><strong>SEL</strong></td>
+    <td width="100" align="center" valign="middle" bgcolor="#CCCCCC"><strong>ORDER</strong></td>
+    <td width="50" align="center" valign="middle" bgcolor="#CCCCCC"><strong>SEL</strong></td>
     
-    <td  width="100" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Nama</strong></td>
-    <td  width="50" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Th</strong></td>
+    <td width="100" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Name</strong></td>
+    <td width="50" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Year</strong></td>
     
-    <td  width="125" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Nama</strong></td>
-    <td  width="30" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Lls</strong></td>
-    <td  width="30" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Tk</strong></td>
+    <td width="125" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Name</strong></td>
+    <td width="30" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Pass</strong></td>
+    <td width="30" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Rank</strong></td>
   </tr>
 
 <?

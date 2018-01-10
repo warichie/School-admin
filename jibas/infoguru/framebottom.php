@@ -48,7 +48,7 @@ function get_fresh(){
 		<td>
 			<img src="<?=GetThemeDir()?>InfoGuru_16.png" width="20" height="22" alt=""></td>
 		<td background="<?=GetThemeDir()?>InfoGuru_17.png" width="852" height="22" align='left' style='padding-top:1px'>
-		<span style="font-family:Verdana; color:#666666; font-size:10px"><b>Selamat Datang <?=$nama?></b></span>
+		<span style="font-family:Verdana; color:#666666; font-size:10px"><b>Welcome <?=$nama?></b></span>
 		</td>
 		<td background="<?=GetThemeDir()?>InfoGuru_17.png" width="852" height="22" align='right' style='padding-top:1px'>
 		<span style="font-family:Verdana; color:#FF6600; font-size:10px"><strong><div id="clock"></div></strong></span>

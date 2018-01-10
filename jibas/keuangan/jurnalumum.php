@@ -43,11 +43,11 @@
 <table width="100%" border="0" style="border-collapse:collapse" cellpadding="0" cellspacing="0">
 <tr>
 	<td align="right" valign="top"><a href="inputjurnal.php"><img src="images/Down1.png" border="0" height="70" /></a></td>
-    <td align="left" valign="middle"><a href="inputjurnal.php"><strong>Input Jurnal Umum</strong></a><br /><i>Menangani transaksi keuangan yang tidak dapat ditangani di menu Penerimaan atau Pengeluaran</i></td>
+    <td align="left" valign="middle"><a href="inputjurnal.php"><strong>Input Jurnal Public</strong></a><br /><i>Menangani transaksi keuangan yang tidak dapat ditangani di menu Penerimaan or Expenditure</i></td>
     <td width="10">&nbsp;</td>
     <td align="right" valign="top"><a href="carijurnal_main.php"><img src="images/Find.png" border="0" height="60" /></a></td>
-    <td align="left" valign="middle"><a href="carijurnal_main.php"><strong>Pencarian Data Jurnal Umum</strong></a>
-    <i>Menampilkan atau mencari riwayat jurnal keuangan</i></td>
+    <td align="left" valign="middle"><a href="carijurnal_main.php"><strong>Search Data Jurnal Public</strong></a>
+    <i>Menampilkan or mencari riwayat jurnal keuangan</i></td>
 </tr>
 <tr>
 	<td colspan="5" height="20">&nbsp;</td>

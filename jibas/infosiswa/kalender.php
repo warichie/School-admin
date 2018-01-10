@@ -82,11 +82,11 @@ function scrollMiddle() {
 
 <table width="100%" border="0">
   <tr>
-    <td><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>KALENDER AKADEMIK</strong></font></p></td>
+    <td><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>ACADEMIC CALENDAR</strong></font></p></td>
   </tr>
   <tr>
     <td><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="akademik/jadwal/kalender_footer.php" onMouseOver="showhint('Pendataan Kalender Akademik', this, event, '100px')"><img src="images/kalender_07.jpg" alt="" width="126" height="129" border="0"></a>    </td>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="akademik/jadwal/kalender_footer.php" onMouseOver="showhint('Academic Calendar Data Collection', this, event, '100px')"><img src="images/kalender_07.jpg" alt="" width="126" height="129" border="0"></a>    </td>
   </tr>
 </table>
     </td>

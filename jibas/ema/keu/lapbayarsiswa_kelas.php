@@ -163,19 +163,19 @@ function show_pembayaran()
 	
 	if (idangkatan.length == 0)
     {	
-		alert ('Pastikan angkatan sudah ada!');	
+		alert ('Make sure that year is existed');	
 		document.getElementById('idangkatan').focus();
 		return false;		
 	}
     else if (idkategori.length == 0)
     {
-		alert ('Pastikan kategori pembayaran sudah ada!');
+		alert ('Make sure that payment category is existed');
 		document.getElementById('idkategori').focus();
 		return false;	
 	}
     else if (idpenerimaan.length == 0)
     {
-		alert ('Pastikan penerimaan pembayaran sudah ada!');
+		alert ('Make sure that admission is existed');
 		document.getElementById('idpenerimaan').focus();
 		return false;	
 	}
@@ -276,7 +276,7 @@ function cetak()
     <td rowspan="3" width="52%">
     <table width = "100%" border = "0">
 	<tr>
-        <td width="18%" class="news_content1">Departemen </td>
+        <td width="18%" class="news_content1">Department </td>
         <td>
     	<select name="departemen" class="cmbfrm" id="departemen" style="width:188px" onchange="change_dep()" onKeyPress="return focusNext('idangkatan', event)">
    		<? 	$sql = "SELECT departemen FROM departemen WHERE aktif = 1 ORDER BY urutan";
@@ -287,7 +287,7 @@ function cetak()
                 <option value="<?=$row[0]?>" <?=StringIsSelected($row[0], $departemen)?> > <?=$row[0]?></option>
         <? } ?>
 		</select>
-        <span class="news_content1">Angkatan </span> </td>
+        <span class="news_content1">Graduates </span> </td>
         <td>
         <select name="idangkatan" class="cmbfrm" id="idangkatan" style="width:100px" onchange="change_ang()" onKeyPress="return focusNext('idtingkat', event)">
         <? 	$sql = "SELECT replid, angkatan FROM angkatan WHERE departemen = '$departemen' AND aktif = 1 ORDER BY angkatan";
@@ -301,10 +301,10 @@ function cetak()
         </td>
     </tr>
      <tr>
-    	<td class="news_content1">Kelas </td>
+    	<td class="news_content1">Class </td>
         <td>
         <select name="idtingkat" class="cmbfrm" id="idtingkat" style="width:80px;" onChange="change_ang()" onkeypress="return focusNext('lunas', event)" >
-        <option value="-1" <?=IntIsSelected(-1, $idtingkat)?>>(Semua)</option>
+        <option value="-1" <?=IntIsSelected(-1, $idtingkat)?>>(All)</option>
         <?
            
 			$sql="SELECT * FROM tingkat WHERE departemen='$departemen' AND aktif = 1 ORDER BY urutan";
@@ -318,7 +318,7 @@ function cetak()
         </select>
        
         <select name="idkelas" class="cmbfrm" id="idkelas" style="width:103px" onchange="change_kelas()" <?=$dis?> onkeypress="return focusNext('lunas', event)">
-        <option value="-1">(Semua)</option>
+        <option value="-1">(All)</option>
 		<?  $sql = "SELECT DISTINCT k.replid, k.kelas FROM tahunajaran t, kelas k WHERE t.replid = k.idtahunajaran AND k.aktif = 1 AND k.idtingkat = '$idtingkat' AND t.aktif = 1 ORDER BY k.kelas";
             $result = QueryDb($sql);
             while($row = mysql_fetch_row($result)) {
@@ -329,16 +329,16 @@ function cetak()
         <span class="news_content1">Status </span> </td>
         <td>
         <select name="lunas" class="cmbfrm" id="lunas" style="width:100px" onchange="change_status()" <?=$dis1?> onkeypress="return focusNext('idkategori', event)">
-            <option value="-1" <?=IntIsSelected(-1, $statuslunas) ?> >(Semua)</option>
-            <option value="0" <?=IntIsSelected(0, $statuslunas) ?> >Belum Lunas</option>
-            <option value="1" <?=IntIsSelected(1, $statuslunas) ?> >Lunas</option>
-            <option value="2" <?=IntIsSelected(2, $statuslunas) ?> >Gratis</option>
+            <option value="-1" <?=IntIsSelected(-1, $statuslunas) ?> >(All)</option>
+            <option value="0" <?=IntIsSelected(0, $statuslunas) ?> >No Paid Off Yet</option>
+            <option value="1" <?=IntIsSelected(1, $statuslunas) ?> >Paid Off</option>
+            <option value="2" <?=IntIsSelected(2, $statuslunas) ?> >Free</option>
         </select>
         
     	</td>
     </tr>
     <tr>
-        <td class="news_content1">Pembayaran </td>
+        <td class="news_content1">Payment </td>
         <td colspan="2"> 
         <select name="idkategori" class="cmbfrm" id="idkategori" style="width:188px;" onchange="change_kate()" onkeypress="return focusNext('idpenerimaan', event)">
         <?  $sql = "SELECT kode, kategori FROM $db_name_fina.kategoripenerimaan WHERE kode IN ('JTT','SKR') ORDER BY urutan";
@@ -366,9 +366,9 @@ function cetak()
     </table>
 	</td>
  	<td width="*" rowspan="2" valign="middle">
-    	<a href="#" onclick="show_pembayaran()"><img src="../img/view.png" border="0" height="48" width="48" onmouseover="showhint('Klik untuk menampilkan data laporan pembayaran per kelas!', this, event, '180px')"/></a>    </td>
+    	<a href="#" onclick="show_pembayaran()"><img src="../img/view.png" border="0" height="48" width="48" onmouseover="showhint('Click to show data laporan pembayaran per kelas', this, event, '180px')"/></a>    </td>
 	<td width="45%" colspan="3" align="right" valign="top">
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Laporan Pembayaran Per Kelas</font>
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Payment Reports by Classes</font>
 	</td>
 </tr>
 <tr>	

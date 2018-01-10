@@ -30,7 +30,7 @@ require_once("../include/class/jpgraph_bar.php");
 require_once("../include/class/jpgraph_line.php");
 
 class ChartFactory {
-	var $bulan = array('Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nop','Des');
+	var $bulan = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
 	var $xdata;
 	var $ydata;
 	var $title;
@@ -102,7 +102,7 @@ class ChartFactory {
 		$graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
 		$graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 		
-		//Pengaturan sumbu x dan sumbu y
+		//Settings sumbu x and sumbu y
 		$graph->yaxis->HideZeroLabel();
 		$graph->ygrid->SetFill(true,'#dedede','#FFFFFF');
 		

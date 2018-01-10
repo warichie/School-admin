@@ -1,5 +1,5 @@
 $(function(){
-	//alert('Asu');
+	//alert('Test');
 	setInterval(function(){
 		getNewMessage();
 	},5000)
@@ -74,7 +74,7 @@ showNewList = function(){
 $(".btnDel").live('click',function(e){
 	e.preventDefault;
 	var id = $(this).attr('id');
-	if (confirm('Anda yakin akan menghapus pesan ini dari Kotak Masuk?')){
+	if (confirm('Are you sure want to delete this message from Inbox?')){
 		$(this).parent('td').parent('tr').remove();
 		$.ajax({
 			url : 'kritik.class.php',
@@ -92,7 +92,7 @@ $(".btnView").live('click',function(e){
 	var id = $(this).attr('id');
 	$(this).parent('td').parent('tr').removeClass('bold');
 	var dialog = $('<div style="display:hidden" align="center" id="dialogcontent" ><h3 class="ui-state-highlight">Loading</h3></div>').appendTo('body');
-	dialog.dialog({title:'Detail Pesan',modal:true,show:'fade',hide:'fade',width:'300px',position:'top',
+	dialog.dialog({title:'Detail Message',modal:true,show:'fade',hide:'fade',width:'300px',position:'top',
 		open:function(){
 			
 			$.ajax({
@@ -124,11 +124,11 @@ $(".btnView").live('click',function(e){
 							},
 							success:function(out){
 								if (out.status=='1'){
-									alert('Pesan balasan sudah dikirim !');
+									alert('Pesan balasan sudah dikirim ');
 									dialog.dialog('destroy');
 									dialog.remove();
 								} else {
-									alert('Pesan balasan gagal dikirim !');
+									alert('Pesan balasan gagal dikirim ');
 									$("#replytext").removeAttr('disabled','disabled');
 								}
 								//$("#dialogcontent").attr('align','left').html(out);

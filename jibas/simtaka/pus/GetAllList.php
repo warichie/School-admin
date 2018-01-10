@@ -33,9 +33,9 @@ $cnt=1;
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
   <tr>
-    <td height="25" align="center" class="header">No</td>
-    <td height="25" align="center" class="header">Peminjam</td>
-    <td height="25" align="center" class="header">Tgl Pinjam</td>
+    <td height="25" align="center" class="header">#</td>
+    <td height="25" align="center" class="header">Borrower</td>
+    <td height="25" align="center" class="header">Date</td>
     <td height="25" align="center" class="header">&nbsp;</td>
   </tr>
   <? while ($row = @mysql_fetch_row($result)) { ?>
@@ -70,7 +70,7 @@ function GetMemberName($idanggota){
 				$row3 = @mysql_fetch_array($result3);
 				return $row3[nama];
 			} else {
-				return "Tanpa Nama";
+				return "No name.";
 			}
 		}
 	}

@@ -40,7 +40,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Penempatan Calon Siswa</title>
+<title>Student Candidate Placement</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -61,12 +61,12 @@ function show_calon() {
 	var kelompok = document.getElementById("kelompok").value;
 		
 	if (proses.length == 0) {
-		alert ('Tidak ada Proses Penerimaan yang aktif!');	
+		alert ('No Active Admission Process');	
 		document.getElementById("departemen").focus();
 		return false;
 	}
 	if (kelompok == 0) {
-		alert ('Belum ada Kelompok Calon Siswa pada Proses Penerimaan ini!');	
+		alert ('No Student Candidate Group on this Admission Process');	
 		document.getElementById("departemen").focus();
 		return false;
 	}	
@@ -98,7 +98,7 @@ function focusNext(elemName, evt) {
 	<td rowspan="3" width="40%">
     <table width = "95%" border = "0">    
     <tr>
-      	<td width = "40%"><strong>Departemen</strong>
+      	<td width = "40%"><strong>Department</strong>
       	<td width="60%">
        <select name="departemen" id="departemen" onChange="change_dep()" style="width:200px;" onKeyPress="return focusNext('tabel', event)">
 	<?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -112,7 +112,7 @@ function focusNext(elemName, evt) {
     	</td>
     </tr>
 	<tr>
-    	<td><strong>Proses Penerimaan</strong>
+    	<td><strong>Admission Process</strong>
       	<td> 
         <? 	
 			OpenDb();
@@ -134,10 +134,10 @@ function focusNext(elemName, evt) {
 	</table>
 	</td>
 	<td width="*" rowspan="2" valign="middle"><a href="#" onclick="show_calon()" >
-    	<img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Klik untuk menampilkan daftar calon siswa !', this, event, '140px')"/></a></td>
-    <td width="37%" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Penempatan Calon Siswa</font>
-    <br /><a href="../siswa_baru.php" target="content"><font size="1" color="#000000"><b>Penerimaan Siswa Baru</b></font></a>&nbsp>&nbsp
-    <font size="1" color="#000000"><b>Penempatan Calon Siswa</b></font></td>  
+    	<img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Click to show daftar student candidate ', this, event, '140px')"/></a></td>
+    <td width="37%" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Candidate Placement</font>
+    <br /><a href="../siswa_baru.php" target="content"><font size="1" color="#000000"><b>New Student Admission</b></font></a>&nbsp;>&nbsp;
+    <font size="1" color="#000000"><b>Student Candidate Placement</b></font></td>  
 </tr>
 <tr>
 	<td align="right" valign="top">

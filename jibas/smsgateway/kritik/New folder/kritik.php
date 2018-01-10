@@ -33,7 +33,7 @@ $K = new Kritik();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pesan Masuk</title>
+<title>Inbox</title>
 <link rel="stylesheet" type="text/css" href="../script/ui/jquery.ui.all.css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <script language="javascript" src="kritik.js"></script>
@@ -52,7 +52,7 @@ $K = new Kritik();
 </div>
 <div id="MainDiv" style="z-index:2;">
 <div id="SubTitle" align="right">
-<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Kritik &amp; Saran</span></div>
+<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Critics &amp; Feedback</span></div>
 <div id="DivGetNewKritik" style="display:none" >
 <input type="text" id="NewKritikIdList" style="width:100%" value="" />
 <input type="text" id="NumKritikIdList" style="width:100%" value="0" />

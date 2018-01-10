@@ -36,7 +36,7 @@ $sql = "SELECT * FROM tingkat WHERE departemen='$_REQUEST[dep]' AND aktif = 1 OR
 $result = QueryDb($sql);
 $num = @mysql_num_rows($result);
 if ($num==0){
-	echo "<option value=''>Tidak ada Data</option>";	
+	echo "<option value=''>Data Not Found</option>";	
 } else {
 	while ($row = @mysql_fetch_array($result)){
 		if ($tkt == "")

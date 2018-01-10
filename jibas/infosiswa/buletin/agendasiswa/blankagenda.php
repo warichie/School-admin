@@ -34,16 +34,16 @@
 </head>
 <body >
 <div align="right">
-<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Agenda Siswa</font><br />
-<a href="../../framecenter.php" target="framecenter"> Home</a> > <strong>Agenda Siswa</strong><br /><br /><br />
+<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Student Agenda</font><br />
+<a href="../../framecenter.php" target="framecenter"> Home</a> > <strong>Student Agenda</strong><br /><br /><br />
 </div>
 <table width="100%" border="0" cellspacing="0">
   <tr height="100%">
     <th height="100%" scope="row" valign="middle"><p class="style1">&nbsp;</p>
       <p class="style1">&nbsp;</p>
       <p class="style1">&nbsp;</p>
-      <p class="style1">Klik pada Judul Agenda di panel kiri<br /> untuk menampilkan detail Agenda <br />
-        Jika belum ada Agenda, silakan Klik ikon <img style="cursor:text;" src="../../images/ico/tambah.png" /> pada Tanggal ybs.
+      <p class="style1">Click on the left panel of Agenda Title<br /> to show Agenda details <br />
+        If no Agenda available, click on <img style="cursor:text;" src="../../images/ico/tambah.png" /> on that date.
     </p></th>
   </tr>
 </table>

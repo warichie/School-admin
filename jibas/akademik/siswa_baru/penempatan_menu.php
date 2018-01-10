@@ -65,7 +65,7 @@ switch ($cari) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Penempatan Calon Siswa</title>
+<title>Student Candidate Placement</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
@@ -130,7 +130,7 @@ function carilah(cari) {
 	var warna = "C0C0C0";
 	
 	if (no.length == 0 && nama.length == 0){
-		alert ("Masukkan no pendaftaran atau nama calon untuk melakukan pencarian!");
+		alert ("Please enter the registration number and name of student candidate to begin searching.");
 		document.getElementById("no").focus();
 		return false;
 	} 	
@@ -189,11 +189,11 @@ function panggil(elem){
 <input type="hidden" name="cari" id="cari" value="<?=$cari ?>" />
 
 
-    <fieldset><legend>Tampilkan daftar calon siswa berdasarkan</legend>  
+    <fieldset><legend>Sort by</legend>  
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr style="background-color:#<? if ($cari == 'tampil') echo $warna?>">
     	<td valign="middle" width="10"><img src="../images/ico/titik.png" height="5" width="5" align="top"></td>
-        <td width="22%"> Kelompok </td>
+        <td width="22%"> Group </td>
     	<td width="*">
         <select name="kelompok" id="kelompok" onchange="change_kelompok()" style="width:225px;" onKeyPress="return focusNext('cari', event)" onfocus="panggil('kelompok')">
     <?	OpenDb();
@@ -213,32 +213,32 @@ function panggil(elem){
     	</select>
     	</td>
     	<td width="50">
-    	<input type="button" name="cari" id="cari" value="Tampil" class="but" onclick="tampil('tampil')" style="width:70px;" onmouseover="showhint('Tampilkan daftar calon siswa berdasarkan kelompok!', this, event, '135px')"/>
+    	<input type="button" name="cari" id="cari" value="Show" class="but" onclick="tampil('tampil')" style="width:70px;" onmouseover="showhint('Sort by group', this, event, '135px')"/>
     	</td>
     </tr>
     <tr>
     	<td valign="middle"><img src="../images/ico/titik.png" height="5" width="5" align="top"></td>
-        <td>Pencarian</td>
+        <td>Search</td>
     </tr>
     <tr style="background-color:#<? if ($cari == 'cari') echo $warna?>">    	
     	<td></td>
-        <td><b>No Pendaftaran</b></td>
+        <td><b>Registration Number</b></td>
         <td>
         	<input type="text" name="no" id="no" size="10" value="<?=$no?>" onKeyPress="return focusNext('cari3', event)" onfocus="panggil('no')"/>
-        	<b>Nama</b>&nbsp;<input type="text" name="nama" id="nama" size="20" value="<?=$nama?>" onKeyPress="return focusNext('cari3', event)" onfocus="panggil('nama')"/>
+        	<b>Name</b>&nbsp;<input type="text" name="nama" id="nama" size="20" value="<?=$nama?>" onKeyPress="return focusNext('cari3', event)" onfocus="panggil('nama')"/>
              
            </td>
             
         <td>
-        	<input type="button" name="cari3" id="cari3" value="Cari" class="but" onclick="carilah('cari')" style="width:70px;" onmouseover="showhint('Tampilkan daftar calon siswa berdasarkan pencarian!', this, event, '135px')"/>					
+        	<input type="button" name="cari3" id="cari3" value="Search" class="but" onclick="carilah('cari')" style="width:70px;" onmouseover="showhint('Sort by Search', this, event, '135px')"/>					
         </td>
    	</tr>
    
     <tr style="background-color:#<? if ($cari == 'lihat') echo $warna?>">
     	<td valign="middle"><img src="../images/ico/titik.png" height="5" width="5" align="top"></td>
-    	<td colspan="2">Semua calon siswa yang belum memiliki kelas</td>
+    	<td colspan="2">All student candidate who don't have class yet</td>
     	<td>
-        	<input type="button" name="cari2" id="cari2" value="Lihat" class="but" onclick="lihat('lihat')" style="width:70px;" onmouseover="showhint('Tampilkan semua calon siswa yang belum memiliki kelas!', this, event, '135px')"/>
+        	<input type="button" name="cari2" id="cari2" value="See" class="but" onclick="lihat('lihat')" style="width:70px;" onmouseover="showhint('Show all student candidate who do not have class yet', this, event, '135px')"/>
         </td>
     </tr>
     </table>

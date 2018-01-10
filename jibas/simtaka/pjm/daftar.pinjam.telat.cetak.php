@@ -34,7 +34,7 @@ $departemen='yayasan';
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SimTaka [Cetak Daftar Peminjaman Yang Terlambat]</title>
+<title>JIBAS SimTaka [Print Late Borrowing List]</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@ $departemen='yayasan';
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>DATA PEMINJAMAN YANG TERLAMBAT</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>LATE BORROWING DATA</strong></font><br /> </center><br /><br />
 
 <br />
 		<?
@@ -58,12 +58,12 @@ $departemen='yayasan';
 		<link href="../sty/style.css" rel="stylesheet" type="text/css">
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td height="30" align="center" class="header"> Anggota</td>
-            <td height="30" align="center" class="header">Kode Pustaka</td>
-            <td height="30" align="center" class="header">Tgl Pinjam</td>
-            <td height="30" align="center" class="header">Jadwal Kembali</td>
-            <td align="center" class="header">Telat</td>
-            <td height="30" align="center" class="header">Keterangan</td>
+            <td height="30" align="center" class="header"> Member</td>
+            <td height="30" align="center" class="header">Library Code</td>
+            <td height="30" align="center" class="header">Date Borrowed</td>
+            <td height="30" align="center" class="header">Return Schedule</td>
+            <td align="center" class="header">Late</td>
+            <td height="30" align="center" class="header">Info</td>
           </tr>
           <?
 		  if ($num>0){
@@ -90,7 +90,7 @@ $departemen='yayasan';
 								//return $sql3;
 								$NamaAnggota = $row3[nama];
 							} else {
-								$NamaAnggota = "Tanpa Nama";
+								$NamaAnggota = "No name.";
 							}
 						}
 					}
@@ -100,12 +100,12 @@ $departemen='yayasan';
 			  $img = '<img src="../img/ico/Valid.png" width="16" height="16" title='.$alt.' />';
 			  if ($row[tglkembali]<=$now) {
 			  	if ($row[tglkembali]==$now) {
-					$alt = 'Hari&nbsp;ini&nbsp;batas&nbsp;pengembalian&nbsp;terakhir';
+					$alt = 'Today&nbsp;is&nbsp;the&nbsp;last&nbsp;day&nbsp;for&nbsp;returning';
 					$color='#cb6e01';
 					$weight='font-weight:bold';
 				} elseif ($row[tglkembali]<$now){
 					$diff = @mysql_fetch_row(QueryDb("SELECT DATEDIFF('".$now."','".$row[tglkembali]."')"));
-					$alt = 'Terlambat&nbsp;'.$diff[0].'&nbsp;hari';
+					$alt = 'Late&nbsp;'.$diff[0].'&nbsp;days';
 					$color='red';
 					$weight='font-weight:bold';
 				}
@@ -125,7 +125,7 @@ $departemen='yayasan';
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="6" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="6" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

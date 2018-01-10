@@ -93,16 +93,16 @@ class CDaftarDenda{
         <div class="filter">
         <table width="100%" border="0" cellpadding="2" cellspacing="2">
           <tr>
-            <td width="110">Tampilkan&nbsp;berdasarkan</td>
+            <td width="110">Sort by</td>
             <td width="400">
             <select name="kriteria" id="kriteria" onchange="chgKrit()" class='cmbfrm'>
-           	  <option value="all" <?=StringIsSelected('all',$this->kriteria)?> >Semua Pengembalian</option>
-              <option value="tglpinjam" <?=StringIsSelected('tglpinjam',$this->kriteria)?>>Tanggal Peminjaman</option>
-              <option value="tglkembali" <?=StringIsSelected('tglkembali',$this->kriteria)?>>Jadwal Pengembalian</option>
-           	  <option value="nis" <?=StringIsSelected('nis',$this->kriteria)?>>NIS Siswa</option>
-              <option value="nip" <?=StringIsSelected('nip',$this->kriteria)?>>NIP Pegawai</option>
-              <option value="denda" <?=StringIsSelected('denda',$this->kriteria)?>>Denda</option>
-              <option value="telat" <?=StringIsSelected('telat',$this->kriteria)?>>Terlambat</option>
+           	  <option value="all" <?=StringIsSelected('all',$this->kriteria)?> >All Return</option>
+              <option value="tglpinjam" <?=StringIsSelected('tglpinjam',$this->kriteria)?>>Date Borrowed</option>
+              <option value="tglkembali" <?=StringIsSelected('tglkembali',$this->kriteria)?>>Return</option>
+           	  <option value="nis" <?=StringIsSelected('nis',$this->kriteria)?>>Student ID</option>
+              <option value="nip" <?=StringIsSelected('nip',$this->kriteria)?>>Employee ID</option>
+              <option value="denda" <?=StringIsSelected('denda',$this->kriteria)?>>Fine</option>
+              <option value="telat" <?=StringIsSelected('telat',$this->kriteria)?>>Late</option>
             </select>
             </td>
             <td rowspan="2">
@@ -113,11 +113,11 @@ class CDaftarDenda{
           <? if ($this->kriteria!='all'){ ?>
           <? if ($this->kriteria=='tglpinjam' ||$this->kriteria=='tglkembali' ) { ?>
           <tr id="tgl">
-            <td width="110" align="right">Periode</td>
+            <td width="110" align="right">Period</td>
           	<td>
                 <table width="100%" border="0" cellpadding="0">
                   <tr>
-                    <td valign="bottom"><input class="inptxt" name="tglAwal" id="tglAwal" type="text" value="<?=$this->tglAwal?>" style="width:100px" readonly="readonly" />&nbsp;<a href="javascript:TakeDate('tglAwal')" >&nbsp;<img src="../../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;s.d.&nbsp;&nbsp;<input class="inptxt" name="tglAkhir" id="tglAkhir" type="text" value="<?=$this->tglAkhir?>"  style="width:100px" readonly="readonly"/><a href="javascript:TakeDate('tglAkhir')" >&nbsp;<img src="../../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;<em>*dd-mm-yyyy</em></td>
+                    <td valign="bottom"><input class="inptxt" name="tglAwal" id="tglAwal" type="text" value="<?=$this->tglAwal?>" style="width:100px" readonly="readonly" />&nbsp;<a href="javascript:TakeDate('tglAwal')" >&nbsp;<img src="../../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;to&nbsp;&nbsp;<input class="inptxt" name="tglAkhir" id="tglAkhir" type="text" value="<?=$this->tglAkhir?>"  style="width:100px" readonly="readonly"/><a href="javascript:TakeDate('tglAkhir')" >&nbsp;<img src="../../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;<em>*dd-mm-yyyy</em></td>
                   </tr>
                 </table>            
             </td>
@@ -137,10 +137,10 @@ class CDaftarDenda{
           <? } ?>
           <? if ($this->kriteria=='denda') { ?>
           <tr id="telat">
-            <td width="110" align="right">Besar Denda</td>
+            <td width="110" align="right">Fine</td>
           	<td colspan="3">
            	  <select name="denda" id="denda" onchange="chgDenda()" >
-               	<option value="0" <?=StringIsSelected('0',$this->denda)?>>Tanpa Denda</option>
+               	<option value="0" <?=StringIsSelected('0',$this->denda)?>>No Fine</option>
                 <option value="1" <?=StringIsSelected('1',$this->denda)?>>< Rp 5.000</option>
                 <option value="2" <?=StringIsSelected('2',$this->denda)?>>< Rp 10.000</option>
                	<option value="3" <?=StringIsSelected('3',$this->denda)?>>> Rp 10.000</option>
@@ -150,10 +150,10 @@ class CDaftarDenda{
           <? } ?>
           <? if ($this->kriteria=='telat') { ?>
           <tr id="tlt">
-            <td width="110" align="right" valign="top">Keterlambatan</td>
+            <td width="110" align="right" valign="top">Late</td>
           	<td width="194" valign="top">
        	  	  <input type="text" name="telat" id="telat" value="<?=$this->telat?>" class="inptxt" style="width:25px" />
-              &nbsp;hari&nbsp;dari&nbsp;tanggal&nbsp;pengembalian          	
+              &nbsp;days&nbsp;from&nbsp;return&nbsp;date          	
             </td>
           </tr>
           <? } ?>
@@ -162,15 +162,15 @@ class CDaftarDenda{
         </div>
         <div class="funct" align="right" style="padding-bottom:5px">
         	<a href="javascript:getFresh()"><img src="../../img/ico/refresh.png" border="0">&nbsp;Refresh</a>&nbsp;&nbsp;
-            <a href="javascript:cetak()"><img src="../../img/ico/print1.png" border="0">&nbsp;Cetak</a>&nbsp;&nbsp;        
+            <a href="javascript:cetak()"><img src="../../img/ico/print1.png" border="0">&nbsp;Print</a>&nbsp;&nbsp;        
         </div>
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td height="30" align="center" class="header"> Anggota</td>
-            <td height="30" align="center" class="header">Kode Pustaka</td>
-            <td height="30" align="center" class="header">Terlambat</td>
-            <td height="30" align="center" class="header">Denda</td>
-            <td height="30" align="center" class="header">Keterangan</td>
+            <td height="30" align="center" class="header"> Member</td>
+            <td height="30" align="center" class="header">Library Code</td>
+            <td height="30" align="center" class="header">Late</td>
+            <td height="30" align="center" class="header">Fine</td>
+            <td height="30" align="center" class="header">Info</td>
           </tr>
           <?
 		  if ($num>0){
@@ -195,7 +195,7 @@ class CDaftarDenda{
 			  }
 		  ?>
 		  <tr style="color:<?=$color?>; <?=$weight?>">
-			    <td height="25" colspan="3" align="right" bgcolor="#CCCCCC">Jumlah&nbsp;&nbsp;</td>
+			    <td height="25" colspan="3" align="right" bgcolor="#CCCCCC">Amount&nbsp;&nbsp;</td>
 			    <td height="25" align="right" bgcolor="#FFFFFF"><div style="padding-right:5px"><?=FormatRupiah($totaldenda)?></div></td>
 		    <td height="25" align="center" bgcolor="#CCCCCC">&nbsp;</td>
 	      </tr>
@@ -203,7 +203,7 @@ class CDaftarDenda{
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="5" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="5" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }
@@ -238,7 +238,7 @@ class CDaftarDenda{
 					//return $sql3;
 					return $row3[nama];
 				} else {
-					return "Tanpa Nama";
+					return "No name.";
 				}
 			}
 		}

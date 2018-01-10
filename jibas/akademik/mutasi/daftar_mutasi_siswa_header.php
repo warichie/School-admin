@@ -43,7 +43,7 @@ if (isset($_REQUEST['tahun']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Daftar Mutasi Siswa</title>
+<title>Student Mutation List</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/ajax.js"></script>
@@ -69,7 +69,7 @@ function tampil() {
 	var tahun = document.getElementById("tahun").value;
 	
 	if (tahun==""){
-		alert ('Belum ada siswa yang dimutasi pada departemen ini!');
+		alert ('No Student has been Mutated on this Department.');
 		document.getElementById("departemen").focus();
 		return false;
 	}
@@ -99,7 +99,7 @@ function focusNext(elemName, evt) {
 	<td rowspan="2" width="36%">
 	<table width = "100%" border = "0">
     <tr>
-    	<td align="left" width = "30%"><strong>Departemen</strong>
+    	<td align="left" width = "30%"><strong>Department</strong>
     	<td width = "*">
 		<select name="departemen" id="departemen"  onchange="change_dep()" style="width:225px" onKeyPress="return focusNext('tahun', event)">
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -114,7 +114,7 @@ function focusNext(elemName, evt) {
    		</td>
   	</tr>
 	<tr>
-    	<td align="left"><strong>Tahun Mutasi</strong>
+    	<td align="left"><strong>Mutation Year</strong>
 		<td>
         <select name="tahun" id="tahun" onchange="change_tahun()"  style="width:225px" onKeyPress="return focusNext('tabel', event)">
     <?  OpenDb();
@@ -131,12 +131,12 @@ function focusNext(elemName, evt) {
 	</tr>
 	</table>
     </td>
-  	<td valign="middle"><a href="#" onClick="tampil()" ><img src="../images/view.png" height="48" border="0" name="tabel" id="tabel" onMouseOver="showhint('Klik untuk menampilkan daftar siswa yang dimutasi!', this, event, '200px')"/></a></td>
+  	<td valign="middle"><a href="#" onClick="tampil()" ><img src="../images/view.png" height="48" border="0" name="tabel" id="tabel" onMouseOver="showhint('Click to show Student Mutation List', this, event, '200px')"/></a></td>
   	<td colspan="2" align="right" valign="top">
-	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Daftar Mutasi Siswa</font><br />
+	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Mutation List</font><br />
         <a href="../mutasi.php" target="content"> 
-        <font size="1" color="#000000"><b>Mutasi</b></font></a>&nbsp>&nbsp 
-        <font size="1" color="#000000"><b>Daftar Mutasi Siswa</b></font>
+        <font size="1" color="#000000"><b>Mutation</b></font></a>&nbsp;>&nbsp; 
+        <font size="1" color="#000000"><b>Student Mutation List</b></font>
    	</td>
 </tr>
 </table>

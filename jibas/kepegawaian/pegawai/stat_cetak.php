@@ -32,25 +32,25 @@ $stat = $_REQUEST['stat'];
 switch ($stat)
 {
 	case 1:
-		$judul="Satuan Kerja";
+		$judul="Work Unit";
 		break;
 	case 2:
-		$judul="Pendidikan Sekolah";
+		$judul="Educational Background";
 		break;
 	case 3:
-		$judul="Golongan";
+		$judul="Level";
 		break;
 	case 4:
-		$judul="Usia";
+		$judul="Age";
 		break;
 	case 5:
-		$judul="Diklat";
+		$judul="Education and Training";
 		break;
 	case 6:
-		$judul="Jenis Kelamin";
+		$judul="Gender";
 		break;
 	case 7:
-		$judul="Status Perkawinan";
+		$judul="Marital Status";
 		break;
 }
 ?>
@@ -60,14 +60,14 @@ switch ($stat)
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 </head>
 
 <body>
 <table border="0" cellpadding="10" cellpadding="5" width="780" align="left">
 <tr><td align="left" valign="top"><? include("../include/headercetak.php") ?>
 <center>
-    <font size="4"><strong>Statistik Berdasarkan <?=$judul?></strong></font><br />
+    <font size="4"><strong>Statistic based on <?=$judul?></strong></font><br />
    </center><br /><br />
    
 <table width="95%" border="0" cellspacing="5">
@@ -90,8 +90,8 @@ switch ($stat)
 		}
 		CloseDb();
 		
-		$legend_y = array("Sudah", "Belum");
-		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pegawai Berdasarkan Diklat</font>"; // title for the diagram
+		$legend_y = array("Ever Been", "Not Yet");
+		$title = "<font face='Arial' size='-1' color='black'>Amount of Employee based on Diklat</font>"; // title for the diagram
 		
 		$graph = new CAsBarDiagram;
 		$graph->bwidth = 10; // set one bar width, pixels
@@ -118,9 +118,9 @@ switch ($stat)
 		}
 		CloseDb();
 		
-		$legend_y = array("Pria", "Wanita");
+		$legend_y = array("Male", "Female");
 		
-		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pegawai Berdasarkan Jenis Kelamin</font>"; // title for the diagram
+		$title = "<font face='Arial' size='-1' color='black'>Amount of Pegawai based on Gender</font>"; // title for the diagram
 		
 		$graph = new CAsBarDiagram;
 		$graph->bwidth = 10; // set one bar width, pixels
@@ -148,9 +148,9 @@ switch ($stat)
 		}
 		CloseDb();
 		
-		$legend_y = array("Nikah", "Belum");
+		$legend_y = array("Married", "Not Married");
 		
-		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pegawai Berdasarkan Status Pernikahan</font>"; 
+		$title = "<font face='Arial' size='-1' color='black'>Amount of Pegawai based on Marital Status</font>"; 
 		
 		$graph = new CAsBarDiagram;
 		$graph->bwidth = 10; // set one bar width, pixels
@@ -180,10 +180,10 @@ switch ($stat)
     <? if ($stat==5){ ?>
 	<table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
 		<tr height="25">
-			<td class="header" align="center" width="5%">No</td>
-			<td class="header" align="center" width="60%">Eselon</td>
-			<td class="header" align="center" width="15%">Sudah</td>
-			<td class="header" align="center" width="15%">Belum</td>
+			<td class="header" align="center" width="5%">#</td>
+			<td class="header" align="center" width="60%">Echelon</td>
+			<td class="header" align="center" width="15%">Ever Been</td>
+			<td class="header" align="center" width="15%">#</td>
 		</tr>
 		<?
 		OpenDb();
@@ -217,10 +217,10 @@ switch ($stat)
 	?>
     <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
         <tr height="25">
-            <td class="header" align="center" width="5%">No</td>
-            <td class="header" align="center" width="60%">Satuan Kerja</td>
-            <td class="header" align="center" width="15%">L</td>
-            <td class="header" align="center" width="15%">P</td>
+            <td class="header" align="center" width="5%">#</td>
+            <td class="header" align="center" width="60%">Work Unit</td>
+            <td class="header" align="center" width="15%">Male</td>
+            <td class="header" align="center" width="15%">Female</td>
         </tr>
         <?
         OpenDb();
@@ -247,10 +247,10 @@ switch ($stat)
 	?>
     <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
         <tr height="25">
-            <td class="header" align="center" width="5%">No</td>
-            <td class="header" align="center" width="60%">Satuan Kerja</td>
-            <td class="header" align="center" width="15%">Nikah</td>
-            <td class="header" align="center" width="15%">Belum</td>
+            <td class="header" align="center" width="5%">#</td>
+            <td class="header" align="center" width="60%">Work Unit</td>
+            <td class="header" align="center" width="15%">Marital Status</td>
+            <td class="header" align="center" width="15%">#</td>
         </tr>
         <?
         OpenDb();
@@ -285,8 +285,8 @@ switch ($stat)
 	
 		if ($stat == 1)
 		{
-			$column  = "Satuan Kerja";
-			$column2 = "Jumlah";
+			$column  = "Work Unit";
+			$column2 = "Sum";
 			$sql = "SELECT j.satker, count(pj.replid) FROM 
 					pegjab pj, peglastdata pl, pegawai p, jabatan j 
 					WHERE pl.idpegjab = pj.replid AND pj.idjabatan = j.replid AND pj.nip = p.nip 
@@ -294,8 +294,8 @@ switch ($stat)
 		}
 		elseif ($stat == 2)
 		{
-			$column  = "Pendidikan";
-			$column2 = "Jumlah";
+			$column  = "Education";
+			$column2 = "Sum";
 			$sql = "SELECT ps.tingkat, COUNT(p.nip) FROM
 					pegawai p, peglastdata pl, pegsekolah ps, jbsumum.tingkatpendidikan pk
 					WHERE p.nip = pl.nip AND pl.idpegsekolah = ps.replid AND ps.tingkat = pk.pendidikan AND p.aktif = 1 
@@ -303,16 +303,16 @@ switch ($stat)
 		}
 		elseif ($stat == 3)
 		{
-			$column  = "Golongan";
-			$column2 = "Jumlah";
+			$column  = "Level";
+			$column2 = "Sum";
 			$sql = "SELECT pg.golongan, COUNT(p.nip) FROM pegawai p, peglastdata pl, peggol pg, golongan g
 					WHERE p.nip = pl.nip AND pl.idpeggol = pg.replid AND pg.golongan = g.golongan AND p.aktif = 1 
 					GROUP BY pg.golongan ORDER BY g.urutan";	
 		}
 		elseif ($stat == 4)
 		{
-			$column  = "Usia";
-			$column2 = "Jumlah";
+			$column  = "Age";
+			$column2 = "Sum";
 			
 			$sql = "SELECT G, COUNT(nip) FROM (
 					SELECT nip, IF(usia < 24, '<24',
@@ -328,7 +328,7 @@ switch ($stat)
 		?>
 		<table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
 		<tr height="25">
-			<td class="header" align="center" width="5%">No</td>
+			<td class="header" align="center" width="5%">#</td>
 			<td class="header" align="center" width="60%"><?=$column?></td>
 			<td class="header" align="center" width="25%"><?=$column2?></td>
 		</tr>

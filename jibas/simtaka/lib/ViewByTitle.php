@@ -27,12 +27,12 @@ $id=$_REQUEST[id];
 $state=$_REQUEST[state];
 OpenDb();
 	//State:
-	//1.Perpustakaan
+	//1.Library
 	//2.Format
-	//3.Rak
-	//4.Katalog
-	//5.Penerbit
-	//6.Penulis
+	//3.Shelf
+	//4.Catalogue
+	//5.Publisher
+	//6.Author
 if ($state=='1')
 	$sql = "SELECT pu.replid FROM pustaka pu, daftarpustaka d WHERE d.perpustakaan='$id' AND pu.replid=d.pustaka GROUP BY d.pustaka";
 elseif ($state=='2')
@@ -54,7 +54,7 @@ $num = @mysql_num_rows($result);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Daftar Judul</title>
+<title>Title List</title>
 <link href="../sty/style.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../scr/tools.js"></script>
 <script language="javascript">
@@ -74,7 +74,7 @@ $num = @mysql_num_rows($result);
 <body style="margin-left:0px; margin-top:0px">
 	<div id="title" align="left">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Daftar Judul</font><br />
+        <font style="font-size:18px; color:#999999">Title List</font><br />
     </div>
 	<div style="padding-left:5px; padding-top:5px; padding-right:5px; padding-bottom:5px;">
 		<table width="100%" border="0" cellspacing="5" cellpadding="5">

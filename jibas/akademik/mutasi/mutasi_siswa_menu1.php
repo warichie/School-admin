@@ -69,7 +69,7 @@ function pilih(nis, nama) {
 
 <body leftmargin="0" topmargin="0" style="background-color:#dcdfc4">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="58">
@@ -95,8 +95,8 @@ function pilih(nis, nama) {
         
         <div id="TabbedPanels1" class="TabbedPanels">
 		<ul class="TabbedPanelsTabGroup">
-		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Cari Siswa</font></li>
-		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Pilih Siswa</font></li>
+		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Search Student</font></li>
+		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Select Student</font></li>
 		</ul>
 		<div class="TabbedPanelsContentGroup">
 	    	<div class="TabbedPanelsContent" id="panel0">
@@ -136,7 +136,7 @@ function departemen() {
 function kelas() {
 	var departemen=document.getElementById('departemen').value;
 	var kelas=document.getElementById('kelas').value;
-	alert ('Departemen='+departemen+',kelas='+kelas);
+	alert ('Department='+departemen+',kelas='+kelas);
 	sendRequestText("mutasi_pilih_siswa.php", show_panel1, "departemen="+departemen+"&kelas="+kelas);
 }
 function tampil() {
@@ -168,7 +168,7 @@ function show_panel1(x) {
 	//var departemen=document.getElementById('departemen').value;
 	//alert ('Dep='+departemen);
 	//var kelas=document.getElementById('kelas').value;
-	//alert ('Departemen='+departemen+',kelas='+kelas);
+	//alert ('Department='+departemen+',kelas='+kelas);
 	//sendRequestText("mutasi_pilih_siswa.php", show_panel1, "kelas="+kelas);
 
 }

@@ -48,7 +48,7 @@ if (isset($_REQUEST['kelas']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pendataan Siswa</title>
+<title>Student Data Collection</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -85,7 +85,7 @@ function show_siswa() {
 	var kelas = document.getElementById("kelas").value;
 	
 	if (kelas==""){
-		alert ('Kelas tidak boleh kosong');
+		alert ('Class should not leave empty');
 		return false;
 	}	
 	parent.footer.location.href = "pin_footer.php?kelas="+kelas;
@@ -114,7 +114,7 @@ function focusNext(elemName, evt) {
 	<td rowspan="2" width="63%">
 	<table width = "100%" border = "0">
     <tr>
-		<td width = "25%"><strong>Departemen</strong>
+		<td width = "25%"><strong>Department</strong>
     	<td width="*">
       	<select name="departemen" id="departemen" onchange="change_dep()" style="width:150px;" onKeyPress="return focusNext('tingkat', event)">
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -126,7 +126,7 @@ function focusNext(elemName, evt) {
        	<?	} ?>
         </select>		
         </td>
-        <td width="12%"><strong>Tingkat</strong>
+        <td width="12%"><strong>Grade</strong>
         <td><select name="tingkat" id="tingkat" onchange="change_tingkat()" style="width:150px;" onKeyPress="return focusNext('kelas', event)">
    		 <? OpenDb();
 			$sql = "SELECT replid,tingkat FROM tingkat where departemen='$departemen' AND aktif = 1 ORDER BY urutan";
@@ -142,7 +142,7 @@ function focusNext(elemName, evt) {
         </td>
 	</tr>
  	<tr>
-    	<td><strong>Tahun Ajaran</strong>
+    	<td><strong>Year</strong>
    	  	<td>
 		<?  OpenDb();
 			$sql = "SELECT replid,tahunajaran FROM tahunajaran WHERE departemen = '$departemen' AND aktif=1 ORDER BY replid DESC";
@@ -154,7 +154,7 @@ function focusNext(elemName, evt) {
         	<input type="text" name="tahun" id="tahun" size="20" readonly class="disabled" value="<?=$row['tahunajaran']?>" style="width:145px;"/>
         	<input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$row['replid']?>">       	
       	</td>
- 		<td><strong>Kelas</strong>
+ 		<td><strong>Class</strong>
    	  	<td>
         	<select name="kelas" id="kelas" onchange="change_kelas()" style="width:150px;" onKeyPress="return focusNext('tabel', event)">
         
@@ -173,12 +173,12 @@ function focusNext(elemName, evt) {
             </select>     	</td>
 	</tr>
     </table>    </td>    
-    <td valign="middle"><a href="#" onclick="show_siswa()" ><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onMouseOver="showhint('Klik untuk menampilkan PIN siswa dan PIN ortu!', this, event, '120px')"/></a></td>  
-    <td width="30%" colspan="2" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pendataan PIN</font>    	
+    <td valign="middle"><a href="#" onclick="show_siswa()" ><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onMouseOver="showhint('Click to show student PIN and parent PIN', this, event, '120px')"/></a></td>  
+    <td width="30%" colspan="2" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">PIN Data Collection</font>    	
 	<br />
     <a href="../siswa.php" target="content">
-    <font size="1" color="#000000"><b>Kesiswaan</b></font></a>&nbsp>&nbsp
-    <font size="1" color="#000000"><b>Pendataan PIN</b></font></td>
+    <font size="1" color="#000000"><b>Student</b></font></a>&nbsp;>&nbsp;
+    <font size="1" color="#000000"><b>PIN Data Collection</b></font></td>
 </tr>
 </table>
 </body>

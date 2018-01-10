@@ -43,7 +43,7 @@ $row_terisi=@mysql_fetch_row($result_terisi);
 $terisi=(int)$row_terisi[0];
 ?>
       <option value="<?=$row_kelas[0]?>">
-        <?=$row_kelas[1]?>&nbsp;Kapasitas&nbsp;:&nbsp;<?=$row_kelas[2]?>&nbsp;Terisi&nbsp;:&nbsp;<?=$terisi?>
+        <?=$row_kelas[1]?>&nbsp;Capacity&nbsp;:&nbsp;<?=$row_kelas[2]?>&nbsp;Filled&nbsp;:&nbsp;<?=$terisi?>
         </option>
       <?
 }

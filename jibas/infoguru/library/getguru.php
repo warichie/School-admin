@@ -31,7 +31,7 @@ $pelajaran = $_REQUEST['pelajaran'];
 ?>
 <table cellpadding="0" width="100%">
 <tr>
-	<td width="17%"><strong>Guru yang Mengajar</strong></td>
+	<td width="17%"><strong>Teacher</strong></td>
     <td>
     <input type="text" name="nipguru" id="nipguru" size="15" class="disabled" value="<?=$nip ?>" readonly onClick="pegawai()"/>
     <input type="text" name="namaguru" id="namaguru" size="30" class="disabled" value="<?=$nama ?>" readonly onClick="pegawai()"/>
@@ -41,7 +41,7 @@ $pelajaran = $_REQUEST['pelajaran'];
     </td>
 </tr>
 <tr>
-	<td><strong>Status Guru</strong></td>
+	<td><strong>Teacher Status</strong></td>
     <td>
     	<select name="jenis" id="jenis" style="width:150px;" onKeyPress="return focusNext('keterangan', event)">
     <?	OpenDb();

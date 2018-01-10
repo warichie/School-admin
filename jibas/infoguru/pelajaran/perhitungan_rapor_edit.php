@@ -105,7 +105,7 @@ if (isset($_REQUEST['Simpan']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Ubah Aturan Perhitungan Nilai Rapor]</title>
+<title>JIBAS TEACHERS INFO [Edit Report Card Calculation Rules]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../script/tooltips.js"></script>
@@ -127,12 +127,12 @@ function validate()
 			isi = 1;
 			if (bobot.length > 0){
 				if (isNaN(bobot)){
-					alert("Bobot nilai harus berupa bilangan");
+					alert("Point Quality should be numeric");
 					document.getElementById('bobot'+i).focus();				
 					return false;									
 				} 
 			} else {
-				alert ("Anda harus mengisikan data untuk bobot nilai"); 
+				alert ("You must enter a data for Point Quality"); 
 				document.getElementById('bobot'+i).focus();				
 				return false;
 			} 
@@ -140,7 +140,7 @@ function validate()
 		
 		if (bobot.length > 0) {
 			if (cek != 1) {
-				alert ("Anda harus memberi centang terlebih dahulu"); 
+				alert ("You have to select at least one"); 
 				document.getElementById('cek'+i).focus();				
 				return false;
 			}
@@ -148,7 +148,7 @@ function validate()
 					
 	}
 	if (isi == 0) {
-		alert ("Anda harus mengisi setidaknya satu data untuk aturan grading");
+		alert ("You have to add at least one data for Grade rules");
 		document.getElementById('bobot1').focus;
 		return false; 
 	}
@@ -161,17 +161,17 @@ function validate()
 <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td height="25" colspan="2" class="header" align="center">Ubah Aturan Perhitungan Nilai Rapor</td>
+<td height="25" colspan="2" class="header" align="center">Edit Report Card Calculation Rules</td>
 </tr>
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
 	<td>
     	<input type="text" name="departemen" id="departemen" size="10" maxlength="50" readonly value="<?=$departemen ?>" class="disabled" />
     	<input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />    
 	</td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
 	<td>
     	<input type="text" name="tingkat" id="tingkat" size="10" maxlength="50" readonly value="<?=$tingkat ?>" class="disabled"/>
         <input type="hidden" name="id_tingkat" id="id_tingkat" value="<?=$id_tingkat ?>" /> 
@@ -179,7 +179,7 @@ function validate()
 	</td>
 </tr>
 <tr>
-	<td><strong>Pelajaran</strong></td>
+	<td><strong>Class Subject</strong></td>
 	<td>
     	<input type="text" name="pelajaran" id="pelajaran" size="30" maxlength="50" readonly value="<?=$pelajaran ?>" class="disabled" />
         <input type="hidden" name="id_pelajaran" id="id_pelajaran" value="<?=$id_pelajaran ?>" /> 
@@ -187,7 +187,7 @@ function validate()
 	</td>
 </tr>
 <tr>
-    <td><strong>Guru</strong></td>
+    <td><strong>Teacher</strong></td>
     <td>
         <input type="text" name="guru" id="guru" size="30" readonly value="<?=$guru ?>" class="disabled" /> 
         <input type="hidden" name="nip_guru" id="nip_guru" value="<?=$nip_guru ?>" /> 
@@ -201,14 +201,14 @@ function validate()
 </tr>
 <tr>
 	<td colspan = "2" height="200" valign="top">
-<fieldset><legend><b>Bobot Penilaian</b></legend>
+<fieldset><legend><b>Point Quality</b></legend>
 	<br />
 	<table border="0" width="100%"  id="table" class="tab">
 		<tr>		
 			<td width="3%" height="30" align="center" class="header"></td>
-			<td width="3%" height="30" align="center" class="header">No</td>
-            <td width="8%" height="30" align="center" class="header">Pengujian</td>			
-            <td width="15%" height="30" align="center" class="header">Bobot</td>
+			<td width="3%" height="30" align="center" class="header">#</td>
+            <td width="8%" height="30" align="center" class="header">Exam</td>			
+            <td width="15%" height="30" align="center" class="header">Quality</td>
 		</tr>
 		<?
 		OpenDb();
@@ -258,16 +258,16 @@ function validate()
 </tr>
 <tr>
 	<td colspan="2" height="25" width="100%" align="left" valign="top" style="border-width:1px; border-style:dashed; border-color:#03F; background-color:#CFF">
-    	<strong>Centang jenis pengujian yang sesuai dengan aspek penilaian yang dipilih.<br>Kemudian berikan bobot nilainya.<br/>
-				<font color="#FF0000">Contoh yang salah: Praktek-UTS-25, Pemahaman Konsep-UTS-25 </font><br />
-				<font color="Blue">Contoh yang benar: Praktek-UTS Praktek-25, Pemahaman Konsep-UTS Pemahaman Konsep-25</font>
+    	<strong>Check the Exam Type according to Assessment Aspect entered.<br>And then, give it a Point Quality.<br/>
+				<font color="#FF0000">Wrong: Practice-MidSemesterExam-25, Conceptual Comprehension-MidSemesterExam-25 </font><br />
+				<font color="Blue">Correct: Practice-MidSemesterExam Practice-25, Conceptual Comprehension-MidSemesterExam Conceptual Comprehension-25</font>
 									  </strong>
 	</td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -282,7 +282,7 @@ function validate()
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 </body>
 </html>

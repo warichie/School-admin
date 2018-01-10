@@ -55,18 +55,18 @@ class CPengguna{
 		<link href="../sty/style.css" rel="stylesheet" type="text/css">
         <div class="funct">
         	<a href="javascript:getfresh()"><img src="../img/ico/refresh.png" border="0">&nbsp;Refresh</a>&nbsp;&nbsp;
-			<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Cetak</a>&nbsp;&nbsp;
+			<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Print</a>&nbsp;&nbsp;
 			<? if (IsAdmin()) { ?>
-				<a href="javascript:tambah()"><img src="../img/ico/tambah.png" border="0">&nbsp;Tambah&nbsp;Pengguna</a>&nbsp;        
+				<a href="javascript:tambah()"><img src="../img/ico/tambah.png" border="0">&nbsp;Add&nbsp;User</a>&nbsp;        
 			<? } ?>
 		</div>
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td height="30" align="center" class="header">NIP</td>
-            <td height="30" align="center" class="header">Nama</td>
-            <td align="center" class="header">Tingkat</td>
-            <td align="center" class="header">Perpustakaan</td>
-			<td align="center" class="header">Keterangan</td>
+            <td height="30" align="center" class="header">Employee ID</td>
+            <td height="30" align="center" class="header">Name</td>
+            <td align="center" class="header">Grade</td>
+            <td align="center" class="header">Library</td>
+			<td align="center" class="header">Info</td>
             <? if (IsAdmin()) { ?>
 			<td align="center" class="header">&nbsp;</td>
             <td height="30" align="center" class="header">&nbsp;</td>
@@ -84,10 +84,10 @@ class CPengguna{
 				  $res = QueryDb($sql);
 				  $r = @mysql_fetch_row($res);
 				  $namaperpus = $r[0];
-				  $namatingkat = "Staf Perpustakaan";
+				  $namatingkat = "Library Staff";
 			  } else {
-			  	  $namaperpus = "<i>Semua</i>";
-				  $namatingkat = "Manajer Perpustakaan";
+			  	  $namaperpus = "<i>All</i>";
+				  $namatingkat = "Library Manager";
 			  }
 			  ?>
 			  <tr>
@@ -117,7 +117,7 @@ class CPengguna{
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="9" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="9" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

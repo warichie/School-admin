@@ -36,12 +36,12 @@ $tahun = "";
 if (isset($_REQUEST['tahun']))
 	$tahun = $_REQUEST['tahun'];
 	
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");	
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE> Cetak Agenda Guru </TITLE>
+<TITLE> Print Teacher Agenda </TITLE>
 <META NAME="Generator" CONTENT="EditPlus">
 <META NAME="Author" CONTENT="">
 <META NAME="Keywords" CONTENT="">
@@ -54,15 +54,15 @@ $namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agu
 <tr><td align="left" valign="top">
   	<? getHeader('yayasan') ?>
 <center>
-  <font size="4"><strong>DAFTAR AGENDA GURU</strong></font><br />
+  <font size="4"><strong>TEACHER AGENDA LIST</strong></font><br />
  </center><br /><br />
 
 <br />
-Periode : <?=$namabulan[$bulan-1]?> <?=$tahun?><br>
-Guru : <?=SI_USER_NAME()?><br><br>
+Period : <?=$namabulan[$bulan-1]?> <?=$tahun?><br>
+Teacher : <?=SI_USER_NAME()?><br><br>
 <table width="100%" border="1" cellspacing="0">
   <tr>
-    <th height="30" class="header" scope="row">Tanggal</th>
+    <th height="30" class="header" scope="row">Date</th>
     <td height="30" class="header">Agenda</td>
     
   </tr>
@@ -90,7 +90,7 @@ Guru : <?=SI_USER_NAME()?><br><br>
 	<? 
 	for ($x=0;$x<=$i-1;$x++){
 		?>
-		<img title="Ubah !" src="../../images/ico/titik.png" border="0" height="10" width="10"/>&nbsp;<?=$judul[$x]?><br>
+		<img title="Edit" src="../../images/ico/titik.png" border="0" height="10" width="10"/>&nbsp;<?=$judul[$x]?><br>
 		<?
 	}
 	?>
@@ -100,7 +100,7 @@ Guru : <?=SI_USER_NAME()?><br><br>
   <? 
   } } else { ?>
   <tr>
-    <th height="25" scope="row" colspan="2" align="center">Tidak ada Agenda untuk bulan <?=$namabulan[$bulan-1]?></th>
+    <th height="25" scope="row" colspan="2" align="center">No agenda for month <?=$namabulan[$bulan-1]?></th>
   </tr>
   <? 
   }

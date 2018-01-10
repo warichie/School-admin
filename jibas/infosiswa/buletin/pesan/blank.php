@@ -36,7 +36,7 @@
     <table width="100%" border="0" height="100%">
   	<tr>
   		<td align="center">
-<font size="2" color="#757575"><b>Klik pada Menu di panel kiri untuk melihat isi menu 
+<font size="2" color="#757575"><b>Click on left panel Menu to see menu content 
     	</font>
 </td>
   </tr>

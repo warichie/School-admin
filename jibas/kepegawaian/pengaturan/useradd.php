@@ -100,7 +100,7 @@ if (isset($_REQUEST['simpan']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tambah Pengguna</title>
+<title>Add User</title>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript">
@@ -156,22 +156,22 @@ function cek_form()
 	var keterangan = document.getElementById('keterangan').value;
 	
 	if (nip.length==0){
-		alert ('NIP tidak boleh kosong!');
+		alert ('Employee ID should not leave empty');
 		return false;
 	}
 	if (haspwd==0){
 		if (password.length==0){
-			alert ('Password tidak boleh kosong!');
+			alert ('Password should not leave empty');
 			document.getElementById('password').focus();
 			return false;
 		}
 		if (konfirmasi.length==0){
-			alert ('Konfirmasi Password tidak boleh kosong!');
+			alert ('Password Confirmation should not leave empty');
 			document.getElementById('konfirmasi').focus();
 			return false;
 		}
 		if (konfirmasi!=password){
-			alert ('Password dan Konfirmasi Password harus sesuai!');
+			alert ('Password and Confirmation should match');
 			document.getElementById('konfirmasi').value="";
 			document.getElementById('konfirmasi').focus();
 			return false;
@@ -185,14 +185,14 @@ function cek_form()
 </head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#dcdfc4">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-	<img src="../images/movewait_2.gif" border="0" />Silahkan&nbsp;tunggu...
+	<img src="../images/movewait_2.gif" border="0" />Please wait...
 </div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="58">
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Pengguna :.
+    .: Add User :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -208,7 +208,7 @@ function cek_form()
     <td width="80"><strong>Login</strong></td>
     <td width="1025"><input type="text" size="10" name="nip1" id="nip1" readonly value="<?=$_REQUEST['nip'] ?>" class="disabled" onClick="caripegawai()">&nbsp;<input type="text" size="30" name="nama1" id="nama1" readonly value="<?=$_REQUEST['nama']?>" class="disabled" onClick="caripegawai()">
     	<input type="hidden" name="nip" id="nip" value="<?=$_REQUEST['nip']?>">
-        <input type="hidden" name="nama" id="nama" value="<?=$_REQUEST['nama']?>"><a href="#" onClick="caripegawai()"><img src="../images/ico/cari.png" border="0" onMouseOver="showhint('Cari pegawai',this, event, '100px')"></a>
+        <input type="hidden" name="nama" id="nama" value="<?=$_REQUEST['nama']?>"><a href="#" onClick="caripegawai()"><img src="../images/ico/cari.png" border="0" onMouseOver="showhint('Search employee',this, event, '100px')"></a>
     </td>
 </tr>
 <tr>
@@ -219,21 +219,21 @@ function cek_form()
 	</td>
 </tr>
 <tr>
-	<td width="80"><strong>Tingkat</strong></td>
+	<td width="80"><strong>Grade</strong></td>
     <td><select name="status_user" id="status_user" style="width:165px" onFocus="panggil('status_user')" <?=$fokus.' '.$dd1?>>
-            <option value="1">Manajer</option>
+            <option value="1">Manager</option>
             <option value="2">Staf</option>
     	</select>
 	</td>
 </tr>
 <tr>
-    <td width="80" valign="top">Keterangan</td>
+    <td width="80" valign="top">Info</td>
     <td><textarea wrap="soft" name="keterangan" id="keterangan" cols="47" rows="3" onFocus="panggil('keterangan')" onKeyPress="return focusNext('simpan', event)"><?=$keterangan?></textarea></td>
 </tr>
 <tr>
     <td colspan="2" align="center">
-   		<input type="submit" value="Simpan" name="simpan" id="simpan" class="but" onFocus="panggil('simpan')">&nbsp;
-        <input type="button" value="Tutup" name="batal" class="but" onClick="window.close();">
+   		<input type="submit" value="Save" name="simpan" id="simpan" class="but" onFocus="panggil('simpan')">&nbsp;
+        <input type="button" value="Close" name="batal" class="but" onClick="window.close();">
     </td>
 </tr>
 </table>

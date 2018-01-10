@@ -21,15 +21,15 @@ function Kembalikan(){
 	var msg;
 	if (isNaN(denda))
 	{	
-		alert ('Besarnya denda harus berupa bilangan');
+		alert ('Fine must be numeric');
 		document.getElementById('dendanya').focus();
 		return false;
 	}
 	if (denda!=0)
 	{
-		msg = "Data sudah benar?\nBesar denda "+numberToRupiah(denda);
+		msg = "The data is correct? \nFine is "+numberToRupiah(denda);
 	} else {
-		msg = "Data sudah benar?";
+		msg = "The data is correct?";
 	}
 	if (confirm(msg))
 	{
@@ -42,7 +42,7 @@ function KeyPress(elemName, evt) {
     var charCode = (evt.charCode) ? evt.charCode :
         ((evt.which) ? evt.which : evt.keyCode);
     if (charCode == 13) {
-		if (KodeValue=="Tidak ada Kode Pustaka yang sedang dipinjam")
+		if (KodeValue=="No Library Code is being borrowed")
 		{
 			document.getElementById('kodepustaka').value="";
 		} else {

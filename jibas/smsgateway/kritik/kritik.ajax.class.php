@@ -3,7 +3,7 @@
  * JIBAS Road To Community
  * Jaringan Informasi Bersama Antar Sekolah
  * 
- * @version: 2.5.0 (Juni 20, 2011)
+ * @version: 2.5.0 (June 20, 2011)
  * @notes: JIBAS Education Community will be managed by Yayasan Indonesia Membaca (http://www.indonesiamembaca.net)
  * 
  * Copyright (C) 2009 PT.Galileo Mitra Solusitama (http://www.galileoms.com)
@@ -75,7 +75,7 @@ class NewKritik{
 				  
 				  $msg 	  = (strlen($row['message'])>50)?substr($row['message'],0,50)."...":$row['message'];
 				?>
-				<input type="text" id="Content<?=$row['replid']?>" style="width:100%" value="<span class='Link'><?=$row['sender']?></span>#><?=FullDateFormat($row['senddate'])?>#><?=$msg	?>#><?=$row['replid']?>#><?=$row['from']?>" />
+				<input type="text" id="Class Subject<?=$row['replid']?>" style="width:100%" value="<span class='Link'><?=$row['sender']?></span>#><?=FullDateFormat($row['senddate'])?>#><?=$msg	?>#><?=$row['replid']?>#><?=$row['from']?>" />
 				<?
 			}
 		}
@@ -113,9 +113,9 @@ class NewKritik{
 		?>
 		<table width="100%" border="1" id="KritikTable" class="tab" cellspacing="0" cellpadding="0">
           <tr class="Header">
-            <td>No</td>
-            <td>No HP</td>
-            <td>Tanggal</td>
+            <td>#</td>
+            <td>Mobile</td>
+            <td>Date</td>
             <td><?=ucfirst($this->Type) ?></td>
             <td>&nbsp;</td>
           </tr>

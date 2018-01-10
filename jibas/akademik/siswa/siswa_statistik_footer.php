@@ -75,8 +75,8 @@ if ($departemen<>"-1" && $idangkatan>0)
     <table width="100%" border="0" height="100%">
    	<tr>
   		<td align="center">
-		<font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br />
-	Tambah data siswa pada departemen <?=$departemen?> di menu Pendataan Siswa pada bagian Pendataan Siswa. 
+		<font size = "2" color ="red"><b>Data Not Found<br />
+	Add Student data on Department <?=$departemen?> in the Student Data Collection on Student Data Collection section. 
 		</b></font>        
     	</td>
   	</tr>

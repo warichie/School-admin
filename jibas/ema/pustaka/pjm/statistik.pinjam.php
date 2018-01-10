@@ -42,12 +42,12 @@ $S->OnStart();
 
 <body>
 	<div id="waitBox" style="position:absolute; visibility:hidden;">
-		<img src="../../img/loading2.gif" border="0" />&nbsp;<span class="tab2">Please&nbsp;wait...</span>
+		<img src="../../img/loading2.gif" border="0" />&nbsp;<span class="tab2">Please wait...</span>
 	</div>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Statistik Peminjaman</font><br />
-        <a href="peminjaman.php" class="welc">Peminjaman</a><span class="welc"> > Statistik Peminjaman Pustaka</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Borrowing Statistic</font><br />
+        <a href="peminjaman.php" class="welc">Borrowing</a><span class="welc"> > Borrowing Statistic</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$S->Content()?>

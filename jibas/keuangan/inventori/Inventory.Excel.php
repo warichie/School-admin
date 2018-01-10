@@ -48,16 +48,16 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Inventory]</title>
+<title>JIBAS FINANCE [Inventory]</title>
 </head>
 
 <body>
-<center><font size="4" face="Verdana"><strong>INVENTORI</strong></font><br /> 
+<center><font size="4" face="Verdana"><strong>INVENTORY</strong></font><br /> 
 </center>
 <br /><br />
 <table border="0">
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Kelompok </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Group </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=$namakelompok ?>
     </strong></font></td>
@@ -67,13 +67,13 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
 <table border="1" style="border-collapse:collapse" cellpadding="5" width="100%" class="tab" bordercolor="#000000">
 <tr height="30">
-	<td width="25" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="120" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Kode</font></strong></td>
-    <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Barang</font></strong></td>
-    <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Tgl Perolehan</font></strong></td>
-    <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Kondisi</font></strong></td>
-    <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Jumlah</font></strong></td>
-    <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Harga</font></strong></td>
+	<td width="25" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="120" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Code</font></strong></td>
+    <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Item</font></strong></td>
+    <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Acquisition Date</font></strong></td>
+    <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Conditions</font></strong></td>
+    <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Sum</font></strong></td>
+    <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Price</font></strong></td>
     <td width="250" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total</font></strong></td>
 </tr>
 <?

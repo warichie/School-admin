@@ -38,7 +38,7 @@ if (isset($_POST['simpan'])) {
 	
 	if (mysql_num_rows($hasil_cek) > 0){
 		CloseDb();
-		$ERROR_MSG = "Suku $suku sudah digunakan!";
+		$ERROR_MSG = "Ethnicity $suku has been used";
 	} else {		
 		$sql = "INSERT INTO jbsumum.suku SET suku='$suku'";
 		$result = QueryDb($sql);
@@ -70,8 +70,8 @@ if (isset($_POST['simpan'])) {
 <script language="javascript">
 
 function validate() {
-	return 	validateEmptyText('suku', 'Nama Suku') &&
-			validateMaxText('suku', 20, 'Nama Suku'); 
+	return 	validateEmptyText('suku', 'Ethnicity Name') &&
+			validateMaxText('suku', 20, 'Ethnicity Name'); 
 }
 
 function focusNext(elemName, evt) {
@@ -86,7 +86,7 @@ function focusNext(elemName, evt) {
 }
 
 </script>
-<title>JIBAS SIMAKA [Tambah Suku]</title>
+<title>JIBAS SIMAKA [Add Ethnicity]</title>
 </head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#dcdfc4" onLoad="document.getElementById('suku').focus();">
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -94,7 +94,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Suku :.
+    .: Add Ethnicity :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -107,14 +107,14 @@ function focusNext(elemName, evt) {
      <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td width="35%"><strong>Nama Suku</strong></td>
+        <td width="35%"><strong>Ethnicity Name</strong></td>
         <td><input name="suku" id="suku" maxlength="20" size="30" value = "<?=$suku?>" onKeyPress="return focusNext('Simpan', event)" >
         	</td>
     </tr>  
     <tr>
         <td align="center" colspan="2">
-        	<input class="but" type="submit" value="Simpan" id="Simpan" name="simpan">
-            <input class="but" type="button" value="Tutup" onClick="window.close();">
+        	<input class="but" type="submit" value="Save" id="Simpan" name="simpan">
+            <input class="but" type="button" value="Close" onClick="window.close();">
         </td>
     </tr>
     </table>

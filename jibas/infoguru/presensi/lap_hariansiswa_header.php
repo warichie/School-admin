@@ -74,7 +74,7 @@ if (isset($_REQUEST['nis']))  {
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Presensi Harian Siswa</title>
+<title>Student Daily Presence Report Card</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tools.js"></script>
 <script language="JavaScript" src="../script/tooltips.js"></script>
@@ -93,14 +93,14 @@ function tampil() {
 	var nama = document.getElementById('nama1').value;
 	
 	if (nis.length == 0){
-		alert ('NIS siswa tidak boleh kosong!');
+		alert ('Student ID siswa should not leave empty');
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -211,7 +211,7 @@ function panggil(elem){
 	<td rowspan="3" width="58%">
 	<table width = "100%" border = "0" >
     <tr>
-    	<td width="10%"><strong>Siswa</strong></td>
+    	<td width="10%"><strong>Student</strong></td>
         <td width="10">
          <table border="0" cellspacing="0" cellpadding="0">
           <tr>
@@ -226,14 +226,14 @@ function panggil(elem){
          </td>
     </tr>
    	<tr>
-    	<td rowspan="2"><strong>Tanggal</strong></td>
+    	<td rowspan="2"><strong>Date</strong></td>
         <td>
         	<table  border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td >
+            <td>
             	<div id="InfoTgl1">
         	  <select name="tgl1" id="tgl1" onchange="change_tgl1()" onkeypress="return focusNext('bln1',event)" onfocus="panggil('tgl1')">
-                <option value="">[Tgl]</option>
+                <option value="">[Date]</option>
                 <? 	for($i=1;$i<=$n1;$i++){   ?>
                 <option value="<?=$i?>" <?=IntIsSelected($tgl1, $i)?>>
                   <?=$i?>
@@ -241,14 +241,14 @@ function panggil(elem){
                 <?	} ?>
               </select>
         	</div>            </td>
-            <td ><select name="bln1" id ="bln1" onchange="change_tgl1()" onkeypress="return focusNext('th1',event)" onfocus="panggil('bln1')">
+            <td><select name="bln1" id ="bln1" onchange="change_tgl1()" onkeypress="return focusNext('th1',event)" onfocus="panggil('bln1')">
               <? 	for ($i=1;$i<=12;$i++) { ?>
               <option value="<?=$i?>" <?=IntIsSelected($bln1, $i)?>>
                 <?=$bulan[$i]?>
                 </option>
               <?	}	?>
             </select></td>
-            <td ><select name="th1" id = "th1" onchange="change_tgl1()" onkeypress="return focusNext('tgl2',event)" onfocus="panggil('th1')" style="width:60px">
+            <td><select name="th1" id = "th1" onchange="change_tgl1()" onkeypress="return focusNext('tgl2',event)" onfocus="panggil('th1')" style="width:60px">
               <?  //for($i=$th1-10;$i<=$th1;$i++){ ?>
               <?  for ($i = $tahun1; $i <= $tahun2; $i++) { ?>
               <option value="<?=$i?>" <?=IntIsSelected($th1, $i)?>>
@@ -256,10 +256,10 @@ function panggil(elem){
                 </option>
               <?	} ?>
             </select></td>
-            <td width="20"> s/d </td>
-            <td ><div id="InfoTgl2">
+            <td width="20"> to </td>
+            <td><div id="InfoTgl2">
               <select name="tgl2" id = "tgl2" onchange="change_tgl2()" onkeypress="return focusNext('bln2',event)" onfocus="panggil('tgl2')">
-                <option value="">[Tgl]</option>
+                <option value="">[Date]</option>
                 <? 	for($i=1;$i<=$n2;$i++){   ?>
                 <option value="<?=$i?>" <?=IntIsSelected($tgl2, $i)?>>
                   <?=$i?>
@@ -267,14 +267,14 @@ function panggil(elem){
                 <?	} ?>
               </select>
             </div></td>
-            <td ><select name="bln2" id ="bln2" onchange="change_tgl2()" onkeypress="return focusNext('th2',event)" onfocus="panggil('bln2')">
+            <td><select name="bln2" id ="bln2" onchange="change_tgl2()" onkeypress="return focusNext('th2',event)" onfocus="panggil('bln2')">
               <? 	for ($i=1;$i<=12;$i++) { ?>
               <option value="<?=$i?>" <?=IntIsSelected($bln2, $i)?>>
                 <?=$bulan[$i]?>
                 </option>
               <?	}	?>
             </select></td>
-            <td ><select name="th2" id = "th2" onchange="change_tgl2()" onfocus="panggil('th2')" onkeypress="return focusNext('tabel',event)" style="width:60px">
+            <td><select name="th2" id = "th2" onchange="change_tgl2()" onfocus="panggil('th2')" onkeypress="return focusNext('tabel',event)" style="width:60px">
               <?  //for($i=$th2-10;$i<=$th2;$i++){ ?>
               <?  for ($i = $tahun1; $i <= $tahun2; $i++) { ?>
               <option value="<?=$i?>" <?=IntIsSelected($th2, $i)?>>
@@ -291,13 +291,13 @@ function panggil(elem){
     </table>
     </td> 
     <td width="*" rowspan="2" align="left" valign="middle"><a href="#" onclick="tampil()">
-    	<img src="../images/ico/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Klik untuk menampilkan laporan presensi harian siswa!', this, event, '180px')"/></a></td>
+    	<img src="../images/ico/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Click to show student daily presence reports', this, event, '180px')"/></a></td>
   	<td width="43%" rowspan="2" align="right" valign="top">
-        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Presensi Harian Siswa</font>	
+        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Daily Presence Report Card</font>	
         <br />
     	<a href="../presensi.php" target="framecenter">
-      	<font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Presensi Harian Siswa</b></font></td>     
+      	<font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Student Daily Presence Report Card</b></font></td>     
     </tr>
 	</table>
     </td>

@@ -53,7 +53,7 @@ $departemen = $r[departemen];
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Pembayaran Iuran Sukarela Calon Siswa Per Kelompok</title>
+<title>Student Candidate Contribution Payment Reports by Group</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -93,20 +93,20 @@ $namapenerimaan = $row[0];
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>LAPORAN PEMBAYARAN IURAN SUKARELA CALON SISWA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>STUDENT CANDIDATE CONTRIBUTION REPORTS</strong></font><br /> </center><br /><br />
 
 
 <table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width ?>" align="left" bordercolor="#333333">
 <tr height="30" align="center" class="header">
-	<td width="30">No</td>
-    <td width="90">No. Reg</td>
-    <td width="160">Nama</td>
-    <td width="50">Kelompok</td>
+	<td width="30">#</td>
+    <td width="90">Registration Number</td>
+    <td width="160">Name</td>
+    <td width="50">Group</td>
 <?	for($i = 0; $i < $max_n_bayar; $i++) { ?>
-	<td class="header" width="125" align="center">Bayaran-<?=$i + 1 ?></td>
+	<td class="header" width="125" align="center"><?=$i + 1 ?>-Payment</td>
 <?  } ?>
-    <td class="header" width="125" align="center">Total Pembayaran</td>
-    <!--<td class="header" width="200" align="center">Keterangan</td>--->
+    <td class="header" width="125" align="center">Total Payment</td>
+    <!--<td class="header" width="200" align="center">Info</td>--->
 </tr>
 <?
 OpenDb();
@@ -186,7 +186,7 @@ while ($row = mysql_fetch_array($result)) {
     </tr>
 <? } //end for ?>
 	<tr height="30">
-    	<td bgcolor="#999900" align="center" colspan="<?=4 + $max_n_bayar ?>"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+    	<td bgcolor="#999900" align="center" colspan="<?=4 + $max_n_bayar ?>"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td bgcolor="#999900" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($totalall) ?></strong></font></td>
         <!--<td bgcolor="#999900">&nbsp;</td>-->
     </tr>

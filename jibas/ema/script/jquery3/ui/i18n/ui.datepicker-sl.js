@@ -11,7 +11,7 @@ jQuery(function($){
 		nextBigText: '&#x3e;&#x3e;', nextBigStatus: '',
 		currentText: 'Trenutni', currentStatus: 'Prika&#x17E;i trenutni mesec',
 		monthNames: ['Januar','Februar','Marec','April','Maj','Junij',
-		'Julij','Avgust','September','Oktober','November','December'],
+		'Julij','Avgust','September','October','November','December'],
 		monthNamesShort: ['Jan','Feb','Mar','Apr','Maj','Jun',
 		'Jul','Avg','Sep','Okt','Nov','Dec'],
 		monthStatus: 'Prika&#x17E;i drug mesec', yearStatus: 'Prika&#x17E;i drugo leto',

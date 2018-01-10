@@ -76,7 +76,7 @@ $namadp = $row[0];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS [Cetak Rata Rata Ujian Siswa]</title>
+<title>JIBAS [Print Student Exam Index]</title>
 </head>
 
 <body>
@@ -85,16 +85,16 @@ $namadp = $row[0];
 		<td align="left" valign="top">
 		<?=getHeader($departemen)?>
 		<center>
-		  <font size="4"><strong>LAPORAN RATA RATA UJIAN SISWA</strong></font><br />
+		  <font size="4"><strong>STUDENT EXAM INDEX REPORT CARD</strong></font><br />
 		 </center><br /><br />
 		<br />
 		<table>
 		<tr>
-			<td><strong>Departemen</strong> </td> 
+			<td><strong>Department</strong> </td> 
 			<td><strong>:&nbsp;<?=$departemen?></strong></td>
 		</tr>
 		<tr>
-			<td><strong>Tingkat</strong></td>
+			<td><strong>Grade</strong></td>
 			<td><strong>:&nbsp;<?=$tingkat?></strong></td>
 		</tr>
 		<tr>
@@ -102,19 +102,19 @@ $namadp = $row[0];
 			<td><strong>:&nbsp;<?=$semester?></strong></td>
 		</tr>
 		<tr>
-			<td><strong>Kelas</strong></td>
+			<td><strong>Class</strong></td>
 			<td><strong>:&nbsp;<?=$kelas?></strong></td>
 		</tr>
 		<tr>
-			<td><strong>Pelajaran</strong></td>
+			<td><strong>Class Subject</strong></td>
 			<td><strong>:&nbsp;<?=$pelajaran?></strong></td>
 		</tr>
 		<tr>
-			<td><strong>Dasar Penilaian</strong></td>
+			<td><strong>Basic Assessment.</strong></td>
 			<td><strong>:&nbsp;<?=$namadp?></strong></td>
 		</tr>
 		<tr>
-			<td><strong>Siswa</strong></td>
+			<td><strong>Student</strong></td>
 			<td><strong>:&nbsp;<?=$nis?> - <?=$nama?></strong></td>
 		</tr>
 		</table>
@@ -156,13 +156,13 @@ $namadp = $row[0];
 			  <legend><?=$row[1]?></legend>
 					<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
 					  <tr>
-						<td width="5%" align="center" class="header">No</td>
-						<td width="*" align="center" class="header">Tanggal/Materi</td>
-						<td width="12%" align="center" class="header">Nilai</td>
-						<td width="12%" align="center" class="header">Rata-rata Kelas</td>
+						<td width="5%" align="center" class="header">#</td>
+						<td width="*" align="center" class="header">Date/Class Subject</td>
+						<td width="12%" align="center" class="header">Point</td>
+						<td width="12%" align="center" class="header">Class Index Cumulative</td>
 						<td width="12%" align="center" class="header">%</td>
-						<td width="12%" align="center" class="header">Rata-rata Nilai</td>
-						<td width="12%" align="center" class="header">Nilai Akhir</td>
+						<td width="12%" align="center" class="header">Index Point</td>
+						<td width="12%" align="center" class="header">Grade Point</td>
 					  </tr>
 					<?
 					if ($num2>0){
@@ -186,7 +186,7 @@ $namadp = $row[0];
 					} else {
 						?>
 						<tr>
-							<td height="25" colspan="7" align="center" class="miring">Tidak ada data</td>
+							<td height="25" colspan="7" align="center" class="miring">Data Not Found.</td>
 						</tr>
 						<?
 					}	

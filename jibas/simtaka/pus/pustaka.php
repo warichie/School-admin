@@ -34,7 +34,7 @@ require_once("../inc/session.checker.php");
 <body>
 <div id="title" align="center">
 	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-	<font style="font-size:18px; color:#999999">Pustaka</font><br />
+	<font style="font-size:18px; color:#999999">Library</font><br />
 </div>
 <br>
 <table width="100%" border="0" cellspacing="0" cellpadding="2">
@@ -97,9 +97,9 @@ require_once("../inc/session.checker.php");
           <tr>
             <td width="75"><img src="../img/graph.jpg" /></td>
             <td width="285">
-           	  <A HREF="stat.pinjam.php" style="font-family:arial; font-size:14px; color:#999999; line-height:28px">Statistik&nbsp;Peminjam&nbsp;Terbanyak</A><br>
-              <A HREF="stat.pustaka.php" style="font-family:arial; font-size:14px; color:#999999; line-height:28px">Statistik&nbsp;Pustaka&nbsp;Yang&nbsp;Paling&nbsp;Banyak&nbsp;Dipinjam</A><br>
-              <A HREF="stat.all.php" style="font-family:arial; font-size:14px; color:#999999; line-height:28px">Statistik&nbsp;Peminjaman&nbsp;Pustaka</A>
+           	  <A HREF="stat.pinjam.php" style="font-family:arial; font-size:14px; color:#999999; line-height:28px">Most Borrowers Statistic</A><br>
+              <A HREF="stat.pustaka.php" style="font-family:arial; font-size:14px; color:#999999; line-height:28px">Most Borrowing Library Statistic</A><br>
+              <A HREF="stat.all.php" style="font-family:arial; font-size:14px; color:#999999; line-height:28px">Library Borrowing Statistic</A>
             </td>
           </tr>
         </table>

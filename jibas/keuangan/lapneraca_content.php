@@ -80,19 +80,19 @@ function cetak() {
 	          FROM jurnal j, jurnaldetail jd, rekakun ra 
 			   WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' 
 				  AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' 
-				  AND ra.kategori IN ('HARTA', 'PIUTANG') GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
+				  AND ra.kategori IN ('WEALTH', 'DEBT') GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
 	$result = QueryDb($sql);   
 	if (mysql_num_rows($result) > 0) {
 ?>    
     <table border="0" width="100%" align="center" cellpadding="10" cellspacing="5" >
     <tr>
         <td>
-        <font size="4"><strong>Laporan Neraca</strong></font><br />
-        <font size="2">Per Tanggal <?=LongDateFormat($tanggal2) ?></font>
+        <font size="4"><strong>Balance Sheet Reports</strong></font><br />
+        <font size="2">by Date <?=LongDateFormat($tanggal2) ?></font>
         </td>
         <td align="right" valign="top">
-        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
+        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
         </td>
     </tr>
     </table>
@@ -100,18 +100,18 @@ function cetak() {
     <table border="0" width="100%" cellpadding="10" cellspacing="5" align="center" background="images/bttablelong.png">
     <!--<tr>
         <td colspan="2">
-        <font size="4"><strong>Laporan Neraca</strong></font><br />
-        <font size="2">Per Tanggal <?=LongDateFormat($tanggal2) ?></font>
+        <font size="4"><strong>Balance Sheet Reports</strong></font><br />
+        <font size="2">by Date <?=LongDateFormat($tanggal2) ?></font>
         <br />
         </td>
     </tr>-->
     <tr>
         <td width="50%" valign="top">
-        	<font size="2"><strong>HARTA</strong></font><br />
+        	<font size="2"><strong>WEALTH</strong></font><br />
             <table border="0" style="border-collapse:collapse" cellpadding="2" width="100%" align="center">
             <tr height="28">
                 <td width="2%">&nbsp;</td>
-                <td colspan="6"><strong>AKTIVA LANCAR</strong><br /></td>
+                <td colspan="6"><strong>CURRENT ASSETS</strong><br /></td>
             </tr>
             <?
             
@@ -134,7 +134,7 @@ function cetak() {
             <tr height="23">
                 <td width="2%">&nbsp;</td>
                 <td width="2%">&nbsp;</td>
-                <td colspan="3" align="left"><strong><em>Sub Total Aktiva Lancar:</em></strong><br /></td>
+                <td colspan="3" align="left"><strong><em>Current Assets Subtotal:</em></strong><br /></td>
                 <td align="right"><strong><?=FormatRupiah($totalaktivalancar) ?></strong></td>
                 <td>&nbsp;</td>
             </tr>
@@ -144,14 +144,14 @@ function cetak() {
             <table border="0" style="border-collapse:collapse" cellpadding="2" width="100%" align="center">
             <tr height="28">
                 <td width="2%">&nbsp;</td>
-                <td colspan="6"><strong>AKTIVA TETAP</strong><br /></td>
+                <td colspan="6"><strong>FIXED ASSETS</strong><br /></td>
             </tr>
             <?
             $sql = "SELECT jd.koderek, ra.nama, sum(jd.debet - jd.kredit) 
 				          FROM jurnal j, jurnaldetail jd, rekakun ra 
 							WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode 
 							  AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' 
-							  AND ra.kategori = 'INVENTARIS' GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
+							  AND ra.kategori = 'INVESTMENT' GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
             $result = QueryDb($sql);
             $totalaktivatetap = 0;
             while ($row = mysql_fetch_row($result)) {
@@ -172,7 +172,7 @@ function cetak() {
             <tr height="23">
                 <td width="2%">&nbsp;</td>
                 <td width="2%">&nbsp;</td>
-                <td colspan="3" align="left"><strong><em>Sub Total Aktiva Tetap:</em></strong><br /></td>
+                <td colspan="3" align="left"><strong><em>Fixed Assets Subtotal:</em></strong><br /></td>
                 <td align="right"><strong><?=FormatRupiah($totalaktivatetap) ?></strong></td>
                 <td>&nbsp;</td>
             </tr>
@@ -181,18 +181,18 @@ function cetak() {
                 <td align="right">+</td>
             </tr>
             <tr height="28">
-                <td colspan="5" align="left"><font size="2"><strong>TOTAL HARTA</strong></font><br /></td>
+                <td colspan="5" align="left"><font size="2"><strong>TOTAL WEALTH</strong></font><br /></td>
                 <td align="right"><font size="2"><strong><?=FormatRupiah($totalaktivatetap + $totalaktivalancar) ?></strong></font></td>
-                <td >&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             </table>
         </td>
         <td width="50%" valign="top">
-        	<font size="2"><strong>KEWAJIBAN</strong></font><br />
+        	<font size="2"><strong>OBLIGATIONS</strong></font><br />
             <table border="0" style="border-collapse:collapse" cellpadding="2" width="100%" align="center">
             <tr height="28">
                 <td width="2%">&nbsp;</td>
-                <td colspan="6"><strong>HUTANG</strong><br /></td>
+                <td colspan="6"><strong>DEBT</strong><br /></td>
             </tr>
             <?
             $sql = "SELECT jd.koderek, ra.nama, sum(jd.kredit - jd.debet) 
@@ -219,7 +219,7 @@ function cetak() {
             <tr height="23">
                 <td width="2%">&nbsp;</td>
                 <td width="2%">&nbsp;</td>
-                <td colspan="3" align="left"><strong><em>Sub Total Hutang:</em></strong><br /></td>
+                <td colspan="3" align="left"><strong><em>Debt Subtotal:</em></strong><br /></td>
                 <td align="right"><strong><?=FormatRupiah($totalhutang) ?></strong></td>
                 <td>&nbsp;</td>
             </tr>
@@ -228,7 +228,7 @@ function cetak() {
             <table  border="0" style="border-collapse:collapse" cellpadding="2" width="100%" align="center">
             <tr height="28">
                 <td width="2%">&nbsp;</td>
-                <td colspan="6"><strong>MODAL</strong><br /></td>
+                <td colspan="6"><strong>CAPITAL</strong><br /></td>
             </tr>
             <?
             $sql = "SELECT tanggalmulai FROM tahunbuku WHERE replid = $idtahunbuku";
@@ -239,7 +239,7 @@ function cetak() {
             $sql = "SELECT SUM(jd.kredit - jd.debet) 
 				          FROM rekakun ra, jurnal j, jurnaldetail jd 
 							WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode 
-							  AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('PENDAPATAN', 'MODAL')";
+							  AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('INCOME', 'CAPITAL')";
             //echo  "$sql<br>";
             $result = QueryDb($sql);
             $row = mysql_fetch_row($result);
@@ -248,7 +248,7 @@ function cetak() {
             
             $sql = "SELECT SUM(jd.debet - jd.kredit) 
 				          FROM rekakun ra, jurnal j, jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode 
-							  AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'BIAYA'";
+							  AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'COST'";
             //echo  "$sql<br>";
             $result = QueryDb($sql);
             $row = mysql_fetch_row($result);
@@ -260,7 +260,7 @@ function cetak() {
                 <td width="2%">&nbsp;</td>
                 <td width="2%">&nbsp;</td>
                 <td width="5%" align="left">&nbsp;</td>
-                <td width="*" align="left">Modal Usaha + Laba Ditahan</td>
+                <td width="*" align="left">Venture Capital + Profit Ditahan</td>
                 <td width="28%" align="right"><?=FormatRupiah($modalusaha) ?></td>
                 <td width="30%"  align="right">&nbsp;</td>
                 <td width="13">&nbsp;</td>
@@ -268,7 +268,7 @@ function cetak() {
             <tr height="23">
                 <td width="2%">&nbsp;</td>
                 <td width="2%">&nbsp;</td>
-                <td colspan="3" align="left"><strong><em>Sub Total Modal Usaha:</em></strong><br /></td>
+                <td colspan="3" align="left"><strong><em>Venture Capital Subtotal:</em></strong><br /></td>
                 <td align="right"><strong><?=FormatRupiah($modalusaha) ?></strong></td>
                 <td>&nbsp;</td>
             </tr>
@@ -277,7 +277,7 @@ function cetak() {
                 <td align="right">+</td>
             </tr>
             <tr height="28">
-                <td colspan="5" align="left"><font size="2"><strong>TOTAL KEWAJIBAN DAN MODAL</strong></font><br /></td>
+                <td colspan="5" align="left"><font size="2"><strong>TOTAL OBLIGATIONS AND CAPITAL</strong></font><br /></td>
                 <td align="right"><font size="2"><strong><?=FormatRupiah($modalusaha + $totalhutang) ?></strong></font></td>
                 <td>&nbsp;</td>
             </tr>
@@ -289,7 +289,7 @@ function cetak() {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="300">
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data transaksi keuangan pada departemen <?=$departemen?> antara tanggal <?=LongDateFormat($tanggal1)?> s/d <?=LongDateFormat($tanggal2)?>.<br /></font>
+            <font size = "2" color ="red"><b>No transactions found on Department <?=$departemen?> between <?=LongDateFormat($tanggal1)?> to <?=LongDateFormat($tanggal2)?>.<br /></font>
             
         </td>
     </tr>

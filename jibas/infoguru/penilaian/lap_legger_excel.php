@@ -68,23 +68,23 @@ $pel = $row[0];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Legger Nilai</title>
+<title>Lesson Plans Report</title>
 </head>
 <body>
 <table border="0">
 <tr>
-    <td colspan="2" align="left"><h3>Laporan Legger Nilai</h3></td>    
+    <td colspan="2" align="left"><h3>Lesson Plans Report</h3></td>    
 </tr>
 <tr>
-    <td align="left">Departemen:</td>
+    <td align="left">Department:</td>
     <td align="left"><?=$departemen?></td>
 </tr>
 <tr>
-    <td align="left">Tahun Ajaran:</td>
+    <td align="left">Year of Teaching:</td>
     <td align="left"><?=$ta?></td>
 </tr>
 <tr>
-    <td align="left">Kelas:</td>
+    <td align="left">Class:</td>
     <td align="left"><?=$kls?></td>
 </tr>
 <tr>
@@ -92,7 +92,7 @@ $pel = $row[0];
     <td align="left"><?=$sem?></td>
 </tr>
 <tr>
-    <td align="left">Pelajaran:</td>
+    <td align="left">Class Subject:</td>
     <td align="left"><?=$pel?></td>
 </tr>
 </table>
@@ -183,9 +183,9 @@ for($i = 0; $i < $njenis; $i++)
 ?>
 <table border="1" id="table" cellpadding="2" cellspacing="0" width="<?=$allwidth?>" style="border-width: 1px; border-collapse:collapse;">
 <tr>
-    <td width="30" rowspan="2">No</td>
-    <td width="100" rowspan="2">NIS</td>
-    <td width="240" rowspan="2">Nama</td>
+    <td width="30" rowspan="2">#</td>
+    <td width="100" rowspan="2">Student ID</td>
+    <td width="240" rowspan="2">Name</td>
 <?  for($i = 0; $i < $njenis; $i++)
     {
         $namajenis = $info[$i][1];

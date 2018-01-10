@@ -25,21 +25,21 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA[Header]</title>
+<title>JIBAS SIMAKA [Header]</title>
 </head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" >
 <table border="0" cellpadding="0" cellspacing="0">
 <tr height="100">
 <td valign="bottom" align="center" style="color:#FFFFFF; text-decoration:none;" >
-	<a href="referensi.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Referensi</a>&nbsp;<strong>|</strong>&nbsp;  
-	<a href="guru.php" target="content" style="color:#FFFFFF; text-decoration:none;">Guru&nbsp;&amp;&nbsp;Pelajaran&nbsp;<strong>|</strong>&nbsp;</a>
-	<a href="siswa_baru.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Penerimaan Siswa Baru&nbsp;</a>&nbsp;<strong>|</strong>&nbsp;      
-	<a href="siswa.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Kesiswaan&nbsp;</a>&nbsp;<strong>|</strong>&nbsp;      
-	<a href="presensi.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Presensi&nbsp;</a>
+	<a href="referensi.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Reference</a>&nbsp;<strong>|</strong>&nbsp;  
+	<a href="guru.php" target="content" style="color:#FFFFFF; text-decoration:none;">Teacher&nbsp;&amp;&nbsp;Class Subject&nbsp;<strong>|</strong>&nbsp;</a>
+	<a href="siswa_baru.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;New Student Admission&nbsp;</a>&nbsp;<strong>|</strong>&nbsp;      
+	<a href="siswa.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Student&nbsp;</a>&nbsp;<strong>|</strong>&nbsp;      
+	<a href="presensi.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Presence&nbsp;</a>
 	&nbsp;<strong>|</strong>&nbsp;      
-	<a href="jadwal.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Jadwal&nbsp;</a>
+	<a href="jadwal.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Schedule&nbsp;</a>
 	&nbsp;<strong>|</strong>&nbsp;      
-	<a href="mutasi.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Mutasi&nbsp;</a>
+	<a href="mutasi.php" target="content" style="color:#FFFFFF; text-decoration:none;">&nbsp;Mutation&nbsp;</a>
 </td>
 </tr>
 </table>

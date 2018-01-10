@@ -49,7 +49,7 @@ if (isset($_REQUEST['departemen']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Audit Pilih</title>
+<title>Audit Reports Select</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 <script language="javascript">
@@ -150,9 +150,9 @@ function show_detail(lap)
 	 { ?>
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="95%" align="center" bordercolor="#000000">
     <tr height="30" align="center">
-        <td class="header" width="7%">No</td>
+        <td class="header" width="7%">#</td>
         <td class="header" width="73%">Perubahan</td>
-        <td class="header" width="10%">Jumlah</td>
+        <td class="header" width="10%">Sum</td>
     </tr>
 <?  $cnt = 0;
     while($row = mysql_fetch_row($result)) 
@@ -160,23 +160,23 @@ function show_detail(lap)
         switch($row[0]) 
 		  {	
             case 'jurnalumum':
-                $jurnal = "Jurnal Umum"; break;
+                $jurnal = "Jurnal Public"; break;
             case 'penerimaanjtt':
-                $jurnal = "Penerimaan Iuran Wajib Siswa"; break;
+                $jurnal = "Penerimaan Student Mandatory Contribution"; break;
             case 'penerimaaniuran':
-                $jurnal = "Penerimaan Iuran Sukarela Siswa"; break;
+                $jurnal = "Penerimaan Student Contribution"; break;
             case 'penerimaanlain':
-                $jurnal = "Penerimaan Lain-Lain"; break;
+                $jurnal = "Penerimaan Other"; break;
             case 'pengeluaran':
-                $jurnal = "Pengeluaran"; break;
+                $jurnal = "Expenditure"; break;
 				case 'penerimaanjttcalon':
-                $jurnal = "Penerimaan Iuran Wajib Calon Siswa"; break;
+                $jurnal = "Penerimaan Mandatory Contribution Student Candidate"; break;
 				case 'penerimaaniurancalon':
-                $jurnal = "Penerimaan Iuran Sukarela Calon Siswa"; break;
+                $jurnal = "Penerimaan Contribution Student Candidate"; break;
 				case 'besarjtt':
-					 $jurnal = "Pendataan Besar Iuran Wajib Siswa"; break;
+					 $jurnal = "Data Collection Besar Student Mandatory Contribution"; break;
 				case 'besarjttcalon':
-					 $jurnal = "Pendataan Besar Iuran Wajib Calon Siswa"; break;					 
+					 $jurnal = "Data Collection Besar Mandatory Contribution Student Candidate"; break;					 
         } ?>
     <tr height="25" onclick="show_detail('<?=$row[0]?>')">
         <td align="center"><?=++$cnt ?></td>
@@ -193,7 +193,7 @@ function show_detail(lap)
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="300">    
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data pada tanggal <?=LongDateFormat($tanggal1)." s/d ".LongDateFormat($tanggal2) ?>.
+            <font size = "2" color ="red"><b>Data Not Found. on tanggal <?=LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2) ?>.
             </b></font>
         </td>
     </tr>

@@ -24,7 +24,7 @@ function ubah(id,asal,perpustakaan,kategori,keywords){
 }
 function hapus(id){
 	var perpustakaan = document.getElementById('perpustakaan').value;
-	if (confirm('Anda yakin akan menghapus pustaka ini?'))
+	if (confirm('Are you sure want to delete this library?'))
 	{
 		document.location.href = "pustaka.daftar.php?op=Gtytc6yt665476d6&replid="+id+"&perpustakaan="+perpustakaan;
 	}	

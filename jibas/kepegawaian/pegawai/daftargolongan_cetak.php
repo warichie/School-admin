@@ -41,28 +41,28 @@ $nama = $row[0];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 </head>
 
 <body>
 <table border="0" cellpadding="10" cellpadding="5" width="780" align="left">
 <tr><td align="left" valign="top"><? include("../include/headercetak.php") ?>
-  <center><font size="4"><strong>DATA GOLONGAN</strong></font><br /> </center><br /><br />
+  <center><font size="4"><strong>POSITION ORDER DATA</strong></font><br /> </center><br /><br />
 <br />
 <table border="0" cellpadding="5" cellspacing="0" width="100%" id="table56">
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Jadwal Kenaikan Golongan <?=$nama?> - <?=$nip?></font><br />
+        <font class="subtitle">Promotion Schedule <?=$nama?> - <?=$nip?></font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="35%" align="center" class="header">Jadwal Kenaikan Golongan</td>
-	<td width="45%" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="35%" align="center" class="header">Promotion Schedule</td>
+	<td width="45%" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT replid, DATE_FORMAT(tanggal,'%d %M %Y') AS ftmt, keterangan FROM jadwal WHERE nip='$nip' AND jenis='golongan'";
@@ -81,7 +81,7 @@ if (mysql_num_rows($result) > 0)
 	<tr height="30">
     	<td colspan="4" align="center" valign="middle">
 			
-            <font color="#999999"><strong>Belum ada jadwal kenaikan golongan pegawai ini.<br /></strong></font>
+            <font color="#999999"><strong>This employee has no promotion schedule yet.<br /></strong></font>
                     
         </td>
     </tr>
@@ -97,19 +97,19 @@ if (mysql_num_rows($result) > 0)
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Riwayat Golongan <?=$nama?> - <?=$nip?></font><br />
+        <font class="subtitle">Position Order History <?=$nama?> - <?=$nip?></font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="15%" align="center" class="header">Golongan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="15%" align="center" class="header">Level</td>
     <td width="18%" align="center" class="header">TMT</td>
     <td width="7%" align="center" class="header">&nbsp;</td>
-    <td width="20%" align="center" class="header">SK</td>
-    <td width="25%" align="center" class="header">Keterangan</td>
+    <td width="20%" align="center" class="header">Legal Number</td>
+    <td width="25%" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT replid, golongan, terakhir, DATE_FORMAT(tmt,'%d %M %Y') AS ftmt, sk, keterangan FROM peggol WHERE nip = '$nip' ORDER BY tmt DESC";

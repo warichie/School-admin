@@ -98,7 +98,7 @@ if ($file3!=""){
 	$newdir=$dir."\\";
 	$dir_db = str_replace($UPLOAD_DIR,$WEB_UPLOAD_DIR,$newdir);
 	$new_dir_db = str_replace("\\","/",$dir_db);
-	//KAlo dari ubah berita guru================================================================================================================================
+	//KAlo from ubah berita guru================================================================================================================================
 	$judul=$_REQUEST['judul'];
 	$d1=$_REQUEST['d1'];
 	$d2=$_REQUEST['d2'];

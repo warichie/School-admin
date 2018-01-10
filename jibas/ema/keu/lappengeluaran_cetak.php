@@ -48,14 +48,14 @@ $nama = $row[0];
 $ndepartemen = $departemen;
 $ntahunbuku = getname2('tahunbuku',$db_name_fina.'.tahunbuku','replid',$idtahunbuku);
 $npengeluaran = getname2('nama',$db_name_fina.'.datapengeluaran','replid',$idpengeluaran);	
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Jurnal Penerimaan]</title>
+<title>JIBAS EMA [Print Admission Journal]</title>
 </head>
 
 <body>
@@ -66,22 +66,22 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>LAPORAN PENGELUARAN</strong></font><br />
+  <font size="4"><strong>EXPENDITURE REPORTS</strong></font><br />
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="8%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="8%" class="news_content1"><strong>Department</strong></td>
     <td width="35%" class="news_content1">: 
       <?=$departemen ?></td>
-    <td width="7%" class="news_content1"><strong><strong>Pengeluaran</strong></strong></td>
+    <td width="7%" class="news_content1"><strong><strong>Expenditure</strong></strong></td>
     <td width="50%" class="news_content1">: 
       <?=$npengeluaran ?></td>
 </tr>
 <tr>
-  <td class="news_content1"><strong>Tahun Buku</strong></td>
+  <td class="news_content1"><strong>Fiscal Year</strong></td>
   <td class="news_content1">: 
       <?=$ntahunbuku ?></td>
-  <td class="news_content1"><strong>Periode</strong></td>
+  <td class="news_content1"><strong>Period</strong></td>
   <td class="news_content1">: 
       <?=$nperiode ?></td>
 </tr>
@@ -89,13 +89,13 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <br />
 <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
     <tr height="30" align="center" >
-        <td class="header" width="4%" >No</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="20%">Pemohon</td>
-        <td class="header" width="10%">Penerima</td>
-        <td class="header" width="11%">Jumlah</td>
-        <td class="header" width="*">Keperluan</td>
-        <td class="header" width="7%">Petugas</td>
+        <td class="header" width="4%" >#</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="20%">Applicant</td>
+        <td class="header" width="10%">Recipient</td>
+        <td class="header" width="11%">Sum</td>
+        <td class="header" width="*">Necessities</td>
+        <td class="header" width="7%">Officer</td>
         </tr>
 <?
 	$sql = "SELECT p.replid AS id, p.keperluan, p.keterangan, p.jenispemohon, p.nip, p.nis, p.pemohonlain, p.penerima, date_format(p.tanggal, '%d-%b-%Y') as tanggal, date_format(p.tanggalkeluar, '%d-%b-%Y') as tanggalkeluar, p.petugas, p.jumlah FROM $db_name_fina.pengeluaran p, $db_name_fina.datapengeluaran d WHERE p.idpengeluaran = d.replid AND d.replid = '$idpengeluaran' AND d.departemen = '$departemen' AND p.tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY p.tanggal";
@@ -133,14 +133,14 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
         <td valign="top"><?=$row['penerima'] ?></td>
         <td align="right" valign="top"><?=FormatRupiah($row['jumlah']) ?></td>
         <td valign="top">
-        <strong>Keperluan: </strong><?=$row['keperluan'] ?><br />
-        <strong>Keterangan: </strong><?=$row['keterangan'] ?>        </td>
+        <strong>Necessities: </strong><?=$row['keperluan'] ?><br />
+        <strong>Info: </strong><?=$row['keterangan'] ?>        </td>
         <td valign="top" align="center"><?=$row['petugas'] ?></td>
         </tr>
 <? } ?>
     <tr height="30">
         <td colspan="3" align="center" bgcolor="#999900">
-        <font color="#FFFFFF"><strong>T O T A L</strong></font>        </td>
+        <font color="#FFFFFF"><strong>Total</strong></font>        </td>
         <td align="right" bgcolor="#999900" colspan="2"><font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font></td>
         <td colspan="3" bgcolor="#999900">&nbsp;</td>
     </tr>

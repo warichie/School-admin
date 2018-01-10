@@ -65,7 +65,7 @@ if (isset($_REQUEST['urutan']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Detail Buku Besar]</title>
+<title>JIBAS FINANCE [Reports Detail Ledger]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -83,27 +83,27 @@ if (isset($_REQUEST['urutan']))
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) ?> s/d <?=LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) ?> to <?=LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Rekening </strong></td>
+	<td><strong>Bank Account </strong></td>
     <td><strong>: <?=$koderek. " - ".GetValue("rekakun", "nama", "kode='$koderek'") ?></strong></td>
 </tr>
 </table>
 <br />
 <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000"s>
 <tr height="30">
-	<td class="header" width="4%" align="center">No</td>
-    <td class="header" width="13%" align="center">No. Jurnal/Tgl</td>
-    <td class="header" width="9%" align="center">Petugas</td>
-    <td class="header" width="*" align="center">Transaksi</td>
-    <td class="header" width="12%" align="center">Debet</td>
-    <td class="header" width="12%" align="center">Kredit</td>
+	<td class="header" width="4%" align="center">#</td>
+    <td class="header" width="13%" align="center">Journal/Date</td>
+    <td class="header" width="9%" align="center">Officer</td>
+    <td class="header" width="*" align="center">Transaction</td>
+    <td class="header" width="12%" align="center">Debit</td>
+    <td class="header" width="12%" align="center">Credit</td>
 </tr>
 <?
 $sql = "SELECT date_format(j.tanggal, '%d-%b-%Y') AS tanggal, j.petugas, j.transaksi, j.keterangan, j.nokas, jd.debet, jd.kredit FROM jurnal j, jurnaldetail jd WHERE j.replid = jd.idjurnal AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND jd.koderek = '$koderek' ORDER BY $urut $urutan, j.petugas";
@@ -121,7 +121,7 @@ while($row = mysql_fetch_array($result)) {
     <td valign="top" align="left"><?=$row['petugas'] ?></td>
     <td valign="top" align="left"><?=$row['transaksi'] ?><br />
     <? if ($row['keterangan'] <> "") { ?>
-    <strong>Keterangan: </strong><?=$row['keterangan'] ?>
+    <strong>Info: </strong><?=$row['keterangan'] ?>
     <? } ?>
     </td>
     <td valign="top" align="right"><?=FormatRupiah($row['debet']) ?></td>
@@ -132,7 +132,7 @@ while($row = mysql_fetch_array($result)) {
 CloseDb();
 ?>
 <tr height="30">
-	<td colspan="4" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+	<td colspan="4" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>
 </tr>

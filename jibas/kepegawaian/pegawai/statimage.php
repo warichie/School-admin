@@ -41,10 +41,10 @@ if (strlen($dotype) > 0) {
 
 if ($stat == 1) 
 {
-	$bartitle = "Banyaknya Pegawai Per Satuan Kerja";
-	$pietitle = "Prosentase Banyaknya Pegawai Per Satuan Kerja";
-	$xtitle = "Satuan Kerja";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee Per Work Unit";
+	$pietitle = "Amount of Employee Per Work Unit Percentage";
+	$xtitle = "Work Unit";
+	$ytitle = "Sum";
 
 	$sql = "SELECT j.satker, count(pj.replid) FROM 
 	        pegjab pj, peglastdata pl, pegawai p, jabatan j 
@@ -53,10 +53,10 @@ if ($stat == 1)
 }
 elseif ($stat == 2)
 {
-	$bartitle = "Banyaknya Pegawai Berdasarkan Pendidikan";
-	$pietitle = "Prosentase Banyaknya Pegawai Berdasarkan Pendidikan";
-	$xtitle = "Pendidikan";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Education";
+	$pietitle = "Amount of Employee based on Education Percentage";
+	$xtitle = "Education";
+	$ytitle = "Sum";
 
 	$sql = "SELECT ps.tingkat, COUNT(p.nip) FROM
             pegawai p, peglastdata pl, pegsekolah ps, jbsumum.tingkatpendidikan pk
@@ -65,10 +65,10 @@ elseif ($stat == 2)
 }
 elseif ($stat == 3)
 {
-	$bartitle = "Banyaknya Pegawai Berdasarkan Golongan";
-	$pietitle = "Prosentase Banyaknya Pegawai Berdasarkan Golongan";
-	$xtitle = "Golongan";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Level";
+	$pietitle = "Amount of Employee based on Level Percentage";
+	$xtitle = "Level";
+	$ytitle = "Sum";
 
 	$sql = "SELECT pg.golongan, COUNT(p.nip) FROM pegawai p, peglastdata pl, peggol pg, golongan g
             WHERE p.nip = pl.nip AND pl.idpeggol = pg.replid AND pg.golongan = g.golongan AND p.aktif = 1 
@@ -76,10 +76,10 @@ elseif ($stat == 3)
 }
 elseif ($stat == 4)
 {
-	$bartitle = "Banyaknya Pegawai Berdasarkan Usia";
-	$pietitle = "Prosentase Banyaknya Pegawai Berdasarkan Usia";
-	$xtitle = "Usia";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Age";
+	$pietitle = "Amount of Employee based on Age Percentage";
+	$xtitle = "Age";
+	$ytitle = "Sum";
 
 	$sql = "SELECT G, COUNT(nip) FROM (
 	          SELECT nip, IF(usia < 24, '<24',
@@ -100,10 +100,10 @@ elseif ($stat == 4)
 }
 elseif ($stat == 5)
 {
-	$bartitle = "Banyaknya Pejabat Struktural Berdasarkan Diklat";
-	$pietitle = "Prosentase Banyaknya Pejabat Struktural Berdasarkan Diklat";
-	$xtitle = "Diklat";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Structural Employee based on Education and Training";
+	$pietitle = "Amount of Structural Employee based on Education and Training Percentage";
+	$xtitle = "Education and Training";
+	$ytitle = "Sum";
 	
 	$sql = "SELECT diklat, COUNT(nip) FROM 
 	        ( SELECT p.nip, IF(NOT pl.idpegdiklat IS NULL, 'Sudah', 'Belum') AS Diklat
@@ -114,10 +114,10 @@ elseif ($stat == 5)
 }
 elseif ($stat == 6)
 {
-	$bartitle = "Banyaknya Pegawai Berdasarkan Jenis Kelamin";
-	$pietitle = "Prosentase Banyaknya Pegawai Berdasarkan Jenis Kelamin";
-	$xtitle = "Jenis Kelamin";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Gender";
+	$pietitle = "Amount of Employee based on Gender Percentage";
+	$xtitle = "Gender";
+	$ytitle = "Sum";
 	
 	$sql = "SELECT p.kelamin, count(p.nip)
 			  FROM pegawai p, peglastdata pl, pegjab pj, jabatan j
@@ -127,10 +127,10 @@ elseif ($stat == 6)
 }
 elseif ($stat == 7)
 {
-	$bartitle = "Banyaknya Pegawai Berdasarkan Status Pernikahan";
-	$pietitle = "Prosentase Banyaknya Pegawai Berdasarkan Status Pernikahan";
-	$xtitle = "Jenis Kelamin";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Marital Status";
+	$pietitle = "Amount of Employee based on Marital Status Percentage";
+	$xtitle = "Gender";
+	$ytitle = "Sum";
 	
 	$sql = "SELECT p.nikah, count(p.nip)
 			  FROM pegawai p, peglastdata pl, pegjab pj, jabatan j

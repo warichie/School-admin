@@ -44,7 +44,7 @@ OpenDb();
 ?>
 <table border="0" width="100%" align="center">
 <tr>
-    <td width="20%"><font color="#000000"><strong>Departemen</strong></font></td>
+    <td width="20%"><font color="#000000"><strong>Department</strong></font></td>
     <td>
      <input type="text" name="departemen" id="departemen" value="<?=$_REQUEST['departemen']?>" readonly="readonly" style="background-color:#CCCC99;width:150px">
     <input type="hidden" name="depart2" id="depart2" value="<?=$_REQUEST['departemen']?>" />
@@ -64,7 +64,7 @@ OpenDb();
 </tr>
 
 <tr>
-    <td><font color="#000000"><strong>Proses </strong></font></td>
+    <td><font color="#000000"><strong>Process </strong></font></td>
     <td><select name="proses" id="proses" onChange="change_proses()" style="width:155px;" onkeypress="return focusNext('kelompok', event)">
    		 	<?
 			$sql = "SELECT replid,proses,aktif FROM jbsakad.prosespenerimaansiswa WHERE departemen='$departemen' ORDER BY aktif DESC, replid DESC";				
@@ -85,7 +85,7 @@ OpenDb();
     	</select>        </td>
 </tr>
 <tr>
-    <td><font color="#000000"><strong>Kelompok</strong></font></td>
+    <td><font color="#000000"><strong>Group</strong></font></td>
     <td><select name="kelompok" id="kelompok" onChange="change_kelompok()" style="width:155px;" onkeypress="return focusNext1('calon', event, 'pilih', 1, 0)">
 	<?	if ($proses <> "") {
 			$sql = "SELECT replid,kelompok,kapasitas FROM jbsakad.kelompokcalonsiswa WHERE idproses = '$proses' ORDER BY kelompok";
@@ -115,9 +115,9 @@ if ($kelompok <> "" && $proses <> "") {
 ?>
 	<table width="100%" id="table" class="tab" align="center" border="1" bordercolor="#000000">
 	<tr height="30" align="center" class="header">
-        <td width="7%">No</td>
-        <td width="15%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('c.nopendaftaran','<?=$urutan2?>','daftarcalon')">No Reg. <?=change_urut('c.nopendaftaran',$urut2,$urutan2)?></td>
-        <td onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('c.nama','<?=$urutan2?>','daftarcalon')">Nama <?=change_urut('c.nama',$urut2,$urutan2)?></td>
+        <td width="7%">#</td>
+        <td width="15%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('c.nopendaftaran','<?=$urutan2?>','daftarcalon')">Registration Number <?=change_urut('c.nopendaftaran',$urut2,$urutan2)?></td>
+        <td onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('c.nama','<?=$urutan2?>','daftarcalon')">Name <?=change_urut('c.nama',$urut2,$urutan2)?></td>
 	</tr>
 <?
 	$cnt = 1;
@@ -139,7 +139,7 @@ if ($kelompok <> "" && $proses <> "") {
 	<tr height="200" align="center">
 		<td>   
    
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br />Belum ada calon siswa yang terdaftar pada kelompok ini.</font>	
+	<font size = "2" color ="red"><b>Data Not Found<br />No student candidate yang terdaftar on this group.</font>	
 	<br /><br />
    		</td>
     </tr>
@@ -150,7 +150,7 @@ if ($kelompok <> "" && $proses <> "") {
 	<tr height="200" align="center">
 		<td>   
    		
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data</b></font>	
+	<font size = "2" color ="red"><b>Data Not Found</b></font>	
 	<br /><br />
    		</td>
     </tr>

@@ -57,27 +57,27 @@ $departemen = $row[3];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pembayaran Per Siswa]</title>
+<title>JIBAS FINANCE [Student Payment Report]</title>
 </head>
 
 <body>
-<center><font size="4"><strong>DATA PEMBAYARAN SISWA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>STUDENT PAYMENT DATA</strong></font><br /> </center><br /><br />
 
 <?
 
 ?>
 <table border="0">
 <tr>
-	<td><strong>Siswa </strong></td>
+	<td><strong>Student </strong></td>
     <td><strong>: <?=$nis . " - " . $namasiswa?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelas </strong></td>
+	<td><strong>Class </strong></td>
     <td><strong>: <?=$tingkat." - ".$kelas ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) . " s/d " . LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) . " to " . LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -119,15 +119,15 @@ while ($row = mysql_fetch_array($result))
         <td colspan="4" bgcolor="#99CC00"><font size="2" face="Arial"><strong><em><?=$namapenerimaan?></em></strong></font></td>
   </tr>    
     <tr height="25">
-        <td width="20%" bgcolor="#CCFF66"><font size="2" face="Arial"><strong>Total Bayaran</strong> </font></td>
+        <td width="20%" bgcolor="#CCFF66"><font size="2" face="Arial"><strong>Total Payment</strong> </font></td>
       <td width="15%" bgcolor="#FFFFFF" align="right"><font size="2" face="Arial">
       <?=$besar ?>
       </font></td>
-      <td width="22%" bgcolor="#CCFF66" align="center"><font size="2" face="Arial"><strong>Pembayaran Terakhir</strong></font></td>
-      <td width="43%" bgcolor="#CCFF66" align="center"><font size="2" face="Arial"><strong>Keterangan</strong></font></td>
+      <td width="22%" bgcolor="#CCFF66" align="center"><font size="2" face="Arial"><strong>Last Payment</strong></font></td>
+      <td width="43%" bgcolor="#CCFF66" align="center"><font size="2" face="Arial"><strong>Info</strong></font></td>
   </tr>
     <tr height="25">
-        <td bgcolor="#CCFF66"><font size="2" face="Arial"><strong>Jumlah Besar Pembayaran</strong> </font></td>
+        <td bgcolor="#CCFF66"><font size="2" face="Arial"><strong>Payment Amount</strong> </font></td>
       <td bgcolor="#FFFFFF" align="right"><font size="2" face="Arial">
       <?=$pembayaran ?>
       </font></td>
@@ -139,13 +139,13 @@ while ($row = mysql_fetch_array($result))
       </font></td>
   </tr>
 	<tr height="25">
-        <td bgcolor="#CCFF66"><font size="2" face="Arial"><strong>Jumlah Diskon</strong> </font></td>
+        <td bgcolor="#CCFF66"><font size="2" face="Arial"><strong>Discount</strong> </font></td>
       <td bgcolor="#FFFFFF" align="right"><font size="2" face="Arial">
       <?=$diskon ?>
       </font></td>
   </tr>
     <tr height="25">
-        <td bgcolor="#CCFF66"><font size="2" face="Arial"><strong>Sisa Bayaran</strong> </font></td>
+        <td bgcolor="#CCFF66"><font size="2" face="Arial"><strong>Remaining Payment</strong> </font></td>
       <td bgcolor="#FFFFFF" align="right"><font size="2" face="Arial">
       <?=$sisa ?>
       </font></td>
@@ -182,9 +182,9 @@ while ($row = mysql_fetch_array($result)) {
         <td colspan="4" bgcolor="#99CC00"><font size="2" face="Arial"><strong><em><?=$namapenerimaan?></em></strong></font></td>
   </tr>  
    	<tr height="25">
-        <td width="22%" bgcolor="#CCFF66" align="center"><font size="2" face="Arial"><strong>Total Pembayaran</strong> </font></td>
-      <td width="22%" bgcolor="#CCFF66" align="center"><font size="2" face="Arial"><strong>Pembayaran Terakhir</strong></font></td>
-      <td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><font size="2" face="Arial"><strong>Keterangan</strong></font></td>
+        <td width="22%" bgcolor="#CCFF66" align="center"><font size="2" face="Arial"><strong>Total Payment</strong> </font></td>
+      <td width="22%" bgcolor="#CCFF66" align="center"><font size="2" face="Arial"><strong>Last Payment</strong></font></td>
+      <td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><font size="2" face="Arial"><strong>Info</strong></font></td>
   </tr>
     <tr height="25">
         <td bgcolor="#FFFFFF" align="center"><font size="2" face="Arial">

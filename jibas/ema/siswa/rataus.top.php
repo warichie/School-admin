@@ -32,7 +32,7 @@ $nama = $_REQUEST['nama'];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Penilaian Pelajaran</title>
+<title>Class Index Report</title>
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -83,7 +83,7 @@ function ShowRight(x){
 	}
 }
 function validate() {
-	return validateEmptyText('nip', 'NIP Guru');
+	return validateEmptyText('nip', 'Teacher ID');
 }
 function CetakRataUjianSiswa(pel,kls,sem,nis,tkt,dp){
 	newWindow('rataus.cetak.php?pel='+pel+'&kls='+kls+'&sem='+sem+'&nis='+nis+'&tkt='+tkt+'&dp='+dp, 'CetakRataRataUjianSiswa','790','650','resizable=1,scrollbars=1,status=0,toolbar=0')
@@ -107,20 +107,20 @@ function CetakRataUjianSiswa(pel,kls,sem,nis,tkt,dp){
     <td width="70%">
         <table border="0" >
         <tr>
-            <td><strong>Nama</strong></td>
+            <td><strong>Name</strong></td>
             <td><strong>
               <input type="text" name="nis" id="nis" size="15"  readonly class="disabled" value="<?=$nis ?>" onclick="carisiswa()" />
             </strong></td>
             <td><strong>
               <input type="text" name="nama" id="nama" size="25"  readonly value="<?=$nama ?>" class="disabled"  onclick="carisiswa()"/>
             </strong></td>
-            <td><a href="JavaScript:carisiswa()" onmouseover="showhint('Cari Siswa!', this, event, '50px')"><img src="../img/ico/lihat.png" border="0"/></a></td>
+            <td><a href="JavaScript:carisiswa()" onmouseover="showhint('Search Student', this, event, '50px')"><img src="../img/ico/lihat.png" border="0"/></a></td>
         </tr>
         </table>  
     </td>
     <td width="30%">
         <div align="right">
-        <font style="background-color: rgb(255, 204, 102);" face="Verdana, Arial, Helvetica, sans-serif" size="4">&nbsp;</font>&nbsp;<font color="Gray" face="Verdana, Arial, Helvetica, sans-serif" size="4">Rata-rata Nilai Setiap Siswa</font><br>
+        <font style="background-color: rgb(255, 204, 102);" face="Verdana, Arial, Helvetica, sans-serif" size="4">&nbsp;</font>&nbsp;<font color="Gray" face="Verdana, Arial, Helvetica, sans-serif" size="4">Index Point for each Students</font><br>
         </div>
     </td>
   </tr>

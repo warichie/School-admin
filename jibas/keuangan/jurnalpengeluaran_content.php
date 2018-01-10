@@ -68,13 +68,13 @@ if (isset($_REQUEST['tanggal2']))
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pencarian Jurnal</title>
+<title>Search Jurnal</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 <script language="javascript" src="script/tooltips.js"></script>
 <script language="javascript">
 function edit(id) {
-	var addr = "editjurnal.php?departemen=<?=$departemen?>&idjurnal="+id+"&jurnal=Pengeluaran";
+	var addr = "editjurnal.php?departemen=<?=$departemen?>&idjurnal="+id+"&jurnal=Expenditure";
 	newWindow(addr, 'UbahJurnalPenerimaan','680','630','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
@@ -148,19 +148,19 @@ function change_urut(urut,urutan) {
     <table border="0" width="100%" align="center">
     <tr>
         <td align="right">
-        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka di Ms Excel!', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
+        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
+        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Open in Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
         </td>
     </tr>
     </table>
     <br />
     <table border="1" style="border-collapse:collapse" cellpadding="5" width="100%" class="tab" bordercolor="#000000" cellspacing="0">
     <tr height="30">
-        <td width="4%" align="center" class="header">No</td>
-        <td width="15%" align="center" class="header" onClick="change_urut('nokas','<?=$urutan?>')">No. Jurnal/Tanggal <?=change_urut('nokas',$urut,$urutan)?></td>
-        <td width="35%" align="center" class="header">Transaksi</td>
-        <td align="center" class="header">Detail Jurnal</td>  
+        <td width="4%" align="center" class="header">#</td>
+        <td width="15%" align="center" class="header" onClick="change_urut('nokas','<?=$urutan?>')">Journal/Date <?=change_urut('nokas',$urut,$urutan)?></td>
+        <td width="35%" align="center" class="header">Transaction</td>
+        <td align="center" class="header">Journal Details</td>  
         
     </tr>
 
@@ -181,7 +181,7 @@ function change_urut(urut,urutan) {
         <td align="center" bgcolor="<?=$bgcolor ?>"><strong><?=$row['nokas']?></strong><br /><em><?=LongDateFormat($row['tanggal'])?></em></td>
         <td valign="top" bgcolor="<?=$bgcolor ?>"><?=$row['transaksi'] ?>
     <?	if (strlen($row['keterangan']) > 0 )  { ?>
-            <br /><strong>Keterangan:</strong><?=$row['keterangan'] ?> 
+            <br /><strong>Info:</strong><?=$row['keterangan'] ?> 
     <?	} ?>    
         </td>
         <td rowspan="2" valign="top" bgcolor="#E8FFE8">
@@ -202,9 +202,9 @@ function change_urut(urut,urutan) {
 	
     </tr>
     <tr>    
-        <td valign="top"><strong>Petugas: </strong><?=$row['petugas'] ?></td>
+        <td valign="top"><strong>Officer: </strong><?=$row['petugas'] ?></td>
         <td valign="top">
-        <strong>Sumber: Pengeluaran</strong>
+        <strong>Source: Expenditure</strong>
     	</td>
     </tr>
     <tr style="height:2px">
@@ -239,18 +239,18 @@ function change_urut(urut,urutan) {
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left" colspan="2">Halaman
-        <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+       	<td width="30%" align="left" colspan="2">Page
+        <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-        <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
-	  	dari <?=$total?> halaman
+        <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         
         
@@ -266,7 +266,7 @@ function change_urut(urut,urutan) {
             //}
             ?>
              
-  		<td width="30%" align="right">Jumlah baris per halaman
+  		<td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -279,10 +279,10 @@ function change_urut(urut,urutan) {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="300">
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br />
-            Tambah data jurnal pengeluaran pada departemen <?=$departemen?> antara tanggal 
-            <?=LongDateFormat($tanggal1)?> s/d <?=LongDateFormat($tanggal2)?><br />
-            di menu Pembayaran Pengeluaran pada bagian Pengeluaran.  </font>
+            <font size = "2" color ="red"><b>Data Not Found<br />
+            Add data jurnal pengeluaran on Department <?=$departemen?> between 
+            <?=LongDateFormat($tanggal1)?> to <?=LongDateFormat($tanggal2)?><br />
+            di menu Payment Expenditure on bagian Expenditure.  </font>
             
         </td>
     </tr>

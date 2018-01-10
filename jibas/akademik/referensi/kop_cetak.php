@@ -36,7 +36,7 @@ $departemen=$_REQUEST[departemen];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Header]</title>
+<title>JIBAS SIMAKA [Print Header]</title>
 <style> 
  @page { 
    @top-left{

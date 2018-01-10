@@ -29,7 +29,7 @@ require_once("include/theme.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="style/style.css" />
 <link rel="stylesheet" href="menu/style<?=GetThemeDir2()?>.css" type="text/css" media="screen" />
 <script type='text/javascript' src='menu/jquery-1.2.6.min.js'></script>
@@ -48,22 +48,22 @@ require_once("include/theme.php");
 		<td width="80" align="center" valign="top">
 			<a href="referensi/referensi.php" target="content">
 			<img src="images/referensi.png" border="0" height="35"><br>
-			Referensi</a>
+			Reference</a>
 		</td>
 		<td width="80" align="center" valign="top">
 			<a href="pegawai/pegawai.php" target="content">
 			<img src="images/pegawai2.png" border="0" height="35"><br>
-			Kepegawaian</a>
+			Employee Affair</a>
 		</td>
 		<td width="80" align="center" valign="top">
 			<a href="pengaturan/pengaturan.php" target="content">
 			<img src="images/pengaturan.png" border="0" height="35"><br>
-			Pengaturan</a>
+			Settings</a>
 		</td>
 		<td width="80" align="center" valign="top">
 			<a href="#" onclick="logout()" style="color:red">
 			<img src="images/logout.png" border="0" height="35"><br>
-			Keluar</a>
+			Logout</a>
 		</td>
 	  </tr>
 	  

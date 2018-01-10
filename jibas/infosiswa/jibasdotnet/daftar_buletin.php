@@ -69,10 +69,10 @@ function setapproved(replid, approved) {
 	var newapproved;
 	
 	if (approved == 1) {
-		msg = "Apakah anda yakin akan mengubah buletin ini menjadi TIDAK TERLIHAT?";
+		msg = "Are you sure want to change this bulletin to INACTIVE?";
 		newapproved = 0;
 	} else {	
-		msg = "Apakah anda yakin akan mengubah buletin ini menjadi TERLIHAT?";
+		msg = "Are you sure want to change this bulletin to VISIBLE?";
 		newapproved = 1;
 	}
 	if (confirm(msg)) 
@@ -80,7 +80,7 @@ function setapproved(replid, approved) {
 }
 function hapus(replid) {
 var msg;
-msg = "Apakah anda yakin akan menghapus buletin ini ?";
+msg = "Are you sure want to delete this bulletin?";
 if (confirm(msg)) 
 		document.location.href = "daftar_buletin.php?op=xm8r389xemx23xb2378e23&replid="+replid;
 }
@@ -90,14 +90,14 @@ if (confirm(msg))
 <body leftmargin="0" topmargin="0">
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th scope="row" align="right">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>BULETIN JIBAS.NET</strong></font><br /><br /></th>
+    <th scope="row" align="right">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>BULLETIN JIBAS.NET</strong></font><br /><br /></th>
   </tr><br />
   <tr>
     <th scope="row">
-    <div align="left"><!--<a href="#" onclick="tambah()"><img border="0" src="../images/ico/tambah.png" />Tambah Buletin</a>--></div><br />
+    <div align="left"><!--<a href="#" onclick="tambah()"><img border="0" src="../images/ico/tambah.png" />Add Buletin</a>--></div><br />
 <table width="100%" border="0" cellspacing="0">
 <tr>
-  <th height="30" class="header" scope="row">Buletin</th>
+  <th height="30" class="header" scope="row">Bulletin</th>
   <th height="30" class="header" scope="row">Status</th>
 </tr> 
 <?
@@ -114,7 +114,7 @@ if (@mysql_num_rows($result2)>0){
 	$row3=@mysql_fetch_array($result3);
 	$nama=$row3[nama];
 	} else {
-	$nama="Administrator JIBAS INFOGURU";
+	$nama="Administrator JIBAS TEACHERS INFO";
 	}
 }
 ?>
@@ -133,16 +133,16 @@ if (@mysql_num_rows($result2)>0){
       </div>	  </td>
   </tr>
   <tr style="border:none;">
-  <td><div align="right"><img src="../images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacabuletin('<?=$row[replid]?>')" >Baca Selengkapnya</a></div><div align="left"><font color="#666666" size="1" face="Arial"><br /><em>Posted By : <?=$nama?>&nbsp;,On : <?=LongDateFormat($row['tanggalbuletin'])?>&nbsp;<?=$row['jam']?></em></font></div></td>
+  <td><div align="right"><img src="../images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacabuletin('<?=$row[replid]?>')" >Read more</a></div><div align="left"><font color="#666666" size="1" face="Arial"><br /><em>Posted By : <?=$nama?>&nbsp;,On : <?=LongDateFormat($row['tanggalbuletin'])?>&nbsp;<?=$row['jam']?></em></font></div></td>
   </tr>
 </table>	</th>
   		<th scope="row">
 		<? if ($row[approved] == 1) { ?>
 				<a title="Approved!" href="JavaScript:setapproved(<?=$row[replid] ?>, <?=$row[approved] ?>)"><img src="../images/ico/ok.png" border="0" onMouseOver="showhint('', this, event, '50px')"/></a>
 <?			} else { ?>
-				<a title="Not Yet Approved!" href="JavaScript:setapproved(<?=$row[replid] ?>, <?=$row[approved] ?>)"><img src="../images/ico/not_ok.png" border="0" onMouseOver="showhint('Approved!', this, event, '50px')"/></a>
+				<a title="Not Approved Yet!" href="JavaScript:setapproved(<?=$row[replid] ?>, <?=$row[approved] ?>)"><img src="../images/ico/not_ok.png" border="0" onMouseOver="showhint('Approved', this, event, '50px')"/></a>
 <?			} ?>
-		<a title="Hapus!" href="JavaScript:hapus(<?=$row[replid] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('', this, event, '50px')"/></a>
+		<a title="Delete!" href="JavaScript:hapus(<?=$row[replid] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('', this, event, '50px')"/></a>
         </th>
 </tr>
 <? } ?>

@@ -50,7 +50,7 @@ if (isset($_REQUEST['Simpan'])){
 	$result = QueryDb($sql);
 	$num	= @mysql_num_rows($result);
 	if ($num>0){
-		$err = "Nama perpustakaan $nama sudah digunakan!";
+		$err = "Library name $nama has been used";
 	} else {
 		$sql2 	= "UPDATE ".$db_name_umum.".identitas SET nama='$nama',alamat1='$alamat',telp1='$telp1',telp2='$telp2',fax1='$fax',situs='$website',email='$email' WHERE status=1 AND perpustakaan='$perpustakaan'";
 		QueryDb($sql2);
@@ -67,33 +67,33 @@ if (isset($_REQUEST['Simpan'])){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pengaturan Informasi Header</title>
+<title>Settings Header Information</title>
 <link href="../sty/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 <div id="title" align="right">
 	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-	<font style="font-size:18px; color:#999999">Informasi Header</font><br />
+	<font style="font-size:18px; color:#999999">Header Information</font><br />
 </div>
 <form action="AddInfo.php" method="post">
 <input type="hidden" name="Action" value="<?=$_REQUEST[op]?>" />
 <input type="hidden" name="perpustakaan" value="<?=$perpustakaan?>" /> 
 <table width="100%" border="0" cellspacing="3">
   <tr>
-    <td width="34%" align="right">Nama Perpustakaan</td>
+    <td width="34%" align="right">Library Name</td>
     <td width="66%"><input type="text" name="nama" id="nama" class="inputtxt" style="width:175px" value="<?=$row[nama]?>" /></td>
   </tr>
   <tr>
-    <td align="right">Alamat</td>
+    <td align="right">Address</td>
     <td><textarea name="alamat" class="areatxt" id="alamat" cols="28" rows="3"><?=$row[alamat1]?></textarea></td>
   </tr>
   <tr>
-    <td align="right">Telepon 1</td>
+    <td align="right">Phone 1</td>
     <td><input type="text" name="telp1" id="telp1" class="inputtxt" style="width:175px" value="<?=$row[telp1]?>" /></td>
   </tr>
   <tr>
-    <td align="right">Telepon 2</td>
+    <td align="right">Phone 2</td>
     <td><input type="text" name="telp2" id="telp2" class="inputtxt" style="width:175px" value="<?=$row[telp2]?>" /></td>
   </tr>
   <tr>
@@ -109,7 +109,7 @@ if (isset($_REQUEST['Simpan'])){
     <td><input type="text" name="email" id="email" class="inputtxt" style="width:175px" value="<?=$row[email]?>" /></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><input name="Simpan" type="submit" value="Simpan" class="btnfrm2" />&nbsp;&nbsp;<input type="button" value="Batal" onClick="window.close()" class="btnfrm2" /></td>
+    <td colspan="2" align="center"><input name="Simpan" type="submit" value="Save" class="btnfrm2" />&nbsp;&nbsp;<input type="button" value="Cancel" onClick="window.close()" class="btnfrm2" /></td>
   </tr>
 </table>
 

@@ -43,7 +43,7 @@ if (isset($_REQUEST['Simpan'])) {
 	
 	if (mysql_num_rows($hasil) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Status guru $status sudah digunakan!";
+		$ERROR_MSG = "Teacher Status $status has been used";
 	} else {
    		$sql_update= "UPDATE jbsakad.statusguru SET status='$_REQUEST[status]',keterangan='$_REQUEST[keterangan]' WHERE replid='$replid_baru'";
 		$hasil_update=QueryDb($sql_update); 
@@ -76,7 +76,7 @@ if (isset($_REQUEST['keterangan']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Status Guru]</title>
+<title>JIBAS SIMAKA [Edit Teacher Status]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -88,8 +88,8 @@ if (isset($_REQUEST['keterangan']))
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('status', 'Nama Status Guru') && 
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('status', 'Teacher Status Name') && 
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -110,7 +110,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Status Guru :.
+    .: Edit Teacher Status :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -125,22 +125,22 @@ function focusNext(elemName, evt) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Status Guru</strong></td>
+	<td width="120"><strong>Teacher Status</strong></td>
 	<td>
-    	<input type="text" name="status" id="status" size="30" maxlength="50" value="<?=$status ?>" onFocus="showhint('Nama status guru tidak boleh lebih dari 50 karakter!', this, event, '120px')" onKeyPress="return focusNext('keterangan', event)"/>
+    	<input type="text" name="status" id="status" size="30" maxlength="50" value="<?=$status ?>" onFocus="showhint('Teacher Status Name should not exceed 50 characters', this, event, '120px')" onKeyPress="return focusNext('keterangan', event)"/>
         <input type="hidden" name="replid_baru" id="replid_baru" value="<?=$replid?>"/>
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onKeyPress="return focusNext('Simpan', event)"><?=$keterangan?></textarea>
     </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
@@ -162,7 +162,7 @@ function focusNext(elemName, evt) {
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 </body>
 </html>

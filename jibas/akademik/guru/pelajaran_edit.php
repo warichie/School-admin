@@ -40,7 +40,7 @@ if (isset($_REQUEST['Simpan'])) {
 	
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Singkatan $_REQUEST[kode] sudah digunakan!";
+		$ERROR_MSG = "Code $_REQUEST[kode] has been used";
 	} else {
 		$sql = "UPDATE pelajaran SET kode='".CQ($_REQUEST['kode'])."',nama='".CQ($_REQUEST['nama'])."',sifat='$_REQUEST[sifat]',keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid='$replid'";
 		$result = QueryDb($sql);
@@ -83,7 +83,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Pelajaran]</title>
+<title>JIBAS SIMAKA [Edit Class Subject]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -91,9 +91,9 @@ CloseDb();
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('nama', 'Nama Pelajaran') &&
-		   validateEmptyText('kode', 'Nama Singkatan') &&
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('nama', 'Class Subject Name') &&
+		   validateEmptyText('kode', 'Code Name') &&
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -125,7 +125,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Pelajaran :.
+    .: Edit Class Subject :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -139,44 +139,44 @@ function panggil(elem){
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
 	<td><input type="text" name="departemen" id="departemen" size="10" value="<?=$departemen ?>" readonly class="disabled"/>
     </td>
 </tr>
 <tr>
-    <td><strong>Nama</strong></td>
+    <td><strong>Name</strong></td>
     <td>
-    	<input type="text" name="nama" id="nama" size="30" maxlength="50" value="<?=$nama ?>" onFocus="showhint('Nama pelajaran tidak boleh lebih dari 50 karakter!', this, event, '120px');panggil('nama')"  onKeyPress="return focusNext('kode', event)" />
+    	<input type="text" name="nama" id="nama" size="30" maxlength="50" value="<?=$nama ?>" onFocus="showhint('Subject Class Name should not exceed 50 characters', this, event, '120px');panggil('nama')"  onKeyPress="return focusNext('kode', event)" />
     </td>
 </tr>
 <tr>
-    <td><strong>Singkatan</strong></td>
+    <td><strong>Code</strong></td>
     <td>
-    	<input type="text" name="kode" id="kode" size="10" maxlength="4" value="<?=$kode ?>" onFocus="showhint('Nama singkatan tidak boleh lebih dari 4 karakter!', this, event, '120px');panggil('kode')"  onKeyPress="return focusNext('keterangan', event)" />
+    	<input type="text" name="kode" id="kode" size="10" maxlength="4" value="<?=$kode ?>" onFocus="showhint('Code should not exceed 4 characters', this, event, '120px');panggil('kode')"  onKeyPress="return focusNext('keterangan', event)" />
     </td>
 </tr>
 <tr>
-	<td><strong>Sifat</strong></td>
+	<td><strong>Characteristic</strong></td>
     <td>
 	<? if ($sifat == 1) {  ?> 	
-    	<input type="radio" name="sifat" value=1 checked />&nbsp;Wajib&nbsp;
-    	<input type="radio" name="sifat" value=0 />&nbsp;Tambahan&nbsp;
+    	<input type="radio" name="sifat" value=1 checked />&nbsp;Mandatory&nbsp;
+    	<input type="radio" name="sifat" value=0 />&nbsp;Extension&nbsp;
     <? } else { ?>
-		<input type="radio" name="sifat" value=1 />&nbsp;Wajib&nbsp;
-    	<input type="radio" name="sifat" value=0 checked />&nbsp;Tambahan&nbsp;
+		<input type="radio" name="sifat" value=1 />&nbsp;Mandatory&nbsp;
+    	<input type="radio" name="sifat" value=0 checked />&nbsp;Extension&nbsp;
     <? } ?>
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45"  onKeyPress="return focusNext('Simpan', event)" onFocus="panggil('keterangan')"><?=$keterangan ?></textarea>
     </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" onFocus="panggil('Simpan')"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" onFocus="panggil('Simpan')"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->

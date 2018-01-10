@@ -36,7 +36,7 @@ $P = new PegawaiInput();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -49,15 +49,15 @@ $P = new PegawaiInput();
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#ffffff">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <form method="post" enctype="multipart/form-data" name="main" onSubmit="return validate()">
 <table border="0" cellpadding="5" cellspacing="0" width="100%" id="table56">
 <tr>
 	<td width="100%" align="right" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:24px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Input Pegawai</font><br />
-        <a href="pegawai.php">Kepegawaian</a> &gt; Input Pegawai
+        <font class="subtitle">Employee</font><br />
+        <a href="pegawai.php">Employee Affair</a> &gt; Employee
     </td>
 </tr>
 <tr><td>
@@ -74,14 +74,14 @@ $P = new PegawaiInput();
 <tr>
 	<td align="right" valign="top"><strong>Status </strong>:</td>
     <td width="*" align="left" valign="top">
-	 <input type="radio" name="rbPNS" id="rbPNS" value="PNS" <?=StringIsChecked("PNS", $P->pns)?> />&nbsp;PNS&nbsp;&nbsp;
-	 <input type="radio" name="rbPNS" id="rbPNS" value="CPNS" <?=StringIsChecked("CPNS", $P->pns)?>/>&nbsp;CPNS&nbsp;&nbsp;
-	 <input type="radio" name="rbPNS" id="rbPNS" value="HONORER" <?=StringIsChecked("HONORER", $P->pns)?>/>&nbsp;Honorer&nbsp;
-	 <input type="radio" name="rbPNS" id="rbPNS" value="SWASTA" <?=StringIsChecked("SWASTA", $P->pns)?>/>&nbsp;Swasta&nbsp;
+	 <input type="radio" name="rbPNS" id="rbPNS" value="PNS" <?=StringIsChecked("PNS", $P->pns)?> />&nbsp;Government Employees&nbsp;&nbsp;
+	 <input type="radio" name="rbPNS" id="rbPNS" value="CPNS" <?=StringIsChecked("CPNS", $P->pns)?>/>&nbsp;Government Employees Candidate&nbsp;&nbsp;
+	 <input type="radio" name="rbPNS" id="rbPNS" value="HONORER" <?=StringIsChecked("HONORER", $P->pns)?>/>&nbsp;Honorary&nbsp;
+	 <input type="radio" name="rbPNS" id="rbPNS" value="SWASTA" <?=StringIsChecked("SWASTA", $P->pns)?>/>&nbsp;Private&nbsp;
     </td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Bagian </strong>:</td>
+	<td align="right" valign="top"><strong>Section</strong>:</td>
     <td width="*" align="left" valign="top">
 <?	 $sql = "SELECT bagian FROM jbssdm.bagianpegawai ORDER BY urutan";
 	 $res = QueryDb($sql);
@@ -94,7 +94,7 @@ $P = new PegawaiInput();
     </td>
 </tr>
 <tr>
-	<td width="140" align="right" valign="top"><strong>Nama </strong>:</td>
+	<td width="140" align="right" valign="top"><strong>Name </strong>:</td>
     <td width="*" align="left" valign="top">
     
     <table border="0" cellpadding="0" cellspacing="0">
@@ -104,22 +104,22 @@ $P = new PegawaiInput();
         <td width="120"><input type="text" name="txGelarAkhir" id="txGelarAkhir" size="10" maxlength="45" value="<?=$P->gelarakhir?>" onKeyPress="return focusNext('txPanggilan', event)"/></td>
     </tr>
     <tr>
-    	<td><font color="#999999"><em>gelar depan</em></font>&nbsp;</td>
+    	<td><font color="#999999"><em>title</em></font>&nbsp;</td>
         <td>&nbsp;</td>
-        <td><font color="#999999"><em>gelar belakang</em></font></td>
+        <td><font color="#999999"><em>academic title</em></font></td>
     </tr>
     </table>
 	
 	</td>
 </tr>
 <tr>
-	<td width="140" align="right" valign="top"><strong>Panggilan </strong>:</td>
+	<td width="140" align="right" valign="top"><strong>Abbreviation </strong>:</td>
     <td width="*" align="left" valign="top">
 	 <input type="text" name="txPanggilan" id="txPanggilan" size="40" maxlength="255" value="<?=$P->panggilan?>" onKeyPress="return focusNext('txNIP', event)"/>
     </td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>NIP </strong>:</td>
+	<td align="right" valign="top"><strong>Employee ID </strong>:</td>
     <td width="*" align="left" valign="top">
 		<input type="text" name="txNIP" id="txNIP" size="20" maxlength="30" value="<?=$P->nip?>" onKeyPress="return focusNext('txNUPTK', event)"/>
 	</td>
@@ -137,7 +137,7 @@ $P = new PegawaiInput();
 	</td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Tempat, Tgl Lahir </strong>:</td>
+	<td align="right" valign="top"><strong>Date of Birth </strong>:</td>
     <td width="*" align="left" valign="top">
     <input type="text" name="txTmpLahir" id="txTmpLahir" size="20" maxlength="25" value="<?=$P->tmplahir?>" onKeyPress="return focusNext('cbTglLahir', event)"/>, 
     <select id="cbTglLahir" name="cbTglLahir" onKeyPress="return focusNext('cbBlnLahir', event)">
@@ -153,7 +153,7 @@ $P = new PegawaiInput();
     <input type="text" name="txThnLahir" id="txThnLahir" size="4" maxlength="4" value="<?=$P->thnlahir?>" onKeyPress="return focusNext('cbAgama', event)"/>    </td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Agama :</strong>    </td>
+	<td align="right" valign="top"><strong>Religion:</strong>    </td>
     <td width="*" align="left" valign="top">
 	<span id="agama_info">
     <select name="cbAgama" id="cbAgama" onKeyPress="return focusNext('cbSuku', event)">
@@ -170,7 +170,7 @@ $P = new PegawaiInput();
 	</td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Suku :</strong>    </td>
+	<td align="right" valign="top"><strong>Ethnicity:</strong>    </td>
     <td width="*" align="left" valign="top">
 	<span id="suku_info">
     <select name="cbSuku" id="cbSuku" onKeyPress="return focusNext('cbNikah', event)">
@@ -187,32 +187,32 @@ $P = new PegawaiInput();
 	</td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Status Menikah :</strong>    </td>
+	<td align="right" valign="top"><strong>Marital Status :</strong>    </td>
     <td width="*" align="left" valign="top">
 	 <select name="cbNikah" id="cbNikah" onKeyPress="return focusNext('cbKelamin', event)">
-		 <option value="menikah" <?=StringIsSelected("menikah", $P->nikah)?> >Menikah</option>
-		 <option value="belum" <?=StringIsSelected("belum", $P->nikah)?> >Belum</option>
-		 <option value="tak_ada" <?=StringIsSelected("tak_ada", $P->nikah)?> >Tidak Ada Data</option>
+		 <option value="Married" <?=StringIsSelected("menikah", $P->nikah)?> >Married</option>
+		 <option value="Not Married" <?=StringIsSelected("belum", $P->nikah)?> >Not Married</option>
+		 <option value="None" <?=StringIsSelected("tak_ada", $P->nikah)?> >Data Not Found</option>
 	 </select>&nbsp;
 	</td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Jenis Kelamin :</strong>    </td>
+	<td align="right" valign="top"><strong>Gender :</strong>    </td>
     <td width="*" align="left" valign="top">
     <select name="cbKelamin" id="cbKelamin" onKeyPress="return focusNext('txAlamat', event)">
-	   	<option value="L" <?=StringIsSelected("L", $P->kelamin)?>>Laki-laki</option>
-        <option value="P" <?=StringIsSelected("P", $P->kelamin)?>>Perempuan</option>
+	   	<option value="L" <?=StringIsSelected("L", $P->kelamin)?>>Male</option>
+        <option value="P" <?=StringIsSelected("P", $P->kelamin)?>>Female</option>
     </select>&nbsp;    </td>
 </tr>
 
 <tr>
-	<td align="right" valign="top">Alamat :</td>
+	<td align="right" valign="top">Address :</td>
     <td width="*" align="left" valign="top"><input type="text" name="txAlamat" id="txAlamat" size="100" onKeyPress="return focusNext('txHP', event)" maxlength="255" value="<?=$P->alamat?>"/></td>
 </tr>
 <tr>
-	<td align="right" valign="top">HP :</td>
+	<td align="right" valign="top">Mobile :</td>
     <td width="*" align="left" valign="top"><input type="text" name="txHP" id="txHP" size="15" maxlength="15" value="<?=$P->hp?>" onKeyPress="return focusNext('txTelpon', event)"/>
-    Telpon: <input type="text" name="txTelpon" id="txTelpon" size="15" maxlength="15" value="<?=$P->telpon?>" onKeyPress="return focusNext('txEmail', event)"/>    </td>
+    Phone: <input type="text" name="txTelpon" id="txTelpon" size="15" maxlength="15" value="<?=$P->telpon?>" onKeyPress="return focusNext('txEmail', event)"/>    </td>
 </tr>
 <tr>
 	<td align="right" valign="top">Email :</td>
@@ -239,13 +239,13 @@ $P = new PegawaiInput();
 	</td>
 </tr>
 <tr>
-	<td align="right" valign="top">Foto :</td>
+	<td align="right" valign="top">Photo :</td>
 	<td align="left" valign="top">
 		<input type="file" name="foto" id="foto" size="30" />
 	</td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Mulai Kerja :</strong></td>
+	<td align="right" valign="top"><strong>Start Working :</strong></td>
     <td width="*" align="left" valign="top">
     <select id="cbTglMulai" name="cbTglMulai" onKeyPress="return focusNext('cbBlnMulai', event)">
 <?	for ($i = 1; $i <= 31; $i++) { ?>    
@@ -261,13 +261,13 @@ $P = new PegawaiInput();
     <input type="text" name="txThnMulai" id="txThnMulai" onKeyPress="return focusNext('cbGolongan', event)" size="4" maxlength="4" value="<?=$P->thnmulai?>"/>    </td>
 </tr>
 <tr>
-	<td align="right" valign="top">Keterangan :</td>
+	<td align="right" valign="top">Info :</td>
     <td width="*" align="left" valign="top">
     <textarea id="txKeterangan" name="txKeterangan" rows="3" cols="60" onKeyPress="return focusNext('btSubmit', event)"><?=$P->keterangan?></textarea>    </td>
 </tr>
 <tr>
 	<td align="center" valign="top" colspan="2" bgcolor="#CCCCCC">
-    <input type="submit" value="Simpan" name="btSubmit" id="btSubmit" class="but" />    </td>
+    <input type="submit" value="Save" name="btSubmit" id="btSubmit" class="but" />    </td>
 </tr>
 </table>
 <?

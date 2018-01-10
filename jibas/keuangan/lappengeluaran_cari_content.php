@@ -198,23 +198,23 @@ function change_baris() {
     <table border="0" width="100%" align="center">
     <tr>
         <td align="right">
-        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0"  onMouseOver="showhint('Refresh!', this, event, '50px')" />&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
-        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka di Ms Excel!', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
+        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0"  onMouseOver="showhint('Refresh', this, event, '50px')" />&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
+        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Open in Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
         </td>
     </tr>
     </table>
     <br />
    <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr align="center" class="header" height="30">
-        <td width="4%">No</td>
-        <td width="10%" height="30" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('p.tanggal','<?=$urutan?>')">Tanggal <?=change_urut('p.tanggal',$urut,$urutan)?></td>
-        <td width="15%" height="30" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('namapengeluaran','<?=$urutan?>')">Pengeluaran <?=change_urut('namapengeluaran',$urut,$urutan)?></td>
-        <td width="15%">Pemohon</td>
+        <td width="4%">#</td>
+        <td width="10%" height="30" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('p.tanggal','<?=$urutan?>')">Date <?=change_urut('p.tanggal',$urut,$urutan)?></td>
+        <td width="15%" height="30" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('namapengeluaran','<?=$urutan?>')">Expenditure <?=change_urut('namapengeluaran',$urut,$urutan)?></td>
+        <td width="15%">Applicant</td>
         <td width="10%" height="30" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('penerima','<?=$urutan?>')">Penerima <?=change_urut('penerima',$urut,$urutan)?></td>
-        <td width="10%" height="30" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('jumlah','<?=$urutan?>')">Jumlah <?=change_urut('jumlah',$urut,$urutan)?></td>
-        <td width="*" >Keperluan</td>
-        <td width="7%" height="30" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('petugas','<?=$urutan?>')">Petugas <?=change_urut('petugas',$urut,$urutan)?></td>
+        <td width="10%" height="30" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('jumlah','<?=$urutan?>')">Sum <?=change_urut('jumlah',$urut,$urutan)?></td>
+        <td width="*" >Necessities</td>
+        <td width="7%" height="30" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('petugas','<?=$urutan?>')">Officer <?=change_urut('petugas',$urut,$urutan)?></td>
         <td width="7%">&nbsp;</td>
     </tr>
     <?
@@ -255,14 +255,14 @@ function change_baris() {
         <td valign="top"><?=$row['penerima'] ?></td>
         <td align="right" valign="top"><?=FormatRupiah($row['jumlah']) ?></td>
         <td valign="top">
-        <strong>Keperluan: </strong><?=$row['keperluan'] ?><br />
-        <strong>Keterangan: </strong><?=$row['keterangan'] ?>
+        <strong>Necessities: </strong><?=$row['keperluan'] ?><br />
+        <strong>Info: </strong><?=$row['keterangan'] ?>
         </td>
         <td valign="top" align="center"><?=$row['petugas'] ?></td>
         <td valign="top" align="center">
-        <a href="JavaScript:cetakbukti(<?=$row['id'] ?>)"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak Bukti Pengeluaran Kas!', this, event, '150px')"/></a>&nbsp;
+        <a href="JavaScript:cetakbukti(<?=$row['id'] ?>)"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print Proof of Expenditure Kas', this, event, '150px')"/></a>&nbsp;
     <?  if (getLevel() != 2) { ?>        
-        <a href="JavaScript:edit(<?=$row['id'] ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Pembayaran Pengeluaran!', this, event, '100px')"/></a>
+        <a href="JavaScript:edit(<?=$row['id'] ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Payment Expenditure', this, event, '100px')"/></a>
    
     <?  } ?>    
         </td>
@@ -274,7 +274,7 @@ function change_baris() {
     <? if ($page==$total-1){ ?>
 	<tr height="30">
         <td colspan="5" align="center" bgcolor="#999900">
-        <font color="#FFFFFF"><strong>T O T A L</strong></font>
+        <font color="#FFFFFF"><strong>Total</strong></font>
         </td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalbiayaB) ?></strong></font></td>
         <td colspan="3" bgcolor="#999900">&nbsp;</td>
@@ -308,18 +308,18 @@ function change_baris() {
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left" colspan="2">Halaman
-		<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+       	<td width="30%" align="left" colspan="2">Page
+		<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-		<input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
-	  	dari <?=$total?> halaman
+		<input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
+	  	from <?=$total?> pages
 		
  		</td>
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -332,7 +332,7 @@ function change_baris() {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="250">
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br />Silahkan ulangi pencarian kembali. </font>
+            <font size = "2" color ="red"><b>Data Not Found<br />Try search with another keywords. </font>
             
         </td>
     </tr>

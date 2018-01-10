@@ -33,7 +33,7 @@
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_komentar.png"
     style="background-repeat:no-repeat;">
-        <p><font size="2" color="#757575"><b>Click pada ikon <img src="../images/ico/view.png" width="48" height="48"> di atas untuk melihat daftar komentar</b></font></p>
+        <p><font size="2" color="#757575"><b>Click on <img src="../images/ico/view.png" width="48" height="48"> icon above to show comments list</b></font></p>
     </td>
 </tr>
 </table>

@@ -34,18 +34,18 @@
     <table border="0"width="100%" align="center">
     <!-- TABLE TITLE -->
     <tr>
-      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pembayaran Pengeluaran</font></div></td>
+      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Payment Expenditure</font></div></td>
     </tr>
     
     <tr>
       <td align="left" valign="top"><div align="right"><a href="pengeluaran.php" target="_parent">
-        <font size="1" color="#000000"><b>Pengeluaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Pembayaran Pengeluaran</b></font> </div></td>
+        <font size="1" color="#000000"><b>Expenditure</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Payment Expenditure</b></font> </div></td>
     </tr>
     
 	</table>
     
     <br><br><br><br><br><br><br><br><br><br>
-        <font size="2" color="#757575"><b>Klik pada <em>hyperlink</em> "<strong>Pengeluaran</strong>" di panel kiri untuk melakukan pembayaran pengeluaran</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on <em>hyperlink</em> "<strong>Expenditure</strong>" on the left panel untuk melakukan pembayaran pengeluaran</b></font>    </td>
 </tr>
 </table>
 </body>

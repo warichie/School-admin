@@ -59,16 +59,16 @@ if (isset($_REQUEST['btSubmit']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tambah Riwayat Pekerjaan</title>
+<title>Add Work History</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 function validate()
 {
-	return validateEmptyText('txNama', 'Nama Keluarga') &&
+	return validateEmptyText('txNama', 'Name Keluarga') &&
 		   validateEmptyText('txHubungan', 'Hubungan Keluarga') && 
-           validateEmptyText('txTglLahir', 'Tanggal Lahir');
+           validateEmptyText('txTglLahir', 'Date Lahir');
 }
 
 function focusNext(elemName, evt)
@@ -90,33 +90,33 @@ function focusNext(elemName, evt)
 <input type="hidden" name="nip" id="nip" value="<?=$nip?>" />
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr height="30">
-	<td width="100%" class="header" align="center">Tambah Data Keluarga</td>
+	<td width="100%" class="header" align="center">Add Family Data</td>
 </tr>
 <tr>
 	<td width="100%" align="center">
     
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
-    	<td width="25%" align="right"><strong>Nama</strong> : </td>
+    	<td width="25%" align="right"><strong>Name</strong> : </td>
 	    <td width="*" align="left" valign="top">
 		    <input type="text" name="txNama" id="txNama" value="<?=$nama?>" onKeyPress="return focusNext('txHubungan', event)" size="25" maxlength="255"/>
 			<input type="checkbox" name="ckAlm" id="ckAlm" <?=$isalm?>>&nbsp;<i>almarhum</i>
     	</td>
 	</tr>
 	<tr>
-    	<td width="25%" align="right"><strong>Hubungan</strong> : </td>
+    	<td width="25%" align="right"><strong>Relationship</strong> : </td>
 	    <td width="*" align="left" valign="top">
 		    <input type="text" name="txHubungan" id="txHubungan" value="<?=$hubungan?>" onKeyPress="return focusNext('txTglLahir', event)" size="25" maxlength="255"/>
     	</td>
 	</tr>
 	<tr>
-    	<td width="25%" align="right"><strong>Tanggal Lahir</strong> : </td>
+    	<td width="25%" align="right"><strong>Date of Birth</strong> : </td>
 	    <td width="*" align="left" valign="top">
 		    <input type="text" name="txTglLahir" id="txTglLahir" value="<?=$tgllahir?>" onKeyPress="return focusNext('txHp', event)" size="25" maxlength="255"/>
     	</td>
 	</tr>
 	<tr>
-    	<td width="25%" align="right">HP : </td>
+    	<td width="25%" align="right">Mobile : </td>
 	    <td width="*" align="left" valign="top">
 		    <input type="text" name="txHp" id="txHp" value="<?=$hp?>" onKeyPress="return focusNext('txEmail', event)" size="25" maxlength="255"/>
     	</td>
@@ -128,7 +128,7 @@ function focusNext(elemName, evt)
     	</td>
 	</tr>
     <tr>
-    	<td align="right" valign="top">Keterangan : </td>
+    	<td align="right" valign="top">Info : </td>
 	    <td align="left" valign="top">
             <textarea id="txKeterangan" name="txKeterangan" rows="2" cols="37"><?=$keterangan?></textarea>
         </td>
@@ -136,8 +136,8 @@ function focusNext(elemName, evt)
     <tr>
     	<td align="right" valign="top">&nbsp;</td>
 	    <td align="left" valign="top">
-            <input type="submit" value="Simpan" name="btSubmit" class="but" />
-            <input type="button" value="Tutup" onClick="window.close()" class="but" />
+            <input type="submit" value="Save" name="btSubmit" class="but" />
+            <input type="button" value="Close" onClick="window.close()" class="but" />
         </td> 
     </tr>
     </table>

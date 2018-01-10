@@ -207,7 +207,7 @@ function ezColumnsStop(){
 }
 // ------------------------------------------------------------------------------
 function ezInsertMode($status=1,$pageNum=1,$pos='before'){
-  // puts the document into insert mode. new pages are inserted until this is re-called with status=0
+  // puts the document into insert mode. new pages are inserted to this is re-called with status=0
   // by default pages wil be inserted at the start of the document
   switch($status){
     case '1':

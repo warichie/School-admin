@@ -84,15 +84,15 @@ $no = $row[1];
 	<td valign="top" background="" style="background-repeat:no-repeat; background-attachment:fixed" width="100%">
     <table width="100%" border="0" cellspacing="0" cellpadding="2" height="100%">
    	<tr>
-    	<td class="news_title1"><font size="5">Data Pembayaran</font></td>
+    	<td class="news_title1"><font size="5">Payment Data</font></td>
    	</tr>
     <tr>
         <td class="nav_title"><?=$no . " - " . $namacalon?></td>
 <? if (($nwajib + $niuran) >  0) {	
 ?>
         <td align="right" >
-        <!--<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;-->
-        <a href="JavaScript:cetak('<?=$replid?>')"><img src="../img/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;        </td>
+        <!--<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;-->
+        <a href="JavaScript:cetak('<?=$replid?>')"><img src="../img/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;        </td>
     </tr>
     </table>
     <br />
@@ -135,23 +135,23 @@ while ($row = mysql_fetch_array($result)) {
         <td colspan="4" bgcolor="#99CC00"><font size="2"><strong><em><?=$namapenerimaan?></em></strong></font></td>
     </tr>    
     <tr height="25">
-        <td width="20%" bgcolor="#CCFF66"><strong>Total Bayaran</strong> </td>
+        <td width="20%" bgcolor="#CCFF66"><strong>Total Payment</strong> </td>
         <td width="15%" bgcolor="#FFFFFF" align="right"><?=FormatRupiah($besar) ?></td>
-        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Pembayaran Terakhir</strong></td>
-        <td width="43%" bgcolor="#CCFF66" align="center"><strong>Keterangan</strong></td>
+        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Last Payment</strong></td>
+        <td width="43%" bgcolor="#CCFF66" align="center"><strong>Info</strong></td>
     </tr>
     <tr height="25">
-        <td bgcolor="#CCFF66"><strong>Jumlah Besar Pembayaran</strong> </td>
+        <td bgcolor="#CCFF66"><strong>Payment Amount</strong> </td>
         <td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($pembayaran) ?></td>
         <td bgcolor="#FFFFFF" align="center" valign="top" rowspan="2"><?=FormatRupiah($byrakhir) . "<br><i>" . $tglakhir . "</i>" ?> </td>
         <td bgcolor="#FFFFFF" align="left" valign="top" rowspan="2"><?=$keterangan ?></td>
     </tr>
 	<tr height="25">
-        <td bgcolor="#CCFF66"><strong>Jumlah Diskon</strong> </td>
+        <td bgcolor="#CCFF66"><strong>Discount</strong> </td>
         <td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($diskon) ?></td>
     </tr>
     <tr height="25">
-        <td bgcolor="#CCFF66"><strong>Sisa Bayaran</strong> </td>
+        <td bgcolor="#CCFF66"><strong>Remaining Payment</strong> </td>
         <td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($sisa) ?></td>
     </tr>
     <tr height="3">
@@ -188,9 +188,9 @@ while ($row = mysql_fetch_array($result)) {
         <td colspan="4" bgcolor="#99CC00"><font size="2"><strong><em><?=$namapenerimaan?></em></strong></font></td>
     </tr>  
    	<tr height="25">
-        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Total Pembayaran</strong> </td>
-        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Pembayaran Terakhir</strong></td>
-        <td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><strong>Keterangan</strong></td>
+        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Total Payment</strong> </td>
+        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Last Payment</strong></td>
+        <td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><strong>Info</strong></td>
     </tr>
     <tr height="25">
         <td bgcolor="#FFFFFF" align="center"><?=FormatRupiah($pembayaran) ?></td>
@@ -211,9 +211,9 @@ while ($row = mysql_fetch_array($result)) {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="250">    
-            <font color ="red" size = "2" class="err"><b>Tidak ditemukan adanya data.         
+            <font color ="red" size = "2" class="err"><b>Data Not Found.         
             <br />
-            Tambah data pembayaran antara tanggal <?=LongDateFormat($tanggal1)." s/d ".LongDateFormat($tanggal2) ?> di menu Penerimaan Pembayaran pada bagian Penerimaan.
+            Add payment data between <?=LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2) ?> in the Admission Payment on Admission section.
             </b></font>        </td>
     </tr>
     </table>  

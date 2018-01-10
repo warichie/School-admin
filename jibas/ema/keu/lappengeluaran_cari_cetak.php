@@ -46,20 +46,20 @@ if (isset($_REQUEST['keyword']))
 	$keyword = $_REQUEST['keyword'];
 
 switch ($kriteria){
-	case 1 : $dasar = "Nama Pemohon";
+	case 1 : $dasar = "Applicant";
 		break;
-	case 2 : $dasar = "Nama Penerima";
+	case 2 : $dasar = "Recipient";
 		break;
-	case 3 : $dasar = "Nama Petugas";
+	case 3 : $dasar = "Officer";
 		break;
-	case 4 : $dasar = "Keperluan";
+	case 4 : $dasar = "Necessities";
 		break;
-	case 5 : $dasar = "Keterangan";
+	case 5 : $dasar = "Info";
 		break;				
 }
 $ndepartemen = $departemen;
 $ntahunbuku = getname2('tahunbuku',$db_name_fina.'.tahunbuku','replid',$idtahunbuku);
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 
 $urut = "nama";
 $urutan = "ASC";
@@ -69,7 +69,7 @@ $urutan = "ASC";
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Jurnal Penerimaan]</title>
+<title>JIBAS EMA [Print Admission Journal]</title>
 </head>
 
 <body>
@@ -80,26 +80,26 @@ $urutan = "ASC";
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>LAPORAN PENGELUARAN</strong></font><br />
+  <font size="4"><strong>EXPENDITURE REPORTS</strong></font><br />
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="8%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="8%" class="news_content1"><strong>Department</strong></td>
     <td width="92%" class="news_content1">: 
       <?=$departemen ?></td>
     </tr>
 <tr>
-  <td class="news_content1"><strong>Tahun Buku</strong></td>
+  <td class="news_content1"><strong>Fiscal Year</strong></td>
   <td class="news_content1">: 
       <?=$ntahunbuku ?></td>
   </tr>
 <tr>
-  <td class="news_content1"><strong>Periode</strong></td>
+  <td class="news_content1"><strong>Period</strong></td>
   <td class="news_content1">:
     <?=$nperiode ?></td>
   </tr>
 <tr>
-  <td class="news_content1"><strong>Berdasarkan</strong></td>
+  <td class="news_content1"><strong>Sort by</strong></td>
   <td class="news_content1">:
     <?=$dasar ?> '<?=$keyword?>'</td>
   </tr>
@@ -145,14 +145,14 @@ $urutan = "ASC";
     <input type="hidden" name="total" id="total" value="<?=$total?>"/>
    <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr align="center" class="header" height="30">
-        <td width="4%">No</td>
-        <td width="10%" height="30">Tanggal</td>
-        <td width="15%" height="30">Pengeluaran</td>
-        <td width="15%">Pemohon</td>
-        <td width="10%" height="30">Penerima</td>
-        <td width="10%" height="30">Jumlah</td>
-        <td width="*" >Keperluan</td>
-        <td width="7%" height="30">Petugas</td>
+        <td width="4%">#</td>
+        <td width="10%" height="30">Date</td>
+        <td width="15%" height="30">Expenditure</td>
+        <td width="15%">Applicant</td>
+        <td width="10%" height="30">Recipient</td>
+        <td width="10%" height="30">Sum</td>
+        <td width="*" >Necessities</td>
+        <td width="7%" height="30">Officer</td>
         </tr>
     <?
     
@@ -191,8 +191,8 @@ $urutan = "ASC";
         <td valign="top"><?=$row['penerima'] ?></td>
         <td align="right" valign="top"><?=FormatRupiah($row['jumlah']) ?></td>
         <td valign="top">
-        <strong>Keperluan: </strong><?=$row['keperluan'] ?><br />
-        <strong>Keterangan: </strong><?=$row['keterangan'] ?>        </td>
+        <strong>Necessities: </strong><?=$row['keperluan'] ?><br />
+        <strong>Info: </strong><?=$row['keterangan'] ?>        </td>
         <td valign="top" align="center"><?=$row['petugas'] ?></td>
         </tr>
     <?
@@ -201,7 +201,7 @@ $urutan = "ASC";
     ?>
     <tr height="30">
         <td colspan="5" align="center" bgcolor="#999900">
-        <font color="#FFFFFF"><strong>T O T A L</strong></font>        </td>
+        <font color="#FFFFFF"><strong>Total</strong></font>        </td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalbiaya) ?></strong></font></td>
         <td colspan="3" bgcolor="#999900">&nbsp;</td>
     </tr>

@@ -48,9 +48,9 @@ $idkelas=$_REQUEST['idkelas'];
 		if ($jumlah = mysql_num_rows($result_siswa)>0) {
 			?>
 			<tr>
-    <td width="70" class="header">No</td>
-    <td width="440" class="header">NIS</td>
-    <td width="477" class="header">Nama</td>
+    <td width="70" class="header">#</td>
+    <td width="440" class="header">Student ID</td>
+    <td width="477" class="header">Name</td>
    
 
   </tr>
@@ -76,7 +76,7 @@ $idkelas=$_REQUEST['idkelas'];
 		$cnt_siswa++;
 		} else {
 			?>
-<tr><td align="center" class="header">Tidak ada data yang sesuai dengan pencarian</td></tr>
+<tr><td align="center" class="header">No data found</td></tr>
 <?
 		
  }

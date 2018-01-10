@@ -37,7 +37,7 @@ if ($perpustakaan!='-1') {
 	$row 	= @mysql_fetch_row($result);
 	$nama	= $row[0];
 } else {
-	$nama = "<i>Semua</i>";
+	$nama = "<i>All</i>";
 }
 $from	= split('-',$from);
 $to		= split('-',$to);
@@ -48,7 +48,7 @@ $to		= split('-',$to);
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cetak Statistik Peminjam</title>
+<title>Print Borrowers Statistic</title>
 </head>
 
 <body>
@@ -58,7 +58,7 @@ $to		= split('-',$to);
 <? GetHeader($perpustakaan) ?>
 
 <center>
-  <strong><font size="4">STATISTIK PEMINJAM YANG PALING SERING MEMINJAM</font></strong>
+  <strong><font size="4">MOST BORROWING USERS STATISTIC</font></strong>
   <br /> 
 </center><br /><br />
 
@@ -68,15 +68,15 @@ $to		= split('-',$to);
     <td>
     	<table width="100%" border="0" cellspacing="1" cellpadding="1">
           <tr>
-            <td width="14%"><strong>Perpustakaan</strong></td>
+            <td width="14%"><strong>Library</strong></td>
             <td width="86%">&nbsp;<?=$nama?></td>
           </tr>
           <tr>
-            <td><strong>Periode</strong></td>
-            <td>&nbsp;<?=NamaBulan($from[1])?> <?=$from[0]?> s.d. <?=NamaBulan($to[1])?> <?=$to[0]?></td>
+            <td><strong>Period</strong></td>
+            <td>&nbsp;<?=NamaBulan($from[1])?> <?=$from[0]?> to <?=NamaBulan($to[1])?> <?=$to[0]?></td>
           </tr>
           <tr>
-            <td><strong>Jumlah&nbsp;data yang&nbsp;ditampilkan</strong></td>
+            <td><strong>Display</strong></td>
             <td valign="top">&nbsp;<?=$limit?></td>
           </tr>
         </table>
@@ -104,9 +104,9 @@ $to		= split('-',$to);
     <td>
     	<table width="90%" border="1" cellspacing="0" cellpadding="0" class="tab">
           <tr>
-            <td height="25" align="center" class="header">No</td>
-            <td height="25" align="center" class="header">Anggota</td>
-            <td height="25" align="center" class="header">Jumlah</td>
+            <td height="25" align="center" class="header">#</td>
+            <td height="25" align="center" class="header">Member</td>
+            <td height="25" align="center" class="header">Sum</td>
           </tr>
           <? if (@mysql_num_rows($result)>0) { ?>
           <? $cnt=1; ?>
@@ -124,7 +124,7 @@ $to		= split('-',$to);
           <? } ?>
           <? } else { ?>
           <tr>
-            <td height="20" align="center" colspan="3" class="nodata">Tidak ada data</td>
+            <td height="20" align="center" colspan="3" class="nodata">Data Not Found.</td>
           </tr>	
           <? } ?>
       </table>
@@ -157,7 +157,7 @@ function GetMemberName($idanggota){
 				$row3 = @mysql_fetch_array($result3);
 				return $row3[nama];
 			} else {
-				return "Tanpa Nama";
+				return "No name.";
 			}
 		}
 	}

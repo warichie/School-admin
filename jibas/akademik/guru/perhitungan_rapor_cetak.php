@@ -50,7 +50,7 @@ $guru = $row[2].' - '.$row[3];
 <head>
 <title></title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<title>JIBAS SIMAKA [Cetak Perhitungan Nilai Rapor]</title>
+<title>JIBAS SIMAKA [Print Report Card Calculation]</title>
 </head>
 <body>
 <center>
@@ -61,21 +61,21 @@ $guru = $row[2].' - '.$row[3];
     <td align="left" valign="top">
 	 <?=getHeader($departemen)?>
 <center>
-  <font size="4"><strong>ATURAN PERHITUNGAN NILAI RAPOR</strong></font><br />
+  <font size="4"><strong>REPORT CARD CALCULATION RULES</strong></font><br />
  </center><br /><br />
 <br />
 
 <table>
     <tr>
-		<td><strong>Departemen</strong>	</td>
+		<td><strong>Department</strong>	</td>
     	<td><strong>: <?=$departemen ?></strong></td>
     </tr>
     <tr>
-        <td><strong>Pelajaran</strong></td>
+        <td><strong>Class Subject</strong></td>
     	<td><strong>: <?=$pelajaran ?></strong></td>
    	</tr>
     <tr>
-        <td><strong>Guru</strong></td>  	
+        <td><strong>Teacher</strong></td>  	
         <td><strong>: <?=$guru ?></strong></td>       
 	</tr>
     </table>
@@ -93,12 +93,12 @@ $guru = $row[2].' - '.$row[3];
         if (@mysql_num_rows($result_at)>0)
 		{ ?>
   <br>
-  <b>Tingkat <?=$row_tkt['tingkat'] ?></b><br /><br />
+  <b>Grade <?=$row_tkt['tingkat'] ?></b><br /><br />
   <table border="1" width="100%" id="table" class="tab">
   	<tr>
-		<td height="30" align="center" class="header">No</td>
-		<td height="30" align="center" class="header">Aspek Penilaian</td>
-		<td height="30" align="center" class="header">Bobot Perhitungan Nilai Rapor </td>
+		<td height="30" align="center" class="header">#</td>
+		<td height="30" align="center" class="header">Assessment Aspect</td>
+		<td height="30" align="center" class="header">Report Card Point Quality </td>
 		
 	</tr>
 <?	$i=1;

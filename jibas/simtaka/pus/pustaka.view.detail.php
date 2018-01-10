@@ -46,7 +46,7 @@ $abstraksi = stripslashes($row[abstraksi]);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Detail Pustaka</title>
+<title>Library Details</title>
 <link href="../sty/style.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../scr/tools.js"></script>
 <script language="javascript" src="pustaka.daftar.js"></script>
@@ -66,14 +66,14 @@ $abstraksi = stripslashes($row[abstraksi]);
       <tr>
         <td  align="left">
 			<? if($sender!='opac'){ ?>
-            <a href="javascript:cetak(<?=$replid?>)"><img src="../img/ico/print1.png" width="16" height="16" border="0" />&nbsp;Cetak</a>&nbsp;&nbsp;
+            <a href="javascript:cetak(<?=$replid?>)"><img src="../img/ico/print1.png" width="16" height="16" border="0" />&nbsp;Print</a>&nbsp;&nbsp;
             <? } ?>
-			<!--<a href="javascript:cetak_nomor(<?=$replid?>)"><img src="../img/ico/print1.png" width="16" height="16" border="0" />&nbsp;Cetak&nbsp;Label</a>&nbsp;&nbsp;-->
-			<a href="javascript:window.close()"><img src="../img/ico/hapus.png" border="0" />&nbsp;Tutup</a>
+			<!--<a href="javascript:cetak_nomor(<?=$replid?>)"><img src="../img/ico/print1.png" width="16" height="16" border="0" />&nbsp;Print&nbsp;Label</a>&nbsp;&nbsp;-->
+			<a href="javascript:window.close()"><img src="../img/ico/hapus.png" border="0" />&nbsp;Close</a>
 		</td>
         <td  align="right">
        	  <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-    		<font style="font-size:18px; color:#999999">Detail Pustaka</font><br />
+    		<font style="font-size:18px; color:#999999">Library Details</font><br />
    		  <br /><br />
         </td>
       </tr>
@@ -81,11 +81,11 @@ $abstraksi = stripslashes($row[abstraksi]);
 </div>
 <table width="100%" border="0" cellspacing="5" cellpadding="5">
   <tr>
-    <td width="8%" align="right" valign="top"><span class="style1">Judul</span></td>
+    <td width="8%" align="right" valign="top"><span class="style1">Title</span></td>
     <td colspan="2"><?=$judul?>    </td>
   </tr>
   <tr>
-    <td align="right" valign="top"><? if($sender!='opac'){ ?><span class="style1">Harga&nbsp;Satuan</span><? } ?></td>
+    <td align="right" valign="top"><? if($sender!='opac'){ ?><span class="style1">Unit Price</span><? } ?></td>
     <td width="92%"><? if($sender!='opac'){ ?><?=FormatRupiah($harga)?><? } ?></td>
     <td width="92%" rowspan="7" valign="top">
     	<div style="margin-left:10px">
@@ -97,7 +97,7 @@ $abstraksi = stripslashes($row[abstraksi]);
    	    </div>    </td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Katalog</strong></td>
+    <td align="right" valign="top"><strong class="style1">Catalogue</strong></td>
     <td>
 	<? 
 		$sql = "SELECT kode,nama FROM katalog WHERE replid='$katalog'";
@@ -107,7 +107,7 @@ $abstraksi = stripslashes($row[abstraksi]);
 	?>    </td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Penerbit</strong></td>
+    <td align="right" valign="top"><strong class="style1">Publisher</strong></td>
     <td>
 	<? 
 		$sql = "SELECT kode,nama FROM penerbit WHERE replid='$penerbit'";
@@ -117,7 +117,7 @@ $abstraksi = stripslashes($row[abstraksi]);
 	?>    </td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Penulis</strong></td>
+    <td align="right" valign="top"><strong class="style1">Author</strong></td>
     <td>
 	<? 
 		$sql = "SELECT kode,nama FROM penulis WHERE replid='$penulis'";
@@ -127,7 +127,7 @@ $abstraksi = stripslashes($row[abstraksi]);
 	?>    </td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Tahun&nbsp;Terbit</strong></td>
+    <td align="right" valign="top"><strong class="style1">Year Published</strong></td>
     <td><?=$tahun?></td>
   </tr>
   <tr>
@@ -145,15 +145,15 @@ $abstraksi = stripslashes($row[abstraksi]);
     <td><?=$keyword?></td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Keterangan&nbsp;Fisik</strong></td>
+    <td align="right" valign="top"><strong class="style1">Physical Info</strong></td>
     <td colspan="2"><?=$keteranganfisik?></td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Abstraksi</strong></td>
+    <td align="right" valign="top"><strong class="style1">Abstraction</strong></td>
     <td colspan="2"><?=chg_p_to_div($abstraksi)?></td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Alokasi&nbsp;Jumlah</strong></td>
+    <td align="right" valign="top"><strong class="style1">Allocation</strong></td>
 <td>
         <?
 		$sql = "SELECT p.nama,COUNT(d.replid) FROM daftarpustaka d, perpustakaan p WHERE d.pustaka='$replid' AND d.perpustakaan=p.replid GROUP BY d.perpustakaan ORDER BY p.nama";
@@ -163,8 +163,8 @@ $abstraksi = stripslashes($row[abstraksi]);
 		?>
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
           <tr>
-            <td height="25" align="center" class="header">Perpustakaan</td>
-            <td height="25" align="center" class="header">Jumlah</td>
+            <td height="25" align="center" class="header">Library</td>
+            <td height="25" align="center" class="header">Sum</td>
           </tr>
           <?
 		  while ($row = @mysql_fetch_row($result)){

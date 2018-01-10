@@ -20,7 +20,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
-<title>JIBAS InfoSiswa</title>
+<title>JIBAS Student Info</title>
 <link rel="SHORTCUT ICON" href="images/jibas.ico">
 <frameset rows="87,*,27" border="0" frameborder="0" framespacing="0">
 	<frame name="frametop" src="frametop.php" noresize="noresize" scrolling="no" />

@@ -48,7 +48,7 @@ $row = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Form Pengisian Komentar Rapor Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Comments Form]</title>
 </head>
 
 <body topmargin="0" leftmargin="0">
@@ -56,46 +56,46 @@ $row = mysql_fetch_array($result);
 <tr><td align="left" valign="top">
 <?=getHeader($row[dep])?>
 <center>
-  <font size="4"><strong>FORM PENGISIAN KOMENTAR RAPOR SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT REPORT CARD COMMENT FORM</strong></font><br />
  </center><br /><br />
 
 <br />
 <table>
 <tr>
-  	<td><strong>Departemen</strong></td>
+  	<td><strong>Department</strong></td>
   	<td width="30%"><strong>:&nbsp;<?=$row['departemen'] ?></strong></td>
-    <td rowspan="2" valign="top"><strong>Tanggal</strong></td>  	
+    <td rowspan="2" valign="top"><strong>Date</strong></td>  	
   	<td rowspan="2" valign="top"><strong>:&nbsp;_________________</strong></td>
 </tr>
 <tr>
-    <td><strong>Tahun Ajaran</strong></td>
+    <td><strong>Year</strong></td>
   	<td><strong>:&nbsp;<?=$row['tahunajaran']?></strong>
     </td>
 </tr>
 <tr>
     <td><strong>Semester</strong></td>
   	<td><strong>:&nbsp;<?=$row['namasemester']?></strong></td>
-    <td rowspan="2" valign="top"><strong>Jenis Pengujian</strong></td>  
+    <td rowspan="2" valign="top"><strong>Exam Type</strong></td>  
   	<td rowspan="2" valign="top"><strong>:&nbsp;_______________________________________</strong></td>
 </tr>
 <tr>
-    <td><strong>Kelas</strong></td>
+    <td><strong>Class</strong></td>
   	<td><strong>:&nbsp;<?=$row['tingkat'] ?>&nbsp;-&nbsp;<?=$row['namakelas']?></strong></td>
 </tr>
 <tr>
-    <td><strong>Pelajaran</strong></td>
+    <td><strong>Class Subject</strong></td>
   	<td><strong>:&nbsp;<?=$row['nama']?></strong></td>
-    <td valign="top" rowspan="2"><strong>Keterangan</strong></td>
+    <td valign="top" rowspan="2"><strong>Info</strong></td>
    	<td valign="top" rowspan="2"><strong>:&nbsp;_______________________________________</strong></td>		
 </tr>
 </table>
 <br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left">
   	<tr height="30" class="header" align="center">
-        <td width="4%">No</td>
-        <td width="12%">N I S</td>
-        <td width="20%">Nama</td>
-        <td width="*">Komentar</td>
+        <td width="4%">#</td>
+        <td width="12%">Student ID</td>
+        <td width="20%">Name</td>
+        <td width="*">Comments</td>
   	</tr>
 <?  $sql_get_siswa="SELECT nis,nama,aktif FROM jbsakad.siswa WHERE idkelas='$kelas' ORDER BY nama";
 	$result_get_siswa=QueryDb($sql_get_siswa);
@@ -118,14 +118,14 @@ $row = mysql_fetch_array($result);
 	</td>
 </tr>
 <tr>
-	<td><?="Ket: *Status siswa tidak aktif lagi"; ?></td>
+	<td><?="PS: *Student Status back to inactive"; ?></td>
 </tr>
 <tr>
 	<td>
 	<table width="100%" border="0">
         <tr>
             <td width="80%" align="left"></td>
-            <td width="20%" align="center"><br><br>Guru</td>
+            <td width="20%" align="center"><br><br>Teacher</td>
         </tr>
         <tr>
             <td colspan="2" align="right">&nbsp;<br /><br /><br /><br /><br /></td>
@@ -134,7 +134,7 @@ $row = mysql_fetch_array($result);
             <td></td>
             <td valign="bottom" align="center"><strong><?=$row['guru']?></strong>
             <br /><hr />
-            <strong>NIP. <?=$nip?></strong>
+            <strong>Employee ID <?=$nip?></strong>
         </tr>
     </table>
     </td>

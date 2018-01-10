@@ -87,12 +87,12 @@ function validate(){
 	var judul=document.getElementById('judul').value;
 	var pesan=tinyMCE.get('pesan').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Pesan');
+		alert ('Message Title should not leave empty');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (pesan.length==0){
-		alert ('Anda harus mengisikan data untuk Pesan');
+		alert ('Message should not leave empty');
 		document.getElementById('pesan').focus();
 		return false;
 	}
@@ -163,41 +163,41 @@ function simpan(){
 <input type="hidden" name="sender" id="sender" value="tambah" />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td scope="row" align="left"><strong>Pesan Baru :</strong></td>
+    <td scope="row" align="left"><strong>New Message :</strong></td>
   </tr>
   <tr>
     <td scope="row" align="left" bgcolor="#FFFFFF">
     <table width="100%" border="1" cellspacing="0">
   <tr style="background-color:#e7e7cf;">
-    <th width="14%" scope="row">Judul</th>
+    <th width="14%" scope="row">Title</th>
     <td colspan="2"><input type="text" name="judul" id="judul" size="50" value="<?=$row['judul']?>" /></td>
   </tr>
   <tr>
-    <th scope="row">Tanggal Tampil</th>
-    <td colspan="2"><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled"  value="<?=$row['tanggal']?>"/><img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <th scope="row">Publish Date</th>
+    <td colspan="2"><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled"  value="<?=$row['tanggal']?>"/><img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
   <tr style="background-color:#e7e7cf;">
-    <th valign="top" scope="row">Pesan</th>
+    <th valign="top" scope="row">Message</th>
     <td colspan="2"><textarea name="pesan" id="pesan"><?=$row['pesan']?></textarea></td>
   </tr>
   <tr>
-    <th colspan="3" scope="row" align="left"><fieldset><legend>Lampiran</legend>
+    <th colspan="3" scope="row" align="left"><fieldset><legend>Attachment</legend>
     
     <table width="100%" border="1" cellspacing="0">
   <tr id="tr1" >
     <th width="2%" scope="row">#1</th>
     <th width="36%" scope="row"><?=$row1['namafile']?></th>
-    <th width="62%" scope="row"><div align="left"><? if ($row1['namafile']!="") { ?><img src="../../images/ico/hapus.png" onclick="hapusfile1()" title="Hapus file ini !" style="cursor:pointer" /><? } ?><input type="hidden" size="1" name="d1" id="d1" value="0"/><input type="hidden" name="repd1" id="repd1" value="<?=$row1[replid]?>" /></div></th>
+    <th width="62%" scope="row"><div align="left"><? if ($row1['namafile']!="") { ?><img src="../../images/ico/hapus.png" onclick="hapusfile1()" title="Delete this file" style="cursor:pointer" /><? } ?><input type="hidden" size="1" name="d1" id="d1" value="0"/><input type="hidden" name="repd1" id="repd1" value="<?=$row1[replid]?>" /></div></th>
   </tr>
   <tr id="tr2" >
     <th scope="row">#2</th>
     <th scope="row"><?=$row2['namafile']?></th>
-    <th scope="row"><div align="left"><? if ($row2['namafile']!="") { ?><img src="../../images/ico/hapus.png" onclick="hapusfile2()" title="Hapus file ini !" style="cursor:pointer" /><? } ?><input type="hidden" name="d2" id="d2" size="1" value="0" /><input type="hidden" name="repd2" id="repd2" value="<?=$row2[replid]?>" /></div></th>
+    <th scope="row"><div align="left"><? if ($row2['namafile']!="") { ?><img src="../../images/ico/hapus.png" onclick="hapusfile2()" title="Delete this file" style="cursor:pointer" /><? } ?><input type="hidden" name="d2" id="d2" size="1" value="0" /><input type="hidden" name="repd2" id="repd2" value="<?=$row2[replid]?>" /></div></th>
   </tr>
   <tr id="tr3" >
     <th scope="row">#3</th>
     <th scope="row"><?=$row3['namafile']?></th>
-    <th scope="row"><div align="left"><? if ($row3['namafile']!="") { ?><img src="../../images/ico/hapus.png" onclick="hapusfile3()" title="Hapus file ini !" style="cursor:pointer" /><? } ?>
+    <th scope="row"><div align="left"><? if ($row3['namafile']!="") { ?><img src="../../images/ico/hapus.png" onclick="hapusfile3()" title="Delete this file" style="cursor:pointer" /><? } ?>
 <input type="hidden" name="d3" size="1" id="d3" value="0" /><input type="hidden" name="repd3" id="repd3" value="<?=$row3[replid]?>" /></div></th>
   </tr>
 </table>
@@ -205,7 +205,7 @@ function simpan(){
     </fieldset></th>
     </tr>
   <tr>
-    <td colspan="2"><strong>Lampiran Baru :</strong></td>
+    <td colspan="2"><strong>New Attachment :</strong></td>
     </tr>
   <tr>
     <td width="2%"><div align="center"><strong>#1</strong></div></td>

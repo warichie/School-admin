@@ -91,7 +91,7 @@ else
 	RollbackTrans();
 	CloseDb(); ?>
 	<script language="javascript">
-		alert ('Data gagal disimpan');
+		alert ('Failed to save data');
 	</script>
 <? 
 }		

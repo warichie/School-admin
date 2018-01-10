@@ -45,13 +45,13 @@ OpenDb();
 ?>
 <table border="0" cellspacing="3" cellpadding="0" width="80%">
 <tr>
-    <td width="100">Departemen:</td>
+    <td width="100">Department:</td>
     <td>
     <input type="text" name="departemen" size="15" id="departemen" value="<?=$departemen ?>" readonly="readonly" style="background-color:#CCCC00" />
     </td>
 </tr>    
 <tr>
-    <td width="100">Angkatan:</td>
+    <td width="100">Graduates:</td>
     <td>
     <select id="idangkatan" name="idangkatan" style="width:150px" onchange="change_ang()">
 <?      $sql = "SELECT replid, angkatan FROM jbsakad.angkatan WHERE departemen = '$departemen' ORDER BY replid";
@@ -65,7 +65,7 @@ OpenDb();
     </td>
 </tr>    
 <tr>
-    <td width="100">Kelas:</td>
+    <td width="100">Class:</td>
     <td>
     <select id="idkelas" name="idkelas" style="width:150px" onchange="change_kel()">
 <?      $sql = "SELECT DISTINCT idkelas, kelas as namakelas FROM jbsakad.siswa, jbsakad.kelas, jbsakad.tingkat, jbsakad.tahunajaran  WHERE jbsakad.siswa.idkelas = jbsakad.kelas.replid AND idangkatan='$idangkatan' AND jbsakad.kelas.idtahunajaran = jbsakad.tahunajaran.replid AND jbsakad.kelas.idtingkat = jbsakad.tingkat.replid ORDER BY idkelas";
@@ -81,9 +81,9 @@ OpenDb();
 </table>
 <table border="0" id="table" class="tab" cellpadding="2" cellspacing="0" width="100%">
 <tr height="20">
-    <td class="header" width="5%" align="center">No</td>
-    <td class="header" width="30%" align="center">NIS</td>
-    <td class="header">Nama</td>
+    <td class="header" width="5%" align="center">#</td>
+    <td class="header" width="30%" align="center">Student ID</td>
+    <td class="header">Name</td>
 </tr>
 <? 
 $sql = "SELECT nis, nama FROM jbsakad.siswa WHERE idkelas = '$idkelas' ORDER BY nama";

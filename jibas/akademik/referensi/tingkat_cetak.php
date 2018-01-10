@@ -34,7 +34,7 @@ $departemen=$_REQUEST['departemen'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Tingkat]</title>
+<title>JIBAS SIMAKA [Print Grade]</title>
 </head>
 
 <body>
@@ -44,17 +44,17 @@ $departemen=$_REQUEST['departemen'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DATA TINGKAT</strong></font><br />
+  <font size="4"><strong>GRADE DATA</strong></font><br />
  </center><br /><br />
 
 <br />
-<strong>Departemen : <?=$departemen?></strong>
+<strong>Department : <?=$departemen?></strong>
 <br /><br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">Tingkat</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Grade</td>
+        <td width="*" class="header" align="center">Info</td>
          <td width="10%" class="header" align="center">Status</td>
     </tr>
 <? 	OpenDb();
@@ -68,9 +68,9 @@ $departemen=$_REQUEST['departemen'];
         <td><?=$row['keterangan'] ?></td>
         <td align="center">
 			<? if ($row['aktif'] == 1) 
-					echo 'Aktif';
+					echo 'Active';
 				else
-					echo 'Tidak Aktif';
+					echo 'Inactive';
 			?>		
         </td>
     </tr>

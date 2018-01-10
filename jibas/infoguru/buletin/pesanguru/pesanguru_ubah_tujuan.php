@@ -84,16 +84,16 @@ function ambil(){
 	}
 	if (jumkirim>0 && jumkirim==1){
 		document.getElementById("numpegawaikirim").value=jumkirim;
-		if (confirm('Kirimkan pesan kepada pegawai ini ?')){
+		if (confirm('Send message to this employee?')){
 			parent.pesanguru_ubah.validate();
 		}
 	} else if (jumkirim>1){
 		document.getElementById("numpegawaikirim").value=jumkirim;
-		if (confirm('Kirimkan pesan kepada pegawai-pegawai ini ?')){
+		if (confirm('Send message to these employees?')){
 			parent.pesanguru_ubah.validate();
 		}
 	} else if (jumkirim==0) {
-		alert ('Setidaknya harus ada 1 penerima untuk melanjutkan !');
+		alert ('You should have at least one receiver to be able to proceed');
 		return false;
 	}
 }
@@ -123,11 +123,11 @@ function cek_all() {
         </th>
   </tr>
   <tr height="80" bgcolor="#CCCCCC">
-    <th scope="row" ><input title="Kirim pesan !" type="button" class="but" onclick="ambil();" name="kirim" id="kirim" value="Kirim" />&nbsp;&nbsp;
-    <input title="Kembali ke Halaman Kotak Pesan !" type="button" class="but" onclick="batal();" name="cancel" id="cancel" value="Batal" />
+    <th scope="row" ><input title="Send message" type="button" class="but" onclick="ambil();" name="kirim" id="kirim" value="Send" />&nbsp;&nbsp;
+    <input title="Back to Inbox" type="button" class="but" onclick="batal();" name="cancel" id="cancel" value="Cancel" />
     	    </th>
     <th scope="row">&nbsp;<select name="bagian" id="bagian" onchange="chg_bag()">
-        	<option value="-1" <?=StringIsSelected("-1",$bagian)?>>Semua Bagian</option>
+        	<option value="-1" <?=StringIsSelected("-1",$bagian)?>>All Sections</option>
         	<? 
 			OpenDb();
 			$sql="SELECT * FROM jbssdm.bagianpegawai ORDER BY bagian";
@@ -146,10 +146,10 @@ function cek_all() {
     
     <table width="100%" border="0" cellspacing="0" class="tab" id="table">
   <tr>
-    <th width="18%" height="30" class="header" scope="row">No</th>
-    <td width="3%" height="30" class="header"><input type="checkbox" name="cek" id="cek" onClick="cek_all()" title="Pilih semua" onMouseOver="showhint('Pilih semua', this, event, '120px')"/></td>
-    <td width="26%" height="30" class="header">NIP</td>
-    <td width="53%" height="30" class="header">Nama</td>
+    <th width="18%" height="30" class="header" scope="row">#</th>
+    <td width="3%" height="30" class="header"><input type="checkbox" name="cek" id="cek" onClick="cek_all()" title="Select all" onMouseOver="showhint('Select all', this, event, '120px')"/></td>
+    <td width="26%" height="30" class="header">Employee ID</td>
+    <td width="53%" height="30" class="header">Name</td>
   </tr>
   <? 
 			OpenDb();

@@ -43,8 +43,8 @@ $P->OnStart();
 <body>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-      <font style="font-size:18px; color:#999999">Daftar Pengguna</font><br />
-        <a href="pengaturan.php" class="welc">Pengaturan</a><span class="welc"> > Daftar Pengguna</span><br /><br /><br />
+      <font style="font-size:18px; color:#999999">User List</font><br />
+        <a href="pengaturan.php" class="welc">Settings</a><span class="welc"> > User List</span><br /><br /><br />
     </div>
 <div id="content">
       <?=$P->Content()?>

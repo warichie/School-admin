@@ -68,7 +68,7 @@ OpenDb();
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="JavaScript" src="../script/tooltips.js"></script>
-<title>Kelulusan Siswa [Menu]</title>
+<title>Graduates Student [Menu]</title>
 <script language="JavaScript">
 
 function change_kelas() {	
@@ -90,12 +90,12 @@ function cari_siswa(){
 	var jenis = "text";
 	
 	if (nis.length == 0 && nama.length == 0){
-		alert ("Masukkan NIS atau nama siswa untuk melakukan pencarian!");
+		alert ("Enter Student ID or Name to begin searching.");
 		document.getElementById("nis").focus();
 		return false;
 	} else {	
 		if ((nis.length < 3 && nis.length != 0) || (nama.length < 3 && nama.length != 0)){
-			alert ('Keyword tidak boleh kurang dari 3 karakter');
+			alert ('Keyword should not less than 3 characters.');
 			return false;
 		}	
 	}
@@ -115,7 +115,7 @@ function lihat_siswa() {
 	var jenis = "combo";
 	
 	if (kelas.length == 0){
-		alert ('Belum ada kelas yang aktif pada tingkat yang terpilih!');
+		alert ('No Active Class in the Grade you entered.');
 		document.getElementById('kelas').focus();
 		return false;
 	}
@@ -156,12 +156,12 @@ function focusNext(elemName, evt) {
 <input type="hidden" name="departemen" id="departemen" value="<?=$departemen?>" />
 <input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$tahunajaran?>" />
 
-	<fieldset><legend>Tampilkan daftar siswa berdasarkan</legend>
+	<fieldset><legend>Sort by</legend>
     <table width="100%" border="0" cellspacing="0">
    	<tr <? if ($pilihan=="2") { ?> style="background-color:#C0C0C0" <? } ?>>
     	<td align="center" valign="middle">
         <img src="../images/ico/titik.png" height="5" width="5" align="top"></td>
-        <td width="20%">Kelas</td>
+        <td width="20%">Class</td>
         <td colspan="2"><select name="kelas" id="kelas" style="width:145px;" onKeyPress="return focusNext('lihat', event)" onChange="change_kelas()">
         <? 	OpenDb();
 			$sql_kelas="SELECT k.replid,k.kelas FROM jbsakad.kelas k WHERE k.idtingkat='$tingkat' AND k.idtahunajaran='$tahunajaran' AND  k.aktif=1 ORDER BY k.kelas";
@@ -179,28 +179,28 @@ function focusNext(elemName, evt) {
 			CloseDb();
 		?>
         	</select></td>
-        <td><input type="button" class="but" name="lihat" id="lihat" value="Tampil" onclick="lihat_siswa()" style="width:70px;" onMouseOver="showhint('Tampilkan daftar siswa berdasarkan kelas!', this, event, '135px')"/></td>
+        <td><input type="button" class="but" name="lihat" id="lihat" value="Show" onclick="lihat_siswa()" style="width:70px;" onMouseOver="showhint('Sort by Class', this, event, '135px')"/></td>
 	</tr>
     <tr <? if ($pilihan=="1") { ?> style="background-color:#C0C0C0" <? } ?>>
         <td align="center" valign="middle"><img src="../images/ico/titik.png" height="5" width="5" align="top"></td>
-        <td>Pencarian</td> 
-        <td width="10%"><strong>NIS</strong>&nbsp;</td>
+        <td>Search</td> 
+        <td width="10%"><strong>Student ID</strong>&nbsp;</td>
         <td><input type="text" name="nis" id="nis" size="15" value="<?=$nis?>" onkeypress="return focusNext('cari', event)"/>&nbsp;</td>
         <td rowspan="2">
-        <input type="button" class="but" name="cari" id="cari" value="Cari" onclick="cari_siswa();" style="width:70px;" onmouseover="showhint('Tampilkan daftar siswa berdasarkan pencarian!', this, event, '150px')"/></td>
+        <input type="button" class="but" name="cari" id="cari" value="Search" onclick="cari_siswa();" style="width:70px;" onmouseover="showhint('Sort by Search', this, event, '150px')"/></td>
     </tr>
     <tr <? if ($pilihan=="1") { ?> style="background-color:#C0C0C0" <? } ?>>
     	<td colspan="2"></td>
-        <!--<td colspan="2"><strong>NIS</strong>&nbsp;<input type="text" name="nis" id="nis" size="15" value="<?=$nis?>" onkeypress="return focusNext('cari', event)"/>&nbsp;-->
-        <td><strong>Nama</strong></td>
+        <!--<td colspan="2"><strong>Student ID</strong>&nbsp;<input type="text" name="nis" id="nis" size="15" value="<?=$nis?>" onkeypress="return focusNext('cari', event)"/>&nbsp;-->
+        <td><strong>Name</strong></td>
         <td><input type="text" name="nama" id="nama" size="15" value="<?=$nama?>" onkeypress="return focusNext('cari', event)"/>
        </td>
  	</tr>
     <tr <? if ($pilihan=="3") { ?> style="background-color:#C0C0C0" <? } ?>>
         <td align="center" valign="middle">
         <img src="../images/ico/titik.png" height="5" width="5" align="top"></td>
-        <td colspan="3">Semua siswa yang aktif</td>
-        <td><input type="button" class="but" name="tampil" id="tampil" value="Lihat" onclick="tampil_siswa()" style="width:70px;" onmouseover="showhint('Tampilkan semua siswa yang aktif!', this, event, '125px')"/></td>
+        <td colspan="3">All active student</td>
+        <td><input type="button" class="but" name="tampil" id="tampil" value="See" onclick="tampil_siswa()" style="width:70px;" onmouseover="showhint('Show All Active Student', this, event, '125px')"/></td>
  	</tr>
     </table> 
     </fieldset>

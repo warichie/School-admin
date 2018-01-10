@@ -59,7 +59,7 @@ if ($op == "348328947234923") {
 		$totalbayaran = $row[0];
 		
 		if ($totalbayaran > $besar) {
-			$errmsg = urlencode("Maaf, besar pembayaran yang harus dilunasi lebih kecil dari jumlah pembayaran cicilan yang telah dilakukan!");
+			$errmsg = urlencode("Maaf, besar pembayaran yang harus dilunasi lebih kecil from jumlah pembayaran cicilan yang telah dilakukan");
 		} else {
 			$lunas = 0;
 			if ($totalbayaran == $besar)
@@ -99,7 +99,7 @@ if ($op == "348328947234923") {
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) {
 		CloseDb();
-		trigger_error("Tidak ditemukan data penerimaan", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} else {
 		$row = mysql_fetch_row($result);
 		$namapenerimaan = $row[0];
@@ -114,7 +114,7 @@ if ($op == "348328947234923") {
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) {
 		CloseDb();
-		trigger_error("Tidak ditemukan data siswa", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} else {
 		$row = mysql_fetch_row($result);
 		$namasiswa = $row[0];
@@ -126,7 +126,7 @@ if ($op == "348328947234923") {
 	$result = QueryDb($sql); 
 	if (mysql_num_rows($result) == 0) {
 		CloseDb();
-		trigger_error("Tidak ditemukan data besarnya pembayaran", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} else {
 		$row = mysql_fetch_row($result);
 		$besarjtt = $row[0];
@@ -146,7 +146,7 @@ if ($op == "348328947234923") {
 	$ketjurnal = "";
 	if ($jml + $jcicilan > $besarjtt) {
 		CloseDb();
-		$errmsg = urlencode("Maaf, pembayaran tidak dapat dilakukan! Jumlah bayaran cicilan lebih besar daripada pembayaran yang harus dilunasi!");
+		$errmsg = urlencode("Maaf, pembayaran tidak dapat dilakukan! Jumlah bayaran cicilan lebih besar daripada pembayaran yang harus dilunasi");
 		header("Location: pembayaran_jtt.php?idkategori=$idkategori&idpenerimaan=$idpenerimaan&nis=$nis&idtahunbuku=$idtahunbuku&errmsg=$errmsg");
 		exit();
 	} else if ($jml + $jcicilan == $besarjtt) {
@@ -154,16 +154,16 @@ if ($op == "348328947234923") {
 		$lunas = 1; //udah lunas
 	} else {
 		$cicilan++;
-		$ketjurnal = "Pembayaran cicilan ke-$cicilan $namapenerimaan siswa $namasiswa ($nis)";
+		$ketjurnal = "Payment cicilan ke-$cicilan $namapenerimaan siswa $namasiswa ($nis)";
 		$lunas = 0; //blum lunas
 	}
 		
-	//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+	//Ambil awalan and cacah tahunbuku untuk bikin nokas;
 	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) {
 		CloseDb();
-		trigger_error("Tidak ditemukan data tahunbuku", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} else {
 		$row = mysql_fetch_row($result);
 		$awalan = $row[0];
@@ -269,8 +269,8 @@ if ($op == "348328947234923") {
 <link href="script/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript">
 function validasi_besar() {
-	return validateEmptyText('besar', 'Besarnya Pembayaran') &&
-		   validateMaxText('keterangan', 255, 'Keterangan Besarnya Pembayaran');
+	return validateEmptyText('besar', 'Besarnya Payment') &&
+		   validateMaxText('keterangan', 255, 'Info Besarnya Payment');
 }
 
 function simpan_besar() {
@@ -294,8 +294,8 @@ function simpan_besar() {
 
 function validasi_cicilan() {
 	return validateEmptyText('jcicilan', 'Besarnya Cicilan') &&
-		   validateEmptyText('tcicilan', 'Tanggal Cicilan') &&
-		   validateMaxText('kcicilan', 255, 'Keterangan Cicilan');
+		   validateEmptyText('tcicilan', 'Date Cicilan') &&
+		   validateMaxText('kcicilan', 255, 'Info Cicilan');
 }
 
 function simpan_cicilan() {
@@ -365,33 +365,33 @@ function cetak() {
         	<td>
             	<font size="5" color="#990000"><strong><?=$namapenerimaan ?></strong></font><br /><br />
 				<fieldset style="background:url(images/bttable400.png)">
-				<legend><font size="2" color="#003300"><strong>Data Siswa</strong></font></legend>
+				<legend><font size="2" color="#003300"><strong>Student Data</strong></font></legend>
 				<table border="0" width="100%" cellpadding="5" cellspacing="0">
                 <tr valign="top">
                     <td rowspan="10" width="25%">
                     <img src='<?="../jibassimaka2/library/gambar.php?replid=".$replid."&table=jbsakad.siswa";?>' width='150' height='150'></td>
-                    <td width="10%"><strong>NIS</strong></td>
+                    <td width="10%"><strong>Student ID</strong></td>
                     <td><strong>: <?=$nis ?></strong> </td>
                 </tr>
                 <tr>
-                    <td><strong>Nama</strong></td>
+                    <td><strong>Name</strong></td>
                     <td><strong>: <?=$nama ?></strong></td>
                 </tr>
                 <tr>
-                    <td><strong>Kelas</strong></td>
+                    <td><strong>Class</strong></td>
                     <td><strong>: <?=$namakelas ?></strong></td>
                 </tr>
                 <tr>
-                    <td><strong>Handphone</strong></td>
+                    <td><strong>Mobile</strong></td>
                     <td><strong>: <?=$hp ?></strong></td>
                 </tr>
                 <tr>
-                    <td><strong>Telepon</strong></td>
+                    <td><strong>Phone</strong></td>
                     <td><strong>: <?=$telpon ?></strong></td>
                 </tr>
                 
                 <tr>
-                    <td><strong>Alamat</strong></td>
+                    <td><strong>Address</strong></td>
                     <td rowspan="2" valign="top"><strong>: <?=$alamattinggal ?></strong></td>
                 </tr>
                 <tr>
@@ -409,7 +409,7 @@ function cetak() {
         <td valign="top"> 
         <fieldset style="background:url(images/bttable400.png)">
         <legend><font size="2" color="#003300">
-        <strong>Pembayaran Yang Harus Dilunasi</strong></font></legend>
+        <strong>Payment Yang Harus Dilunasi</strong></font></legend>
     <?
         $sql = "SELECT replid AS id, besar, keterangan, lunas FROM besarjtt WHERE nis = '$nis' AND idpenerimaan = '$idpenerimaan'";
         $result = QueryDb($sql);
@@ -430,7 +430,7 @@ function cetak() {
         <table border="0" cellpadding="2" cellspacing="2" align="center">
         <input type="hidden" id="idbesarjtt" name="idbesarjtt" value="<?=$idbesarjtt ?>" />
         <tr>
-            <td width="25%"><strong>Pembayaran</strong></td>
+            <td width="25%"><strong>Payment</strong></td>
             <td><input type="text" disabled size="23" value="<?=$namapenerimaan?>" style="background-color:#CCCC99"/></td>
         </tr>
         <tr>
@@ -438,7 +438,7 @@ function cetak() {
             <td><input type="text" name="besar" id="besar" size="23" value="<?=FormatRupiah($besar) ?>" onblur="formatRupiah('besar')" onfocus="unformatRupiah('besar')" <?=$dis?> /></td>
         </tr>
         <tr>
-            <td valign="top"><strong>Keterangan</strong></td>
+            <td valign="top"><strong>Info</strong></td>
             <td><textarea id="keterangan" name="keterangan" rows="3" cols="20" <?=$dis?>>
                 <?=$keterangan ?></textarea>
             </td>
@@ -447,9 +447,9 @@ function cetak() {
             <td><strong>Status</strong></td>
             <td>
         <? 
-            $info = "<font color=red><strong>Belum Lunas</strong></font>";
+            $info = "<font color=red><strong>No Paid Off Yet</strong></font>";
             if ($lunas == 1)
-                $info = "<font color=blue><strong>Lunas</strong></font>";
+                $info = "<font color=blue><strong>Paid Off</strong></font>";
             echo  $info;
         ?>
             </td>
@@ -457,7 +457,7 @@ function cetak() {
         <?  if (getLevel() == 1) { ?> 
         <tr>
             <td colspan="2" align="center">
-            <input type="button" name="simpan" id="simpan" class="but" value="Simpan" onclick="simpan_besar()" />
+            <input type="button" name="simpan" id="simpan" class="but" value="Save" onclick="simpan_besar()" />
             </td>
         </tr>
         <? } ?>
@@ -472,9 +472,9 @@ function cetak() {
         $row = mysql_fetch_row($result);
         $nbayar = $row[0];
         
-        $info = "Pembayaran Cicilan";
+        $info = "Payment Cicilan";
         if ($nbayar == 0)
-            $info = "Pembayaran Pertama";
+            $info = "Payment Pertama";
             
     ?> 
         <fieldset style="background:url(images/bttablelong.png)">
@@ -484,17 +484,17 @@ function cetak() {
         <tr>
             <td align="right">
             <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" />&nbsp;Refresh</a>&nbsp;
-            <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" />&nbsp;Cetak</a>&nbsp;
+            <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" />&nbsp;Print</a>&nbsp;
             </td>
         </tr>
         </table>        
         <table class="tab" id="table" border="0" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="center">
         <tr height="30">
-            <td class="header" width="5%">No</td>
-            <td class="header" width="15%">Tanggal</td>
-            <td class="header" width="20%">Jumlah</td>
-            <td class="header" width="25%">Keterangan</td>
-            <td class="header" width="15%">Petugas</td>
+            <td class="header" width="5%">#</td>
+            <td class="header" width="15%">Date</td>
+            <td class="header" width="20%">Sum</td>
+            <td class="header" width="25%">Info</td>
+            <td class="header" width="15%">Officer</td>
             <td class="header">&nbsp;</td>
         </tr>
         <? 
@@ -512,7 +512,7 @@ function cetak() {
             <td><?=$row['keterangan'] ?></td>
             <td><?=$row['petugas'] ?></td>
             <td align="center">
-            <a href="#" onclick="cetakkuitansi(<?=$row['id'] ?>)" title="Cetak Kuitansi Pembayaran" ><img src="images/ico/print.png" border="0" /></a>&nbsp;
+            <a href="#" onclick="cetakkuitansi(<?=$row['id'] ?>)" title="Cetak Kuitansi Payment" ><img src="images/ico/print.png" border="0" /></a>&nbsp;
         <?  if (getLevel() == 1) { ?>
                 <a href="#" onclick="editpembayaran(<?=$row['id'] ?>)" title="Edit"><img src="images/ico/ubah.png" border="0" /></a>
         <?	} ?>     
@@ -523,7 +523,7 @@ function cetak() {
         ?>
         <? $sisa = $besar - $total;?>
         <tr height="35">
-            <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+            <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
             <td bgcolor="#996600" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font></td>
             <td bgcolor="#996600" align="right"><font color="#FFFFFF">Sisa <strong><?=FormatRupiah($sisa) ?></strong></font></td>
             <td bgcolor="#996600" colspan="3">&nbsp;</td>
@@ -534,15 +534,15 @@ function cetak() {
         </script>
         <table border="0" cellpadding="2" width="100%">
         <tr>
-            <td width="25%"><strong>Pembayaran</strong></td>
+            <td width="25%"><strong>Payment</strong></td>
             <td><input type="text" disabled size="30" value="<?=$namapenerimaan?>" <?=$dis?>/></td>
         </tr>
         <tr>
-            <td><strong>Jumlah Bayaran</strong></td>
+            <td><strong>Sum Bayaran</strong></td>
             <td><input type="text" name="jcicilan" id="jcicilan" onblur="formatRupiah('jcicilan')" onfocus="unformatRupiah('jcicilan')" <?=$dis?>/></td>
         </tr>
         <tr>
-            <td><strong>Tanggal</strong></td>
+            <td><strong>Date</strong></td>
             <td><input type="text" name="tcicilan" id="tcicilan" readonly size="15" value="<?=date('d-m-Y') ?>" <?=$dis?>>
             <?  if (getLevel() == 1) { ?>
             <a href="javascript:showCal('Calendar1');blank();"><img src="images/calendar.jpg" border="0"></a>
@@ -550,14 +550,14 @@ function cetak() {
             </td>
         </tr>
         <tr>
-            <td><strong>Keterangan</strong></td>
+            <td><strong>Info</strong></td>
             <td><textarea id="kcicilan" name="kcicilan" rows="3" cols="30" <?=$dis?>></textarea>
             </td>
         </tr>
         <?  if (getLevel() == 1) { ?>
         <tr>
             <td colspan="2" align="center">
-            <input type="button" name="scicilan" id="scicilan" class="but" value="Simpan" onclick="simpan_cicilan()" />
+            <input type="button" name="scicilan" id="scicilan" class="but" value="Save" onclick="simpan_cicilan()" />
             </td>
         </tr>
        	<? } ?>

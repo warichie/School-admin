@@ -97,7 +97,7 @@ if (isset($_REQUEST['pelajaran']))
     <!-- CONTENT GOES HERE //--->	
     <table border="0" cellpadding="2"cellspacing="2" width="100%" style="color:#000000">
     <tr>
-    	<td width="15%"><strong>Departemen</strong></td>
+    	<td width="15%"><strong>Department</strong></td>
         <td width="*"> 
     	<select name="departemen" id="departemen" onChange="change_dep()" style="width:150px">
 		<? for ($i=0;$i<sizeof($dep);$i++) { ?>        	
@@ -109,7 +109,7 @@ if (isset($_REQUEST['pelajaran']))
         
 		
   		?>
-        <td><strong>Riwayat Kelas</strong></td>
+        <td><strong>Class History</strong></td>
         <td>
         <select name="kelas" id="kelas" onChange="change()" style="width:200px">
    		<? for ($j=0;$j<sizeof($kls);$j++) {
@@ -122,7 +122,7 @@ if (isset($_REQUEST['pelajaran']))
 		</td>
   	</tr>
     <tr>
-        <td><strong>Tahun Ajaran</strong></td>
+        <td><strong>Year</strong></td>
         <td>
         <select name="tahunajaran" id="tahunajaran" onChange="change()" style="width:150px">
    		<? for($k=0;$k<sizeof($ajaran);$k++) {?>
@@ -131,7 +131,7 @@ if (isset($_REQUEST['pelajaran']))
 		<? } ?>
     	</select>    
 		</td>
-        <td><strong>Pelajaran </strong></td>
+        <td><strong>Subject </strong></td>
         <td>
         <select name="pelajaran" id="pelajaran" onChange="change_pel()" style="width:200px">
         <? $sql = "SELECT DISTINCT p.replid, p.nama FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.replid = n.idujian AND n.nis = '$nis' ORDER BY p.nama";
@@ -184,14 +184,14 @@ if (isset($_REQUEST['pelajaran']))
 						$row = mysql_fetch_array($result);
 						
 					?>	
-                    <font size="2" color="#000000"><b>Pelajaran <?=$row['nama']?></b></font></td>      	
+                    <font size="2" color="#000000"><b>Subject <?=$row['nama']?></b></font></td>      	
                 </tr>
                 <tr>
                     <td valign="right"></td>
                 </tr>
                 <tr>
                     <td valign="top" align="right"> 
-                    <a href="JavaScript:cetak('<?=$sem[$k][0]?>')"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp; 
+                    <a href="JavaScript:cetak('<?=$sem[$k][0]?>')"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp; 
                     </td>
                 </tr>
 		<?	OpenDb();
@@ -206,10 +206,10 @@ if (isset($_REQUEST['pelajaran']))
                     <br /><br />		
                     <table border="1" width="100%" id="table" class="tab">
                     <tr>		
-                        <td width="5" height="30" align="center" class="header">No</td>
-                        <td width="250" class="header" align="center" height="30">Tanggal</td>
-                        <td width="10" height="30" align="center" class="header">Nilai</td>
-                        <td width="400" class="header" align="center" height="30">Keterangan</td>
+                        <td width="5" height="30" align="center" class="header">#</td>
+                        <td width="250" class="header" align="center" height="30">Date</td>
+                        <td width="10" height="30" align="center" class="header">Point</td>
+                        <td width="400" class="header" align="center" height="30">Info</td>
                     </tr>
 			<? 	OpenDb();		
                 $sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[$k][0]."' AND u.idjenis = '$row[replid]' AND u.replid = n.idujian AND n.nis = '$nis' ORDER BY u.tanggal";
@@ -232,13 +232,13 @@ if (isset($_REQUEST['pelajaran']))
 			<?		$cnt++;
                 	} ?>
                     <tr>        			
-                        <td colspan="2" height="25" align="center"><strong>Nilai rata rata</strong></td>
+                        <td colspan="2" height="25" align="center"><strong>Index Point/Cumulative</strong></td>
                         <td width="10" height="25" align="center"><?=round($rata,2)?></td>
                         <td height="25">&nbsp;</td>            
                     </tr>                    
 			<? } else { ?>
                     <tr>        			
-                        <td colspan="4" height="25" align="center">Tidak ada nilai</td>
+                        <td colspan="4" height="25" align="center">No index.</td>
                     </tr>
            	<? } ?>
                     </table>

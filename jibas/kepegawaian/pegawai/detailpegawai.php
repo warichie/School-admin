@@ -70,13 +70,13 @@ $keterangan = $row['keterangan'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 </head>
 
 <body>
 <table border="0" cellpadding="10" cellpadding="5" width="780" align="left">
 <tr><td align="left" valign="top"><? include("../include/headercetak.php") ?>
-  <center><font size="4"><strong>DATA PRIBADI</strong></font><br /> </center><br /><br />
+  <center><font size="4"><strong>PERSONAL DATA</strong></font><br /> </center><br /><br />
 <br />
 
 <table border="0" cellpadding="5" cellspacing="0" width="95%">
@@ -85,16 +85,16 @@ $keterangan = $row['keterangan'];
     <td width="*" colspan="2" align="left" valign="top"><?=$status?></td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Bagian :</strong></td>
+	<td align="right" valign="top"><strong>Section :</strong></td>
     <td width="*" colspan="2" align="left" valign="top"><?=$bagian?></td>
 </tr>
 <tr>
-	<td width="140" align="right" valign="top"><strong>Nama </strong>:</td>
+	<td width="140" align="right" valign="top"><strong>Name </strong>:</td>
     <td width="0" align="left" valign="top"><?=$gelarawal . " " . $nama . " " . $gelarakhir?></td>
     <td width="113" rowspan="5" align="center" valign="top"><img src="../include/gambar.php?nip=<?=$nip?>&table=pegawai&field=foto" height="120" alt="Foto" /></td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>NIP </strong>:</td>
+	<td align="right" valign="top"><strong>Employee ID </strong>:</td>
     <td width="0" align="left" valign="top"><?=$nip?></td>
 </tr>
 <tr>
@@ -106,32 +106,32 @@ $keterangan = $row['keterangan'];
     <td width="0" align="left" valign="top"><?=$nrp?></td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Tempat, Tgl Lahir </strong>:</td>
+	<td align="right" valign="top"><strong>Date of Birth </strong>:</td>
     <td width="0" align="left" valign="top">
     <?=$tmplahir?>, <?=$tgllahir?> <?= NamaBulan($blnlahir)?> <?=$thnlahir?>    </td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Agama :</strong></td>
+	<td align="right" valign="top"><strong>Religion:</strong></td>
     <td width="0" align="left" valign="top"><?=$agama?></td>
     </tr>
 <tr>
-	<td align="right" valign="top"><strong>Pernikahan :</strong></td>
+	<td align="right" valign="top"><strong>Marital Status :</strong></td>
     <td width="0" align="left" valign="top"><?=$nikah?></td>
     </tr>
 <tr>
-	<td align="right" valign="top"><strong>Jenis Kelamin :</strong></td>
+	<td align="right" valign="top"><strong>Gender :</strong></td>
     <td width="*" colspan="2" align="left" valign="top"><? if ($jk == "L") echo "Pria"; else echo "Wanita"; ?></td>
 </tr>
 <tr>
-	<td align="right" valign="top">Alamat :</td>
+	<td align="right" valign="top">Address :</td>
     <td width="*" colspan="2" align="left" valign="top"><?=$alamat?></td>
 </tr>
 <tr>
-	<td align="right" valign="top">HP :</td>
+	<td align="right" valign="top">Mobile :</td>
     <td width="*" colspan="2" align="left" valign="top"><?=$hp?></td>
 </tr>
 <tr>
-	<td align="right" valign="top">Telpon :</td>
+	<td align="right" valign="top">Phone :</td>
     <td width="*" colspan="2" align="left" valign="top"><?=$telpon?></td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@ $keterangan = $row['keterangan'];
     <td width="*" colspan="2" align="left" valign="top"><?=$website?></td>
 </tr>
 <tr>
-	<td align="right" valign="top">Keterangan :</td>
+	<td align="right" valign="top">Info :</td>
     <td width="*" colspan="2" align="left" valign="top">
 	<?=$keterangan?>    </td>
 </tr>

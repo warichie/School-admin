@@ -31,7 +31,7 @@ require_once("../include/sessioninfo.php");
 <head>
 <link rel="stylesheet" href="../style/style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -48,18 +48,18 @@ function CetakWord() {
 
 <body>
 <p align="center">
-<font size="3"><strong>Jumlah Pegawai<br />Berdasarkan Usia Per Satuan Kerja</strong></font>
+<font size="3"><strong>Amount of Employee<br />Based on Age Per Work Unit</strong></font>
 </p>
 <table border="0" cellpadding="2" cellspacing="0" width="80%" align="center">
 <tr><td align="right" width="100%">
-<a href="#" onclick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" />&nbsp;refresh</a>
+<a href="#" onclick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>
 </td></tr>
 </table>
 
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="80%" align="center">
 <tr height="25">
-	<td class="header" align="center" width="5%">No</td>
-    <td class="header" align="center" width="23%">Satuan Kerja</td>
+	<td class="header" align="center" width="5%">#</td>
+    <td class="header" align="center" width="23%">Work Unit</td>
     <td class="header" align="center" width="7%"><24</td>
     <td class="header" align="center" width="7%">24-29</td>
     <td class="header" align="center" width="7%">30-34</td>
@@ -68,7 +68,7 @@ function CetakWord() {
     <td class="header" align="center" width="7%">45-49</td>
     <td class="header" align="center" width="7%">50-55</td>
     <td class="header" align="center" width="7%">56></td>
-    <td class="header" align="center" width="10%">Jumlah</td>
+    <td class="header" align="center" width="10%">Sum</td>
 </tr>
 <?
 OpenDb();
@@ -129,7 +129,7 @@ for($i = 0; $i < count($satker); $i++) {
 ?>
 <tr height="30">
 	<td style="background-color:#E9E9E9" align="center" valign="top">&nbsp;</td>
-    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>JUMLAH</strong></td>
+    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>SUM</strong></td>
     <? 
 	$total = 0;
 	for($j = 0; $j < count($usia); $j++) 
@@ -146,7 +146,7 @@ for($i = 0; $i < count($satker); $i++) {
 <? if ($total > 0) { ?>
 <tr height="30">
 	<td style="background-color:#E9E9E9" align="center" valign="top">&nbsp;</td>
-    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>PERSENTASE</strong></td>
+    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>PERCENTAGE</strong></td>
     <? 
 	for($j = 0; $j < count($usia); $j++) 
 	{ 

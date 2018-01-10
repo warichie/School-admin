@@ -47,7 +47,7 @@ if (isset($_REQUEST['kelas']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pendataan Siswa</title>
+<title>Student Data Collection</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -85,7 +85,7 @@ function show_siswa() {
 	var kelas = document.getElementById("kelas").value;
 	
 	if (kelas==""){
-		alert ('Kelas tidak boleh kosong');
+		alert ('Class should not leave empty');
 		return false;
 	}	
 	parent.footer.location.href = "siswa_content.php?departemen="+departemen+"&tahunajaran="+tahunajaran+"&tingkat="+tingkat+"&kelas="+kelas;
@@ -115,7 +115,7 @@ function focusNext(elemName, evt) {
 	<td rowspan="2" width="42%">
 	<table width = "100%" border = "0">
     <tr>
-		<td width = "25%"><strong>Departemen</strong>
+		<td width = "25%"><strong>Department</strong>
     	<td width="*">
       	<select name="departemen" id="departemen" onchange="change_dep()" style="width:260px;" onKeyPress="return focusNext('tingkat', event)">
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -128,7 +128,7 @@ function focusNext(elemName, evt) {
         </select>		</td>
 	</tr>
  	<tr>
-    	<td><strong>Tahun Ajaran</strong>
+    	<td><strong>Year</strong>
    	  	<td>
 		<?  $sql = "SELECT replid,tahunajaran FROM tahunajaran WHERE departemen = '$departemen' AND aktif=1 ORDER BY replid DESC";
 			$result = QueryDb($sql);
@@ -138,7 +138,7 @@ function focusNext(elemName, evt) {
         	<input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$row['replid']?>">       	</td>
  	</tr>
     <tr>
-    	<td><strong>Kelas</strong>
+    	<td><strong>Class</strong>
         <td><select name="tingkat" id="tingkat" onchange="change_tingkat()" style="width:55px;" onKeyPress="return focusNext('kelas', event)">
  		 <? $sql = "SELECT replid,tingkat FROM tingkat where departemen='$departemen' AND aktif = 1 ORDER BY urutan";
 			$result = QueryDb($sql);
@@ -166,12 +166,12 @@ function focusNext(elemName, evt) {
             </select>     	</td>
 	</tr>
     </table>    </td>    
-    <td valign="middle"><a href="#" onclick="show_siswa()" ><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onMouseOver="showhint('Klik untuk menampilkan daftar siswa!', this, event, '120px')"/></a></td>  
-    <td width="50%" colspan="2" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pendataan Siswa</font>    	
+    <td valign="middle"><a href="#" onclick="show_siswa()" ><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onMouseOver="showhint('Click to show Student List', this, event, '120px')"/></a></td>  
+    <td width="50%" colspan="2" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Data Collection</font>    	
 	<br />
     <a href="../siswa.php" target="content">
-    <font size="1" color="#000000"><b>Kesiswaan</b></font></a>&nbsp>&nbsp
-    <font size="1" color="#000000"><b>Pendataan Siswa</b></font></td>
+    <font size="1" color="#000000"><b>Student</b></font></a>&nbsp;>&nbsp;
+    <font size="1" color="#000000"><b>Student Data Collection</b></font></td>
 </tr>
 </table>
 </body>

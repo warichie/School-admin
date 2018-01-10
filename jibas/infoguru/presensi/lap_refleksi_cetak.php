@@ -67,7 +67,7 @@ $row = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Cetak Laporan Refleksi Mengajar]</title>
+<title>JIBAS TEACHERS INFO [Print Teaching Reflection Report]</title>
 </head>
 
 <body>
@@ -76,15 +76,15 @@ $row = mysql_fetch_array($result);
 <table border="0" cellpadding="5" width="100%" align="left">
 <tr>
 	<td align="left" valign="top" colspan="2"><center>
-  <font size="4"><strong>LAPORAN REFLEKSI MENGAJAR</strong></font><br />
+  <font size="4"><strong>TEACHING REFLECTION REPORT CARD</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td width="25%"><strong>Departemen</strong></td>
+	<td width="25%"><strong>Department</strong></td>
     <td><strong>: <?=$row['departemen']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 <tr>
@@ -92,20 +92,20 @@ $row = mysql_fetch_array($result);
     <td><strong>: <?=$row['semester']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
-    <td><strong>: <? if ($tingkat == -1) echo "Semua Tingkat"; else echo $row['tingkat']; ?></strong></td>
+	<td><strong>Grade</strong></td>
+    <td><strong>: <? if ($tingkat == -1) echo "All Tingkat"; else echo $row['tingkat']; ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelas</strong></td>
-    <td><strong>: <? if ($kelas == -1) echo "Semua Kelas"; else echo $row['kelas']; ?></strong></td>
+	<td><strong>Class</strong></td>
+    <td><strong>: <? if ($kelas == -1) echo "All Classes"; else echo $row['kelas']; ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Pelajaran</strong></td>
-    <td><strong>: <? if ($pelajaran == -1) echo "Semua Pelajaran"; else echo $row['nama']; ?></strong></td>
+	<td><strong>Class Subject</strong></td>
+    <td><strong>: <? if ($pelajaran == -1) echo "All Class Subject"; else echo $row['nama']; ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Periode Presensi</strong></td>
-    <td><strong>: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></strong></td>
+	<td><strong>Period</strong></td>
+    <td><strong>: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -119,17 +119,17 @@ $row = mysql_fetch_array($result);
 ?>      
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
    	<tr height="30">
-    	<td class="header" align="center" width="5%">No</td>
-        <td class="header" align="center" width="10%">Tanggal</td>
-		<td class="header" align="center" width="5%">Jam</td>
+    	<td class="header" align="center" width="5%">#</td>
+        <td class="header" align="center" width="10%">Date</td>
+		<td class="header" align="center" width="5%">Time</td>
         <? if ($kelas == -1) { ?>
-        <td width="5%" height="30" align="center" class="header">Kelas</td>
+        <td width="5%" height="30" align="center" class="header">Class</td>
 		<? } ?>
 		<td class="header" align="center" width="20%">Status</td>
         <? if ($pelajaran == -1) { ?>
-        <td width="10%" height="30" align="center" class="header">Pelajaran</td>            
+        <td width="10%" height="30" align="center" class="header">Class Subject</td>            
         <? } ?>            
-		<td class="header" align="center" width="60%">Refleksi</td>          
+		<td class="header" align="center" width="60%">Reflection</td>          
     </tr>
 <?		
 	$cnt = 0;
@@ -148,17 +148,17 @@ $row = mysql_fetch_array($result);
         <td>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
-                <td width="10%">Materi</td>
+                <td width="10%">Class Subject</td>
                 <td>:&nbsp;</td>
                 <td width="90%"><?=$row[5]?> </td>  
             </tr>                
             <tr>
-                <td valign="top">Rencana</td>
+                <td valign="top">Plans</td>
                 <td valign="top">:&nbsp;</td> 
               	<td><?=$row[8]?></td>
             </tr>
             <tr>
-                <td>Keterangan Kehadiran</td>
+                <td>Attendance Info</td>
               	<td valign="top">:&nbsp;</td>
                 <td valign="top"><?=$row[9]?></td>
             </tr>

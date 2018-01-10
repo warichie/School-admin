@@ -77,12 +77,12 @@ function cetak() {
 
 	<table border="0"width="95%" align="center">
     <tr>
-        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Aspek Penilaian</font></td>
+        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Assessment Aspect</font></td>
     </tr>
     <tr>
         <td align="right">
         	<a href="../pelajaran.php">
-          <font size="1" face="Verdana" color="#000000"><b>Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" face="Verdana" color="#000000"><b>Aspek Penilaian</b></font>
+          <font size="1" face="Verdana" color="#000000"><b>Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" face="Verdana" color="#000000"><b>Assessment Aspect</b></font>
           
         </td>
     </tr>
@@ -102,15 +102,15 @@ function cetak() {
     <!-- TABLE CONTENT -->
     <tr><td align="right">
     
-    <a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;    
+    <a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;    
     </td></tr>
     </table><br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">Kode</td>
-        <td width="*" class="header" align="center">Aspek Penilaian</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Code</td>
+        <td width="*" class="header" align="center">Assessment Aspect</td>
     </tr>
 <? 	
 	$cnt = 0;
@@ -136,7 +136,7 @@ function cetak() {
 
 <tr>
 	<td align="center" valign="middle" height="250" colspan="2">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.</b></font>
+    	<font size = "2" color ="red"><b>Data Not Found</b></font>
 	</td>
 </tr>
 </table>  

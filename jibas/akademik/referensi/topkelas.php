@@ -49,7 +49,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kelas</title>
+<title>Class</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -101,15 +101,15 @@ function show_kelas() {
 	var tingkat = document.getElementById("tingkat").value;
 	var tahunajaran = document.getElementById("tahunajaran").value;
 	if (departemen==""){
-	alert ('Departemen tidak boleh kosong !');
+	alert ('Department should not leave empty');
 	return false;
 	}
 	if (tingkat==""){
-	alert ('Tingkat tidak boleh kosong !');
+	alert ('Level/Grade should not leave empty');
 	return false;
 	}
 	if (tahunajaran==""){
-	alert ('Tahun ajaran tidak boleh kosong !');
+	alert ('Year should not leave empty');
 	return false;
 	}
 	
@@ -130,7 +130,7 @@ function show_kelas() {
     <td rowspan="3" width="53%">
 	<table width = "100%" border = "0">
     <tr>
-    	<td align="center" rowspan="2"><strong>Departemen</strong><br /><br />
+    	<td align="center" rowspan="2"><strong>Department</strong><br /><br />
     	<select name="departemen" id="departemen" style="width:130px;" onChange="change_departemen()" onKeyPress="return focusNext('tahunajaran', event)" onfocus="panggil('departemen')">
        	<?	$dep = getDepartemen(SI_USER_ACCESS());    
 			foreach($dep as $value) {
@@ -140,7 +140,7 @@ function show_kelas() {
         <?	} ?>
         </select>
    		</td>
-    	<td align="center" rowspan="2"><strong>Tahun Ajaran</strong> <br /><br />
+    	<td align="center" rowspan="2"><strong>Year</strong> <br /><br />
     	<select name="tahunajaran" id="tahunajaran" style="width:130px;"  onchange="change()" onKeyPress="return focusNext('tingkat', event)" onfocus="panggil('tahunajaran')">
    		<? 	OpenDb();
 			$sql_tahunajaran = "SELECT * FROM tahunajaran where departemen='$departemen' ORDER BY aktif DESC, tglmulai DESC";
@@ -151,14 +151,14 @@ function show_kelas() {
 					$tahunajaran = $row_tahunajaran['replid'];
 				$ada = "";
 				if ($row_tahunajaran['aktif'])
-					$ada = "(Aktif)";	
+					$ada = "(Active)";	
 		?>
         <option value="<?=urlencode($row_tahunajaran[replid])?>" <?=IntIsSelected($row_tahunajaran['replid'], $tahunajaran)?> >
 		<?=$row_tahunajaran['tahunajaran']." ".$ada?></option>
         <?  } ?>
       	</select>
     	</td>
-        <td align="center" rowspan="2"><strong>Tingkat</strong><br /><br />
+        <td align="center" rowspan="2"><strong>Grade</strong><br /><br />
    		<select name="tingkat" id="tingkat" style="width:130px;" onchange="change()" onKeyPress="return focusNext('tabel', event)" onfocus="panggil('tingkat')">
 	    <?	OpenDb();
 			$sql_tingkat = "SELECT * FROM tingkat where departemen='$departemen' AND aktif=1 ORDER BY urutan";
@@ -178,12 +178,12 @@ function show_kelas() {
 	</table>
 	</td>   
     <td rowspan="3" align="left" valign="middle" width="*">&nbsp;
-    <a href="#" onclick="show_kelas()"><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Klik untuk menampilkan kelas!', this, event, '120px')"/></a></td>
+    <a href="#" onclick="show_kelas()"><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Click to show class', this, event, '120px')"/></a></td>
    	<td align="right" valign="top">
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Kelas</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Class</font><br />
     <a href="../referensi.php" target="content">
-        <font size="1" color="#000000"><b>Referensi</b></font></a>&nbsp>&nbsp	 	
-        <font size="1" color="#000000"><b>Kelas</b></font>
+        <font size="1" color="#000000"><b>Reference</b></font></a>&nbsp;>&nbsp;	 	
+        <font size="1" color="#000000"><b>Class</b></font>
     </td>
 </tr>
 </table>

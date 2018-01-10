@@ -48,7 +48,7 @@ $S->OnStart();
 </head> 
 <body>
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-	<img src="../img/loading2.gif" border="0" />&nbsp;<span class="tab2">Please&nbsp;wait...</span>
+	<img src="../img/loading2.gif" border="0" />&nbsp;<span class="tab2">Please wait...</span>
 </div>
 <table width="100%" border="0" cellspacing="5" cellpadding="5">
   <tr>

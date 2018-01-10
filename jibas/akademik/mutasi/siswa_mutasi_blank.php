@@ -33,7 +33,7 @@
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_mutasi.png"
     style="background-repeat:no-repeat;">
-        <font size="2" color="#757575"><b>Click ikon <img src="../images/view.png" width="35" height="32"> di atas untuk menampilkan daftar siswa yang akan dimutasi</b></font> </td>
+        <font size="2" color="#757575"><b>Click on <img src="../images/view.png" width="35" height="32"> above to show Student Mutated List.</b></font> </td>
 </tr>
 </table>
 </body>

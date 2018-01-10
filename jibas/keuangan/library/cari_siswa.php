@@ -48,12 +48,12 @@ OpenDb();
 ?>
 <table border="0" width="100%" align="center">
 <tr>
-    <td width="20%"><font color="#000000"><strong>Departemen</strong></font></td>
+    <td width="20%"><font color="#000000"><strong>Department</strong></font></td>
     <td>
     <input type="text" name="departemen" id="departemen" value="<?=$_REQUEST['departemen']?>" readonly="readonly" style="background-color:#CCCC99;" size="23">
     <input type="hidden" name="depart1" id="depart1" value="<?=$_REQUEST['departemen']?>" />
     <!--<select name="depart1" id="depart1" onChange="change_departemen(1)" style="width:155px" onkeypress="return focusNext('nama', event)">
-    	<option value=-1>(Semua Departemen)</option>
+    	<option value=-1>(All Department)</option>
 	<?	$dep = getDepartemen(getAccess());    
         foreach($dep as $value) {
             if ($departemen == "")
@@ -68,17 +68,17 @@ OpenDb();
 </tr>
 <tr>
     <td>
-        <font color="#000000"><strong>NIS Siswa</strong></font></td>	
+        <font color="#000000"><strong>Student ID</strong></font></td>	
    	<td><input type="text" name="nis" id="nis" value="<?=$_REQUEST['nis'] ?>" size="23" onKeyPress="return focusNext('submit', event)"/>     
   	</td>   
 </tr>	
 <tr>
-    <td><font color="#000000"><strong>Nama Siswa</strong></font></td>
+    <td><font color="#000000"><strong>Student Name</strong></font></td>
     <td><input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama'] ?>" size="23" onKeyPress="return focusNext('submit', event)"/></td>
 
 <tr>
 	<td colspan="2"width="15%" align="center">
-    <input type="button" class="but" name="submit" id="submit" value="Cari" onclick="carilah();return focusNext1('siswa', event, 'cari',1,0)" style="width:80px"/>
+    <input type="button" class="but" name="submit" id="submit" value="Search" onclick="carilah();return focusNext1('siswa', event, 'cari',1,0)" style="width:80px"/>
     </td>
 </tr>
 <tr>
@@ -104,10 +104,10 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 	<br>
    	<table width="100%" id="table1" class="tab" align="center" border="1" bordercolor="#000000">
     <tr height="30" class="header" align="center">
-        <td width="7%">No</td>
-        <td width="10%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan1?>','cari')">N I S <?=change_urut('s.nis',$urut1,$urutan1)?></td>
-        <td width="*" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan1?>','cari')">Nama <?=change_urut('s.nama',$urut1,$urutan1)?></td>       
-        <td width="20%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('t.tingkat','<?=$urutan1?>','cari')">Kls <?=change_urut('t.tingkat',$urut1,$urutan1)?></td>       
+        <td width="7%">#</td>
+        <td width="10%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan1?>','cari')">Student ID <?=change_urut('s.nis',$urut1,$urutan1)?></td>
+        <td width="*" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan1?>','cari')">Name <?=change_urut('s.nama',$urut1,$urutan1)?></td>       
+        <td width="20%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('t.tingkat','<?=$urutan1?>','cari')">Class <?=change_urut('t.tingkat',$urut1,$urutan1)?></td>       
     </tr>
 <?
 	$cnt = 0;
@@ -128,7 +128,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 		<td>   
    
 	<br />
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data</b></font>	
+	<font size = "2" color ="red"><b>Data Not Found</b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -141,7 +141,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
     <td>   
 
 <br /><br />	
-<font size="2" color="#757575"><b>Klik pada tombol "Cari" di atas untuk melihat data calon siswa <br />sesuai dengan NIS atau Nama Siswa berdasarkan <i>keyword</i> yang dimasukkan</b></font>	
+<font size="2" color="#757575"><b>Click on the Search button to search Student Candidate data <br />according to Student ID or Name based on <i>keyword</i> entered.</b></font>	
 <br /><br />
     </td>
 </tr>

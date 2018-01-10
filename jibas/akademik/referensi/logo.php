@@ -44,7 +44,7 @@ if ($_REQUEST['ganti'] == 1)	{
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Input Logo Sekolah]</title>
+<title>JIBAS SIMAKA [Submit School Logo]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
@@ -67,13 +67,13 @@ function validate(send){
 	if (logo.length > 0 || gambar.length > 0) {
 		if (send != 'submit') {
 			if (ext!='JPG' && ext!='jpg' && ext!='Jpg' && ext!='JPg' && ext!='JPEG' && ext!='jpeg'){
-				alert ('Format Gambar harus ber-extensi jpg atau JPG!');
+				alert ('Image should be jpg or JPG formatted');
 				document.getElementById("gambar").value='';
 				return false;
 			} 
 		}
 	} else {
-		alert ('Field foto harus diisi!');
+		alert ('Image field is required');
 		return false;
 	}
 }
@@ -95,7 +95,7 @@ function showFoto(x) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Logo Sekolah :.
+    .: School Logo :.
     </div>	
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -121,7 +121,7 @@ function showFoto(x) {
                     <!--<img src="../images/logokecil.jpg" border="0" />-->
                 <? } ?>
 			<? 	if ($replid == 0 && !isset($_REQUEST['gambar']) ) { ?>
-            	<font size = "2"  color="#757575"><b>Klik <i>Browse...</i> untuk memilih gambar.</b></font>
+            	<font size = "2"  color="#757575"><b>Click <i>Browse...</i> to select an image.</b></font>
             <? } ?>
         </td>
     </tr>
@@ -137,8 +137,8 @@ function showFoto(x) {
     </tr>
     <tr>
         <td align="center" colspan="2">
-            <input class="but" type="submit" value="Simpan" id="Simpan" name="Simpan">
-            <input class="but" type="button" value="Tutup" onClick="window.close();">
+            <input class="but" type="submit" value="Save" id="Simpan" name="Simpan">
+            <input class="but" type="button" value="Close" onClick="window.close();">
         </td>
     </tr>
     </table>

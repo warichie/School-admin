@@ -40,7 +40,7 @@ if (isset($_REQUEST['Simpan'])) {
 	if (mysql_num_rows($result) > 0) {
 		$jenisujian=$_REQUEST['jenisujianbaru'];
 		CloseDb();
-		$ERROR_MSG = "Jenis Ujian $jenisujian sudah digunakan!";
+		$ERROR_MSG = "Exam Type $jenisujian has been used";
 	} else {
 		$sql = "UPDATE jenisujian SET replid='$_REQUEST[replid]',jenisujian='$_REQUEST[jenisujianbaru]',keterangan='$_REQUEST[keterangan]' WHERE jenisujian='$_REQUEST[jenisujian]' AND replid='$_REQUEST[replid]'";
 		$result = QueryDb($sql);
@@ -77,7 +77,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Jenis Pengujian]</title>
+<title>JIBAS SIMAKA [Edit Exam Type]</title>
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextfield.js" type="text/javascript"></script>
@@ -89,8 +89,8 @@ CloseDb();
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('jenisujianbaru', 'Jenis Pengujian') && 
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('jenisujianbaru', 'Exam Type') && 
+		   validateMaxText('keterangan', 255, 'Info');
 }
 </script>
 </head>
@@ -103,30 +103,30 @@ function validate() {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td class="header" colspan="2" align="center">Ubah Jenis Pengujian</td>
+<td class="header" colspan="2" align="center">Edit Exam Type</td>
 </tr>
 <tr>
-  <td><strong>Departemen</strong></td>
+  <td><strong>Department</strong></td>
   <td><input type="text" name="departemen" id="departemen" size="10" maxlength="10" value="<?=$departemen ?>"  class="disabled" readonly/></td>
 </tr>
 <tr>
-  <td><strong>Pelajaran</strong></td>
+  <td><strong>Class Subject</strong></td>
   <td><input type="text" name="pelajaran" id="pelajaran" size="30" maxlength="50" value="<?=$pelajaran ?>" class="disabled" readonly/></td>
 </tr>
 <tr>
-	<td><strong>Jenis Pengujian</strong></td>
+	<td><strong>Exam Type</strong></td>
 	<td>
-    	<input type="text" name="jenisujianbaru" id="jenisujianbaru" size="30" maxlength="50" value="<?=$jenisujian ?>" onFocus="showhint('Nama jenis pengujian tidak boleh lebih dari 50 karakter!', this, event, '120px')" /> <input type="hidden" name="jenisujian" id="jenisujian" size="30" maxlength="50" value="<?=$jenisujian ?>" />   </td>
+    	<input type="text" name="jenisujianbaru" id="jenisujianbaru" size="30" maxlength="50" value="<?=$jenisujian ?>" onFocus="showhint('Exam Type Name should not exceed 50 characters', this, event, '120px')" /> <input type="hidden" name="jenisujian" id="jenisujian" size="30" maxlength="50" value="<?=$jenisujian ?>" />   </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45"><?=$keterangan ?></textarea>    </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -138,7 +138,7 @@ function validate() {
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 </body>
 </html>

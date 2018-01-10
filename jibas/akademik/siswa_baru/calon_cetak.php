@@ -51,7 +51,7 @@ $keterangan = $row['keterangan'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Calon Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Candidate]</title>
 </head>
 
 <body>
@@ -61,40 +61,40 @@ $keterangan = $row['keterangan'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DATA CALON SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT CANDIDATE DATA</strong></font><br />
  </center><br /><br />
  <table width="100%">    
 	<tr>
-		<td width="20%"><strong>Departemen</strong> </td> 
+		<td width="20%"><strong>Department</strong> </td> 
 		<td width="*"><strong>:&nbsp;<?=$departemen?></strong></td>
 	</tr>
     <tr>
-		<td><strong>Proses Penerimaan </strong></td>
+		<td><strong>Admission Process </strong></td>
 		<td><strong>:&nbsp;<?=$namaproses?></strong></td>        		
     </tr>
     <tr>
-		<td><strong>Kelompok Calon Siswa</strong></td>
+		<td><strong>Student Candidate Group</strong></td>
 		<td><strong>:&nbsp;<?=$namakelompok?></strong></td>        		
     </tr>
     <tr>
-		<td><strong>Keterangan</strong></td>
+		<td><strong>Info</strong></td>
 		<td><strong>:&nbsp;<?=$keterangan?></strong></td>        		
     </tr>
 	</table>
 <br />
 <table border="1" width="100%" id="table" class="tab" bordercolor="#000000">
 <tr height="30">		
-	<td align="center" class="header" width="4%" rowspan="2">No</td>
-	<td align="center" class="header" width="11%" rowspan="2">No Pendaftaran</td>
-	<td align="center" class="header" width="5%" rowspan="2">NISN</td>
-	<td align="center" class="header" width="*" rowspan="2">Nama</td>
-    <td align="center" class="header" width="12%">Sumb#1</td>
-    <td align="center" class="header" width="12%">Sumb#22</td>
-    <td align="center" class="header" width="5%">Uji#1</td>
-	<td align="center" class="header" width="5%">Uji#2</td>
-    <td align="center" class="header" width="5%">Uji#3</td>
-    <td align="center" class="header" width="5%">Uji#4</td>
-    <td align="center" class="header" width="5%">Uji#5</td>
+	<td align="center" class="header" width="4%" rowspan="2">#</td>
+	<td align="center" class="header" width="11%" rowspan="2">Registration Number</td>
+	<td align="center" class="header" width="5%" rowspan="2">National Student ID</td>
+	<td align="center" class="header" width="*" rowspan="2">Name</td>
+    <td align="center" class="header" width="12%">Contribution #1</td>
+    <td align="center" class="header" width="12%">Contribution #22</td>
+    <td align="center" class="header" width="5%">Exam #1</td>
+	<td align="center" class="header" width="5%">Exam #2</td>
+    <td align="center" class="header" width="5%">Exam #3</td>
+    <td align="center" class="header" width="5%">Exam #4</td>
+    <td align="center" class="header" width="5%">Exam #5</td>
     <td align="center" class="header" width="10%" rowspan="2">Status</td>   
 </tr>
 <?		
@@ -141,7 +141,7 @@ $keterangan = $row['keterangan'];
 			$sql3 = "SELECT nis FROM jbsakad.siswa WHERE replid = '$row[replidsiswa]'";
 			$result3 = QueryDb($sql3);
 			$row3 = @mysql_fetch_array($result3);
-			$siswa = "<br>NIS Siswa:<br><b>".$row3['nis']."</b>";
+			$siswa = "<br>Student ID:<br><b>".$row3['nis']."</b>";
 		}
 	?>	
     
@@ -159,9 +159,9 @@ $keterangan = $row['keterangan'];
         <td height="25" align="center"><?=$row["ujian5"]?></td>
         <td height="25" align="center">
 		<?	if ($row["aktif"] == 1) 
-           		echo 'Aktif'.$siswa; 
+           		echo 'Active'.$siswa; 
 			else
-			echo 'Tidak Aktif'.$siswa;			
+			echo 'Inactive'.$siswa;			
 		?></td>
 	  </tr>
 	<?		}		?>			

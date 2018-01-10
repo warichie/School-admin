@@ -62,7 +62,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	if (mysql_num_rows($result) == 0) 
 	{
 		CloseDb();
-		trigger_error("Tidak ditemukan data penerimaan!", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} 
 	else 
 	{
@@ -73,13 +73,13 @@ if (1 == (int)$_REQUEST['issubmit'])
 		$rekpiutang = $row[3];
 	}
 	
-	//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+	//Ambil awalan and cacah tahunbuku untuk bikin nokas;
 	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) 
 	{
 		CloseDb();
-		trigger_error("Tidak ditemukan data tahun buku!", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} 
 	else 
 	{
@@ -94,7 +94,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	BeginTrans();
 
 	//Simpan ke jurnal
-	$ketjurnal = "Dana $namapenerimaan tanggal $_REQUEST[tcicilan] dari $sumber";
+	$ketjurnal = "Dana $namapenerimaan tanggal $_REQUEST[tcicilan] from $sumber";
 	$idjurnal = 0;
 	$success = SimpanJurnal($idtahunbuku, $tbayar, $ketjurnal, $nokas, "", $petugas, "penerimaanlain", $idjurnal);
 	
@@ -135,7 +135,7 @@ $namapenerimaan = $row[0];
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="style/calendar-green.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pembayaran Lainnya</title>
+<title>Payment Lainnya</title>
 <script type="text/javascript" src="script/calendar.js"></script>
 <script type="text/javascript" src="script/lang/calendar-en.js"></script>
 <script type="text/javascript" src="script/calendar-setup.js"></script>
@@ -173,11 +173,11 @@ function salinangka(){
 
 function ValidateSubmit() 
 {
-	var isok = validateEmptyText('sumber','Sumber Penerimaan') &&
+	var isok = validateEmptyText('sumber','Source Penerimaan') &&
 		   	   validateEmptyText('jbayar','Jumlah Penerimaan') &&
 		   	   validasiAngka() &&
-		   	   validateMaxText('kbayar', 255, 'Keterangan Penerimaan') &&
-		   	   confirm('Data sudah benar?');	
+		   	   validateMaxText('kbayar', 255, 'Info Penerimaan') &&
+		   	   confirm('The data is correct?');	
 			   
 	document.getElementById('issubmit').value = isok ? 1 : 0;
 	
@@ -190,14 +190,14 @@ function ValidateSubmit()
 function validasiAngka() {
 	var angka = document.getElementById("angkabesar").value;
 	if(isNaN(angka)) {
-		alert ('Jumlah Penerimaan harus berupa bilangan!');
+		alert ('Jumlah Penerimaan must be numeric');
 		document.getElementById('jbayar').value = "";
 		document.getElementById('jbayar').focus();
 		return false;
 	}
 	else if (angka <= 0)
 	{
-		alert ('Jumlah Penerimaan harus positif!');
+		alert ('Jumlah Penerimaan harus positif');
 		document.getElementById('jbayar').focus();
 		return false;
 	}
@@ -270,20 +270,20 @@ function panggil(elem){
                 <td colspan="3" class="header" align="center">Penerimaan <?=$namapenerimaan?></td>
             </tr>
             <tr>
-                <td width="30%"><strong>Penerimaan</strong></td>
+                <td width="30%"><strong>Admission</strong></td>
                 <td colspan="2"><input type="text" readonly="readonly" size="30" value="<?=$namapenerimaan?>" style="background-color:#CCCC99" /></td>
             </tr>
             <tr>
-                <td width="25%"><strong>Sumber</strong></td>
+                <td width="25%"><strong>Source</strong></td>
                 <td colspan="2"><input type="text" name="sumber" id="sumber" size="30" maxlength="30" onKeyPress="return focusNext('jbayar', event)" onfocus="panggil('sumber')"/></td>
             </tr>
             <tr>
-                <td width="25%"><strong>Jumlah</strong></td>
+                <td width="25%"><strong>Sum</strong></td>
                 <td colspan="2"><input type="text" name="jbayar" id="jbayar" onblur="formatRupiah('jbayar')" onfocus="unformatRupiah('jbayar');panggil('jbayar')" onKeyPress="return focusNext('tcicilan', event)" onkeyup="salinangka()"/>
                 	<input type="hidden" name="angkabesar" id="angkabesar" value="<?=$jbayar ?>" />
             </tr>
             <tr>
-                <td><strong>Tanggal</strong></td>
+                <td><strong>Date</strong></td>
                 <td>
                 <input type="text" name="tcicilan" id="tcicilan" readonly value="<?=$tanggal ?>" onKeyPress="return focusNext('kbayar', event)" style="background-color:#CCCC99"> </td>
                 <td width="60%">
@@ -291,13 +291,13 @@ function panggil(elem){
                 </td>        
             </tr>
             <tr>
-                <td width="25%" align="left" valign="top">Keterangan</td>
+                <td width="25%" align="left" valign="top">Info</td>
                 <td colspan="2"><textarea id="kbayar" name="kbayar" rows="3" cols="27" onKeyPress="return focusNext('Simpan', event)" style="width:225px; height:50px" onfocus="panggil('kbayar')"></textarea>
                 </td>
             </tr>
             <tr>
                 <td colspan="3" align="center">
-                <input type="button" name="Simpan" id="Simpan" class="but" value="Simpan" onclick="this.disabled = true; ValidateSubmit(); " />
+                <input type="button" name="Simpan" id="Simpan" class="but" value="Save" onclick="this.disabled = true; ValidateSubmit(); " />
                 <br /><br />
                 </td>
             </tr>
@@ -314,12 +314,12 @@ function panggil(elem){
 		{ ?>            
             <table class="tab" id="table" width="100%" cellpadding="5" cellspacing="0">
             <tr height="30" align="center">
-                <td class="header" width="5%">No</td>
-                <td class="header" width="20%">No. Jurnal/Tgl</td>
-                <td class="header" width="15%">Sumber</td>
-                <td class="header" width="18%">Jumlah</td>
-                <td class="header" width="*">Keterangan</td>
-                <td class="header" width="8%">Petugas</td>
+                <td class="header" width="5%">#</td>
+                <td class="header" width="20%">Journal/Date</td>
+                <td class="header" width="15%">Source</td>
+                <td class="header" width="18%">Sum</td>
+                <td class="header" width="*">Info</td>
+                <td class="header" width="8%">Officer</td>
                 <td class="header">&nbsp;</td>
             </tr>
 <?          $cnt = 0;
@@ -335,9 +335,9 @@ function panggil(elem){
                 <td><?=$row['keterangan'] ?></td>
                 <td><?=$row['petugas'] ?></td>
                 <td align="center">
-                <a href="javascript:cetakkuitansi(<?=$row['id'] ?>)" ><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak Kuitansi Pembayaran!', this, event, '100px')" /></a>&nbsp;
+                <a href="javascript:cetakkuitansi(<?=$row['id'] ?>)" ><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print Kuitansi Payment', this, event, '100px')" /></a>&nbsp;
             <?  if (getLevel() != 2) { ?>       
-                <a href="javascript:editpembayaran(<?=$row['id'] ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Pembayaran Cicilan!', this, event, '120px')"/></a>
+                <a href="javascript:editpembayaran(<?=$row['id'] ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Payment Cicilan', this, event, '120px')"/></a>
             <?	} ?>  
                 </td>
             </tr>
@@ -345,7 +345,7 @@ function panggil(elem){
             }
             ?>
             <tr height="35">
-                <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+                <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
                 <td bgcolor="#996600" align="right" colspan="2"><font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font></td>
                 <td bgcolor="#996600" colspan="3">&nbsp;</td>
             </tr>

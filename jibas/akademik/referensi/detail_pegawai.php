@@ -84,9 +84,9 @@ $bulanlahir=$row[bulan];
 $tahunlahir=$row[tahun];
 if($row[dokter]== 1 )
 {
- $dokter = "Dokter";
+ $dokter = "Doctor";
 } else {
- $dokter = "Pegawai";
+ $dokter = "Employee";
 }
 
 ?>
@@ -111,7 +111,7 @@ if($row[dokter]== 1 )
                 <td><b><?=$row[nama] ?></b></td>
               </tr>
               <tr>
-                <td>no Identitas</td>
+                <td>no Identity</td>
                 <td valign="top">:</td>
                 <td valign="top"><?=$row[noid]  ?> </td>
               </tr>
@@ -121,7 +121,7 @@ if($row[dokter]== 1 )
                 <td valign="top"><?=" $tmplahir, $tgllahir-$bulanlahir-$tahunlahir" ?> </td>
               </tr>
               <tr>
-                <td>Bagian</td>
+                <td>Section</td>
                 <td>:</td>
                 <td><?=$row[bagian] ?></td>
               </tr>
@@ -171,7 +171,7 @@ if($row[dokter]== 1 )
         }else{
                ?>
                <script language="JavaScript">
-                   alert("Gagal menambah data");
+                   alert("Failed to add more data");
                    opener.document.location.href="pendataan_suku.php?sukuid=<?=$row_id[0] ?>";
                    window.close();
                </script>
@@ -180,7 +180,7 @@ if($row[dokter]== 1 )
     }else {
         ?>
         <script language="JavaScript">
-            alert("Gagal menambah data. Masukkan Jenis Pemantauan yang berbeda");
+            alert("Failed to add more data. Masukkan Jenis Pemantauan yang berbeda");
             opener.document.location.href="pendataan_suku.php?sukuid=<?=$_POST[sukuid] ?>";
             window.close();
         </script>

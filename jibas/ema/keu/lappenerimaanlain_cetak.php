@@ -42,7 +42,7 @@ if (isset($_REQUEST['tanggal1']))
 
 if (isset($_REQUEST['tanggal2']))
 	$tanggal2 = $_REQUEST['tanggal2'];
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 
 $urut = "tanggal";
 $urutan = "ASC";
@@ -52,7 +52,7 @@ $urutan = "ASC";
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Laporan Penerimaan Lain]</title>
+<title>JIBAS EMA [Print Another Admission Reports]</title>
 </head>
 
 <body>
@@ -63,21 +63,21 @@ $urutan = "ASC";
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>LAPORAN PENERIMAAN LAIN</strong></font><br />
+  <font size="4"><strong>ANOTHER ADMISSION REPORTS</strong></font><br />
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="7%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="7%" class="news_content1"><strong>Department</strong></td>
     <td width="93%" class="news_content1">: 
       <?=$departemen ?></td>
     </tr>
 <tr>
-  <td class="news_content1"><strong>Penerimaan</strong></td>
+  <td class="news_content1"><strong>Admission</strong></td>
   <td class="news_content1">: 
       <?=$npenerimaan ?></td>
   </tr>
 <tr>
-  <td class="news_content1"><strong>Periode</strong></td>
+  <td class="news_content1"><strong>Period</strong></td>
   <td class="news_content1">:
     <?=$nperiode ?></td>
   </tr>
@@ -111,12 +111,12 @@ $namapenerimaan = $row[0];
 ?>
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 	<tr height="30" align="center" class="header">
-        <td width="5%">No</td>
-        <td width="15%">No. Jurnal/Tanggal</td>
-        <td width="15%">Sumber</td>
-        <td width="15%">Jumlah</td>
-        <td width="25%">Keterangan</td>
-        <td width="10%">Petugas</td>
+        <td width="5%">#</td>
+        <td width="15%">Journal/Date</td>
+        <td width="15%">Source</td>
+        <td width="15%">Sum</td>
+        <td width="25%">Info</td>
+        <td width="10%">Officer</td>
     </tr>
 <? 
 
@@ -142,7 +142,7 @@ while ($row = mysql_fetch_array($result)) {
 ?>
     <input type="hidden" name="tes" id="tes" value="<?=$total?>"/>
     <tr height="35">
-        <td bgcolor="#996600" colspan="3" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+        <td bgcolor="#996600" colspan="3" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td bgcolor="#996600" align="right" ><font color="#FFFFFF"><strong><?=FormatRupiah($tot) ?></strong></font></td>
         <td bgcolor="#996600" colspan="3">&nbsp;</td>
     </tr>

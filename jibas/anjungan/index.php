@@ -27,7 +27,7 @@ require_once('../include/mainconfig.php');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS - ANJUNGAN INFORMASI</title>
+<title>JIBAS - INFORMATION PAVILION</title>
 <link href="images/jibas.ico" rel="shortcut icon" />
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" href="../script/bgstretcher.css" />
@@ -67,7 +67,7 @@ require_once('../include/mainconfig.php');
 		</td>
 		<td width="*" align="center">
 			<font style="font-family:Arial; font-size:14px; color:#fff; font-weight: bold; ">
-			ANJUNGAN INFORMASI
+			INFORMATION PAVILION
 			</font><br>
 			<font style="font-family:Tahoma; font-size:16px; color:#fff; ">
 			<?= $G_JUDUL_DEPAN_1 ?>

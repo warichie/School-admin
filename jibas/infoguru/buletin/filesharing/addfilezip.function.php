@@ -93,18 +93,18 @@ if (isset($_REQUEST['Simpan']))
         {
            CommitTrans(); //RollbackTrans();
            CloseDb();
-           ShowMessageClose("Berhasil");
+           ShowMessageClose("Succeed");
         }
         else
         {
            RollbackTrans();
            CloseDb();
-           ShowMessageClose("Gagal mengunggah data!");
+           ShowMessageClose("Failed to upload");
         }
     }
     else
     {
-        ShowMessageClose("Bukan File ZIP!");
+        ShowMessageClose("Not a zip file");
     }
 }
 

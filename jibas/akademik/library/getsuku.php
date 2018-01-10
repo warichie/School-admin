@@ -30,7 +30,7 @@ $suku_kiriman=$_REQUEST['suku'];
 
 ?>
 <select name="suku" id="suku" class="ukuran" onKeyPress="return focusNext('status', event)">
-	<option value="">[Pilih Suku]</option>  
+	<option value="">[Select Ethnicity]</option>  
     <? // Olah untuk combo suku
 	OpenDb();
 	$sql_suku="SELECT suku,urutan,replid FROM jbsumum.suku ORDER BY urutan";
@@ -49,4 +49,4 @@ $suku_kiriman=$_REQUEST['suku'];
 	?>
     </select>
 	
-    <img src="../images/ico/tambah.png" onclick="tambah_suku();" onMouseOver="showhint('Tambah Suku!', this, event, '50px')" />
+    <img src="../images/ico/tambah.png" onclick="tambah_suku();" onMouseOver="showhint('Add Ethnicity', this, event, '50px')" />

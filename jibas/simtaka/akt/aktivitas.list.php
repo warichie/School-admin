@@ -44,8 +44,8 @@ $A->OnStart();
 <body>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-      <font style="font-size:18px; color:#999999">Daftar Aktivitas</font><br />
-        <a href="aktivitas.php" class="welc">Aktivitas</a><span class="welc"> > Daftar Aktivitas</span><br /><br /><br />
+      <font style="font-size:18px; color:#999999">Activity List</font><br />
+        <a href="aktivitas.php" class="welc">Activity</a><span class="welc"> > Activity List</span><br /><br /><br />
     </div>
 <div id="content">
       <?=$A->Content()?>

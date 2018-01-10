@@ -38,7 +38,7 @@ require_once('../../include/db_functions.php');
 <body>
 <table width="200" border="0">
   <tr>
-    <td width="50">Angket</td>
+    <td width="50">Questionnaire</td>
     <td width="12">&nbsp;:</td>
     <td width="124">
         <? 

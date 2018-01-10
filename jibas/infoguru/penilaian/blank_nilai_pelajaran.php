@@ -30,7 +30,7 @@
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_penilaian.png"
     style="background-repeat:no-repeat;">
-        <font size="2" color="#757575"><b>Klik pada icon <img src="../images/ico/view_x.png" border="0"> di atas untuk melihat Nilai Pelajaran sesuai dengan Guru dan Kelas yang terpilih</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border="0"> above to show Class Subject Point according to Teacher and Class entered.</b></font>    </td>
 </tr>
 </table>
 </body>

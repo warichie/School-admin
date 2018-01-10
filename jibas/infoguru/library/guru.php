@@ -44,7 +44,7 @@ if (isset($_REQUEST['pelajaran']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Daftar Guru]</title>
+<title>JIBAS SIMAKA [Teacher List]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <link rel="stylesheet" type="text/css" href="../script/tooltips.css" />
 <link href="../script/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
@@ -122,7 +122,7 @@ function carilah(){
 	var nama = document.getElementById('nama').value;
 	
 	if (nip == "" && nama == "") {
-		alert ('NIP atau Nama Guru tidak boleh kosong!');
+		alert ('Employee ID or Name should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}
@@ -154,7 +154,7 @@ function cari(x) {
 <body style="background-color:#FFFFFF">
 <!--
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>-->
 <!--<table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="58">
@@ -172,8 +172,8 @@ function cari(x) {
     	<td width="100%" bgcolor="#FFFFFF" valign="top">
         <div id="tabs">
             <ul>
-                <li><a href="#panel" onclick="view_tab_daftar()">Daftar Pegawai</a></li>
-                <li><a href="#panel" onclick="view_tab_cari()">Cari Pegawai</a></li>
+                <li><a href="#panel" onclick="view_tab_daftar()">Employee List</a></li>
+                <li><a href="#panel" onclick="view_tab_cari()">Search Employee</a></li>
             </ul>
             <div id="panel">
                 <script language="javascript">
@@ -185,8 +185,8 @@ function cari(x) {
         <!--
         <div id="TabbedPanels1" class="TabbedPanels">
             <ul class="TabbedPanelsTabGroup">
-                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Pilih Guru</font></li>
-                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Cari Guru</font></li>
+                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Select Teacher</font></li>
+                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Search Teacher</font></li>
             </ul>
             <div class="TabbedPanelsContentGroup">
                 <div class="TabbedPanelsContent" id="panel0"></div>

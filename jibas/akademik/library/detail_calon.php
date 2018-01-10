@@ -45,7 +45,7 @@ CloseDb();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 
-<title>JIBAS SIMAKA [Data Calon Siswa]</title>
+<title>JIBAS SIMAKA [Student Candidate Data]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -60,34 +60,34 @@ function cetak() {
 <body>
 <table width="100%"> 
 <tr height="50">
-	<td colspan="3"><div align="center"><font size="4"><strong>DATA CALON SISWA</strong></font></div><br /></td>
+	<td colspan="3"><div align="center"><font size="4"><strong>STUDENT CANDIDATE DATA</strong></font></div><br /></td>
 </tr>
 <tr>
-    <th width="15%" scope="row"><div align="left"><strong>Departemen</strong></div></th>
+    <th width="15%" scope="row"><div align="left"><strong>Department</strong></div></th>
     <td><div align="left"><strong>:&nbsp;
         <?=$row_siswa['departemen']?>
     </strong></div></td>
 </tr>
 <tr>
-    <th scope="row"><div align="left"><strong>Proses&nbsp;Penerimaan</strong></div></th>
+    <th scope="row"><div align="left"><strong>Enrollment Process</strong></div></th>
     <td><div align="left"><strong>:&nbsp;
         <?=$row_siswa['proses']?>
     </strong></div></td>
 </tr>
 <tr>
-    <th scope="row"><div align="left"><strong>Kelompok&nbsp;Calon&nbsp;Siswa&nbsp;</strong></div></th>
+    <th scope="row"><div align="left"><strong>Student Candidate Group</strong></div></th>
     <td><div align="left"><strong>:&nbsp;
         <?=$row_siswa['kelompok']?>
     </strong></div></td>
 </tr>
 <tr>
-	<td><strong>No. Pendaftaran </strong></td>
+	<td><strong>Registration Number </strong></td>
     <td><strong>:&nbsp;
 		<?=$row_siswa['nopendaftaran']?></strong></td>
 	<td align="right" width="50%">
       <input type="hidden" name="replid" id="replid" value="<?=$replid?>" />
-      <a href="#" onclick="cetak('<?=$replid?>')"><img src="../images/ico/print.png" border="0"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-      <a href="#" onclick="window.close();"><img src="../images/ico/exit.png" width="16" height="16" border="0" />&nbsp;Tutup</a></div>
+      <a href="#" onclick="cetak('<?=$replid?>')"><img src="../images/ico/print.png" border="0"/>&nbsp;Print</a>&nbsp;&nbsp;
+      <a href="#" onclick="window.close();"><img src="../images/ico/exit.png" width="16" height="16" border="0" />&nbsp;Close</a></div>
 	</td>
 </tr>
 </table>  
@@ -96,93 +96,93 @@ function cetak() {
 <tr>
    	  <td valign="top"><table border="0" class="tab" id="table" cellpadding="0" style="border-collapse:collapse" cellspacing="0" width="100%">
         <tr align="left"height="30">
-          <td colspan="6" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Data Pribadi Calon Siswa</strong></font>
+          <td colspan="6" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Student Candidate Personal Data</strong></font>
               <hr width="300" style="line-height:1px; border-style:dashed" align="left" />          </td>
         </tr>
         <tr height="20">
           <td width="5%" rowspan="15" bgcolor="#FFFFFF"></td>
           <td>1.</td>
-          <td>N I S N</td>
+          <td>National Student ID</td>
           <td>: <?=$row_siswa['nisn']?></td>
           <td colspan="2" rowspan="15" bgcolor="#FFFFFF"><div align="center"><img src="../library/gambar.php?replid=<?=$replid?>&table=calonsiswa"  /></div></td>
         </tr>
         <tr height="20">
           <td width="5%">2.</td>
-          <td colspan="2">Nama Peserta Didik</td>
+          <td colspan="2">Student Member Name</td>
         </tr>
         <tr height="20">
           <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td width="20%">a. Lengkap</td>
+          <td width="20%">a. Full Name</td>
           <td>:
             <?=$row_siswa['nama']?></td>
         </tr>
         <tr height="20">
           <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td>b. Panggilan</td>
+          <td>b. Nickname</td>
           <td>:
             <?=$row_siswa['panggilan']?></td>
         </tr>
         <tr height="20">
-          <td >3.</td>
-          <td>Jenis Kelamin</td>
-          <td >:
+          <td>3.</td>
+          <td>Gender</td>
+          <td>:
             <? 	if ($row_siswa['kelamin']=="l")
-				echo "Laki-laki"; 
+				echo "Male"; 
 			if ($row_siswa['kelamin']=="p")
-				echo "Perempuan"; 
+				echo "Female"; 
 		?></td>
         </tr>
         <tr height="20">
           <td>4.</td>
-          <td>Tempat Lahir</td>
+          <td>Birth Place</td>
           <td>:
             <?=$row_siswa['tmplahir']?></td>
         </tr>
         <tr height="20">
           <td>5.</td>
-          <td>Tanggal Lahir</td>
+          <td>Date of Birth</td>
           <td>:
             <?=format_tgl($row_siswa['tgllahir']) ?></td>
         </tr>
         <tr height="20">
           <td>6.</td>
-          <td >Agama</td>
+          <td>Religion</td>
           <td>:
             <?=$row_siswa['agama']?></td>
         </tr>
         <tr height="20">
           <td>7.</td>
-          <td>Kewarganegaraan</td>
+          <td>Citizenship</td>
           <td>:
             <?=$row_siswa['warga']?></td>
         </tr>
         <tr height="20">
           <td>8.</td>
-          <td>Anak ke</td>
+          <td>Child #</td>
           <td>:
             <? if ($row_siswa['anakke']!=0) { echo $row_siswa['anakke']; } ?></td>
         </tr>
         <tr height="20">
           <td>9.</td>
-          <td>Dari</td>
+          <td>From</td>
           <td>:
-            <? if ($row_siswa['jsaudara']!=0) { echo $row_siswa['jsaudara']; } ?> bersaudara</td>
+            <? if ($row_siswa['jsaudara']!=0) { echo $row_siswa['jsaudara']; } ?> siblings</td>
         </tr>
         <tr height="20">
           <td>10.</td>
-          <td>Kondisi Siswa</td>
+          <td>Student Conditions</td>
           <td>:
             <?=$row_siswa['kondisi']?></td>
         </tr>
         <tr height="20">
           <td>11.</td>
-          <td>Status Siswa</td>
+          <td>Student Status</td>
           <td>:
             <?=$row_siswa['status']?></td>
         </tr>
         <tr height="20">
           <td>12.</td>
-          <td>Bahasa Sehari-hari</td>
+          <td>Language</td>
           <td>:
             <?=$row_siswa['bahasa']?></td>
         </tr>
@@ -190,25 +190,25 @@ function cetak() {
           <td bgcolor="#FFFFFF">&nbsp;</td><td bgcolor="#FFFFFF">&nbsp;</td><td bgcolor="#FFFFFF">&nbsp;</td>
         </tr>
         <tr align="left" height="30">
-          <td colspan="6" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Tempat Tinggal</strong></font>
+          <td colspan="6" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Residency Info</strong></font>
               <hr width="300" style="line-height:1px; border-style:dashed" align="left" /></td>
         </tr>
         <tr height="20">
           <td rowspan="5" bgcolor="#FFFFFF"></td>
           <td>13.</td>
-          <td>Alamat</td>
+          <td>Address</td>
           <td colspan="2">:
             <?=$row_siswa['alamatsiswa']?></td>
         </tr>
         <tr height="20">
           <td>14.</td>
-          <td>Telepon</td>
+          <td>Phone</td>
           <td colspan="2">:
             <?=$row_siswa['telponsiswa']?></td>
           </tr>
         <tr height="20">
           <td>15.</td>
-          <td>Handphone</td>
+          <td>Mobile</td>
           <td colspan="2">:
             <?=$row_siswa['hpsiswa']?></td>
         </tr>
@@ -222,132 +222,132 @@ function cetak() {
           <td colspan="5" bgcolor="#FFFFFF">&nbsp;</td>
         </tr>
         <tr align="left" height="30">
-          <td colspan="6" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Kesehatan</strong></font>
+          <td colspan="6" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Health Information</strong></font>
               <hr width="300" style="line-height:1px; border-style:dashed" align="left" /></td>
         </tr>
         <tr height="20">
           <td rowspan="5" bgcolor="#FFFFFF"></td>
           <td>17.</td>
-          <td >Berat Badan</td>
+          <td>Body Weight</td>
           <td colspan="2">:
-            <? if ($row_siswa['berat']!=0) { echo $row_siswa['berat']." Kg"; } ?></td>
+            <? if ($row_siswa['berat']!=0) { echo $row_siswa['berat']." kg"; } ?></td>
           </tr>
         <tr height="20">
           <td>18.</td>
-          <td>Tinggi Badan</td>
+          <td>Body Height</td>
           <td colspan="2">:
             <? if ($row_siswa['tinggi']!=0) { echo $row_siswa['tinggi']." cm"; } ?></td>
         </tr>
         <tr height="20">
           <td>19.</td>
-          <td >Golongan Darah</td>
+          <td>Blood Type</td>
           <td colspan="2">:
             <?=$row_siswa['darah']?></td>
         </tr>
         <tr height="20">
           <td>20.</td>
-          <td >Riwayat Penyakit</td>
+          <td>Illness History</td>
           <td colspan="2">:
             <?=$row_siswa['kesehatan']?></td>
         </tr>
-        <tr >
+        <tr>
           <td colspan="4" bgcolor="#FFFFFF">&nbsp;</td>
         </tr>
         <tr align="left" height="30">
-          <td colspan="6" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Pendidikan Sebelumnya</strong></font>
+          <td colspan="6" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Past Education Info</strong></font>
               <hr width="300" style="line-height:1px; border-style:dashed" align="left" /></td>
         </tr>
         <tr height="20">
           <td rowspan="2" bgcolor="#FFFFFF"></td>
           <td>21.</td>
-          <td >Asal Sekolah</td>
+          <td>Past School</td>
           <td colspan="2">:
             <?=$row_siswa['asalsekolah']?></td>
           </tr>
         <tr height="20">
           <td>22.</td>
-          <td >Keterangan</td>
+          <td>Info</td>
           <td colspan="2">:
             <?=$row_siswa['ketsekolah']?></td>
         </tr>
-        <tr >
+        <tr>
           <td colspan="5" bgcolor="#FFFFFF">&nbsp;</td>
         </tr>
         <tr align="left" height="30">
-          <td colspan="6" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Orang Tua</strong></font>
+          <td colspan="6" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Parent Info</strong></font>
               <hr width="300" style="line-height:1px; border-style:dashed" align="left" /></td>
         </tr>
         <tr height="20">
           <td rowspan="11" bgcolor="#FFFFFF"></td>
           <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td><strong>Orang Tua</strong></td>
-          <td width="30%"><div align="center"><strong>Ayah</strong></div></td>
-          <td><div align="center"><strong>Ibu</strong></div></td>
+          <td><strong>Parent</strong></td>
+          <td width="30%"><div align="center"><strong>Father</strong></div></td>
+          <td><div align="center"><strong>Mother</strong></div></td>
         </tr>
         <tr height="20">
           <td>23.</td>
-          <td >Nama</td>
-          <td >:
+          <td>Name</td>
+          <td>:
             <?=$row_siswa['namaayah']?>
               <?
 		if ($row_siswa['almayah']==1)
-		echo "&nbsp;(alm)";
+		echo "&nbsp;(late)";
 		?></td>
           <td><?=$row_siswa['namaibu']?>
               <?
 		if ($row_siswa['almibu']==1)
-		echo "&nbsp;(alm)";
+		echo "&nbsp;(late)";
         ?></td>
           </tr>
         <tr height="20">
           <td>24.</td>
-          <td >Pendidikan</td>
-          <td >:
+          <td>Education</td>
+          <td>:
             <?=$row_siswa['pendidikanayah']?></td>
           <td><?=$row_siswa['pendidikanibu']?></td>
         </tr>
         <tr height="20">
           <td>25.</td>
-          <td >Pekerjaan</td>
-          <td >:
+          <td>Occupation</td>
+          <td>:
             <?=$row_siswa['pekerjaanayah']?></td>
           <td><?=$row_siswa['pekerjaanibu']?></td>
         </tr>
         <tr height="20">
           <td>26.</td>
-          <td >Penghasilan</td>
-          <td >:
+          <td>Income</td>
+          <td>:
             <? if ($row_siswa['penghasilanayah']!=0) { echo FormatRupiah($row_siswa['penghasilanayah']); } ?></td>
           <td><? if ($row_siswa['penghasilanibu']!=0) { echo FormatRupiah($row_siswa['penghasilanibu']); } ?></td>
         </tr>
         <tr height="20">
           <td>27.</td>
-          <td >Email Orang Tua</td>
-          <td >:
+          <td>Parent Email</td>
+          <td>:
             <?=$row_siswa['emailayah']?></td>
           <td><?=$row_siswa['emailibu']?></td>
         </tr>
         <tr height="20">
           <td>28. </td>
-          <td >Nama Wali</td>
+          <td>Guardian Name</td>
           <td colspan="2">:
             <?=$row_siswa['wali']?></td>
         </tr>
-        <tr >
+        <tr>
           <td>29.</td>
-          <td >Alamat</td>
+          <td>Address</td>
           <td colspan="2">:
             <?=$row_siswa['alamatortu']?></td>
         </tr>
         <tr height="20">
           <td>30.</td>
-          <td >Telepon</td>
+          <td>Phone</td>
           <td colspan="2">:
             <?=$row_siswa['telponortu']?></td>
         </tr>
         <tr height="20">
           <td>31.</td>
-          <td >Handphone</td>
+          <td>Mobile</td>
           <td colspan="2">:
             <?=$row_siswa['hportu']?></td>
         </tr>
@@ -355,18 +355,18 @@ function cetak() {
           <td bgcolor="#FFFFFF" >&nbsp;</td>
         </tr>
         <tr height="30" align="left">
-          <td colspan="7" bgcolor="#FFFFFF"><div align="left"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Lainnya</strong></font> </div>            <hr width="300" style="line-height:1px; border-style:dashed" align="left" /></td>
+          <td colspan="7" bgcolor="#FFFFFF"><div align="left"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Others</strong></font> </div>            <hr width="300" style="line-height:1px; border-style:dashed" align="left" /></td>
         </tr>
         <tr height="20">
           <td rowspan="2" bgcolor="#FFFFFF"></td>
           <td>32.</td>
-          <td>Alamat Surat</td>
+          <td>Mailing Address</td>
           <td colspan="2">:
             <?=$row_siswa['alamatsurat']?></td>
         </tr>
         <tr height="20">
           <td>33.</td>
-          <td >Keterangan</td>
+          <td>Info</td>
           <td colspan="2">:
             <?=$row_siswa['keterangan']?></td>
         </tr>

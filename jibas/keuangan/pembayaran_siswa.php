@@ -66,8 +66,8 @@ function pilih(id) {
     	<td valign="top" bgcolor="#FFFFFF">
         <div id="TabbedPanels1" class="TabbedPanels">
       		<ul class="TabbedPanelsTabGroup">
-            	<li class="TabbedPanelsTab" tabindex="0"><font size="1">Pilih <?=$status?> Siswa</font></li>
-            	<li class="TabbedPanelsTab" tabindex="0"><font size="1">Cari <?=$status?> Siswa</font></li>
+            	<li class="TabbedPanelsTab" tabindex="0"><font size="1">Select <?=$status?> Student</font></li>
+            	<li class="TabbedPanelsTab" tabindex="0"><font size="1">Search <?=$status?> Student</font></li>
           	</ul>
       		<div class="TabbedPanelsContentGroup">
                 <div class="TabbedPanelsContent" id="panel0"></div>
@@ -133,7 +133,7 @@ function carilah(){
 	var departemen = document.getElementById('depart1').value;
 	
 	if (nis == "" && nama == "") {
-		alert ('NIS atau Nama Siswa tidak boleh kosong!');
+		alert ('Student ID or Name should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}	
@@ -148,7 +148,7 @@ function carilah1(){
 	var departemen = document.getElementById('depart3').value;
 	
 	if (no == "" && nama == "") {
-		alert ('No Pendaftaran atau Nama Calon tidak boleh kosong!');
+		alert ('Registration Number or Nama Calon should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}	

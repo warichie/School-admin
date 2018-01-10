@@ -58,14 +58,14 @@ class CK{
 		<br />
 		<? if (($nwajib + $niuran) >  0) {
 			//CloseDb();
-			//echo "<br><br><br><br><br><center><i>Tidak ada data pembayaran siswa tersebut di rentang tanggal terpilih</i></center>";
+			//echo "<br><br><br><br><br><center><i>No payment student data tersebut di rentang tanggal selected.</i></center>";
 			//exit();
 		?>
         <form name="panelkeuangan"><input type="hidden" name="nis" id="nis" value="<?=$nis?>" /></form>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 		<tr>
 			<td valign="top" background="" style="background-repeat:no-repeat; background-attachment:fixed">
-            <div align="right"><a href="javascript:cetak(2)"><img src="../img/print.png" border="0" />&nbsp;Cetak</a></div>
+            <div align="right"><a href="javascript:cetak(2)"><img src="../img/print.png" border="0" />&nbsp;Print</a></div>
 			<table class="tab" id="table" border="1"  width="100%" align="center">
 		   
 		<?
@@ -103,19 +103,19 @@ class CK{
 				<td colspan="4" bgcolor="#99CC00" class="header"><font size="2"><strong><em><?=$namapenerimaan?></em></strong></font></td>
 			</tr>    
 			<tr height="25">
-				<td width="20%" bgcolor="#CCFF66"><strong>Total Bayaran</strong> </td>
+				<td width="20%" bgcolor="#CCFF66"><strong>Total Payment</strong> </td>
 				<td width="15%" bgcolor="#FFFFFF" align="right"><?=FormatRupiah($besar) ?></td>
-				<td width="22%" bgcolor="#CCFF66" align="center"><strong>Pembayaran Terakhir</strong></td>
-				<td width="43%" bgcolor="#CCFF66" align="center"><strong>Keterangan</strong></td>
+				<td width="22%" bgcolor="#CCFF66" align="center"><strong>Last Payment</strong></td>
+				<td width="43%" bgcolor="#CCFF66" align="center"><strong>Info</strong></td>
 			</tr>
 			<tr height="25">
-				<td bgcolor="#CCFF66"><strong>Jumlah Pembayaran</strong> </td>
+				<td bgcolor="#CCFF66"><strong>Payment Amount</strong> </td>
 				<td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($pembayaran) ?></td>
 				<td bgcolor="#FFFFFF" align="center" valign="top" rowspan="2"><?=FormatRupiah($byrakhir) . "<br><i>" . $tglakhir . "</i>" ?> </td>
 				<td bgcolor="#FFFFFF" align="left" valign="top" rowspan="2"><?=$keterangan ?></td>
 			</tr>
 			<tr height="25">
-				<td bgcolor="#CCFF66"><strong>Sisa Bayaran</strong> </td>
+				<td bgcolor="#CCFF66"><strong>Remaining Payment</strong> </td>
 				<td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($sisa) ?></td>
 			</tr>
 			<tr height="3">
@@ -153,9 +153,9 @@ class CK{
 				<td colspan="4" bgcolor="#99CC00" class="header"><font size="2"><strong><em><?=$namapenerimaan?></em></strong></font></td>
 			</tr>  
 			<tr height="25">
-				<td width="22%" bgcolor="#CCFF66" align="center"><strong>Total Pembayaran</strong> </td>
-				<td width="22%" bgcolor="#CCFF66" align="center"><strong>Pembayaran Terakhir</strong></td>
-				<td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><strong>Keterangan</strong></td>
+				<td width="22%" bgcolor="#CCFF66" align="center"><strong>Total Payment</strong> </td>
+				<td width="22%" bgcolor="#CCFF66" align="center"><strong>Last Payment</strong></td>
+				<td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><strong>Info</strong></td>
 			</tr>
 			<tr height="25">
 				<td bgcolor="#FFFFFF" align="center"><?=FormatRupiah($pembayaran) ?></td>
@@ -176,7 +176,7 @@ class CK{
 			<table width="100%" border="0" align="center">          
 			<tr>
 				<td align="center" valign="middle" height="250">    
-					<font size = "2" color ="red"><b>Tidak ditemukan adanya data.         
+					<font size = "2" color ="red"><b>Data Not Found.         
 					</font>
 				</td>
 			</tr>

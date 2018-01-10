@@ -52,7 +52,7 @@ if (isset($_REQUEST['Simpan'])) {
 	$result_simpan_cek=QueryDb($sql_simpan_cek);	
 	if (mysql_num_rows($result_simpan_cek) > 0) {
 		CloseDb();
-		$ERROR_MSG = $deskripsi." sudah digunakan!";
+		$ERROR_MSG = $deskripsi." has been used";
 	} else {
 		$sql_simpan="UPDATE jbsakad.infojadwal SET deskripsi='$deskripsi' WHERE replid = '$replid'";
 		$result_simpan=QueryDb($sql_simpan);
@@ -75,7 +75,7 @@ if (isset($_REQUEST['Simpan'])) {
 ?>
 <html>
 <head>
-<title>JIBAS SIMAKA [Ubah Info Jadwal]</title>
+<title>JIBAS SIMAKA [Edit Schedule Info]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -117,27 +117,27 @@ function focusNext(elemName, evt) {
 	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
     <!-- TABLE CONTENT -->
     <tr height="25">
-      	<td colspan="2" class="header" align="center">Ubah Info Jadwal</td>
+      	<td colspan="2" class="header" align="center">Edit Schedule Info</td>
     </tr>
     <tr>
-        <td width="35%"><strong>Departemen</strong></td>
+        <td width="35%"><strong>Department</strong></td>
         <td><input type="text" name="dept" size="10" maxlength="50" class="disabled" readonly value="<?=$departemen?>"/>                
         </td>
     </tr>
     <tr>
-        <td><strong>Tahun Ajaran</strong></td>
+        <td><strong>Year</strong></td>
         <td><input type="text" name="tahun" size="10" value="<?=$tahun ?>" readonly class="disabled"/>
 		<input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$tahunajaran?>">       
         </td>
     </tr>
     <tr>
-        <td><strong>Info Jadwal</strong></td>
+        <td><strong>Schedule Info</strong></td>
         <td><input type="text" name="deskripsi" id="deskripsi"  size="30" value="<?=$deskripsi?>" onKeyPress="return focusNext('Simpan', event)"></td>
     </tr>
     <tr>
         <td colspan="2" align="center">
-            <input type="submit" name="Simpan" value="Simpan" class="but" id="Simpan">
-            <input type="button" name="Tutup" value="Tutup" class="but" onClick="window.close()">
+            <input type="submit" name="Simpan" value="Save" class="but" id="Simpan">
+            <input type="button" name="Tutup" value="Close" class="but" onClick="window.close()">
         </td>
     </tr>
 	</table>

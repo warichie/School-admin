@@ -44,7 +44,7 @@ if ($filter!=""){
 	$row = @mysql_fetch_array($result);
 	$nama = $row[nama];
 } else {
-	$nama = "<i>(Semua)</i>";
+	$nama = "<i>(All)</i>";
 }
 $sql = "SELECT kodepustaka FROM daftarpustaka WHERE pustaka='$replid' $filter";
 //echo $sql;
@@ -56,7 +56,7 @@ $jum = @mysql_num_rows($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cetak Label Pustaka</title>
+<title>Print Library Label</title>
 </head>
 
 <body leftmargin="0" topmargin="0">
@@ -66,11 +66,11 @@ $jum = @mysql_num_rows($result);
         	<div align="center">
             <table width="100%" border="0" cellspacing="1" cellpadding="1">
               <tr>
-                <td width="4%" align="right" valign="top"><strong class="news_title2">Pepustakaan&nbsp;:</strong></td>
+                <td width="4%" align="right" valign="top"><strong class="news_title2">Library&nbsp;:</strong></td>
                 <td width="96%" class="nav_title" align="left"><?=$nama?></td>
               </tr>
               <tr>
-                <td width="4%" align="right" valign="top"><strong class="news_title2">Judul&nbsp;:</strong></td>
+                <td width="4%" align="right" valign="top"><strong class="news_title2">Title&nbsp;:</strong></td>
                 <td width="96%" class="nav_title" align="left"><?=$judul?></td>
               </tr>
             </table>

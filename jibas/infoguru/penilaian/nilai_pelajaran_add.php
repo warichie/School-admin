@@ -61,7 +61,7 @@ $jenis = $row['idjenis'];
 ?>
 <html>
 <head>
-<title>JIBAS SIMAKA [Tambah Data Nilai Pelajaran]</title>
+<title>JIBAS SIMAKA [Add Class Subject Point Data]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="../style/calendar-system.css">
@@ -91,19 +91,19 @@ function cek_form() {
 	idrpp = document.tambah_nilai_pelajaran.idrpp.value;
 	
 	if(tanggal.length == 0) {
-		alert("Anda harus mengisikan data untuk Tanggal! \nKlik ikon Kalender untuk membuka kalender");
+		alert("You must enter a data for Date\n Click on Calendar icon to open the Calendar");
 		document.getElementById('tanggal').focus();
 		return false;
 	}
 	/*
 	if(idrpp.length == 0) {
-		alert("Anda harus mengisikan data untuk RPP!");
+		alert("You must enter a data for Lesson Plans");
 		document.getElementById('idrpp').focus();
 		return false;
 	}
 	*/
 	if(deskripsi.length == 0) {
-		alert("Anda harus mengisikan data untuk Materi!");	
+		alert("You must enter a data for Subject Matter");	
 		document.tambah_nilai_pelajaran.deskripsi.focus();
 		return false;
 	}
@@ -111,18 +111,18 @@ function cek_form() {
 	for (i=1;i<=jumlah;i++) {			
 		var nau = document.getElementById("nilaiujian"+i).value;
 		if (nau.length == 0){
-			alert ('Masih ada siswa yang belum mendapat nilai!');
+			alert ('There are students with no points');
 			document.getElementById("nilaiujian"+i).focus();
 			return false;
 		} else {
 			if (isNaN(nau)){
-				alert ('Nilai Akhir harus berupa bilangan!');
+				alert ('Final Point must be numeric');
 				document.getElementById("nilaiujian"+i).focus();
 				return false;
 			}
 			
 			if (parseInt(nau) > 100){
-				alert ('Rentang Nilai Akhir antara 0 - 100 !');
+				alert ('Final Point range is between 0 - 100 ');
 				document.getElementById("nilaiujian"+i).focus();
 				return false;
 			}
@@ -210,14 +210,14 @@ function simpan(evt) {
 </head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#dcdfc4" onLoad="document.getElementById('deskripsi').focus();">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="58" style="background-color:#EEE">
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#000; font-size:16px; font-weight:bold">
-    .: Tambah Nilai Pelajaran :.
+    .: Add Class Subject Point :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -237,43 +237,43 @@ function simpan(evt) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-    <td width="18%"><strong>Departemen</strong></td>
+    <td width="18%"><strong>Department</strong></td>
     <td><input class="disabled" type="text" size="15" value="<?=$departemen?>" readonly></td>
-    <td width="20%"><strong>Tahun Ajaran</strong></td>
+    <td width="20%"><strong>Year</strong></td>
     <td><input type="text" class="disabled" value="<?=$tahunajaran?>" size="27" readonly></td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
     <td><input type="text" class="disabled" value="<?=$namatingkat?>" size="15" readonly></td>
     <td><strong>Semester</strong></td>
     <td><input type="text" class="disabled" value="<?=$namasemester?>" size="27" readonly></td>
 </tr>
 <tr>
-    <td><strong>Kelas</strong></td>
+    <td><strong>Class</strong></td>
     <td><input type="text" class="disabled" value="<?=$namakelas?>" size="15" readonly></td>
-    <td><strong>Pelajaran</strong></td>
+    <td><strong>Class Subject</strong></td>
     <td><input type="text" class="disabled" value="<?=$namapelajaran?>" size="27" readonly></td>
 </tr>
 <tr>
     <td colspan="4">
     
-    <fieldset><legend><b>Jenis Pengujian <?=$jenisujian?></b></legend>
+    <fieldset><legend><b>Exam Type <?=$jenisujian?></b></legend>
     
     <table>
     <tr>
-    	<td>Kode&nbsp;Ujian</td>
+    	<td>Code&nbsp;Exam</td>
         <td><input type="text" name="kode" id="kode" size="25" onKeyPress="return focusNext('idrpp', event);"></td>
     </tr>
     <tr>
-        <td><strong>Tanggal</strong></td>
+        <td><strong>Date</strong></td>
         <td><input type="text" name="tanggal" id="tanggal" size="25" readonly class="disabled" value='<?=date("d")."-".date("m")."-".date("Y"); ?>' onClick="Calendar.setup()">&nbsp;
-        	<img src="../images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/></td>
+        	<img src="../images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '100px')"/></td>
     </tr>
     <tr>
-      	<td><strong>RPP</strong></td>
+      	<td><strong>Lesson Plans</strong></td>
       	<td><div id="rpp_info">
         	<select name="idrpp" id="idrpp" style="width:170px;" onkeypress="return focusNext('deskripsi', event)">
-      		<option value="" <?=IntIsSelected("", $idrpp) ?> >Tanpa RPP</option>
+      		<option value="" <?=IntIsSelected("", $idrpp) ?> >No Lesson Plans</option>
 		<? $sql_rpp="SELECT * FROM rpp WHERE idtingkat='$tingkat' AND idsemester='$semester' AND idpelajaran='$pelajaran' AND aktif=1 ORDER BY rpp";
       		$result_rpp=QueryDb($sql_rpp);
       		while ($row_rpp=@mysql_fetch_array($result_rpp)){
@@ -285,12 +285,12 @@ function simpan(evt) {
       	<? } ?>
      
       		</select>
-            <img src="../images/ico/tambah.png" onClick="get_rpp('<?=$tingkat?>','<?=$pelajaran?>','<?=$semester?>')" onMouseOver="showhint('Tambah RPP!', this, event, '80px')">
+            <img src="../images/ico/tambah.png" onClick="get_rpp('<?=$tingkat?>','<?=$pelajaran?>','<?=$semester?>')" onMouseOver="showhint('Add Lesson Plans', this, event, '80px')">
             </div>
       	</td>
 	</tr>
 	<tr>
-    	<td><strong>Materi</strong></td>
+    	<td><strong>Class Subject</strong></td>
         <td><input type="text" name="deskripsi" id="deskripsi" size="65" onKeyPress="return focusNext('nilaiujian1', event);"></td>
     </tr>
     
@@ -298,11 +298,11 @@ function simpan(evt) {
     
     <table id="table" class="tab" border="1" width="100%">
     <tr height="30" align="center">
-        <td class="header" width="6%">No</td>
-        <td class="header" width="15%">N I S</td>
-        <td class="header">Nama</td>
-        <td class="header" width="10%">Nilai</td>
-        <td class="header" width="20%">Keterangan</td>
+        <td class="header" width="6%">#</td>
+        <td class="header" width="15%">Student ID</td>
+        <td class="header">Name</td>
+        <td class="header" width="10%">Point</td>
+        <td class="header" width="20%">Info</td>
     </tr>
 <?  $sql_siswa="SELECT * FROM siswa WHERE idkelas='$kelas' AND aktif=1 AND alumni=0 ORDER BY nama ASC";
     $result_siswa=QueryDb($sql_siswa);
@@ -332,15 +332,15 @@ function simpan(evt) {
 <? if ($numsiswa==0){ ?>
 <tr>
     <td align="center" colspan="4">
-    	<span class="style1">Tidak ada siswa yang terdaftar, pengisian nilai tidak dapat dilakukan!        </span></td>
+    	<span class="style1">No registered student, cannot perform Point addition        </span></td>
 </tr>
 <? } ?>
 <tr>
     <td align="center" colspan="4">
     <? if ($numsiswa!=0){ ?>
-    <input type="Button" value="Simpan" id="Simpan" name="Simpan" class="but" onClick="return cek_form();document.getElementById('tambah_nilai_pelajaran').submit();">&nbsp;
+    <input type="Button" value="Save" id="Simpan" name="Simpan" class="but" onClick="return cek_form();document.getElementById('tambah_nilai_pelajaran').submit();">&nbsp;
     <? } ?>
-    <input type="button" name="tutup" value="Tutup" class="but" onClick="window.close()" >
+    <input type="button" name="tutup" value="Close" class="but" onClick="window.close()" >
     </td>
 </tr>
 </table>

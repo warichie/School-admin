@@ -38,7 +38,7 @@ if (isset($_REQUEST['simpan'])){
 	$tanggal=$tgl[2]."-".$tgl[1]."-".$tgl[0];
 	$judul = $_REQUEST['judul'];
 	$catatan = $_REQUEST['catatan'];
-	//echo " NIS = ".$nis;
+	//echo " Student ID = ".$nis;
 	//echo " tanggal = ".$tanggal;
 	//echo " judul = ".$judul;
 	//echo " catatan = ".$catatan;
@@ -97,17 +97,17 @@ function validate(){
 	var kategori=document.getElementById('kategori').value;
 	var catatan=tinyMCE.get('catatan').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Catatan');
+		alert ('You must enter a data for Notes Title');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (kategori.length==0){
-		alert ('Anda harus mengisikan data untuk Kategori Catatan');
+		alert ('You must enter a data for Category Notes');
 		document.getElementById('kategori').focus();
 		return false;
 	}
 	if (catatan.length==0){
-		alert ('Anda harus mengisikan data untuk Catatan');
+		alert ('You must enter a data for Notes');
 		document.getElementById('catatan').focus();
 		return false;
 	}
@@ -121,10 +121,10 @@ function validate(){
 <input name="nis" type="hidden" value="<?=$nis?>" id="nis" />
 <table width="100%" border="0" cellspacing="5">
   <tr>
-    <td colspan="2"><strong><font size="2" color="#999999">Input Catatan Baru :</font></strong><br /><br /></td>
+    <td colspan="2"><strong><font size="2" color="#999999">New Notes :</font></strong><br /><br /></td>
   </tr>
   <tr>
-    <td width="68"><strong>Kategori </strong></td>
+    <td width="68"><strong>Category </strong></td>
     <td width="1147">
     <select name="kategori" id="kategori" >
     <?
@@ -137,7 +137,7 @@ function validate(){
 		echo "<option value='".$row[replid]."'>".$row[kategori]."</option>";
 	}
 	} else {
-		echo "<option value=''>Tidak ada kategori</option>";
+		echo "<option value=''>No category</option>";
 	}
     CloseDb();
 	?>
@@ -145,22 +145,22 @@ function validate(){
     </td>
   </tr>
   <tr>
-    <td><strong>Tanggal</strong></td>
-    <td><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Klik untuk membuka kalender !" src="../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <td><strong>Date</strong></td>
+    <td><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Click to open the Calendar" src="../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
   <tr>
-    <td><strong>Judul </strong></td>
+    <td><strong>Title </strong></td>
     <td><input name="judul" type="text" id="judul" size="35" maxlength="254" /></td>
   </tr>
   <tr>
-    <td colspan="2" align="left"><strong>Catatan </strong>
+    <td colspan="2" align="left"><strong>Notes </strong>
       <div align="center"><br />
           <textarea name="catatan" rows="25" id="catatan" style="width:100%"></textarea>
     </div></td>
   </tr>
   <tr>
     <td colspan="2"><div align="center">
-      <input name="simpan" type="submit" class="but" id="simpan" value="Simpan" />
+      <input name="simpan" type="submit" class="but" id="simpan" value="Save" />
     </div></td>
   </tr>
 </table>

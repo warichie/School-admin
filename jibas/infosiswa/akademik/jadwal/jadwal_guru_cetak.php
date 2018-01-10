@@ -126,7 +126,7 @@ $row = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Jadwal Guru]</title>
+<title>JIBAS SIMAKA [Print Teacher Schedule]</title>
 
 <style>
 	.jadwal {
@@ -155,38 +155,38 @@ $row = mysql_fetch_array($result);
 <tr><td align="left" valign="top">
   	<? include("../library/headercetak.php") ?>
 <center>
-  <font size="4"><strong>JADWAL GURU</strong></font><br />
+  <font size="4"><strong>TEACHER SCHEDULE</strong></font><br />
  </center><br /><br />
 
 <br />
 <table>
 <tr>
-	<td><strong>Guru</strong></td>
+	<td><strong>Teacher</strong></td>
     <td><strong>: <?=$row['nip'] ?> - <?=$row['nama'] ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Departemen</strong></td>
+	<td><strong>Department</strong></td>
     <td><strong>: <?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 <tr>
-	<td width="35%"><strong>Info Jadwal</strong></td>
+	<td width="35%"><strong>Schedule Info</strong></td>
     <td><strong>: <?=$row['deskripsi']?></strong></td>
 </tr>
 </table>
 <br>
 <table border="1" width="100%" id="table" class="tab" align="center" cellpadding="2" style="border-collapse:collapse" cellspacing="2">
 <tr>
-    <td width="110px" class="header" align="center">Jam</td>
-    <td width="95px" class="header" align="center">Senin</td>
-    <td width="95px" class="header" align="center">Selasa</td>
-    <td width="95px" class="header" align="center">Rabu</td>
-    <td width="95px" class="header" align="center">Kamis</td>
-    <td width="95px" class="header" align="center">Jumat</td>
-    <td width="95px" class="header" align="center">Sabtu</td>
+    <td width="110px" class="header" align="center">Time</td>
+    <td width="95px" class="header" align="center">Monday</td>
+    <td width="95px" class="header" align="center">Tuesday</td>
+    <td width="95px" class="header" align="center">Wednesday</td>
+    <td width="95px" class="header" align="center">Thursday</td>
+    <td width="95px" class="header" align="center">Friday</td>
+    <td width="95px" class="header" align="center">Saturday</td>
 </tr>
 <?
 

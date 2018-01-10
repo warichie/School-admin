@@ -55,7 +55,7 @@ if (isset($_REQUEST['idtahunbuku']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Neraca Percobaan]</title>
+<title>JIBAS FINANCE [Trial Balance Sheet Reports]</title>
 </head>
 
 <body>
@@ -67,16 +67,16 @@ if (isset($_REQUEST['idtahunbuku']))
 
 <table border="0">
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Departemen </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Department </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=$departemen ?>
     </strong></font></td>
 </tr>
 <tr>
-	<td><font size="2" face="Arial"><strong>Tanggal </strong></font></td>
+	<td><font size="2" face="Arial"><strong>Date </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=LongDateFormat($tanggal1) ?> 
-      s/d 
+      to 
       <?=LongDateFormat($tanggal2) ?>
     </strong></font></td>
 </tr>
@@ -94,11 +94,11 @@ if (isset($_REQUEST['idtahunbuku']))
 	?>
     <table class="tab" style="border-collapse:collapse" id="table" border="1" cellpadding="2"  width="100%" bordercolor="#000000" />
     <tr height="30">
-        <td width="5%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-        <td width="8%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Kode</font></strong></td>
-        <td width="*" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Rekening</font></strong></td>
-        <td width="20%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Debet</font></strong></td>
-        <td width="20%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Kredit</font></strong></td>
+        <td width="5%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+        <td width="8%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Code</font></strong></td>
+        <td width="*" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Bank Account</font></strong></td>
+        <td width="20%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Debit</font></strong></td>
+        <td width="20%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Credit</font></strong></td>
     </tr>
 	<?
     $cnt = 0;
@@ -107,10 +107,10 @@ if (isset($_REQUEST['idtahunbuku']))
     while($row = mysql_fetch_array($result)) {
         $kategori = $row['kategori'];
         switch($kategori) {
-            case 'HARTA':
-			case 'PIUTANG':
-            case 'INVENTARIS':
-            case 'BIAYA':
+            case 'WEALTH':
+			case 'DEBT':
+            case 'INVESTMENT':
+            case 'COST':
                 $debet1 = $row['debet'] - $row['kredit'];
                 $debet = $debet1;
                 $kredit = "$nbsp";
@@ -147,7 +147,7 @@ if (isset($_REQUEST['idtahunbuku']))
     CloseDb();
     ?>
     <tr height="30">
-        <td colspan="3" align="center" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong>T O T A L</strong></font></td>
+        <td colspan="3" align="center" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong>Total</strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totaldebet ?></strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totalkredit ?></strong></font></td>
     </tr>
@@ -159,7 +159,7 @@ if (isset($_REQUEST['idtahunbuku']))
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="300">
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data transaksi keuangan pada departemen <?=$departemen?> antara tanggal <?=LongDateFormat($tanggal1)?> s/d <?=LongDateFormat($tanggal2)?>.</b></font>
+            <font size = "2" color ="red"><b>No transactions found on Department <?=$departemen?> between <?=LongDateFormat($tanggal1)?> to <?=LongDateFormat($tanggal2)?>.</b></font>
             
         </td>
     </tr>

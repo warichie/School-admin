@@ -35,7 +35,7 @@ $all = $_REQUEST['all'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pilih Pegawai</title>
+<title>Select Employee</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/string.js"></script>
@@ -67,11 +67,11 @@ function Cari()
     
     <form name="main">
     <fieldset>
-    <legend><strong>Cari Pegawai</strong></legend>
-    Nama : <input type="text" name="txNama" id="txNama" size="15" maxlength="20" value="<?=$nama?>" />&nbsp;
-    NIP: <input type="text" name="txNIP" id="txNIP" size="15" maxlength="20" value="<?=$nip?>" />&nbsp;
-    <input type="button" name="btSubmit" class="but" value="Cari" onclick="JavaScript:Cari()" />&nbsp;
-    <input type="button" name="btAll" class="but" value="Lihat Semua" onclick="JavaScript:ShowAll()" /><br />
+    <legend><strong>Search Employee</strong></legend>
+    Name : <input type="text" name="txNama" id="txNama" size="15" maxlength="20" value="<?=$nama?>" />&nbsp;
+    Employee ID: <input type="text" name="txNIP" id="txNIP" size="15" maxlength="20" value="<?=$nip?>" />&nbsp;
+    <input type="button" name="btSubmit" class="but" value="Search" onclick="JavaScript:Cari()" />&nbsp;
+    <input type="button" name="btAll" class="but" value="Lihat All" onclick="JavaScript:ShowAll()" /><br />
     </fieldset>
     </form>
     
@@ -86,9 +86,9 @@ if (strlen($nip) > 0 || strlen($nama) > 0 || $all == 1)
     
 <table border="0" cellpadding="2" cellspacing="0" width="98%" align="center" class="tab" id="table">
 <tr height="30">
-	<td class="header" width="5%" align="center">No</td>
-    <td class="header" width="20%" align="center">NIP</td>
-    <td class="header" width="55%" align="left">Nama</td>
+	<td class="header" width="5%" align="center">#</td>
+    <td class="header" width="20%" align="center">Employee ID</td>
+    <td class="header" width="55%" align="left">Name</td>
     <td class="header" width="10%" align="center">&nbsp;</td>
 </tr>
 <?

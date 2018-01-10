@@ -79,7 +79,7 @@ function refresh() {
 }
 
 function del(nama_suku) {
-	if (confirm("Apakah anda yakin akan menghapus suku "+nama_suku+" ?"))
+	if (confirm("Are you sure want to delete suku "+nama_suku+" ?"))
 		document.location.href = "suku.php?op=del&nama_suku="+nama_suku+"&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -126,7 +126,7 @@ windowIMA=parent.opener.refresh_delete();
 }
 
 </script>
-<title>JIBAS SIMAKA [Daftar Suku]</title>
+<title>JIBAS SIMAKA [Ethnicity List]</title>
 </head>
 
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#dcdfc4" onUnload="ByeWin()">
@@ -135,7 +135,7 @@ windowIMA=parent.opener.refresh_delete();
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Suku :.
+    .: Ethnicity :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -164,8 +164,8 @@ windowIMA=parent.opener.refresh_delete();
     <!-- TABLE LINK -->
     <tr>
         <td align="right">
-        	<a href="#" onClick="refresh();"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')">&nbsp;Refresh</a>&nbsp;&nbsp;
-            <a href="#" onClick="JavaScript:tambah();"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Suku!', this, event, '50px')">&nbsp;Tambah Suku</a></td>
+        	<a href="#" onClick="refresh();"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')">&nbsp;Refresh</a>&nbsp;&nbsp;
+            <a href="#" onClick="JavaScript:tambah();"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add Ethnicity', this, event, '50px')">&nbsp;Add Ethnicity</a></td>
     </tr>
 	</table>
    	</td>
@@ -175,8 +175,8 @@ windowIMA=parent.opener.refresh_delete();
     <br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 	<tr class="header" height="30" align="center">
-        <td width="10%" >No</td>
-        <td width="*">Suku</td>
+        <td width="10%" >#</td>
+        <td width="*">Ethnicity</td>
         <td width="15%">&nbsp;</td>
 	</tr>
     <?
@@ -195,7 +195,7 @@ windowIMA=parent.opener.refresh_delete();
         <td><?=$row['suku']?></td>
         <td align="center">
         <a href="#" onClick="newWindow('suku_edit.php?suku=<?=$row['suku']?>&replid=<?=$replid?>',
-        'UbahSuku','400','240','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Suku!', this, event, '50px')"></a>&nbsp;<a href="#" onClick="del('<?=$row['suku']?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Suku!', this, event, '50px')"></a>        </td>
+        'UbahSuku','400','240','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Ethnicity', this, event, '50px')"></a>&nbsp;<a href="#" onClick="del('<?=$row['suku']?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Ethnicity', this, event, '50px')"></a>        </td>
 	</tr> 
      
     <?
@@ -233,20 +233,20 @@ windowIMA=parent.opener.refresh_delete();
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="35%" align="left">Hal
+       	<td width="35%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -257,9 +257,9 @@ windowIMA=parent.opener.refresh_delete();
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="35%" align="right">Jml baris per hal
+        <td width="35%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -278,9 +278,9 @@ windowIMA=parent.opener.refresh_delete();
    	</tr>
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+    	<font size = "2" color ="red"><b>Data Not Found. 
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
         </b></font>
         </td>
@@ -291,7 +291,7 @@ windowIMA=parent.opener.refresh_delete();
 </tr>
 <tr height="35">
 	<td colspan="3" align="center">
-        <input class="but" type="button" value="Tutup" onClick="tutup()">
+        <input class="but" type="button" value="Close" onClick="tutup()">
         <input type="hidden" name="suku_kiriman" id="suku_kiriman" value="<?=$suku_kiriman?>" />
 	</td>
 </tr>

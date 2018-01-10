@@ -52,7 +52,7 @@ while ($row = @mysql_fetch_row($result)) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Penilaian Pelajaran </title>
+<title>Class Index Report </title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -76,7 +76,7 @@ function cetak() {
     <td valign="top" background="" style="background-repeat:no-repeat; background-attachment:fixed">
 	<table width="100%" border="0" height="100%">
   	<tr>
-    	<td valign="top" colspan="2"><font size="4" color="#660000"><b>Pelajaran <?=$pel?></b></font></td>      	
+    	<td valign="top" colspan="2"><font size="4" color="#660000"><b>Class Subject <?=$pel?></b></font></td>      	
   	</tr>
   	<tr>
     	<td valign="right"></td>
@@ -85,7 +85,7 @@ function cetak() {
    	 	<td><b>Semester <?=$sem[0][1]?></b></td>
         <td valign="top" align="right">     
   		
-        <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp; 
+        <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp; 
       	</td>
 	</tr>
     
@@ -99,10 +99,10 @@ function cetak() {
         <br /><br />		
 		<table border="1" width="100%" id="table" class="tab">
 		<tr>		
-			<td class="header" align="center" height="30">No</td>
-			<td class="header" align="center" height="30">Tanggal</td>
-            <td class="header" align="center" height="30">Nilai</td>
-			<td class="header" align="center" height="30">Keterangan</td>
+			<td class="header" align="center" height="30">#</td>
+			<td class="header" align="center" height="30">Date</td>
+            <td class="header" align="center" height="30">Point</td>
+			<td class="header" align="center" height="30">Info</td>
 		</tr>
 		<? 	OpenDb();		
 			$sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[0][0]."' AND u.idjenis = '$row[replid]' AND u.replid = n.idujian AND n.nis = '$nis' ORDER BY u.tanggal";

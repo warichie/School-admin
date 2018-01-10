@@ -56,9 +56,9 @@ CloseDb();
 							<tr>
 			  <?		} ?>
 						<td height="125" align="center"><a title="<?=$ket[$i]?>" href="<?=$WEB_GALLERY_DIR?>photos/<?=$fn[$i]?>" rel="lytebox[vacation]" >
-							<img title="Klik untuk melihat ukuran sebenarnya" src="<?=$WEB_GALLERY_DIR?>thumbnails/<?=$fn[$i]?>" width="80" style="cursor:pointer;"></a><br>
+							<img title="Click to show the original size" src="<?=$WEB_GALLERY_DIR?>thumbnails/<?=$fn[$i]?>" width="80" style="cursor:pointer;"></a><br>
 							<?=$ket[$i]?>
-							<br><img src="../../images/ico/hapus.png" onClick="if (confirm('Anda yakin akan menghapus gambar ini?')) document.location.href='galerifoto.php?op=14075BUSYCODACALLDIFF&replid=<?=$rep[$i]?>&page=t'" title="Hapus gambar ini" style="cursor:pointer;" />
+							<br><img src="../../images/ico/hapus.png" onClick="if (confirm('Are you sure want to delete this image?')) document.location.href='galerifoto.php?op=14075BUSYCODACALLDIFF&replid=<?=$rep[$i]?>&page=t'" title="Delete this image" style="cursor:pointer;" />
 						</td>
 			  <?		if ($i%5==0) { ?>
 							</tr>
@@ -67,7 +67,7 @@ CloseDb();
 			  <? } else {?>
 				<tr>
 					<td>
-						<div align="center"><em>Tidak ada foto</em></div>
+						<div align="center"><em>No photo.</em></div>
 					</td>
 				</tr>
 			  <? } ?>

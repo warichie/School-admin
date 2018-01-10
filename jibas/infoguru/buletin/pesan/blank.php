@@ -39,7 +39,7 @@
 
 <body>
 <div style="margin-left:20px; margin-top:20px">
-<span class="ukuranemail style9 style10">Silakan pilih menu di sebelah kiri untuk memulai..</span>
+<span class="ukuranemail style9 style10">Select a menu on the left to Start</span>
 </div>
 </body>
 </html>

@@ -6750,7 +6750,7 @@ var tinyMCE = window.tinyMCE = tinymce.EditorManager;
 			}
 
 			t.onExecCommand.add(function(ed, c) {
-				// Don't refresh the select lists until caret move
+				// Don't refresh the select lists to caret move
 				if (!/^(FontName|FontSize)$/.test(c))
 					t.nodeChanged();
 			});
@@ -9111,7 +9111,7 @@ var tinyMCE = window.tinyMCE = tinymce.EditorManager;
 				return isBlock(n);
 			});
 
-			// IE has an issue where it removes the parent div if you change format on the paragrah in <div><p>Content</p></div>
+			// IE has an issue where it removes the parent div if you change format on the paragrah in <div><p>Class Subject</p></div>
 			// FF and Opera doesn't change parent DIV elements if you switch format
 			if (bl) {
 				if ((isIE && isBlock(bl.parentNode)) || bl.nodeName == 'DIV') {

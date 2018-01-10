@@ -44,7 +44,7 @@ class Penilaian{
         <td>
         <div id="TabbedPanelsA" class="TabbedPanels">
           <ul class="TabbedPanelsTabGroup">
-            <li class="TabbedPanelsTab2" tabindex="0"><strong>Kirim Laporan Penilaian</strong></li>
+            <li class="TabbedPanelsTab2" tabindex="0"><strong>Send Report Card</strong></li>
           </ul>
           <div class="TabbedPanelsContentGroup">
             <div class="TabbedPanelsContent" style="padding-top:5px; overflow:inherit">
@@ -54,7 +54,7 @@ class Penilaian{
                 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
                   <tr>
                     <td width="12%" align="right" valign="top" class="td">
-                    <span style="color:#666; font-size:12px; font-weight:bold">Kirim Laporan Berdasarkan</span>
+                    <span style="color:#666; font-size:12px; font-weight:bold">Send Reports based on</span>
                     </td>
                     <td width="88%">
                         <table  border="0" cellspacing="0" cellpadding="0">
@@ -63,12 +63,12 @@ class Penilaian{
                                 <table  border="0" cellspacing="0" cellpadding="0">
                                   <tr>
                                     <td><input type="radio" id="type0" checked="checked" name="type" onclick="SetActive('0','NISList','dep','kls')" /></td>
-                                    <td>Siswa</td>
+                                    <td>Student</td>
                                   </tr>
                                 </table>
                             </td>
                             <td class="td">
-                            <textarea class="AreaTxt" id="NISList"></textarea><br /><span class="Ket">* dipisahkan koma</span>
+                            <textarea class="AreaTxt" id="NISList"></textarea><br /><span class="Ket">* separated by comma</span>
                             <div id="ErrNISList" class="ErrMsg"></div>
                             </td>
                           </tr>
@@ -77,7 +77,7 @@ class Penilaian{
                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                   <tr>
                                     <td><input type="radio" id="type1" name="type" onclick="SetActive('1','NISList','dep','kls')" /></td>
-                                    <td>Kelas</td>
+                                    <td>Class</td>
                                   </tr>
                                 </table>
                             </td>
@@ -104,7 +104,7 @@ class Penilaian{
                                 <td>
                                 <div id="klsInfo">
                                 <select id="kls" class="Cmb" disabled="disabled">
-                                <option value="-1" <?=StringIsSelected('-1',$kls)?>>- Semua -</option>
+                                <option value="-1" <?=StringIsSelected('-1',$kls)?>>- All -</option>
                                 <?
                                 $sql = "SELECT k.replid, k.kelas FROM $db_name_akad.kelas k,$db_name_akad.tahunajaran ta,$db_name_akad.tingkat ti WHERE k.aktif=1  AND ta.aktif=1 AND ti.aktif=1 AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND ta.departemen='$dep' AND ti.departemen='$dep' ORDER BY ti.urutan, k.kelas";
                                 $res = QueryDb($sql);
@@ -126,7 +126,7 @@ class Penilaian{
                   </tr>
                   <tr>
                     <td align="right" valign="top" class="td">
-                    <span style="color:#666; font-size:12px; font-weight:bold">Penilaian</span>
+                    <span style="color:#666; font-size:12px; font-weight:bold">Report Card</span>
                     </td>
                     <td width="88%" class="td">
                         <table border="0" cellspacing="0" cellpadding="0">
@@ -152,7 +152,7 @@ class Penilaian{
                             <td style="padding-right:10px">
                             <div id="PelInfo">
                                 <select id="PelPel" class="Cmb" onchange="ChgPelPel()">
-                                <option value="-1" <?=StringIsSelected('-1',$PelPel)?>>- Semua -</option>
+                                <option value="-1" <?=StringIsSelected('-1',$PelPel)?>>- All -</option>
                                 <?
                                 //SELECT * FROM `demo_jbsakad`.`jenisujian`;
                                 $sql = "SELECT replid,nama FROM $db_name_akad.pelajaran WHERE aktif=1 AND departemen='$dep'";
@@ -170,7 +170,7 @@ class Penilaian{
                             <td style="padding-right:10px">
                             <div id="UjiInfo">
                                 <select id="UjiPel" class="Cmb">
-                                <option value="-1">- Semua -</option>
+                                <option value="-1">- All -</option>
                                 <?
                                 /*
                                 //SELECT * FROM `demo_jbsakad`.`jenisujian`;
@@ -193,7 +193,7 @@ class Penilaian{
                   </tr>
                   <tr>
                     <td align="right" valign="top" class="td">
-                    <span style="color:#666; font-size:12px; font-weight:bold">Tanggal Penilaian</span>
+                    <span style="color:#666; font-size:12px; font-weight:bold">Date Report Card</span>
                     </td>
                     <td width="88%" class="td">
                         <?
@@ -247,7 +247,7 @@ class Penilaian{
                             </select>
                             </td>
                             <td style="padding-right:2px">
-                            s/d
+                            to
                             </td>
                             <td style="padding-right:2px">
                             <select id="Date1" class="Cmb">
@@ -289,7 +289,7 @@ class Penilaian{
                   </tr>
                   <tr>
                     <td align="right" valign="top" class="td">
-                    <span style="color:#666; font-size:12px; font-weight:bold">Jumlah Data</span>
+                    <span style="color:#666; font-size:12px; font-weight:bold">Data</span>
                     </td>
                     <td width="88%" class="td">
                         <table border="0" cellspacing="0" cellpadding="0">
@@ -305,7 +305,7 @@ class Penilaian{
                                 ?>
                             </select>
                             </td>
-                            <td>&nbsp;nilai&nbsp;terakhir</td>
+                            <td>&nbsp;last&nbsp;grade</td>
                           </tr>
                         </table>
             
@@ -313,7 +313,7 @@ class Penilaian{
                   </tr>
                   <tr>
                     <td align="right" valign="top" class="td">
-                    <span style="color:#666; font-size:12px; font-weight:bold">Pengirim</span>
+                    <span style="color:#666; font-size:12px; font-weight:bold">Sender</span>
                     </td>
                     <td width="88%" class="td">
                         <input type="text" id="Sender" class="InputTxt" />
@@ -322,15 +322,15 @@ class Penilaian{
                   </tr>
                   <tr>
                     <td align="right" valign="top" class="td">
-                    <span style="color:#666; font-size:12px; font-weight:bold">Kepada</span>
+                    <span style="color:#666; font-size:12px; font-weight:bold">To</span>
                     </td>
                     <td width="88%" class="td">
                         <table border="0" cellspacing="0" cellpadding="0">
                           <tr>
                             <td><input type="checkbox" id="kesiswa" /></td>
-                            <td style="padding-right:10px">Siswa</td>
+                            <td style="padding-right:10px">Student</td>
                             <td><input type="checkbox" id="keortu" /></td>
-                            <td>Orang Tua</td>
+                            <td>Parent</td>
                           </tr>
                         </table>
                         <div id="ErrDestination" class="ErrMsg"></div>
@@ -338,7 +338,7 @@ class Penilaian{
                   </tr>
                   <tr>
                     <td align="right" valign="top" class="td">
-                    <span style="color:#666; font-size:12px; font-weight:bold">Tanggal Pengiriman</span>
+                    <span style="color:#666; font-size:12px; font-weight:bold">Date Sent</span>
                     </td>
                     <td width="88%" class="td">
                         <table border="0" cellspacing="0" cellpadding="0">
@@ -402,10 +402,10 @@ class Penilaian{
                 <td colspan="2" height="30" align="center">
                 <div id="ErrAll" class="ErrMsg"></div>
                 <? if ($hasformat==0) { ?>
-                <div class="ErrMsg" style="height:30px"><img src="../images/ico/error.gif" width="14" height="14" />&nbsp;Belum ada format SMS untuk laporan Penilaian, <br />
-                Silakan tambah format di bagian Format Pesan SMS Penilaian</div>
+                <div class="ErrMsg" style="height:30px"><img src="../images/ico/error.gif" width="14" height="14" />&nbsp;No SMS format yet for Reports, <br />
+                Please add a format in the Message Format of Reports SMS</div>
                 <? } ?>
-                <div class="BtnSilver" align="center" onclick="Send()">Kirim</div>
+                <div class="BtnSilver" align="center" onclick="Send()">Send</div>
                 </td>
               </tr>
               <tr>

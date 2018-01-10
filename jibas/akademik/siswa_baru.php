@@ -26,7 +26,7 @@ require_once('include/sessioninfo.php');
 ?>
 <html>
 <head>
-<title>PSB</title>
+<title>New Student Admission</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <script type="text/javascript" src="script/tooltips.js"></script>
@@ -48,7 +48,7 @@ function change_theme(theme){
 <!-- ImageReady Slices (PSB.psd) -->
 <table width="100%" border="0">
 <tr>
-	<td width="53%"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>PENERIMAAN SISWA BARU</strong></font></p>
+	<td width="53%"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>NEW STUDENT ADMISSION</strong></font></p>
     </td>
     <td width="47%"><div id="hint">&nbsp;</div></td>
 </tr>
@@ -66,11 +66,11 @@ function change_theme(theme){
 		<td rowspan="12">
 			<img src="images/siswa_baru_02.gif" width="12" height="445" alt=""></td>
 		<td>
-			<a href="siswa_baru/proses.php" onMouseOver="showhint('Pendataan Proses Penerimaan Siswa Baru', this, event, '100px')"><img src="images/siswa_baru_03.gif" alt="" width="90" height="87" border="0"></a></td>
+			<a href="siswa_baru/proses.php" onMouseOver="showhint('New Student Admission Data Collection Process', this, event, '100px')"><img src="images/siswa_baru_03.gif" alt="" width="90" height="87" border="0"></a></td>
 		<td colspan="6" rowspan="2">
 			<img src="images/siswa_baru_04.gif" width="175" height="126" alt=""></td>
 		<td>
-			<a href="siswa_baru/kelompok.php" onMouseOver="showhint('Pendataan Kelompok Penerimaan Siswa Baru', this, event, '100px')"><img src="images/siswa_baru_05.gif" alt="" width="67" height="87" border="0"></a></td>
+			<a href="siswa_baru/kelompok.php" onMouseOver="showhint('New Student Admission Group Data Collection', this, event, '100px')"><img src="images/siswa_baru_05.gif" alt="" width="67" height="87" border="0"></a></td>
 		<td colspan="4" rowspan="3">
 			<img src="images/siswa_baru_06.gif" width="195" height="206" alt=""></td>
 		<td>
@@ -88,7 +88,7 @@ function change_theme(theme){
 		<td rowspan="4">
 			<img src="images/siswa_baru_09.gif" width="11" height="172" alt=""></td>
 		<td colspan="3" rowspan="2">
-			<a href="siswa_baru/calon_main.php" onMouseOver="showhint('Pendataan Calon Siswa', this, event, '100px')"><img src="images/siswa_baru_10.gif" alt="" width="134" height="119" border="0"></a></td>
+			<a href="siswa_baru/calon_main.php" onMouseOver="showhint('Student Candidate Data Collection', this, event, '100px')"><img src="images/siswa_baru_10.gif" alt="" width="134" height="119" border="0"></a></td>
 		<td colspan="2" rowspan="5">
 			<img src="images/siswa_baru_11.gif" width="30" height="187" alt=""></td>
 		<td>
@@ -98,7 +98,7 @@ function change_theme(theme){
 		<td colspan="2" rowspan="4">
 			<img src="images/siswa_baru_12.gif" width="54" height="107" alt=""></td>
 		<td rowspan="2">
-			<img src="images/siswa_baru_13.gif" width="132" height="66" alt="" style="cursor:pointer" onClick="alert ('Gunakan menu Tahun Ajaran di bagian referensi \nuntuk mendata Tahun Ajaran');"></td>
+			<img src="images/siswa_baru_13.gif" width="132" height="66" alt="" style="cursor:pointer" onClick="alert ('Please use Year of Teaching in the reference \nto collect data about Semester');"></td>
 		<td rowspan="9">
 			<img src="images/siswa_baru_14.gif" width="9" height="239" alt=""></td>
 		<td>
@@ -117,7 +117,7 @@ function change_theme(theme){
 	</tr>
 	<tr>
 		<td colspan="3" rowspan="2">
-			<a href="siswa_baru/cari_main.php" onMouseOver="showhint('Pencarian Calon Siswa', this, event, '100px')"><img src="images/siswa_baru_17.gif" alt="" width="139" height="59" border="0"></a></td>
+			<a href="siswa_baru/cari_main.php" onMouseOver="showhint('Search Student Candidate', this, event, '100px')"><img src="images/siswa_baru_17.gif" alt="" width="139" height="59" border="0"></a></td>
 		<td colspan="2" rowspan="3">
 			<img src="images/siswa_baru_18.gif" width="96" height="72" alt=""></td>
 		<td>
@@ -127,7 +127,7 @@ function change_theme(theme){
 		<td rowspan="5">
 			<img src="images/siswa_baru_19.gif" width="25" height="132" alt=""></td>
 		<td colspan="3" rowspan="3">
-			<a href="siswa_baru/penempatan_main.php" onMouseOver="showhint('Penempatan Calon Siswa', this, event, '100px')">
+			<a href="siswa_baru/penempatan_main.php" onMouseOver="showhint('Student Candidate Placement', this, event, '100px')">
 			<img style="cursor:pointer" src="images/siswa_baru_20.gif" alt="" width="121" height="113" border="0">
 			</a>
         </td>
@@ -144,7 +144,7 @@ function change_theme(theme){
 	</tr>
 	<tr>
 		<td colspan="4" rowspan="2">
-			<a href="siswa_baru/statistik_main.php" onMouseOver="showhint('Statistik Calon Siswa', this, event, '100px')"><img src="images/siswa_baru_23.jpg" alt="" width="160" height="64" border="0"></a></td>
+			<a href="siswa_baru/statistik_main.php" onMouseOver="showhint('Student Candidate Statistic', this, event, '100px')"><img src="images/siswa_baru_23.jpg" alt="" width="160" height="64" border="0"></a></td>
 		<td rowspan="3">
 			<img src="images/siswa_baru_24.gif" width="75" height="75" alt=""></td>
 		<td>
@@ -194,9 +194,9 @@ function change_theme(theme){
 </table>
 </td>
 	<td align="left" valign="top">
-    <a href="siswa_baru/settingpsb_main.php" style="text-decoration:none" onMouseOver="showhint('Konfigurasi Pendataan PSB', this, event, '100px')">
+    <a href="siswa_baru/settingpsb_main.php" style="text-decoration:none" onMouseOver="showhint('Student Candidate Admission Data Collection Configurations', this, event, '100px')">
     <img src="images/ico/settings.png" height="60" alt="" border="0"><br>
-    <font style="font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#000; font-weight:bold; ">Konfigurasi Pendataan PSB</font>
+    <font style="font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#000; font-weight:bold; ">Student Candidate Admission Data Collection Configurations</font>
     </td>
   </tr>
 </table>

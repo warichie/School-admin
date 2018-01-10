@@ -22,7 +22,7 @@
  **[N]**/ ?>
 <html>
 <head>
-<title>Susun Jadwal Guru</title>
+<title>Manage Teacher Schedule</title>
 </head>
 <frameset rows="70,*" border="1" frameborder="yes" framespacing="0">
 <frame src="jadwal_guru_header.php" name="header" id="header" scrolling="no">

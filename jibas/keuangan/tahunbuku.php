@@ -36,7 +36,7 @@ $sourcefrom = $_REQUEST['sourcefrom'];
 
 if (getLevel() == 2) { ?>
 <script language="javascript">
-	alert('Maaf, anda tidak berhak mengakses halaman ini!');
+	alert('Maaf, anda tidak berhak mengakses halaman ini');
 	document.location.href = "<?=$sourcefrom ?>";
 </script>
 <? 	exit();
@@ -94,7 +94,7 @@ if ($op == "d28xen32hxbd32dn239dx") {
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
-<title>Pembayaran DSP</title>
+<title>Payment DSP</title>
 <script src="script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
@@ -114,10 +114,10 @@ function set_aktif(id, aktif) {
 	
 	if (aktif == 1) {
 		newaktif = 0;	
-		msg = "Apakah anda yakin akan mengganti status tahun buku ini menjadi TIDAK AKTIF?\r\nPERINGATAN: Hanya ada satu tahun buku yang aktif dalam satu masa!";
+		msg = "Are you sure want to mengganti status tahun buku ini to INACTIVE?\r\nPERINGATAN: Hanya ada satu tahun buku yang aktif dalam satu masa";
 	} else {
 		newaktif = 1;	
-		msg = "Apakah anda yakin akan mengganti status tahun buku ini menjadi AKTIF?\r\nPERINGATAN: Hanya ada satu tahun buku yang aktif dalam satu masa!";
+		msg = "Are you sure want to mengganti status tahun buku ini to ACTIVE?\r\nPERINGATAN: Hanya ada satu tahun buku yang aktif dalam satu masa";
 	}
 	
 	if (confirm(msg)) 
@@ -125,7 +125,7 @@ function set_aktif(id, aktif) {
 }
 
 function hapus(id) {
-	if (confirm("Apakah anda yakin akan menghapus data ini?")) {
+	if (confirm("Are you sure want to delete this data?")) {
 		var departemen = document.getElementById('departemen').value;
 		document.location.href = "tahunbuku.php?op=12134892y428442323x423&id="+id+"&departemen="+departemen+"&from=<?=$from?>&sourcefrom=<?=$sourcefrom?>&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 	}
@@ -201,14 +201,14 @@ function change_urut(urut,urutan) {
     	<td align="right">
 		<!-- BOF CONTENT -->
 		
-        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Tahun Buku</font>
+        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Fiscal Year</font>
     	 </td>
     </tr>
     <tr>
     	<td align="right">
         <a href="<?=$sourcefrom ?>">
-      	<font size="1" color="#000000"><b><?=$from ?></b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Tahun Buku</b></font>
+      	<font size="1" color="#000000"><b><?=$from ?></b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Fiscal Year</b></font>
         </td>
     </tr>
     <tr>
@@ -218,7 +218,7 @@ function change_urut(urut,urutan) {
 	<table border="0" width="95%" cellpadding="0" cellspacing="0" align="center">
     <tr>
     	<td width="15%" rowspan="2">&nbsp;</td>
-        <td align="left" width="30%"><strong>Departemen&nbsp;</strong>
+        <td align="left" width="30%"><strong>Department&nbsp;</strong>
     	<select name="departemen" id="departemen" onChange="change_dep()">
 <?		OpenDb();
 		$dep = getDepartemen(getAccess());
@@ -243,19 +243,19 @@ function change_urut(urut,urutan) {
  ?>       
         <input type="hidden" name="total" id="total" value="<?=$total?>"/>
         <td align="right" width="80%">
-        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>
+        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>
         </td>
     </tr>
 	</table>
     <br />
     <table id="table" class="tab" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
 	<tr height="30" class="header" align="center">
-        <td width="5%">No</td>
-        <td width="12%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('tahunbuku','<?=$urutan?>')" style="cursor:pointer;">Tahun Buku <?=change_urut('tahunbuku',$urut,$urutan)?></td>
-        <td width="15%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('tanggalmulai','<?=$urutan?>')" style="cursor:pointer;">Tanggal Mulai <?=change_urut('tanggalmulai',$urut,$urutan)?></td>
+        <td width="5%">#</td>
+        <td width="12%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('tahunbuku','<?=$urutan?>')" style="cursor:pointer;">Fiscal Year <?=change_urut('tahunbuku',$urut,$urutan)?></td>
+        <td width="15%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('tanggalmulai','<?=$urutan?>')" style="cursor:pointer;">Start Date <?=change_urut('tanggalmulai',$urut,$urutan)?></td>
         <td width="15%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('awalan','<?=$urutan?>')" style="cursor:pointer;">Awalan Kuitansi <?=change_urut('awalan',$urut,$urutan)?></td>
-        <td width="40%">Keterangan</td>
+        <td width="40%">Info</td>
         <td width="12%">&nbsp;</td>
 	</tr>
     <?
@@ -275,7 +275,7 @@ function change_urut(urut,urutan) {
         <td><?=$row['keterangan'] ?></td>
         <td align="center">
         <? if ($row['aktif'] == 1) { ?>
-            <a href="#" onClick="newWindow('tahunbuku_edit.php?id=<?=$row['replid']?>', 'EditTahunBuku','480','340','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Tahun Buku!', this, event, '75px')" /></a>
+            <a href="#" onClick="newWindow('tahunbuku_edit.php?id=<?=$row['replid']?>', 'EditTahunBuku','480','340','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Fiscal Year', this, event, '75px')" /></a>
 		<? } else { ?>
         	&nbsp;
         <? } ?>            
@@ -311,15 +311,15 @@ function change_urut(urut,urutan) {
     <td>
     <table border="0"width="95%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
             <select name="hal" id="hal" onChange="change_hal()">
             <?	for ($m=0; $m<$total; $m++) {?>
                  <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
             <? } ?>
             </select>
-            dari <?=$total?> halaman
+            from <?=$total?> pages
         </td>
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
             <select name="varbaris" id="varbaris" onChange="change_baris()">
             <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
                 <option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -344,8 +344,8 @@ function change_urut(urut,urutan) {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">    
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.        
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru.         
+    	<font size = "2" color ="red"><b>Data Not Found.        
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data.         
         </b></font>
 	</td>
 </tr>

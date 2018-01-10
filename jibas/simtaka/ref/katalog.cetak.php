@@ -34,14 +34,14 @@ $result = QueryDb($sql);
 $row = @mysql_fetch_row($result);
 $namarak = $row[0];
 if ($namarak=='')
-	$namarak='Semua Rak';
+	$namarak='All Shelf';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SimTaka [Cetak Katalog Pustaka]</title>
+<title>JIBAS SimTaka [Library Catalogue Printed]</title>
 </head>
  
 <body>
@@ -50,19 +50,19 @@ if ($namarak=='')
 
 <?=GetHeader('alls')?>
 
-<center><font size="4"><strong>DATA KATALOG PUSTAKA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>LIBRARY CATALOGUE DATA</strong></font><br /> </center><br /><br />
 
 <br />
 <div><strong>
-Rak : <?=$namarak?></strong></div>
+Shelf : <?=$namarak?></strong></div>
 <br />
 	<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
 	  <tr>
-		<td height="30" align="center" class="header">Kode</td>
-		<td height="30" align="center" class="header">Nama</td>
-		<td height="30" align="center" class="header">Jumlah Judul</td>
-		<td height="30" align="center" class="header">Jumlah Pustaka</td>
-		<td height="30" align="center" class="header">Keterangan</td>
+		<td height="30" align="center" class="header">Code</td>
+		<td height="30" align="center" class="header">Name</td>
+		<td height="30" align="center" class="header">Title Sum</td>
+		<td height="30" align="center" class="header">Library Sum</td>
+		<td height="30" align="center" class="header">Info</td>
 	  </tr>
 	  <?
 	  if ($rak=="")
@@ -87,7 +87,7 @@ Rak : <?=$namarak?></strong></div>
 	  } else {
 	  ?>
 	  <tr>
-		<td height="25" colspan="6" align="center" class="nodata">Tidak ada data</td>
+		<td height="25" colspan="6" align="center" class="nodata">Data Not Found.</td>
 	  </tr>
 	  <?
 	  }

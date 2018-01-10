@@ -70,8 +70,8 @@ if ($op=="jfd84rkj843h834jjduw3"){
 	?>
     <!--
 	<script language="JavaScript">
-                alert("Ujian udah diapus");
-				//alert("Data Nilai Pelajaran berhasil diinput");
+                alert("Exam udah diapus");
+				//alert("Class Subject Point Data have been successfully submitted");
 				//parent.opener.segarkan();
 				//window.close();     
     </script>
@@ -93,7 +93,7 @@ $x=1;
 	?>
     <!--<script language="JavaScript">
                 alert("Infobobotnau dihapus");
-				//alert("Data Nilai Pelajaran berhasil diinput");
+				//alert("Class Subject Point Data have been successfully submitted");
 				//parent.opener.segarkan();
 				//window.close();     
     </script>
@@ -121,7 +121,7 @@ $x=1;
     ?> <!--
     <script language="JavaScript">
                 alert("Bobotnau udah diisi");
-				//alert("Data Nilai Pelajaran berhasil diinput");
+				//alert("Class Subject Point Data have been successfully submitted");
 				//parent.opener.segarkan();
 				//window.close();     
         </script>
@@ -131,7 +131,7 @@ $x=1;
    } else {
     ?>
         <script language="JavaScript">
-               alert("Gagal menambah data");
+               alert("Failed to add more data");
                //parent.opener.segarkan();
 			   //window.close();
 		</script>
@@ -141,7 +141,7 @@ $x=1;
 	$x++;
 	}
 	//Mulai ngoprek disini
-	///Ambil nis dari siswa berdasarkan kelas
+	///Ambil nis from siswa berdasarkan kelas
 	$sql_get_nis_siswa="SELECT nis FROM jbsakad.siswa WHERE idkelas='$kelas'";
 	//echo $sql_get_nis_siswa."<br>";
 	$result_get_nis_siswa=QueryDb($sql_get_nis_siswa);
@@ -196,7 +196,7 @@ $x=1;
 	//echo " ,  Jumlah Bobot=".$jumbbt;
 	//echo " ,  Nilai Rata-rata=".$ratanya;
 	//echo " ,  Nilai Rata-rata Bulat=".$ratabulat;
-	//Hapus dari tabel nau
+	//Hapus from tabel nau
 	$sql_hapus_nau="DELETE FROM jbsakad.nau WHERE nis='$row_get_nis_siswa[nis]' AND idkelas='$kelas' AND idsemester='$semester' AND idjenis='$jenis_penilaian' AND idaturan='$idaturan'";
 	//echo $sql_hapus_nau."<br>";
 	$result_hapus_nau=QueryDb($sql_hapus_nau);
@@ -210,7 +210,7 @@ $x=1;
 		$perubahan="";
 	?>
         <!--<script language="JavaScript">
-               alert("Nilai akhir dunkz...<?=$ratabulat?>");
+               alert("The value for akhir dunkz...<?=$ratabulat?>");
                segarkan();
 			   //window.close();
 		</script>-->
@@ -221,7 +221,7 @@ $x=1;
 	
 //Ngoprek...............
 }
-//Hapus Nilai Akhir
+//Hapus Final Point
 if ($op=="osdiui4903i03j490dj"){
 	$sql_hapus_nau="DELETE FROM jbsakad.nau WHERE idpelajaran='$pelajaran' AND idkelas='$kelas' AND idsemester='$semester' AND idjenis='$jenis_penilaian' AND idaturan='$idaturan'";
 	$result_hapus_nau=QueryDb($sql_hapus_nau);
@@ -229,7 +229,7 @@ if ($op=="osdiui4903i03j490dj"){
 	?>
     <script language="JavaScript">
                 //alert("Data Nilai akhir udah diapus");
-				//alert("Data Nilai Pelajaran berhasil diinput");
+				//alert("Class Subject Point Data have been successfully submitted");
 				segarkan();
 				//window.close();     
     </script>
@@ -247,7 +247,7 @@ if ($op=="osdiui4903i03j490dj"){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<title>Aturan Perhitungan Nilai Rapor[Menu]</title>
+<title>Report Card Calculation Rules [Menu]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/tooltips.js"></script>
@@ -289,17 +289,17 @@ var pilih;
 //	t_max = document.tampil_nilai_pelajaran.t_max.value;
 
 	if(pilih.length == 0){
-		alert("Anda harus menentukan jenis perhitungan untuk menghitung nilai akhir");
+		alert("You have to choose Calculation Type for Final Point");
 		return false;
 	}
 	else if(pilih == 1){
 		if(cek.length == 0){
-			alert("Anda harus menentukan jenis penilaian untuk menghitung rata-rata nilai");
+			alert("You have to choose Calculation Type for Index or Cumulative Point");
 		return false;
 		}
 		eval("bobot = document.tampil_nilai_pelajaran.bobot" + cek + ".value;");
 		if(bobot.length == 0){
-			alert("Anda harus mengisi bobot jenis penilaian untuk menghitung rata-rata nilai");
+			alert("You have to enter Quality of Calculation Type for Index or Cumulative Point");
 		return false;
 		}
 	}
@@ -319,18 +319,18 @@ while (yy<=jumuji){
 	//alert ('Cek ke '+cek);//+cek+', Bobot='+bob);
 	//alert ('Bobot '+bobod);
 	if (cek==true && bobod.length==0){
-		alert ('Bobot ujian yang di ceklist harus diisi !');
+		alert ('Exam Quality checklist is required');
 		document.getElementById(bob).focus();
 		return false;
 	}
 	if (bobod.length!=0 && cek==false){
-		alert ('Bobot ujian yang diisi harus di ceklist !');
+		alert ('Check for required Exam Quality');
 		document.getElementById(yyy).focus();
 		return false;
 	}
 	if (bobod.length!=0 && cek==true){
 		if (isNaN(bobod)){
-			alert ('Bobot ujian harus berupa bilangan !');
+			alert ('Exam Quality must be numeric ');
 			document.getElementById(bob).value=="";
 			document.getElementById(bob).focus();
 			return false;
@@ -340,12 +340,12 @@ while (yy<=jumuji){
 }
 }
 function hitungmanual(){
-alert('Asup manual');
+alert('Submit manually');
 //document.location.href="input_manual_nau.php?dasar_penilaian=<?=$dasar_penilaian?>&departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&jenis_penilaian=<?=$jenis_penilaian?>&kelas=<?=$kelas?>&semester=<?=$semester?>&tahun=<?=$tahun?>&idaturan=<?=$idaturan?>";
 }
 function hapus(replid,i,nama) {
 	//alert(cno);
-	if (confirm('Anda yakin akan menghapus nilai '+nama+'-'+i+' ini ?')){
+	if (confirm('Are you sure want to delete this point '+nama+'-'+i+'?')){
 	document.location.href="nilai_pelajaran_content.php?op=jfd84rkj843h834jjduw3&dasar_penilaian=<?=$dasar_penilaian?>&departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&jenis_penilaian=<?=$jenis_penilaian?>&kelas=<?=$kelas?>&semester=<?=$semester?>&tahun=<?=$tahun?>&idaturan=<?=$idaturan?>&replid="+replid;
 	}
 }
@@ -355,7 +355,7 @@ newWindow('ubah_nau_persiswa.php?replid='+replid,'UbahNilaiAkhirUjian',447,252,'
 }
 
 function hapus_nau(){
-	if (confirm('Anda yakin akan menghapus data nilai akhir ini?')){
+	if (confirm('Are you sure want to delete this Final Point data?')){
 	document.location.href="nilai_pelajaran_content.php?op=osdiui4903i03j490dj&dasar_penilaian=<?=$dasar_penilaian?>&departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&jenis_penilaian=<?=$jenis_penilaian?>&kelas=<?=$kelas?>&semester=<?=$semester?>&tahun=<?=$tahun?>&idaturan=<?=$idaturan?>";
 	}
 }
@@ -379,22 +379,22 @@ function hapus_nau(){
         <table width="100%" border="0">
         <tr>
         	<!--<td width="20%" rowspan="4"></td>-->
-            <td width="17%"><strong>Pelajaran</strong></td>
+            <td width="17%"><strong>Class Subject</strong></td>
             <td><strong>: <?=$namapel ?> </strong></td>
             <td rowspan="2"></td>
         </tr>
         <tr>
-            <td><strong>Aspek Penilaian</strong></td>
+            <td><strong>Assessment Aspect</strong></td>
             <td><strong>: <?=$aspek?></strong></td>            
         </tr>
     	<tr>
-            <td><strong>Jenis Pengujian</strong></td>
+            <td><strong>Exam Type</strong></td>
             <td><strong>: <?=$namajenis?></strong></td>            
            	<td align="right">
-            <a href="JavaScript:cetak_excel()"><img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Cetak Excel!', this, event, '50px')"/>&nbsp;Cetak Excel</a>&nbsp;&nbsp;           
+            <a href="JavaScript:cetak_excel()"><img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Print Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;&nbsp;           
             <a href="#" style="cursor:pointer" onClick="<? if (perubahan==1) { ?> segarkan_ada(); <? } else { ?>segarkan() <? } ?>"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '120px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
 	  		<? if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>
-	  		<a href="#" style="cursor:pointer" onClick="tambah();" ><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Jenis Ujian Baru', this, event, '120px')"/>&nbsp;Tambah</a>&nbsp;
+	  		<a href="#" style="cursor:pointer" onClick="tambah();" ><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add New Exam Type', this, event, '120px')"/>&nbsp;Add</a>&nbsp;
 	  		<?  }  ?>
       		</td>
   		</tr>
@@ -409,9 +409,9 @@ function hapus_nau(){
     ?>
   		<table border="1" width="100%" id="table" class="tab">
        	<tr>
-            <td height="30" class="headerlong" align="center" width="4%">No.</td>
-            <td height="30" class="headerlong" align="center" width="10%">N I S</td>
-            <td height="30" class="headerlong" align="center" width="*">Nama</td>
+            <td height="30" class="headerlong" align="center" width="4%">#</td>
+            <td height="30" class="headerlong" align="center" width="10%">Student ID</td>
+            <td height="30" class="headerlong" align="center" width="*">Name</td>
 		<?
        
 	$i=1;
@@ -419,18 +419,18 @@ function hapus_nau(){
 		$idujian[$i] = $row_cek_ujian['replid'];
 		$tgl = explode("-",$row_cek_ujian['tanggal']);
 	?>
-	   <td height="30" width="30" class="headerlong" align="center" onMouseOver="showhint('Deskripsi :\n <?=$row_cek_ujian[deskripsi]?>', this, event, '120px')"><?=$namajenis."-".$i?>
+	   <td height="30" width="30" class="headerlong" align="center" onMouseOver="showhint('Description :\n <?=$row_cek_ujian[deskripsi]?>', this, event, '120px')"><?=$namajenis."-".$i?>
 		<br /><?=$tgl[2]."/".$tgl[1]."/".substr($tgl[0],2)?><br />
 	<? if (SI_USER_LEVEL() != $SI_USER_STAFF) {	?>
-		<a href="JavaScript:edit()"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Ujian!', this, event, '50px')" /></a>&nbsp;
-		<a href="JavaScript:hapus(<?=$row_cek_ujian['replid']?>, <?=$i?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Ujian!', this, event, '50px')" /></a>
+		<a href="JavaScript:edit()"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Exam', this, event, '50px')" /></a>&nbsp;
+		<a href="JavaScript:hapus(<?=$row_cek_ujian['replid']?>, <?=$i?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Exam', this, event, '50px')" /></a>
 	<? } ?>
     		</td>
 	<?
 		$i++;
 	}
     ?>
-            <td height="30" class="headerlong" align="center">Rata2 Siswa</td>
+            <td height="30" class="headerlong" align="center">Student Index</td>
             <td height="30" class="headerlong" align="center">NA <?=$namajenis?>
 <? $sql_get_nau_per_kelas="SELECT nilaiAU,keterangan FROM jbsakad.nau WHERE idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan'";
 		
@@ -439,8 +439,8 @@ function hapus_nau(){
 		$manual=@mysql_num_rows($result_get_ket_nau_per_kelas);          		
 		if (SI_USER_LEVEL() != $SI_USER_STAFF) {	?>	
              
-             <br /><a href="JavaScript:hapus_nau()"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Nilai Akhir Ujian!', this, event, '100px')" /></a>&nbsp;
-            <!--<img src="../images/ico/hapus.png" onClick="hapus_nau()" style="cursor:pointer" onMouseOver="showhint('Hapus Nilai Akhir Ujian', this, event, '120px')"/>-->
+             <br /><a href="JavaScript:hapus_nau()"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Exam Final Point', this, event, '100px')" /></a>&nbsp;
+            <!--<img src="../images/ico/hapus.png" onClick="hapus_nau()" style="cursor:pointer" onMouseOver="showhint('Delete Exam Final Point', this, event, '120px')"/>-->
 		<? 
         }
     }	
@@ -457,7 +457,7 @@ function hapus_nau(){
   		<tr height="25">
             <td align="center"><?=$cnt?></td>
             <td align="center">
-            <a href="JavaScript:detail('<?=$row_siswa['replid']?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Lihat Detail Siswa!', this, event, '100px')" /><?=$row_siswa['nis']?></a>
+            <a href="JavaScript:detail('<?=$row_siswa['replid']?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('See Student Details', this, event, '100px')" /><?=$row_siswa['nis']?></a>
            	</td>
             <td><?=$row_siswa['nama']?></td>
             <td>
@@ -501,7 +501,7 @@ function hapus_nau(){
         $row_get_nau_per_nis=@mysql_fetch_array($result_get_nau_per_nis);
         if (SI_USER_LEVEL() != $SI_USER_STAFF) {
     ?>
-        	<a href="#" onMouseOver="showhint('Ubah Nilai Akhir Ujian', this, event, '120px')" onClick="ubah_nau('<?=$row_get_nau_per_nis[replid]?>')"><?=$row_get_nau_per_nis[nilaiAU]?></a>
+        	<a href="#" onMouseOver="showhint('Edit Exam Final Point', this, event, '120px')" onClick="ubah_nau('<?=$row_get_nau_per_nis[replid]?>')"><?=$row_get_nau_per_nis[nilaiAU]?></a>
     <?	} else { ?>
             <?=$row_get_nau_per_nis[nilaiAU]?>
     <?  }
@@ -516,7 +516,7 @@ function hapus_nau(){
   	}
 ?>
 		<tr>
-        	<td height='25' class='header' align='center' colspan='3'>Rata-rata Kelas</td>
+        	<td height='25' class='header' align='center' colspan='3'>Class Index Cumulative</td>
             
 <?  $sql_cek_ujian_ratakelas="SELECT replid FROM jbsakad.ujian WHERE idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan' ORDER by tanggal ASC";
 	$result_cek_ujian_ratakelas=QueryDb($sql_cek_ujian_ratakelas);
@@ -533,7 +533,7 @@ function hapus_nau(){
 <?
 	//} else {
 	//	$tdasli=5;
-	//echo "<tr><td height='25' align='center' colspan='(int)$tdasli+$jumlahujian'>Tidak ada data nilai ujian</td></tr>";
+	//echo "<tr><td height='25' align='center' colspan='(int)$tdasli+$jumlahujian'>No points data ujian</td></tr>";
 	//}
 ?>
 	</table>
@@ -543,12 +543,12 @@ function hapus_nau(){
 <?
   if ($jumlahujian<>0){
   ?>
-<div align="center"><strong><font color="blue">)*</font> => ada keterangan 
-<strong>,<font color="#067900">)*</font> => Nilai Akhir Siswa mengalami perubahan </strong>
+<div align="center"><strong><font color="blue">)*</font> => No info 
+<strong>,<font color="#067900">)*</font> => Student Final Point changed </strong>
 <?
 if ($perubahan==1){
 	?>
-	<br><strong><font color="#D69700">Ada data nilai ujian yang berubah, silakan hitung ulang nilai akhir !</font></strong>
+	<br><strong><font color="#D69700">Exam Point data changed, please re-calculate the Final Point</font></strong>
 	<?
 	}
 	?></div>
@@ -559,11 +559,11 @@ if ($perubahan==1){
   <tr>
   	<td>
     <br /><BR />
-    <fieldset style="background-color:#FFFFC6"><legend>Hitung Nilai Akhir <?=$row_jenis_ujian['jenisujian']?> Berdasarkan</legend>
+    <fieldset style="background-color:#FFFFC6"><legend>Calculate Final Point <?=$row_jenis_ujian['jenisujian']?> based on</legend>
     
     <table width="100%" border="0">
     <tr>
-    	<td class="style2">A. Perhitungan Otomatis</td>
+    	<td class="style2">A. Auto Calculation</td>
   	</tr>
   	<tr>
    <?
@@ -576,7 +576,7 @@ if ($perubahan==1){
     	<table id="table" class="tab" width="50%" border="1">
 			<tr>
 				<td width="85%" class="header" height="30"><?=$row_jenis_ujian['jenisujian']?></td>
-				<td width="15%" class="header" align="center" height="30">Bobot</td>
+				<td width="15%" class="header" align="center" height="30">Quality</td>
 			</tr>
                  <?
 	$sql_cek_ujian="SELECT * FROM jbsakad.ujian WHERE idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan' ORDER by tanggal ASC";
@@ -624,11 +624,11 @@ if ($perubahan==1){
         <script language='JavaScript'>
             Tables('table', 1, 0);
         </script>
-            <input <?=$dis_btn?> type="Submit" name="hitung" value="Hitung dan Simpan Nilai Akhir <?=$row_jenis_ujian['jenisujian'] ?>" class="but" >
+            <input <?=$dis_btn?> type="Submit" name="hitung" value="Calculate and Save Final Point <?=$row_jenis_ujian['jenisujian'] ?>" class="but" >
             <hr width="50%" align="left" /></td>
   		</tr>
  		<tr>
-    		<td><span class="style2">B. Perhitungan Manual</span></td>
+    		<td><span class="style2">B. Manual Calculation</span></td>
   		</tr>
   		<tr>
     		<td>
@@ -637,8 +637,8 @@ if ($perubahan==1){
 			?>
 				href="input_manual_nau.php?dasar_penilaian=<?=$dasar_penilaian?>&departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&jenis_penilaian=<?=$jenis_penilaian?>&kelas=<?=$kelas?>&semester=<?=$semester?>&tahun=<?=$tahun?>&idaturan=<?=$idaturan?>" <?
 	}
-				?>>Hitung Manual Nilai Akhir <?=$row_jenis_ujian['jenisujian'] ?></a>	
-	<!--<input type="button" name="hitungmanual" value="Hitung Manual Nilai Akhir <?=$row_jenis_ujian['jenisujian'] ?>" class="but" onClick="hitungmanual();">--></td>
+				?>>Calculate Final Point Manually <?=$row_jenis_ujian['jenisujian'] ?></a>	
+	<!--<input type="button" name="hitungmanual" value="Calculate Final Point Manually <?=$row_jenis_ujian['jenisujian'] ?>" class="but" onClick="hitungmanual();">--></td>
   		</tr>
 	</table>
     </fieldset>

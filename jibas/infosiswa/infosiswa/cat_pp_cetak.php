@@ -35,7 +35,7 @@ $result = QueryDb($sql);
 $row = @mysql_fetch_row($result);
 $departemen = $row[0];
 CloseDb();
-$bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$bulan_pjg = array(1=>'January','February','March','April','May','June','July','August','September','October','November','December');
 OpenDb();
 $sql_pp="SELECT pel.nama as namapelajaran, ppsiswa.statushadir as statushadir, pp.tanggal as tanggal, pp.jam as jam, pp.gurupelajaran as guru, ppsiswa.catatan as catatan FROM jbsakad.pelajaran pel, jbsakad.presensipelajaran pp, jbsakad.ppsiswa ppsiswa WHERE ppsiswa.nis='$nis' AND ppsiswa.idpp=pp.replid AND pel.replid=pp.idpelajaran AND ppsiswa.catatan<>'' AND pp.idpelajaran='$pelajaran'";
 $res_pp=QueryDb($sql_pp);
@@ -44,7 +44,7 @@ $res_pp=QueryDb($sql_pp);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Cetak Catatan Presensi Pelajaran]</title>
+<title>JIBAS TEACHERS INFO [Print Class Presence Notes]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
@@ -58,11 +58,11 @@ $res_pp=QueryDb($sql_pp);
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>Catatan Presensi Pelajaran</strong></font><br />
+  <font size="4"><strong>Class Presence Notes</strong></font><br />
  </center><br /><br />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td width="7%"><strong>Siswa</strong></td>
+    <td width="7%"><strong>Student</strong></td>
     <td width="93%">
 	  <?
 	OpenDb();
@@ -74,7 +74,7 @@ $res_pp=QueryDb($sql_pp);
 	</td>
   </tr>
   <tr>
-    <td><strong>Pelajaran</strong></td>
+    <td><strong>Class Subject</strong></td>
     <td>
       <?
 	OpenDb();
@@ -89,10 +89,10 @@ $res_pp=QueryDb($sql_pp);
 <br />
 <table width="100%" border="1" cellspacing="0" class="tab">
   <tr class="header" height="30">
-    <td width="4%" align="center">No.</td>
+    <td width="4%" align="center">#</td>
     <td width="5%" align="center">Status</td>
-    <td width="25%" align="center">Tanggal-Jam</td>
-    <td width="38%" align="center">Guru</td>
+    <td width="25%" align="center">Date-Time</td>
+    <td width="38%" align="center">Teacher</td>
   </tr>
   <?
   OpenDb();
@@ -109,19 +109,19 @@ $res_pp=QueryDb($sql_pp);
 	<?
 	switch ($row_pp[statushadir]){
 	case 0:
-		echo "Hadir";
+		echo "Attend";
 		break;
 	case 1:
-		echo "Sakit";
+		echo "Ill";
 		break;
 	case 2:
-		echo "Ijin";
+		echo "Consent";
 		break;
 	case 3:
-		echo "Alpa";
+		echo "Absent";
 		break;
 	case 4:
-		echo "Cuti";
+		echo "Leave";
 		break;
 	}
 	?>
@@ -143,7 +143,7 @@ $res_pp=QueryDb($sql_pp);
   } } else { ?>
   ?>
   <tr>
-    <td align="center" colspan="5">Tidak ada Catatan</td>
+    <td align="center" colspan="5">No notes.</td>
   </tr>
   <?
   } ?>

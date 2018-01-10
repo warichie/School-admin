@@ -55,7 +55,7 @@ if(isset($_REQUEST[semester])){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Tambah Siswa</title>
+<title>Add Student</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" href="../css/mainmenu.css" type="text/css">
 <script language="javascript">
@@ -79,18 +79,18 @@ OpenDb();
 <input type="hidden" value="<?=$semester ?>" name="semester">
 <table cellpadding="0" cellspacing="0" width="100%">
 	<tr>
-		<td class="header">Input Siswa</td>
-		<td class="header" align="right">Langkah 2 dari 2</td>
+		<td class="header">Add Student</td>
+		<td class="header" align="right">Step 2 from 2</td>
 	</tr>
 </table>
 <br>
 <table>
 	<tr>
-		<td>NIS</td>
+		<td>Student ID</td>
 		<td><input type="text" name="nis" value="<?=$nis ?>" readonly></td>
 	</tr>
 	<tr>
-		<td>Nama</td>
+		<td>Name</td>
 		<td><input type="text" name="nama" value="<?=$nama ?>" readonly></td>
 	</tr>
 </table>
@@ -100,12 +100,12 @@ OpenDb();
 			  <td>
 			 	<table border='1' width='100%' id="table" class="tab">
 					<tr>
-						<td class='header' align='center' height='30'>No</td>
-						<td class='header' height='30'>Tanggal</td>
-						<td class="header" height='30'>Deskripsi</td>
+						<td class='header' align='center' height='30'>#</td>
+						<td class='header' height='30'>Date</td>
+						<td class="header" height='30'>Description</td>
 						<td class="header" height='30'>Status</td>
-						<td class="header" height='30'>Nilai</td>
-						<td class="header" height='30'>Keterangan</td>
+						<td class="header" height='30'>Point</td>
+						<td class="header" height='30'>Info</td>
 					</tr>
 					<?
 					$query = "SELECT replid, tanggal, deskripsi ".
@@ -120,7 +120,7 @@ OpenDb();
 					if($jml_data=="0"){
 					?>
 		<tr>
-			<td colspan='3' align='center' colspan='6'>Data Tidak Ada</td>
+			<td colspan='3' align='center' colspan='6'>Data Not Found.</td>
 		</tr>
 		<? 
 	}else{
@@ -141,15 +141,15 @@ OpenDb();
 		<input type="hidden" name="deskripsi<?=$i ?>" value="<?=$row[deskripsi] ?>">
 		</td>
 		<td class='data'><select name="status<?=$i ?>">
-						<option value="0">Hadir/Mengumpulkan</option>
-						<option value="1">Tidak Hadir</option>
-						<option value="2">Tidak Mengumpulkan</option>
-						<option value="3">Mencontek</option>
-						<option value="4" selected>Lainnya</option>
+						<option value="0">Attend/Task Sent</option>
+						<option value="1">Absent</option>
+						<option value="2">Did not send the task</option>
+						<option value="3">Cheating</option>
+						<option value="4" selected>Others</option>
 						</select>
 						</td>		
 		<td class='data'><input type="text" name="nilai<?=$i ?>" size="2" value="0"></td>				
-		<td class='data'><input type="text" name="keterangan<?=$i ?>" value="siswa baru, belum mengikuti ujian ini"></td>		
+		<td class='data'><input type="text" name="keterangan<?=$i ?>" value="new student, did not perform this exam yet"></td>		
 	</tr>
 	<?
 	$i++;
@@ -157,7 +157,7 @@ OpenDb();
 	?>
 	<tr>
 		<td colspan='6' align="right">
-		<input type='submit' class='but' value='Simpan' name='simpan'></td>
+		<input type='submit' class='but' value='Save' name='simpan'></td>
 		</form>
 		</tr>	
 	</table>

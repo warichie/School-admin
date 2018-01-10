@@ -51,7 +51,7 @@ function change_theme(theme){
 <!-- ImageReady Slices (Untitled-1) -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td>&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>REFERENSI</strong></font></td>
+    <td>&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>REFERENCE</strong></font></td>
   </tr>
 </table>
 <br>
@@ -60,7 +60,7 @@ function change_theme(theme){
 		<td colspan="3" rowspan="6">
 			<img src="images/referensi_01.jpg" width="75" height="229" alt=""></td>
 		<td rowspan="2">
-			<a href="referensi/pegawai.php" onMouseOver="showhint('Pendataan Pegawai', this, event, '100px')"><img src="images/referensi_02.jpg" width="67" height="83" alt="" border="0"></a></td>
+			<a href="referensi/pegawai.php" onMouseOver="showhint('Employee Data Collection', this, event, '100px')"><img src="images/referensi_02.jpg" width="67" height="83" alt="" border="0"></a></td>
 		<td colspan="11">
 			<img src="images/referensi_03.jpg" width="348" height="35" alt=""></td>
 		<td>
@@ -69,7 +69,7 @@ function change_theme(theme){
 	<tr>
 		<td colspan="7" rowspan="2">
 			<img src="images/referensi_04.jpg" width="250" height="57" alt=""></td>
-		<td colspan="2" rowspan="3"><a href="referensi/identitas.php" onMouseOver="showhint('Identitas Sekolah', this, event, '100px')"><img src="images/referensi_05.jpg" width="56" height="91" alt="" border="0"></a></td>
+		<td colspan="2" rowspan="3"><a href="referensi/identitas.php" onMouseOver="showhint('School Identity', this, event, '100px')"><img src="images/referensi_05.jpg" width="56" height="91" alt="" border="0"></a></td>
 		<td colspan="2" rowspan="5">
 			<img src="images/referensi_06.jpg" width="42" height="194" alt=""></td>
 		<td>
@@ -85,7 +85,7 @@ function change_theme(theme){
 		<td colspan="2" rowspan="3">
 			<img src="images/referensi_08.jpg" width="59" height="137" alt=""></td>
 		<td colspan="3" rowspan="2">
-			<a href="referensi/departemen.php" onMouseOver="showhint('Pendataan Departemen', this, event, '100px')"><img src="images/referensi_09.jpg" width="78" height="71" alt="" border="0"></a></td>
+			<a href="referensi/departemen.php" onMouseOver="showhint('Department Data Collection', this, event, '100px')"><img src="images/referensi_09.jpg" width="78" height="71" alt="" border="0"></a></td>
 		<td colspan="2" rowspan="3">
 			<img src="images/referensi_10.jpg" width="113" height="137" alt=""></td>
 		<td>
@@ -107,21 +107,21 @@ function change_theme(theme){
 		<td rowspan="4">
 			<img src="images/referensi_13.jpg" width="10" height="204" alt=""></td>
 		<td>
-			<a href="referensi/angkatan.php" onMouseOver="showhint('Pendataan Angkatan', this, event, '100px')"><img src="images/referensi_14.jpg" width="53" height="76" alt="" border="0"></a></td>
+			<a href="referensi/angkatan.php" onMouseOver="showhint('Graduates Data Collection', this, event, '100px')"><img src="images/referensi_14.jpg" width="53" height="76" alt="" border="0"></a></td>
 		<td rowspan="4">
 			<img src="images/referensi_15.jpg" width="12" height="204" alt=""></td>
 		<td rowspan="4">
 			<img src="images/referensi_16.jpg" width="4" height="204" alt=""></td>
 		<td colspan="2">
-			<a href="referensi/tingkat.php" onMouseOver="showhint('Pendataan Tingkat', this, event, '100px')"><img src="images/referensi_17.jpg" width="59" height="76" alt="" border="0"></a></td>
+			<a href="referensi/tingkat.php" onMouseOver="showhint('Grade Data Collection', this, event, '100px')"><img src="images/referensi_17.jpg" width="59" height="76" alt="" border="0"></a></td>
 		<td colspan="2" rowspan="2">
 			<img src="images/referensi_18.jpg" width="74" height="130" alt=""></td>
 		<td>
-			<a href="referensi/tahunajaran.php" onMouseOver="showhint('Pendataan Tahun Ajaran', this, event, '100px')"><img src="images/referensi_19.jpg" width="71" height="76" alt="" border="0"></a></td>
+			<a href="referensi/tahunajaran.php" onMouseOver="showhint('Year of Teaching Data Collection', this, event, '100px')"><img src="images/referensi_19.jpg" width="71" height="76" alt="" border="0"></a></td>
 		<td colspan="2" rowspan="4">
 			<img src="images/referensi_20.jpg" width="54" height="204" alt=""></td>
 		<td colspan="2">
-			<a href="referensi/semester.php" onMouseOver="showhint('Pendataan Semester', this, event, '100px')"><img src="images/referensi_21.jpg" width="61" height="76" alt="" border="0"></a></td>
+			<a href="referensi/semester.php" onMouseOver="showhint('Semester Data Collection', this, event, '100px')"><img src="images/referensi_21.jpg" width="61" height="76" alt="" border="0"></a></td>
 		<td rowspan="4">
 			<img src="images/referensi_22.jpg" width="25" height="204" alt=""></td>
 		<td>
@@ -141,7 +141,7 @@ function change_theme(theme){
 	</tr>
 	<tr>
 		<td colspan="3">
-			<a href="referensi/kelas.php" onMouseOver="showhint('Pendataan Kelas', this, event, '100px')"><img src="images/referensi_27.jpg" width="68" height="71" alt="" border="0"></a></td>
+			<a href="referensi/kelas.php" onMouseOver="showhint('Class Data Collection', this, event, '100px')"><img src="images/referensi_27.jpg" width="68" height="71" alt="" border="0"></a></td>
 		<td rowspan="2">
 			<img src="images/referensi_28.jpg" width="65" height="74" alt=""></td>
 		<td>

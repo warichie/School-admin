@@ -61,7 +61,7 @@ if (isset($_REQUEST['idtahunbuku']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Transaksi]</title>
+<title>JIBAS FINANCE [Reports Transaction]</title>
 </head>
 
 <body>
@@ -70,13 +70,13 @@ if (isset($_REQUEST['idtahunbuku']))
 <br /><br />
 <table border="0">
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Departemen </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Department </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=$departemen ?>
     </strong></font></td>
 </tr>
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Tahun Buku </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Fiscal Year </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?  OpenDb();
 		$sql = "SELECT tahunbuku FROM tahunbuku WHERE replid = $idtahunbuku";
@@ -87,10 +87,10 @@ if (isset($_REQUEST['idtahunbuku']))
 	</strong></font></td>
 </tr>
 <tr>
-	<td><font size="2" face="Arial"><strong>Tanggal </strong></font></td>
+	<td><font size="2" face="Arial"><strong>Date </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=LongDateFormat($tanggal1) ?> 
-      s/d 
+      to 
       <?=LongDateFormat($tanggal2) ?>
     </strong></font></td>
 </tr>
@@ -98,12 +98,12 @@ if (isset($_REQUEST['idtahunbuku']))
 <br />
 <table class="tab" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="100%" align="left" bordercolor="#000000">
 <tr height="30" align="center">
-	<td width="4%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="18%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No. Jurnal/Tanggal</font></strong></td>
-    <td width="8%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Petugas</font></strong></td>
-    <td width="*" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Transaksi</font></strong></td>
-    <td width="15%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Debet</font></strong></td>
-    <td width="15%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Kredit</font></strong></td>
+	<td width="4%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="18%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Journal/Date</font></strong></td>
+    <td width="8%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Officer</font></strong></td>
+    <td width="*" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Transaction</font></strong></td>
+    <td width="15%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Debit</font></strong></td>
+    <td width="15%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Credit</font></strong></td>
 </tr>
 <?
 OpenDb();
@@ -135,7 +135,7 @@ while($row = mysql_fetch_array($result)) {
       <?=$row['transaksi'] ?>
       <? if ($row['keterangan'] <> "") { ?>
       <br />
-      <strong>Keterangan: </strong>
+      <strong>Info: </strong>
       <?=$row['keterangan'] ?>
       <? } ?>    
     </font></td>
@@ -152,7 +152,7 @@ CloseDb();
 ?>
 <tr height="30">
 	<td colspan="4" align="center" bgcolor="#999900">
-    <font color="#FFFFFF" size="2" face="Arial"><strong>T O T A L</strong></font>    </td>
+    <font color="#FFFFFF" size="2" face="Arial"><strong>Total</strong></font>    </td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totaldebet ?></strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totalkredit ?></strong></font></td>
 </tr>

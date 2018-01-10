@@ -46,7 +46,7 @@ class CAnggotaEdit{
 	function exist(){
 		?>
         <script language="javascript">
-			alert('Kode sudah digunakan!');
+			alert('The Code has been used');
 			document.location.href="format.edit.php?id=<?=$_REQUEST[replid]?>";
 		</script>
         <?
@@ -67,18 +67,18 @@ class CAnggotaEdit{
           <tr>
             <td colspan="3" align="left">
             	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        		<font style="font-size:18px; color:#999999">Ubah Anggota</font></td>
+        		<font style="font-size:18px; color:#999999">Edit Member</font></td>
   		  </tr>
           <tr>
-            <td width="77">&nbsp;<strong>Nama</strong></td>
+            <td width="77">&nbsp;<strong>Name</strong></td>
             <td colspan="2"><input name="nama" type="text" class="inputtxt" id="nama" size="35" value="<?=stripslashes($this->nama)?>"></td>
           </tr>
           <tr>
-            <td width="77">&nbsp;<strong>Alamat</strong></td>
+            <td width="77">&nbsp;<strong>Address</strong></td>
             <td colspan="2"><textarea name="alamat" cols="45" rows="3" class="areatxt" id="alamat"><?=stripslashes($this->alamat)?></textarea></td>
           </tr>
           <tr>
-            <td width="77">&nbsp;Kodepos</td>
+            <td width="77">&nbsp;Postal Code</td>
             <td width="64%"><input name="kodepos" type="text" class="inputtxt" id="kodepos"  value="<?=stripslashes($this->kodepos)?>"/></td>
             <td width="29%" rowspan="4">
             	<table width="120" border="0" cellspacing="0" cellpadding="0">
@@ -91,37 +91,37 @@ class CAnggotaEdit{
             </td>
           </tr>
           <tr>
-            <td width="77">&nbsp;Telepon</td>
+            <td width="77">&nbsp;Phone</td>
             <td><input name="telpon" type="text" class="inputtxt" id="telpon" value="<?=stripslashes($this->telpon)?>" /></td>
           </tr>
           <tr>
-            <td width="77">&nbsp;HP</td>
+            <td width="77">&nbsp;Mobile</td>
             <td><input name="hp" type="text" class="inputtxt" id="hp" value="<?=stripslashes($this->hp)?>" /></td>
           </tr>
           <tr>
-            <td width="77">&nbsp;Foto</td>
+            <td width="77">&nbsp;Photo</td>
             <td><input type="file" name="foto" id="foto"  class="file"/>
-                <br /><span class="posted">* Diisi untuk mengganti foto</span></td>
+                <br /><span class="posted">* To change the photo</span></td>
           </tr>
           <tr>
             <td width="77">&nbsp;Email</td>
             <td colspan="2"><input name="email" type="text" class="inputtxt" id="email" size="40" value="<?=stripslashes($this->email)?>" /></td>
           </tr>
           <tr>
-            <td width="77">&nbsp;Pekerjaan</td>
+            <td width="77">&nbsp;Occupation</td>
             <td colspan="2"><input name="kerja" type="text" class="inputtxt" id="kerja" size="40" value="<?=stripslashes($this->pekerjaan)?>" /></td>
           </tr>
           <tr>
-            <td width="77">&nbsp;Institusi</td>
+            <td width="77">&nbsp;Institution</td>
             <td colspan="2"><input name="institusi" type="text" class="inputtxt" id="institusi" size="50" value="<?=stripslashes($this->institusi)?>" /></td>
           </tr>
           
           <tr>
-            <td width="77">&nbsp;Keterangan</td>
+            <td width="77">&nbsp;Info</td>
             <td colspan="2"><textarea name="keterangan" cols="45" rows="5" class="areatxt" id="keterangan"><?=stripslashes($this->keterangan)?></textarea></td>
           </tr>
           <tr>
-            <td colspan="3" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Simpan" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Batal" onClick="window.close()" ></td>
+            <td colspan="3" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Save" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Cancel" onClick="window.close()" ></td>
           </tr>
         </table>
 		</form>

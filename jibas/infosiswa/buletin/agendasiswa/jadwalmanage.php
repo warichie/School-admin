@@ -30,7 +30,7 @@ $tgl = $_REQUEST['tgl'];
 $bln = $_REQUEST['bln'];
 $thn = $_REQUEST['thn'];
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");
 $fulltgl = $tgl . " " . $namabulan[$bln - 1] . " " . $thn;
 $fulltgl = strtoupper($fulltgl);
 
@@ -54,7 +54,7 @@ if ($op == "xm8r389xemx23xb2378e23") {
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jadwal Pernikahan</title>
+<title>Marital Schedule</title>
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <script language="javascript" src="script/tooltips.js"></script>
 <script language="javascript" src="script/tables.js"></script>
@@ -73,7 +73,7 @@ function edit(replid) {
 }
 
 function hapus(replid) {
-	if (confirm("Apakah anda yakin akan menghapus jadwal ini?"))
+	if (confirm("Are you sure want to delete this schedule?"))
 		document.location.href = "jadwalmanage.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&tgl=<?=$tgl?>&bln=<?=$bln?>&thn=<?=$thn?>";
 }
 
@@ -87,7 +87,7 @@ function cetak() {
 
 	<table border="0"width="100%" align="center">
     <tr>
-        <td align="left"><div align="center"><font size="2" color="#660000"><b>JADWAL PERNIKAHAN <?=$fulltgl ?></b></font></div></td>
+        <td align="left"><div align="center"><font size="2" color="#660000"><b>MARITAL SCHEDULE <?=$fulltgl ?></b></font></div></td>
     </tr>
 	</table>
 	<br />
@@ -96,19 +96,19 @@ function cetak() {
     <!-- TABLE CONTENT -->
     <tr><td align="right">
     
-    <a href="#" onclick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onmouseover="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onmouseover="showhint('Cetak', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;
-    <a href="JavaScript:tambah()"><img src="images/ico/tambah.png" border="0" onmouseover="showhint('Tambah!', this, event, '50px')" />&nbsp;Tambah Jadwal</a>
-    <input type="button" class="but" name="tutup" value="Tutup" onclick="window.close();" />
+    <a href="#" onclick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onmouseover="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;
+    <a href="JavaScript:tambah()"><img src="images/ico/tambah.png" border="0" onmouseover="showhint('Add', this, event, '50px')" />&nbsp;Add Schedule</a>
+    <input type="button" class="but" name="tutup" value="Close" onclick="window.close();" />
     </td></tr>
     </table>
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="center">
     <tr height="30">
-    	<td width="7%" class="header" align="center">No</td>
-        <td width="20%" align="center" class="header">Tempat/Jam</td>
-        <td width="25%" class="header">Penghulu</td>
-        <td width="25%" class="header">Pasangan</td>
-        <td width="*" class="header">Keterangan</td>
+    	<td width="7%" class="header" align="center">#</td>
+        <td width="20%" align="center" class="header">Place/Time</td>
+        <td width="25%" class="header">Headman</td>
+        <td width="25%" class="header">Couples</td>
+        <td width="*" class="header">Info</td>
         <td width="10%" class="header">&nbsp;</td>
     </tr>
 <? 	OpenDb();
@@ -123,10 +123,10 @@ function cetak() {
         <td><?=$row['pasangan'] ?></td>
         <td><?=$row['keterangan'] ?></td>
         <td align="center">
-            <a title="Edit" href="JavaScript:edit(<?=$row['replid'] ?>)"><img src="images/ico/ubah.png" border="0" onmouseover="showhint('Ubah Jadwal', this, event, '50px')" /></a>&nbsp;
+            <a title="Edit" href="JavaScript:edit(<?=$row['replid'] ?>)"><img src="images/ico/ubah.png" border="0" onmouseover="showhint('Edit Schedule', this, event, '50px')" /></a>&nbsp;
             <? if (SI_USER_LEVEL()!=$SI_USER_STAFF){ ?>
 
-			<a title="Hapus" href="JavaScript:hapus(<?=$row['replid'] ?>)"><img src="images/ico/hapus.png" border="0" onmouseover="showhint('Hapus Jadwal', this, event, '50px')"/></a><? } ?>
+			<a title="Delete" href="JavaScript:hapus(<?=$row['replid'] ?>)"><img src="images/ico/hapus.png" border="0" onmouseover="showhint('Delete Schedule', this, event, '50px')"/></a><? } ?>
         
 		</td>
     </tr>
@@ -138,7 +138,7 @@ function cetak() {
     </table>
     <br />
     <br />
-    <center><input type="button" class="but" name="tutup" value="Tutup" onclick="window.close();" /></center>
+    <center><input type="button" class="but" name="tutup" value="Close" onclick="window.close();" /></center>
     <script language='JavaScript'>
 	    Tables('table', 1, 0);
     </script>

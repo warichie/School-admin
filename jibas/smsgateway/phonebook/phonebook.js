@@ -61,7 +61,7 @@ $(".btnEdit").live('click',function(e){
 $(".btnDel").live('click',function(e){
 	e.preventDefault;
 	var id = $(this).attr('id');
-	if (confirm('Anda yakin akan menghapus data ini?')){
+	if (confirm('Are you sure want to delete this data?')){
 		$.ajax({
 			url  : 'phonebook.class.php',
 			data : 'cmd=delete&id='+id,
@@ -85,13 +85,13 @@ $("#btnSave").live('click',function(e){
 	var ket		= addslashes($("#ket").val());
 	
 	if (hp==''){
-		alert('Nomor HP harus diisi!');
+		alert('Mobile phone number is required');
 		$("#nohp").focus();
 		return false;
 	}
 	
 	if (nama==''){
-		alert('Nama harus diisi!');
+		alert('Name is required');
 		$("#nama").focus();
 		return false;
 	}
@@ -109,13 +109,13 @@ $("#btnUpdate").live('click',function(e){
 	var ket		= addslashes($("#ket").val());
 	
 	if (hp==''){
-		alert('Nomor HP harus diisi!');
+		alert('Mobile phone number is required');
 		$("#nohp").focus();
 		return false;
 	}
 	
 	if (nama==''){
-		alert('Nama harus diisi!');
+		alert('Name is required');
 		$("#nama").focus();
 		return false;
 	}
@@ -135,7 +135,7 @@ function afterSave(nohp){
 
 $("#btnImport").live('click',function(e){
 	e.preventDefault;
-	if (confirm('Anda yakin akan melakukan Import Data Siswa dan Pegawai?')){
+	if (confirm('Are you sure want to Import Student and Employee Data?')){
 		$.ajax({
 			url  : 'phonebook.class.php',
 			data : 'cmd=import',

@@ -138,7 +138,7 @@ function hapus(replid){
 	var departemen = document.getElementById('departemen').value;
 	var tahun = document.getElementById('tahun').value;
 	
-	if (confirm("Apakah anda yakin akan mengembalikan siswa ini ke Departemen, Tingkat dan Kelas sebelumnya?"))
+	if (confirm("Are you sure want to send this Student back to Department, Grade and former Class?"))
 		document.location.href = "daftar_mutasi.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&departemen="+departemen+"&tahun="+tahun+"&urut=<?=$urut?>&urutan=<?=$urutan?>&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -212,13 +212,13 @@ function change_baris() {
   <td align="left" valign="top">
 	<table border="0"width="95%" align="center">
     <tr>
-        <td align="right"> <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Daftar Mutasi Siswa</font>
+        <td align="right"> <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Mutation List</font>
         </td>
    	</tr>
     <tr>
         <td align="right"><a href="../mutasi.php" target="content"> 
-        <font size="1" color="#000000"><b>Mutasi</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Daftar Mutasi Siswa</b></font></td>
+        <font size="1" color="#000000"><b>Mutation</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Student Mutation List</b></font></td>
     </tr>
     <tr>
       <td align="left">&nbsp;</td>
@@ -229,7 +229,7 @@ function change_baris() {
     <!-- TABLE LINK -->
     <tr>
     	<td width="15%" rowspan="2">&nbsp;</td>
-        <td width="12%"><strong>Departemen&nbsp;</strong></td>
+        <td width="12%"><strong>Department&nbsp;</strong></td>
         <td width="20%"><select name="departemen" id="departemen" onChange="change_dep()" style="width:155px" onkeypress="return focusNext('tahun', event)">
           <?
               $dep = getDepartemen(SI_USER_ACCESS());    
@@ -243,7 +243,7 @@ function change_baris() {
         </select></td>
 	</tr>
     <tr>
-    	<td><strong>Tahun Mutasi &nbsp;</strong></td>
+    	<td><strong>Mutation Year &nbsp;</strong></td>
     	<td>
         <select name="tahun" id="tahun" onChange="refresh()" style="width:155px">
          
@@ -284,23 +284,23 @@ if ($jum_tahun > 0){
 	?> 
     	<input type="hidden" name="total" id="total" value="<?=$total?>"/>
     	<td align="right">
-      	<a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    	<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;
+      	<a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    	<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;
 	<?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')" />&nbsp;Tambah Siswa Mutasi</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')" />&nbsp;Add Student Mutation</a>
 	<?	 } ?></td>
     </tr>
     </table>
     <br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
     <tr height="30" class="header" align="center">
-    	<td width="4%" >No</td>
-        <td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>')">N I S <?=change_urut('s.nis',$urut,$urutan)?></td>
-        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>')">Nama <?=change_urut('s.nama',$urut,$urutan)?></td>
-        <td width="12%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('t.tingkat, k.kelas','<?=$urutan?>')">Kls Terakhir <?=change_urut('t.tingkat, k.kelas',$urut,$urutan)?></td>
-		<td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('m.tglmutasi','<?=$urutan?>')">Tanggal Mutasi <?=change_urut('m.tglmutasi',$urut,$urutan)?></td>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('j.jenismutasi','<?=$urutan?>')">Jenis Mutasi <?=change_urut('j.jenismutasi',$urut,$urutan)?></td>	
-        <td>Keterangan</td>
+    	<td width="4%" >#</td>
+        <td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>')">Student ID <?=change_urut('s.nis',$urut,$urutan)?></td>
+        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>')">Name <?=change_urut('s.nama',$urut,$urutan)?></td>
+        <td width="12%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('t.tingkat, k.kelas','<?=$urutan?>')">Last Class <?=change_urut('t.tingkat, k.kelas',$urut,$urutan)?></td>
+		<td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('m.tglmutasi','<?=$urutan?>')">Mutation Date<?=change_urut('m.tglmutasi',$urut,$urutan)?></td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('j.jenismutasi','<?=$urutan?>')">Mutation Type <?=change_urut('j.jenismutasi',$urut,$urutan)?></td>	
+        <td>Info</td>
         <td width="12%">&nbsp;</td>
     </tr>
 	<? 	
@@ -318,12 +318,12 @@ if ($jum_tahun > 0){
 		<td align="center"><?=LongDateFormat($row['tglmutasi']); ?></td>
         <td><?=$row['jenismutasi'] ?></td>
         <td><?=$row['keterangan'] ?></td>
-        <td align="center"><a href="#" onClick="newWindow('../library/detail_siswa.php?replid=<?=$row['replidsiswa']?>', 'DetailSiswa','800','650','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/lihat.png" width="16" height="16" border="0" onMouseOver="showhint('Detail Siswa Mutasi!', this, event, '80px')"/></a>&nbsp;
+        <td align="center"><a href="#" onClick="newWindow('../library/detail_siswa.php?replid=<?=$row['replidsiswa']?>', 'DetailSiswa','800','650','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/lihat.png" width="16" height="16" border="0" onMouseOver="showhint('Student Mutation Details', this, event, '80px')"/></a>&nbsp;
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?> 
-			<!--<a href="JavaScript:aktifkan('<?=$row['replid'] ?>')"><img src="../images/ico/refresh.png" width="16" height="16" border="0" onMouseOver="showhint('Aktifkan kembali', this, event, '75px')"></a> &nbsp;-->
-            <!--<a href="#" onClick="newWindow('../library/detail_siswa.php?replid=<?=$row['replidsiswa']?>', 'DetailSiswa','800','650','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak Detail Siswa!', this, event, '80px')"/></a>&nbsp;--> 	
-            <a href="#" onClick="newWindow('siswa_mutasi_edit.php?replid=<?=$row['replid']?>','UbahMutasiSiswa',400,450,'resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" width="16" height="16" onMouseOver="showhint('Ubah Data Mutasi!', this, event, '120px')"></a>&nbsp;
-            <a href="JavaScript:hapus('<?=$row['replid'] ?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Batalkan mutasi!', this, event, '75px')"/></a>
+			<!--<a href="JavaScript:aktifkan('<?=$row['replid'] ?>')"><img src="../images/ico/refresh.png" width="16" height="16" border="0" onMouseOver="showhint('Reactivated', this, event, '75px')"></a> &nbsp;-->
+            <!--<a href="#" onClick="newWindow('../library/detail_siswa.php?replid=<?=$row['replidsiswa']?>', 'DetailSiswa','800','650','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print Detail Student', this, event, '80px')"/></a>&nbsp;--> 	
+            <a href="#" onClick="newWindow('siswa_mutasi_edit.php?replid=<?=$row['replid']?>','UbahMutasiSiswa',400,450,'resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" width="16" height="16" onMouseOver="showhint('Edit Mutation', this, event, '120px')"></a>&nbsp;
+            <a href="JavaScript:hapus('<?=$row['replid'] ?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Cancel', this, event, '75px')"/></a>
 <?		} ?>        
 		</td>
   	</tr>
@@ -358,20 +358,20 @@ if ($jum_tahun > 0){
     <td>
     <table border="0"width="95%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -382,9 +382,9 @@ if ($jum_tahun > 0){
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -407,9 +407,9 @@ if ($jum_tahun > 0){
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Belum ada data siswa yang dimutasi pada departemen <?=$departemen?>.
+    	<font size = "2" color ="red"><b>Mutated Data Not Found on Department <?=$departemen?>.
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
         </b></font>
 	</td>

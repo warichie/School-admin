@@ -42,10 +42,10 @@ if ($dep != "-1" && $angkatan != "")
 
 if ($krit == 1) 
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Agama";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Agama";
-	$xtitle = "Agama";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Religion";
+	$pietitle = "Student Data based on Religion Percentage";
+	$xtitle = "Religion";
+	$ytitle = "Sum";
 
 	$sql = "SELECT s.agama, count(s.replid) FROM 
 	        siswa s, angkatan a 
@@ -53,10 +53,10 @@ if ($krit == 1)
 }
 elseif ($krit == 2) 
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Asal Sekolah";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Asal Sekolah";
-	$xtitle = "Sekolah";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Past School";
+	$pietitle = "Student Data based on Past School Percentage";
+	$xtitle = "School";
+	$ytitle = "Sum";
 
 	$sql = "SELECT s.asalsekolah, count(s.replid) FROM 
 	        siswa s, angkatan a 
@@ -64,10 +64,10 @@ elseif ($krit == 2)
 }
 elseif ($krit == 3) 
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Golongan Darah";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Golongan Darah";
-	$xtitle = "Golongan";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Blood Type";
+	$pietitle = "Student Data based on Blood Type Percentage";
+	$xtitle = "Blood Type";
+	$ytitle = "Sum";
 
 	$sql = "SELECT s.darah, count(s.replid) FROM 
 	        siswa s, angkatan a 
@@ -75,93 +75,93 @@ elseif ($krit == 3)
 }
 elseif ($krit == 4)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Jenis Kelamin";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Jenis Kelamin";
-	$xtitle = "Jenis Kelamin";
-	$ytitle = "Jumlah";
-	$sql	=  "SELECT IF(s.kelamin='l','Laki - laki','Perempuan') as X, COUNT(s.nis) FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
+	$bartitle = "Student Data based on Gender";
+	$pietitle = "Student Data based on Gender Percentage";
+	$xtitle = "Gender";
+	$ytitle = "Sum";
+	$sql	=  "SELECT IF(s.kelamin='l','Male','Female') as X, COUNT(s.nis) FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
 }
 elseif ($krit == 5)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Kewarganegaraan";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Kewarganegaraan";
-	$xtitle = "Warga Negara";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Citizenship";
+	$pietitle = "Student Data based on Citizenship Percentage";
+	$xtitle = "Citizenship";
+	$ytitle = "Sum";
 	$sql = "SELECT s.warga, count(s.replid) FROM 
 	        siswa s, angkatan a 
 			WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.warga ORDER BY s.warga DESC";
 }
 elseif ($krit == 6)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Kodepos";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Kodepos";
-	$xtitle = "Kodepos";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Postal Code";
+	$pietitle = "Student Data based on Postal Code Percentage";
+	$xtitle = "Postal Code";
+	$ytitle = "Sum";
 	$sql = "SELECT s.kodepossiswa, count(s.replid) FROM 
 	        siswa s, angkatan a 
 			WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.kodepossiswa ";
 }
 elseif ($krit == 7)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Kondisi Siswa";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Kondisi Siswa";
-	$xtitle = "Kondisi";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Student Conditions";
+	$pietitle = "Student Data based on Student Conditions Percentage";
+	$xtitle = "Conditions";
+	$ytitle = "Sum";
 	$sql = "SELECT s.kondisi, count(s.replid) FROM 
 	        siswa s, angkatan a 
 			WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.kondisi ";
 }
 elseif ($krit == 8)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Pekerjaan Ayah";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Pekerjaan Ayah";
-	$xtitle = "Pekerjaan";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Father Occupation";
+	$pietitle = "Student Data based on Father Occupation Percentage";
+	$xtitle = "Occupation";
+	$ytitle = "Sum";
 	$sql = "SELECT s.pekerjaanayah, count(s.replid) FROM 
 	        siswa s, angkatan a 
 			WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pekerjaanayah ";
 }
 elseif ($krit == 9)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Pekerjaan Ibu";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Pekerjaan Ibu";
-	$xtitle = "Pekerjaan";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Mother Occupation";
+	$pietitle = "Student Data based on Mother Occupation Percentage";
+	$xtitle = "Occupation";
+	$ytitle = "Sum";
 	$sql = "SELECT s.pekerjaanibu, count(s.replid) FROM 
 	        siswa s, angkatan a 
 			WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pekerjaanibu ";
 }
 elseif ($krit == 10)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Pendidikan Ayah";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Pendidikan Ayah";
-	$xtitle = "Tingkat Pendidikan";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Father Education";
+	$pietitle = "Student Data based on Father Education Percentage";
+	$xtitle = "Educational Level";
+	$ytitle = "Sum";
 	$sql = "SELECT s.pendidikanayah, count(s.replid) FROM 
 	        siswa s, angkatan a 
 			WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pendidikanayah ";
 }
 elseif ($krit == 11)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Pendidikan Ibu";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Pendidikan Ibu";
-	$xtitle = "Tingkat Pendidikan";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Mother Education";
+	$pietitle = "Student Data based on Mother Education Percentage";
+	$xtitle = "Educational Level";
+	$ytitle = "Sum";
 	$sql = "SELECT s.pendidikanibu, count(s.replid) FROM 
 	        siswa s, angkatan a 
 			WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pendidikanibu ";
 }
 elseif ($krit == 12)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan \nPenghasilan Orang Tua";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan \nPenghasilan Orang Tua";
-	$xtitle = "Penghasilan (rupiah)";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on \nParent Income";
+	$pietitle = "Prosentase Student Data based on \nParent Income";
+	$xtitle = "Income";
+	$ytitle = "Sum";
 	$sql = "SELECT G, COUNT(nis) FROM (
 	          SELECT nis, IF(peng < 1000000, '< 1 juta',
                           IF(peng >= 1000001 AND peng <= 2500000, '1 juta - 2,5 juta',
                           IF(peng >= 2500001 AND peng <= 5000000, '2,5 juta - 5 juta',
-                          IF(peng >= 5000001 , '> 5 juta', 'Tidak Ada Data')))) AS G,
+                          IF(peng >= 5000001 , '> 5 juta', 'No data.')))) AS G,
 						  IF(peng < 1000000, '1',
                           IF(peng >= 1000001 AND peng <= 2500000, '2',
                           IF(peng >= 2500001 AND peng <= 5000000, '3',
@@ -170,48 +170,48 @@ elseif ($krit == 12)
 }
 elseif ($krit == 13)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Status Aktif";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Status Aktif";
-	$xtitle = "Aktif / Tidak Aktif";
-	$ytitle = "Jumlah";
-	$sql	=  "SELECT IF(s.aktif=1,'Aktif','Tidak Aktif') as X, COUNT(s.nis) FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
+	$bartitle = "Student Data based on Active Status";
+	$pietitle = "Student Data based on Active Status Percentage";
+	$xtitle = "Active / Inactive";
+	$ytitle = "Sum";
+	$sql	=  "SELECT IF(s.aktif=1,'Active','Inactive') as X, COUNT(s.nis) FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
 }
 elseif ($krit == 14)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Status";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Status";
-	$xtitle = "Status Siswa";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Status";
+	$pietitle = "Student Data based on Status Percentage";
+	$xtitle = "Student Status";
+	$ytitle = "Sum";
 	$sql = "SELECT s.status as X, count(s.replid) FROM 
 	        siswa s, angkatan a 
 			WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X ";
 }
 elseif ($krit == 15)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Suku";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Suku";
-	$xtitle = "Suku";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Ethnicity";
+	$pietitle = "Student Data based on Ethnicity Percentage";
+	$xtitle = "Ethnicity";
+	$ytitle = "Sum";
 	$sql = "SELECT s.suku as X, count(s.replid) FROM 
 	        siswa s, angkatan a 
 			WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X ";
 }
 elseif ($krit == 16)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Tahun Kelahiran";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Tahun Kelahiran";
-	$xtitle = "Tahun Lahir";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Year of Birth";
+	$pietitle = "Student Data based on Year of Birth Percentage";
+	$xtitle = "Year of Birth";
+	$ytitle = "Sum";
 	$sql = "SELECT YEAR(s.tgllahir) as X, count(s.replid) FROM 
 	        siswa s, angkatan a 
 			WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X ORDER BY X ";
 }
 elseif ($krit == 17)
 {
-	$bartitle = "Banyaknya Siswa berdasarkan Usia";
-	$pietitle = "Prosentase Banyaknya Siswa berdasarkan Usia";
-	$xtitle = "Usia (tahun)";
-	$ytitle = "Jumlah";
+	$bartitle = "Student Data based on Age";
+	$pietitle = "Student Data based on Age Percentage";
+	$xtitle = "Age";
+	$ytitle = "Sum";
 	$sql = "SELECT G, COUNT(nis) FROM (
 	          SELECT nis, IF(usia < 6, '<6',
                           IF(usia >= 6 AND usia <= 12, '6-12',

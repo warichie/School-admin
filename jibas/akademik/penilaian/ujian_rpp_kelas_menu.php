@@ -69,7 +69,7 @@ if (!mysql_num_rows($result_aturan)==0){ ?>
 <!-- TABLE CONTENT -->
     
 <tr height="30">    	
-    <td width="100%" class="header" align="center">RPP</td>
+    <td width="100%" class="header" align="center">Lesson Plans</td>
 </tr>	
 <? 
 	$i=0;
@@ -100,7 +100,7 @@ if (!mysql_num_rows($result_aturan)==0){ ?>
 <tr>
     <td align="center" valign="middle" height="200">
     <br />
-    <font color ="red" size="2"><b>Tidak ditemukan adanya data. <br /><br />Tambah Rencana Program Pembelajaran di menu Rencana Program Pembelajaran (RPP) pada bagian Guru & Pelajaran.
+    <font color ="red" size="2"><b>Data Not Found. <br /><br />Add Lesson Plans in the Lesson Plans menu (Lesson Plans) on Teacher and Class Subject section.
     </b></font>
     </td>
 </tr>

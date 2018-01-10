@@ -25,7 +25,7 @@ function ChgCmb(){
 	document.getElementById('DetailInfoGenList').innerHTML = '';
 }
 function DeleteInfoGenList(ID){
-	if (confirm('Anda yakin akan menghapus seluruh SMS dalam info ini?')){
+	if (confirm('Are you sure want to delete seluruh SMS dalam info ini?')){
 		var Bln = document.getElementById('Month').value;
 		var Thn = document.getElementById('Year').value;
 		ShowWait('InfoGenList');
@@ -52,7 +52,7 @@ function EditDetailInfoGenList(ID, state){
 	}
 }
 function ResendDetailInfoGenList(ID){
-	if (confirm('Anda yakin akan mengirim ulang pesan ini?')){
+	if (confirm('Are you sure want to resend this message?')){
 		ShowWait('DetailInfoGenList');
 		sendRequestText('penilaian.ajax.list.php',ShowDetailInfoGenList,'op=ResendDetailInfoGenList&OutboxID='+ID);
 	}
@@ -60,13 +60,13 @@ function ResendDetailInfoGenList(ID){
 function ResendDetailInfoGenList2(ID){
 	var DestNumb = document.getElementById('Input'+ID).value;
 	var Txt = document.getElementById('TxtArea'+ID).value;
-	if (confirm('Anda yakin akan mengirim pesan ini sekarang?')){
+	if (confirm('Are you sure want to send this message now?')){
 		ShowWait('DetailInfoGenList');
 		sendRequestText('penilaian.ajax.list.php',ShowDetailInfoGenList,'op=ResendDetailInfoGenList2&OutboxID='+ID+'&DestNumb='+DestNumb+'&Txt='+Txt);
 	}
 }
 function DeleteDetailInfoGenList(ID){
-	if (confirm('Anda yakin akan menghapus pesan ini?')){
+	if (confirm('Are you sure want to delete this message?')){
 		ShowWait('DetailInfoGenList');
 		sendRequestText('penilaian.ajax.list.php',ShowDetailInfoGenList,'op=DeleteDetailInfoGenList&OutboxID='+ID);
 		//document.getElementById('DetailInfoGenList').innerHTML = '';

@@ -36,7 +36,7 @@ $DS = new DaftarSekolah();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -49,8 +49,8 @@ $DS = new DaftarSekolah();
 <input type="hidden" name="nip" id="nip" value="<?=$DS->nip?>">
 <p align="center">
 <font class="subtitle"><?=$DS->nama?> - <?=$DS->nip?></font><br />
-<a href="JavaScript:Refresh()"><img src="../images/ico/refresh.png" border="0" />&nbsp;refresh</a>&nbsp;
-<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;cetak</a>&nbsp;
+<a href="JavaScript:Refresh()"><img src="../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>&nbsp;
+<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>&nbsp;
 <br />
 </p>
 
@@ -58,25 +58,25 @@ $DS = new DaftarSekolah();
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Riwayat Sekolah <?=$DS->nama?> - <?=$DS->nip?></font><br />
+        <font class="subtitle">School History <?=$DS->nama?> - <?=$DS->nip?></font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="0" cellpadding="3" cellspacing="0" width="100%">
 <tr><td align="right">
-<a href="JavaScript:TambahS()"><img src="../images/ico/tambah.png" border="0" />&nbsp;tambah</a>
+<a href="JavaScript:TambahS()"><img src="../images/ico/tambah.png" border="0" />&nbsp;add</a>
 </td></tr>
 </table>
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="5%" align="center" class="header">Tingkat</td>
-    <td width="25%" align="center" class="header">Sekolah</td>
-    <td width="5%" align="center" class="header">Lulus</td>
-    <td width="7%" align="center" class="header">Akhir</td>
-    <td width="20%" align="center" class="header">SK</td>
-    <td width="*" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="5%" align="center" class="header">Grade</td>
+    <td width="25%" align="center" class="header">School</td>
+    <td width="5%" align="center" class="header">Graduates</td>
+    <td width="7%" align="center" class="header">End</td>
+    <td width="20%" align="center" class="header">Legal Number</td>
+    <td width="*" align="center" class="header">Info</td>
     <td width="8%" align="center" class="header">&nbsp;</td>
 </tr>
 <?
@@ -101,7 +101,7 @@ while ($row = mysql_fetch_array($result)) {
     <td align="left"><?=$row['sk']?></td>
     <td align="left"><?=$row['keterangan']?></td>
     <td align="center">
-	    <a title="edit" href="JavaScript:Ubah(<?=$row['replid']?>)"><img src="../images/ico/ubah.png" border="0" /></a>&nbsp;
+	    <a title="edit" href="JavaScript:Change(<?=$row['replid']?>)"><img src="../images/ico/ubah.png" border="0" /></a>&nbsp;
 	    <a title="hapus" href="JavaScript:Hapus(<?=$row['replid']?>)"><img src="../images/ico/hapus.png" border="0" /></a>
     </td>
 </tr>

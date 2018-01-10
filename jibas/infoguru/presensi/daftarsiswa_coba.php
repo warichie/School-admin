@@ -73,7 +73,7 @@ if (isset($_REQUEST['simpan'])) {
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Daftar Pegawai</title>
+<title>Employee List</title>
 <script language="javascript" src="script/string.js"></script>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript">
@@ -117,7 +117,7 @@ function tambah() {
 		//alert ('lagi coba '+i+' '+pilih);
 	}
 	
-	alert ('nis satu '+nis1[1]);
+	alert ('student id one '+nis1[1]);
 	//window.close();
 	
 	//opener.acceptPegawai(nip, nama, <?=$flag ?>);
@@ -142,10 +142,9 @@ function tambah() {
 	<input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
     <input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$tahunajaran ?>" />
     <input type="hidden" name="kelas" id="kelas" value="<?=$kelas ?>" />
-	<font size="2"><strong>Daftar Siswa</strong></font><br />
-	Departemen: <strong><input type="text" name="departemen" id="departemen" value="<?=$departemen ?>" size="10" readonly 	style="background-color:#CCCCCC" /></strong>
-    <input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />&nbsp;&nbsp;
-	Tingkat: 
+	<font size="2"><strong>Student List</strong></font><br />
+	Department: <strong><input type="text" name="departemen" id="departemen" value="<?=$departemen ?>" size="10" readonly 	style="background-color:#CCCCCC" /></strong>
+    <input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />&nbsp;&nbsp;Level: 
     <select name="tingkat" id="tingkat" onChange="change()">
  	<?	OpenDb();
 		$sql = "SELECT replid,tingkat FROM tingkat WHERE aktif=1 AND departemen='$departemen' ORDER BY urutan";	
@@ -179,10 +178,10 @@ if ($jum > 0) {
 <input type="hidden" name="jum" id="jum" value="<?=$jum ?>" />
 <table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0">
 <tr height="30">
-	<td class="header" width="7%" align="center">No</td>
-    <td class="header" width="15%" align="center">N I S</td>
-    <td class="header" align="center">Nama</td>
-    <td class="header" width="10%" align="center">Kelas</td>
+	<td class="header" width="7%" align="center">#</td>
+    <td class="header" width="15%" align="center">Student ID</td>
+    <td class="header" align="center">Name</td>
+    <td class="header" width="10%" align="center">Class</td>
     <td class="header" width="10%" align="center">&nbsp;</td>
 </tr>
 <?
@@ -201,7 +200,7 @@ if ($jum > 0) {
     <input type="hidden" name="nis<?=$cnt?>" id="nis<?=$cnt?>" value="<?=$row[0] ?>" />
     <input type="hidden" name="nama<?=$cnt?>" id="nama<?=$cnt?>" value="<?=$row[1] ?>" />
    
-    <!--<input type="button" name="pilih" class="but" id="pilih" value="Pilih" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />-->
+    <!--<input type="button" name="pilih" class="but" id="pilih" value="Select" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />-->
 </tr>
 <? $cnt++; 
 	} ?>
@@ -212,7 +211,7 @@ if ($jum > 0) {
 <!-- EOF CONTENT -->
 <?
 } else { 
-	echo "<strong><font color='red'>Tidak ditemukan adanya data</strong>";
+	echo "<strong><font color='red'>Data Not Found.</strong>";
 }
 ?>
 </td></tr>
@@ -221,8 +220,8 @@ if ($jum > 0) {
 <tr height="26">
 	<td colspan="5" align="center" bgcolor="#999900">
     
-    <input type="submit" name="simpan" value="Simpan" class="but"/>
-    <input type="button" class="but" name="tutup" id="tutup" value="Tutup" onClick="window.close()" /></td>
+    <input type="submit" name="simpan" value="Save" class="but"/>
+    <input type="button" class="but" name="tutup" id="tutup" value="Close" onClick="window.close()" /></td>
 </tr>
 
 </table>

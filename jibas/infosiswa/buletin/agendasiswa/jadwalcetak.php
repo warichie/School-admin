@@ -110,7 +110,7 @@ if (($nday > 0) && ($nday < 7)) {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="style/style.css" />
 <link rel="stylesheet" href="style/tooltips.css">
-<title>SISFO KUA</title>
+<title>STUDENT MARITAL STATUS INFO</title>
 <style>
 .thismonth {
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -179,19 +179,19 @@ function refresh() {
 
 <? include("include/header.php"); ?>
 
-<? $namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember"); ?>
-<font size="2" color="maroon"><strong>JADWAL PERNIKAHAN</strong></font><br />
-<font size="2" color="maroon">Bulan <?=$namabulan[$bulan - 1] . " " . $tahun ?></font><br /><br />
+<? $namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December"); ?>
+<font size="2" color="maroon"><strong>MARITAL SCHEDULE</strong></font><br />
+<font size="2" color="maroon">Month <?=$namabulan[$bulan - 1] . " " . $tahun ?></font><br /><br />
 </center>
 <table border="1" cellpadding="5" cellspacing="0" width="700" style="border-color:#999999">
 <tr height="30" bgcolor="#DFFFDF">
-	<td width="100" align="center" style="background-color:#990000; color:#FFFFFF"><b>Minggu</b></td>
-    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Senin</b></td>
-    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Selasa</b></td>
-    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Rabu</b></td>
-    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Kamis</b></td>
-    <td width="100" align="center" style="background-color:#339900; color:#FFFFFF"><b>Jum'at</b></td>
-    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Sabtu</b></td>
+	<td width="100" align="center" style="background-color:#990000; color:#FFFFFF"><b>Sunday</b></td>
+    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Monday</b></td>
+    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Tuesday</b></td>
+    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Wednesday</b></td>
+    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Thursday</b></td>
+    <td width="100" align="center" style="background-color:#339900; color:#FFFFFF"><b>Friday</b></td>
+    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Saturday</b></td>
 </tr>
 <?
 for ($i = 0; $i < count($cal); $i++) { 

@@ -34,7 +34,7 @@ $departemen='yayasan';
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SimTaka [Cetak Daftar Pengguna]</title>
+<title>JIBAS SimTaka [Print User List]</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@ $departemen='yayasan';
 
 <?=GetHeader('alls')?>
 
-<center><font size="4"><strong>DATA PENGGUNA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>USER DATA</strong></font><br /> </center><br /><br />
 
 <br />
 		<?
@@ -53,11 +53,11 @@ $departemen='yayasan';
 		?>
 		<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td height="30" align="center" class="header">NIP</td>
-            <td height="30" align="center" class="header">Nama</td>
-            <td align="center" class="header">Tingkat</td>
-            <td align="center" class="header">Perpustakaan</td>
-			<td align="center" class="header">Keterangan</td>
+            <td height="30" align="center" class="header">Employee ID</td>
+            <td height="30" align="center" class="header">Name</td>
+            <td align="center" class="header">Grade</td>
+            <td align="center" class="header">Library</td>
+			<td align="center" class="header">Info</td>
 		  </tr>
           <?
 		  if ($num>0){
@@ -71,10 +71,10 @@ $departemen='yayasan';
 				  $res = QueryDb($sql);
 				  $r = @mysql_fetch_row($res);
 				  $namaperpus = $r[0];
-				  $namatingkat = "Staf Perpustakaan";
+				  $namatingkat = "Library Staff";
 			  } else {
-			  	  $namaperpus = "<i>Semua</i>";
-				  $namatingkat = "Manajer Perpustakaan";
+			  	  $namaperpus = "<i>All</i>";
+				  $namatingkat = "Library Manager";
 			  }
 			  ?>
 			  <tr>
@@ -89,7 +89,7 @@ $departemen='yayasan';
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="7" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="7" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

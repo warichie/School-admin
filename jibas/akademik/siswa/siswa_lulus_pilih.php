@@ -117,7 +117,7 @@ $n = JmlHari($bln, $th);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kelulusan Siswa[Pilih]</title>
+<title>Graduates Student [Select]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -161,46 +161,46 @@ function pindah_siswa(nis, idkelas, i) {
 	var jenis = document.getElementById("jenis").value;
 	
 	if (tgl.length == 0) {	
-		alert ('Tanggal tidak boleh kosong!');	
+		alert ('Date should not leave empty');	
 		document.getElementById('tgl').focus();
 		return false;	
 	}
 	
 	if (nisbaru.length == 0) {	
-		alert ('NIS Siswa tidak boleh kosong!');	
+		alert ('Student ID should not leave empty');	
 		document.getElementById('nis_'+i).focus();
 		return false;	
 	}
 	
 	if (deptujuan.length==0){
-		alert ('Tidak ada departemen tujuan yang lebih tinggi!');
+		alert ('No higher destination department');
 		return false;
 	}	
 	if (departemen == deptujuan){
-		alert ('Anda tidak dapat memindahkan siswa ke departemen yang sama!');
+		alert ('You should not transfer the student to the same department');
 		return false;
 	}	
 	
 	if (tingkattujuan.length==0){
-		alert ('Tidak ada tingkat tujuan yang lebih tinggi!');
+		alert ('No higher destination grade');
 		return false;
 	}	
 	if (tahunajarantujuan.length==0){
-		alert ('Tidak ada tahunajaran tujuan!');
+		alert ('No Year of Teaching destination');
 		return false;
 	}
 	
 	if (kelastujuan.length==0){
-		alert ('Tidak ada kelas tujuan atau kelas tujuan yang aktif!');
+		alert ('No active grade or destination class');
 		return false;
 	}
 	
 	if (angkatantujuan.length==0){
-		alert ('Tidak ada angkatan tujuan yang lebih tinggi atau angkatan tujuan yang aktif!');
+		alert ('No higher destination graduates nor its active status');
 		return false;
 	}
 	
-	if (confirm("Apakah anda yakin akan meluluskan siswa ini?")){
+	if (confirm("Are you sure want to meluluskan this student?")){
 		parent.siswa_lulus_tujuan.location.href = "siswa_lulus_tujuan.php?op=x2378e23dkofh73n25ki9234&departemen="+deptujuan+"&departemenawal="+departemen+"&tingkat="+tingkattujuan+"&tahunajaran="+tahunajarantujuan+"&tahunajaranawal="+tahunajaran+"&tingkatawal="+tingkat+"&kelas="+kelastujuan+"&nis="+nis+"&ket="+ket+"&nisbaru="+nisbaru+"&kelasawal="+kelas+"&tgl="+tgl+"&bln="+bln+"&th="+th+"&angkatan="+angkatantujuan;
 		refresh_pilih(i);
 	}
@@ -348,11 +348,11 @@ function refresh_pilih(i) {
 	<td>
     	<table border="0" cellspacing="0" cellpadding="0">
         <tr>
-        	<td><strong>Tanggal Lulus</strong>&nbsp;</td>
+        	<td><strong>Date Graduated</strong>&nbsp;</td>
            	<td>
             <div id = "InfoTgl" >
             <select name="tgl" id = "tgl" onChange="change_tgl()" onfocus = "panggil('tgl')" onKeyPress="focusNext('bln',event)">
-            <option value="">[Tgl]</option>
+            <option value="">[Date]</option>
         <? 	for($i=1;$i<=$n;$i++){   ?>      
             <option value="<?=$i?>" <?=IntIsSelected($tgl, $i)?>><?=$i?></option>
         <?	} ?>
@@ -387,15 +387,15 @@ function refresh_pilih(i) {
 	<td align="left" valign="top">
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 	<tr align="center">
-		<td width="6%" height="30" class="header">No</td>
-		<td width="15%" height="30" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nis','<?=$urutan?>')">N I S <?=change_urut('s.nis',$urut,$urutan)?></td>
-		<td width="*" height="30" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nama','<?=$urutan?>')" >Nama <?=change_urut('s.nama',$urut,$urutan)?></td>
-		<td height="30" width="14%" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('k.kelas','<?=$urutan?>')">Kelas <?=change_urut('k.kelas',$urut,$urutan)?></td>
-		<td height="15" width="37%" colspan="2" class="header">Kelulusan</td>
+		<td width="6%" height="30" class="header">#</td>
+		<td width="15%" height="30" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nis','<?=$urutan?>')">Student ID <?=change_urut('s.nis',$urut,$urutan)?></td>
+		<td width="*" height="30" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nama','<?=$urutan?>')" >Name <?=change_urut('s.nama',$urut,$urutan)?></td>
+		<td height="30" width="14%" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('k.kelas','<?=$urutan?>')">Class <?=change_urut('k.kelas',$urut,$urutan)?></td>
+		<td height="15" width="37%" colspan="2" class="header">Graduation</td>
 	</tr>
     <!--<tr>
-      	<td width="26%" class="header" align="center">NIS Baru</td>
-        <td width="26%" class="header" align="center">Keterangan</td>
+      	<td width="26%" class="header" align="center">Student ID Baru</td>
+        <td width="26%" class="header" align="center">Info</td>
       	<td width="8%" class="header">&nbsp;</td>
     </tr>-->
 <?		if ($page==0)
@@ -415,18 +415,18 @@ function refresh_pilih(i) {
         <td>
         	<table cellpadding="0" cellspacing="0" border="0">
             <tr>
-            	<td width="20%">NIS </td>
+            	<td width="20%">Student ID </td>
                 <td><input type="text" size="15" maxlength="20" id="nis_<?=$cnt?>" name="nis_<?=$row_siswa[0]?>" value="<? if ($_REQUEST['count'] == $cnt) echo $nisbaru?>" onKeyPress="return focusNext('ket_<?=$cnt?>', event)"/>
         		</td>
             </tr>
             <tr>
-            	<td width="20%">Ket </td>
+            	<td width="20%">Info </td>
                 <td><input type="text" size="15" maxlength="255" id="ket_<?=$cnt?>" name="ket_<?=$row_siswa[0]?>" onKeyPress="return focusNext('nis_<?=$cnt+1?>', event)" value="<? if ($_REQUEST['count'] == $cnt) echo $ket ?>" />
         		</td>
             </tr>
             </table>    
       	</td>
-        <td align="center"><input type="button" class="but" value=" > " onClick="pindah_siswa('<?=$row_siswa[0]?>', <?=$row_siswa[2]?>, <?=$cnt?>)" onMouseOver="showhint('Klik untuk naik kelas!', this, event, '80px')" style="height:30px"/></td>
+        <td align="center"><input type="button" class="but" value=" > " onClick="pindah_siswa('<?=$row_siswa[0]?>', <?=$row_siswa[2]?>, <?=$cnt?>)" onMouseOver="showhint('Click for Grade promote', this, event, '80px')" style="height:30px"/></td>
    </tr>
 <?			$cnt++;
 		}
@@ -459,20 +459,20 @@ function refresh_pilih(i) {
     <td>
     <table border="0"width="100%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Hal
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    	<<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">-->
+    	<<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">-->
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -483,9 +483,9 @@ function refresh_pilih(i) {
 				 
 	    }*/
 		?>
-	    <!--<input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	    <!--<input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jml baris per hal
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -501,8 +501,8 @@ function refresh_pilih(i) {
 	<tr>
 		<td align="center" valign="middle" height="200">
 
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
-        <br />Tambah data siswa pada departemen <?=$departemen?> di menu Kesiswaan pada bagian Pendataan Siswa.
+    	<font size = "2" color ="red"><b>Data Not Found. 
+        <br />Add Student data on Department <?=$departemen?> in the Student menu on Student Data Collection section.
        	</b></font>
         
 		</td>
@@ -514,8 +514,8 @@ function refresh_pilih(i) {
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">    	  	
-    	<font size="2" color="#757575"><b>Klik pada tombol &quot;Tampil&quot; atau &quot;Cari&quot; untuk
-      menampilkan daftar siswa yang akan diluluskan &nbsp;</b></font>
+    	<font size="2" color="#757575"><b>Click on Show or Search to
+      show student graduates candidate list</b></font>
  	</td>
 	</tr>
 	</table>

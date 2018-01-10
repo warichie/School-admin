@@ -52,7 +52,7 @@ $result1 = QueryDb($query1);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tampil Statistik</title>
+<title>Statistic Display</title>
 
 <style type="text/css">
 <!--
@@ -70,7 +70,7 @@ $result1 = QueryDb($query1);
 </head>
 <body leftmargin="0" topmargin="0" >
 <table width="100%" border="1" cellspacing="0" class="tab" id="table" align="center">
-<tr><td colspan="4" align="center"><span class="style5">Daftar Calon Siswa Berdasarkan 
+<tr><td colspan="4" align="center"><span class="style5">Student Candidate List based on 
       <?=$dasar?>
 </span>
  </td>
@@ -79,13 +79,13 @@ $result1 = QueryDb($query1);
   <td colspan="5">
   <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th width="23%" class="style14" scope="row"><div align="left" class="style6">Departemen</div></th>
+    <th width="23%" class="style14" scope="row"><div align="left" class="style6">Department</div></th>
     <td width="77%"><span class="style6">
-      <? if ($departemen!="-1") echo $departemen; else echo "(Semua Departemen)"; ?>
+      <? if ($departemen!="-1") echo $departemen; else echo "(All Department)"; ?>
     </span></td>
   </tr>
   <tr>
-    <th scope="row"><div align="left" class="style6">Proses Penerimaan</div></th>
+    <th scope="row"><div align="left" class="style6">Admission Process</div></th>
     <td><span class="style6">
     <? 	if ($idproses!="-1"){
 			OpenDb();
@@ -95,28 +95,28 @@ $result1 = QueryDb($query1);
 			echo $row_p['proses'];
 			CloseDb();
 		} else {
-			echo "(Semua Proses Penerimaan yang Aktif)";
+			echo "(All Admission Process yang Aktif)";
 		}
 	?>
     </span></td>
   </tr>
   <tr>
-    <th bgcolor="#CCCCCC" scope="row"><div align="left" class="style6">Kriteria</div></th>
+    <th bgcolor="#CCCCCC" scope="row"><div align="left" class="style6">Criteria</div></th>
   	<td><span class="style6"><?=$judul?></span></td>
   </tr>
 </table>  </td>
 </tr>
 <tr height="30">
-  		<td width="5%"  align="center" bgcolor="#666666"><span class="style9">No</span></td>
-    <td width="10%"  align="center" bgcolor="#666666"><span class="style9">No Pendaftaran</span></td>
-	<td width="10%"  align="center" bgcolor="#666666"><span class="style9">NISN</span></td>
-    <td width="*"  align="center" bgcolor="#666666"><span class="style9">Nama</span></td>
-    <td width="15%"  align="center" bgcolor="#666666"><span class="style9">Departemen</span></td>
-    <td width="15%"  align="center" bgcolor="#666666"><span class="style9">Kelompok</span></td>
+  		<td width="5%"  align="center" bgcolor="#666666"><span class="style9">#</span></td>
+    <td width="10%"  align="center" bgcolor="#666666"><span class="style9">Registration Number</span></td>
+	<td width="10%"  align="center" bgcolor="#666666"><span class="style9">National Student ID</span></td>
+    <td width="*"  align="center" bgcolor="#666666"><span class="style9">Name</span></td>
+    <td width="15%"  align="center" bgcolor="#666666"><span class="style9">Department</span></td>
+    <td width="15%"  align="center" bgcolor="#666666"><span class="style9">Group</span></td>
   </tr> <?  
 	 if (@mysql_num_rows($result1) < 1) {
 				?> 
-					<td colspan="4" align="center"><span class="style13">Tidak Ada Data</span></td>
+					<td colspan="4" align="center"><span class="style13">Data Not Found</span></td>
 					 
   	<? } else{
 	

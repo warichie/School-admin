@@ -57,7 +57,7 @@ if (isset($_REQUEST['idpengeluaran']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pengeluaran]</title>
+<title>JIBAS FINANCE [Expenditure Reports]</title>
 </head>
 
 <body>
@@ -69,21 +69,21 @@ $row = mysql_fetch_row($result);
 $namapengeluaran = $row[0];
 ?>
 
-<center><font size="4" face="Verdana"><strong>LAPORAN PENGELUARAN <?=strtoupper($namapengeluaran) ?></strong></font><br /> 
+<center><font size="4" face="Verdana"><strong>EXPENDITURE REPORTS <?=strtoupper($namapengeluaran) ?></strong></font><br /> 
 </center>
 <br /><br />
 
 <table border="0">
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Departemen </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Department </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=$departemen ?>
     </strong></font></td>
 </tr>
 <tr>
-	<td><font size="2" face="Arial"><strong>Tanggal <strong></font></td>
+	<td><font size="2" face="Arial"><strong>Date <strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
-      <?=LongDateFormat($tanggal1) . " s/d 	" . LongDateFormat($tanggal2) ?>
+      <?=LongDateFormat($tanggal1) . " to 	" . LongDateFormat($tanggal2) ?>
     </strong></font></td>
 </tr>
 </table>
@@ -91,13 +91,13 @@ $namapengeluaran = $row[0];
 
 <table id="table" class="tab" style="border-collapse:collapse" border="1" width="100%" bordercolor="#000000">
 <tr height="30" align="center">
-	<td width="4%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="12%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Tanggal</font></strong></td>
-    <td width="22%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Pemohon</font></strong></td>
-    <td width="10%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Penerima</font></strong></td>
-    <td width="12%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Jumlah</font></strong></td>
-    <td width="*" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Keperluan</font></strong></td>
-    <td width="10%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Petugas</font></strong></td>
+	<td width="4%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="12%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Date</font></strong></td>
+    <td width="22%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Applicant</font></strong></td>
+    <td width="10%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Recipient</font></strong></td>
+    <td width="12%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Sum</font></strong></td>
+    <td width="*" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Necessities</font></strong></td>
+    <td width="10%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Officer</font></strong></td>
 </tr>
 <?
 $sql = "SELECT p.replid AS id, p.keperluan, p.keterangan, p.jenispemohon, p.nip, p.nis, p.pemohonlain, p.penerima, date_format(p.tanggal, '%d-%b-%Y') as tanggal, date_format(p.tanggalkeluar, '%d-%b-%Y') as tanggalkeluar, p.petugas, p.jumlah FROM pengeluaran p, datapengeluaran d WHERE p.idpengeluaran = d.replid AND d.replid = '$idpengeluaran' AND d.departemen = '$departemen' AND p.tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY p.tanggal";
@@ -150,10 +150,10 @@ while ($row = mysql_fetch_array($result)) {
       <?=$row['jumlah'] ?>
     </font></td>
     <td valign="top">
-      <font size="2" face="Arial"><strong>Keperluan: </strong>
+      <font size="2" face="Arial"><strong>Necessities: </strong>
       <?=$row['keperluan'] ?>
       <br />
-      <strong>Keterangan: </strong>
+      <strong>Info: </strong>
       <?=$row['keterangan'] ?>	
     </font></td>
     <td valign="top" align="center"><font size="2" face="Arial">
@@ -166,7 +166,7 @@ CloseDb();
 ?>
 <tr height="30">
 	<td colspan="4" align="center" bgcolor="#999900">
-    <font color="#FFFFFF" size="2" face="Arial"><strong>T O T A L</strong></font>    </td>
+    <font color="#FFFFFF" size="2" face="Arial"><strong>Total</strong></font>    </td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$total ?></strong></font></td>
     <td colspan="2" bgcolor="#999900">&nbsp;</td>
 </tr>

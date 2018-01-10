@@ -30,9 +30,8 @@
 <table width="100%" border="0" height="100%">
 <tr height="300">
     <td align="center" valign="middle" background="images/ico/key.png" style="background-repeat:no-repeat;">
-        <font size="2" color="#757575"><b>Klik pada icon <img src="images/ico/view_x.png" border="0"> di
-        atas untuk melihat daftar PIN siswa dan Ortu sesuai dengan Departemen, Tingkat, Tahun
-        Ajaran dan Kelas terpilih</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on <img src="images/ico/view_x.png" border="0"> 
+        above to show student PIN list and Parents according to Department, Grade, Year of Teaching and Class selected.</b></font>    </td>
 </tr>
 </table>
 </body>

@@ -33,17 +33,17 @@ $y = $row[0];
 $m = $row[1];
 $d = $row[2]; 
 CloseDb();
-$month = array ('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$month = array ('','January','February','March','April','May','June','July','August','September','October','November','December');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jibas Ema</title>
+<title>JIBAS EMA</title>
 <script type="text/javascript" src="script/dhtml/stmenu.js"></script>
 <script type="text/javascript">
 function logout(){
-	if (confirm('Anda yakin akan keluar dari JibasEma?'))
+	if (confirm('Are you sure want to logout from JIBAS EMA?'))
 		top.location.href = "logout.php";
 }
 </script>

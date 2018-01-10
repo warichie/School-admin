@@ -97,16 +97,16 @@ if (isset($_REQUEST['btSubmit']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tambah Data Diklat</title>
+<title>Add Education and Training Data</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 function validate() {
-	return validateEmptyText('txDiklat', 'Nama Diklat') && 
-		   validateEmptyText('txTahunDiklat', 'Tahun Diklat') && 
-		   validateNumber('txThnSekolah', 'Tahun Kelulusan Sekolah') &&
-		   validateLength('txTahunDiklat', 'Tahun Diklat', 4);
+	return validateEmptyText('txDiklat', 'Name Diklat') && 
+		   validateEmptyText('txTahunDiklat', 'Year Diklat') && 
+		   validateNumber('txThnSekolah', 'Year Graduation Sekolah') &&
+		   validateLength('txTahunDiklat', 'Year Diklat', 4);
 }
 
 function PilihDiklat() {
@@ -127,33 +127,33 @@ function TerimaDiklat(id, diklat) {
 <input type="hidden" name="nip" id="nip" value="<?=$nip?>" />
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr height="30">
-	<td width="100%" class="header" align="center">Tambah Diklat</td>
+	<td width="100%" class="header" align="center">Add Education and Training</td>
 </tr>
 <tr>
 	<td width="100%" align="center">
     
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
-    	<td align="right" width="22%">Diklat : </td>
+    	<td align="right" width="22%">Education and Training : </td>
 	    <td width="*" align="left" valign="top">
     		<input type="hidden" name="idDiklat" id="idDiklat" onKeyPress="return focusNext('tx', event)" value="<?=$iddiklat?>" />
 		    <input type="text" name="txDiklat" id="txDiklat" value="<?=$diklat ?>" size="35" maxlength="100" readonly="readonly" style="background-color:#CCCCCC" /><input type="button" value="..." class="but" id="btDiklat" onClick="PilihDiklat()"  />&nbsp;
     	</td>
 	</tr>
     <tr>
-    	<td align="right">Tahun : </td>
+    	<td align="right">Year : </td>
 	    <td align="left" valign="top">
         <input type="text" name="txTahunDiklat" value="<?=$thndiklat?>" id="txTahunDiklat" size="4" maxlength="4" onKeyPress="return focusNext('txSK', event)" />
         </td>
     </tr>
     <tr>
-    	<td align="right">SK : </td>
+    	<td align="right">Legal Number : </td>
 	    <td align="left" valign="top">
         <input type="text" name="txSK" value="<?=$sk?>" id="txSK" size="30" maxlength="100" onKeyPress="return focusNext('txKeterangan', event)" />
         </td>
     </tr>
     <tr>
-    	<td align="right" valign="top">Keterangan : </td>
+    	<td align="right" valign="top">Info : </td>
 	    <td align="left" valign="top">
         <textarea id="txKeterangan" name="txKeterangan" rows="2" cols="40"><?=$keterangan?></textarea>
         </td>
@@ -161,8 +161,8 @@ function TerimaDiklat(id, diklat) {
     <tr>
     	<td align="right" valign="top">&nbsp;</td>
 	    <td align="left" valign="top">
-        <input type="submit" value="Simpan" name="btSubmit" class="but" />
-        <input type="button" value="Tutup" onClick="window.close()" class="but" />
+        <input type="submit" value="Save" name="btSubmit" class="but" />
+        <input type="button" value="Close" onClick="window.close()" class="but" />
         </td> 
     </tr>
     </table>

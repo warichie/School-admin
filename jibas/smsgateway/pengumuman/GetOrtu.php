@@ -33,7 +33,7 @@ OpenDb();
     
         <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td style="padding-right:4px">Kelas</td>
+            <td style="padding-right:4px">Class</td>
             <td class="td">
               <select id="CmbDepOrtu" name="CmbDepOrtu" class="Cmb" onchange="ChgCmbDepOrtu()">
                 	<?
@@ -69,17 +69,17 @@ OpenDb();
 				</div>
             </td>
 			<td class="td">	
-				<div class="Btn" onclick="ChgCmbKlsOrtu()" align="center" />Lihat</div>
+				<div class="Btn" onclick="ChgCmbKlsOrtu()" align="center" />View</div>
 			</td>
-			<td style="padding-right:4px" valign="top" class="tdTop">&nbsp;&nbsp;&nbsp;Cari&nbsp;</td>
+			<td style="padding-right:4px" valign="top" class="tdTop">&nbsp;&nbsp;&nbsp;Search&nbsp;</td>
             <td class="td">
-            	<input type="text" name="InpNISOrtu" id="InpNISOrtu" class="InputTxt" value='NIS Siswa'  onfocus="InputHover('NIS Siswa','InpNISOrtu','1')" onblur="InputHover('NIS Siswa','InpNISOrtu','0')" style="color:#636363" size='10' />
+            	<input type="text" name="InpNISOrtu" id="InpNISOrtu" class="InputTxt" value='Student Registraion Number'  onfocus="InputHover('Student Registraion Number','InpNISOrtu','1')" onblur="InputHover('Student Registraion Number','InpNISOrtu','0')" style="color:#636363" size='10' />
             </td>
             <td class="td">
-            	<input type="text" name="InpNamaOrtu" id="InpNamaOrtu" class="InputTxt"  value='Nama Siswa'  onfocus="InputHover('Nama Siswa','InpNamaOrtu','1')" onblur="InputHover('Nama Siswa','InpNamaOrtu','0')" style="color:#636363" size='15' />  
+            	<input type="text" name="InpNamaOrtu" id="InpNamaOrtu" class="InputTxt"  value='Student Name'  onfocus="InputHover('Student Name','InpNamaOrtu','1')" onblur="InputHover('Student Name','InpNamaOrtu','0')" style="color:#636363" size='15' />  
             </td>
 			<td align="center" valign="middle" class="td">
-			<div class="Btn" onclick="SearchOrtu()" align="center" />Cari</div>
+			<div class="Btn" onclick="SearchOrtu()" align="center" />Search</div>
 			</td>
 		  </tr>
 		  <tr>
@@ -101,10 +101,10 @@ OpenDb();
     <div id="TableOrtu">
     <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="TableOr">
       <tr class="Header">
-        <td width='50'>No</td>
-        <td width='100'>NIS</td>
-		<td>Nama</td>
-        <td>No. HP Ortu</td>
+        <td width='50'>#</td>
+        <td width='100'>Student ID</td>
+		<td>Name</td>
+        <td>Mobile</td>
         <td><input type="checkbox" id="CheckAllOrtu"></td>
       </tr>
       <?
@@ -127,7 +127,7 @@ OpenDb();
 		  if (strlen($row['namaayah'])==0)
 			  $nama = $row['nama'];
 		  ?>
-        <!--<span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hportu']?>','<?=$nama?>','<?=$row['nama']?>')"  />Pilih</span>-->
+        <!--<span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hportu']?>','<?=$nama?>','<?=$row['nama']?>')"  />Select</span>-->
 		<input type="checkbox" class="checkboxortu" hp="<?=$row['hportu']?>" nama="<?=$nama?>" nip="<?=$row['nis']?>" pinayah="<?=$row['pinortu']?>" pinibu="<?=$row['pinortuibu']?>">
         <? } ?>
         </td>
@@ -138,7 +138,7 @@ OpenDb();
 		} else {
 		?>
       <tr>
-        <td colspan="5" class="Ket" align="center">Tidak ada data</td>
+        <td colspan="5" class="Ket" align="center">Data Not Found.</td>
       </tr>
       <?
 		}

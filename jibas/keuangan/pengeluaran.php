@@ -33,7 +33,7 @@
 <table id="Table_01" width="514" border="0" cellpadding="0" cellspacing="0">
 <tr height="102">
 	<td width="112">
-        <a href="akunrek.php?from=Pengeluaran&sourcefrom=pengeluaran.php">
+        <a href="akunrek.php?from=Expenditure&sourcefrom=pengeluaran.php">
         <img src="images/bg_pengeluaran_01.jpg" width="112" height="102" alt="" border="0">
         </a>
     </td>
@@ -42,7 +42,7 @@
 	<td width="139">&nbsp;</td>
 	<td width="31">&nbsp;</td>
 	<td width="75">
-        <a href="tahunbuku.php?from=Pengeluaran&sourcefrom=pengeluaran.php">
+        <a href="tahunbuku.php?from=Expenditure&sourcefrom=pengeluaran.php">
         <img src="images/bg_pengeluaran_06.jpg" width="75" height="102" alt="" border="0">
         </a>
     </td>
@@ -84,10 +84,10 @@
     <td colspan="2" width="201"><img src="images/bg_pengeluaran_24.jpg" width="201" height="158" alt=""></td>
     <td colspan="4" width="313" valign="top" align="left">
         <br />
-        <font style="color:#900; font-size:12px; font-weight:bold">Laporan</font><br />
-        <a href="lappengeluaran_jenis_main.php">Transaksi Pengeluaran</a><br />
-        <a href="lappengeluaran_cari_main.php">Pencarian Data Pengeluaran</a><br />
-        <a href="jurnalpengeluaran_main.php">Jurnal Pengeluaran</a>
+        <font style="color:#900; font-size:12px; font-weight:bold">Reports</font><br />
+        <a href="lappengeluaran_jenis_main.php">Transaction Expenditure</a><br />
+        <a href="lappengeluaran_cari_main.php">Search Expenditure Data</a><br />
+        <a href="jurnalpengeluaran_main.php">Expenditure Journal</a>
     </td>
 </tr>
 </table>

@@ -75,7 +75,7 @@ if(isset($_REQUEST["ubah"])){
 ?>
 <html>
 <head>
-<title>JIBAS SIMAKA [Ubah Data Ujian]</title>
+<title>JIBAS SIMAKA [Edit Exam Data]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="../style/calendar-system.css">
@@ -90,8 +90,8 @@ if(isset($_REQUEST["ubah"])){
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript">
 function cek_form() {	
-	return validateEmptyText('deskripsi', 'Deskripsi') && 
-			validateEmptyText('tanggal', 'Tanggal');
+	return validateEmptyText('deskripsi', 'Description') && 
+			validateEmptyText('tanggal', 'Date');
 }
 
 function refresh_rpp(idrpp){
@@ -123,7 +123,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Data Ujian :.
+    .: Edit Exam Data :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -139,19 +139,19 @@ function focusNext(elemName, evt) {
 	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
     <tr>
-    	<td>Kode</td>
+    	<td>Code</td>
         <td><input type="text" name="kode" id="kode" size="25" value="<?=$kode?>" onKeyPress="return focusNext('idrpp', event);"></td>
     </tr>   
     <tr>
-        <td><strong>Tanggal</strong></td>
+        <td><strong>Date</strong></td>
         <td><input name="tanggal" type="text" class="disabled" id="tanggal" value="<?=$tanggal;?>" size="25" readonly onClick="Calendar.setup()"></td>
-        <td width="50%"><img src="../images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '120px')"/></td>
+        <td width="50%"><img src="../images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '120px')"/></td>
     </tr>
     <tr>
-      	<td><strong>RPP</strong></td>
+      	<td><strong>Lesson Plans</strong></td>
       	<td colspan="2">
         	<select name="idrpp" id="idrpp" style="width:170px;" onkeypress="return focusNext('deskripsi', event)">
-            <option value="" <?=IntIsSelected("", $idrpp) ?> >Tanpa RPP</option>
+            <option value="" <?=IntIsSelected("", $idrpp) ?> >No Lesson Plans</option>
       	<? $sql_rpp="SELECT * FROM rpp WHERE idtingkat='$tingkat' AND idsemester='$semester' AND idpelajaran='$pelajaran' AND aktif=1 ORDER BY rpp";
       		$result_rpp=QueryDb($sql_rpp);
       		while ($row_rpp=@mysql_fetch_array($result_rpp)){
@@ -163,17 +163,17 @@ function focusNext(elemName, evt) {
       	<? } ?>
      
       		</select>
-     		<img src="../images/ico/tambah.png" onClick="get_rpp('<?=$tingkat?>','<?=$pelajaran?>','<?=$semester?>')" onMouseOver="showhint('Tambah RPP!', this, event, '80px')">
+     		<img src="../images/ico/tambah.png" onClick="get_rpp('<?=$tingkat?>','<?=$pelajaran?>','<?=$semester?>')" onMouseOver="showhint('Add Lesson Plans', this, event, '80px')">
       	</td>
 	</tr>
     <tr>
-        <td><strong>Materi</strong></td>
+        <td><strong>Class Subject</strong></td>
         <td colspan="2"><input type="text" size="55" name="deskripsi" id="deskripsi" value="<?=$deskripsi ?>" onKeyPress="return focusNext('ubah', event)"></td>
     </tr>
     <tr>
         <td align="center" colspan="3">          
-            <input type="submit" value="Simpan" name="ubah" class="but" id="ubah">
-            <input type="button" value="Tutup" name="batal" class="but" onClick="window.close();">
+            <input type="submit" value="Save" name="ubah" class="but" id="ubah">
+            <input type="button" value="Close" name="batal" class="but" onClick="window.close();">
          </td>
     </tr>
     </table>

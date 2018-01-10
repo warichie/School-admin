@@ -39,7 +39,7 @@ $total = $_REQUEST['total'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Daftar Pelajaran]</title>
+<title>JIBAS SIMAKA [Print Class Subject List]</title>
 </head>
 
 <body>
@@ -49,19 +49,19 @@ $total = $_REQUEST['total'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DAFTAR PELAJARAN </strong></font><br />
+  <font size="4"><strong>CLASS SUBJECT LIST </strong></font><br />
  </center><br /><br />
 
 <br />
-	<strong>Departemen : <?=$departemen?></strong>
+	<strong>Department : <?=$departemen?></strong>
 <br /><br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="8%" class="header" align="center">Singkatan</td>
-        <td width="25%" class="header" align="center">Nama</td>
-        <td width="10%" class="header" align="center">Sifat</td>        
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="8%" class="header" align="center">Code</td>
+        <td width="25%" class="header" align="center">Name</td>
+        <td width="10%" class="header" align="center">Characteristic</td>        
+        <td width="*" class="header" align="center">Info</td>
         <td width="10%" class="header" align="center">Status</td>
     </tr>
 <? 	OpenDb();
@@ -79,17 +79,17 @@ $total = $_REQUEST['total'];
         <td><?=$row['nama'] ?></td>        
         <td align="center">
 			<? if ($row['sifat'] == 1) 
-					echo 'Wajib';
+					echo 'Mandatory';
 				else
-					echo 'Tambahan';
+					echo 'Extension';
 			?>		
         </td>          
         <td><?=$row['keterangan'] ?></td>
         <td align="center">
 			<? if ($row['aktif'] == 1) 
-					echo 'Aktif';
+					echo 'Active';
 				else
-					echo 'Tidak Aktif';
+					echo 'Inactive';
 			?>		
         </td> 
     </tr>

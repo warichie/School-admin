@@ -42,30 +42,30 @@ if (isset($_REQUEST['tanggal1']))
 
 if (isset($_REQUEST['tanggal2']))
 	$tanggal2 = $_REQUEST['tanggal2'];
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 
 $id = $_REQUEST[id];
 if ($id=="penerimaanlain"){
-	$tit1 = "Cetak Perubahan Data Lain-lain ";
-	$tit2 = "Perubahan Data Penerimaan Lain";
+	$tit1 = "Print Others Data Changing ";
+	$tit2 = "Other Admission Data Changing";
 } elseif ($id=="pengeluaran"){
-	$tit1 = "Cetak Perubahan Data Pengeluaran ";
-	$tit2 = "Perubahan Data Pengeluaran";
+	$tit1 = "Print Expenditure Data Changing ";
+	$tit2 = "Expenditure Data Changing";
 } elseif ($id=="penerimaaniuran"){
-	$tit1 = "Cetak Perubahan Data Iuran Siswa ";
-	$tit2 = "Perubahan Data Iuran Siswa";
+	$tit1 = "Print Student Contribution Data Changing ";
+	$tit2 = "Student Contribution Data Changing";
 } elseif ($id=="penerimaaniurancalon"){
-	$tit1 = "Cetak Perubahan Data Iuran Calon Siswa";
-	$tit2 = "Perubahan Data Iuran Calon Siswa";
+	$tit1 = "Print Student Candidate Contribution Data Changing";
+	$tit2 = "Student Candidate Contribution Data Changing";
 } elseif ($id=="penerimaanjtt"){
-	$tit1 = "Cetak Perubahan Data Iuran Wajib Siswa";
-	$tit2 = "Perubahan Data Iuran Wajib Siswa";
+	$tit1 = "Print Student Mandatory Contribution Data Changing";
+	$tit2 = "Student Mandatory Contribution Data Changing";
 } elseif ($id=="penerimaanjttcalon"){
-	$tit1 = "Cetak Perubahan Data Iuran Wajib Calon Siswa";
-	$tit2 = "Perubahan Data Iuran Wajib Calon Siswa";
+	$tit1 = "Print Student Candidate Mandatory Contribution Data Changing";
+	$tit2 = "Student Candidate Mandatory Contribution Data Changing";
 } elseif ($id=="jurnalumum"){
-	$tit1 = "Cetak Perubahan Data Jurnal Umum";
-	$tit2 = "Perubahan Data Jurnal Umum";
+	$tit1 = "Print Public Journal Data Changing";
+	$tit2 = "Public Journal Data Changing";
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -88,17 +88,17 @@ if ($id=="penerimaanlain"){
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="7%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="7%" class="news_content1"><strong>Department</strong></td>
     <td width="93%" class="news_content1">: 
       <?=$departemen ?></td>
     </tr>
 <tr>
-  <td class="news_content1"><strong>Tahun Buku</strong></td>
+  <td class="news_content1"><strong>Fiscal Year</strong></td>
   <td class="news_content1">: 
       <?=$ntahunbuku ?></td>
   </tr>
 <tr>
-  <td class="news_content1"><strong>Periode</strong></td>
+  <td class="news_content1"><strong>Period</strong></td>
   <td class="news_content1">:
     <?=$nperiode ?></td>
   </tr>
@@ -109,12 +109,12 @@ if ($id=="penerimaanlain"){
 ?>
 	<table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0">
         <tr height="30" align="center">
-            <td class="header" width="4%">No</td>
+            <td class="header" width="4%">#</td>
             <td class="header" width="17%">Status Data</td>
-            <td class="header" width="10%">Tanggal</td>
-            <td class="header" width="15%">Jumlah</td>
-            <td class="header" width="*">Keterangan</td>
-            <td class="header" width="15%">Petugas</td>
+            <td class="header" width="10%">Date</td>
+            <td class="header" width="15%">Sum</td>
+            <td class="header" width="*">Info</td>
+            <td class="header" width="15%">Officer</td>
         </tr>
     <?
     OpenDb();
@@ -124,21 +124,21 @@ if ($id=="penerimaanlain"){
     $cnt = 0;
     $no = 0;
     while ($row = mysql_fetch_array($result)) {
-        $statusdata = "Data Lama";
+        $statusdata = "Old Data";
 		$bgcolor = "#FFFFFF";
         if ($row['statusdata'] == 1) {
-            $statusdata = "Data Perubahan";
+            $statusdata = "Changed Data";
 			$bgcolor = "#FFFFB7";
         }    
         if ($cnt % 2 == 0) { ?>
         <tr>
             <td rowspan="4" align="center" bgcolor="#CCCC66"><strong><?=++$no ?></strong></td>
-            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Perubahan dilakukan oleh <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
+            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Changed by <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
         </tr>
         <tr>
-            <td colspan="6" bgcolor="#E5E5E5" ><strong>No. Jurnal :</strong> <?=$row['nokas'] ?>   
-            &nbsp;&nbsp;<strong>Alasan : </strong><?=$row['alasan'];?>
-            <br /><strong>Transaksi :</strong> <?=$row['transaksi'] ?></td>
+            <td colspan="6" bgcolor="#E5E5E5" ><strong>Journal Number :</strong> <?=$row['nokas'] ?>   
+            &nbsp;&nbsp;<strong>Reasons : </strong><?=$row['alasan'];?>
+            <br /><strong>Transaction :</strong> <?=$row['transaksi'] ?></td>
         </tr>
     <?  } ?>
         <tr>
@@ -159,12 +159,12 @@ if ($id=="penerimaanlain"){
 ?>
 	<table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000">
     <tr height="30" align="center">
-        <td class="header" width="4%">No</td>
+        <td class="header" width="4%">#</td>
         <td class="header" width="17%">Status Data</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="15%">Jumlah</td>
-        <td class="header" width="*">Keterangan</td>
-        <td class="header" width="15%">Petugas</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="15%">Sum</td>
+        <td class="header" width="*">Info</td>
+        <td class="header" width="15%">Officer</td>
     </tr>
     <?
     OpenDb();
@@ -173,22 +173,22 @@ if ($id=="penerimaanlain"){
     $cnt = 0;
     $no = 0;
     while ($row = mysql_fetch_array($result)) {
-        $statusdata = "Data Lama";
+        $statusdata = "Old Data";
 		$bgcolor = "#FFFFFF";
         if ($row['statusdata'] == 1) {
-            $statusdata = "Data Perubahan";
+            $statusdata = "Changed Data";
 			$bgcolor = "#FFFFB7";
         }    
             
         if ($cnt % 2 == 0) { ?>
         <tr>
             <td rowspan="4" align="center" bgcolor="#CCCC66"><strong><?=++$no ?></strong></td>
-            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Perubahan dilakukan oleh <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
+            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Changed by <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
         </tr>
         <tr>
-            <td colspan="6" bgcolor="#E5E5E5" ><strong>No. Jurnal :</strong> <?=$row['nokas'] ?>   
-            &nbsp;&nbsp;<strong>Alasan : </strong><?=$row['alasan'];?>
-            <br /><strong>Transaksi :</strong> <?=$row['transaksi'] ?></td>
+            <td colspan="6" bgcolor="#E5E5E5" ><strong>Journal Number :</strong> <?=$row['nokas'] ?>   
+            &nbsp;&nbsp;<strong>Reasons : </strong><?=$row['alasan'];?>
+            <br /><strong>Transaction :</strong> <?=$row['transaksi'] ?></td>
         </tr>
     <?  } ?>
         <tr>
@@ -209,12 +209,12 @@ if ($id=="penerimaanlain"){
 ?>
 <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0">
     <tr height="30" align="center">
-        <td class="header" width="4%">No</td>
+        <td class="header" width="4%">#</td>
         <td class="header" width="17%">Status Data</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="15%">Jumlah</td>
-        <td class="header" width="*">Keterangan</td>
-        <td class="header" width="15%">Petugas</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="15%">Sum</td>
+        <td class="header" width="*">Info</td>
+        <td class="header" width="15%">Officer</td>
     </tr>
     <?
     OpenDb();
@@ -225,22 +225,22 @@ if ($id=="penerimaanlain"){
     $cnt = 0;
     $no = 0;
     while ($row = mysql_fetch_array($result)) {
-        $statusdata = "Data Lama";
+        $statusdata = "Old Data";
 		$bgcolor = "#FFFFFF";
         if ($row['statusdata'] == 1) {
-            $statusdata = "Data Perubahan";
+            $statusdata = "Changed Data";
 			$bgcolor = "#FFFFB7";
         }
 		 
         if ($cnt % 2 == 0) { ?>
         <tr>
             <td rowspan="4" align="center" bgcolor="#CCCC66"><strong><?=++$no ?></strong></td>
-            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Perubahan dilakukan oleh <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
+            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Changed by <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
         </tr>
         <tr>
-            <td colspan="6" bgcolor="#E5E5E5" ><strong>No. Jurnal :</strong> <?=$row['nokas'] ?>   
-            &nbsp;&nbsp;<strong>Alasan : </strong><?=$row['alasan'];?>
-            <br /><strong>Transaksi :</strong> <?=$row['transaksi'] ?></td>
+            <td colspan="6" bgcolor="#E5E5E5" ><strong>Journal Number :</strong> <?=$row['nokas'] ?>   
+            &nbsp;&nbsp;<strong>Reasons : </strong><?=$row['alasan'];?>
+            <br /><strong>Transaction :</strong> <?=$row['transaksi'] ?></td>
         </tr>
     <?  } ?>
         <tr bgcolor="<?=$bgcolor?>">
@@ -261,12 +261,12 @@ if ($id=="penerimaanlain"){
 ?>
 <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0">
     <tr height="30" align="center">
-        <td class="header" width="4%">No</td>
+        <td class="header" width="4%">#</td>
         <td class="header" width="17%">Status Data</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="15%">Jumlah</td>
-        <td class="header" width="*">Keterangan</td>
-        <td class="header" width="15%">Petugas</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="15%">Sum</td>
+        <td class="header" width="*">Info</td>
+        <td class="header" width="15%">Officer</td>
     </tr>
     <?
     OpenDb();
@@ -277,22 +277,22 @@ if ($id=="penerimaanlain"){
     $cnt = 0;
     $no = 0;
     while ($row = mysql_fetch_array($result)) {
-        $statusdata = "Data Lama";
+        $statusdata = "Old Data";
 		$bgcolor = "#FFFFFF";
         if ($row['statusdata'] == 1) {
-            $statusdata = "Data Perubahan";
+            $statusdata = "Changed Data";
 			$bgcolor = "#FFFFB7";
         }
 		 
         if ($cnt % 2 == 0) { ?>
         <tr>
             <td rowspan="4" align="center" bgcolor="#CCCC66"><strong><?=++$no ?></strong></td>
-            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Perubahan dilakukan oleh <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
+            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Changed by <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
         </tr>
         <tr>
-            <td colspan="6" bgcolor="#E5E5E5" ><strong>No. Jurnal :</strong> <?=$row['nokas'] ?>   
-            &nbsp;&nbsp;<strong>Alasan : </strong><?=$row['alasan'];?>
-            <br /><strong>Transaksi :</strong> <?=$row['transaksi'] ?></td>
+            <td colspan="6" bgcolor="#E5E5E5" ><strong>Journal Number :</strong> <?=$row['nokas'] ?>   
+            &nbsp;&nbsp;<strong>Reasons : </strong><?=$row['alasan'];?>
+            <br /><strong>Transaction :</strong> <?=$row['transaksi'] ?></td>
         </tr>
     <?  } ?>
         <tr bgcolor="<?=$bgcolor?>">
@@ -313,12 +313,12 @@ if ($id=="penerimaanlain"){
 ?>
 <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000">
     <tr height="30" align="center">
-        <td class="header" width="4%">No</td>
+        <td class="header" width="4%">#</td>
         <td class="header" width="17%">Status Data</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="15%">Jumlah</td>
-        <td class="header" width="*">Keterangan</td>
-        <td class="header" width="15%">Petugas</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="15%">Sum</td>
+        <td class="header" width="*">Info</td>
+        <td class="header" width="15%">Officer</td>
     </tr>
     <?
     OpenDb();
@@ -328,22 +328,22 @@ if ($id=="penerimaanlain"){
     $cnt = 0;
     $no = 0;
     while ($row = mysql_fetch_array($result)) {
-        $statusdata = "Data Lama";
+        $statusdata = "Old Data";
         $bgcolor = "#FFFFFF";
 	    if ($row['statusdata'] == 1) {
-            $statusdata = "Data Perubahan";
+            $statusdata = "Changed Data";
 			$bgcolor = "#FFFFB7";
         }
 		    
         if ($cnt % 2 == 0) { ?>
         <tr>
             <td rowspan="4" align="center" bgcolor="#CCCC66"><strong><?=++$no ?></strong></td>
-            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Perubahan dilakukan oleh <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
+            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Changed by <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
         </tr>
         <tr>
-            <td colspan="6" bgcolor="#E5E5E5" ><strong>No. Jurnal :</strong> <?=$row['nokas'] ?>   
-            &nbsp;&nbsp;<strong>Alasan : </strong><?=$row['alasan'];?>
-            <br /><strong>Transaksi :</strong> <?=$row['transaksi'] ?></td>
+            <td colspan="6" bgcolor="#E5E5E5" ><strong>Journal Number :</strong> <?=$row['nokas'] ?>   
+            &nbsp;&nbsp;<strong>Reasons : </strong><?=$row['alasan'];?>
+            <br /><strong>Transaction :</strong> <?=$row['transaksi'] ?></td>
         </tr>
     <?  } ?>
     
@@ -365,12 +365,12 @@ if ($id=="penerimaanlain"){
 ?>
 <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000">
     <tr height="30" align="center">
-        <td class="header" width="4%">No</td>
+        <td class="header" width="4%">#</td>
         <td class="header" width="17%">Status Data</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="15%">Jumlah</td>
-        <td class="header" width="*">Keterangan</td>
-        <td class="header" width="15%">Petugas</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="15%">Sum</td>
+        <td class="header" width="*">Info</td>
+        <td class="header" width="15%">Officer</td>
     </tr>
     <?
     OpenDb();
@@ -380,22 +380,22 @@ if ($id=="penerimaanlain"){
     $cnt = 0;
     $no = 0;
     while ($row = mysql_fetch_array($result)) {
-        $statusdata = "Data Lama";
+        $statusdata = "Old Data";
         $bgcolor = "#FFFFFF";
 	    if ($row['statusdata'] == 1) {
-            $statusdata = "Data Perubahan";
+            $statusdata = "Changed Data";
 			$bgcolor = "#FFFFB7";
         }
 		    
         if ($cnt % 2 == 0) { ?>
         <tr>
             <td rowspan="4" align="center" bgcolor="#CCCC66"><strong><?=++$no ?></strong></td>
-            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Perubahan dilakukan oleh <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
+            <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Changed by <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
         </tr>
         <tr>
-            <td colspan="6" bgcolor="#E5E5E5" ><strong>No. Jurnal :</strong> <?=$row['nokas'] ?>   
-            &nbsp;&nbsp;<strong>Alasan : </strong><?=$row['alasan'];?>
-            <br /><strong>Transaksi :</strong> <?=$row['transaksi'] ?></td>
+            <td colspan="6" bgcolor="#E5E5E5" ><strong>Journal Number :</strong> <?=$row['nokas'] ?>   
+            &nbsp;&nbsp;<strong>Reasons : </strong><?=$row['alasan'];?>
+            <br /><strong>Transaction :</strong> <?=$row['transaksi'] ?></td>
         </tr>
     <?  } ?>
     
@@ -417,12 +417,12 @@ if ($id=="penerimaanlain"){
 ?>
 <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000">
     <tr height="30" align="center">
-        <td class="header" width="4%">No</td>
+        <td class="header" width="4%">#</td>
         <td class="header" width="10%">Status Data</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="15%">Keterangan</td>
-        <td class="header" width="*">Detail Jurnal</td>
-        <td class="header" width="15%">Petugas</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="15%">Info</td>
+        <td class="header" width="*">Journal Details</td>
+        <td class="header" width="15%">Officer</td>
     </tr>
     <?
     OpenDb();
@@ -435,10 +435,10 @@ if ($id=="penerimaanlain"){
 			
         $status = $row['status'];
         $idaudit = $row['idaudit'];
-        $statusdata = "Data Lama";
+        $statusdata = "Old Data";
 		$bgcolor = "#FFFFFF";
         if ($row['status'] == 1) {
-            $statusdata = "Data Perubahan";
+            $statusdata = "Changed Data";
 			$bgcolor = "#FFFFB7";
 		}             
 		
@@ -446,18 +446,18 @@ if ($id=="penerimaanlain"){
         
     <tr>
         <td rowspan="4" align="center" bgcolor="#CCCC66"><strong><?=++$no ?></strong></td>
-        <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Perubahan dilakukan oleh <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
+        <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Changed by <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
     </tr>
     <tr>
         <td colspan="6" bgcolor="#E5E5E5">
             <table cellpadding="0" cellspacing="0" style="border-collapse:collapse" width="100%" >
             <tr>
-                <td width="30%"><strong>No. Jurnal : </strong><?=$row['nokas'] ?>
-                <td valign="top" width="10%"><strong>Alasan : </td>
+                <td width="30%"><strong>Journal Number : </strong><?=$row['nokas'] ?>
+                <td valign="top" width="10%"><strong>Reasons : </td>
                 <td rowspan="2" valign="top"><strong><?=$row['alasan']?></strong></td>
             </tr>
             <tr>
-                <td><strong>Transaksi : </strong><?=$row['transaksi'] ?></td>
+                <td><strong>Transaction : </strong><?=$row['transaksi'] ?></td>
             </tr>
             </table>
         </td>     

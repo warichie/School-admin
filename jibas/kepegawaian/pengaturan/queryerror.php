@@ -49,7 +49,7 @@ require_once('../include/sessionchecker.php');
     </tr>
     <tr>
         <td align="right"><a href="pengaturan.php" target="content">
-          <font size="1" face="Verdana" color="#000000"><b>Pengaturan</b></font></a>&nbsp>&nbsp 
+          <font size="1" face="Verdana" color="#000000"><b>Settings</b></font></a>&nbsp;>&nbsp; 
           <font size="1" face="Verdana" color="#000000"><b>Query Error Log</b></font>
         </td>
     </tr>

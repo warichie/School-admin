@@ -51,13 +51,13 @@ function UpgradeMainConfig($relPath)
 	CreateSubConfig($license, $content, "$relPath/include/version.config.php", $varname, $varcomment);
 	
 	$varname = array("\$G_START_YEAR", "\$G_SERVER_ADDR", "\$FS_UPLOAD_DIR", "\$IG_GALLERY_DIR", "\$IS_GALLERY_DIR", "\$G_OS", "\$G_LOKASI");
-	$varcomment = array("/* Awal tahun pendataan menggunakan SISFO JIBAS */", 
-						"/* Alamat Server aplikasi SISFO JIBAS \r\n   Alamat ini digunakan untuk menampilkan header cetak di laporan-laporan yang disediakan SISFO JIBAS \r\n   Gunakan alamat IP atau nama domainnya, jangan menggunakan localhost */", 
-						"/* Direktori untuk menyimpan berkas-berkas unggahan dari aplikasi InfoGuru */",
-						"/* Direktori tempat menyimpan galeri foto di aplikasi InfoGuru */",
-						"/* Direktori tempat menyimpan galeri foto di aplikasi InfoSiswa */",
-						"/* Sistem operasi yang digunakan ( win | lin ) */", 
-						"/* Lokasi Sekolah */");
+	$varcomment = array("/* Early year data collection uses SISFO JIBAS */", 
+						"/* Application server address is SISFO JIBAS \r\n This address is used to show print header for every reports served by SISFO JIBAS \r\n Use IP address or domain name, do not use localhost */", 
+						"/* The directory is used to save uploaded files from Teacher Info application */",
+						"/* The directory where image galleries placed for Teacher Info application */",
+						"/* The directory where image galleries placed for Student Info application */",
+						"/* Operating system ( win | lin ) */", 
+						"/* School location */");
 	CreateSubConfig($license, $content, "$relPath/include/application.config.php", $varname, $varcomment);
 	
 	RewriteMainConfig($license, $relPath);		 

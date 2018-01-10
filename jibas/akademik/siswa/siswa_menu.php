@@ -34,7 +34,7 @@ require_once('../library/departemen.php');
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Status Guru</title>
+<title>Teacher Status</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -49,7 +49,7 @@ function refresh() {
 <table border="0" width="100%" align="center" >
 <!-- TABLE CENTER -->
 <tr>
-	<td align="left" valign="top"><strong>Pelajaran yang Diajarkan Guru</strong>
+	<td align="left" valign="top"><strong>Teacher Class Subject</strong>
 	</td>
 </tr>
 <tr>

@@ -60,14 +60,14 @@ class CKatalog{
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td width="50%">
-				&nbsp;<b>Rak : </b><?=$this->GetRak()?>
+				&nbsp;<b>Shelf : </b><?=$this->GetRak()?>
 				</td>
 				<td align="right">
 					<div class="funct">
 						<a href="javascript:getfresh('XX')"><img src="../img/ico/refresh.png" border="0">&nbsp;Refresh</a>&nbsp;&nbsp;
-						<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Cetak</a>&nbsp;&nbsp;
+						<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Print</a>&nbsp;&nbsp;
 						<? if(IsAdmin()){ ?>
-						<a href="javascript:tambah()"><img src="../img/ico/tambah.png" border="0">&nbsp;Tambah</a>&nbsp;        
+						<a href="javascript:tambah()"><img src="../img/ico/tambah.png" border="0">&nbsp;Add</a>&nbsp;        
 						<? } ?>
 					</div>
 				</td>
@@ -82,12 +82,12 @@ class CKatalog{
 		?>
 		<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td width="3%" align="center" class="header">No</td>
-            <td width="3%" height="30" align="center" class="header">Kode</td>
-            <td width="*" height="30" align="center" class="header">Nama</td>
-            <td width="77" height="30" align="center" class="header">Jumlah&nbsp;Judul</td>
-            <td width="94" height="30" align="center" class="header">Jumlah&nbsp;Pustaka</td>
-            <td width="*" height="30" align="center" class="header">Keterangan</td>
+            <td width="3%" align="center" class="header">#</td>
+            <td width="3%" height="30" align="center" class="header">Code</td>
+            <td width="*" height="30" align="center" class="header">Name</td>
+            <td width="77" height="30" align="center" class="header">Title Sum</td>
+            <td width="94" height="30" align="center" class="header">Library Sum</td>
+            <td width="*" height="30" align="center" class="header">Info</td>
             <? if(IsAdmin()){ ?>
 			<td width="50" height="30" align="center" class="header">&nbsp;</td>
 			<? } ?>
@@ -119,7 +119,7 @@ class CKatalog{
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="7" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="7" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

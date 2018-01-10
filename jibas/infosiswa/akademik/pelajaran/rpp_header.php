@@ -48,7 +48,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Rencana Program Pembelajaran]</title>
+<title>JIBAS SIMAKA [Lesson Plans]</title>
 <link rel="stylesheet" type="text/css" href="../../style/tooltips.css">
 <script language="JavaScript" src="../../script/tooltips.js"></script>
 <script language="JavaScript" src="../../menu.js"></script>
@@ -95,19 +95,19 @@ function show() {
 	var pelajaran = document.getElementById("pelajaran").value;
 	
 	if (departemen.length == 0) {
-		alert ('Departemen tidak boleh kosong !');
+		alert ('Department should not leave empty');
 		return false;
 	}
 	if (semester.length == 0) {
-		alert ('Semester tidak boleh kosong !');
+		alert ('Semester should not leave empty');
 		return false;
 	}
 	if (tingkat.length == 0) {
-		alert ('Tingkat tidak boleh kosong !');
+		alert ('Level/Grade should not leave empty');
 		return false;
 	}
 	if (pelajaran.length == 0) {
-		alert ('Pelajaran tidak boleh kosong !');
+		alert ('Class Subject should not leave empty');
 		return false;
 	}	
 	//alert ('udah masuk nih'+semester+' tingkat '+tingkat+ ' pelajaran '+pelajaran);
@@ -125,7 +125,7 @@ function show() {
     <td rowspan="3" width="55%">
 	<table width = "98%" border = "0">
     <tr>
-      	<td width = "18%"><strong>Departemen</strong>
+      	<td width = "18%"><strong>Department</strong>
       	<td width="*"><select name="departemen" id="departemen" onchange="change_dep()" style="width:100px">
           <? 	$dep = getDepartemen(SI_USER_ACCESS());    
 			foreach($dep as $value) {
@@ -157,7 +157,7 @@ function show() {
     	</select>        </td> 
   	</tr>
 	<tr>
-    	<td align="left"><strong>Tingkat</strong>
+    	<td align="left"><strong>Grade</strong>
        	<td>
         <select name="tingkat" id="tingkat" onchange="change()" style="width:100px">
         <?	OpenDb();
@@ -176,7 +176,7 @@ function show() {
 			} //while
 			?>
         </select>        </td>
-        <td align="left"><strong>Pelajaran</strong></td>
+        <td align="left"><strong>Class Subject</strong></td>
       	<td>
         	<select name="pelajaran" id="pelajaran" onchange="change()" style="width:200px">
    		 	<?
@@ -197,11 +197,11 @@ function show() {
     		</select>		</td>   
     </tr>
     </table>	</td>
-	<td width="*" rowspan="3" valign="middle" align="left"><a href="#" onclick="show()"><img src="../../images/ico/view.png" name="tabel" width="48" height="48" border="0" id="tabel" onmouseover="showhint('Klik untuk menampilkan data rencana program pembelajaran!', this, event, '150px')"/></a></td>
-    <td width="40%" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Rencana Program Pembelajaran</font><br />
+	<td width="*" rowspan="3" valign="middle" align="left"><a href="#" onclick="show()"><img src="../../images/ico/view.png" name="tabel" width="48" height="48" border="0" id="tabel" onmouseover="showhint('Click to show lesson plans data', this, event, '150px')"/></a></td>
+    <td width="40%" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Lesson Plans</font><br />
     	<a href="../pelajaran.php" target="framecenter">
-        <font size="1" color="#000000"><b>Pelajaran</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Rencana Program Pembelajaran</b></font>   	</td>
+        <font size="1" color="#000000"><b>Class Subject</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Lesson Plans</b></font>   	</td>
 </tr>
 </table>
 </body>

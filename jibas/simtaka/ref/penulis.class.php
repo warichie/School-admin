@@ -46,8 +46,8 @@ class CPenulis{
 		<link href="../sty/style.css" rel="stylesheet" type="text/css">
         <div class="funct">
         	<a href="javascript:getfresh()"><img src="../img/ico/refresh.png" border="0">&nbsp;Refresh</a>&nbsp;&nbsp;
-			<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Cetak</a>&nbsp;&nbsp;
-			<a href="javascript:tambah()"><img src="../img/ico/tambah.png" border="0">&nbsp;Tambah</a>&nbsp;        </div>
+			<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Print</a>&nbsp;&nbsp;
+			<a href="javascript:tambah()"><img src="../img/ico/tambah.png" border="0">&nbsp;Add</a>&nbsp;        </div>
 		<?
 		$sql = "SELECT * FROM penulis ORDER BY nama"; 
 		$result = QueryDb($sql);
@@ -60,13 +60,13 @@ class CPenulis{
 		?>
 		<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td width="37" align="center" class="header">No</td>
-            <td width="37" height="30" align="center" class="header">Kode</td>
-            <td width="*" height="30" align="center" class="header">Nama</td>
-            <td width="103" height="30" align="center" class="header">Jumlah Judul</td>
-            <td width="120" height="30" align="center" class="header">Jumlah Pustaka</td>
-			<td width="126" height="30" align="center" class="header">Kontak</td>
-            <td width="*" height="30" align="center" class="header">Keterangan</td>
+            <td width="37" align="center" class="header">#</td>
+            <td width="37" height="30" align="center" class="header">Code</td>
+            <td width="*" height="30" align="center" class="header">Name</td>
+            <td width="103" height="30" align="center" class="header">Title Sum</td>
+            <td width="120" height="30" align="center" class="header">Library Sum</td>
+			<td width="126" height="30" align="center" class="header">Contact</td>
+            <td width="*" height="30" align="center" class="header">Info</td>
             <td width="38" height="30" align="center" class="header">&nbsp;</td>
           </tr>
           <?
@@ -123,7 +123,7 @@ class CPenulis{
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="8" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="8" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }
@@ -132,18 +132,18 @@ class CPenulis{
 		<br>
 		<table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
 			<tr>
-				<td align="left" class="news_content1">Halaman
-				<input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$this->page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+				<td align="left" class="news_content1">Page
+				<input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$this->page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
                 <select name="page" class="cmbfrm" id="page" onChange="change_page('XX')">
 				<?	for ($m=0; $m<$pagenum; $m++) {?>
 					 <option value="<?=$m ?>" <?=IntIsSelected($this->page,$m) ?>><?=$m+1 ?></option>
 				<? } ?>
 				</select>
-                <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$this->page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
-				dari <?=$pagenum?> halaman
+                <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$this->page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
+				from <?=$pagenum?> pages
 				
 				<? 
-			 // Navigasi halaman berikutnya dan sebelumnya
+			 // Navigasi halaman berikutnya and sebelumnya
 				?>        
 					
 					<?

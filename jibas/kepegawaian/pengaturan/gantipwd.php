@@ -36,7 +36,7 @@ if (isset($_REQUEST['simpan'])) {
 	
 	if ($row_c[0]!=md5($_REQUEST[pwlama])) { ?>
 	    <script language="javascript">
-	    	alert ('Password Lama Anda Salah !');
+	    	alert ('Your Old Password is Wrong');
 	    	document.location.href="gantipwd.php";
 	    </script>
 	<?
@@ -45,12 +45,12 @@ if (isset($_REQUEST['simpan'])) {
 		$result_u=QueryDb($sql_u);
 		if ($result_u) { ?>
 			<script language="javascript">
-                alert ('Password Anda telah berubah !');
+                alert ('Your Password has changed');
                 document.location.href="gantipwd.php";
             </script>
 <?		} else { ?>
 		<script language="javascript">
-			alert ('Password Anda Gagal diubah !');
+			alert ('Failed to change your Password');
 			document.location.href="gantipwd.php";
 		</script>
 <?		}
@@ -68,7 +68,7 @@ if (isset($_REQUEST['simpan'])) {
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -79,22 +79,22 @@ var pwlama=document.getElementById("pwlama").value;
 var pwbaru=document.getElementById("pwbaru").value;
 var pwbaru1=document.getElementById("pwbaru1").value;
 if (pwlama==""){
-	alert ('Anda harus mengisikan data untuk Password Lama!');
+	alert ('You must enter a data for Old Password');
 	document.getElementById("pwlama").focus();
 	return false;
 }
 if (pwbaru==""){
-	alert ('Anda harus mengisikan data untuk Password Baru!');
+	alert ('You must enter a data for New Password');
 	document.getElementById("pwbaru").focus();
 	return false;
 }
 if (pwbaru1==""){
-	alert ('Anda harus mengisikan data untuk Konfirmasi Password Baru!');
+	alert ('You must enter a data for New Password Confirmation');
 	document.getElementById("pwbaru1").focus();
 	return false;
 }
 if (pwbaru1!=pwbaru){
-	alert ('Password Baru harus sama dengan Konfirmasi Password Baru!');
+	alert ('New Password should match to New Password Confirmation');
 	document.getElementById("pwbaru1").value="";
 	document.getElementById("pwbaru1").focus();
 	return false;
@@ -110,8 +110,8 @@ return true;
 <tr>
   <td width="100%" align="right" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
     <font style="background-color:#FFCC33; font-size:24px">&nbsp;&nbsp;</font>
-    <font class="subtitle">Ganti Password</font><br />
-    <a href="pengaturan.php">Pengaturan</a> &gt; Ganti Password Pengguna<br />
+    <font class="subtitle">Edit Password</font><br />
+    <a href="pengaturan.php">Settings</a> &gt; Change User Password<br />
     </td>
     
 </tr>
@@ -119,31 +119,31 @@ return true;
 <form action="gantipwd.php" method="post" onSubmit="return validate()">
 	<table border="0" cellspacing="0">
       <tr>
-        <td height="30" colspan="2" align="center" class="header">Ganti Password</td>
+        <td height="30" colspan="2" align="center" class="header">Edit Password</td>
         </tr>
       <tr>
         <td width="55" align="left" height="25"><strong>Login</strong></td>
         <td width="51" height="25"><input type="text" name="login" id="login" size="20" readonly="readonly" style="background-color:#EBEBEB" value="<?=$login?>" /></td>
       </tr>
       <tr>
-        <td height="25" align="left"><strong>Nama</strong></td>
+        <td height="25" align="left"><strong>Name</strong></td>
         <td height="25"><input type="text" name="nama" id="nama" size="35" readonly="readonly" style="background-color:#EBEBEB" value="<?=$nama?>" /></td>
       </tr>
       <tr>
-        <td height="25" align="left"><strong>Password&nbsp;Lama</strong></td>
+        <td height="25" align="left"><strong>Old&nbsp;Password</strong></td>
         <td height="25"><input type="password" name="pwlama" id="pwlama" value="" /></td>
       </tr>
       <tr>
-        <td height="25" align="left"><strong>Password&nbsp;Baru</strong></td>
+        <td height="25" align="left"><strong>New&nbsp;Password</strong></td>
         <td height="25"><input type="password" name="pwbaru" id="pwbaru" value="" /></td>
       </tr>
       <tr>
-        <td height="25" align="left"><strong>Password&nbsp;Baru&nbsp;<em>(ulangi)</em>&nbsp;</strong></td>
+        <td height="25" align="left"><strong>New&nbsp;Password&nbsp;<em>(confirm)</em>&nbsp;</strong></td>
         <td height="25"><input type="password" name="pwbaru1" id="pwbaru1" value="" /></td>
       </tr>
       <tr>
         <td height="25" colspan="2" 	align="center" bgcolor="#EAEAEA"><label>
-          <input type="submit" name="simpan" id="simpan" value="Ganti" class="but" />
+          <input type="submit" name="simpan" id="simpan" value="Edit" class="but" />
         </label></td>
         </tr>
     </table>

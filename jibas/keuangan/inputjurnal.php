@@ -55,13 +55,13 @@ if (1 == (int)$_REQUEST['issubmit'])
 	
 	OpenDb();
 	
-	//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+	//Ambil awalan and cacah tahunbuku untuk bikin nokas;
 	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) 
 	{
 		CloseDb();
-		trigger_error("Tidak ditemukan data tahunbuku", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} 
 	else 
 	{
@@ -163,7 +163,7 @@ function accept_rekening(kode, nama, flag) {
 }
 
 function hapusrek(no) {
-	if (confirm("Apakah anda yakin akan menghapus data ini?")) {
+	if (confirm("Are you sure want to delete this data?")) {
 		document.getElementById('koderek' + no).value = "";
 		document.getElementById('namarek' + no).value = "";
 		document.getElementById('debet' + no).value = "";
@@ -173,12 +173,12 @@ function hapusrek(no) {
 
 function ValidateSubmit() 
 {
-	var isok = 	validateEmptyText('tcicilan', 'Tanggal Transaksi Jurnal') &&
-		   		validateEmptyText('keperluan', 'Keperluan') &&
-		   		validateMaxText('keperluan', 255, 'Keperluan') &&
-		   		validateMaxText('keterangan', 255, 'Keterangan') &&
+	var isok = 	validateEmptyText('tcicilan', 'Date Transaction Jurnal') &&
+		   		validateEmptyText('keperluan', 'Necessities') &&
+		   		validateMaxText('keperluan', 255, 'Necessities') &&
+		   		validateMaxText('keterangan', 255, 'Info') &&
 		   		validate_jumlah() && 
-		   		confirm('Data sudah benar?');
+		   		confirm('The data is correct?');
 	
 	document.getElementById('issubmit').value = isok ? 1 : 0;
 	
@@ -226,7 +226,7 @@ function validate_jumlah() {
 			totalkredit = parseFloat(totalkredit) + parseFloat(jkredit);
 			
 			if (debet == 0 && kredit == 0) {
-				alert ("Anda harus mengisikan data di kolom debet atau kredit!");
+				alert ("Anda harus mengisikan data di kolom debet or kredit");
 				document.getElementById('debet'+i).focus();
 				return false;
 			}
@@ -234,7 +234,7 @@ function validate_jumlah() {
 		
 		if ((debet.length > 0 && debet != 0) || (kredit.length > 0 && kredit != 0)) {
 			if (koderek.length == 0) {
-				alert ("Anda harus mengisikan data untuk kode rekening!");
+				alert ("You must enter a data for kode rekening");
 				pilihrek(i);				
 				return false;
 			}
@@ -243,13 +243,13 @@ function validate_jumlah() {
 	}
 	
 	if (isi == 0) {
-		alert ("Anda harus mengisi setidaknya satu data untuk transaksi!");
+		alert ("Anda harus mengisi setidaknya satu data untuk transaksi");
 		pilihrek(1);
 		return false; 
 	}
 		
 	if (totalkredit != totaldebet) {
-		alert("Transaksi tidak bisa disimpan! Total debet tidak sama dengan total kredit!");
+		alert("Transaction tidak bisa disimpan! Total debet tidak sama dengan total kredit");
 		ok = false;
 	}
 	
@@ -329,14 +329,14 @@ function focusNext(elemName, evt) {
     <!-- TABLE TITLE -->
     <tr>
         <td align="right">
-    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Input Data Jurnal Umum</font>
+    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Input Data Jurnal Public</font>
      	</td>
   	</tr>
     <tr>
     	<td align="right">
     	<a href="jurnalumum.php">
-      	<font size="1" color="#000000"><b>Jurnal Umum</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Input Data Jurnal Umum</b></font>
+      	<font size="1" color="#000000"><b>Jurnal Public</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Input Data Jurnal Public</b></font>
     </tr>
     <tr>
       	<td align="left">&nbsp;</td>
@@ -352,7 +352,7 @@ function focusNext(elemName, evt) {
         <legend></legend>
         <table border="0"  cellpadding="2" cellspacing="2" width="100%" align="center">
     	<tr>
-            <td width="12%" align="left"><strong>Departemen </strong></td>
+            <td width="12%" align="left"><strong>Department </strong></td>
             <td colspan="2">
                 <select name="departemen" id="departemen" style="background-color:#FFFF99;width:180px" onChange="change_dep()" onKeyPress="return focusNext('keperluan', event)">
     <?          $dep = getDepartemen(getAccess());
@@ -365,7 +365,7 @@ function focusNext(elemName, evt) {
             </td>
         </tr>
         <tr>
-            <td><strong>Tahun Buku </strong></td>
+            <td><strong>Fiscal Year </strong></td>
             <td colspan="2">
 			<? $sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
                $result = QueryDb($sql);
@@ -377,24 +377,24 @@ function focusNext(elemName, evt) {
             </td>
         </tr>
         <tr>
-            <td><strong>Tanggal </strong></td>
+            <td><strong>Date </strong></td>
             <td>
                 <input type="text" name="tcicilan" id="tcicilan" readonly size="15" value="<?=$tanggal ?>" onKeyPress="return focusNext('keperluan', event)" onClick="Calendar.setup()" style="background-color:#CCCC99"></td>
            	<td width="70%" >
-                <img src="images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/>
+                <img src="images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '100px')"/>
         	</td>
         </tr>
         <tr>
-            <td valign="top"><strong>Keperluan</strong></td>
+            <td valign="top"><strong>Necessities</strong></td>
             <td colspan="2"><textarea rows="6" cols="28" name="keperluan" id="keperluan" onKeyPress="return focusNext('keterangan', event)"><?=$_REQUEST['keperluan'] ?></textarea></td>
         </tr>
         <tr>
-            <td valign="top">Keterangan </td>
+            <td valign="top">Info </td>
             <td colspan="2"><textarea rows="6" cols="28" name="keterangan" id="keterangan" onKeyPress="return focusNext('Simpan', event)"><?=$_REQUEST['keterangan'] ?></textarea></td>
         </tr>
   		<tr height="30">
     		<td colspan="3" align="center">
-        	<input type="button" class="but" name="Simpan" id="Simpan" value="Simpan" onClick="this.disabled = true; ValidateSubmit();" /></td>
+        	<input type="button" class="but" name="Simpan" id="Simpan" value="Save" onClick="this.disabled = true; ValidateSubmit();" /></td>
     	</tr>
         </table>
         </fieldset>
@@ -403,18 +403,18 @@ function focusNext(elemName, evt) {
         <td>
             <table border="0" width="100%" class="tab" id="table">
             <tr height="30">
-                <td class="header" align="center" width="4%">No</td>
-                <td class="header" align="center" width="*">Rekening</td>
-                <td class="header" align="center" width="18%">Debet</td>
-                <td class="header" align="center" width="18%">Kredit</td>
+                <td class="header" align="center" width="4%">#</td>
+                <td class="header" align="center" width="*">Bank Account</td>
+                <td class="header" align="center" width="18%">Debit</td>
+                <td class="header" align="center" width="18%">Credit</td>
             </tr>
             <? for($i = 1; $i <= $MAX_INPUT_JOURNAL; $i++) { ?>
             <tr height="25">
                 <td align="center"><?=$i ?></td>
                 <td><input type="text" name="koderek<?=$i ?>" id="koderek<?=$i ?>" size="8" maxlength="8" readonly="readonly" style="background-color:#CCCCCC" onClick="pilihrek(<?=$i?>)"  />
                 	<input type="text" name="namarek<?=$i ?>" id="namarek<?=$i ?>" size="21" maxlength="26" readonly="readonly" style="background-color:#CCCCCC" onClick="pilihrek(<?=$i?>)"/>
-                    <a href="JavaScript:pilihrek(<?=$i ?>)"><img src="images/ico/lihat.png" border="0" onMouseOver="showhint('Pilih Rekening!', this, event, '100px')"/></a>&nbsp;
-                    <a href="JavaScript:hapusrek(<?=$i ?>)"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Rekening!', this, event, '100px')"/></a>
+                    <a href="JavaScript:pilihrek(<?=$i ?>)"><img src="images/ico/lihat.png" border="0" onMouseOver="showhint('Select Bank Account', this, event, '100px')"/></a>&nbsp;
+                    <a href="JavaScript:hapusrek(<?=$i ?>)"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Bank Account', this, event, '100px')"/></a>
                 </td>
                 <td align="center">
                 	<input type="text" name="debet<?=$i ?>" id="debet<?=$i ?>" size="15" maxlength="15" onBlur="formatRupiah('debet<?=$i ?>');jumlah('debet', <?=$i?>);" onKeyPress="if (document.getElementById('debet<?=$i?>').value != 0) return focusNext('debet<?=(int)$i+1?>',event); else return focusNext('kredit<?=$i?>', event);" onFocus="unformatRupiah('debet<?=$i ?>')" style="text-align:right"/> </td>
@@ -424,7 +424,7 @@ function focusNext(elemName, evt) {
             <? } ?>          
         	<tr height="30">
         	<td colspan="2" align="center" bgcolor="#999900">
-            	<font color="#FFFFFF"><strong>T O T A L</strong></font>
+            	<font color="#FFFFFF"><strong>Total</strong></font>
         	</td>
         	<td align="right" bgcolor="#999900">
             	<input type="text" name="totaldebet" id="totaldebet" readonly="readonly" size="15" style="background-color:#999900; border:none; text-align:right; color:#FFFFFF; font-weight:bold" value="<?=FormatRupiah($jumdeb)?>" onFocus="formatRupiah('totaldebet')"/></td>

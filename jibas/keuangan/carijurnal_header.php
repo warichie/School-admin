@@ -78,7 +78,7 @@ if (isset($_REQUEST['thn2']))
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
-<title>Pencarian Jurnal</title>
+<title>Search Jurnal</title>
 <script language="javascript" src="script/tooltips.js"></script>
 <script language="javascript" src="script/ajax.js"></script>
 <script language="javascript" src="script/validasi.js"></script>
@@ -157,19 +157,19 @@ function show_laporan()
 	
 	if (keyword == "") 
 	{
-		alert ('Keyword tidak boleh kosong!');
+		alert ('Keyword should not leave empty');
 		document.getElementById("keyword").focus();	
 		return false;
 	} 
 	else if (tgl1.length == 0) 
 	{	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} 
 	else if (tgl2.length == 0) 
 	{	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -194,13 +194,13 @@ function show_all()
 	
 	if (tgl1.length == 0) 
 	{	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} 
 	else if (tgl2.length == 0) 
 	{	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -221,7 +221,7 @@ function show_all()
 	<td width="60%" align="left" rowspan="3">
     <table border="0" width="100%">
     <tr>
-        <td width="15%"><strong>Departemen </strong></td>
+        <td width="15%"><strong>Department </strong></td>
         <td colspan="4">
         <select name="departemen" id="departemen" onchange="change_dep()">
         <?	$dep = getDepartemen(getAccess());
@@ -231,7 +231,7 @@ function show_all()
             <option value="<?=$value ?>" <?=StringIsSelected($departemen, $value) ?> > <?=$value ?></option>
         <?  } ?>     
         </select>
-        <strong>Tahun Buku&nbsp;</strong>
+        <strong>Fiscal Year&nbsp;</strong>
         <select name="idtahunbuku" id="idtahunbuku" onchange="change_tahunbuku()" style="width:160px">        
 <? 	  if ($departemen != "") 
 		  { 
@@ -270,7 +270,7 @@ function show_all()
 					
 		$n1 = JmlHari($bln1, $thn1);
 		$n2 = JmlHari($bln2, $thn2);	?>        
-        <td><strong>Tanggal </strong></td>
+        <td><strong>Date </strong></td>
         <td width="10">
         	<div id="InfoTgl1"> 
          <select name="tgl1" id="tgl1" onchange="change_tanggal()">
@@ -290,7 +290,7 @@ function show_all()
          <? for($i = $G_START_YEAR; $i <= $thn1+1; $i++) { ?>
              <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
          <? } ?>
-         </select> s/d
+         </select> to
         </td>
        	<td width="10">
          <div id="InfoTgl2">
@@ -315,28 +315,28 @@ function show_all()
         </td>
     </tr>
     <tr>
-        <td><strong>Pencarian </strong></td>
+        <td><strong>Search </strong></td>
         <td colspan="4">
             <select name="kriteria" id="kriteria" onchange="change_sel()" style="width:115px">
-                <option value="1" <?=IntIsSelected(1, $kriteria) ?>>Transaksi</option>
+                <option value="1" <?=IntIsSelected(1, $kriteria) ?>>Transaction</option>
                 <option value="2" <?=IntIsSelected(2, $kriteria) ?>>No. Jurnal</option>
-                <option value="3" <?=IntIsSelected(3, $kriteria) ?>>Keterangan</option>
-                <option value="4" <?=IntIsSelected(4, $kriteria) ?>>Nama Petugas</option>
+                <option value="3" <?=IntIsSelected(3, $kriteria) ?>>Info</option>
+                <option value="4" <?=IntIsSelected(4, $kriteria) ?>>Officer</option>
             </select>
             <input type="text" name="keyword" id="keyword" value="<?=$keyword ?>" size="30" maxlength="40"/>
-            <input type="button" name="tampilkan" id="tampilkan" class="but" value="Semua" onClick="show_all()" />
+            <input type="button" name="tampilkan" id="tampilkan" class="but" value="All" onClick="show_all()" />
         </td>
     </tr>
     </table>
 	</td>
 	<td rowspan="3" width="*" valign="middle">
-    	<a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Klik untuk melakukan pencarian data jurnal umum!', this, event, '150px')"/></a>
+    	<a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Click to begin searching data jurnal umum', this, event, '150px')"/></a>
     </td>
     <td width="40%" align="right" valign="top">
-    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pencarian Data Jurnal Umum</font><br />
+    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Search Data Jurnal Public</font><br />
         <a target="_parent" href="jurnalumum.php">
-       	<font size="1" color="#000000"><b>Jurnal Umum</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Pencarian Data Jurnal Umum</b></font>
+       	<font size="1" color="#000000"><b>Jurnal Public</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Search Data Jurnal Public</b></font>
 	</td>
 </tr>
 <tr>	

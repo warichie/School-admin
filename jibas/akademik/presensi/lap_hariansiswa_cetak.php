@@ -52,7 +52,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan Presensi Harian Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Daily Presence Reports]</title>
 </head>
 
 <body>
@@ -63,20 +63,20 @@ CloseDb();
 <?=getHeader($departemen)?>
 	
 <center>
-  <font size="4"><strong>LAPORAN PRESENSI HARIAN SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT DAILY PRESENCE REPORT CARD</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td width="25%"><strong>Siswa</strong></td>
+	<td width="25%"><strong>Student</strong></td>
     <td><strong>: <?=$nis.' - '.$row['nama']?></strong></td>
 </tr>
 <!--<tr>
-	<td><strong>Nama</strong></td>
+	<td><strong>Name</strong></td>
     <td><strong>: <?=$row['nama']?></strong></td>
 </tr>-->
 <tr>
-	<td><strong>Periode Presensi</strong></td>
-    <td><strong>: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></strong></td>
+	<td><strong>Period</strong></td>
+    <td><strong>: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -90,16 +90,16 @@ CloseDb();
 ?>
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
    	<tr height="30" align="center">
-    	<td width="5%" class="header">No</td>
-		<td width="25%" class="header">Tanggal</td>
+    	<td width="5%" class="header">#</td>
+		<td width="25%" class="header">Date</td>
         <td width="8%" class="header">Semester</td>
-        <td width="8%" class="header">Kelas</td>
-   		<td width="5%" class="header">Hadir</td>
-		<td width="5%" class="header">Ijin</td>            
-		<td width="5%" class="header">Sakit</td>
-        <td width="5%" class="header">Alpa</td>
-        <td width="5%" class="header">Cuti</td>      
-        <td width="*" class="header">Keterangan</td>      
+        <td width="8%" class="header">Class</td>
+   		<td width="5%" class="header">Attend</td>
+		<td width="5%" class="header">Consent</td>            
+		<td width="5%" class="header">Ill</td>
+        <td width="5%" class="header">Absent</td>
+        <td width="5%" class="header">Leave</td>      
+        <td width="*" class="header">Info</td>      
     </tr>
 <?		
 	$cnt = 0;
@@ -130,7 +130,7 @@ CloseDb();
 	} 
 	CloseDb() ?>
 	<tr>	
-		<td width="5%" colspan="4" align="right" bgcolor="#CCCCCC"><strong>Jumlah&nbsp;&nbsp;</strong></td>
+		<td width="5%" colspan="4" align="right" bgcolor="#CCCCCC"><strong>Amount&nbsp;&nbsp;</strong></td>
    		<td width="5%" height="25" align="center"><?=$h?></td>
 		<td width="5%" height="25" align="center"><?=$i?></td>            
 		<td width="5%" height="25" align="center"><?=$s?></td>

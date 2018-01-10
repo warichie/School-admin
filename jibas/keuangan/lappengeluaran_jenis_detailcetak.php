@@ -50,7 +50,7 @@ if (isset($_REQUEST['idpengeluaran']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pengeluaran]</title>
+<title>JIBAS FINANCE [Expenditure Reports]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -69,16 +69,16 @@ $row = mysql_fetch_row($result);
 $namapengeluaran = $row[0];
 ?>
 
-<center><font size="4"><strong>LAPORAN PENGELUARAN <?=strtoupper($namapengeluaran) ?></strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>EXPENDITURE REPORTS <?=strtoupper($namapengeluaran) ?></strong></font><br /> </center><br /><br />
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal <strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) . " s/d 	" . LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date <strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) . " to 	" . LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 
 </table>
@@ -86,13 +86,13 @@ $namapengeluaran = $row[0];
 
 <table id="table" class="tab" style="border-collapse:collapse" border="1" width="100%" bordercolor="#000000">
 <tr height="30" align="center">
-	<td class="header" width="4%">No</td>
-    <td class="header" width="12%">Tanggal</td>
-    <td class="header" width="22%">Pemohon</td>
-    <td class="header" width="10%">Penerima</td>
-    <td class="header" width="12%">Jumlah</td>
-    <td class="header" width="*">Keperluan</td>
-    <td class="header" width="10%">Petugas</td>
+	<td class="header" width="4%">#</td>
+    <td class="header" width="12%">Date</td>
+    <td class="header" width="22%">Applicant</td>
+    <td class="header" width="10%">Recipient</td>
+    <td class="header" width="12%">Sum</td>
+    <td class="header" width="*">Necessities</td>
+    <td class="header" width="10%">Officer</td>
 </tr>
 <?
 $sql = "SELECT p.replid AS id, p.keperluan, p.keterangan, p.jenispemohon, p.nip, p.nis, p.pemohonlain, p.penerima, date_format(p.tanggal, '%d-%b-%Y') as tanggal, date_format(p.tanggalkeluar, '%d-%b-%Y') as tanggalkeluar, p.petugas, p.jumlah FROM pengeluaran p, datapengeluaran d WHERE p.idpengeluaran = d.replid AND d.replid = '$idpengeluaran' AND d.departemen = '$departemen' AND p.tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY p.tanggal";
@@ -131,8 +131,8 @@ while ($row = mysql_fetch_array($result)) {
     <td valign="top"><?=$row['penerima'] ?></td>
     <td align="right" valign="top"><?=FormatRupiah($row['jumlah']) ?></td>
     <td valign="top">
-    <strong>Keperluan: </strong><?=$row['keperluan'] ?><br />
-    <strong>Keterangan: </strong><?=$row['keterangan'] ?>
+    <strong>Necessities: </strong><?=$row['keperluan'] ?><br />
+    <strong>Info: </strong><?=$row['keterangan'] ?>
 	</td>
     <td valign="top" align="center"><?=$row['petugas'] ?></td>
 </tr>
@@ -142,7 +142,7 @@ CloseDb();
 ?>
 <tr height="30">
 	<td colspan="4" align="center" bgcolor="#999900">
-    <font color="#FFFFFF"><strong>T O T A L</strong></font>
+    <font color="#FFFFFF"><strong>Total</strong></font>
     </td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font></td>
     <td colspan="2" bgcolor="#999900">&nbsp;</td>

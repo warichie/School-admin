@@ -39,25 +39,25 @@ if ($key=="-1")
 	$kunci="AND p.replid='$key'";
 }
 
-$bulan = array('Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nop','Des');
+$bulan = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Agt','Sep','Okt','Nop','Des');
 
-//Untuk yang dari calon siswa
+//Untuk yang from student candidate
 if ($kode=="0"){
 	if ($keyword=="1"){
-		$title = "Jumlah Calon Siswa Aktif Berdasarkan Agama";
-		$xtitle = "Agama";
-		$ytitle = "Jumlah Calon Siswa";
+		$title = "Active Student Candidate Sum based on Religion";
+		$xtitle = "Religion";
+		$ytitle = "Student Candidate Sum";
 
 		$sql = "SELECT c.agama as agama, COUNT(c.nama) FROM jbsakad.calonsiswa c, jbsumum.agama a, jbsakad.prosespenerimaansiswa p WHERE c.aktif=1 AND c.agama=a.agama AND c.idproses=p.replid $kunci GROUP BY c.agama ORDER BY a.urutan";
 	}
 }
 
-//Untuk yang dari siswa
+//Untuk yang from siswa
 if ($kode=="1"){
 	if ($keyword=="1"){
-		$title = "Jumlah Siswa Aktif Berdasarkan Agama";
-		$xtitle = "Agama";
-		$ytitle = "Jumlah Siswa";
+		$title = "Active Total Student based on Religion";
+		$xtitle = "Religion";
+		$ytitle = "Total Student";
 
 		$sql = "SELECT s.agama as agama, COUNT(s.nis) FROM jbsakad.siswa s, jbsumum.agama a WHERE s.aktif=1 AND s.agama=a.agama GROUP BY s.agama ORDER BY a.urutan";
 	}

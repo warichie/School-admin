@@ -58,7 +58,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cetak Form Presensi Pelajaran</title>
+<title>Print Class Presence Form</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -110,10 +110,10 @@ function change_ajaran() {
 }
 
 function validate() {
-	return validateEmptyText('tahunajaran', 'Tahun Ajaran') && 
+	return validateEmptyText('tahunajaran', 'Year of Teaching') && 
 		   validateEmptyText('semester', 'Semester') && 	
-		   validateEmptyText('kelas', 'Kelas') &&	
-		   validateEmptyText('pelajaran', 'Pelajaran');
+		   validateEmptyText('kelas', 'Class') &&	
+		   validateEmptyText('pelajaran', 'Class Subject');
 }
 
 function focusNext(elemName, evt) {
@@ -164,13 +164,13 @@ function openwin(kelas)
     <!-- TABLE TITLE -->
     <tr>
         <td align="right">
-        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Cetak Form Presensi Pelajaran</font><br />
+        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Print Class Presence Form</font><br />
          </td>
    	</tr>
     <tr>
     	<td align="right"><a href="../presensi.php?page=pp" target="framecenter">
-      <font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Cetak Form Presensi Pelajaran</b></font>
+      <font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Print Class Presence Form</b></font>
         </td>
     </tr>
     <tr>
@@ -184,11 +184,11 @@ function openwin(kelas)
         <form name="main" onSubmit="return validate()">
     <br />
     <fieldset>
-        <legend><strong>Data Form Presensi Pelajaran</strong></legend>
+        <legend><strong>Class Presence Form Data</strong></legend>
     	<table border="0" cellpadding="2" cellspacing="5" width="100%" align="center">
     	<!-- TABLE LINK -->
         <tr>
-            <td align="left" width="50%"><strong>Departemen</strong></td>
+            <td align="left" width="50%"><strong>Department</strong></td>
             <td width="*"> 
             <select name="departemen" id="departemen" onChange="change_dep()" style="width:250px;" onKeyPress="return focusNext('tingkat', event)">
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -200,7 +200,7 @@ function openwin(kelas)
             </select>    </td>
         </tr>
        <tr>
-            <td align="left"><strong>Tahun Ajaran</strong></td>
+            <td align="left"><strong>Year</strong></td>
             <td>
                 <?
                 OpenDb();
@@ -230,7 +230,7 @@ function openwin(kelas)
                 <input type="hidden" name="semester" id="semester" value="<?=$row['replid']?>">          	</td> 
         </tr>
         <tr>
-            <td><strong>Tingkat</strong></td>
+            <td><strong>Grade</strong></td>
             <td>
                 <select name="tingkat" id="tingkat" onChange="change()" style="width:250px;" onKeyPress="return focusNext('kelas', event)">
                 <?	OpenDb();
@@ -249,7 +249,7 @@ function openwin(kelas)
                 </select>            </td>   
         </tr>
         <tr>
-            <td><strong>Kelas</strong></td>
+            <td><strong>Class</strong></td>
             <td>
                 <select name="kelas" id="kelas" onChange="change_kelas()" style="width:250px;" onKeyPress="return focusNext('pelajaran', event)">
                 <?	OpenDb();
@@ -270,7 +270,7 @@ function openwin(kelas)
                 </select>            </td>
         </tr>
         <tr>
-            <td align="left"><strong>Pelajaran</strong></td>
+            <td align="left"><strong>Class Subject</strong></td>
             <td><select name="pelajaran" id="pelajaran" onChange="change()" style="width:250px;" onkeypress="return focusNext('cetak', event)">
               <?
                 OpenDb();
@@ -300,16 +300,16 @@ function openwin(kelas)
 			
 			if (mysql_num_rows($result) > 0) {
 				if ($result) { ?>
-					<input type="button" onclick="openwin('<?=$kelas?>')" name="Cetak" id="cetak" value="Cetak" class="but" style="width:80px;"/>
+					<input type="button" onclick="openwin('<?=$kelas?>')" name="Cetak" id="cetak" value="Print" class="but" style="width:80px;"/>
 			<?	}
 			} else {
 				CloseDb();
 				?>
-				<span class="style1">Belum ada data siswa yang terdaftar pada kelas ini!</span>				
+				<span class="style1">No registered student data for this class</span>				
 			<? } 
 			} else {
 			?>
-            <span class="style1">Belum ada data siswa yang terdaftar pada kelas ini!</span>
+            <span class="style1">No registered student data for this class</span>
             <?
 			}
 			?>	

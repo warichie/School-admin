@@ -37,13 +37,13 @@ $tanggal2 = $_REQUEST['tanggal2'];
 function NamaJenis($id)
 {
 	if ($id == "JTT")
-		return "Iuran Wajib Siswa";
+		return "Student Mandatory Contribution";
 	elseif ($id == "SKR")
-		return "Iuran Sukarela Siswa";
+		return "Student Contribution";
 	elseif ($id == "CSWJB")
-		return "Iuran Wajib Calon Siswa";
+		return "Mandatory Contribution Student Candidate";
 	elseif ($id == "CSSKR")
-		return "Iuran Sukarela Calon Siswa";
+		return "Contribution Student Candidate";
 	elseif ($id == "LNN")
 		return "Penerimaan Lainnya";
 }
@@ -60,7 +60,7 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Rekapitulasi Penerimaan]</title>
+<title>JIBAS FINANCE [Rekapitulasi Penerimaan]</title>
 </head>
 
 <body>
@@ -68,16 +68,16 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
 <table border="0">
 <tr>
-	<td><strong>Departemen </strong></td>
+	<td><strong>Department </strong></td>
     <td><strong>: <?=$dept ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Jenis </strong></td>
+	<td><strong>Type of </strong></td>
     <td><strong>: <?=NamaJenis($idkategori) ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) . " s/d " . LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) . " to " . LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -203,7 +203,7 @@ CloseDb();
 ?>
     <tr height="40">
         <td colspan="3" align="right" valign="middle" bgcolor="#333333">
-        <font color="#FFFFFF"><strong>T O T A L</strong></font>
+        <font color="#FFFFFF"><strong>Total</strong></font>
         </td>
         <td valign="middle" align="right" bgcolor="#333333">
         <font color="#FFFFFF"><strong><?=$total ?></strong></font>

@@ -42,14 +42,14 @@ $nama = $row[0];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 </head>
 
 <body>
 <table border="0" cellpadding="10" cellpadding="5" width="780" align="left">
 <tr><td align="left" valign="top"><? include("../include/headercetak.php") ?>
   <center>
-    <font size="4"><strong>DATA KELUARGA</strong></font><br />
+    <font size="4"><strong>FAMILY DATA</strong></font><br />
    </center><br /><br />
 <br />
 
@@ -57,20 +57,20 @@ $nama = $row[0];
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Daftar Keluarga <?=$nama?> - <?=$nip?></font><br />
+        <font class="subtitle">Family List <?=$nama?> - <?=$nip?></font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="20%" align="center" class="header">Nama</td>
-    <td width="12%" align="center" class="header">Hubungan</td>
-    <td width="12%" align="center" class="header">Tgl Lahir</td>
-    <td width="12%" align="center" class="header">HP</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="20%" align="center" class="header">Name</td>
+    <td width="12%" align="center" class="header">Relationship</td>
+    <td width="12%" align="center" class="header">Date of Birth</td>
+    <td width="12%" align="center" class="header">Mobile</td>
     <td width="15%" align="center" class="header">Email</td>
-    <td width="*" align="center" class="header">Keterangan</td>
+    <td width="*" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT ps.replid, ps.nama, ps.alm, ps.hubungan, ps.tgllahir, ps.hp, ps.email, ps.keterangan

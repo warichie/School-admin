@@ -89,7 +89,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Refleksi Pengajar</title>
+<title>Teacher Reflection Report Card</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -129,26 +129,26 @@ function tampil() {
 	var tingkat = document.getElementById('tingkat').value;
 
 	if (nip.length == 0){
-		alert ('NIP guru tidak boleh kosong !');
+		alert ('Teacher ID should not leave empty');
 		return false;
 	} else if (tahunajaran.length == 0){
-		alert ('Tahun ajaran tidak boleh kosong !');
+		alert ('Year should not leave empty');
 		document.getElementById('tahunajaran').focus();
 		return false;
 	} else if (semester.length == 0){
-		alert ('Semester tidak boleh kosong !');
+		alert ('Semester should not leave empty');
 		document.getElementById('semester').focus();
 		return false;
 	} else if (kelas.length == 0){
-		alert ('Kelas tidak boleh kosong !');
+		alert ('Class should not leave empty');
 		document.getElementById('kelas').focus();
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong !');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong !');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -323,7 +323,7 @@ function panggil(elem){
 	<td rowspan="3" width="68%">
 	<table width = "100%" border = "0" height="100%">
 	<!--<tr>
-    	<td width="16%"><strong>Guru</strong></td>
+    	<td width="16%"><strong>Teacher</strong></td>
         <td colspan="3"><strong>
     		<input name="nip" type="text" class="disabled" id="nip" value="<?=$_REQUEST['nip'] ?>" size="12" readonly onclick="pegawai();"/>
     		<input type="hidden" name="nipguru" id="nipguru" value="<?=$_REQUEST['nip'] ?>"/>
@@ -333,7 +333,7 @@ function panggil(elem){
         	<a href="JavaScript:pegawai()"><img src="../images/ico/cari.png" border="0" /></a></td>
     </tr>-->
    <tr>
-		<td><strong>Tahun Ajaran</strong></td>
+		<td><strong>Year</strong></td>
     	<td width="35%"> 
     	<select name="departemen" id="departemen" onChange="change_departemen()" style="width:70px" onKeyPress="focusNext('tahunajaran',event)" onfocus="panggil('departemen')">
 		<?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -354,7 +354,7 @@ function panggil(elem){
 				$tahunajaran = $row['replid'];			
 			$ada = "";
 			if ($row['aktif'])
-				$ada = "(Aktif)";					
+				$ada = "(Active)";					
 			?>
           <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tahunajaran)?> >
           <?=$row['tahunajaran'].' '.$ada?>
@@ -363,10 +363,10 @@ function panggil(elem){
 			}
     		?>
         </select></td>
-        <td width="12%"><strong>Kelas</strong></td>
+        <td width="12%"><strong>Class</strong></td>
     	<td>
 		<select name="tingkat" style="width:80px" onKeyPress="<?=$fokus?>" id="tingkat" onchange="change_tingkat()" onfocus="panggil('tingkat')">
-        <option value="-1" >(Semua)</option>
+        <option value="-1" >(All)</option>
           <?	OpenDb();
 			$sql = "SELECT replid,tingkat FROM tingkat WHERE aktif=1 AND departemen='$departemen' ORDER BY urutan";	
 			$result = QueryDb($sql);
@@ -389,7 +389,7 @@ function panggil(elem){
 			$disable = "";
 		} ?>
         <select name="kelas" id="kelas" onchange="change()" style="width:110px"  <?=$disable?> onKeyPress="focusNext('pelajaran',event)" onfocus="panggil('kelas')">
-        <option value="-1" >(Semua Kelas)</option>
+        <option value="-1" >(All Classes)</option>
 			<?	OpenDb();
 			$sql = "SELECT replid,kelas FROM kelas WHERE aktif=1 AND idtahunajaran = '$tahunajaran' AND idtingkat = '$tingkat' ORDER BY kelas";	
 			$result = QueryDb($sql);
@@ -419,7 +419,7 @@ function panggil(elem){
 				$semester = $row['replid'];
 			$ada = "";
 			if ($row['aktif'])
-				$ada = "(Aktif)";
+				$ada = "(Active)";
 			?>
           <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $semester)?> >
           <?=$row['semester'].' '.$ada?>
@@ -428,10 +428,10 @@ function panggil(elem){
 			}
     		?>
         	</select></td>
-        <td align="left" width="12%"><strong>Pelajaran</strong></td>
+        <td align="left" width="12%"><strong>Class Subject</strong></td>
       	<td>
         	<select name="pelajaran" style="width:195px" onKeyPress="focusNext('tgl1',event)" id="pelajaran" onchange="change()" onfocus="panggil('pelajaran')">
-            <option value="-1">(Semua pelajaran)</option> 
+            <option value="-1">(All pelajaran)</option> 
    		<?
 			OpenDb();
 			$sql = "SELECT p.replid,p.nama FROM pelajaran p, guru g WHERE p.departemen = '$departemen' AND g.idpelajaran=p.replid AND g.nip='".SI_USER_ID()."' AND p.aktif=1 ORDER BY p.nama";
@@ -449,7 +449,7 @@ function panggil(elem){
         
     </tr>
     <tr>
-    	<td><strong>Tanggal</strong></td>
+    	<td><strong>Date</strong></td>
         <td colspan="3"> 
 		<? 	if ($tahunajaran <> "") {
 			OpenDb();
@@ -466,7 +466,7 @@ function panggil(elem){
             	<td width="10">
                 <div id = "InfoTgl1" > 
                 <select name="tgl1" id = "tgl1" onchange="change_tgl1()" onfocus = "panggil('tgl1')" onKeyPress="focusNext('bln1',event)">
-                	<option value="">[Tgl]</option>
+                	<option value="">[Date]</option>
             	<? 	for($i=1;$i<=$n1;$i++){   ?>      
                 	<option value="<?=$i?>" <?=IntIsSelected($tgl1, $i)?>><?=$i?></option>
             	<?	} ?>
@@ -484,12 +484,12 @@ function panggil(elem){
                 <?  //for($i=$th1-10;$i<=$th1;$i++){ ?>
                     <option value="<?=$i?>" <?=IntIsSelected($th1, $i)?>><?=$i?></option>	   
                 <?	} ?>	
-                </select> s/d 
+                </select> to 
                 </td>
                 <td width="10">
                	<div id="InfoTgl2">
     			<select name="tgl2" id = "tgl2" onchange="change_tgl2()" onfocus = "panggil('tgl2')" onKeyPress="focusNext('bln2',event)">
-                    <option value="">[Tgl]</option>
+                    <option value="">[Date]</option>
                 <? 	for($i=1;$i<=$n2;$i++){   ?>      
                     <option value="<?=$i?>" <?=IntIsSelected($tgl2, $i)?>><?=$i?></option>
                 <?	} ?>
@@ -515,12 +515,12 @@ function panggil(elem){
     </tr>
 	</table>    
     </td>
-    <td align="left" valign="middle"><a href="#" onclick="tampil()" ><img src="../images/ico/view.png" onmouseover="showhint('Klik untuk menampilkan laporan refleksi pengajar!', this, event, '180px')" height="48" width="48" border="0" name="tabel" id="tabel2"/></a></td>
+    <td align="left" valign="middle"><a href="#" onclick="tampil()" ><img src="../images/ico/view.png" onmouseover="showhint('Click to show teacher reflection reports', this, event, '180px')" height="48" width="48" border="0" name="tabel" id="tabel2"/></a></td>
     <td width="*" align="right" valign="top">
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Refleksi Mengajar</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Teaching Reflection Report</font><br />
 	<a href="../presensi.php?page=pp" target="framecenter">
-  	<font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-    <font size="1" color="#000000"><b>Laporan Refleksi Mengajar</b></font>    </tr>
+  	<font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+    <font size="1" color="#000000"><b>Teaching Reflection Report</b></font>    </tr>
 	</table>
     </td>
 </tr>

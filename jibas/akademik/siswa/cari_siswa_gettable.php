@@ -34,10 +34,10 @@ require_once('../library/departemen.php');
 <table width="303" border="0" cellspacing="0" class="tab" id="table">
   
   <tr>
-    <td class="header">No</td>
-    <td class="header">NIS</td>
-    <td class="header">Nama</td>
-    <td class="header">Kelas</td>
+    <td class="header">#</td>
+    <td class="header">Student ID</td>
+    <td class="header">Name</td>
+    <td class="header">Class</td>
     <td class="header">&nbsp;</td>
   </tr>
   <?
@@ -70,7 +70,7 @@ require_once('../library/departemen.php');
     <td><?=$nis?></td>
     <td><?=$nama?></td>
     <td><?=$kelas?></td>
-    <td><a href="siswa_cari_detail.php?nis=<?=$nis?>" target="cari_siswa_content" ><img src="../images/ico/lihat.png" alt="Lihat Detail Siswa" border="0"/></a></td>
+    <td><a href="siswa_cari_detail.php?nis=<?=$nis?>" target="cari_siswa_content" ><img src="../images/ico/lihat.png" alt="See Details Student" border="0"/></a></td>
   </tr>
   <?
   }

@@ -91,7 +91,7 @@ if(isset($_POST[simpan])) {
 		
 	?>
 		<script language="JavaScript">
-			alert("Data Nilai Pelajaran berhasil diinput");
+			alert("Class Subject Point Data have been successfully submitted");
 			parent.opener.change_sel();
 			window.close();
 			//document.location.href="tampil_nilai_pelajaran.php?departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&jenis_penilaian=<?=$jenis_penilaian ?>";
@@ -135,7 +135,7 @@ if(isset($_POST[simpan])) {
     if(mysqli_affected_rows($conni) >= 0) {
             ?>
             <script language="JavaScript">
-                alert("Data Nilai Pelajaran berhasil diinput");
+                alert("Class Subject Point Data have been successfully submitted");
 				parent.opener.change_sel();
 				window.close();
                 //document.location.href="tampil_nilai_pelajaran.php?departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&jenis_penilaian=<?=$jenis_penilaian ?>";
@@ -144,7 +144,7 @@ if(isset($_POST[simpan])) {
         }else {
           ?>
            <script language="JavaScript">
-               alert("Gagal menambah data");
+               alert("Failed to add more data");
                parent.opener.change_sel();
 				window.close();
 			   //document.location.href="tampil_nilai_pelajaran.php?departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&jenis_penilaian=<?=$jenis_penilaian ?>";
@@ -183,11 +183,11 @@ if(isset($_POST[simpan])) {
 		
 		//return false;
         if(tanggal.length == 0) {
-            alert("Tanggal tidak boleh kosong");
+            alert("Date should not leave empty");
             return false;
         }
         if(deskripsi.length == 0) {
-            alert("Deskripsi tidak boleh kosong");
+            alert("Description should not leave empty");
             document.tambah_nilai_pelajaran.deskripsi.value = "";
             document.tambah_nilai_pelajaran.deskripsi.focus();
             return false;
@@ -197,14 +197,14 @@ if(isset($_POST[simpan])) {
 			var nilai = document.getElementById("nilaiujian"+i).value;
 			//alert ('nilai '+nilai);
 			if (nilai.length==0){
-					alert ('Nilai harus diisi !');
+					alert ('Point is required');
 					document.getElementById("nilaiujian"+i).focus();
 					//document.tambah_nilai_pelajaran.nilaiujian+i.focus();
 					return false;
 					} else {
-				//return	validateNumber('nilai', 'Nilai') ;
+				//return	validateNumber('nilai', 'Point') ;
 				if (isNaN(nilai)) {
-					alert ('Nilai harus berupa bilangan !');
+					alert ('Point must be numeric');
 					document.getElementById("nilaiujian"+i).focus();
 					//document.tambah_nilai_pelajaran.nilaiujian+i.focus();
 					return false;
@@ -228,7 +228,7 @@ if(isset($_POST[simpan])) {
 	function set_date() {
         var tanggal = document.tambah_nilai_pelajaran.tanggalhide.value;
 		//var tanggal_baru = ;
-		//alert ('Tanggal='+tanggal_baru);
+		//alert ('Date='+tanggal_baru);
 		//document.tambah_nilai_pelajaran.tanggal.value=tanggal_baru;
 	}
 </script>
@@ -272,14 +272,14 @@ if(isset($_POST[simpan])) {
 		<tr>
 		<td colspan="2">
 		<br>
-		<fieldset><legend><b>Data Nilai Pelajaran</b></legend>
+		<fieldset><legend><b>Class Subject Point Data</b></legend>
 		<table border="0" width="100%">
         <tr>
-            <td>Departemen</td>
+            <td>Department</td>
             <td><input type="text" name="departemen" size="25" value="<?=$departemen;?>" readonly></td>
         </tr>
         <tr>
-            <td>Tahun Ajaran</td>
+            <td>Year</td>
             <td>
 			<?
 			$query_thn = "SELECT * FROM jbsakad.tahunajaran WHERE tahunajaran.replid = '$tahun'";
@@ -302,7 +302,7 @@ if(isset($_POST[simpan])) {
 			<input type="text" name="semester" size="25" value="<?=$row_smt[semester] ?>" readonly></td>
         </tr>
         <tr>
-            <td>Tingkat</td>
+            <td>Grade</td>
 			<td>
 			<?
 			$query_tkt = "SELECT * FROM jbsakad.tingkat WHERE tingkat.replid = '$tingkat'";
@@ -312,7 +312,7 @@ if(isset($_POST[simpan])) {
 			?>
 			<input type="hidden" name="idtingkat" value="<?=$row_tkt[replid] ?>">
 			<input type="text" size="25" name="tingkat" value="<?=$row_tkt[tingkat]; ?>" readonly></td>
-			<td>Kelas</td>
+			<td>Class</td>
 			<td>
 			<?
 			$query_kls = "SELECT * FROM jbsakad.kelas WHERE kelas.replid = '$kelas'";
@@ -324,7 +324,7 @@ if(isset($_POST[simpan])) {
 			<input type="text" name="kelas" size="25" value="<?=$row_kls[kelas] ?>" readonly></td>
         </tr>
         <tr>
-            <td>Pelajaran</td>
+            <td>Class Subject</td>
             <td>
 			<?
 			$query_pel = "SELECT * FROM jbsakad.pelajaran WHERE pelajaran.replid = '$pelajaran'";
@@ -337,7 +337,7 @@ if(isset($_POST[simpan])) {
         </tr>
 		<tr>
 			<td colspan="4">
-			<fieldset><legend><b>Jenis Penilaian : <?=$row_jp[jenisujian] ?></b></legend>
+			<fieldset><legend><b>Assessment Type : <?=$row_jp[jenisujian] ?></b></legend>
 			<?	
 			
 						
@@ -355,26 +355,26 @@ if(isset($_POST[simpan])) {
 			<input type="hidden" name="num_data" value="<?=$num_data ?>">
 			<table width="100%">
 				<tr>
-					<td>Tanggal</td>
+					<td>Date</td>
 					<td>
                     <input type="text" name="tanggal" id="tanggal" size="25" readonly>
-					<img src="../images/ico/calendar_1.png" alt="Tampilkan Tabel" name="tabel" width="22" height="22" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '120px')"/>
+					<img src="../images/ico/calendar_1.png" alt="Show Table" name="tabel" width="22" height="22" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '120px')"/>
 					</td>
 				</tr>
 				<tr>
-					<td>Deskripsi</td>
+					<td>Description</td>
 					<td><input type="text" name="deskripsi" size="50" ></td>
 				</tr>
 				<tr>
 					<td colspan="3">
 						<table id="table" width="100%">
 							<tr>
-								<td class="header" height="30">No</td>
-								<td class="header" height="30">NIS</td>
-								<td class="header" height="30">Nama</td>
+								<td class="header" height="30">#</td>
+								<td class="header" height="30">Student ID</td>
+								<td class="header" height="30">Name</td>
 								
-								<td class="header" height="30" align="center">Nilai</td>
-								<td class="header" height="30" align="center">Keterangan</td>
+								<td class="header" height="30" align="center">Point</td>
+								<td class="header" height="30" align="center">Info</td>
 							</tr>
 							<?
 							if ($num_data>0){
@@ -399,7 +399,7 @@ if(isset($_POST[simpan])) {
 								} else {
 									?>
 								<tr>
-									<td align="center" colspan="5">Tidak ada siswa</td>
+									<td align="center" colspan="5">No student</td>
 									</td>
 								</tr>
 								<?
@@ -419,8 +419,8 @@ if(isset($_POST[simpan])) {
 		</tr>
         <tr>
             <td align="center" colspan="2">
-			<input type="submit" name="batal" value="Batal" class="but" onClick="window.close()" >&nbsp;
-			<input type="submit" value="Simpan" name="simpan" class="but">
+			<input type="submit" name="batal" value="Cancel" class="but" onClick="window.close()" >&nbsp;
+			<input type="submit" value="Save" name="simpan" class="but">
 			</td>
         </tr>
     </table>

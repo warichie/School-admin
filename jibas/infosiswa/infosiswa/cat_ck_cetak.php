@@ -55,7 +55,7 @@ if ($num>0){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Cetak Catatan Kejadian]</title>
+<title>JIBAS TEACHERS INFO [Print Attendance Notes]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
@@ -69,11 +69,11 @@ if ($num>0){
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>Catatan Kejadian</strong></font><br />
+  <font size="4"><strong>Attendance Notes</strong></font><br />
  </center><br /><br />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td width="7%"><strong>Siswa</strong></td>
+    <td width="7%"><strong>Student</strong></td>
     <td width="93%">
 	  <strong>
 	  <?
@@ -86,7 +86,7 @@ if ($num>0){
 	  </strong> </td>
   </tr>
   <tr>
-    <td><strong>Bulan</strong></td>
+    <td><strong>Month</strong></td>
     <td>
       <strong><?=$bulan_pjg[$bulan]?> <?=$tahun?></strong></td>
   </tr>
@@ -95,8 +95,8 @@ if ($num>0){
 <? } ?>
 <table width="100%" border="1" cellspacing="0" class="tab">
   <tr>
-    <td height="30" width="43" class="header"><div align="center">No</div></td>
-    <td height="30" width="900" class="header">Tanggal/Guru</td>
+    <td height="30" width="43" class="header"><div align="center">#</div></td>
+    <td height="30" width="900" class="header">Date/Teacher</td>
   </tr>
   <?
  
@@ -118,7 +118,7 @@ if ($num>0){
   	}
   } else { ?>
   <tr>
-    <td height="25" colspan="4"><div align="center"><em>Tidak ada catatan Kejadian Siswa untuk NIS : 
+    <td height="25" colspan="4"><div align="center"><em>No student attendance notes for Student ID : 
       <?=$nis?>
     </em></div></td>
   </tr>

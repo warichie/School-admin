@@ -5,7 +5,7 @@ function TambahS()
     newWindow(addr, 'TambahSekolah','450','250','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
-function Ubah(id)
+function Change(id)
 {
 	var addr = "sekolahedit.php?id="+id;
     newWindow(addr, 'UbahSekolah','450','285','resizable=1,scrollbars=1,status=0,toolbar=0');
@@ -20,7 +20,7 @@ function Refresh()
 
 function Hapus(id)
 {
-	if (confirm("Apakah anda yakin akan menghapus data ini?"))
+	if (confirm("Are you sure want to delete this data?"))
 	{
 		var nip = document.getElementById('nip').value;
 		document.location.href = "daftarsekolah.php?id="+id+"&op=mnrmd2re2dj2mx2x2x3d2s33&nip="+nip;
@@ -29,7 +29,7 @@ function Hapus(id)
 
 function ChangeLast(id)
 {
-	if (confirm('Apakah anda yakin akan mengubah data ini menjadi pendidikan sekolah terakhir?'))
+	if (confirm('Are you sure want to change this data to be the latest school background?'))
     {
         var nip = document.getElementById('nip').value;
 		document.location.href = "daftarsekolah.php?id="+id+"&op=cn0948cm2478923c98237n23&nip="+nip;

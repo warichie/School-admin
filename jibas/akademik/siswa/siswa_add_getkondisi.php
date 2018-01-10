@@ -29,7 +29,7 @@ require_once('../include/db_functions.php');
 $kondisi_kiriman=$_REQUEST['kondisi'];
 ?>
 <select name="kondisi" id="kondisi" class="ukuran" onKeyPress="return focusNext('warga', event)">
- 	<option value="">[Pilih Kondisi]</option>
+ 	<option value="">[Select Conditions]</option>
     <? // Olah untuk combo kondisi
 	OpenDb();
 	$sql_kondisi="SELECT kondisi,urutan FROM jbsakad.kondisisiswa ORDER BY urutan";

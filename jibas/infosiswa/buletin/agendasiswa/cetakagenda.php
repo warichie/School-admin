@@ -34,7 +34,7 @@ $tahun = "";
 if (isset($_REQUEST['tahun']))
 	$tahun = $_REQUEST['tahun'];
 	
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");	
 OpenDb();
 $sql = "SELECT departemen FROM tahunajaran t, kelas k, siswa s WHERE s.nis='".SI_USER_ID()."' AND s.idkelas=k.replid AND k.idtahunajaran=t.replid";
 $result = QueryDb($sql);
@@ -58,15 +58,15 @@ $departemen = $row[0];
 <tr><td align="left" valign="top">
   	<?=getHeader($departemen)?>
 <center>
-  <font size="4"><strong>DAFTAR AGENDA SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT AGENDA LIST</strong></font><br />
  </center><br /><br />
 
 <br />
-Periode : <?=$namabulan[$bulan-1]?> <?=$tahun?><br>
-Siswa : <?=SI_USER_NAME()?><br><br>
+Period : <?=$namabulan[$bulan-1]?> <?=$tahun?><br>
+Student : <?=SI_USER_NAME()?><br><br>
 <table width="100%" border="1" cellspacing="0" class='tab'>
   <tr>
-    <th height="30" class="header" scope="row">Tanggal</th>
+    <th height="30" class="header" scope="row">Date</th>
     <td height="30" class="header">Agenda</td>
     
   </tr>
@@ -94,7 +94,7 @@ Siswa : <?=SI_USER_NAME()?><br><br>
 	<? 
 	for ($x=0;$x<=$i-1;$x++){
 		?>
-		<img title="Ubah !" src="../../images/ico/titik.png" border="0" height="10" width="10"/>&nbsp;<?=$judul[$x]?><br>
+		<img title="Edit" src="../../images/ico/titik.png" border="0" height="10" width="10"/>&nbsp;<?=$judul[$x]?><br>
 		<?
 	}
 	?>
@@ -104,7 +104,7 @@ Siswa : <?=SI_USER_NAME()?><br><br>
   <? 
   } } else { ?>
   <tr>
-    <th height="25" scope="row" colspan="2" align="center">Tidak ada Agenda untuk bulan <?=$namabulan[$bulan-1]?></th>
+    <th height="25" scope="row" colspan="2" align="center">No agenda for month <?=$namabulan[$bulan-1]?></th>
   </tr>
   <? 
   }

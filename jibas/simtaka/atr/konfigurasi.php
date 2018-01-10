@@ -101,27 +101,27 @@ function Fokus(elementId){
 <body leftmargin="0" topmargin="0">
 <div id="title" align="right">
     <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-  <font style="font-size:18px; color:#999999">Konfigurasi</font><br /><br />
+  <font style="font-size:18px; color:#999999">Configuration</font><br /><br />
 </div>
 <div id="content">
-<fieldset><legend>Maksimum peminjaman yang dapat dilakukan</legend>
+<fieldset><legend>Maximum borrowing allowed</legend>
 <form action="konfigurasi.php" method="post">
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr>
-    <td width="17%" align="right">Siswa</td>
+    <td width="17%" align="right">Student</td>
     <td width="83%">
       <input type="text" name="siswa" id="siswa" class="inptxt-small-text" value="<?=$siswa?>" style="width:40px" onBlur="Blur('siswa')" />    </td>
   </tr>
   <tr>
-    <td align="right">Pegawai</td>
+    <td align="right">Employee</td>
     <td><input type="text" name="pegawai" id="pegawai" class="inptxt-small-text" value="<?=$pegawai?>" style="width:40px" onBlur="Blur('pegawai')" /></td>
   </tr>
   <tr>
-    <td align="right">Umum/Anggota&nbsp;Luar&nbsp;Sekolah</td>
+    <td align="right">General/Non&nbsp;School&nbsp;Member</td>
     <td><input type="text" name="other" id="other" class="inptxt-small-text" value="<?=$other?>" style="width:40px" onBlur="Blur('other')" /></td>
   </tr>
   <tr>
-    <td align="right">Denda per hari</td>
+    <td align="right">Fine per days</td>
     <td><input type="text" name="denda" id="denda" class="inptxt-small-text" value="<?=FormatRupiah($denda)?>" style="width:150px" onBlur="Blur('denda')" onFocus="Fokus('denda')" /></td>
   </tr>
   <tr>
@@ -129,7 +129,7 @@ function Fokus(elementId){
 	$disabled = "";
 	if (!IsAdmin())
 		$disabled = "disabled='disabled'"; ?>
-    <td colspan="2" align="center"><input type="submit" name="Simpan" value="Simpan" class="cmbfrm2" <?=$disabled?> />&nbsp;&nbsp;<input type="button" onClick="window.close()" value="Tutup"  class="cmbfrm2"/></td>
+    <td colspan="2" align="center"><input type="submit" name="Simpan" value="Save" class="cmbfrm2" <?=$disabled?> />&nbsp;&nbsp;<input type="button" onClick="window.close()" value="Close"  class="cmbfrm2"/></td>
     </tr>
 </table>
 </form>

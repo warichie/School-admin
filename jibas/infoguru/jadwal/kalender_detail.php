@@ -42,7 +42,7 @@ $result = QueryDb($sql);
 $row = mysql_fetch_array($result);
 $departemen =  $row['departemen'];
 $kalender = $row['kalender'];
-$periode =  LongDateFormat($row['tglmulai']).' s/d '. LongDateFormat($row['tglakhir']);
+$periode =  LongDateFormat($row['tglmulai']).' to '. LongDateFormat($row['tglakhir']);
 /*$bulan1 = $row['bulan1'];
 $tahun1 = $row['tahun1'];
 $bulan2 = $row['bulan2'];
@@ -219,7 +219,7 @@ function loadKalender1($kalender, $id) {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../style/style.css" />
 <link rel="stylesheet" href="../style/tooltips.css">
-<title>Kalender</title>
+<title>Calendar</title>
 
 <style>
 .thismonth {
@@ -273,25 +273,25 @@ function tampil(replid) {
 <table border="0" width="95%" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-	<td height="25" colspan="3" class="header"><div align="center">Kalender Akademik</div></td>
+	<td height="25" colspan="3" class="header"><div align="center">Academic Calendar</div></td>
 </tr>
 <tr height="488">
 	<td valign="top">
     <table width="100%" border="0">
 	<tr height="20">
-        <td width="30%"><strong>Departemen</strong></td>
+        <td width="30%"><strong>Department</strong></td>
         <td width="*"><?=$departemen?></td>
         <!--<td rowspan="6" valign="top" height="600">-->
    	<tr height="20">
-        <td><strong>Kalender Akademik</strong></td>
+        <td><strong>Academic Calendar</strong></td>
         <td><?=$kalender?></td>
     </tr> 
     <tr height="20">
-        <td><strong>Periode</strong></td>
+        <td><strong>Period</strong></td>
         <td><?=$periode?></td>
     </tr>
     <tr> 
-        <td><strong>Bulan Kegiatan </strong></td> 
+        <td><strong>Activity Month </strong></td> 
         <td>
         <? if ($last == 0) { ?>
         <input type="button" class="but" onClick="GoToLastMonth()" value="  <  ">
@@ -320,13 +320,13 @@ function tampil(replid) {
 		<td colspan="2" valign="top" >
     	<table border="0" cellpadding="5" cellspacing="1" style="border-color:#999999" >        
         <tr height="30" bgcolor="#DFFFDF">
-            <td width="55" align="center" style="background-color:#990000; color:#FFFFFF"><b>Minggu</b></td>
-            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Senin</b></td>
-            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Selasa</b></td>
-            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Rabu</b></td>
-            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Kamis</b></td>
-            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Jumat</b></td>
-            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Sabtu</b></td>
+            <td width="55" align="center" style="background-color:#990000; color:#FFFFFF"><b>Sunday</b></td>
+            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Monday</b></td>
+            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Tuesday</b></td>
+            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Wednesday</b></td>
+            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Thursday</b></td>
+            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Friday</b></td>
+            <td width="55" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Saturday</b></td>
         </tr>
         <?
 		
@@ -414,7 +414,7 @@ function tampil(replid) {
     </table>
     </td>
 	<td valign="top" height="150">
-    <fieldset><legend><b>Kegiatan <? ///NamaBulan($bulan).' '.$tahun?>  </b></legend>
+    <fieldset><legend><b>Activity <? ///NamaBulan($bulan).' '.$tahun?>  </b></legend>
     <!--<div style="overflow: auto">--->
     <div style="overflow:auto; height:450px">
     <table border="0" cellpadding="3" cellspacing="2" width="175" >
@@ -464,7 +464,7 @@ function tampil(replid) {
     <tr height="20">
     	<td <?=$style?> onclick="tampil(<?=$keg[row][$i][id]?>)" style="cursor:pointer">
 		<?=$keg[row][$i][judul].'<br>'.$keg[row][$i][jangka]?>
-		<? //echo '<br>'.$keg[row][$i][tahun1].' = '.$tahun.' dan '.$keg[row][$i][bulan1].' = '.$bulan?>     
+		<? //echo '<br>'.$keg[row][$i][tahun1].' = '.$tahun.' and '.$keg[row][$i][bulan1].' = '.$bulan?>     
    		</td>
     </tr>   
     <?   
@@ -478,7 +478,7 @@ function tampil(replid) {
 </tr>
 <tr>
 	<td colspan="2">
-     <fieldset><legend><b>Keterangan</b></legend>
+     <fieldset><legend><b>Info</b></legend>
     	<table width="100%">
         	<tr height="60"><td valign="top"><?=$keterangan?></td></tr>
         </table>

@@ -260,10 +260,10 @@ function imageSmoothArc ( &$img, $cx, $cy, $w, $h, $color, $start, $stop)
     // + Improved quality of edges & antialiasing
     
     // note: This function does not represent the fastest way to draw elliptical
-    // arcs. It was written without reading any papers on that subject. Better
+    // arcs. It was written without reading any papers on that Subject. Better
     // algorithms may be twice as fast or even more.
     
-    // what it cannot do: It does not support outlined arcs, only filled
+    // what it should not do: It does not support outlined arcs, only filled
     
     // Parameters:
     // $cx      - Center of ellipse, X-coord

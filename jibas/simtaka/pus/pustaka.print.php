@@ -33,39 +33,39 @@ $keywords=$_REQUEST[keywords];
 $perpustakaan=$_REQUEST[perpustakaan];
 switch ($kategori){
 	case 'judul':
-		$kat = "Judul Pustaka";
+		$kat = "Book TItle";
 		$key = $keywords;
 		break;
 	case 'rak':
-		$kat = "Rak";
+		$kat = "Shelf";
 		$row = @mysql_fetch_row(QueryDb("SELECT rak FROM rak WHERE replid='$keywords'"));
 		$key = $row[0];
 		break;	
 	case 'katalog':
-		$kat = "Katalog";
+		$kat = "Catalogue";
 		$row = @mysql_fetch_row(QueryDb("SELECT kode,nama FROM katalog WHERE replid='$keywords'"));
 		$key = $row[0]." - ".$row[1];
 		break;
 	case 'penerbit':
-		$kat = "Penerbit";
+		$kat = "Publisher";
 		$row = @mysql_fetch_row(QueryDb("SELECT kode,nama FROM penerbit WHERE replid='$keywords'"));
 		$key = $row[0]." - ".$row[1];
 		break;
 	case 'penulis':
-		$kat = "Penulis";
+		$kat = "Author";
 		$row = @mysql_fetch_row(QueryDb("SELECT kode,nama FROM penulis WHERE replid='$keywords'"));
 		$key = $row[0]." - ".$row[1];
 		break;	
 	case 'tahun':
-		$kat = "Tahun Terbit";
+		$kat = "Year Published";
 		$key = $keywords;
 		break;
 	case 'abstraksi':
-		$kat = "Abstraksi";
+		$kat = "Abstraction";
 		$key = $keywords;
 		break;
 	case 'keteranganfisik':
-		$kat = "Keterangan Fisik";
+		$kat = "Physical Info";
 		$key = $keywords;
 		break;	
 }
@@ -75,7 +75,7 @@ switch ($kategori){
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cetak Daftar Pustaka</title>
+<title>Print Library List</title>
 <style type="text/css">
 <!--
 .style1 {
@@ -93,13 +93,13 @@ switch ($kategori){
 
 <? GetHeader($perpustakaan); ?>
 
-<center><font size="4"><strong>DAFTAR PUSTAKA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>LIBRARY LIST</strong></font><br /> </center><br /><br />
 
 <br />
 <div>
 <table width="100%" border="0" cellspacing="2" cellpadding="0">
   <tr>
-    <td width="13%" height="20"><span class="style3">Perpustakaan</span></td>
+    <td width="13%" height="20"><span class="style3">Library</span></td>
     <td width="87%" height="20">
 		<? 
 		OpenDb();
@@ -109,14 +109,14 @@ switch ($kategori){
 			$row = @mysql_fetch_row($result);
 			echo $row[0];
 		} else {
-			echo "<i>Semua perpustakaan</i>";
+			echo "<i>All libraries</i>";
 		}
 		?>
     </td>
   </tr>
   <? if ($asal=='cari') { ?>
   <tr>
-    <td width="13%" height="20"><span class="style3">Berdasarkan</span></td>
+    <td width="13%" height="20"><span class="style3">Sort by</span></td>
     <td width="87%" height="20"><?=$kat?></td>
   </tr>
   <tr>
@@ -130,11 +130,11 @@ switch ($kategori){
 <br />
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
   <tr class="header" height="30">
-    <td height="30" align="center">No</td>
-    <td height="30" align="center">Judul</td>
-    <td height="30" align="center">Jumlah Tersedia</td>
-    <td height="30" align="center">Jumlah Dipinjam</td>
-    <td align="center">Keterangan</td>
+    <td height="30" align="center">#</td>
+    <td height="30" align="center">Title</td>
+    <td height="30" align="center">Available Sum</td>
+    <td height="30" align="center">Borrowed Sum</td>
+    <td align="center">Info</td>
   </tr>
   <?
   $sqlpus='';
@@ -189,7 +189,7 @@ switch ($kategori){
   } else {
   ?>
   <tr>
-    <td height="20" colspan="7" align="center" class="nodata">Tidak ada data</td>
+    <td height="20" colspan="7" align="center" class="nodata">Data Not Found.</td>
   </tr>
   <? 
   }

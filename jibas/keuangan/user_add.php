@@ -42,7 +42,7 @@ $sql_cek = "SELECT * FROM jbsuser.login WHERE login = '$_REQUEST[nip]'";
 $res_cek = QueryDb($sql_cek);
 $jum_cek = @mysql_num_rows($res_cek);
 
-$query_cek2 = "SELECT * FROM jbsuser.hakakses WHERE login = '$_REQUEST[nip]' AND modul='KEUANGAN'";
+$query_cek2 = "SELECT * FROM jbsuser.hakakses WHERE login = '$_REQUEST[nip]' AND modul='FINANCE'";
 $result_cek2 = QueryDb($query_cek2);
 $num_cek2 = @mysql_num_rows($result_cek2);
 $row_cek2 = @mysql_fetch_array($result_cek2);
@@ -66,10 +66,10 @@ if($jum_cek == 0) {
 	$tingkat=(int)$_REQUEST['tingkat'];
 	if ($tingkat == 2){
 		$departemen=$_REQUEST['departemen'];
-		$sql2="INSERT INTO jbsuser.hakakses SET login = '$_REQUEST[nip]', tingkat = '2', departemen = '$departemen', modul = 'KEUANGAN'";
+		$sql2="INSERT INTO jbsuser.hakakses SET login = '$_REQUEST[nip]', tingkat = '2', departemen = '$departemen', modul = 'FINANCE'";
 		//$result2=QueryDb();
 	} else {
-		$sql2="INSERT INTO jbsuser.hakakses SET login = '$_REQUEST[nip]', tingkat = '$tingkat', modul = 'KEUANGAN', departemen = NULL";
+		$sql2="INSERT INTO jbsuser.hakakses SET login = '$_REQUEST[nip]', tingkat = '$tingkat', modul = 'FINANCE', departemen = NULL";
 		//$result2=QueryDb();
 	}
 	$result2=QueryDb($sql2);
@@ -95,7 +95,7 @@ if (isset($_REQUEST['simpan'])) {
 	}	
 	
   	//cek apakah sudah ada account yang sama di SIMAKA
-	$query_c = "SELECT * FROM jbsuser.hakakses WHERE login = '$_REQUEST[nip]' AND tingkat = '$tingkat' AND modul = 'KEUANGAN' $sql_dep";
+	$query_c = "SELECT * FROM jbsuser.hakakses WHERE login = '$_REQUEST[nip]' AND tingkat = '$tingkat' AND modul = 'FINANCE' $sql_dep";
 	$result_c = QueryDb($query_c);
     $num_c = @mysql_num_rows($result_c);
 	
@@ -113,7 +113,7 @@ if (isset($_REQUEST['simpan'])) {
 				QueryDbTrans($sql_login, $success);		
 			}		
 				
-			$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='$_REQUEST[nip]', tingkat=1, modul='KEUANGAN', keterangan='$keterangan'";
+			$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='$_REQUEST[nip]', tingkat=1, modul='FINANCE', keterangan='$keterangan'";
 		} elseif ($tingkat==2){
 			//Kalo staf
 			if ($num_cek == 0) {
@@ -121,7 +121,7 @@ if (isset($_REQUEST['simpan'])) {
 				QueryDbTrans($sql_login, $success);		
 			}			
 			
-			$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='$_REQUEST[nip]', departemen='$departemen', tingkat=2, modul='KEUANGAN', keterangan='$keterangan'";
+			$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='$_REQUEST[nip]', departemen='$departemen', tingkat=2, modul='FINANCE', keterangan='$keterangan'";
 		}
 		if ($success)	
 			QueryDbTrans($sql_hakakses, $success);
@@ -162,7 +162,7 @@ if($status_user == 1 || $status_user == "") {
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Tambah Data Pengguna]</title>
+<title>JIBAS FINANCE [Add Data User]</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="script/validasi.js"></script>
@@ -178,42 +178,42 @@ function cek_form() {
 	var ket = document.getElementById('keterangan').value;
 	
 	if (nip.length == 0) {
-		alert("User tidak boleh kosong");
+		alert("User should not leave empty");
 		return false;
 	}
 
 	if (pass.length == 0) {
-		alert("Password tidak boleh kosong!");
+		alert("Password should not leave empty");
 		document.getElementById('password').focus();
 		return false;
 	} else if (kon.length == 0) {
-		alert("Konfirmasi tidak boleh kosong!");
+		alert("Confirmation should not leave empty");
 		document.getElementById('konfirmasi').focus();
 		return false;
 	}
 	
 	if (pass != kon) {
-		alert("Password dan konfirmasi harus sama!");
+		alert("Password and confirmation should match");
 		document.getElementById('konfirmasi').focus();
 		return false;
 	}
 
 	if (stat.length == 0) {
-		alert("Tingkat tidak boleh kosong!");
+		alert("Grade should not leave empty");
 		document.getElementById('status_user').focus();
 		return false;
 	}
 	
 	if (stat != 1) {
 		if (dep.length==0) {
-		alert("Departemen tidak boleh kosong!");
+		alert("Department should not leave empty");
 		document.getElementById('departemen').focus();
 		return false;
 		}
 	}
 	
 	if (ket.length > 255) {
-		alert("Keterangan tidak boleh lebih dari 255 karakter!");
+		alert("Info should not exceed 255 characters");
 		document.getElementById('keterangan').focus();
 		return false;
 	}
@@ -299,7 +299,7 @@ function panggil(elem){
 <form name="main" method="post" onSubmit="return cek_form();">    
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <tr height="25">
-    <td colspan="3" class="header" align="center">Tambah Pengguna</td>
+    <td colspan="3" class="header" align="center">Add User</td>
 </tr>
 <tr>
     <td width="20%"><strong>Login</strong></td>
@@ -307,7 +307,7 @@ function panggil(elem){
     <input type="text" name="nama1" id="nama1" size="30" readonly="readonly" value="<?=$_REQUEST['nama'] ?>" style="background-color:#CCCC99" onClick="caripegawai()">
 	<input type="hidden" name="nip" id="nip" value="<?=$_REQUEST['nip']?>">
     <input type="hidden" name="nama" id="nama" value="<?=$_REQUEST['nama']?>">
-    <a href="JavaScript:caripegawai()"><img src="images/ico/cari.png" border="0" onMouseOver="showhint('Cari pegawai',this, event, '100px')"/></a>
+    <a href="JavaScript:caripegawai()"><img src="images/ico/cari.png" border="0" onMouseOver="showhint('Search employee',this, event, '100px')"/></a>
     </td>
 </tr>
 <tr>
@@ -316,27 +316,27 @@ function panggil(elem){
     <!--<td><input type="password" name="pass1" id="pass1" size="20" /></td>-->
 </tr>
 <tr>
-    <td><strong>Konfirmasi</strong></td>
+    <td><strong>Confirm</strong></td>
     <td><input type="password" size="25" maxlength="100" name="konfirmasi" <?=$dis ?> id="konfirmasi" onKeyPress="return focusNext('status_user', event)" onFocus="panggil('konfirmasi')" value="<?=$_REQUEST['konfirmasi']?>" ></td>
     <!--<td><input type="password" name="pass2" id="pass2" size="20" /></td>-->
 </tr>
 <tr>
-    <td><strong>Tingkat</strong></td>
+    <td><strong>Grade</strong></td>
     <td>
     <select name="status_user" id="status_user" style="width:165px" onChange="change_tingkat();" onFocus="panggil('status_user')" <?=$fokus.' '.$dd1?>>
     <!--<select name="tingkat" id="tingkat" onChange="change_tingkat()">-->
-        <option value="1" <?=IntIsSelected($status_user, 1) ?> >Manajer Keuangan</option>
-        <option value="2" <?=IntIsSelected($status_user, 2) ?> >Staf Keuangan</option>
+        <option value="1" <?=IntIsSelected($status_user, 1) ?> >Manajer Finance</option>
+        <option value="2" <?=IntIsSelected($status_user, 2) ?> >Finance Staff</option>
     </select>
     </td>
 </tr>
 <tr>
-    <td><strong>Departemen</strong></td>
+    <td><strong>Department</strong></td>
     <td>
     <select name="departemen" style="width:165px;" id="departemen" <?=$dd ?> onKeyPress="return focusNext('keterangan', event)" onFocus="panggil('departemen')">
     <!--<select name="departemen" id="departemen" disabled="disabled" >-->
     <?  if ($status_user == 1 || $status_user == ""){	
-    		echo  "<option value='' selected='selected'>Semua</option>";
+    		echo  "<option value='' selected='selected'>All</option>";
     	}
 		OpenDb();
 		$query_pro = "SELECT departemen FROM jbsakad.departemen WHERE aktif=1 ORDER BY urutan ASC";
@@ -365,13 +365,13 @@ function panggil(elem){
     	</option></select></td>
 </tr>
 <tr>
-    <td valign="top">Keterangan</td>
+    <td valign="top">Info</td>
     <td><textarea name="keterangan" id="keterangan" rows="3" cols="47" onFocus="panggil('keterangan')" onKeyPress="return focusNext('simpan', event)"><?=$keterangan?></textarea></td>
 </tr>
 <tr>
     <td colspan="2" align="center">
-        <input class="but" type="submit" value="Simpan" name="simpan" id="simpan" onFocus="panggil('simpan')">
-        &nbsp;<input class="but" type="button" value="Tutup" onClick="window.close();">
+        <input class="but" type="submit" value="Save" name="simpan" id="simpan" onFocus="panggil('simpan')">
+        &nbsp;<input class="but" type="button" value="Close" onClick="window.close();">
     </td>
 </tr>
 </table>

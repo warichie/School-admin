@@ -27,7 +27,7 @@ require_once("../inc/common.php");
 
 $perpustakaan = $_REQUEST['perpustakaan'];
 $type = $_REQUEST['type'];
-$krit = $_REQUEST['krit']; //1 Statistik peminjam terbanyak 
+$krit = $_REQUEST['krit']; //1 Statistic peminjam terbanyak 
 $key = $_REQUEST['key'];
 $Limit = $_REQUEST['Limit'];
 $key = split(',', $key);
@@ -42,25 +42,25 @@ if ($perpustakaan!='-1') {
 }
 if ($krit == 1) 
 {
-	$bartitle = "Statistik Peminjam Terbanyak";
-	$pietitle = "Prosentase Peminjam Terbanyak";
-	$xtitle = "Anggota";
-	$ytitle = "Jumlah";
+	$bartitle = "Most Borrowers Statistic";
+	$pietitle = "Most Borrowers Percentage";
+	$xtitle = "Member";
+	$ytitle = "Sum";
 
 	$sql = "SELECT idanggota, count(*) as num  FROM pinjam p, daftarpustaka d WHERE p.tglpinjam BETWEEN '$key[0]' AND '$key[1]' AND d.kodepustaka=p.kodepustaka $filter GROUP BY p.idanggota ORDER BY num DESC LIMIT ".$Limit;
 	
 } elseif ($krit == 2) {
-	$bartitle = "Statistik Pustaka Favorit";
-	$pietitle = "Prosentase Pustaka";
-	$xtitle = "Judul";
-	$ytitle = "Jumlah";
+	$bartitle = "Favorite Library Books Statistic";
+	$pietitle = "Library Books Percentage";
+	$xtitle = "Title";
+	$ytitle = "Sum";
 	
 	$sql = "SELECT judul,count(*) as num FROM pinjam p, daftarpustaka d, pustaka pu WHERE p.tglpinjam BETWEEN '$key[0]' AND '$key[1]' AND d.kodepustaka=p.kodepustaka AND pu.replid=d.pustaka $filter GROUP BY judul ORDER BY num DESC LIMIT ".$Limit;
 } elseif ($krit == 3) {
-	$bartitle = "Statistik Peminjaman";
-	$pietitle = "Prosentase Peminjaman";
-	$xtitle = "Judul";
-	$ytitle = "Jumlah";
+	$bartitle = "Borrowing Statistic";
+	$pietitle = "Borrowing Percentage";
+	$xtitle = "Title";
+	$ytitle = "Sum";
 	
 	$sql = "SELECT DATE_FORMAT(p.tglpinjam, '%M %Y'),count(*) as num FROM pinjam p, daftarpustaka d, pustaka pu WHERE p.tglpinjam BETWEEN '$key[0]' AND '$key[1]' AND d.kodepustaka=p.kodepustaka AND pu.replid=d.pustaka $filter GROUP BY MONTH(p.tglpinjam),YEAR(p.tglpinjam) ORDER BY p.tglpinjam ASC";
 }

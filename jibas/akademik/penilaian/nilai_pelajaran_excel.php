@@ -61,7 +61,7 @@ $jenis = $row['replid'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aturan Perhitungan Nilai Rapor[Menu]</title>
+<title>Report Card Calculation Rules [Menu]</title>
 
 <style type="text/css">
 <!--
@@ -86,16 +86,16 @@ $jenis = $row['replid'];
     	<td>
         <table width="100%" border="0">
         <tr>
-            <td width="17%"><strong>Pelajaran</strong></td>
+            <td width="17%"><strong>Class Subject</strong></td>
             <td><strong>: <?=$namapel ?> </strong></td>
             <td rowspan="2"></td>
         </tr>
         <tr>
-            <td><strong>Aspek Penilaian</strong></td>
+            <td><strong>Assessment Aspect</strong></td>
             <td><strong>: <?=$aspekket?></strong></td>            
         </tr>
     	<tr>
-            <td><strong>Jenis Pengujian</strong></td>
+            <td><strong>Exam Type</strong></td>
             <td><strong>: <?=$namajenis?></strong></td>  
 <? 	$sql_cek_ujian = "SELECT u.replid, u.tanggal, u.deskripsi, u.idrpp 
 						FROM jbsakad.ujian u 
@@ -107,9 +107,9 @@ $jenis = $row['replid'];
         <br />
   		<table border="1" width="100%" id="table" class="tab">
        	<tr>
-            <td height="30" bgcolor="#666666" width="5" align='center'><font color="white"><strong>No.</strong></font></td>
-    		<td height="30" bgcolor="#666666" align='center'><font color="white"><strong>N I S</strong></font></td>
-    		<td height="30" bgcolor="#666666" align='center'><font color="white"><strong>Nama</strong></font></td>
+            <td height="30" bgcolor="#666666" width="5" align='center'><font color="white"><strong>#</strong></font></td>
+    		<td height="30" bgcolor="#666666" align='center'><font color="white"><strong>Student ID</strong></font></td>
+    		<td height="30" bgcolor="#666666" align='center'><font color="white"><strong>Name</strong></font></td>
     <?
        
         $i=1;
@@ -120,7 +120,7 @@ $jenis = $row['replid'];
 				$rpp = @mysql_fetch_array($res_get_rpp_name);
 				$namarpp = $rpp[rpp];
 			} else {
-				$namarpp = "Tanpa RPP";
+				$namarpp = "No Lesson Plans";
 			}
 			$nilaiujian[$i] = 0;
 			$idujian[$i] = $row_cek_ujian['replid'];			
@@ -134,8 +134,8 @@ $jenis = $row['replid'];
 	$i++;
 	}
 	?>
-    <td height="30" align="center" bgcolor="#666666" width="10px"><font color="white"><strong>Rata- rata Siswa</strong></font></td>
-    <td height="30" align="center" bgcolor="#666666"><font color="white"><strong>Nilai Akhir <?=$namajenis?></strong>&nbsp;</font>
+    <td height="30" align="center" bgcolor="#666666" width="10px"><font color="white"><strong>Student Index</strong></font></td>
+    <td height="30" align="center" bgcolor="#666666"><font color="white"><strong>Grade Point <?=$namajenis?></strong>&nbsp;</font>
 	</td>
   </tr>
   <?
@@ -190,7 +190,7 @@ $jenis = $row['replid'];
   		} ?>
         
 		<tr>
-        	<td height='25'  bgcolor='#666666' align='center' colspan='3'><font color="white"><strong>Rata-rata Kelas</strong></font></td>
+        	<td height='25'  bgcolor='#666666' align='center' colspan='3'><font color="white"><strong>Class Index Cumulative</strong></font></td>
 	<? 	$rata = 0;
         for ($j=1;$j<=count($idujian);$j++) { 
         	$rata = $rata+($nilaiujian[$j]/$jumsiswa);
@@ -214,8 +214,8 @@ $jenis = $row['replid'];
 </td>
     </tr>
     <tr>
-    	<td><strong><font color="blue">)*</font> ada perubahan nilai akhir individual &nbsp;&nbsp; 
-		<font color="#067900">)*</font> Nilai Akhir Siswa dihitung manual </strong>
+    	<td><strong><font color="blue">)*</font> Individual Final Point has changed &nbsp;&nbsp; 
+		<font color="#067900">)*</font> Student Final Point counted manually </strong>
         </td>
    	</tr>
   	<tr>
@@ -224,11 +224,11 @@ $jenis = $row['replid'];
         
         <table id="table" class="tab" width="350" border="1">
 			<tr height="30" class="header" align="center">
-				<td width="85%" bgcolor="#666666" height="30" colspan="2" align="center"><strong><font color="white">Bobot Nilai Ujian</font></strong></td>
+				<td width="85%" bgcolor="#666666" height="30" colspan="2" align="center"><strong><font color="white">Exam Quality Point</font></strong></td>
 			</tr>
             <tr>
 					<td width="85%" bgcolor="#666666" height="30"><strong><font color="white"><?=$namajenis?></font></strong></td>
-					<td width="15%" bgcolor="#666666" align="center" height="30"><strong><font color="white">Bobot</font></strong></td>
+					<td width="15%" bgcolor="#666666" align="center" height="30"><strong><font color="white">Quality</font></strong></td>
 				</tr>
      	<?
 			$sql_cek_ujian="SELECT * FROM jbsakad.ujian WHERE idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan' ORDER by tanggal ASC";			

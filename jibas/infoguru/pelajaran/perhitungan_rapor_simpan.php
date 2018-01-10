@@ -54,7 +54,7 @@ if ($_REQUEST['action'] == 'Add')
 	{
 		CloseDb(); ?>
 		<script language="javascript">
-			alert ('Aspek <?=$aspek?> sudah digunakan!');
+			alert ('Aspect <?=$aspek?> has been used');
 			window.self.history.back();
 		</script>
 <?		exit;
@@ -97,7 +97,7 @@ else
 	RollbackTrans();
 	CloseDb(); ?>
 	<script language="javascript">
-        alert ('Data gagal disimpan !');
+        alert ('Failed to save data');
         window.close();
     </script>
 <?

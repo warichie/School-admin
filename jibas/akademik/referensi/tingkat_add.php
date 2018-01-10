@@ -54,10 +54,10 @@ if (isset($_REQUEST['Simpan']))
 	if (mysql_num_rows($result) > 0) {
 		$row = @mysql_fetch_array($result);
 		CloseDb();
-		$ERROR_MSG = "Tingkat $tingkat sudah digunakan pada Departemen $row[departemen]!";
+		$ERROR_MSG = "Grade $tingkat has been used on Department $row[departemen]";
 	} else if (mysql_num_rows($result1) > 0) {		
 		CloseDb();
-		$ERROR_MSG = "Urutan $urutan sudah digunakan pada Departemen ini!";	
+		$ERROR_MSG = "Sort $urutan has been used on this Department";	
 		$cek = 1;	
 	} else {
 		$sql = "INSERT INTO tingkat SET tingkat='$tingkat',departemen='$departemen',urutan='$urutan',keterangan='$keterangan'";
@@ -87,7 +87,7 @@ switch ($cek) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Tingkat]</title>
+<title>JIBAS SIMAKA [Add Grade]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -95,10 +95,10 @@ switch ($cek) {
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('tingkat', 'Nama Tingkat') && 
-		   validateEmptyText('urutan', 'Urutan Tingkat') &&
-		   validateNumber('urutan', 'Urutan Tingkat') &&
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('tingkat', 'Grade Name') && 
+		   validateEmptyText('urutan', 'Grade Sort') &&
+		   validateNumber('urutan', 'Grade Sort') &&
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -132,7 +132,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Tingkat :.
+    .: Add Grade :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -144,31 +144,31 @@ function panggil(elem){
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen </strong></td>
+	<td width="120"><strong>Department </strong></td>
     <td><input type="text" class="disabled"  name="departemen" size="10" value="<?=$departemen ?>" readonly/><input type="hidden" name="departemen" id="departemen" value ="<?=$departemen ?>" /></td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
 	<td>
-    	<input type="text" name="tingkat" id="tingkat" size="30" maxlength="50" value="<?=$tingkat ?>" onFocus="showhint('Nama tingkat tidak boleh lebih dari 50 karakter!', this, event, '120px');panggil('tingkat')"  onKeyPress="return focusNext('urutan', event)"/>
+    	<input type="text" name="tingkat" id="tingkat" size="30" maxlength="50" value="<?=$tingkat ?>" onFocus="showhint('Grade Name should not exceed 50 characters', this, event, '120px');panggil('tingkat')"  onKeyPress="return focusNext('urutan', event)"/>
     </td>
 </tr>
 <tr>
-	<td><strong>Urutan</strong></td>
+	<td><strong>Sort</strong></td>
 	<td>
-    	<input type="text" name="urutan" id="urutan" size="3" maxlength="5" value="<?=$urutan ?>" onFocus="showhint('Urutan penampilan tingkat', this, event, '120px');panggil('urutan')"  onKeyPress="return focusNext('keterangan', event)" />
+    	<input type="text" name="urutan" id="urutan" size="3" maxlength="5" value="<?=$urutan ?>" onFocus="showhint('Grade sort display', this, event, '120px');panggil('urutan')"  onKeyPress="return focusNext('keterangan', event)" />
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onKeyPress="return focusNext('Simpan', event)" onFocus="panggil('keterangan')"><?=$keterangan ?></textarea>
     </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" onFocus="panggil('Simpan')"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" onFocus="panggil('Simpan')"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->

@@ -54,25 +54,25 @@ class CAktivitas{
 		<div class="filter">
         	<table width="100%" border="0" cellpadding="0">
               <tr>
-                <td width="7%"><strong>Periode</strong></td>
+                <td width="7%"><strong>Period</strong></td>
                 <td width="93%">
-                <input class="inptxt" name="tglAwal" id="tglAwal" type="text" value="<?=$this->tglAwal?>" style="width:100px" readonly="readonly" />&nbsp;<a href="javascript:TakeDate('tglAwal')" >&nbsp;<img src="../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;s.d.&nbsp;&nbsp;<input class="inptxt" name="tglAkhir" id="tglAkhir" type="text" value="<?=$this->tglAkhir?>"  style="width:100px" readonly="readonly"/><a href="javascript:TakeDate('tglAkhir')" >&nbsp;<img src="../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;<em>*dd-mm-yyyy</em>
+                <input class="inptxt" name="tglAwal" id="tglAwal" type="text" value="<?=$this->tglAwal?>" style="width:100px" readonly="readonly" />&nbsp;<a href="javascript:TakeDate('tglAwal')" >&nbsp;<img src="../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;to&nbsp;&nbsp;<input class="inptxt" name="tglAkhir" id="tglAkhir" type="text" value="<?=$this->tglAkhir?>"  style="width:100px" readonly="readonly"/><a href="javascript:TakeDate('tglAkhir')" >&nbsp;<img src="../img/ico/calendar.png" width="16" height="16" border="0" /></a>&nbsp;&nbsp;<em>*dd-mm-yyyy</em>
                 </td>
               </tr>
             </table>
         </div>
         <div class="funct">
         	<a href="javascript:getFresh()"><img src="../img/ico/refresh.png" border="0">&nbsp;Refresh</a>&nbsp;&nbsp;
-			<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Cetak</a>&nbsp;&nbsp; 
+			<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Print</a>&nbsp;&nbsp; 
 			<? if (IsAdmin()) { ?>
-			<a href="aktivitas.add.php"><img src="../img/ico/tambah.png" border="0">&nbsp;Tambah&nbsp;Aktivitas</a>&nbsp;        
+			<a href="aktivitas.add.php"><img src="../img/ico/tambah.png" border="0">&nbsp;Add&nbsp;Activity</a>&nbsp;        
 			<? } ?>
 		</div>
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td width="50" height="30" align="center" class="header">No</td>
-            <td width="80" height="30" align="left" class="header">Tanggal</td>
-            <td width="*" height="30" align="left" class="header">Aktivitas</td>
+            <td width="50" height="30" align="center" class="header">#</td>
+            <td width="80" height="30" align="left" class="header">Date</td>
+            <td width="*" height="30" align="left" class="header">Activity</td>
             <? if (IsAdmin()) { ?>
             <td width="50" height="30" align="center" class="header">&nbsp;</td>
 			<? } ?>
@@ -97,7 +97,7 @@ class CAktivitas{
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="4" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="4" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

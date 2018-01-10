@@ -41,7 +41,7 @@ CloseDb();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS InfoSiswa</title>
+<title>JIBAS Student Info</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <link rel="stylesheet" type="text/css" href="../script/tooltips.css" />
 <script src="../script/SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
@@ -161,7 +161,7 @@ function show_ph_siswa() {
 		show_wait('contentph');
 		sendRequestText("get_ph_siswa.php", show_ph, "nis=<?=$nis?>&tglawal="+tglawal+"&tglakhir="+tglakhir);		
 	} else {
-		alert ('Periode awal dan periode akhir harus diisi!');
+		alert ('Start and end period is required');
 	}
 }
 function cetak_pp(nis,pelajaran) {
@@ -184,7 +184,7 @@ function cetak(semester,panel) {
 			var kelas = document.panel1.kelas.value;
 			newWindow('presensi_harian_cetak.php?nis=<?=$nis?>&kelas='+kelas, 'CetakStatistikPresensiHarian','790','650','resizable=1,scrollbars=1,status=0,toolbar=0')
 		} else {
-			alert ('Tidak bisa melakukan pencetakan karena belum ada data!');
+			alert ('Cannot perform print because no data available');
 		}
 	} else if (panel == 2)  {
 		var num = document.panel2.num.value;	
@@ -192,7 +192,7 @@ function cetak(semester,panel) {
 			var kelas = document.panel2.kelas.value;
 			newWindow('presensi_pelajaran_cetak.php?nis=<?=$nis?>&kelas='+kelas, 'CetakStatistikPresensiPelajaran','790','650','resizable=1,scrollbars=1,status=0,toolbar=0'	) 
 		} else {
-			alert ('Tidak bisa melakukan pencetakan karena belum ada data!');
+			alert ('Cannot perform print because no data available');
 		}
 	
 	} else if (panel == 3)  {
@@ -364,7 +364,7 @@ function cetaknil(panel){
 </head>
 <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" style="background-color:#FFFFFF">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-	<img src="../images/ico/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+	<img src="../images/ico/movewait.gif" border="0" />Please wait...
 </div>
 <table width="100%">
     <tr>	
@@ -380,13 +380,13 @@ function cetaknil(panel){
                         <br />
                         <div id="TabbedPanels1" class="TabbedPanels">
                             <ul class="TabbedPanelsTabGroup">
-                                <li class="TabbedPanelsTab">Data&nbsp;Pribadi</li>
-								<li class="TabbedPanelsTab">Keuangan</li>
-                                <li class="TabbedPanelsTab">Presensi&nbsp;Harian</li>
-                                <li class="TabbedPanelsTab">Presensi&nbsp;Pelajaran</li>
-                                <li class="TabbedPanelsTab">Nilai</li>
-                                <li class="TabbedPanelsTab">Rapor</li>
-                                <li class="TabbedPanelsTab">Perpustakaan</li>
+                                <li class="TabbedPanelsTab">Personal Data</li>
+								<li class="TabbedPanelsTab">Finance</li>
+                                <li class="TabbedPanelsTab">Daily Presence</li>
+                                <li class="TabbedPanelsTab">Class Presence</li>
+                                <li class="TabbedPanelsTab">Point</li>
+                                <li class="TabbedPanelsTab">Report</li>
+                                <li class="TabbedPanelsTab">Library</li>
                             </ul>
                             <div class="TabbedPanelsContentGroup">
                                 <div class="TabbedPanelsContent" id="datapribadi"></div>

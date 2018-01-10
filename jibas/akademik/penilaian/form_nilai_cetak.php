@@ -52,7 +52,7 @@ $namaguru = $row['guru'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Form Pengisian Nilai Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Assessment Form]</title>
 </head>
 
 <body>
@@ -60,50 +60,50 @@ $namaguru = $row['guru'];
 <tr><td align="left" valign="top">
 <?=getHeader($departemen)?>
 <center>
-  <font size="4"><strong>FORM PENGISIAN NILAI SISWA </strong></font><br />
+  <font size="4"><strong>STUDENT ASSESSMENT FORM </strong></font><br />
  </center><br /><br />
 
 <br />
 
 <table>
 <tr>
-  	<td><strong>Departemen</strong></td>
+  	<td><strong>Department</strong></td>
   	<td width="30%"><strong>:&nbsp;<?=$departemen ?></strong></td>
-    <td rowspan="2" valign="top"><strong>Tanggal</strong></td>  	
+    <td rowspan="2" valign="top"><strong>Date</strong></td>  	
   	<td rowspan="2" valign="top"><strong>:&nbsp;_________________</strong></td>
 </tr>
 <tr>
-    <td><strong>Tahun Ajaran</strong></td>
+    <td><strong>Year</strong></td>
   	<td><strong>:&nbsp;<?=$namatahunajaran?></strong>
     </td>
 </tr>
 <tr>
     <td><strong>Semester</strong></td>
   	<td><strong>:&nbsp;<?=$namasemester?></strong></td>
-    <td rowspan="2" valign="top"><strong>Jenis Pengujian</strong></td>  
+    <td rowspan="2" valign="top"><strong>Exam Type</strong></td>  
   	<td rowspan="2" valign="top"><strong>:&nbsp;_______________________________________</strong></td>
 </tr>
 <tr>
-    <td><strong>Kelas</strong></td>
+    <td><strong>Class</strong></td>
   	<td><strong>:&nbsp;<?=$namatingkat ?>&nbsp;-&nbsp;<?=$namakelas?></strong></td>
 </tr>
 <tr>
-    <td><strong>Pelajaran</strong></td>
+    <td><strong>Class Subject</strong></td>
   	<td><strong>:&nbsp;<?=$namapelajaran?></strong></td>
-    <td valign="top" rowspan="2"><strong>Keterangan</strong></td>
+    <td valign="top" rowspan="2"><strong>Info</strong></td>
    	<td valign="top" rowspan="2"><strong>:&nbsp;_______________________________________</strong></td>		
 </tr>
 <!--
 <tr height="25">
-    <td><strong>Tanggal</strong></td>  	
+    <td><strong>Date</strong></td>  	
   	<td><strong>:&nbsp;_________________</strong></td>
 </tr>
 <tr height="25">
-  	<td><strong>Jenis Pengujian</strong></td>  
+  	<td><strong>Exam Type</strong></td>  
   	<td><strong>:&nbsp;_______________________________________</strong></td>
 </tr>
 <tr height="25">
-    <td valign="top"><strong>Keterangan</strong></td>
+    <td valign="top"><strong>Info</strong></td>
    	<td valign="top"><strong>:&nbsp;___________________________________________________________________________
      <p> &nbsp; ___________________________________________________________________________
      </strong></td>
@@ -115,11 +115,11 @@ $namaguru = $row['guru'];
     <td>
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left">
         <tr>
-            <td width="5%" height="30" align="center" class="header">No</td>
-            <td width="10%" height="30" align="center" class="header">N I S</td>
-            <td width="30%" height="30" align="center" class="header">Nama</td>
-            <td width="10%" height="30" align="center" class="header">Nilai</td>	
-            <td width="55%" height="30" align="center" class="header">Keterangan</td>
+            <td width="5%" height="30" align="center" class="header">#</td>
+            <td width="10%" height="30" align="center" class="header">Student ID</td>
+            <td width="30%" height="30" align="center" class="header">Name</td>
+            <td width="10%" height="30" align="center" class="header">Point</td>	
+            <td width="55%" height="30" align="center" class="header">Info</td>
         </tr>
         
         <?
@@ -148,7 +148,7 @@ $namaguru = $row['guru'];
     <table width="100%" border="0">
         <tr>
             <td width="80%" align="left"></td>
-            <td width="20%" align="center"><br><br>Guru</td>
+            <td width="20%" align="center"><br><br>Teacher</td>
         </tr>
         <tr>
             <td colspan="2" align="right">&nbsp;<br /><br /><br /><br /><br /></td>
@@ -157,7 +157,7 @@ $namaguru = $row['guru'];
             <td></td>
             <td valign="bottom" align="center"><strong><?=$namaguru?></strong>
             <br /><hr />
-            <strong>NIP. <?=$nip?></strong>
+            <strong>Employee ID <?=$nip?></strong>
         </tr>
     </table>
     </td>

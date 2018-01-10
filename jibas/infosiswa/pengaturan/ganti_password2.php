@@ -34,7 +34,7 @@ require_once("../include/sessioninfo.php");
 function ganti() {
 	var login=document.getElementById('login').value;
 	if (login=="LANDLORD" || login=="landlord"){
-		alert ('Maaf, Administrator tidak dapat mengganti password !');
+		alert ('Sorry, but Administrator should not change the password ');
 		parent.framecenter.location.href="../center.php";
 	} else {
 		newWindow('ganti_password.php','GantiPasswordUser',419,151,'resizable=0,scrollbars=0,status=0,toolbar=0');

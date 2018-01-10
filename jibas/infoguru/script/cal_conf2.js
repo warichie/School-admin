@@ -5,9 +5,9 @@ addCalendar("Calendar2", "Select Date", "tanggal", "main");
 addCalendar("Calendartglmulai", "Select Date", "tglmulai", "main");
 addCalendar("Calendartglakhir", "Select Date", "tglakhir", "main");
 addCalendar("Calendartglmutasi", "Select Date", "tanggal", "simpan_mutasi");*/
-addCalendar("Calendar1", "Pilih Tanggal", "tglawal", "panel5");
-addCalendar("Calendar2", "Pilih Tanggal", "tglakhir", "panel5");
-addCalendar("Calendar3", "Pilih Tanggal", "tanggal", "main");
+addCalendar("Calendar1", "Select Date", "tglawal", "panel5");
+addCalendar("Calendar2", "Select Date", "tglakhir", "panel5");
+addCalendar("Calendar3", "Select Date", "tanggal", "main");
 
 // default settings for English
 // Uncomment desired lines and modify its values
@@ -19,6 +19,6 @@ setFormat("dd-mm-yyyy");
 setSize(200, 200, -200, 16);
 
 // setWeekDay(0);
-setMonthNames("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
+setMonthNames("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 // setDayNames("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-setLinkNames("[Tutup]", "[Clear]");
+setLinkNames("[Close]", "[Clear]");

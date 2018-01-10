@@ -92,17 +92,17 @@ function validate(){
 	var abstrak=tinyMCE.get('abstrak').getContent();
 	var isi=tinyMCE.get('isi').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Berita');
+		alert ('News Title is required');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (abstrak.length==0){
-		alert ('Anda harus mengisikan data untuk Abstraksi Berita');
+		alert ('News Abstraction is required');
 		document.getElementById('abstrak').focus();
 		return false;
 	}
 	if (isi.length==0){
-		alert ('Anda harus mengisikan data untuk Isi Berita');
+		alert ('News Content is required');
 		document.getElementById('isi').focus();
 		return false;
 	}
@@ -118,31 +118,31 @@ function hapus(id){
 <body onload="document.getElementById('judul').focus();">
 <form name="beritaguru" id="beritaguru" action="beritaguru_add_simpan.php" method="post" onsubmit="return validate()" enctype="multipart/form-data">
 <input type="hidden" name="replid" id="replid" value="<?=$replid?>" />
-<input type="hidden" name="sender" id="sender" value="ubah" />
+<input type="hidden" name="sender" id="sender" value="edit" />
 <input type="hidden" name="page" id="page" value="<?=$page?>" />
 <input type="hidden" name="tahun" id="tahun" value="<?=$tahun?>" />
 <input type="hidden" name="bulan" id="bulan" value="<?=$bulan?>" />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td scope="row" align="left"><strong><font size="2" color="#999999">Ubah Berita :</font></strong><br /><br /></td>
+    <td scope="row" align="left"><strong><font size="2" color="#999999">Edit News :</font></strong><br /><br /></td>
   </tr>
   <tr>
     <td scope="row" align="left">
     <table width="100%" border="0" cellspacing="5" cellpadding="2" >
-  <tr >
-    <th width="6%" scope="row">Judul</th>
+  <tr>
+    <th width="6%" scope="row">Title</th>
     <td colspan="2"><input type="text" maxlength="254" name="judul" id="judul" size="50" value="<?=$row['judul']?>"/></td>
   </tr>
   <tr>
-    <th scope="row">Tanggal</th>
-    <td colspan="2"><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=$row['tanggal']?>"/><img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <th scope="row">Date</th>
+    <td colspan="2"><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=$row['tanggal']?>"/><img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
-  <tr >
-    <th valign="top" scope="row">Abstrak</th>
+  <tr>
+    <th valign="top" scope="row">Abstract</th>
     <td colspan="2"><textarea name="abstrak" id="abstrak" cols="100"><?=$row['abstrak']?></textarea></td>
   </tr>
   <tr>
-    <th valign="top" scope="row">Isi</th>
+    <th valign="top" scope="row">Content</th>
     <td colspan="2">
     <textarea name="isi" id="isi" rows="30" cols="100">
 	<? $isi = $row['isi'];
@@ -153,8 +153,8 @@ function hapus(id){
   </tr>
   <tr>
     <th colspan="3" scope="row" align="center" bgcolor="#FFFFFF" height="30">
-      <input class="but" type="submit" name="simpan" id="simpan" value="Simpan" title="Simpan berita ini !"/>
-    &nbsp;<input class="but" type="button" name="batal" id="batal" value="Batal" onclick="window.self.history.back();" title="Batalkan dan kembali ke Halaman Berita"/></th>
+      <input class="but" type="submit" name="simpan" id="simpan" value="Save" title="Save this News"/>
+    &nbsp;<input class="but" type="button" name="batal" id="batal" value="Cancel" onclick="window.self.history.back();" title="Cancel and back to News Page"/></th>
     </tr>
 </table>
     </td>

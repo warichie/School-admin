@@ -131,7 +131,7 @@ function cek() {
 	if (jumfilechecked>0){
 		return true;
 	} else {
-		alert ('Minimal harus ada satu file terpilih yang akan dihapus !');
+		alert ('You should have at least one file to deleted');
 		return false;
 	}
 
@@ -140,7 +140,7 @@ function del_all(){
 	var x;
 	var jum = document.getElementById("numfile").value;
 	if (jum.length>0){
-	if (confirm('Anda yakin akan menghapus seluruh file yang ada dalam folder ini?')){
+	if (confirm('Are you sure want to delete all files in this folder?')){
 		for (x=1;x<=jum;x++){
 			document.getElementById("cekfile"+x).checked=true;
 		}
@@ -151,7 +151,7 @@ function del_all(){
 }
 function del_file(){
 	//return cek();
-	//if (confirm('Anda yakin akan menghapus file ini ?'))
+	//if (confirm('Are you sure want to delete this file?'))
 	del();
 }
 function del(){
@@ -173,10 +173,10 @@ function del(){
 	var num = document.getElementById("numdel").value;
 	var list = document.getElementById("listdel").value;
 	if (list.length==0){
-		alert ('Minimal ada satu file yang akan dihapus');
+		alert ('You should have at least one file to deleted');
 		return false;
 	} 
-	if (confirm('Anda yakin akan menghapus file ini ?'))
+	if (confirm('Are you sure want to delete this file?'))
 	document.location.href="files.php?op=34983xihxf084bzux834hx8x7x93&listdel="+list+"&numdel="+num+"&iddir="+iddir;
 	else {
 	document.getElementById("numdel").value="";
@@ -204,17 +204,17 @@ $idguru = $row[1];
 $dfullpath = $row[0];
 $fullpath = str_replace($rootname, "", $dfullpath);
 ?>
-<font size="3" color="#000033">f i l e s</font>
+<font size="3" color="#000033">File</font>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
-	<td width="40%" align="left">Content of: <font size="2" color="#990000"><em><strong>&nbsp;<?="(root)/".$fullpath; ?></strong></em></font></td>
+	<td width="40%" align="left">Path file: <font size="2" color="#990000"><em><strong>&nbsp;<?="(root)/".$fullpath; ?></strong></em></font></td>
     <td width="*" align="right">
 	 <? if (SI_USER_ID()==$idguru){?>
 		<a href="#" onclick="tambahfile('<?=$iddir?>')">
-			<img src="../../images/ico/tambah.png" border="0" />&nbsp;Unggah Berkas
+			<img src="../../images/ico/tambah.png" border="0" />&nbsp;Upload File
 		</a>
 		<a href="#" onclick="tambahfilezip('<?=$iddir?>')">
-			<img src="../../images/ico/tambah.png" border="0" />&nbsp;Unggah & Ekstrak ZIP
+			<img src="../../images/ico/tambah.png" border="0" />&nbsp;Upload & Exctract zip
 		</a>
 	 <? } ?>&nbsp;
 	 <a href="#" onclick="document.location.reload()"><img src="../../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>&nbsp;&nbsp;</td>
@@ -227,10 +227,10 @@ $fullpath = str_replace($rootname, "", $dfullpath);
 <br />
 <table border="1" style="border-collapse:collapse" cellpadding="2" cellspacing="2" width="100%" class="tab" id="table" bordercolor="#000000">
 <tr height="30">
-	<td width="2%" align="center" class="header">No</td>
+	<td width="2%" align="center" class="header">#</td>
     <? if (SI_USER_ID()==$idguru){ ?>
 	<td width="3%" align="center" class="header">
-	<input type="checkbox" name="cek" id="cek" onClick="cek_all()" title="Pilih semua" onMouseOver="showhint('Pilih semua', this, event, '120px')"/>
+	<input type="checkbox" name="cek" id="cek" onClick="cek_all()" title="Select all" onMouseOver="showhint('Select all', this, event, '120px')"/>
 	</td>
 	<? } ?>
     <td width="*" align="center" class="header">Name</td>
@@ -281,7 +281,7 @@ if ($numfile>0)
 else
 {
 ?>
-<tr><td colspan="5" align="center"><div class="divNotif">Tidak ada file dalam folder ini</div></td></tr>
+<tr><td colspan="5" align="center"><div class="divNotif">No file in this folder.</div></td></tr>
 <?
 } // if
 CloseDb();
@@ -292,8 +292,8 @@ CloseDb();
 <input type="hidden" name="jumchecked" id="jumchecked">
 </table>
 <? if ($numfile>0 && SI_USER_ID()==$idguru){ ?>
-<input type="button" class="but" name="del" id="del" value="Hapus Semua" onClick="del_all()">
-<input type="button" class="but" name="del2" id="del2" value="Hapus yang dipilih" onClick="del_file()">
+<input type="button" class="but" name="del" id="del" value="Hapus All" onClick="del_all()">
+<input type="button" class="but" name="del2" id="del2" value="Hapus entered" onClick="del_file()">
 <? } ?>
 </form>
 <script language='JavaScript'>

@@ -32,7 +32,7 @@
     <td bgcolor="#FFFFFF">
 	  <input align="middle" id="chatnick" type="text" size="9" maxlength="9" >&nbsp;
 	  <input id="chatmsg" onFocus="focus('chatmsg')" onBlur="unfocus('chatmsg')" type="text" size="60" maxlength="80"  onkeyup="keyup(event.keyCode);"> 
-			<input type="button" value="Kirim" onClick="submit_msg();" style="cursor:pointer; background-image:url(../jibasinfoguru/style/formbg2.gif); color:#99FF00;">
+			<input type="button" value="Send" onClick="submit_msg();" style="cursor:pointer; background-image:url(../jibasinfoguru/style/formbg2.gif); color:#99FF00;">
     </td>
     <td background="images/chat_17.png">&nbsp;</td>
   </tr>
@@ -64,7 +64,7 @@
 
 /* Internal Variables & Stuff */
 	chatmsg.focus()
-	document.getElementById("chatwindow").innerHTML = "loading...";
+	document.getElementById("chatwindow").innerHTML = "Loading...";
 
 	var xmlhttp = false;
 	var xmlhttp2 = false;
@@ -140,7 +140,7 @@ function submit_msg(){
 	msg = document.getElementById("chatmsg").value;
 
 	if (nick == "") { 
-		check = prompt("please enter username:"); 
+		check = prompt("Please enter your username:"); 
 		if (check === null) return 0; 
 		if (check == "") check = "anonymous"; 
 		document.getElementById("chatnick").value = check;

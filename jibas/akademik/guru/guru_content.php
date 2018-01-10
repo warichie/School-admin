@@ -75,7 +75,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Status Guru</title>
+<title>Teacher Status</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -133,7 +133,7 @@ function hapus(replid) {
 	var guru = document.getElementById('guru').value;
 	var urut = document.getElementById('urut').value;
 	var urutan = document.getElementById('urutan').value;
-	if (confirm("Apakah anda yakin akan menghapus status guru ini?"))
+	if (confirm("Are you sure want to delete this Teacher Status?"))
 		document.location.href = "guru_content.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&departemen="+departemen+"&aktif="+aktif+"&guru="+guru+"&id="+id+"&urut="+urut+"&urutan="+urutan;
 }
 
@@ -181,11 +181,11 @@ function change_urut(urut,urutan) {
     <table border="0"width="100%">
     <!-- TABLE TITLE -->
     <tr>
-    	<td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pendataan Guru</font></td>
+    	<td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Teacher Data Collection</font></td>
     </tr>
     <tr>
       	<td align="right"><a href="../guru.php?page=g" target="content">
-        <font size="1" color="#000000"><b>Guru & Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Guru</b></font> 		</td>
+        <font size="1" color="#000000"><b>Teacher and Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Teacher</b></font> 		</td>
     </tr>   
 	</table> 
     <br /><br />
@@ -201,13 +201,13 @@ function change_urut(urut,urutan) {
    	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<!-- TABLE LINK -->
     <tr>
-    	<td align="center"><font size="4"><strong>Guru <?=$guru?> </strong></font><br /><br /></td>
+    	<td align="center"><font size="4"><strong>Teacher <?=$guru?> </strong></font><br /><br /></td>
     </tr>
 	<tr> 
     	<td align="right">
-    	<a href="#" onClick="refresh()" ><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    	<a href="JavaScript:cetak('<?=$urut?>','<?=$urutan?>')" ><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-	    <a href="JavaScript:tambah()" ><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')"/>&nbsp;Tambah Guru</a><br /><br />
+    	<a href="#" onClick="refresh()" ><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    	<a href="JavaScript:cetak('<?=$urut?>','<?=$urutan?>')" ><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
+	    <a href="JavaScript:tambah()" ><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')"/>&nbsp;Add Teacher</a><br /><br />
     	</td>
     </tr>
     </table>
@@ -218,14 +218,14 @@ function change_urut(urut,urutan) {
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <!-- TABLE CONTENT -->
     <tr height="30" class="header" align="center">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nip','<?=$urutan?>')">NIP  <?=change_urut('nip',$urut,$urutan)?></td>
-        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('p.nama','<?=$urutan?>')">Guru <?=change_urut('p.nama',$urut,$urutan)?></td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nip','<?=$urutan?>')">Employee ID  <?=change_urut('nip',$urut,$urutan)?></td>
+        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('p.nama','<?=$urutan?>')">Teacher <?=change_urut('p.nama',$urut,$urutan)?></td>
      <? if (!$aktif) { ?>
-       	<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('j.nama','<?=$urutan?>')">Pelajaran <?=change_urut('j.nama',$urut,$urutan)?></td>
+       	<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('j.nama','<?=$urutan?>')">Subject <?=change_urut('j.nama',$urut,$urutan)?></td>
      <? } ?>
-        <td width="17%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('statusguru','<?=$urutan?>')">Status Guru <?=change_urut('statusguru',$urut,$urutan)?></td>
-        <td width="*" >Keterangan</td>
+        <td width="17%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('statusguru','<?=$urutan?>')">Teacher Status <?=change_urut('statusguru',$urut,$urutan)?></td>
+        <td width="*" >Info</td>
         <td width="8%" class="header" align="center">&nbsp;</td>
     </tr>
     <?		
@@ -243,8 +243,8 @@ function change_urut(urut,urutan) {
         <td><?=$row[4]?></td>        
         
  		<td align="center">
-            <a href="JavaScript:edit(<?=$row[0] ?>)" onMouseOver="showhint('Ubah Guru!', this, event, '50px')"><img src="../images/ico/ubah.png" border="0" /></a>&nbsp;
-            <a href="JavaScript:hapus(<?=$row[0] ?>)" onMouseOver="showhint('Hapus Guru!', this, event, '50px')"><img src="../images/ico/hapus.png" border="0" /></a>
+            <a href="JavaScript:edit(<?=$row[0] ?>)" onMouseOver="showhint('Edit Teacher', this, event, '50px')"><img src="../images/ico/ubah.png" border="0" /></a>&nbsp;
+            <a href="JavaScript:hapus(<?=$row[0] ?>)" onMouseOver="showhint('Delete', this, event, '50px')"><img src="../images/ico/hapus.png" border="0" /></a>
  		</td>
 
     </tr>
@@ -263,8 +263,8 @@ function change_urut(urut,urutan) {
 	<tr>
 		<td align="center" valign="middle" height="200">
 
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.   
-        <br />Klik <a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a> untuk mengisi data baru. 
+    	<font size = "2" color ="red"><b>Data Not Found.   
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         </b></font>
 		</td>
 	</tr>

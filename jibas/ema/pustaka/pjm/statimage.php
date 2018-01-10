@@ -33,10 +33,10 @@ $krit = $_REQUEST['krit'];
 
 if ($krit == 1) 
 {
-	$bartitle = "Banyaknya Pegawai berdasarkan Bagian";
-	$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Bagian";
-	$xtitle = "Bagian";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Section";
+	$pietitle = "Amount of Employee based on Section Percentage";
+	$xtitle = "Section";
+	$ytitle = "Sum";
 
 	$sql = "SELECT bagian, count(replid) FROM 
 	        $db_name_sdm.pegawai
@@ -44,10 +44,10 @@ if ($krit == 1)
 }
 if ($krit == 2) 
 {
-	$bartitle = "Banyaknya Pegawai berdasarkan Agama";
-	$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Agama";
-	$xtitle = "Agama";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Religion";
+	$pietitle = "Amount of Employee based on Religion Percentage";
+	$xtitle = "Religion";
+	$ytitle = "Sum";
 
 	$sql = "SELECT agama, count(replid) FROM 
 	        $db_name_sdm.pegawai
@@ -55,10 +55,10 @@ if ($krit == 2)
 }
 if ($krit == 3) 
 {
-	$bartitle = "Banyaknya Pegawai berdasarkan Gelar";
-	$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Gelar";
-	$xtitle = "Gelar";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Academic Title";
+	$pietitle = "Amount of Employee based on Academic Title Percentage";
+	$xtitle = "Academic Title";
+	$ytitle = "Sum";
 
 	$sql = "SELECT gelar, count(replid) FROM 
 	        $db_name_sdm.pegawai
@@ -67,36 +67,36 @@ if ($krit == 3)
 
 if ($krit == 4)
 {
-	$bartitle = "Banyaknya Pegawai berdasarkan Jenis Kelamin";
-	$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Jenis Kelamin";
-	$xtitle = "Jenis Kelamin";
-	$ytitle = "Jumlah";
-	$sql	=  "SELECT IF(kelamin='l','Laki - laki','Perempuan') as X, COUNT(nip) FROM $db_name_sdm.pegawai  WHERE aktif=1 GROUP BY X";
+	$bartitle = "Amount of Employee based on Gender";
+	$pietitle = "Amount of Employee based on Gender Percentage";
+	$xtitle = "Gender";
+	$ytitle = "Sum";
+	$sql	=  "SELECT IF(kelamin='l','Male','Female') as X, COUNT(nip) FROM $db_name_sdm.pegawai  WHERE aktif=1 GROUP BY X";
 }
 
 if ($krit == 5)
 {
-	$bartitle = "Banyaknya Pegawai berdasarkan Status Aktif";
-	$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Status Aktif";
-	$xtitle = "Status Aktif";
-	$ytitle = "Jumlah";
-	$sql	=  "SELECT IF(aktif=1,'Aktif','Tidak Aktif') as X, COUNT(nip) FROM $db_name_sdm.pegawai GROUP BY X";
+	$bartitle = "Amount of Employee based on Status Active";
+	$pietitle = "Amount of Employee based on Status Active Percentage";
+	$xtitle = "Status Active";
+	$ytitle = "Sum";
+	$sql	=  "SELECT IF(aktif=1,'Active','Inactive') as X, COUNT(nip) FROM $db_name_sdm.pegawai GROUP BY X";
 }
 
 if ($krit == 6)
 {
-	$bartitle = "Banyaknya Pegawai berdasarkan Status Menikah";
-	$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Status Menikah";
-	$xtitle = "Menikah";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Marital Status";
+	$pietitle = "Amount of Employee based on Marital Status Percentage";
+	$xtitle = "Marital Status";
+	$ytitle = "Sum";
 	$sql	=  "SELECT IF(nikah='menikah','Menikah','Belum Menikah') as X, COUNT(nip) FROM $db_name_sdm.pegawai  WHERE aktif=1 GROUP BY X";
 }
 if ($krit == 7) 
 {
-	$bartitle = "Banyaknya Pegawai berdasarkan Suku";
-	$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Suku";
-	$xtitle = "Suku";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Ethnicity";
+	$pietitle = "Amount of Employee based on Ethnicity Percentage";
+	$xtitle = "Ethnicity";
+	$ytitle = "Sum";
 
 	$sql = "SELECT suku, count(replid) FROM 
 	        $db_name_sdm.pegawai
@@ -104,20 +104,20 @@ if ($krit == 7)
 }
 if ($krit == 8)
 {
-	$bartitle = "Banyaknya Pegawai berdasarkan Tahun Kelahiran";
-	$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Tahun Kelahiran";
-	$xtitle = "Tahun Lahir";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Year of Birth";
+	$pietitle = "Amount of Employee based on Year of Birth Perecentage";
+	$xtitle = "Year of Birth";
+	$ytitle = "Sum";
 	$sql = "SELECT YEAR(tgllahir) as X, count(replid) FROM 
 	        $db_name_sdm.pegawai
 			WHERE aktif=1 GROUP BY X ORDER BY X ";
 }
 if ($krit == 9)
 {
-	$bartitle = "Banyaknya Pegawai berdasarkan Usia";
-	$pietitle = "Prosentase Banyaknya Pegawai berdasarkan Usia";
-	$xtitle = "Usia (tahun)";
-	$ytitle = "Jumlah";
+	$bartitle = "Amount of Employee based on Age";
+	$pietitle = "Amount of Employee based on Age Percentage";
+	$xtitle = "Age";
+	$ytitle = "Sum";
 	$sql = "SELECT G, COUNT(nip) FROM (
 	          SELECT nip, IF(usia < 20, '<20',
                           IF(usia >= 20 AND usia <= 30, '20-30',

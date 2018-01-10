@@ -74,17 +74,17 @@ function validate(){
 	var abstrak=tinyMCE.get('abstrak').getContent();
 	var isi=tinyMCE.get('isi').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Berita');
+		alert ('News Title is required');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (abstrak.length==0){
-		alert ('Anda harus mengisikan data untuk Abstraksi Berita');
+		alert ('News Abstraction is required');
 		document.getElementById('abstrak').focus();
 		return false;
 	}
 	if (isi.length==0){
-		alert ('Anda harus mengisikan data untuk Isi Berita');
+		alert ('News Content is required');
 		document.getElementById('isi').focus();
 		return false;
 	}
@@ -102,44 +102,44 @@ function hapusfile(field){
 <input type="hidden" name="sender" id="sender" value="tambah" />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td scope="row" align="left"><strong>Berita Baru :</strong></td>
+    <td scope="row" align="left"><strong>Recent News :</strong></td>
   </tr>
   <tr>
     <td scope="row" align="left">
     <table width="100%" border="1" cellspacing="0" class="tab" id="table">
   <tr style="background-color:#e7e7cf;">
-    <th width="8%" scope="row">Judul</th>
+    <th width="8%" scope="row">Title</th>
     <td colspan="2"><input type="text" name="judul" id="judul" size="50" /></td>
   </tr>
   <tr>
-    <th scope="row">Tanggal</th>
-    <td colspan="2"><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <th scope="row">Date</th>
+    <td colspan="2"><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
   <tr style="background-color:#e7e7cf;">
-    <th valign="top" scope="row">Abstrak</th>
+    <th valign="top" scope="row">Abstract</th>
     <td colspan="2"><textarea name="abstrak" id="abstrak"></textarea></td>
   </tr>
   <tr>
-    <th valign="top" scope="row">Isi</th>
+    <th valign="top" scope="row">Class Subject</th>
     <td colspan="2"><textarea name="isi" id="isi"></textarea></td>
   </tr>
   <tr style="background-color:#e7e7cf;">
-    <th rowspan="3" scope="row">Lampiran</th>
+    <th rowspan="3" scope="row">Attachment</th>
     <td width="2%"><div align="center">#1</div></td>
-    <td width="90%"><input size="25" type="file" id="file1" name="file1"/><img src="../../images/ico/hapus.png" onclick="hapusfile('file1')" title="Hapus file ini !" style="cursor:pointer" />&nbsp;</td>
+    <td width="90%"><input size="25" type="file" id="file1" name="file1"/><img src="../../images/ico/hapus.png" onclick="hapusfile('file1')" title="Delete this file" style="cursor:pointer" />&nbsp;</td>
   </tr>
   <tr style="background-color:#e7e7cf;">
     <td><div align="center">#2</div></td>
-    <td><input size="25" type="file" name="file2" id="file3" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file2')" title="Hapus file ini !" style="cursor:pointer" />&nbsp;</td>
+    <td><input size="25" type="file" name="file2" id="file3" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file2')" title="Delete this file" style="cursor:pointer" />&nbsp;</td>
   </tr>
   <tr style="background-color:#e7e7cf;">
     <td><div align="center">#3</div></td>
-    <td><input size="25" type="file" name="file3" id="file3" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file3')" title="Hapus file ini !" style="cursor:pointer" />&nbsp;</td>
+    <td><input size="25" type="file" name="file3" id="file3" /><img src="../../images/ico/hapus.png" onclick="hapusfile('file3')" title="Delete this file" style="cursor:pointer" />&nbsp;</td>
   </tr>
   <tr>
     <th colspan="3" scope="row" align="center" bgcolor="#FFFFFF" height="30">
-      <input class="but" type="submit" name="simpan" id="simpan" value="Simpan" title="Simpan berita ini !"/>
-    &nbsp;<input class="but" type="button" name="batal" id="batal" value="Batal" onclick="window.self.history.back();" title="Batalkan dan kembali ke Halaman Berita"/></th>
+      <input class="but" type="submit" name="simpan" id="simpan" value="Save" title="Save this News"/>
+    &nbsp;<input class="but" type="button" name="batal" id="batal" value="Cancel" onclick="window.self.history.back();" title="Cancel and back to News Page"/></th>
     </tr>
 </table>
     </td>

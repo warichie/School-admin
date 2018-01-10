@@ -56,11 +56,11 @@ if (isset($_REQUEST['Simpan'])) {
 	
 	if (mysql_num_rows($result) > 0) {		
 		CloseDb();
-		$ERROR_MSG = "Departemen $departemen sudah digunakan!";	
+		$ERROR_MSG = "Department $departemen has been used";	
 		$cek = 0;	
 	} else if (mysql_num_rows($result1) > 0) {		
 		CloseDb();
-		$ERROR_MSG = "Urutan $urutan sudah digunakan!";
+		$ERROR_MSG = "Sort $urutan has been used";
 		$cek = 2;
 		
 	} else {
@@ -94,7 +94,7 @@ switch ($cek) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Departemen]</title>
+<title>JIBAS SIMAKA [Add Department]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -121,12 +121,12 @@ function tutup()
 
 function validate() 
 {
-	return validateEmptyText('departemen', 'Nama Departemen') && 
-		   validateMaxText('departemen', 15, 'Nama Departemen') &&	
-		   validateEmptyText('nip', 'NIP dan Nama Kepala Sekolah') && 
-		   validateEmptyText('urutan', 'Urutan Departemen') && 
-		   validateNumber('urutan', 'Urutan Departemen') &&
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('departemen', 'Department Name') && 
+		   validateMaxText('departemen', 15, 'Department Name') &&	
+		   validateEmptyText('nip', 'Employee ID and Name') && 
+		   validateEmptyText('urutan', 'Department Sort') && 
+		   validateNumber('urutan', 'Department Sort') &&
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) 
@@ -166,7 +166,7 @@ function panggil(elem)
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
     <div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Departemen :.
+    .: Add Department :.
     </div>
     </td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -180,32 +180,32 @@ function panggil(elem)
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
 	<td>
-    	<input type="text" name="departemen" id="departemen" size="10" maxlength="15" value="<?=$departemen ?>" onFocus="showhint('Nama departemen tidak boleh lebih dari 50 karakter!', this, event, '120px');panggil('departemen')" onKeyPress="return focusNext('nip', event)"/></td>
+    	<input type="text" name="departemen" id="departemen" size="10" maxlength="15" value="<?=$departemen ?>" onFocus="showhint('Department Name should not exceed 50 characters', this, event, '120px');panggil('departemen')" onKeyPress="return focusNext('nip', event)"/></td>
 </tr>
 <tr>
-    <td><strong>Kepala Sekolah</strong></td>
+    <td><strong>Headmaster</strong></td>
     <td><input type="text" class="disabled" name="nip" id="nip" size="10" value="<?=$nipkepsek ?>" readonly onClick="caripegawai()" onKeyPress="caripegawai();" onFocus="panggil('nip')"/>
     	<input type="hidden" name="nipkepsek" id="nipkepsek" value="<?=$nipkepsek ?>"/>
       <input type="text" class="disabled" name="nama" id="nama" size="25" value="<?=$namakepsek ?>"   readonly onClick="caripegawai()" onFocus="panggil('nama')"/>&nbsp;
       	<input type="hidden" name="namakepsek" id="namakepsek" value="<?=$namakepsek?>"/>
-        <a href="JavaScript:caripegawai()"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('Cari Pegawai!', this, event, '50px')"/></a>    </td>
+        <a href="JavaScript:caripegawai()"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('Search', this, event, '50px')"/></a>    </td>
 </tr>
 <tr>
-	<td><strong>Urutan</strong></td>
+	<td><strong>Sort</strong></td>
 	<td>
-    	<input type="text" name="urutan" id="urutan" size="3" maxlength="5" value="<?=$urutan ?>" onFocus="showhint('Urutan penampilan departemen', this, event, '120px');panggil('urutan')" onKeyPress="return focusNext('keterangan', event)"/>    </td>
+    	<input type="text" name="urutan" id="urutan" size="3" maxlength="5" value="<?=$urutan ?>" onFocus="showhint('Department display sort', this, event, '120px');panggil('urutan')" onKeyPress="return focusNext('keterangan', event)"/>    </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onKeyPress="return focusNext('Simpan', event)" onFocus="panggil('keterangan')"><?=$keterangan ?></textarea>    </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" onFocus="panggil('Simpan')"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" onFocus="panggil('Simpan')"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>

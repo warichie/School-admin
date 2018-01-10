@@ -82,7 +82,7 @@ function cek() {
 	if (jumfilechecked>0){
 		return true;
 	} else {
-		alert ('Minimal harus ada satu file terpilih yang akan dihapus !');
+		alert ('You should have at least one file to deleted');
 		return false;
 	}
 
@@ -107,10 +107,10 @@ $idguru = $row[1];
 $dfullpath = $row[0];
 $fullpath = str_replace($rootname, "", $dfullpath);
 ?>
-<font size="3" color="#000033">f i l e s</font>
+<font size="3" color="#000033">File</font>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
-	<td width="46%" align="left">Content of: <font size="2" color="#990000"><em><strong>&nbsp;<?="(root)/".$fullpath; ?></strong></em></font></td>
+	<td width="46%" align="left">Path file: <font size="2" color="#990000"><em><strong>&nbsp;<?="(root)/".$fullpath; ?></strong></em></font></td>
    <td width="54%" align="right">&nbsp;</td>
 </tr>
 <tr>
@@ -121,7 +121,7 @@ $fullpath = str_replace($rootname, "", $dfullpath);
 <br />
 <table border="1" style="border-collapse:collapse" cellpadding="2" cellspacing="2" width="100%" class="tab" id="table" bordercolor="#000000">
 <tr height="30">
-	<td width="2%" align="center" class="header">No</td>
+	<td width="2%" align="center" class="header">#</td>
    <td width="60%" align="center" class="header">Name</td>
    <td width="12%" align="center" class="header">Size</td>
    <td width="22%" align="center" class="header">Date</td>
@@ -160,7 +160,7 @@ if ($numfile>0)
 else
 {
 ?>
-<tr><td colspan="5" align="center"><div class="divNotif">Tidak ada file dalam folder ini</div></td></tr>
+<tr><td colspan="5" align="center"><div class="divNotif">No file in this folder.</div></td></tr>
 <?
 } // if
 CloseDb();

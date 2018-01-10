@@ -1,5 +1,5 @@
 // JavaScript Document
-// Last Update: 26 Agustus 2010
+// Last Update: 26 August 2010
 
 function rptrim(inputString) 
 {

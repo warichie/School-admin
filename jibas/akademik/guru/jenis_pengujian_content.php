@@ -53,7 +53,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Status Guru</title>
+<title>Teacher Status</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -76,7 +76,7 @@ function edit(replid) {
 
 function hapus(replid,idpelajaran) {
 	//var departemen = document.getElementById('departemen').value;
-	if (confirm("Apakah anda yakin akan menghapus jenis pengujian ini?"))
+	if (confirm("Are you sure want to delete this Exam Type?"))
 		document.location.href = "jenis_pengujian_content.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&id="+idpelajaran;
 }
 
@@ -102,13 +102,12 @@ function cetak(id) {
      <table border="0"width="100%">
     <!-- TABLE TITLE -->
     <tr>     
-      <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Jenis Pengujian</font></td>
+      <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Exam Type</font></td>
     </tr>
     
     <tr>
       <td align="right"><a href="../guru.php?page=p" target="content">
-        <font size="1" color="#000000"><b>Guru & Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Jenis
-        Pengujian</b></font></td>
+        <font size="1" color="#000000"><b>Teacher and Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Exam Type</b></font></td>
     </tr>    
 	</table><br /><br />
     </td>
@@ -123,9 +122,9 @@ function cetak(id) {
     <!-- TABLE LINK -->
     <tr>
     <td align="right">
-        <a href="#" onclick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak(<?=$id?>)"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;
-        <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')"/>&nbsp;Tambah Jenis Pengujian</a>
+        <a href="#" onclick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak(<?=$id?>)"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;
+        <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')"/>&nbsp;Add Exam Type</a>
     </td>
     </tr>
     </table>
@@ -133,10 +132,10 @@ function cetak(id) {
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
     <!-- TABLE CONTENT -->
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="20%" class="header" align="center">Singkatan</td>
-		<td width="20%" class="header" align="center">Jenis Pengujian</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="20%" class="header" align="center">Code</td>
+		<td width="20%" class="header" align="center">Exam Type</td>
+        <td width="*" class="header" align="center">Info</td>
         <td width="8%" class="header" align="center">&nbsp;</td>
     </tr>
     
@@ -151,9 +150,9 @@ function cetak(id) {
 		<td align="center"><?=$row[1]?></td>
         <td><?=$row[3]?></td>        
 		<td align="center">
-            <a href="JavaScript:edit(<?=$row[0] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Jenis Pengujian!', this, event, '80px')" /></a>&nbsp;
+            <a href="JavaScript:edit(<?=$row[0] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Exam Type', this, event, '80px')" /></a>&nbsp;
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>
-            <a href="JavaScript:hapus(<?=$row[0] ?>,<?=$row[2] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Jenis Pengujian!', this, event, '80px')" /></a>
+            <a href="JavaScript:hapus(<?=$row[0] ?>,<?=$row[2] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete', this, event, '80px')" /></a>
 <? } ?>
         </td>
     </tr>
@@ -170,8 +169,8 @@ function cetak(id) {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi jenis pengujian untuk pelajaran <?=$nama_pel?>. 
+    	<font size = "2" color ="red"><b>Data Not Found.
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to add an Exam Type for <?=$nama_pel?>. 
         </b></font>
 	</td>
 </tr>

@@ -138,15 +138,15 @@ function show_pembayaran() {
 	var lunas = document.getElementById('lunas').value;
 	
 	if (idangkatan.length == 0) {	
-		alert ('Pastikan angkatan sudah ada!');	
+		alert ('Make sure that year is existed');	
 		document.getElementById('idangkatan').focus();
 		return false;		
 	} else if (idkategori.length == 0) {
-		alert ('Pastikan kategori pembayaran sudah ada!');
+		alert ('Make sure that payment category is existed');
 		document.getElementById('idkategori').focus();
 		return false;	
 	} else if (idpenerimaan.length == 0) {
-		alert ('Pastikan penerimaan pembayaran sudah ada!');
+		alert ('Make sure that admission is existed');
 		document.getElementById('idpenerimaan').focus();
 		return false;	
 	}
@@ -181,7 +181,7 @@ function focusNext(elemName, evt) {
     <td rowspan="3" width="52%">
     <table width = "100%" border = "0">
 	<tr>
-        <td width="18%"><strong>Departemen </strong></td>
+        <td width="18%"><strong>Department </strong></td>
         <td>
     	<select id="departemen" name="departemen" style="width:188px" onchange="change_dep()" onKeyPress="return focusNext('idangkatan', event)">
    <?
@@ -193,7 +193,7 @@ function focusNext(elemName, evt) {
             <option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?>><?=$value ?></option>
         <? } ?>  
     	</select>
-        <strong>Angkatan </strong>
+        <strong>Graduates </strong>
         </td>
         <td>
         <select id="idangkatan" name="idangkatan" style="width:100px" onchange="change_ang()" onKeyPress="return focusNext('idtingkat', event)">
@@ -208,10 +208,10 @@ function focusNext(elemName, evt) {
         </td>
     </tr>
      <tr>
-    	<td><strong>Kelas </strong></td>
+    	<td><strong>Class </strong></td>
         <td>
         <select name="idtingkat" id="idtingkat" onChange="change_ang()" style="width:80px;" onkeypress="return focusNext('lunas', event)" >
-        <option value="-1" <?=IntIsSelected(-1, $idtingkat)?>>(Semua)</option>
+        <option value="-1" <?=IntIsSelected(-1, $idtingkat)?>>(All)</option>
         <?
            
 			$sql="SELECT * FROM jbsakad.tingkat WHERE departemen='$departemen' AND aktif = 1 ORDER BY urutan";
@@ -225,7 +225,7 @@ function focusNext(elemName, evt) {
         </select>
        
         <select id="idkelas" name="idkelas" style="width:103px" onchange="change_kelas()" <?=$dis?> onkeypress="return focusNext('lunas', event)">
-        <option value="-1">(Semua)</option>
+        <option value="-1">(All)</option>
 		<?  $sql = "SELECT DISTINCT k.replid, k.kelas FROM jbsakad.tahunajaran t, jbsakad.kelas k WHERE t.replid = k.idtahunajaran AND k.aktif = 1 AND k.idtingkat = '$idtingkat' AND t.aktif = 1 ORDER BY k.kelas";
             $result = QueryDb($sql);
             while($row = mysql_fetch_row($result)) {
@@ -238,16 +238,16 @@ function focusNext(elemName, evt) {
         </td>
         <td>
         <select id="lunas" name="lunas" style="width:100px" onchange="change_status()" <?=$dis1?> onkeypress="return focusNext('idkategori', event)">
-            <option value="-1" <?=IntIsSelected(-1, $lunas) ?> >(Semua)</option>
-            <option value="0" <?=IntIsSelected(0, $lunas) ?> >Belum Lunas</option>
-            <option value="1" <?=IntIsSelected(1, $lunas) ?> >Lunas</option>
-            <option value="2" <?=IntIsSelected(2, $lunas) ?> >Gratis</option>
+            <option value="-1" <?=IntIsSelected(-1, $lunas) ?> >(All)</option>
+            <option value="0" <?=IntIsSelected(0, $lunas) ?> >No Paid Off Yet</option>
+            <option value="1" <?=IntIsSelected(1, $lunas) ?> >Paid Off</option>
+            <option value="2" <?=IntIsSelected(2, $lunas) ?> >Free</option>
         </select>
         
     	</td>
     </tr>
     <tr>
-        <td><strong>Pembayaran </strong></td>
+        <td><strong>Payment </strong></td>
         <td colspan="2"> 
         <select name="idkategori" id="idkategori" style="width:188px;" onchange="change_kate()" onkeypress="return focusNext('idpenerimaan', event)">
         <?  $sql = "SELECT kode, kategori FROM kategoripenerimaan WHERE kode IN ('JTT','SKR') ORDER BY urutan";
@@ -274,13 +274,13 @@ function focusNext(elemName, evt) {
     </table>
 	</td>
  	<td width="*" rowspan="2" valign="middle">
-    	<a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Klik untuk menampilkan data laporan pembayaran per kelas!', this, event, '180px')"/></a>
+    	<a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Click to show data laporan pembayaran per kelas', this, event, '180px')"/></a>
     </td>
 	<td width="45%" colspan="3" align="right" valign="top">
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Pembayaran Per Kelas</font><br />
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Payment Reports by Classes</font><br />
     <a href="penerimaan.php" target="_parent">
-      <font size="1" color="#000000"><b>Penerimaan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Pembayaran Per Kelas</b></font>
+      <font size="1" color="#000000"><b>Admission</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Payment Reports by Classes</b></font>
 	</td>
 </tr>
 <tr>	

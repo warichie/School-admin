@@ -33,7 +33,7 @@ require_once("../include/sessioninfo.php");
 <head>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -51,10 +51,10 @@ function CetakWord() {
 <body style="background-color:#DFDFDF">
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
 <tr height="25">
-	<td class="header" align="center" width="5%">No</td>
-    <td class="header" align="center" width="60%">Satuan Kerja</td>
-    <td class="header" align="center" width="15%">Nikah</td>
-    <td class="header" align="center" width="15%">Belum</td>
+	<td class="header" align="center" width="5%">#</td>
+    <td class="header" align="center" width="60%">Work Unit</td>
+    <td class="header" align="center" width="15%">Marital Status</td>
+    <td class="header" align="center" width="15%">#</td>
 </tr>
 <?
 OpenDb();

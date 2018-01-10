@@ -19,50 +19,50 @@ function validate(count){
 
 	if (judul.length==0)
 	{
-		alert ('Anda harus mengisikan nilai untuk Judul Pustaka!');
+		alert ('You must enter a value for Library Title');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (harga.length==0)
 	{
-		alert ('Anda harus mengisikan nilai untuk Harga Pustaka!');
+		alert ('You must enter a value for Library Price');
 		document.getElementById('harga').focus();
 		return false;
 	}
 	if (isNaN(harga))
 	{
-		alert ('Harga Pustaka harus berupa bilangan!');
+		alert ('Library Price must be numeric');
 		document.getElementById('harga').value = "";
 		document.getElementById('harga').focus();
 		return false;
 	}
 	if (katalog.length==0)
 	{
-		alert ('Anda harus menentukan Katalog Pustaka!');
+		alert ('You must specify Library Catalogue');
 		document.getElementById('katalog').focus();
 		return false;
 	}
 	if (penerbit.length==0)
 	{
-		alert ('Anda harus menentukan Penerbit Pustaka!');
+		alert ('You must specify Library Publisher');
 		document.getElementById('penerbit').focus();
 		return false;
 	}
 	if (penulis.length==0)
 	{
-		alert ('Anda harus menentukan Penulis Pustaka!');
+		alert ('You must specify Library Author');
 		document.getElementById('penulis').focus();
 		return false;
 	}
 	if (tahun.length==0)
 	{
-		alert ('Anda harus mengisikan nilai untuk Tahun Terbit!');
+		alert ('You must enter a value for Date Published');
 		document.getElementById('tahun').focus();
 		return false;
 	}
 	if (isNaN(tahun))
 	{
-		alert ('Tahun Terbit harus berupa bilangan!');
+		alert ('Date Published must be numeric');
 		document.getElementById('tahun').value = "";
 		document.getElementById('tahun').focus();
 		return false;
@@ -70,13 +70,13 @@ function validate(count){
 	
 	if (format.length==0)
 	{
-		alert ('Anda harus menentukan Format Pustaka!');
+		alert ('You must specify Library Format');
 		document.getElementById('format').focus();
 		return false;
 	}
 	if (keyword.length==0)
 	{
-		alert ('Anda harus mengisikan nilai untuk Keyword!');
+		alert ('You must enter a value for Keyword');
 		document.getElementById('keyword').focus();
 		return false;
 	}
@@ -87,7 +87,7 @@ function validate(count){
 		var y = document.getElementById('jumlah'+i).value;
 		if (isNaN(y))
 		{
-			alert ('Alokasi jumlah harus berupa bilangan!');
+			alert ('Allocation must be numeric');
 			document.getElementById('jumlah'+i).focus();
 			return false;
 		}
@@ -101,7 +101,7 @@ function validate(count){
 function advance_val(x){
 	if (x==0)
 	{
-		alert ('Setidaknya ada 1 pustaka pada salah satu perpustakaan!');
+		alert ('You should have at least one library in one of libraries');
 		document.getElementById('jumlah0').focus();
 		return false;
 	}

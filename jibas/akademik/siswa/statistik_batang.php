@@ -29,7 +29,7 @@ include("../library/class/jpgraph.php");
 //include("../library/class/jpgraph_pie3d.php");
 include("../library/class/jpgraph_bar.php");
 include("../library/class/jpgraph_line.php");
-//echo "Masuk"; exit;
+//echo "Login"; exit;
 $color = array('red','green','yellow','blue','orange','darkblue','gold','navy','gray','darkred','darkgreen', 'pink','black');
 
 $idangkatan=(int)$_REQUEST['idangkatan'];
@@ -81,7 +81,7 @@ if ($iddasar=="12"){
 	//=====================================================
 	if($sum == 0) {
 	  echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
-			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>$_REQUEST[departemen]</b> dan Angkatan <b>$row[angkatan]</b></font></td></tr></table>";
+			<font size='2' face='verdana'>Failed to show Bar Chart<br> because student don't have any data<br> for Department <b>$_REQUEST[departemen]</b> and Graduates <b>$row[angkatan]</b></font></td></tr></table>";
 	} else {
 		//data group 1
 		$data1 = array($j1);
@@ -94,7 +94,7 @@ if ($iddasar=="12"){
 		$graph = new Graph(450,300,"auto");
 		$graph->SetScale("textlin");
 
-		$lab = array("Penghasilan");
+		$lab = array("Income");
 
 		//setting kanvas
 		$graph->SetShadow();
@@ -112,7 +112,7 @@ if ($iddasar=="12"){
 		$b2plot->SetLegend("Rp. 1.000.000 - Rp. 2.500.000");
 		$b3plot->SetLegend("Rp. 2.500.000 - Rp. 5.000.000");
 		$b4plot->SetLegend("> Rp. 5.000.000");
-		$b5plot->SetLegend("Tidak ada data");
+		$b5plot->SetLegend("No data.");
 
 		$b1plot->SetShadow('darkgray@0.5');
 		$b2plot->SetShadow('darkgray@0.5');
@@ -164,15 +164,15 @@ if ($iddasar=="12"){
 		//memasukkan kedalam grafik
 		$graph->Add($gbplot);
 
-		$graph->title->Set("Statistik Siswa Aktif Berdasarkan Total Penghasilan Orang Tua");
-		$graph->xaxis->title->Set("Penghasilan");
-		$graph->yaxis->title->Set("Jumlah Siswa");
+		$graph->title->Set("Active Student Statistic based on Parent Total Income");
+		$graph->xaxis->title->Set("Income");
+		$graph->yaxis->title->Set("Total Student");
 
 		$graph->title->SetFont(FF_FONT1,FS_BOLD);
 		$graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
 		$graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
-		//Pengaturan sumbu x dan sumbu y
+		//Settings sumbu x and sumbu y
 		$graph->yaxis->HideZeroLabel();
 		$graph->ygrid->SetFill(true,'#dedede','#FFFFFF');
 
@@ -182,84 +182,84 @@ if ($iddasar=="12"){
 } else {
 	OpenDb();
 	if ($iddasar=="1") {
-		$xaxis="Agama";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Agama";
+		$xaxis="Religion";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Religion";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.agama, g.replid FROM jbsakad.siswa s, jbsakad.angkatan a, jbsumum.agama g WHERE $kondisi AND s.aktif = 1 AND g.agama = s.agama GROUP BY s.agama ORDER BY g.agama";
 	} if ($iddasar=="2") {
-		$xaxis="Asal Sekolah";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Asal Sekolah";
+		$xaxis="Past School";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Past School";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.asalsekolah FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.asalsekolah";
 	} if ($iddasar=="3"){
-		$xaxis="Golongan Darah";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Golongan Darah";
+		$xaxis="Blood Type";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Blood Type";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.darah FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.darah";
 	} if ($iddasar=="4"){
-		$xaxis="Jenis Kelamin";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Jenis Kelamin";
+		$xaxis="Gender";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Gender";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.kelamin FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.kelamin";
 	} if ($iddasar=="5"){
-		$xaxis="Kewarganegaraan";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Kewarganegaraan";
+		$xaxis="Citizenship";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Citizenship";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.warga FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.warga ORDER BY s.warga DESC";
 	} if ($iddasar=="6"){
-		$xaxis="Kode Pos Siswa";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Kode Pos Siswa";
+		$xaxis="Student Post Code";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Student Post Code";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.kodepossiswa FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.kodepossiswa";
 	} if ($iddasar=="7"){
-		$xaxis="Kondisi";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Kondisi Siswa";
+		$xaxis="Conditions";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Student Conditions";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.kondisi FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.kondisi";
 	} if ($iddasar=="8"){
-		$xaxis="Jenis Pekerjaan Ayah";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Pekerjaan Ayah";
+		$xaxis="Father Occupation Type";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Father Occupation";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.pekerjaanayah FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.pekerjaanayah";
 	} if ($iddasar=="9"){
-		$xaxis="Jenis Pekerjaan Ibu";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Pekerjaan Ibu";
+		$xaxis="Mother Occupation Type";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Mother Occupation";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.pekerjaanibu FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.pekerjaanibu";
 	} if ($iddasar=="10"){
-		$xaxis="Tingkat Pendidikan Ayah";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Pendidikan Ayah";
+		$xaxis="Father Education Level";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Father Education";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.pendidikanayah FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.pendidikanayah";
 	} if ($iddasar=="11"){
-		$xaxis="Tingkat Pendidikan Ibu";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Pendidikan Ibu";
+		$xaxis="Mother Education Level";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Mother Education";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.pendidikanibu FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.pendidikanibu";
 	} if ($iddasar=="13"){
-		$xaxis="Status Aktif";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Berdasarkan Status Aktif";
+		$xaxis="Status Active";
+		$yaxis="Total Student";
+		$titlenya="Student Statistic based on Status Active";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.aktif FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi GROUP BY s.aktif";
 	} if ($iddasar=="14"){
-		$xaxis="Status Siswa";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Status Siswa";
+		$xaxis="Student Status";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Student Status";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.status FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.status";
 	} if ($iddasar=="15"){
-		$xaxis="Suku";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Suku";
+		$xaxis="Ethnicity";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Ethnicity";
 		$query1 = "SELECT COUNT(s.replid) As Jum, s.suku FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY s.suku";
 	} if ($iddasar=="16"){
-		$xaxis="Tahun Kelahiran";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Tahun Kelahiran";
+		$xaxis="Year of Birth";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Year of Birth";
 		$query1 = "SELECT COUNT(s.replid) As Jum, YEAR(s.tgllahir) as thnlahir FROM jbsakad.siswa s, jbsakad.angkatan a WHERE  $kondisi AND s.aktif = 1 GROUP BY thnlahir";
 	} if ($iddasar=="17"){
-		$xaxis="Usia";
-		$yaxis="Jumlah Siswa";
-		$titlenya="Statistik Siswa Aktif Berdasarkan Usia";
+		$xaxis="Age";
+		$yaxis="Total Student";
+		$titlenya="Active Student Statistic based on Age";
 		$query1 = "SELECT COUNT(s.replid) As Jum, YEAR(now())-YEAR(s.tgllahir) As usia FROM jbsakad.siswa s, jbsakad.angkatan a WHERE $kondisi AND s.aktif = 1 GROUP BY usia";
 	}
 	
@@ -271,17 +271,17 @@ if ($iddasar=="12"){
 		$data[] = $rowstatus[0];
 		if ($iddasar == '4') {
 			if ($rowstatus[1] == 'l') 
-				$status[] = 'Laki-laki';
+				$status[] = 'Male';
 			else
-				$status[] = 'Perempuan';	
+				$status[] = 'Female';	
 		} elseif ($iddasar == '13') {
 			if ($rowstatus[1] == '1') 
-				$status[] = 'Aktif';
+				$status[] = 'Active';
 			else
-				$status[] = 'Tidak Aktif';	
+				$status[] = 'Inactive';	
 		} else {
 			if ($rowstatus[1] == NULL) 
-				$status[] = 'Tidak ada data';
+				$status[] = 'No data.';
 			else 
 				$status[] = $rowstatus[1];
 		}
@@ -291,8 +291,7 @@ if ($iddasar=="12"){
 		//$color = array('red@0.5','green@0.5','yellow@0.5','blue@0.5','orange@0.5','darkblue@0.5','gold@0.5','navy@0.5','gray@0.5','darkred@0.5','darkgreen@0.5', 'pink@0.5','black@0.5');
 	if($num == 0) {
 	  echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
-			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk
-			Departemen <b>$_REQUEST[departemen]</b> dan Angkatan <b>$row[angkatan]</b></font></td></tr></table>";
+			<font size='2' face='verdana'>Failed to show Bar Chart<br> because student don't have any data<br> for Department <b>$_REQUEST[departemen]</b> and Graduates <b>$row[angkatan]</b></font></td></tr></table>";
 	} else {
 		if ($iddasar == "2" || $iddasar=="6" ) { 
 			
@@ -344,7 +343,7 @@ if ($iddasar=="12"){
 			$graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
 			$graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 		
-			//Pengaturan sumbu x dan sumbu y
+			//Settings sumbu x and sumbu y
 			$graph->yaxis->HideZeroLabel();
 			$graph->ygrid->SetFill(true,'#dedede','#FFFFFF');
 		
@@ -384,7 +383,7 @@ if ($iddasar=="12"){
 			$graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
 			$graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 		
-			//Pengaturan sumbu x dan sumbu y
+			//Settings sumbu x and sumbu y
 			$graph->yaxis->HideZeroLabel();
 			$graph->ygrid->SetFill(true,'#dedede','#FFFFFF');
 		

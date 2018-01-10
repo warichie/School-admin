@@ -145,8 +145,8 @@ if ($op=="x2378e23dkofh73n25ki9234"){
 	$row_jum_kelas_tujuan=mysql_fetch_row($result_jum_kelas_tujuan);
 	
 	if ((int)$kap_kelas_tujuan <= (int)$row_jum_kelas_tujuan[0]){
-		$ERROR_MSG = "Kapasitas kelas tujuan sudah penuh.  Silahkan pilih kelas tujuan lain!";
-	} else { // Jika jumlah murid kelas tujuan < dari kapasitasnya 
+		$ERROR_MSG = "Destination class capacity is full. Please choose another class..";
+	} else { // Jika jumlah murid kelas tujuan < from kapasitasnya 
 		$tahunsekarang=date(Y);
 		$bulansekarang=date(m);
 		$tanggalsekarang=date(j);
@@ -181,7 +181,7 @@ if ($op=="x2378e23dkofh73n25ki9234"){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<title>Tampil Siswa</title>
+<title>Student Display</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/tables.js"></script>
@@ -265,7 +265,7 @@ function batal_naik(nis){
 	var kelas=document.getElementById("kelas").value;
 	var pilihan=document.getElementById("pilihan").value;
 	
-	if (confirm("Apakah anda yakin akan mengembalikan siswa ini ke tingkat & kelas sebelumnya?"))
+	if (confirm("Are you sure want to send this Student back to former grade and class?"))
 	document.location.href="siswa_tidak_naik_tujuan.php?op=hgiu82kjs98uqjq89wuj89sga&nis="+nis+"&tingkatawal="+tingkatawal+"&tahunajaranawal="+tahunajaranawal+"&departemen="+departemen+"&kelas="+kelas+"&pilihan="+pilihan+"&tahunajaran="+tahunajaran+"&urut=<?=$urut?>&urutan=<?=$urutan?>&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -310,7 +310,7 @@ function focusNext(elemName, evt) {
     <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" >
     <!-- TABLE TITLE -->
     <tr>                     
-    	<td align="left" width="24%"><strong>Tahun&nbsp;Ajaran </strong></td>
+    	<td align="left" width="24%"><strong>Year&nbsp; </strong></td>
         <td align="left">
         	<select name="tahunajaran" id="tahunajaran" onChange="change_tahunajaran()" style="width:228px;" onKeyPress="return focusNext('kelas', event)">
         <?	OpenDb();
@@ -320,7 +320,7 @@ function focusNext(elemName, evt) {
 				if ($tahunajaran=="")
 					$tahunajaran=$row_tahunajaran['replid'];
 				if ($row_tahunajaran['aktif']) 
-					$ada = '(Aktif)';
+					$ada = '(Active)';
 				else 
 					$ada = '';
 		?>
@@ -332,13 +332,13 @@ function focusNext(elemName, evt) {
         </td>
   	</tr>
   	<tr>
-    	<td align="left"><strong>Tingkat </strong></th>
+    	<td align="left"><strong>Grade </strong></th>
     	<td align="left">
         	<input type="text" name="namatingkat" id="namatingkat" value="<?=$namatingkat?>" readonly class="disabled" size="18" style="width:220px;"/>
         </td>
     </tr>
     <tr>
-    	<td align="left"><strong>Kelas&nbsp;Tujuan </strong></th>
+    	<td align="left"><strong>Destination Class </strong></th>
     	<td align="left">
         	<select name="kelas" id="kelas" onChange="change_kelas()" style="width:228px;">
    		<? 	OpenDb();
@@ -392,10 +392,10 @@ function focusNext(elemName, evt) {
 	
     <table width="100%" border="1" cellspacing="0" class="tab" id="table" bordercolor="#000000">
   	<tr align="center" height="30" class="header">
-    	<td width="8%"><div align="center">No</div></td>
-    	<td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>')" >N I S <?=change_urut('s.nis',$urut,$urutan)?></td>
-     	<td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>')">Nama <?=change_urut('s.nama',$urut,$urutan)?></td>
-    	<td width="*">Keterangan</td>
+    	<td width="8%"><div align="center">#</div></td>
+    	<td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>')" >Student ID <?=change_urut('s.nis',$urut,$urutan)?></td>
+     	<td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>')">Name <?=change_urut('s.nama',$urut,$urutan)?></td>
+    	<td width="*">Info</td>
     	<td width="6%">&nbsp;</td>
   	</tr>
    	<? 
@@ -417,19 +417,19 @@ function focusNext(elemName, evt) {
         <? if ($row_riwayat['keterangan'] <> "") { ?>
         <td><?=$row_riwayat['keterangan']?>&nbsp;&nbsp;
         	<? if ($row_riwayat['status'] == 2) {?>
-        	<a href="#" onClick="JavaScript:ubah_ket('<?=$row_siswa[nis]?>',<?=$kelas?>)"><img src="../images/ico/ubah.png" width="16" height="16" border="0" onMouseOver="showhint('Ubah Keterangan Siswa!', this, event, '100px')"/></a>    
+        	<a href="#" onClick="JavaScript:ubah_ket('<?=$row_siswa[nis]?>',<?=$kelas?>)"><img src="../images/ico/ubah.png" width="16" height="16" border="0" onMouseOver="showhint('Edit Student Info', this, event, '100px')"/></a>    
         	<? } ?>
         </td>
         <? } else { ?>
         <td align="center">
        		<? if ($row_riwayat['status'] == 2) {?>
-        	<a href="#" onClick="JavaScript:ubah_ket('<?=$row_siswa['nis']?>',<?=$kelas?>)"><img src="../images/ico/ubah.png" width="16" height="16" border="0" onMouseOver="showhint('Ubah Keterangan Siswa!', this, event, '100px')"/></a>    
+        	<a href="#" onClick="JavaScript:ubah_ket('<?=$row_siswa['nis']?>',<?=$kelas?>)"><img src="../images/ico/ubah.png" width="16" height="16" border="0" onMouseOver="showhint('Edit Student Info', this, event, '100px')"/></a>    
         	<? } ?>
         </td>
         <? } ?>
         <td align="center">
 			<? if ($row_riwayat['status']==2) {?>
-        	<a href="#" onClick="javascript:batal_naik('<?=$row_siswa['nis']?>')"><img src="../images/ico/hapus.png" width="16" height="16" border="0" onMouseOver="showhint('Batalkan tidak naik kelas!', this, event, '100px')"/></a>
+        	<a href="#" onClick="javascript:batal_naik('<?=$row_siswa['nis']?>')"><img src="../images/ico/hapus.png" width="16" height="16" border="0" onMouseOver="showhint('Batalkan tidak naik kelas', this, event, '100px')"/></a>
         	<? } ?>
      	</td>
   	</tr>
@@ -463,20 +463,20 @@ function focusNext(elemName, evt) {
     <td>
     <table border="0"width="100%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="50%" align="left">Hal
+       	<td width="50%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value="<<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value="<<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -487,9 +487,9 @@ function focusNext(elemName, evt) {
 				 
 	    }*/
 		?>
-	    <input <?=$disnext?> type="button" class="but" name="next" value=">>" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	    <input <?=$disnext?> type="button" class="but" name="next" value=">>" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="50%" align="right">Jml baris per hal
+        <td width="50%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -502,8 +502,8 @@ function focusNext(elemName, evt) {
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="250">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
-        <br />Belum ada siswa yang terdaftar pada kelas <?=$nama_kelas?>.
+    	<font size = "2" color ="red"><b>Data Not Found.
+        <br />No registered student on class <?=$nama_kelas?>.
         </b></font>
 	</td>
 	</tr>
@@ -515,16 +515,16 @@ function focusNext(elemName, evt) {
 	<tr>
 		<td align="center" valign="middle" height="250">
     	<? if ($tahunajaran == "") {	?>
-            <font size = "2" color ="red"><b>Tidak ada tahun ajaran yang lebih tinggi pada departemen <?=$departemen?>.
-            <br />Tambah data tahun ajaran pada departemen <?=$departemen?> di menu Tahun Ajaran pada bagian Referensi. 
+            <font size = "2" color ="red"><b>No higher Year of Teaching on Department <?=$departemen?>.
+            <br />Add Year of Teaching data on Department <?=$departemen?> in the Year of Teaching menu on Reference section. 
             </b></font>
 		<? } else if ($tingkatawal == "") { ?>
-            <font size = "2" color ="red"><b>Tidak ada tingkat yang lebih tinggi pada departemen <?=$departemen?>.
-            <br />Pindahkan siswa di menu Kelulusan pada bagian Kenaikan & Kelulusan.
+            <font size = "2" color ="red"><b>No higher grade on Department <?=$departemen?>.
+            <br />Transfer the student in the Graduation menu on Grade Promotion and Graduation section.
             </b></font>
 		<? } else if ($kelas == "") { ?>    
-        	<font size = "2" color ="red"><b>Belum ada kelas yang dituju.
-            <br />Tambah data kelas pada departemen <?=$departemen?> di menu Kelas pada bagian Referensi. 
+        	<font size = "2" color ="red"><b>No Destination Class.
+            <br />Add class data on Department <?=$departemen?> in Class menu on Reference section. 
             </b></font>
         <? } ?>
 	</td>

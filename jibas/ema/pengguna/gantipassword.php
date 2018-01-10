@@ -36,14 +36,14 @@ if (isset($_REQUEST[gntpass])){
 		$sql = "SELECT password FROM jbsuser.landlord WHERE password='".md5($_REQUEST[passlama])."'";
 		$result = QueryDb($sql);
 		if (mysql_num_rows($result) == 0) {
-			$err = "Password Lama Anda Salah!";
+			$err = "You entered wrong Old Password";
 		} else {
 			$sql = "UPDATE jbsuser.landlord SET password='".md5($_REQUEST[password])."'";
 			$result = QueryDb($sql);
 			CloseDb();
 			?>
 			<script language="javascript">
-				alert ('Password Administrator berhasil diubah!');
+				alert ('The Administrator password has been successfully changed');
 			</script>
 			<?
 		}	
@@ -53,14 +53,14 @@ if (isset($_REQUEST[gntpass])){
 		$result = QueryDb($sql);
 		$row = @mysql_fetch_array($result);
 		if (md5($_REQUEST[passlama])!=$row[password]){
-			$err = "Password Lama Anda Salah!";
+			$err = "You entered wrong Old Password";
 		} else {
 			$sql = "UPDATE $db_name_user.login SET password='".md5($_REQUEST[password])."' WHERE login='".SI_USER_ID()."'";
 			$res = QueryDb($sql);
 			if ($res){
 			?>
 			<script language="javascript">
-				alert ('Password Anda berhasil diubah!');
+				alert ('You Password has been successfully changed');
 			</script>
 			<?
 			}
@@ -80,22 +80,22 @@ function validate(){
 	var b = document.getElementById('password').value;
 	var c = document.getElementById('password2').value; 
 	if (a.length==0){
-		alert ('Password lama harus diisi!');
+		alert ('Old Password is required');
 		document.getElementById('passlama').focus();
 		return false;
 	}
 	if (b.length==0){
-		alert ('Password baru harus diisi!');
+		alert ('New Password is required');
 		document.getElementById('password').focus();
 		return false;
 	}
 	if (c.length==0){
-		alert ('Konfirmasi Password baru harus diisi!');
+		alert ('New Password Conformation is required');
 		document.getElementById('password2').focus();
 		return false;
 	}
 	if (c!=b){
-		alert ('Password dan Konfirmasi Password harus sama!');
+		alert ('Password and Confirmation should match');
 		document.getElementById('password2').value="";;
 		document.getElementById('password2').focus();
 		return false;
@@ -108,24 +108,24 @@ function validate(){
 <body>
 <div align="right">
 <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;
-    <span class="news_title2">Ganti Password </span>
+    <span class="news_title2">Edit Password </span>
 </div>
 <br />
 <form action="gantipassword.php" onSubmit="return validate()">
 <table width="300" border=1 class="tab"  align="center">
   <tr>
-    <td height="25" colspan="2" align="center" class="header">Ganti Password</td>
+    <td height="25" colspan="2" align="center" class="header">Edit Password</td>
   </tr>
   <tr>
-    <td width="51%" class="news_content1"><strong>Password Lama</strong></td>
+    <td width="51%" class="news_content1"><strong>Old Password</strong></td>
     <td width="49%" height="25"><input name="passlama" type="password" class="inputtxt" id="passlama" /></td>
   </tr>
   <tr>
-    <td class="news_content1"><strong>Password Baru</strong></td>
+    <td class="news_content1"><strong>New Password</strong></td>
     <td height="25"><input name="password" type="password" class="inputtxt" id="password" /></td>
   </tr>
   <tr>
-    <td class="news_content1"><strong>Password Baru (ulangi)</strong></td>
+    <td class="news_content1"><strong>New Password (confirm)</strong></td>
     <td height="25"><input name="password2" type="password" class="inputtxt" id="password2" /></td>
   </tr>
   <? if ($err!="") { ?>
@@ -134,7 +134,7 @@ function validate(){
   </tr>
   <? } ?>
   <tr>
-    <td height="40" colspan="2" align="center" bgcolor="#D2D2D2" class="news_content1"><input name="gntpass" type="submit" class="cmbfrm2" id="gntpass" value="Simpan" /></td>
+    <td height="40" colspan="2" align="center" bgcolor="#D2D2D2" class="news_content1"><input name="gntpass" type="submit" class="cmbfrm2" id="gntpass" value="Save" /></td>
   </tr>
 </table>
 </form>

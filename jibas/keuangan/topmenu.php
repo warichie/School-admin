@@ -34,7 +34,7 @@ if (isset($_REQUEST[op]))
 
 if ($op=="a5t2vb7ys763yhuy7s")
 {
-	$sql="UPDATE jbsuser.hakakses SET theme='$_REQUEST[tema] 'WHERE login='".getIdUser()."' AND modul='KEUANGAN'";
+	$sql="UPDATE jbsuser.hakakses SET theme='$_REQUEST[tema] 'WHERE login='".getIdUser()."' AND modul='FINANCE'";
 	$result=QueryDb($sql);
 	session_name("jbsfina");
 	session_start();
@@ -72,7 +72,7 @@ function chg_thm(theme){
 	document.location.href="topmenu.php?op=a5t2vb7ys763yhuy7s&tema="+theme;
 }
 function logout() {
-    if (confirm("Anda yakin akan menutup Aplikasi Manajemen Keuangan ini?")){
+    if (confirm("Are you sure want to akan menutup Aplikasi Manajemen Finance ini?")){
 		top.location.href="../akademik/logout.php";
 	} 
 	
@@ -162,23 +162,23 @@ function hide_info(){
     	<a href="../akademik/logout.php" class="style1" onClick="return logout()" ><img src="images/ico/exit.gif" width="20" height="20" border="0" /></a>
     </td>
     <td width="109" align="left" background="<?=GetThemeDir() ?>bgmain_03a.jpg">
-    	&nbsp;<a href="../akademik/logout.php" class="style1 style9" onClick="return logout()" style="color:#FFFF00;" >Keluar</a>&nbsp;
+    	&nbsp;<a href="../akademik/logout.php" class="style1 style9" onClick="return logout()" style="color:#FFFF00;" >Logout</a>&nbsp;
     </td>
     <td width="706" align="left" background="<?=GetThemeDir() ?>bgmain_03a.jpg">
 	<?  if (isset($_SESSION['namasimaka']))
 		{ ?>
             <img src="images/ico/home.png" width="20" height="20" border="0" />
-            <a href="../akademik/index2.php" title="Akademik" target="_top" class="style9" style="color:#FFFF00;">Akademik</a>&nbsp;&nbsp;
+            <a href="../akademik/index2.php" title="Akademik" target="_top" class="style9" style="color:#FFFF00;">Academic</a>&nbsp;&nbsp;
 	<?  } 
 		else 
 		{ ?>
-            <a href="#" title="Akademik" target="_self" class="style9" onClick="alert ('Maaf Anda Tidak Berhak mengakses Halaman Akademik');" style="color:#FFFF00;">
-            <img src="images/ico/home.png" width="20" height="20" border="0" />Akademik</a>&nbsp;&nbsp;
+            <a href="#" title="Akademik" target="_self" class="style9" onClick="alert ('Maaf Anda Tidak Berhak mengakses Page Akademik');" style="color:#FFFF00;">
+            <img src="images/ico/home.png" width="20" height="20" border="0" />Academic</a>&nbsp;&nbsp;
 	<?  } ?>
 		<span class="style9" style="text-decoration:none; cursor:pointer" onClick="hide_info()">
-        <img src="images/ico/keuangan.png" width="20" height="20" border="0" />Keuangan</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="images/ico/keuangan.png" width="20" height="20" border="0" />Finance</span>&nbsp;&nbsp;&nbsp;&nbsp;
     	<img src="images/A.gif" width="20" height="20" />&nbsp;<span>
-        <a class="style9" style="text-decoration:none;color:#FFFF00;" href="javascript:show_info()" >Tentang JIBAS</a></span>
+        <a class="style9" style="text-decoration:none;color:#FFFF00;" href="javascript:show_info()" >About JIBAS</a></span>
 		
     </td>
     <td width="70" align="right" background="<?=GetThemeDir() ?>bgmain_03a.jpg"></td>
@@ -193,7 +193,7 @@ function hide_info(){
 		<table width="200" border="0" cellspacing="0" cellpadding="0" id="tentang" style="display:none">
           <tr>
             <td align="center"><a href="jibasinfo.php" target="content"><img src="images/jibas_info.png" border="0" /></a><br />
-              <span class="style10">Tentang JIBAS</span></td>
+              <span class="style10">About JIBAS</span></td>
             <td align="center"><a href="jibascontact.php" target="content"><img src="images/jibas_contact.png" border="0" /></a><br />
               <span class="style10">Hubungi Kami</span></td>
           </tr>
@@ -201,22 +201,22 @@ function hide_info(){
         <table border="0" cellpadding="3" cellspacing="0" align="left" id="menu"><tr>
 	<td align="center"><a href="penerimaan.php" target="content" style="color:#FFFFFF; text-decoration:none">
     <img src="images/down.png" height="40" border="0" /><br />
-    <span class="style10">Penerimaan</span></a></td>
+    <span class="style10">Admission</span></a></td>
     <td width="5">&nbsp;</td>
     <td align="center"><a href="pengeluaran.php" target="content" style="color:#FFFFFF; text-decoration:none"><img src="images/bt_up.png" height="40" border="0" /><br />
-      <span class="style10">Pengeluaran</span></a></td>
+      <span class="style10">Expenditure</span></a></td>
     <td width="5">&nbsp;</td>
     <td align="center"><a href="jurnalumum.php" target="content" style="color:#FFFFFF; text-decoration:none"><img src="images/configuration_settings.png" height="40" border="0" /><br />
-      <span class="style10">Jurnal Umum</span></a></td>
+      <span class="style10">Jurnal Public</span></a></td>
     <td width="5">&nbsp;</td>
     <td align="center"><a href="lapkeuangan.php" target="content" style="color:#FFFFFF; text-decoration:none"><img src="images/coffeecup_red.png" height="40" border="0" /><br />
-      <span class="style10">Laporan Keuangan</span></a></td>
+      <span class="style10">Finance Reports</span></a></td>
     <td width="5">&nbsp;</td>
     <td align="center"><a href="inventori/Inventory.Main.php" target="content" style="color:#FFFFFF; text-decoration:none"><img src="images/inventory.png" height="40" border="0" /><br />
         <span class="style10">Inventory</span></a></td>
     <td width="5">&nbsp;</td>
 	<td align="center"><a href="usermenu.php" target="content" style="color:#FFFFFF; text-decoration:none"><img src="images/settings.png" height="40" border="0" /><br />
-        <span class="style10">Pengaturan</span></a></td>
+        <span class="style10">Settings</span></a></td>
     </tr></table>
 		<!-- End Content ==================================================================================================-->        </td>
         <td width="10%"><img src="<?=GetThemeDir() ?>jibaslogo.jpg" border="0" /><br /></td>

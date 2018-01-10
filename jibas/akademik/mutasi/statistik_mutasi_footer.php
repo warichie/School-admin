@@ -61,9 +61,9 @@ function newWindow(mypage,myname,w,h,features) {
   <tr>
     <td><table width="100%"  border="0" align="center" cellpadding="3" cellspacing="0" class="tab" id="table" bordercolor="#000000">
 	 <tr class="header">
-        <td align="center">Tahun</td>
-        <td>Keterangan </td>
-        <td>Jumlah siswa </td>
+        <td align="center">Year</td>
+        <td>Info </td>
+        <td>Sum siswa </td>
       </tr>
  <?
 
@@ -82,7 +82,7 @@ for($a=$tahunawal;$a<=$tahunakhir;$a++){
 				     }
 	?>
         <td><?=$fetch[1]; ?></td>
-        <td><a href="#" onClick="newWindow('detail_statistik_mutasi_siswa.php?replidmutasi=<?=$fetch[3];?>&jenismutasi=<?=$fetch[1];?>&departemen=<?=$departemen?>&tahun=<?=$a?>','A','686','368','scrollbars=1')"><?=$fetch[0]; ?> orang</a></td>
+        <td><a href="#" onClick="newWindow('detail_statistik_mutasi_siswa.php?replidmutasi=<?=$fetch[3];?>&jenismutasi=<?=$fetch[1];?>&departemen=<?=$departemen?>&tahun=<?=$a?>','A','686','368','scrollbars=1')"><?=$fetch[0]; ?> people</a></td>
 	    </tr>
 	  
       <?
@@ -93,7 +93,7 @@ for($a=$tahunawal;$a<=$tahunakhir;$a++){
   </tr>
 </table>
 <center>
-  <input name="button" type="button" class="but" value="Cetak" onClick="newWindow('cetak_statistik_mutasi.php?departemen=<?=$departemen?>&tahunawal=<?=$tahunawal?>&tahunakhir=<?=$tahunakhir?>','s',750,650,'scrollbars=1')">
+  <input name="button" type="button" class="but" value="Print" onClick="newWindow('cetak_statistik_mutasi.php?departemen=<?=$departemen?>&tahunawal=<?=$tahunawal?>&tahunakhir=<?=$tahunakhir?>','s',750,650,'scrollbars=1')">
 </center>
 <br>
 <script language="javascript">

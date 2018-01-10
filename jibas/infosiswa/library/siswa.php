@@ -44,7 +44,7 @@ if (isset($_REQUEST['id']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Daftar Siswa]</title>
+<title>JIBAS SIMAKA [Student List]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <link rel="stylesheet" type="text/css" href="../script/tooltips.css" />
 <link href="../script/SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
@@ -70,7 +70,7 @@ function pilih(nis, nama) {
 
 <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" style="background-color:#FFFFFF">
 <!--<div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>-->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="58">
@@ -89,8 +89,8 @@ function pilih(nis, nama) {
         
         <div id="TabbedPanels1" class="TabbedPanels">
 		<ul class="TabbedPanelsTabGroup">
-		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Pilih Siswa</font></li>
-		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Cari Siswa</font></li>
+		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Select Student</font></li>
+		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Search Student</font></li>
 		</ul>
 		<div class="TabbedPanelsContentGroup">
 	    	<div class="TabbedPanelsContent" id="panel0"></div>
@@ -146,7 +146,7 @@ function carilah(){
 	var nama = document.getElementById('nama').value;
 	
 	if (nis == "" && nama == "") {
-		alert ('NIS atau Nama Siswa tidak boleh kosong!');
+		alert ('Student ID or Name should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}	

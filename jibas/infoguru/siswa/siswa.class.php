@@ -40,8 +40,8 @@ class CSiswa
 		<link href="../style/style.css" rel="stylesheet" type="text/css" />
 		<div id="TabbedPanels1" class="TabbedPanels">
           <ul class="TabbedPanelsTabGroup">
-            <li class="TabbedPanelsTab" tabindex="0">Pilih Siswa</li>
-            <li class="TabbedPanelsTab" tabindex="0">Cari Siswa</li>
+            <li class="TabbedPanelsTab" tabindex="0">Select Student</li>
+            <li class="TabbedPanelsTab" tabindex="0">Search Student</li>
           </ul>
           <div class="TabbedPanelsContentGroup">
             <div class="TabbedPanelsContent" id="pilihsiswa"></div>
@@ -66,7 +66,7 @@ class CSiswa
 		$i=0;
 		if ($num == 0)
 		{
-			echo "<option value=''>Tidak ada Data</option>";
+			echo "<option value=''>Data Not Found</option>";
 		}
 		else
 		{
@@ -93,7 +93,7 @@ class CSiswa
 		$num = @mysql_num_rows($result);
 		if ($num==0)
 		{
-			echo "<option value=''>Tidak ada Data</option>";
+			echo "<option value=''>Data Not Found</option>";
 		}
 		else
 		{
@@ -125,7 +125,7 @@ class CSiswa
 		echo "<select name='kls' id='kls' onChange='chg_kls()' class='cmbfrm' style='width:125px'>";
 		if ($tkt=="")
 		{
-			echo "<option value=''>Tidak ada Data</option>";	
+			echo "<option value=''>Data Not Found</option>";	
 		}
 		else
 		{
@@ -135,7 +135,7 @@ class CSiswa
 			$num = @mysql_num_rows($result);
 			if ($num==0)
 			{
-				echo "<option value=''>Tidak ada Data</option>";	
+				echo "<option value=''>Data Not Found</option>";	
 			}
 			else
 			{
@@ -159,9 +159,9 @@ class CSiswa
 		$kls = $this->kls ;
 		echo "<table width='100%' border='1' class='tab'>
 		  <tr>
-			<td width='10' height='25' align='center' class='header'>No.</td>
-			<td width='100' height='25' align='center' class='header'>NIS</td>
-			<td width='*' height='25' align='center' class='header'>Nama</td>
+			<td width='10' height='25' align='center' class='header'>#</td>
+			<td width='100' height='25' align='center' class='header'>Student ID</td>
+			<td width='*' height='25' align='center' class='header'>Name</td>
 			<td width='30' height='25' align='center' class='header'>&nbsp;</td>
 		  </tr>";
 		$sql = "SELECT * FROM siswa WHERE idkelas='$kls' AND aktif = 1 ORDER BY nama";
@@ -170,7 +170,7 @@ class CSiswa
 		$num = @mysql_num_rows($result);
 		if ($num==0)
 		{
-			echo "<tr><td height='20' colspan='4' align='center' class='nodata'>Tidak ada Data</td></tr>";	
+			echo "<tr><td height='20' colspan='4' align='center' class='nodata'>Data Not Found.</td></tr>";	
 		}
 		else
 		{
@@ -205,10 +205,10 @@ class CSiswa
 			$filter = $filter." nisn LIKE '%$nisn%' AND ";
 		echo "<table width='100%' border='1' class='tab'>
 		  <tr>
-			<td width='10' height='25' align='center' class='header'>No.</td>
-			<td width='100' height='25' align='center' class='header'>NIS</td>
-			<td width='100' height='25' align='center' class='header'>NISN</td>
-			<td width='*' height='25' align='center' class='header'>Nama</td>
+			<td width='10' height='25' align='center' class='header'>#</td>
+			<td width='100' height='25' align='center' class='header'>Student ID</td>
+			<td width='100' height='25' align='center' class='header'>National Student ID</td>
+			<td width='*' height='25' align='center' class='header'>Name</td>
 			<td width='30' height='25' align='center' class='header'>&nbsp;</td>
 		  </tr>";
 		$sql = "SELECT * FROM siswa WHERE $filter aktif = 1 ORDER BY nama";
@@ -217,7 +217,7 @@ class CSiswa
 		if ($num==0)
 		{
 			echo "<tr>
-    			<td height='20' colspan='4' align='center' class='nodata'>Tidak ada Data</td>
+    			<td height='20' colspan='4' align='center' class='nodata'>Data Not Found.</td>
   			</tr>";	
 		}
 		else

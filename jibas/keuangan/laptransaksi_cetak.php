@@ -54,7 +54,7 @@ if (isset($_REQUEST['idtahunbuku']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Transaksi]</title>
+<title>JIBAS FINANCE [Reports Transaction]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -69,11 +69,11 @@ if (isset($_REQUEST['idtahunbuku']))
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td width="90"><strong>Tahun Buku </strong></td>
+	<td width="90"><strong>Fiscal Year </strong></td>
     <td><strong>: 
 	<?  OpenDb();
 		$sql = "SELECT tahunbuku FROM tahunbuku WHERE replid = '$idtahunbuku'";
@@ -84,19 +84,19 @@ if (isset($_REQUEST['idtahunbuku']))
 	</strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) ?> s/d <?=LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) ?> to <?=LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 </table>
 <br />
 <table class="tab" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="100%" align="left" bordercolor="#000000">
 <tr height="30" align="center">
-	<td class="header" width="4%">No</td>
-    <td class="header" width="18%">No. Jurnal/Tanggal</td>
-    <td class="header" width="8%">Petugas</td>
-    <td class="header" width="*">Transaksi</td>
-    <td class="header" width="15%">Debet</td>
-    <td class="header" width="15%">Kredit</td>
+	<td class="header" width="4%">#</td>
+    <td class="header" width="18%">Journal/Date</td>
+    <td class="header" width="8%">Officer</td>
+    <td class="header" width="*">Transaction</td>
+    <td class="header" width="15%">Debit</td>
+    <td class="header" width="15%">Credit</td>
 </tr>
 <?
 OpenDb();
@@ -115,7 +115,7 @@ while($row = mysql_fetch_array($result)) {
     <td align="center" valign="top"><?=$row['petugas'] ?></td>
     <td align="left" valign="top"><?=$row['transaksi'] ?>
     <? if ($row['keterangan'] <> "") { ?>
-    <br /><strong>Keterangan: </strong><?=$row['keterangan'] ?>
+    <br /><strong>Info: </strong><?=$row['keterangan'] ?>
     <? } ?>
     </td>
     <td align="right" valign="top"><?=FormatRupiah($row['debet']) ?></td>
@@ -127,7 +127,7 @@ CloseDb();
 ?>
 <tr height="30">
 	<td colspan="4" align="center" bgcolor="#999900">
-    <font color="#FFFFFF"><strong>T O T A L</strong></font>
+    <font color="#FFFFFF"><strong>Total</strong></font>
     </td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>

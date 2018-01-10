@@ -71,9 +71,9 @@ function excel()
 <table border="0" cellpadding="2" cellspacing="0" align="center">
 <tr>
 	<td align="left" valign="top">
-    <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-    <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka di Ms Excel!', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
+    <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
+    <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Open in Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
     </td>
 </tr>
 </table>        
@@ -199,7 +199,7 @@ CloseDb();
 ?>
 		<tr height="40">
         	<td colspan="3" align="right" valign="middle" bgcolor="#333333">
-            <font color="#FFFFFF"><strong>T O T A L</strong></font>
+            <font color="#FFFFFF"><strong>Total</strong></font>
             </td>
             <td valign="middle" align="right" bgcolor="#333333">
             <font color="#FFFFFF"><strong><?=FormatRupiah($total)?></strong></font>

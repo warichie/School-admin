@@ -39,7 +39,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Status Guru</title>
+<title>Teacher Status</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/ajax.js"></script>
@@ -72,7 +72,7 @@ function pilih(id,nama_dep,nama_pel) {
 	<!-- TABLE LINK -->
 	<tr>
     <td align="left" width="100%">
-      <p><strong>Departemen&nbsp;</strong>
+      <p><strong>Department&nbsp;</strong>
             <select name="departemen" id="departemen" onchange="tampil()" style="width:50%;">
          <?	$dep = getDepartemen(SI_USER_ACCESS());    
 	foreach($dep as $value) {
@@ -84,7 +84,7 @@ function pilih(id,nama_dep,nama_pel) {
                 <?	} ?>
             </select></td>
     <td>
-        <!--<input type="button" name="tampil" value="Tampilkan Semua Guru" class="but"/>   -->
+        <!--<input type="button" name="tampil" value="Show All Teachers" class="but"/>   -->
           
     </td>    
     </tr>
@@ -99,8 +99,8 @@ function pilih(id,nama_dep,nama_pel) {
     <!-- TABLE CONTENT -->
     
     <tr height="30">    	
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="96%" class="header" align="center">Pelajaran</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="96%" class="header" align="center">Class Subject</td>
     </tr>
     
      <?
@@ -128,10 +128,10 @@ function pilih(id,nama_dep,nama_pel) {
 	<tr>
 		<td align="center" valign="middle" height="200">
         <? if (isset($departemen)) {	?>
-    		<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />Tambah data pelajaran pada departemen <?=$departemen?> di menu Pendataan Pelajaran pada bagian Guru & Pelajaran. </b></font>
+    		<font size = "2" color ="red"><b>Data Not Found. <br /><br />Add lesson data in Department <?=$departemen?> on the Class Subject Data in Teacher and Class Subject section. </b></font>
         <? } else { ?> 
-              <font size = "2" color ="red"><b>Belum ada data Departemen.
-              <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+              <font size = "2" color ="red"><b>No Department yet.
+              <br />Please make a new one in Department menu on Reference section.
               </b></font>
 		<? } ?> 
 		</td>

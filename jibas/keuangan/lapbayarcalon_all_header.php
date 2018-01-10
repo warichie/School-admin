@@ -112,15 +112,15 @@ function show_pembayaran() {
 	var tanggal2 = escape(thn2 + "-" + bln2 + "-" + tgl2);
 	
 	if (idtahunbuku.length == 0) {	
-		alert ('Belum ada Tahun buku yang Aktif di departemen ybs.\nSilakan isi/aktifkan Tahun Buku di menu Referensi!');
+		alert ('No Fiscal Year yang Aktif di departemen ybs.\nSilakan isi/aktifkan Fiscal Year di menu Reference');
 		document.getElementById('departemen').focus();
 		return false;
 	}  else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -204,7 +204,7 @@ function panggil(elem){
 	<td rowspan="3" width="58%">
     <table border="0" width = "100%">
     <tr>
-    	<td width="15%"><strong>Departemen </strong></td>
+    	<td width="15%"><strong>Department </strong></td>
         <td colspan="4">
         <select name="departemen" id="departemen" style="width:115px" onchange="change_dep()" onKeyPress="return focusNext('tgl1',event)" onfocus="panggil('departemen')">
 <?      $dep = getDepartemen(getAccess());
@@ -224,11 +224,11 @@ function panggil(elem){
         </td>
  	</tr>
     <tr>
-    	<td><strong>Tanggal </strong></td>
+    	<td><strong>Date </strong></td>
         <td width="10">
         	<div id="InfoTgl1">           
             <select name="tgl1" id = "tgl1" onchange="change_tgl1()" onfocus = "panggil('tgl1')" onKeyPress="return focusNext('bln1',event)">
-            	<option value="">[Tgl]</option>
+            	<option value="">[Date]</option>
             <? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -245,12 +245,12 @@ function panggil(elem){
             <? for($i = $G_START_YEAR; $i <= $thn1+1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
-            </select> s/d
+            </select> to
    		</td>
         <td width="10">	
         	<div id="InfoTgl2">
             <select name="tgl2" id="tgl2" onchange="change_tgl2()" onfocus = "panggil('tgl2')" onKeyPress="return focusNext('bln2',event)" >
-            	<option value="">[Tgl]</option>
+            	<option value="">[Date]</option>
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -273,13 +273,13 @@ function panggil(elem){
     </table>
     </td>
 	<td width="*" rowspan="2" valign="middle">
-		<a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Klik untuk menampilkan data laporan pembayaran per calon siswa!', this, event, '200px')"/></a>
+		<a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Click to show data laporan pembayaran per student candidate', this, event, '200px')"/></a>
     </td>
 	<td width="40%" align="right" valign="top">
-	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Pembayaran Per Calon Siswa</font><br />
+	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Payment Reports by Student Candidate</font><br />
     <a href="penerimaan.php" target="_parent">
-      <font size="1" color="#000000"><b>Penerimaan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Pembayaran Per Calon Siswa</b></font>
+      <font size="1" color="#000000"><b>Admission</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Payment Reports by Student Candidate</b></font>
 	</td>
 </tr>
 <tr>	

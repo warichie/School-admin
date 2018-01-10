@@ -74,7 +74,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kelompok Calon Siswa</title>
+<title>Student Candidate Group</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -109,7 +109,7 @@ function hapus(replid) {
 	var proses = document.getElementById('proses').value;
 	var urut = document.getElementById('urut').value;
 	var urutan = document.getElementById('urutan').value;
-	if (confirm("Apakah anda yakin akan menghapus kelompok ini?"))
+	if (confirm("Are you sure want to delete this group?"))
 		document.location.href = "kelompok.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&departemen="+departemen+"&proses="+proses+"&urut="+urut+"&urutan="+urutan+"&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -183,12 +183,12 @@ function change_baris() {
 	<table border="0"width="95%" align="center">
     <!-- TABLE TITLE -->
     <tr>
-        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Kelompok Calon Siswa</font></td>
+        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Candidate Group</font></td>
     </tr>
     <tr>
         <td align="right"><a href="../siswa_baru.php" target="content">
-          <font size="1" color="#000000"><b>Penerimaan Siswa Baru</b></font></a>&nbsp>&nbsp 
-          <font size="1" color="#000000"><b>Kelompok Calon Siswa</b></font></td>
+          <font size="1" color="#000000"><b>New Student Admission</b></font></a>&nbsp;>&nbsp; 
+          <font size="1" color="#000000"><b>Student Candidate Group</b></font></td>
     </tr>
     <tr>
         <td align="left">&nbsp;</td>
@@ -199,7 +199,7 @@ function change_baris() {
       <!-- TABLE LINK -->
       <tr>
         <td width="15%" rowspan="2">&nbsp;</td>
-        <td width="16%"><strong>Departemen &nbsp;</strong></td>
+        <td width="16%"><strong>Department &nbsp;</strong></td>
         <td width="20%"><select name="departemen" id="departemen" onchange="tampil()" style="width:155px;">
           <?	$dep = getDepartemen(SI_USER_ACCESS());    
 	foreach($dep as $value) {
@@ -212,7 +212,7 @@ function change_baris() {
         </select></td>
       </tr>
       <tr>
-        <td><strong>Proses Penerimaan &nbsp;</strong></td>
+        <td><strong>Admission Process &nbsp;</strong></td>
         <td><?	$sql = "SELECT replid,proses FROM prosespenerimaansiswa WHERE aktif=1 AND departemen='$departemen'";				
 				$result = QueryDb($sql);
 				if (@mysql_num_rows($result)>0){
@@ -237,9 +237,9 @@ if ($proses!="") {
 	if (@mysql_num_rows($result) > 0) {
 ?>
         <input type="hidden" name="total" id="total" value="<?=$total?>"/>
-        <td align="right"><a href="#" onclick="refresh()"><img src="../images/ico/refresh.png" border="0" onmouseover="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp; <a href="JavaScript:cetak('<?=$urut?>','<?=$urutan?>')"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
+        <td align="right"><a href="#" onclick="refresh()"><img src="../images/ico/refresh.png" border="0" onmouseover="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp; <a href="JavaScript:cetak('<?=$urut?>','<?=$urutan?>')"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
           <?		//if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-          <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onmouseover="showhint('Tambah Kelompok!', this, event, '50px')"/>&nbsp;Tambah Kelompok</a>
+          <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onmouseover="showhint('Add Group', this, event, '50px')"/>&nbsp;Add Group</a>
           <?		//} ?></td>
       </tr>
     </table>
@@ -248,11 +248,11 @@ if ($proses!="") {
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
       <!-- TABLE CONTENT -->
     <tr height="30" class="header" align="center">
-        <td width="4%">No</td>       
-        <td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kelompok','<?=$urutan?>')">Kelompok <?=change_urut('kelompok',$urut,$urutan)?></td>
-        <td width="12%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kapasitas','<?=$urutan?>')" >Kapasitas <?=change_urut('kapasitas',$urut,$urutan)?></td>
-        <td width="8%">Terisi</td>
-        <td width="*" >Keterangan</td>
+        <td width="4%">#</td>       
+        <td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kelompok','<?=$urutan?>')">Group <?=change_urut('kelompok',$urut,$urutan)?></td>
+        <td width="12%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kapasitas','<?=$urutan?>')" >Capacity <?=change_urut('kapasitas',$urut,$urutan)?></td>
+        <td width="8%">Filled</td>
+        <td width="*" >Info</td>
         <?	//if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
         <td width="8%" >&nbsp;</td>
         <? //} ?>
@@ -276,16 +276,16 @@ if ($proses!="") {
 			echo $row1[0];
 			if ($row1[0] > 0 ) {
 		?>  
-        	&nbsp;<a href="JavaScript:lihat(<?=$row['replid']?>)"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('Lihat Calon Siswa!', this, event, '65px')"/></a>
+        	&nbsp;<a href="JavaScript:lihat(<?=$row['replid']?>)"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('See Student Candidate', this, event, '65px')"/></a>
         <? 	} ?>
         </td>        
         <td height="25"><?=$row['keterangan']?></td>
         
 
         <td height="25" align="center">    
-        	<a href="JavaScript:edit(<?=$row['replid'] ?>)" ><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Kelompok!', this, event, '80px')"/></a>&nbsp; 
+        	<a href="JavaScript:edit(<?=$row['replid'] ?>)" ><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Group', this, event, '80px')"/></a>&nbsp; 
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>
-            <a href="JavaScript:hapus(<?=$row['replid'] ?>)" ><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Kelompok!', this, event, '80px')"/></a>
+            <a href="JavaScript:hapus(<?=$row['replid'] ?>)" ><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Group', this, event, '80px')"/></a>
     	</td>
 <?		}?>   
   	</tr>
@@ -318,20 +318,20 @@ if ($proses!="") {
     <td>
     <table border="0"width="95%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -342,9 +342,9 @@ if ($proses!="") {
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -368,9 +368,9 @@ if ($proses!="") {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data 
+    	<font size = "2" color ="red"><b>Data Not Found. 
         <? //if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? //} ?>
         </b></font>
 	</td>
@@ -391,10 +391,10 @@ if ($proses!="") {
 <tr>
 	<td align="center" valign="middle" height="200">
     <? if ($departemen != "") {	?>  
-        <font size = "2" color ="red"><b>Belum ada Proses Penerimaan Siswa Baru untuk Departemen <?=$departemen?> <br> Silahkan isi  terlebih dahulu di menu Proses Penerimaan Siswa Baru pada bagian PSB</font>
+        <font size = "2" color ="red"><b>No New Student Admission Process for Department <?=$departemen?> <br> Please enter a data in New Student Admission Process menu on New Student Admission section</font>
     <? } else { ?>
-		<font size = "2" color ="red"><b>Belum ada data Departemen.
-        <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+		<font size = "2" color ="red"><b>No Department yet.
+        <br />Please make a new one in Department menu on Reference section.
         </b></font>
     <? } ?>    
 	</td>

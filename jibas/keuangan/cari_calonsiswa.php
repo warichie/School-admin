@@ -40,12 +40,12 @@ OpenDb();
 ?>
 <table border="0" width="100%" align="center">
 <tr>
-    <td width="45%"><font color="#000000"><strong>Departemen</strong></font></td>
+    <td width="45%"><font color="#000000"><strong>Department</strong></font></td>
     <td>
     <input type="text" name="departemen" id="departemen" value="<?=$_REQUEST['departemen']?>" readonly="readonly" style="background-color:#CCCC99;" size="20">
     <input type="hidden" name="depart3" id="depart3" value="<?=$_REQUEST['departemen']?>" />
     <!--<select name="depart3" id="depart3" onChange="change_departemen(3)" style="width:130px" onkeypress="return focusNext('nama', event)">
-    	<option value=-1>(Semua Dept.)</option>
+    	<option value=-1>(All Dept.)</option>
 	<?	$dep = getDepartemen(getAccess());    
         foreach($dep as $value) {
             if ($departemen == "")
@@ -59,17 +59,17 @@ OpenDb();
    
 </tr>
 <tr>
-    <td><font color="#000000"><strong>Nama Calon</strong></font></td>
+    <td><font color="#000000"><strong>Name Calon</strong></font></td>
     <td><input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama'] ?>" size="20" onKeyPress="return focusNext('submit', event)"/></td>
 <tr>
     <td>
-        <font color="#000000"><strong>No Pendaftaran</strong></font></td>	
+        <font color="#000000"><strong>Registration Number</strong></font></td>	
    	<td><input type="text" name="no" id="no" value="<?=$_REQUEST['no'] ?>" size="20" onKeyPress="return focusNext('submit', event)"/>     
   	</td>   
 </tr>	
 <tr>
 	<td colspan="2" align="center">
-    <input type="button" class="but" name="submit" id="submit" value="Cari" onclick="carilah1();return focusNext1('calon', event, 'cari',1,0)" style="width:80px"/>
+    <input type="button" class="but" name="submit" id="submit" value="Search" onclick="carilah1();return focusNext1('calon', event, 'cari',1,0)" style="width:80px"/>
     </td>
 </tr>
 <tr>
@@ -93,10 +93,10 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 	<br>
    	<table width="100%" id="table1" class="tab" align="center" border="1" bordercolor="#000000">
     <tr height="30">
-        <td class="header" width="7%" align="center" height="30">No</td>
-        <td class="header" width="15%" align="center" height="30">Pendaftaran</td>
-        <td class="header" align="center">Nama</td>       
-        <td class="header" align="center">Kelompok</td>       
+        <td class="header" width="7%" align="center" height="30">#</td>
+        <td class="header" width="15%" align="center" height="30">Registration</td>
+        <td class="header" align="center">Name</td>       
+        <td class="header" align="center">Group</td>       
     </tr>
 <?
 	$cnt = 0;
@@ -117,7 +117,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 		<td>   
    
 	<br />
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data</b></font>	
+	<font size = "2" color ="red"><b>Data Not Found</b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -130,7 +130,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
     <td>   
 
 <br /><br />	
-<font size="2" color="#757575"><b>Klik pada tombol "Cari" di atas untuk melihat data calon siswa <br />sesuai dengan No Pendaftaran atau Nama Calon Siswa berdasarkan <i>keyword</i> yang dimasukkan</b></font>	
+<font size="2" color="#757575"><b>Click on the Search button to search Student Candidate data <br />according to Registration Number or Student Candidate Name berdasarkan <i>keyword</i> entered.</b></font>	
 <br /><br />
     </td>
 </tr>

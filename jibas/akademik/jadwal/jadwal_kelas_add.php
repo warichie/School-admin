@@ -63,7 +63,7 @@ if (isset($_REQUEST['Simpan']))
 	$res = QueryDb($sql);
 	$num = mysql_num_rows($res);
 	if ($num>0){
-		$dayname = array("", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu");
+		$dayname = array("", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 		
 		$sql = "SELECT replid FROM infojadwal WHERE aktif=1";
 		$res = QueryDb($sql);
@@ -100,10 +100,10 @@ if (isset($_REQUEST['Simpan']))
 			{
 				if (strlen($ket) > 0)
 					$ket .= "\\r\\n";
-				$ket .= $row['departemen'] . " " . $row['kelas'] . ", " . $row['deskripsi'] . ", " . $row['nama'] . ", " .  $row['pelajaran'] . ", " . $dayname[$row['hari']] . " jam " . $row['jam1'] . " s/d "  . $row['jam2'];  	
+				$ket .= $row['departemen'] . " " . $row['kelas'] . ", " . $row['deskripsi'] . ", " . $row['nama'] . ", " .  $row['pelajaran'] . ", " . $dayname[$row['hari']] . " jam " . $row['jam1'] . " to "  . $row['jam2'];  	
 			}
 			CloseDb();		
-			$ERROR_MSG = "Jadwal guru di kelas lain yang bentrok:\\r\\n$ket";
+			$ERROR_MSG = "Conflict Teacher Schedule in another class:\\r\\n$ket";
 		}
 		else
 		{
@@ -131,10 +131,10 @@ if (isset($_REQUEST['Simpan']))
 				{
 					if (strlen($ket) > 0)
 						$ket .= "\\r\\n";
-					$ket .= $row['departemen'] . " " . $row['kelas'] . ", " . $row['deskripsi'] . ", " . $row['nama'] . ", " .  $row['pelajaran'] . ", " . $dayname[$row['hari']] . " jam " . $row['jam1'] . " s/d "  . $row['jam2'];  	
+					$ket .= $row['departemen'] . " " . $row['kelas'] . ", " . $row['deskripsi'] . ", " . $row['nama'] . ", " .  $row['pelajaran'] . ", " . $dayname[$row['hari']] . " jam " . $row['jam1'] . " to "  . $row['jam2'];  	
 				}
 				CloseDb();		
-				$ERROR_MSG = "Jadwal bentrok di kelas yang sama:\\r\\n$ket";
+				$ERROR_MSG = "Conflict Schedule in the same class:\\r\\n$ket";
 			}
 		}
 		
@@ -169,7 +169,7 @@ if (isset($_REQUEST['Simpan']))
 	<?		}
 		}
 	} else {
-		$ERROR_MSG = "Tidak ada Info jadwal yang aktif, silakan aktifkan salah satu Info Jadwal\\r\\n";
+		$ERROR_MSG = "No Active Schedule info, please activated one of the Schedule Info\\r\\n";
 	}
 }
 
@@ -192,7 +192,7 @@ $kls = $row1['kelas'];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Jadwal Kelas]</title>
+<title>JIBAS SIMAKA [Add Class Schedule]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -228,30 +228,30 @@ function validate() {
 	var pel = document.getElementById('pelajaran').value;
 	
 	if (nip.length == 0) {
-		alert("NIP guru harus dimasukkan");
+		alert("Teacher ID is required");
 		return false;
 	} else if (jam2.length == 0) {
-		alert("Jam akhir harus dimasukkan");
+		alert("End Hour is required");
 		document.getElementById('jam2').focus();
 		return false;
 	} else if (ket.length > 255) {
-		alert("Panjang keterangan tidak boleh dari 255 karakter");		
+		alert("Description length should not exceed 255 characters");		
 		document.getElementById('keterangan').focus();
 		return false;
 	} else if (isNaN(jam2)) {
-		alert ('Data isian anak ke harus berupa bilangan');
+		alert ('Child # must be numeric');
 		document.getElementById('jam2').focus();
 		return false;
 	} else if (parseInt(jam1) > parseInt(jam2)) {
-		alert ('Jam akhir tidak boleh kurang dari jam awal');
+		alert ('End Time should not less than Start Time (hour)');
 		document.getElementById('jam2').focus();
 		return false;	
 	} else if (parseInt(jam2) > parseInt(maxJam)) {
-		alert ('Jam akhir tidak boleh lebih dari jumlah jam jadwal kelas');
+		alert ('End Time should not exceed total hours of the Class Schedule');
 		document.getElementById('jam2').focus();
 		return false;
 	} else if (pel.length == 0) {
-		alert ('Pelajaran tidak boleh kosong. Atur kembali data guru & pelajaran yang diajarnya.');
+		alert ('Class Subject should not leave empty. Atur kembali data guru & pelajaran yang diajarnya.');
 		document.getElementById('pelajaran').focus();
 		return false;	
 	}
@@ -296,7 +296,7 @@ function changepel()
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Jadwal Kelas :.
+    .: Add Class Schedule :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -313,24 +313,24 @@ function changepel()
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td><strong>Departemen</strong></td>
+	<td><strong>Department</strong></td>
     <td width="30%"><input type="text" name="dept" id="dept" size="10" value="<?=$departemen ?>" class="disabled" readonly/>
         <input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>"/></td>    
 </tr>
 <tr>
-	<td width="100"><strong>Tahun Ajaran</strong></td>
+	<td width="100"><strong>Year</strong></td>
     <td><input type="text" name="tahun" size="10" value="<?=$tahun ?>" readonly class="disabled"/>
     	<input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$tahunajaran?>">    </td>
        
 </tr>
 <tr>
-	<td width="100"><strong>Kelas</strong></td>
+	<td width="100"><strong>Class</strong></td>
     <td><input type="text" name="kls" size="10" value="<?=$kls ?>" readonly class="disabled"/>
     	<input type="hidden" name="kelas" id="kelas" value="<?=$kelas?>">    </td>
        
 </tr>
 <tr>
-	<td align="left"><strong>Pelajaran</strong></td>
+	<td align="left"><strong>Class Subject</strong></td>
  	<td><div id ="InfoPelajaran">
       	<select name="pelajaran" id="pelajaran" onChange="changepel()" onKeyPress="return focusNext('nip', event)" onFocus="panggil('pelajaran')" >
 <?		$sql = "SELECT replid,nama FROM pelajaran WHERE departemen = '$departemen' AND aktif=1 ORDER BY nama";
@@ -344,7 +344,7 @@ function changepel()
     	</select></div></td>  
 </tr>
 <tr>
-	<td><strong>Guru</strong></td>
+	<td><strong>Teacher</strong></td>
     <td><strong>
     	<input type="text" name="nip" id="nip" size="10" class="disabled" value="<?=$_REQUEST['nip'] ?>" readonly onKeyPress="pegawai();" onFocus="panggil('nip')" onClick="pegawai()"/>
         <input type="hidden" name="nipguru" id="nipguru" value="<?=$_REQUEST['nip'] ?>"/>
@@ -354,27 +354,27 @@ function changepel()
         <a href="JavaScript:pegawai()"><img src="../images/ico/cari.png" border="0" /></a></td>
 </tr>
 <tr>
-	<td><strong>Hari </strong></td>
+	<td><strong>Day </strong></td>
     <td><strong><input type="text" name="namahari" id ="namahari" size="10" readonly style="background-color:#CCCCCC" value = "<?=NamaHari($hari)?>" /></strong> 
 </tr>
 <tr>
-	<td><strong>Jam ke</strong></td>
+	<td><strong>Hour</strong></td>
     <td>   
     	<input type="text" name="jam1" id ="jam1" size="2" readonly value = "<?=$jam?>" class="disabled" />
-        <input type="hidden" name="jam" id="jam" value="<?=$jam ?>"/> s/d 
+        <input type="hidden" name="jam" id="jam" value="<?=$jam ?>"/> to 
     	<input type="text" name="jam2" id ="jam2" size="2" value="<?=$jam2?>" onKeyPress="return focusNext('status', event)" onFocus="panggil('jam2')"/>
 </tr>
 <tr>
 	<td><strong>Status</strong></td> 
     <td><select name="status" id="status" onkeypress="return focusNext('keterangan', event)" onFocus="panggil('status')">     
-     	<option value=0 selected>Mengajar</option>
-        <option value=1>Asistensi</option>
-        <option value=2>Tambahan</option>
+     	<option value=0 selected>Teaching</option>
+        <option value=1>Assistance</option>
+        <option value=2>Extra</option>
      	</select>
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onKeyPress="return focusNext('Simpan', event)" onFocus="panggil('keterangan')"><?=$keterangan ?></textarea>
     </td>
@@ -382,11 +382,11 @@ function changepel()
 <tr>
 	<td colspan="2" align="center">
 <?	if ($npel == 0) { ?>
-	[Belum ada data pelajaran]
+	[No data pelajaran]
 <?	} else { ?>
-	<input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" onFocus="panggil('Simpan')"/>&nbsp;
+	<input type="submit" name="Simpan" id="Simpan" value="Save" class="but" onFocus="panggil('Simpan')"/>&nbsp;
 <?	} ?>
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->

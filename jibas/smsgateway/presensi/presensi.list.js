@@ -27,7 +27,7 @@ function ChgCmb(){
 function DeleteInfoGenList(ID){
 	var Bln = document.getElementById('Month').value;
 	var Thn = document.getElementById('Year').value;
-	if (confirm('Anda yakin akan menghapus pesan ini?')){
+	if (confirm('Are you sure want to delete this message?')){
 		ShowWait('InfoGenList');
 		sendRequestText('presensi.ajax.list.php',ShowInfoGenList,'op=DeleteInfoGenList&Bln='+Bln+'&Thn='+Thn+'&replid='+ID);
 		document.getElementById('DetailInfoGenList').innerHTML = '';
@@ -52,7 +52,7 @@ function EditDetailInfoGenList(ID, state){
 	}
 }
 function ResendDetailInfoGenList(ID){
-	if (confirm('Anda yakin akan mengirim ulang pesan ini?')){
+	if (confirm('Are you sure want to resend this message?')){
 		ShowWait('DetailInfoGenList');
 		sendRequestText('presensi.ajax.list.php',ShowDetailInfoGenList,'op=ResendDetailInfoGenList&OutboxID='+ID);
 	}
@@ -60,13 +60,13 @@ function ResendDetailInfoGenList(ID){
 function ResendDetailInfoGenList2(ID){
 	var DestNumb = document.getElementById('Input'+ID).value;
 	var Txt = document.getElementById('TxtArea'+ID).value;
-	if (confirm('Anda yakin akan mengirim pesan ini sekarang?')){
+	if (confirm('Are you sure want to resend this message now?')){
 		ShowWait('DetailInfoGenList');
 		sendRequestText('presensi.ajax.list.php',ShowDetailInfoGenList,'op=ResendDetailInfoGenList2&OutboxID='+ID+'&DestNumb='+DestNumb+'&Txt='+Txt);
 	}
 }
 function DeleteDetailInfoGenList(ID){
-	if (confirm('Anda yakin akan menghapus pesan ini?')){
+	if (confirm('Are you sure want to delete this message?')){
 		ShowWait('DetailInfoGenList');
 		sendRequestText('presensi.ajax.list.php',ShowDetailInfoGenList,'op=DeleteDetailInfoGenList&OutboxID='+ID);
 		//document.getElementById('DetailInfoGenList').innerHTML = '';

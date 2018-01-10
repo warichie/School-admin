@@ -60,7 +60,7 @@ if ($op=="bdy73y76d8838g")
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="javascript" src="script/clock.js"></script>
 </head>
 
@@ -73,7 +73,7 @@ if ($op=="bdy73y76d8838g")
     
     <table border="0" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
-	    <td width="35%" align="left" valign="top"><font face="Verdana" size="1" color="#333333">Selamat Datang <?=$nama?></font></td>
+	    <td width="35%" align="left" valign="top"><font face="Verdana" size="1" color="#333333">Welcome <?=$nama?></font></td>
 	    <td width="30%" align="center" valign="top"><font face="Verdana" size="1" color="#333333"><strong>&nbsp;</strong></font></td>
 	    <td width="35%" align="right" valign="top"><font face="Verdana" size="1" color="#333333"><div id="clock"></div></font></td>
 	</tr>

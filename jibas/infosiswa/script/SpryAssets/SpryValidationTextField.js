@@ -1509,7 +1509,7 @@ Spry.Widget.ValidationTextField.prototype.onKeyDown = function(e)
 	//DELETE
 	if (this.useCharacterMasking && this.pattern && this.keyCode == 46) {
 		if (e.ctrlKey) {
-			//delete from selection until end
+			//delete from selection to end
 			this.setValue(this.input.value.substring(0, this.selection.start));
 		} else if (this.selection.end == this.input.value.length || this.selection.start == this.input.value.length-1){
 			//allow key if selection is at end (will delete selection)

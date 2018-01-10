@@ -59,13 +59,13 @@ $replid_logo = $row_iden['replid'];
             <font size="5"><strong><?=$row_identitas['nama']?></strong></font><br />
             <strong>
 		<? 	if ($row_identitas['alamat2'] <> "" && $row_identitas['alamat1'] <> "")
-            	echo "Lokasi 1: ";
+            	echo "Address 1: ";
 		  	if ($row_identitas['alamat1'] != "") 
 				echo $row_identitas['alamat1'];
 			echo "<br>";
 			
 			if ($row_identitas['telp1'] != "" || $row_identitas['telp2'] != "") 
-				echo "Telp. ";	
+				echo "Phone ";	
 			if ($row_identitas['telp1'] != "" ) 
 				echo $row_identitas['telp1'];	
 			if ($row_identitas['telp1'] != "" && $row_identitas['telp2'] != "") 
@@ -76,12 +76,12 @@ $replid_logo = $row_iden['replid'];
 				echo "&nbsp;&nbsp;Fax. ".$row_identitas['fax1']."&nbsp;&nbsp;";
 			if ($row_identitas['alamat2'] <> "" && $row_identitas['alamat1'] <> "") {
 				echo "<br>";
-            	echo "Lokasi 2: ";
+            	echo "Address 2: ";
 				echo $row_identitas['alamat2'];
 				echo "<br>";
 				
 				if ($row_identitas['telp3'] != "" || $row_identitas['telp4'] != "") 
-					echo "Telp. ";	
+					echo "Phone ";	
 				if ($row_identitas['telp3'] != "" ) 
 					echo $row_identitas['telp3'];
 				if ($row_identitas['telp3'] != "" && $row_identitas['telp4'] != "") 

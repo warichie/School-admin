@@ -133,7 +133,7 @@ if (!mysql_num_rows($result_aturan) == 0)
 <table width="100%" border="0" align="center">          
 <tr>
     <td align="center" valign="middle" height="300">
-    <font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />Tambah aturan perhitungan nilai rapor yang akan diajar oleh guru <?=$_REQUEST['nama']?> di menu Aturan Perhitungan Nilai Rapor pada bagian Guru & Pelajaran. </b></font>
+    <font size = "2" color ="red"><b>Data Not Found. <br /><br />Add Report Card Calculation Rules to be taught by Teacher <?=$_REQUEST['nama']?> in the Report Card Calculation Rules on Teacher and Class Subject section. </b></font>
     </td>
 </tr>
 </table>

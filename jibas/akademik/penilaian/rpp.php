@@ -48,7 +48,7 @@ if(isset($_REQUEST["pelajaran"]))
 				  }
 				  ?>
                   </select><!---->
-                  <!--<input type="text" name="rpp" id="rpp" size="25" readonly onClick="get_rpp('<?=$row_dep[departemen]?>','<?=$row_get_nhb[idtingkat]?>','<?=$semester?>','<?=$row_get_nhb[idpelajaran]?>')"><input type="hidden" name="idrpp" id="idrpp" size="25"--><img src="../images/ico/tambah.png" onClick="get_rpp('<?=$departemen?>','<?=$tingkat?>','<?=$semester?>','<?=$pelajaran?>')" onMouseOver="showhint('Cari RPP!', this, event, '120px')">
+                  <!--<input type="text" name="rpp" id="rpp" size="25" readonly onClick="get_rpp('<?=$row_dep[departemen]?>','<?=$row_get_nhb[idtingkat]?>','<?=$semester?>','<?=$row_get_nhb[idpelajaran]?>')"><input type="hidden" name="idrpp" id="idrpp" size="25"--><img src="../images/ico/tambah.png" onClick="get_rpp('<?=$departemen?>','<?=$tingkat?>','<?=$semester?>','<?=$pelajaran?>')" onMouseOver="showhint('Search Lesson Plans', this, event, '120px')">
                   <?
 				  CloseDb();
 				 ?>

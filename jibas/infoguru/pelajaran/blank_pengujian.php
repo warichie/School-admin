@@ -35,16 +35,16 @@
     <!-- TABLE TITLE -->
     <tr>
      
-      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Jenis Pengujian</font></div></td>
+      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Exam Type</font></div></td>
     </tr>
     
     <tr>
       <td align="left" valign="top"><div align="right"><a href="../pelajaran.php" target="framecenter">
-        <font size="1" color="#000000"><b>Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Jenis Pengujian</b></font> </div></td>
+        <font size="1" color="#000000"><b>Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Exam Type</b></font> </div></td>
     </tr>
     
 	</table><br><br><br><br><br><br><br><br><br><br>
-        <font size="2" color="#757575"><b>Klik pada <em>hyperlink</em> "<strong>Pelajaran</strong>" di panel kiri untuk menampilkan jenis pengujian</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on <em>hyperlink</em> <strong>Class Subject</strong> on the left panel to see Exam Type.</b></font>    </td>
 </tr>
 </table>
 </body>

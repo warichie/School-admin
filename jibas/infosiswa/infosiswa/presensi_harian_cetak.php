@@ -47,7 +47,7 @@ $tingkat = $row['tingkat'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Cetak Statistik Presensi Harian]</title>
+<title>JIBAS TEACHERS INFO [Print Daily Presence Statistic]</title>
 </head>
 
 <body>
@@ -58,23 +58,23 @@ $tingkat = $row['tingkat'];
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>STATISTIK PRESENSI HARIAN</strong></font><br />
+  <font size="4"><strong>DAILY PRESENCE STATISTIC</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td width="25%"><strong>Siswa</strong></td>
+	<td width="25%"><strong>Student</strong></td>
     <td><strong>: <?=$nis.' - '.$nama?></strong></td>
 </tr>
 <tr>
-	<td width="25%"><strong>Departemen</strong></td>
+	<td width="25%"><strong>Department</strong></td>
     <td><strong>: <?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$tahunajaran?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelas</strong></td>
+	<td><strong>Class</strong></td>
     <td><strong>: <?=$tingkat.' - '.$kls ?></strong></td>
 </tr>
 
@@ -96,7 +96,7 @@ $tingkat = $row['tingkat'];
 		$legend_x[] = $row1[0];			
     }
 	
-	$legend_y = array('Hadir','Ijin','Sakit','Alpa', 'Cuti');
+	$legend_y = array('Attend','Consent','Ill','Absent', 'Leave');
 
     $graph = new CAsBarDiagram;
     $graph->bwidth = 10; // set one bar width, pixels
@@ -113,12 +113,12 @@ $tingkat = $row['tingkat'];
 	<td colspan="2"><br />
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left" bordercolor="#000000">
    	<tr height="30" align="center">		
-        <td width="*" class="header">Bulan</td>
-        <td width="15%" class="header">Hadir</td>
-        <td width="15%" class="header">Ijin</td>
-        <td width="15%" class="header">Sakit</td>
-        <td width="15%" class="header">Alpa</td>
-        <td width="15%" class="header">Cuti</td>
+        <td width="*" class="header">Month</td>
+        <td width="15%" class="header">Attend</td>
+        <td width="15%" class="header">Consent</td>
+        <td width="15%" class="header">Ill</td>
+        <td width="15%" class="header">Absent</td>
+        <td width="15%" class="header">Leave</td>
     </tr>
 	<? 
     

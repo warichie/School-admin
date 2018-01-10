@@ -15,7 +15,7 @@ is_Login = function() {
 }
 
 is_Logout = function() {
-    if (!confirm('Apakah anda akan keluar dari halaman Informasi Siswa ini?'))
+    if (!confirm('Are you sure want to logout from this Student Info page?'))
         return;
     
     $.ajax({
@@ -349,7 +349,7 @@ function GetReportContent()
 	
     show_wait('content');
    
-    if (reporttype == 'NILAI')
+    if (reporttype == 'POINT')
         sendRequestText('infosiswa/infosiswa.content.php', showInfoInitTabbedPanel, 'reporttype='+reporttype);
     else
         sendRequestText('infosiswa/infosiswa.content.php', showInfo, 'reporttype='+reporttype);

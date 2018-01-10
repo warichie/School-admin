@@ -53,14 +53,14 @@ class CAktivitasAdd{
           <tr>
             <td colspan="2" align="left">
             	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        		<font style="font-size:18px; color:#999999">Tambah Aktivitas</font></td>
+        		<font style="font-size:18px; color:#999999">Add Activity</font></td>
   		  </tr>
           <tr>
-            <td>&nbsp;<strong>Perpustakaan</strong></td>
+            <td>&nbsp;<strong>Library</strong></td>
             <td><?=$this->GetPerpus(); ?></td>
           </tr>
           <tr>
-            <td>&nbsp;<strong>Tanggal</strong></td>
+            <td>&nbsp;<strong>Date</strong></td>
             <td>
            	  <input class="inptxt" name="tglInput" id="tglInput" type="text" value="<?=RegularDateFormat($this->tglInput)?>" style="width:100px" readonly="readonly" />&nbsp;
                 <a href="javascript:TakeDate('tglInput')" >
@@ -69,11 +69,11 @@ class CAktivitasAdd{
             </td>
           </tr>
           <tr>
-            <td width="6%">&nbsp;<strong>Aktivitas</strong></td>
+            <td width="6%">&nbsp;<strong>Activity</strong></td>
             <td width="94%"><textarea name="aktivitas" cols="80" rows="25" class="areatxt" id="aktivitas"></textarea></td>
           </tr>
           <tr>
-            <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Simpan" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Batal" onClick="document.location.href='aktivitas.php'" ></td>
+            <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Save" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Cancel" onClick="document.location.href='aktivitas.php'" ></td>
           </tr>
         </table>
 		</form>

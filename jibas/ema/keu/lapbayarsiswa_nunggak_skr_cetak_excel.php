@@ -67,7 +67,7 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Tunggakan Iuran Sukarela Siswa Per Kelas]</title>
+<title>JIBAS FINANCE [Student Late Contribution Reports by Classes]</title>
 
 </head>
 
@@ -93,7 +93,7 @@ while($row = mysql_fetch_row($result)) {
 }
 //echo "$nisstr<br>";
 if (strlen($nisstr) == 0) {
-	echo "Tidak ditemukan data!";
+	echo "No data.";
 	CloseDb();
 	exit();
 }
@@ -128,7 +128,7 @@ if ($idtingkat <> -1) {
 		$namatingkat = $row[0];
 	}
 } else {
-	$namakelas = "Semua Kelas";
+	$namakelas = "All Classes";
 }
 ?>
 
@@ -137,27 +137,27 @@ if ($idtingkat <> -1) {
 
 
 
-<center><font size="4"><strong>LAPORAN TUNGGAKAN <?=strtoupper($namapenerimaan) ?><br />
+<center><font size="4"><strong>LATE PAYMENT REPORTS <?=strtoupper($namapenerimaan) ?><br />
 </strong></font><br /> </center><br />
 <table border="0">
 <tr>
-	<td class="news_content1"><strong>Departemen </strong></td>
+	<td class="news_content1"><strong>Department </strong></td>
     <td class="news_content1">: 
           <?=$departemen?>    </td>
 </tr>
 <tr>
 	<td class="news_content1">	  <strong>
-	  <? if ($idtingkat <> -1 && $idkelas == -1) echo "Tingkat"; else echo "Kelas"; ?>
+	  <? if ($idtingkat <> -1 && $idkelas == -1) echo "Grade"; else echo "Class"; ?>
 	</strong> </td>
     <td class="news_content1">: 
           <?=$namatingkat.$namakelas?>    </td>
 </tr>
 
 <tr>
-	<td class="news_content1"><strong>Telat Bayar </strong></td>
+	<td class="news_content1"><strong>Late Payment </strong></td>
     <td class="news_content1">: 
           <?=$telat ?> 
-      hari dari tanggal 
+      days from date 
       <?=LongDateFormat($tanggal)?>    </td>
 </tr>
 </table>
@@ -165,16 +165,16 @@ if ($idtingkat <> -1) {
 
 <table class="tab" id="table" border="1" cellpadding="0" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width ?>" align="left" bordercolor="#000000">
 <tr height="30">
-	<td class="header" width="30" align="center">No</td>
-    <td class="header" width="80" align="center">NIS</td>
-    <td class="header" width="140" align="center">Nama</td>
-    <td class="header" width="50" align="center">Kelas</td>
+	<td class="header" width="30" align="center">#</td>
+    <td class="header" width="80" align="center">Student ID</td>
+    <td class="header" width="140" align="center">Name</td>
+    <td class="header" width="50" align="center">Class</td>
     <? 	for($i = 0; $i < $max_n_cicilan; $i++) { 
 			$n = $i + 1; ?>
     		<td class="header" width="120" align="center"><?="Bayaran-$n" ?></td>	
     <?  } ?>
-    <td class="header" width="80" align="center">Telat<br /><em>(hari)</em></td>
-    <td class="header" width="100" align="center">Total Pembayaran</td>
+    <td class="header" width="80" align="center">Late<br /><em>(days)</em></td>
+    <td class="header" width="100" align="center">Total Payment</td>
 </tr>
 <?
 OpenDb();
@@ -238,7 +238,7 @@ while ($row = mysql_fetch_array($result)) {
 }
 ?>
 <tr height="40">
-	<td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+	<td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalbayarall) ?></strong></font></td>
 </tr>
 </table>

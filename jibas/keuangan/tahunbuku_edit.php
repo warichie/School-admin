@@ -46,13 +46,13 @@ if (isset($_REQUEST['simpan']))
 	if (mysql_num_rows($result) > 0) 
 	{
 		CloseDb();
-		$MYSQL_ERROR_MSG = "Nama $_REQUEST[tahunbuku] sudah digunakan";
+		$MYSQL_ERROR_MSG = "Name $_REQUEST[tahunbuku] has been used";
 		$cek = 0;
 	} 
 	else if (mysql_num_rows($result1) > 0) 
 	{
 		CloseDb();
-		$MYSQL_ERROR_MSG = "Awalan $_REQUEST[awalan] sudah digunakan";
+		$MYSQL_ERROR_MSG = "Awalan $_REQUEST[awalan] has been used";
 		$cek = 1;
 	} 
 	else 
@@ -129,7 +129,7 @@ if (isset($_REQUEST['tcicilan']))
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="style/calendar-green.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Ubah Tahun Buku]</title>
+<title>JIBAS FINANCE [Edit Fiscal Year]</title>
 <script language="javascript" src="script/tooltips.js"></script>
 <script type="text/javascript" src="script/calendar.js"></script>
 <script type="text/javascript" src="script/lang/calendar-en.js"></script>
@@ -138,9 +138,9 @@ if (isset($_REQUEST['tcicilan']))
 <script language="javascript" src="script/validasi.js"></script>
 <script language="javascript">
 function validasi() {
-	return validateEmptyText('tahunbuku', 'Tahun Buku') 
+	return validateEmptyText('tahunbuku', 'Fiscal Year') 
 		&& validateEmptyText('awalan', 'Awalan Kuitansi')
-		&& validateMaxText('keterangan', 255, 'Keterangan Tahun Buku');
+		&& validateMaxText('keterangan', 255, 'Info Fiscal Year');
 }
 
 function focusNext(elemName, evt) {
@@ -174,7 +174,7 @@ function panggil(elem){
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Tahun Buku :.
+    .: Edit Fiscal Year :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -189,19 +189,19 @@ function panggil(elem){
     <table border="0" cellpadding="2" cellspacing="2" align="center" background="">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td width="40%"><strong>Departemen</strong></td>
+        <td width="40%"><strong>Department</strong></td>
         <td colspan="2"><input type="text" name="departemen" id="departemen" value="<?=$departemen ?>" maxlength="25" size="25" readonly="readonly" style="background-color:#CCCC99"></td>
     </tr>
     <tr>
-        <td><strong>Tahun Buku</strong></td>
+        <td><strong>Fiscal Year</strong></td>
         <td colspan="2"><input type="text" name="tahunbuku" id="tahunbuku" value="<?=$tahunbuku?>" maxlength="100" size="25" onKeyPress="return focusNext('tcicilan', event)" onFocus="panggil('tahunbuku')"></td>
     </tr>
     <tr>
-		<td align="left"><strong>Tanggal Mulai</strong></td>
+		<td align="left"><strong>Start Date</strong></td>
 	    <td>
 	    <input type="text" name="tcicilan" id="tcicilan" readonly size="15" value="<?=$tanggalmulai ?>" onKeyPress="return focusNext('awalan', event)" onClick="Calendar.setup()" onFocus="panggil('tcicilan')" style="background-color:#CCCC99"></td>
 		<td width="60%">
-        <img src="images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/>
+        <img src="images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '100px')"/>
 	    </td>
 	</tr>
     <tr>
@@ -209,13 +209,13 @@ function panggil(elem){
         <td colspan="2"><input type="text" name="awalan" id="awalan" value="<?=$awalan?>" maxlength="5" size="7" onKeyPress="return focusNext('keterangan', event)" onFocus="panggil('awalan')"></td>
     </tr>
     <tr>
-        <td valign="top">Keterangan</td>
+        <td valign="top">Info</td>
         <td colspan="2"><textarea name="keterangan" id="keterangan" rows="3" cols="40" onKeyPress="return focusNext('simpan', event)" onFocus="panggil('keterangan')"><?=$keterangan?></textarea></td>
     </tr>
     <tr>
         <td colspan="3" align="center">
-        	<input class="but" type="submit" value="Simpan" name="simpan" id = "simpan" onFocus="panggil('simpan')">
-            <input class="but" type="button" value="Tutup" onClick="window.close();">
+        	<input class="but" type="submit" value="Save" name="simpan" id = "simpan" onFocus="panggil('simpan')">
+            <input class="but" type="button" value="Close" onClick="window.close();">
         </td>
     </tr>
     </table>

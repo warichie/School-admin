@@ -35,16 +35,16 @@
     <!-- TABLE TITLE -->
     <tr>
      
-      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Aturan Perhitungan Nilai Rapor</font></div></td>
+      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Report Card Calculation Rules</font></div></td>
     </tr>
     
     <tr>
       <td align="left" valign="top"><div align="right"><a href="../pelajaran.php" target="framecenter">
-        <font size="1" color="#000000"><b>Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000">Aturan Perhitungan Nilai Rapor</font> </div></td>
+        <font size="1" color="#000000"><b>Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000">Report Card Calculation Rules</font> </div></td>
     </tr>
     
 	</table><br><br><br><br><br><br><br><br><br><br>
-        <font size="2" color="#757575"><b>Klik <em>hyperlink</em> "Pelajaran" untuk melihat aturan perhitungan nilai rapor</b></font>    </td>
+        <font size="2" color="#757575"><b>Click <em>hyperlink</em> Class Subject to see Report Card Calculation Rules.</b></font>    </td>
 </tr>
 </table>
 </body>

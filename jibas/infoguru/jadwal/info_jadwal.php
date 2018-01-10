@@ -108,10 +108,10 @@ function setaktif(aktif, replid) {
 	var tahunajaran = document.getElementById('tahunajaran').value;
 	
 	if (aktif == 1) {
-		msg = "Apakah anda yakin akan mengubah jadwal ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this schedule to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin akan mengubah jadwal ini menjadi AKTIF?";
+		msg = "Are you sure want to change this schedule to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -124,7 +124,7 @@ function hapus(replid) {
 	var tahunajaran = document.getElementById('tahunajaran').value;
 	
 	
-	if (confirm("Apakah anda yakin akan menghapus info jadwal ini?"))
+	if (confirm("Are you sure want to delete this Schedule Info?"))
 		document.location.href = "info_jadwal.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&departemen="+departemen+"&tahunajaran="+tahunajaran+"&urut=<?=$urut?>&urutan=<?=$urutan?>";
 		
 }
@@ -176,7 +176,7 @@ function ByeWin() {
 windowIMA=parent.opener.change(0);
 }
 </script>
-<title>JIBAS SIMAKA [Daftar Info Jadwal]</title>
+<title>JIBAS SIMAKA [Schedule Info List]</title>
 </head>
 
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#FFFFFF" onUnload="ByeWin()">
@@ -198,7 +198,7 @@ windowIMA=parent.opener.change(0);
 	<table border="0"width="100%">
     <!-- TABLE TITLE -->
     <tr>
-        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Daftar Info Jadwal</font></td>
+        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Schedule Info List</font></td>
     </tr>
     <tr>
         <td align="left">&nbsp;</td>
@@ -209,7 +209,7 @@ windowIMA=parent.opener.change(0);
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <!-- TABLE LINK -->
     <tr>
-    	<td width="20%"><strong>Departemen </strong></td>
+    	<td width="20%"><strong>Department </strong></td>
     	<td width="20%">
         <select name="departemen" id="departemen" onChange="change_departemen()" style="width:150px;" onKeyPress="return focusNext('tahunajaran', event)">
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -223,7 +223,7 @@ windowIMA=parent.opener.change(0);
         </select>  		</td>
     </tr>
     <tr>
-    	<td><strong>Tahun Ajaran</strong></td>
+    	<td><strong>Year</strong></td>
         <td>  
         <select name="tahunajaran" id="tahunajaran" onChange="change_tahunajaran()" style="width:150px;">
    		 	<?
@@ -247,8 +247,8 @@ windowIMA=parent.opener.change(0);
     	</select>   
         </td>
         <td align="right">
-        	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '80px')">&nbsp;Refresh</a>&nbsp;&nbsp;
-            <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Info Jadwal!', this, event, '80px')">&nbsp;Tambah Info Jadwal</a></td>
+        	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '80px')">&nbsp;Refresh</a>&nbsp;&nbsp;
+            <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add Schedule Info', this, event, '80px')">&nbsp;Add Schedule Info</a></td>
     </tr>
 	</table>
 	</td>
@@ -266,9 +266,8 @@ if ($tahunajaran <> "" && $departemen <> "") {
 	?>
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
 	<tr class="header" height="30" align="center">
-        <td width="10%">No</td>
-        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('deskripsi','<?=$urutan?>')">Info
-          Jadwal <?=change_urut('deskripsi',$urut,$urutan)?></td>        
+        <td width="10%">#</td>
+        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('deskripsi','<?=$urutan?>')">Schedule Info <?=change_urut('deskripsi',$urut,$urutan)?></td>        
         <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('i.aktif','<?=$urutan?>')">Status <?=change_urut('i.aktif',$urut,$urutan)?></td>
         <td width="*">&nbsp;</td>
 	</tr>
@@ -282,14 +281,14 @@ if ($tahunajaran <> "" && $departemen <> "") {
         <td><?=$row['deskripsi']?></td>
         <td align="center">
         <? if ($row['aktif']==1){ ?>
-            <img src="../images/ico/aktif.png" onClick="setaktif(<?=$row['aktif']?>,<?=$row['replid']?>)" onMouseOver="showhint('Status Aktif', this, event, '120px')">
+            <img src="../images/ico/aktif.png" onClick="setaktif(<?=$row['aktif']?>,<?=$row['replid']?>)" onMouseOver="showhint('Status Active', this, event, '120px')">
         <? } else { ?>
-            <img src="../images/ico/nonaktif.png" onClick="setaktif(<?=$row['aktif']?>,<?=$row['replid']?>)" onMouseOver="showhint('Status Tidak Aktif', this, event, '120px')">
+            <img src="../images/ico/nonaktif.png" onClick="setaktif(<?=$row['aktif']?>,<?=$row['replid']?>)" onMouseOver="showhint('Status Inactive', this, event, '120px')">
         <? } ?> 
 		</td>
         <td align="center">
-        	<a href="#" onClick="newWindow('info_jadwal_edit.php?replid=<?=$row['replid']?>',     'UbahInfoJadwal','380','250','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Info Jadwal!', this, event, '80px')"></a>&nbsp;
-        	<a href="JavaScript:hapus(<?=$row['replid']?>)" ><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Info Jadwal!', this, event, '80px')"></a>        </td>
+        	<a href="#" onClick="newWindow('info_jadwal_edit.php?replid=<?=$row['replid']?>',     'UbahInfoJadwal','380','250','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Schedule Info', this, event, '80px')"></a>&nbsp;
+        	<a href="JavaScript:hapus(<?=$row['replid']?>)" ><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete', this, event, '80px')"></a>        </td>
         
 	</tr> 
      
@@ -314,9 +313,9 @@ if ($tahunajaran <> "" && $departemen <> "") {
 	<tr>
 		<td align="center" valign="middle" height="200">
     	
-        <font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+        <font size = "2" color ="red"><b>Data Not Found. 
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
         </b></font>  
    
@@ -336,12 +335,12 @@ if ($tahunajaran <> "" && $departemen <> "") {
 		<td align="center" valign="middle" height="200">
     
     <? if ($departemen == "") { ?>
-		<font size = "2" color ="red"><b>Belum ada data Departemen.
-        <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+		<font size = "2" color ="red"><b>No Department yet.
+        <br />Please make a new one in Department menu on Reference section.
         </b></font>
     <? } elseif ($tahunajaran == "") {?>
-    	<font size = "2" color ="red"><b>Belum ada data Tahun Ajaran.
-        <br />Silahkan isi terlebih dahulu di menu Tahun Ajaran pada bagian Referensi.
+    	<font size = "2" color ="red"><b>No Year data yet.
+        <br />Please make a new one in Year of Teaching menu on Reference section.
         </b></font>
     <? } ?>
         </td>
@@ -352,7 +351,7 @@ if ($tahunajaran <> "" && $departemen <> "") {
 </tr>
 <tr height="35">
 	<td colspan="3" align="center">   	
-       <input class="but" type="button" value="Tutup" onClick="tutup()">
+       <input class="but" type="button" value="Close" onClick="tutup()">
        <input type="hidden" name="jadwal" id="jadwal" value="<?=$jadwal?>" />
    	</td>
 </tr>  

@@ -23,7 +23,7 @@ function validateEmptyText(elementId, elementName) {
 	val = vdtrim(val);
 		if (val.length == 0) {
 			//alert ("woi");
-		alert("Anda harus mengisikan nilai untuk "+elementName);
+		alert("You must enter a value for "+elementName);
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -35,7 +35,7 @@ function validateMaxText(elementId, maxLen, elementName) {
 	val = vdtrim(val);
 	
 	if (val.length > maxLen) {
-		alert("Panjang untuk " + elementName + " tidak boleh melebihi " + maxLen + " karakter");
+		alert("Max character for " + elementName + " should not exceed " + maxLen + " characters");
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -47,7 +47,7 @@ function validateNumber(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (!vdIsNumber(val)) {
-		alert(elementName + " harus berupa bilangan");
+		alert(elementName + " should be numeric");
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -56,17 +56,17 @@ function validateNumber(elementId, elementName) {
 
 function validateTgl(tgl,bln,th,tgl1,bln1,th1) {
 	if (th > th1) {
-		alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+		alert ('End Year should not less than Start Year');
 		return false;
 	} 
 	
 	if (th == th1 && bln > bln1 ) {
-		alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+		alert ('End Month should not less than Start Month');
 		return false; 
 	}	
 	
 	if (th == th1 && bln == bln1 && tgl > tgl1 ) { 
-		alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');
+		alert ('End Date should not less than Start Date');
 		return false;
 	}	
 	return true;

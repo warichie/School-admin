@@ -173,10 +173,10 @@ class CPinjam
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td>
-                <fieldset><legend class="welc">Pilih Anggota</legend>
+                <fieldset><legend class="welc">Select Member</legend>
 					<table width="100%" border="0" cellspacing="3" cellpadding="0">
                       <tr>
-                        <td width="9%" align="right"><span class="news_content1">Status&nbsp;Peminjam</span></td>
+                        <td width="9%" align="right"><span class="news_content1">Borrower Status</span></td>
                   		<td width="91%">
                         	<table width="100%" border="0" cellspacing="0" cellpadding="0">
                               <tr></tr>
@@ -185,21 +185,21 @@ class CPinjam
                                 <td width="5" align="right">
                                 	<input name="state" type="radio" value="0" onclick="fillstate('0')" <?=StringIsChecked($this->state,'0')?> />
                                 </td>
-                                <td ><span class="news_content1">Pegawai</span></td>
+                                <td><span class="news_content1">Employee</span></td>
                                 <td width="5" align="right">
                                 	<input name="state" type="radio" value="1" onclick="fillstate('1')" <?=StringIsChecked($this->state,'1')?>/>
                                 </td>
-                                <td><span class="news_content1">Siswa</span></td>
+                                <td><span class="news_content1">Student</span></td>
                                 <td width="5" align="right">
                                 	<input name="state" type="radio" value="2" onclick="fillstate('2')" <?=StringIsChecked($this->state,'2')?>/>
                                 </td>
-                                <td><span class="news_content1">Anggota Luar Sekolah</span></td>
+                                <td><span class="news_content1">Non School Member</span></td>
                               </tr>
                             </table>                        
                          </td>
                       </tr>
                       <tr>
-                        <td align="right"><span class="news_content1">Peminjam</span></td>
+                        <td align="right"><span class="news_content1">Borrower</span></td>
                   		<td>
                         	<input type="hidden" id="statuspeminjam" value="<?=$this->state?>" />
                             <input type="text" name="noanggota" id="noanggota" readonly="readonly" class="btnfrm" onclick="cari()" value="<?=$this->noanggota?>" size="30" />
@@ -214,8 +214,8 @@ class CPinjam
             <td valign="top">
             	<div id="title" align="right">
                     <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-                    <font style="font-size:18px; color:#999999">Peminjaman Pustaka Baru</font><br />
-                    <a href="peminjaman.php" class="welc">Peminjaman</a><span class="welc"> > Peminjaman Pustaka Baru</span><br /><br /><br />
+                    <font style="font-size:18px; color:#999999">New Library Borrowing</font><br />
+                    <a href="peminjaman.php" class="welc">Borrowing</a><span class="welc"> > New Library Borrowing</span><br /><br /><br />
                 </div>
             </td>
           </tr>
@@ -225,7 +225,7 @@ class CPinjam
           <tr>
             <td colspan="2">
               <fieldset>
-              <legend class="welc">Daftar Peminjaman</legend>
+              <legend class="welc">Borrowing List</legend>
               <div style="height:97px; overflow-x:hidden; width:100%; overflow-y:scroll">  
               <?
               $sql = "SELECT * FROM pinjam WHERE idanggota='$this->noanggota' AND status=0 ORDER BY tglkembali";
@@ -235,10 +235,10 @@ class CPinjam
 			  ?>
               <table width="98%" border="1"  cellspacing="0" cellpadding="0" class="tab">
                   <tr height="25" class="header">
-                    <td width="19" height="25" align="center">No</td>
-                    <td width="253" height="25" align="center">No Pustaka</td>
-                    <td width="495" height="25" align="center">Judul</td>
-                    <td width="99" align="center">Tgl Kembali</td>
+                    <td width="19" height="25" align="center">#</td>
+                    <td width="253" height="25" align="center">Library Num</td>
+                    <td width="495" height="25" align="center">Title</td>
+                    <td width="99" align="center">Return</td>
                     <td width="99" align="center">&nbsp;</td>
                   </tr>
                   <tbody style="overflow:hidden;" >
@@ -264,11 +264,11 @@ class CPinjam
               </div>
               <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr height="30">
-                        <td class="news_content1">Jumlah yang akan dipinjam <?=$num?></td>
+                        <td class="news_content1">Amount of borrow <?=$num?></td>
                         <td align="right">
                         	<? if($num!=0){ ?>
-                            <input name="simpan" type="button" class="cmbfrm3" value="Simpan" onclick="ValidatePeminjaman()" />
-          					&nbsp;<input name="batal" type="button" class="cmbfrm2" value="Batal" onclick="CancelPeminjaman()" />
+                            <input name="simpan" type="button" class="cmbfrm3" value="Save" onclick="ValidatePeminjaman()" />
+          					&nbsp;<input name="batal" type="button" class="cmbfrm2" value="Cancel" onclick="CancelPeminjaman()" />
                         	<? } ?>
                         </td>
                       </tr>
@@ -279,24 +279,24 @@ class CPinjam
           <tr>
           	<td colspan="2">
                 <fieldset>
-            <legend class="welc">Cari Pustaka Yang Akan Dipinjam</legend>
+            <legend class="welc">Search Borrowed Library</legend>
             <table width="100%" border="0" cellspacing="5" cellpadding="0">
       <tr>
-                        <td width="9%" align="right" class="news_content1">Nomor Pustaka</td>
+                        <td width="9%" align="right" class="news_content1">Library Num</td>
                         <td colspan="2"><input name="kodepustaka" id="kodepustaka" type="text" size="40" maxlength="45" value="<?=$this->kodepustaka?>" onkeypress="return KeyPress('kodepustaka',event)" />&nbsp;<a href="javascript:CariPustaka()"><img src="../img/ico/cari.png" border="0" /></a></td>
                       </tr>
                       <tr height="30">
-                        <td align="right" class="news_content1">Judul</td>
+                        <td align="right" class="news_content1">Title</td>
                         <td colspan="2"><div id="title" class="btnfrm" style="height:30px">&nbsp;<?=$this->judul?></div>                        </td>
                       </tr>
                       <tr>
-                        <td align="right" class="news_content1">Tanggal&nbsp;Pinjam</td>
+                        <td align="right" class="news_content1">Date Borrowed</td>
                         <td colspan="4">                       
                         <table   border="0" cellspacing="0" cellpadding="0">
                           <tr>
                             <td><input name="tglpjm" type="text" class="btnfrm" id="tglpjm" value="<?=$this->datenow?>" size="20" maxlength="10" readonly="true" <?=$this->oc1?> /></td>
                             <td width="18" align="right"><a href="javascript:TakeDate('tglpjm')" <?=$this->dsp1?>><img src="../img/ico/calendar.png" width="16" height="16" border="0" /></a></td>
-                            <td>&nbsp;&nbsp;&nbsp;<span class="news_content1">Tanggal&nbsp;Kembali</span>&nbsp;</td>
+                            <td>&nbsp;&nbsp;&nbsp;<span class="news_content1">Return</span>&nbsp;</td>
                             <td><input name="tglkem" type="text" class="btnfrm" id="tglkem" value="<?=$this->datenow?>" size="20" maxlength="10" readonly="true" <?=$this->oc2?> /></td>
                             <td width="18" align="right"><a href="javascript:TakeDate('tglkem')" <?=$this->dsp2?> ><img src="../img/ico/calendar.png" border="0" /></a></td>
                           </tr>
@@ -304,20 +304,20 @@ class CPinjam
 </td>
                         <td width="36%" rowspan="3" align='left'>
                         <input type="hidden" name="borrowed" id="borrowed" value="<?=$JumPinjam?>" />
-                        <fieldset style="height:100%; width:75%"><legend class="welc">Data Peminjaman Aktif</legend>
-                   	        <span class="news_content1">Jumlah Peminjaman <?=$JumPinjam?><br />
-								Jumlah Peminjaman Yang Terlambat <?=$JumTelat?>                           </span>
+                        <fieldset style="height:100%; width:75%"><legend class="welc">Active Borrowing Data</legend>
+                   	        <span class="news_content1">Amount of Borrowing <?=$JumPinjam?><br />
+							   Amount of Late Borrowing <?=$JumTelat?>                           </span>
                         </fieldset>                        </td>
                       </tr>
                       <tr>
-                        <td align="right" class="news_content1">Keterangan</td>
+                        <td align="right" class="news_content1">Info</td>
                         <td><textarea name="keterangan" id="keterangan" cols="40" rows="1"></textarea></td>
                       </tr>
                       
                       <tr>
                         <td colspan="2" align="center">
 						<? if ($this->numcode>0){ ?>
-						<input name="button" type="button" class="cmbfrm2" id="button" value="Tambahkan ke daftar pustaka yang akan dipinjam" onclick="AddToChart()" />
+						<input name="button" type="button" class="cmbfrm2" id="button" value="Add to library list which will be borrowed" onclick="AddToChart()" />
 						<? } ?>
 						</td>
                       </tr>

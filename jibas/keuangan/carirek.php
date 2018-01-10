@@ -67,7 +67,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Cari Rekening Perkiraan]</title>
+<title>JIBAS FINANCE [Cari Bank Account Perkiraan]</title>
 <script src="script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="script/tables.js"></script>
@@ -117,7 +117,7 @@ function change_urut(urut,urutan)
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Cari Rekening Perkiraan :.
+    .: Cari Bank Account Perkiraan :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -135,7 +135,7 @@ function change_urut(urut,urutan)
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <!-- TABLE LINK -->
     <tr>
-    	<td align="left" width="50%"><strong>Kategori&nbsp;</strong>
+    	<td align="left" width="50%"><strong>Category&nbsp;</strong>
 <? 		if ($option == "ro") { ?>
 
 			<input type="text" name="kategori" id="kategori" readonly="readonly" style="background-color:#DDD" value="<?= strtoupper($kategori) ?>">
@@ -162,7 +162,7 @@ function change_urut(urut,urutan)
         
         </td>
         <!--<td align="right" width="50%">
-        <input type="button" class="but" value="Tutup" onclick="window.close()" />
+        <input type="button" class="but" value="Close" onclick="window.close()" />
         </td>-->
     </tr>
 	</table>
@@ -185,10 +185,10 @@ function change_urut(urut,urutan)
 		<br />
 		<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 		<tr height="30" align="center" class="header">
-			<td width="8%" >No</td>
-			<td width="15%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('kode','<?=$urutan?>')" style="cursor:pointer;">Kode <?=change_urut('kode',$urut,$urutan)?></td>
-			<td width="30%"  onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('nama','<?=$urutan?>')" style="cursor:pointer;">Nama <?=change_urut('nama',$urut,$urutan)?></td>
-			<td>Keterangan</td>
+			<td width="8%" >#</td>
+			<td width="15%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('kode','<?=$urutan?>')" style="cursor:pointer;">Code <?=change_urut('kode',$urut,$urutan)?></td>
+			<td width="30%"  onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('nama','<?=$urutan?>')" style="cursor:pointer;">Name <?=change_urut('nama',$urut,$urutan)?></td>
+			<td>Info</td>
 			<td width="6%">&nbsp;</td>
 		</tr>
 <? 		if ($page==0)
@@ -243,8 +243,8 @@ function change_urut(urut,urutan)
 		<tr><td><hr style="border-style:dotted" /></td></tr>          
 		<tr>
 			<td align="center" valign="middle" height="200">    
-				<font size = "2" color ="red"><b>Tidak ditemukan adanya data.         
-				<br />Tambah data kode rekening pada kategori <?=$kategori?> di menu Kode Rekening Perkiraan pada bagian Penerimaan.        
+				<font size = "2" color ="red"><b>Data Not Found.         
+				<br />Add data kode rekening on kategori <?=$kategori?> in theKode Bank Account Perkiraan on bagian Penerimaan.        
 				</b></font>
 			</td>
 		</tr>
@@ -256,7 +256,7 @@ function change_urut(urut,urutan)
 </tr>
 <tr height="35">
 	<td align="center">
-       <input class="but" type="button" value="Tutup" onClick="window.close()">
+       <input class="but" type="button" value="Close" onClick="window.close()">
    	</td>
 </tr>  
 </table>

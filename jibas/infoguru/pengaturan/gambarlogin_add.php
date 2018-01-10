@@ -117,7 +117,7 @@ if (isset($_REQUEST['Simpan'])) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Tambah Gambar]</title>
+<title>JIBAS TEACHERS INFO [Add Image]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 
 <script language="javascript" src="../script/tables.js"></script>
@@ -130,7 +130,7 @@ if (isset($_REQUEST['Simpan'])) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td width="120" class="header"><div align="center">Tambah Gambar</div></td>
+<td width="120" class="header"><div align="center">Add Image</div></td>
 </tr>
 <tr>
   <td align="center"><div align="left">
@@ -139,8 +139,8 @@ if (isset($_REQUEST['Simpan'])) {
 </tr>
 <tr>
 	<td align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -152,7 +152,7 @@ if (isset($_REQUEST['Simpan'])) {
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 <? if ($cek == 1) { ?>
 <script language="javascript">

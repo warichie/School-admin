@@ -25,7 +25,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pembayaran DSP</title>
+<title>Payment DSP</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -36,8 +36,8 @@
 <tr><td align="left">
 <!-- BOF CONTENT -->
 
-	<font size="5" color="#660000"><b>Daftar Rekening Perkiraan</b></font><br />
-	<a href="index.php" style="color:#0000FF">Menu Utama</a> > <strong>Daftar Rekening Perkiraan</strong><br /><br /><br />
+	<font size="5" color="#660000"><b>Daftar Bank Account Perkiraan</b></font><br />
+	<a href="index.php" style="color:#0000FF">Main Menu</a> > <strong>Daftar Bank Account Perkiraan</strong><br /><br /><br />
     
     
     

@@ -779,7 +779,7 @@ Array.extend({
 		This method is provided only for browsers without native *every* support.
 		For more info see <http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Reference:Global_Objects:Array:every>
 
-		*every* executes the provided callback function once for each element present in the array until it finds one where callback returns a false value. If such an element is found, the every method immediately returns false. Otherwise, if callback returned a true value for all elements, every will return true. callback is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values.
+		*every* executes the provided callback function once for each element present in the array to it finds one where callback returns a false value. If such an element is found, the every method immediately returns false. Otherwise, if callback returned a true value for all elements, every will return true. callback is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values.
 
 	Arguments:
 		fn - function to execute with each item in the array; passed the item and the index of that item in the array
@@ -804,7 +804,7 @@ Array.extend({
 		This method is provided only for browsers without native *some* support.
 		For more info see <http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Reference:Global_Objects:Array:some>
 
-		*some* executes the callback function once for each element present in the array until it finds one where callback returns a true value. If such an element is found, some immediately returns true. Otherwise, some returns false. callback is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values.
+		*some* executes the callback function once for each element present in the array to it finds one where callback returns a true value. If such an element is found, some immediately returns true. Otherwise, some returns false. callback is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values.
 
 	Arguments:
 		fn - function to execute with each item in the array; passed the item and the index of that item in the array
@@ -5441,7 +5441,7 @@ var Cookie = new Abstract({
 
 	Arguments:
 		key - the key (name) for the cookie
-		value - the value to set, cannot contain semicolons
+		value - the value to set, should not contain semicolons
 		options - an object representing the Cookie options. See Options below. Default values are stored in Cookie.options.
 
 	Options:
@@ -5740,7 +5740,7 @@ var Asset = new Abstract({
 		(start code)
 		new Asset.images(['/images/myImage.png', '/images/myImage2.gif'], {
 			onComplete: function(){
-				alert('all images loaded!');
+				alert('all images loaded');
 			}
 		});
 		(end)
@@ -6023,7 +6023,7 @@ Hash.Cookie = Hash.extend({
 			'username': 'John',
 			'credentials': [4, 7, 9]
 		});
-		login.set('last_message', 'User logged in!');
+		login.set('last_message', 'User logged in');
 
 		login.save(); // finally save the Hash
 		(end)

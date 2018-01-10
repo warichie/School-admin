@@ -46,7 +46,7 @@ OpenDb();
 
 <html>
 <head>
-<title>Rata-rata Ujian Kelas per RPP</title>
+<title>Class Exam Index by Lesson Plans</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
@@ -75,25 +75,25 @@ function show(){
     var semester = document.filter_penentuan.semester.value;
 	
     if(dep.length == 0) {
-        alert("Departemen tidak boleh kosong");
+        alert("Department should not leave empty");
         document.filter_penentuan.departemen.value = "";
         document.filter_penentuan.departemen.focus();
         return false;
     }
     else if(tingkat.length == 0) {
-        alert("Tingkat tidak boleh kosong");
+        alert("Grade should not leave empty");
         document.filter_penentuan.tingkat.value = "";
         document.filter_penentuan.tingkat.focus();
         return false;
     }
     else if(pelajaran.length == 0) {
-        alert("Pelajaran tidak boleh kosong");
+        alert("Class Subject should not leave empty");
         document.filter_penentuan.pelajaran.value = "";
         document.filter_penentuan.pelajaran.focus();
         return false;
     }
     else if(semester.length == 0) {
-        alert("Semester tidak boleh kosong");
+        alert("Semester should not leave empty");
         document.filter_penentuan.semester.value = "";
         document.filter_penentuan.semester.focus();
         return false;
@@ -124,7 +124,7 @@ function focusNext(elemName, evt) {
     <td width="58%">
     <table border="0">
     <tr>
-        <td width="18%"><strong>Departemen</strong></td>
+        <td width="18%"><strong>Department</strong></td>
         <td width="25%">
             <select name="departemen" id="departemen" style="width:120px;" onChange="change_sel();" onKeyPress="focusNext('tingkat',event)">
               <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -149,7 +149,7 @@ function focusNext(elemName, evt) {
             <input type="text" size="34" value="<?=$row_s[semester]?>" readonly class="disabled"></td>
     </tr>
 	<tr>
-        <td><strong>Tingkat</strong></td>
+        <td><strong>Grade</strong></td>
         <td>
         	<select name="tingkat" id="tingkat" size="1" style="width:120px;" onChange="change_sel2();" onKeyPress="focusNext('pelajaran',event)">
 		<?	$query_t = 	"SELECT replid, tingkat FROM jbsakad.tingkat ".
@@ -174,7 +174,7 @@ function focusNext(elemName, evt) {
 			}
         ?>
         </select>						 </td>
-        <td><strong>Pelajaran</strong></td>
+        <td><strong>Class Subject</strong></td>
         <td>
         	<select name="pelajaran" id="pelajaran" size="1" style="width:225px;" onChange="change_sel2();" onKeyPress="focusNext('tabel',event)">
           	<? 	$query_p = "SELECT replid, nama FROM jbsakad.pelajaran ".
@@ -202,10 +202,10 @@ function focusNext(elemName, evt) {
     </table>
     </td>
     <td align="left" valign="middle" width="*" rowspan="2">
-        <img src="../images/view.png" width="48" height="48" border="0" onClick="show()" id="tabel" style="cursor:pointer;" OnMouseOver="showhint('Klik untuk menampilkan rata-rata ujian kelas!', this, event, '150px')">            </td>
+        <img src="../images/view.png" width="48" height="48" border="0" onClick="show()" id="tabel" style="cursor:pointer;" OnMouseOver="showhint('Click to show class average exam', this, event, '150px')">            </td>
         <td align="right" valign="top" width="374" rowspan="2">
-         <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Rata-rata RPP Setiap Kelas</font><br />
-        <a href="../penilaian.php" target="content"> <font size="1" color="#000000"><b>Penilaian</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Rata-rata RPP Setiap Kelas</b></font>
+         <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Lesson Plans Index for each Classes</font><br />
+        <a href="../penilaian.php" target="content"> <font size="1" color="#000000"><b>Index</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Lesson Plans Index for each Classes</b></font>
   	</td>
 </tr>	
 </table>

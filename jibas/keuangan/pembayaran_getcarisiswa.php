@@ -50,24 +50,24 @@ if (isset($_REQUEST['nama']))
     </td>
 </tr>    
 <tr>
-    <td>NIS:</td>
+    <td>Student ID:</td>
     <td>
     <input type="text" id="nis" name="nis" size="15">
     </td>
 </tr>    
 <tr>
-    <td>Nama:</td>
+    <td>Name:</td>
     <td>
-    <input type="text" id="nama" name="nama" size="15">&nbsp;<input class="but" type="button" name="cari" id="cari" value="Cari" onclick="do_carisiswa()">
+    <input type="text" id="nama" name="nama" size="15">&nbsp;<input class="but" type="button" name="cari" id="cari" value="Search" onclick="do_carisiswa()">
     </td>
 </tr>    
 </table>
 
 <table border="0" id="table" class="tab" cellpadding="2" cellspacing="0" width="100%">
 <tr height="20">
-    <td class="header" width="5%" align="center">No</td>
-    <td class="header" width="30%" align="center">NIS</td>
-    <td class="header">Nama</td>
+    <td class="header" width="5%" align="center">#</td>
+    <td class="header" width="30%" align="center">Student ID</td>
+    <td class="header">Name</td>
 </tr>
 <?
 

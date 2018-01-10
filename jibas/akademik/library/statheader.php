@@ -61,7 +61,7 @@ if ($departemen!="-1"){
 <head>
 <link rel="stylesheet" href="../style/style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>SISFO KUA [Statistik Kepegawaian]</title>
+<title>MARITAL STATUS INFO [Employee Affair Statistic]</title>
 <script language="javascript">
 function Show() {
 	var dep=document.getElementById("departemen").value;
@@ -102,11 +102,11 @@ function change_keyword() {
     
 <table border="0" cellpadding="2" cellspacing="0">
 <tr>
-	<td align="left">Departemen</td>
+	<td align="left">Department</td>
     <td align="left">
     <select name="departemen" id="departemen" onChange="change_dep()">
     	 <option value="-1" <?=StringIsSelected("-1", $departemen) ?> > 
-                Semua Departemen                </option>
+                All Department                </option>
     	 <?	$dep = getDepartemen(SI_USER_ACCESS());    
 			foreach($dep as $value) {
 				if ($departemen == "")
@@ -120,17 +120,17 @@ function change_keyword() {
     	<a href="JavaScript:Show()"><img src="../images/ico/view_x.png" border="0" /></a>    </td>
 </tr>
 <tr>
-  <td align="left"><? if ($kode==0) { echo "Angkatan"; } else if ($kode==1) { echo "Proses Penerimaan"; } ?></td>
+  <td align="left"><? if ($kode==0) { echo "Graduates"; } else if ($kode==1) { echo "Admission Process"; } ?></td>
   <td align="left">
   <select name="key" id="key" onchange="change_key()" <?=$dis?>>
   <?  	if ($kode==0){
 		?>
-			<option value="-1" <?=StringIsSelected("-1", $key) ?> >Semua Angkatan</option>
+			<option value="-1" <?=StringIsSelected("-1", $key) ?> >All Graduation</option>
 		<?
   		$sql="SELECT replid,angkatan FROM jbsakad.angkatan $dep ORDER BY aktif,replid ";
   		} else if ($kode==1) {
 		?>
-			<option value="-1" <?=StringIsSelected("-1", $key) ?> >Semua Penerimaan</option>
+			<option value="-1" <?=StringIsSelected("-1", $key) ?> >All Penerimaan</option>
 		<?
   		$sql="SELECT replid,proses FROM jbsakad.prosespenerimaansiswa $dep ORDER BY aktif,replid ";
 		}
@@ -145,26 +145,26 @@ function change_keyword() {
   </td>
   </tr>
 <tr>
-  <td align="left">Berdasarkan</td>
+  <td align="left">Sort by</td>
   <td align="left">
   <select name="keyword" id="keyword" onchange="change_keyword()">
-        <option value="1" <?=StringIsSelected("1", $keyword) ?>>Agama</option>
-        <option value="2" <?=StringIsSelected("2", $keyword) ?>>Asal Sekolah</option>
-        <option value="3" <?=StringIsSelected("3", $keyword) ?>>Golongan Darah</option>
-        <option value="4" <?=StringIsSelected("4", $keyword) ?>>Jenis Kelamin</option>
-        <option value="5" <?=StringIsSelected("5", $keyword) ?>>Kewarganegaraan</option>
-        <option value="6" <?=StringIsSelected("6", $keyword) ?>>Kodepos Siswa</option>
-        <option value="7" <?=StringIsSelected("7", $keyword) ?>>Kondisi</option>
-        <option value="8" <?=StringIsSelected("8", $keyword) ?>>Pekerjaan Ayah</option>
-        <option value="9" <?=StringIsSelected("9", $keyword) ?>>Pekerjaan Ibu</option>
-        <option value="10" <?=StringIsSelected("10", $keyword) ?>>Pendidikan Ayah</option>
-        <option value="11" <?=StringIsSelected("11", $keyword) ?>>Pendidikan Ibu</option>
-        <option value="12" <?=StringIsSelected("12", $keyword) ?>>Penghasilan Orang Tua</option>
-        <option value="13" <?=StringIsSelected("13", $keyword) ?>>Status Aktif</option>
-        <option value="14" <?=StringIsSelected("14", $keyword) ?>>Status Siswa</option>
-        <option value="15" <?=StringIsSelected("15", $keyword) ?>>Suku</option>
-        <option value="16" <?=StringIsSelected("16", $keyword) ?>>Tahun Kelahiran</option>
-        <option value="17" <?=StringIsSelected("17", $keyword) ?>>Usia</option>
+        <option value="1" <?=StringIsSelected("1", $keyword) ?>>Religion</option>
+        <option value="2" <?=StringIsSelected("2", $keyword) ?>>Past School</option>
+        <option value="3" <?=StringIsSelected("3", $keyword) ?>>Blood Type</option>
+        <option value="4" <?=StringIsSelected("4", $keyword) ?>>Gender</option>
+        <option value="5" <?=StringIsSelected("5", $keyword) ?>>Citizenship</option>
+        <option value="6" <?=StringIsSelected("6", $keyword) ?>>Student Post Code</option>
+        <option value="7" <?=StringIsSelected("7", $keyword) ?>>Conditions</option>
+        <option value="8" <?=StringIsSelected("8", $keyword) ?>>Father Occupation</option>
+        <option value="9" <?=StringIsSelected("9", $keyword) ?>>Mother Occupation</option>
+        <option value="10" <?=StringIsSelected("10", $keyword) ?>>Father Education</option>
+        <option value="11" <?=StringIsSelected("11", $keyword) ?>>Mother Education</option>
+        <option value="12" <?=StringIsSelected("12", $keyword) ?>>Parents Income</option>
+        <option value="13" <?=StringIsSelected("13", $keyword) ?>>Status Active</option>
+        <option value="14" <?=StringIsSelected("14", $keyword) ?>>Student Status</option>
+        <option value="15" <?=StringIsSelected("15", $keyword) ?>>Ethnicity</option>
+        <option value="16" <?=StringIsSelected("16", $keyword) ?>>Year of Birth</option>
+        <option value="17" <?=StringIsSelected("17", $keyword) ?>>Age</option>
   </select>
   </td>
   </tr>
@@ -173,15 +173,13 @@ function change_keyword() {
 </td>
     <td align="right"  valign="top" width="30%">
 	<? if ($kode==0){ ?>
-	<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Statistik
-	Kesiswaan</font><br />
-	<a href="../siswa.php" target="_parent" style="color:#0000FF">Kesiswaan</a> > <strong>Statistik
-	Kesiswaan</strong>    
+	<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Student Statistic</font><br />
+	<a href="../siswa.php" target="_parent" style="color:#0000FF">Student</a> > <strong>Student Statistic</strong>    
     <? } else if ($kode==1){ ?>
-    <font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Statistik
-	Calon Siswa</font><br />
-	<a href="../siswa_baru.php" target="_parent" style="color:#0000FF">P S B</a> > <strong>Statistik
-	Calon Siswa</strong>    
+    <font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Statistic
+	Student Candidate</font><br />
+	<a href="../siswa_baru.php" target="_parent" style="color:#0000FF">New Student Admission</a> > <strong>Statistic
+	Student Candidate</strong>    
 	<? } ?>
     </td>
 </tr>

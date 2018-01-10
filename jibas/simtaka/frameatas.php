@@ -30,7 +30,7 @@ require_once('inc/sessioninfo.php');
 <title>Untitled Document</title>
 <script language="javascript">
 function logout(){
-	if (confirm('Anda yakin akan keluar dari Jibas SimTaka?')) {
+	if (confirm('Are you sure want to akan keluar from Jibas SimTaka?')) {
 		document.location.href = "logout.php";
 	}
 }
@@ -57,19 +57,19 @@ function logout(){
           <tr>
             <td align="center">
             	<a href="ref/referensi.php" target="content" class="style2"><img src="img/ico/ref.png" border="0"><br>
-            Referensi</a>            </td>
+            Reference</a>            </td>
             <td align="center">
-            	<a href="pus/pustaka.php" target="content" class="style2"><img src="img/ico/pustaka.png" border="0"><br>Pustaka</a>            </td>
+            	<a href="pus/pustaka.php" target="content" class="style2"><img src="img/ico/pustaka.png" border="0"><br>Library</a>            </td>
             <td align="center">
-            	<a href="pjm/peminjaman.php" target="content" class="style2"><img src="img/ico/pinjam.png" border="0"><br>Peminjaman</a>            </td>
+            	<a href="pjm/peminjaman.php" target="content" class="style2"><img src="img/ico/pinjam.png" border="0"><br>Borrowing</a>            </td>
             <td align="center">
-            	<a href="kbl/pengembalian.php" target="content" class="style2"><img src="img/ico/kembali.png" border="0"><br>Pengembalian</a>            </td>
+            	<a href="kbl/pengembalian.php" target="content" class="style2"><img src="img/ico/kembali.png" border="0"><br>Return</a>            </td>
             <td align="center">
-            	<a href="akt/aktivitas.php" target="content" class="style2"><img src="img/ico/aktivitas.png" border="0"><br>Aktivitas</a>            </td>    
+            	<a href="akt/aktivitas.php" target="content" class="style2"><img src="img/ico/aktivitas.png" border="0"><br>Activity</a>            </td>    
             <td align="center">
-            	<a href="atr/pengaturan.php" target="content" class="style2"><img src="img/ico/atur.png" border="0"><br>Pengaturan</a>            </td>
+            	<a href="atr/pengaturan.php" target="content" class="style2"><img src="img/ico/atur.png" border="0"><br>Settings</a>            </td>
             <td align="center">
-            	<a href="#" target="_self" class="style2" onClick="logout()"><img src="img/ico/logout.png" border="0"><br>Keluar</a>            </td>
+            	<a href="#" target="_self" class="style2" onClick="logout()"><img src="img/ico/logout.png" border="0"><br>Logout</a>            </td>
           </tr>
       </table>	</td>
     <td width="277" background="<?=getThemeDir()?>bgmain_03.jpg" align="right"><img src="img/thm/grn/bgmain_04.jpg"></td>

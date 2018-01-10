@@ -56,7 +56,7 @@ if (isset($_REQUEST['simpan']))
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="../../style/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../../style/calendar-win2k-1.css">
-<title>Tambah Agenda Guru</title>
+<title>Add Teacher Agenda</title>
 <script type="text/javascript" src="../../script/calendar.js"></script>
 <script type="text/javascript" src="../../script/lang/calendar-en.js"></script>
 <script type="text/javascript" src="../../script/calendar-setup.js"></script>
@@ -84,12 +84,12 @@ tinyMCE.init({
 	var agenda = tinyMCE.get('komentar').getContent();
 
 	if (judul.length==0) {
-		alert ('Judul agenda harus diisi!');
+		alert ('Agenda Title is required');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (agenda.length==0) {
-		alert ('Isi agenda harus diisi!');
+		alert ('Agenda Description is required');
 		document.getElementById('komentar').focus();
 		return false;
 	}
@@ -109,27 +109,27 @@ tinyMCE.init({
 <form name="agenda" id="agenda" action="tambahagenda.php" method="POST" onSubmit="return validate()">
 <table width="100%" border="0" cellspacing="5" cellpadding="2" >
   <tr>
-    <td colspan="2" scope="row" align="left"><span class="style1"><font size="2">Agenda Baru :</font></span><br />
+    <td colspan="2" scope="row" align="left"><span class="style1"><font size="2">New Agenda :</font></span><br />
       <br /></td>
   </tr>
   <tr>
-    <td scope="row"><div align="left"><strong>Tanggal</strong></div></td>
+    <td scope="row"><div align="left"><strong>Date</strong></div></td>
     <td scope="row"><div align="left">
-      <input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=$tanggal; ?>"/>
-    <img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></div></td>
+      <input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=$tanggal; ?>"/>
+    <img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></div></td>
   </tr>
   <tr>
-    <td  scope="row"><div align="left"><strong>Judul</strong></div></td>
+    <td  scope="row"><div align="left"><strong>Title</strong></div></td>
     <td  scope="row"><div align="left">
       <input type="text" name="judul" id="judul" size="50" />
     </div></td>
   </tr>
   <tr>
-    <th colspan="2" valign="top" scope="row"><fieldset><legend>Deskripsi</legend><textarea name="komentar" rows="20" id="komentar"></textarea></fieldset></th>
+    <th colspan="2" valign="top" scope="row"><fieldset><legend>Description</legend><textarea name="komentar" rows="20" id="komentar"></textarea></fieldset></th>
     </tr>
   <tr>
-    <th colspan="2" scope="row" align="center"><input title="Simpan agenda !" type="submit" class="but" name="simpan" id="simpan" value="Simpan" />&nbsp;&nbsp;
-    <input title="Tutup !" type="button" class="but" onClick="window.close();" name="tutup" id="tutup" value="Tutup" /></th>
+    <th colspan="2" scope="row" align="center"><input title="Save agenda" type="submit" class="but" name="simpan" id="simpan" value="Save" />&nbsp;&nbsp;
+    <input title="Close" type="button" class="but" onClick="window.close();" name="tutup" id="tutup" value="Close" /></th>
   </tr>
 </table>
 </form>

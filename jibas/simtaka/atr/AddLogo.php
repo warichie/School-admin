@@ -48,7 +48,7 @@ if (strlen($uploadedfile)!=0){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pengaturan Logo Header</title>
+<title>Settings Header Logo</title>
 <script language="javascript" src="../scr/ajax.js"></script>
 <script language="javascript">
 function ShowWait(id){
@@ -72,7 +72,7 @@ function SaveSuccess(){
 function Close(){
 	var x = document.getElementById('notification').value;
 	if (x.length>0){
-		if (confirm('Gambar belum disimpan!\nAnda yakin akan menutup jendela ini?'))
+		if (confirm('Image has not been saved yet!\nAre you sure want to close this window?'))
 			window.close();
 	} else {
 			window.close();
@@ -84,7 +84,7 @@ function SimpanGambar(){
 	if (fn!='')
 		parent.HiddenFrame.location.href='CopyTmpToFix.php?op=CopyTempImage&perpustakaan='+x+'&filename='+fn;
 	else
-		alert ('Silakan Browse gambar terlebih dahulu!');
+		alert ('Browse for the image first');
 }
 function formSubmit(){
 	var file = document.getElementById("filegambar").value;
@@ -97,7 +97,7 @@ function formSubmit(){
 		ext = z[z.length-1];
 		
 		if (ext!='JPG' && ext!='jpg' && ext!='Jpg' && ext!='JPg' && ext!='JPEG' && ext!='jpeg'){
-			alert ('Format Gambar harus ber-extensi jpg atau JPG !');
+			alert ('Image should be jpg or JPG formatted');
 			//document.getElementById("foto").value='';
 			//document.form1.foto.focus();
     		//document.form1.foto.select();
@@ -115,7 +115,7 @@ function formSubmit(){
 </div>
 <div id="title" align="right">
 	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-	<font style="font-size:18px; color:#999999">Logo Header</font><br />
+	<font style="font-size:18px; color:#999999">Header Logo</font><br />
 </div>
 <form id="FrmLogo" action="AddLogo.php" method="post" enctype="multipart/form-data" >
 <input type="hidden" name="op" id="op" value="<?=$op?>" />
@@ -135,13 +135,13 @@ function formSubmit(){
     </td>
     </tr>
   <tr>
-    <td>File Gambar : <input type="file" id="filegambar" name="filegambar" onchange="formSubmit()" /></td>
+    <td>Image File : <input type="file" id="filegambar" name="filegambar" onchange="formSubmit()" /></td>
     </tr>
   <tr>
     <td align="center">
-    <input name="Simpan2" type="submit" value="Simpan2" class="btnfrm2" style="display:none" />
-    <input name="Simpan" <?=$dis?> type="button" value="Simpan" class="btnfrm2" onclick="SimpanGambar()" />
-    &nbsp;&nbsp;<input type="button" value="Batal" onClick="Close()" class="btnfrm2" /></td>
+    <input name="Simpan2" type="submit" value="Save2" class="btnfrm2" style="display:none" />
+    <input name="Simpan" <?=$dis?> type="button" value="Save" class="btnfrm2" onclick="SimpanGambar()" />
+    &nbsp;&nbsp;<input type="button" value="Cancel" onClick="Close()" class="btnfrm2" /></td>
   </tr>
 </table>
 </form>

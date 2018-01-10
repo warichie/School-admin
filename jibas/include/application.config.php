@@ -21,19 +21,19 @@
  * You should have received a copy of the GNU General Public License 
  **[N]**/ ?>
 <?
-/* Awal tahun pendataan menggunakan SISFO JIBAS */
+/* Early year data collection uses SISFO JIBAS */
 $G_START_YEAR='2011';
 
-/* Alamat Server aplikasi SISFO JIBAS 
-     Alamat ini digunakan untuk menampilkan header cetak di laporan-laporan yang disediakan SISFO JIBAS 
+/* Application server address is SISFO JIBAS 
+     Alamat ini digunakan to show header cetak di laporan-laporan yang disediakan SISFO JIBAS 
      PERHATIAN:
        UNTUK PENGGUNAAN MULTIUSER di LOCAL AREA NETWORK
-       JANGAN MENGGUNAKAN localhost, TETAPI GUNAKAN IP Address atau Hostname */
+       JANGAN MENGGUNAKAN localhost, TETAPI GUNAKAN IP Address or Hostname */
 $G_SERVER_ADDR='http://jibas.wm/';
 
-/* Sistem operasi yang digunakan ( win | lin ) */
+/* Operating system ( win | lin ) */
 $G_OS='lin';
 
-/* Lokasi Sekolah */
+/* School location */
 $G_LOKASI="Depok";
 ?>

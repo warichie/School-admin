@@ -44,7 +44,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kalender Akademik</title>
+<title>Academic Calendar</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -87,7 +87,7 @@ function tampil(){
 	var departemen = document.getElementById('departemen').value;
 	
 	if (kalender==""){
-		alert ('Kalender Akademik tidak boleh kosong !');	
+		alert ('Academic Calendar should not leave empty');	
 		document.getElementById('kalender').focus();
 		return false;
 	} else {			
@@ -119,7 +119,7 @@ function focusNext(elemName, evt) {
     <td width="55%">
 	<table width="100%" height="100%" border="0">
   	<tr>
-        <td width="27%"><strong>Departemen </strong></td>
+        <td width="27%"><strong>Department </strong></td>
     	<td width="73%"><select name="departemen" id="departemen" onChange="change_departemen()" style="width:250px"  onkeypress="return focusNext('kalender', event)">
             <?	$dep = getDepartemen(SI_USER_ACCESS());    
 			foreach($dep as $value) {
@@ -132,7 +132,7 @@ function focusNext(elemName, evt) {
             </select>		</td>
     </tr>
     <tr>
-    	<td><strong>Kalender&nbsp;Akademik</strong></td>
+    	<td><strong>Academic&nbsp;Calendar</strong></td>
     	<td><select name="kalender" id="kalender" onchange="change(0)" style="width:250px;" onkeypress="return focusNext('tabel', event)">
           <? OpenDb();
 				$sql_kalender = "SELECT * FROM jbsakad.kalenderakademik where departemen='$departemen' ORDER BY aktif DESC, replid ASC";
@@ -141,7 +141,7 @@ function focusNext(elemName, evt) {
 					if ($kalender == "")
 						$kalender = $row_kalender['replid'];
 					if ($row_kalender['aktif']) 
-						$ada = '(Aktif)';
+						$ada = '(Active)';
 					else 
 						$ada = '';
 			?>
@@ -153,7 +153,7 @@ function focusNext(elemName, evt) {
     	     	</td>
    </tr>
    <tr>
-      	<td><strong>Periode</strong></td>
+      	<td><strong>Period</strong></td>
         <td>
         <? 	
 		if ($kalender <> "" ) {
@@ -161,16 +161,16 @@ function focusNext(elemName, evt) {
 			$sql = "SELECT * FROM jbsakad.tahunajaran t, jbsakad.kalenderakademik k WHERE t.replid=k.idtahunajaran AND k.replid = '$kalender'";
 			$result = QueryDb($sql);
 			$row = mysql_fetch_array($result);
-			$periode = format_tgl($row['tglmulai']).' s/d '.format_tgl($row['tglakhir']);
+			$periode = format_tgl($row['tglmulai']).' to '.format_tgl($row['tglakhir']);
 		} 
 		?> 
         <input type="text" name="periode" size="39" value="<?=$periode ?>" readonly class="disabled"/>
         </td>
   	</tr>          
    	</table>    </td>
-    <td valign="middle" rowspan="2" width="10%" align="left" ><a href="#" onClick="tampil()"><img src="../images/ico/view.png" height="48" width="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Klik untuk menampilkan kalender akademik !', this, event, '120px')"/></a></td>
+    <td valign="middle" rowspan="2" width="10%" align="left" ><a href="#" onClick="tampil()"><img src="../images/ico/view.png" height="48" width="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Click to show Academic Calendar', this, event, '120px')"/></a></td>
 	<td valign="top" align="right" width="35%">
-		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Kalender Akademik</font>   	
+		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Academic Calendar</font>   	
 	</td>
 </tr>
 </table>

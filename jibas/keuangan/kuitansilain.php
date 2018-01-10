@@ -65,7 +65,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Kuitansi Penerimaan]</title>
+<title>JIBAS FINANCE [Kuitansi Penerimaan]</title>
 </head>
 
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
@@ -94,16 +94,16 @@ CloseDb();
     <tr>
 		<td align="left" colspan='2'>
 			
-    	<br />Telah terima dari:<br />
+    	<br />Received from:<br />
         <table cellpadding="2" cellspacing="0" width="100%">
         <tr>
         	<td width="20">&nbsp;</td>
-        	<td width="80">Nama</td>
+        	<td width="80">Name</td>
             <td>:&nbsp;<strong><?=$sumber ?></strong></td>
         </tr>
 		<tr>
         	<td>&nbsp;</td>
-        	<td>Tanggal</td>
+        	<td>Date</td>
             <td>:&nbsp;<strong><?= $tanggal ?></strong></td>
         </tr>
         <tr>
@@ -123,9 +123,9 @@ CloseDb();
             <table border="1" cellpadding="2" cellspacing="0" style="border-width:1px" width="100%">
 			<tr height='90'>
 				<td valign="top">
-				<strong>Keterangan:</strong><br>					
-				&#149;&nbsp;<em>Tgl cetak: <?= date('d/m/Y H:i:s') ?></em><br>
-				&#149;&nbsp;<em>Petugas: <?= $petugas ?></em><br>
+				<strong>Info:</strong><br>					
+				&#149;&nbsp;<em>Date cetak: <?= date('d/m/Y H:i:s') ?></em><br>
+				&#149;&nbsp;<em>Officer: <?= $petugas ?></em><br>
 				</td>
 			</tr>
 			</table>

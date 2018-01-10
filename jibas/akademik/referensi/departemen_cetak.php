@@ -35,7 +35,7 @@ $departemen='yayasan';
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Departemen]</title>
+<title>JIBAS SIMAKA [Print Department]</title>
 </head>
 
 <body>
@@ -44,16 +44,16 @@ $departemen='yayasan';
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>DATA DEPARTEMEN</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>DEPARTMENT DATA</strong></font><br /> </center><br /><br />
 
 <br />
 
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">Departemen</td>
-        <td width="30%" class="header" align="center">Kepala Sekolah</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Department</td>
+        <td width="30%" class="header" align="center">Headmaster</td>
+        <td width="*" class="header" align="center">Info</td>
         <td width="10%" class="header" align="center">Status</td>
     </tr>
 <? 	OpenDb();
@@ -68,9 +68,9 @@ $departemen='yayasan';
         <td><?=$row['keterangan'] ?></td>
         <td align="center">
 			<? if ($row['aktif'] == 1) 
-					echo 'Aktif';
+					echo 'Active';
 				else
-					echo 'Tidak Aktif';
+					echo 'Inactive';
 			?>		
         </td> 
     </tr>

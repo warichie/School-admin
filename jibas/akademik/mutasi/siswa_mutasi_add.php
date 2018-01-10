@@ -102,7 +102,7 @@ if (isset($_REQUEST['Simpan'])) {
 		RollBackTrans();
 		?>	
 		<script type="text/javascript" language="javascript">
-            alert ('Maaf, gagal memutasikan siswa!');
+            alert ('Sorry, Student Mutation has been failed');
 			parent.opener.refresh_daftar();
             window.close();
         </script>
@@ -131,13 +131,13 @@ if (isset($_REQUEST['Simpan'])) {
 <script type="text/javascript" src="../script/lang/calendar-en.js"></script>
 <script type="text/javascript" src="../script/calendar-setup.js"></script>
 <link href="../style/style.css" rel="stylesheet" type="text/css">
-<title>JIBAS SIMAKA [Tambah Mutasi Siswa]</title>
+<title>JIBAS SIMAKA [Add Student Mutation]</title>
 <SCRIPT type="text/javascript" language="javascript">
 function validate(){
-	return	validateEmptyText('nis', 'NIS Siswa') &&
-			validateEmptyText('tanggal', 'Tanggal Mutasi') &&	
-			validateEmptyText('mutasi', 'Jenis Mutasi') &&	
-			validateMaxText('keterangan', 255, 'Keterangan');
+	return	validateEmptyText('nis', 'Student ID') &&
+			validateEmptyText('tanggal', 'Mutation Date') &&	
+			validateEmptyText('mutasi', 'Mutation Type') &&	
+			validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -158,7 +158,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Mutasi Siswa :.
+    .: Student Mutation :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -171,37 +171,37 @@ function focusNext(elemName, evt) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="25%"><strong>NIS</strong></td>
+	<td width="25%"><strong>Student ID</strong></td>
     <td colspan="2"><input name="nis1" type="text" class="disabled" id="nis1" value="<?=$nis?>" size="15" readonly>
         <input name="nis" type="hidden" id="nis" value="<?=$nis?>">
     </td>
 </tr>
 <tr>
-   	<td><strong>Nama</strong></td>
+   	<td><strong>Name</strong></td>
    	<td colspan="2"><input name="nama" type="text" class="disabled" id="nama" value="<?=$nama?>" size="30" readonly></td>
 </tr>
 <tr>
-   	<td><strong>Departemen</strong></td>
+   	<td><strong>Department</strong></td>
    	<td colspan="2"><input name="departemen" type="text" class="disabled" id="departemen" value="<?=$departemen?>" size="30" readonly>		
    </td>
 </tr>
 <tr>
-   	<td><strong>Angkatan</strong></td>
+   	<td><strong>Graduates</strong></td>
    	<td colspan="2"><input name="angkatan" type="text" class="disabled" id="angkatan" value="<?=$angkatan?>" size="30" readonly>		
    </td>
 </tr>
 <tr>
-   	<td><strong>Kelas</strong></td>
+   	<td><strong>Class</strong></td>
    	<td colspan="2"><input name="kelas" type="text" class="disabled" id="kelas" value="<?=$tingkat.' - '.$kelas?>" readonly size="15">
    	</td>
 </tr>
 <tr>
-	<td><strong>Tgl Mutasi</strong></td>
+	<td><strong>Mutation Date</strong></td>
 	<td><input name="tanggal" type="text" class="disabled" id="tanggal" readonly="readonly" onClick="Calendar.setup()" onKeyPress="return focusNext('mutasi', event)" size="15" value="<?=$tanggal?>">
-		<img src="../images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/></td>
+		<img src="../images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '100px')"/></td>
 </tr>
 <tr>
- 	<td><strong>Jenis Mutasi </strong></td>
+ 	<td><strong>Mutation Type </strong></td>
 	<td colspan="2"><select name="mutasi" id="mutasi" onKeyPress="return focusNext('keterangan', event)">
 	<?  OpenDb();
 		$sql = "SELECT * FROM jbsakad.jenismutasi ORDER BY replid";
@@ -221,13 +221,13 @@ function focusNext(elemName, evt) {
 	</td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td colspan="2"><textarea name="keterangan" cols="30" rows="5" id="keterangan" onKeyPress="return focusNext('Simpan', event)"></textarea></td>
 </tr>
 <tr>                   
 	<td colspan="3"><div align="center">
-  	<input name="Simpan" id="Simpan" type="Submit" class="but" value="Simpan">&nbsp;
-  	<input name="Tutup" type="button" class="but" value="Tutup" onClick="window.close()">
+  	<input name="Simpan" id="Simpan" type="Submit" class="but" value="Save">&nbsp;
+  	<input name="Tutup" type="button" class="but" value="Close" onClick="window.close()">
  	</div></td>
 </tr>
 </table>

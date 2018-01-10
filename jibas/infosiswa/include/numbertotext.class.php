@@ -32,7 +32,7 @@ class NumberToText
 		//echo "frac = $this->fraction<br>";
 		
 		if ($numlen > 15)
-			throw new Exception("Number length should less or equal to 15!");
+			throw new Exception("Number length should less or equal to 15");
 		
 		$result = "";
 		$index = 0;
@@ -44,7 +44,7 @@ class NumberToText
 		
 		if ($fraclen > 0)
 		{
-			$result = $result . "Koma ";
+			$result = $result . "Point ";
 			$index = 0;
 			while ($index < $fraclen)
 			{
@@ -76,11 +76,11 @@ class NumberToText
 			$result = $this->DigitToText($digit);
 			
 			if ($position == 7)
-				$result = $result . " Juta";
+				$result = $result . " Million";
 			elseif ($position == 10)
-				$result = $result . " Milyar";
+				$result = $result . " Billion";
 			elseif ($position == 13)
-				$result = $result . " Trilyun";
+				$result = $result . " Trillion";
 		}
 		elseif ($position == 2 || $position == 5 || $position == 8 || $position == 11 || $position == 14)
 		{
@@ -88,48 +88,48 @@ class NumberToText
 			if ($digit == "1")
 			{
 				if ($nextdigit == "0")
-					$result = "Sepuluh";
+					$result = "A Ten";
 				elseif ($nextdigit == "1")
-					$result = "Sebelas";
+					$result = " ";
 				else
-					$result = $this->DigitToText($nextdigit) . " Belas";
+					$result = $this->DigitToText($nextdigit) . " ";
 				$index++;
 			}
 			else
 			{
 				if ($nextdigit == "0")
-					$result = $this->DigitToText($digit) . " Puluh";
+					$result = $this->DigitToText($digit) . " ";
 				else
-					$result = $this->DigitToText($digit) . " Puluh " . $this->DigitToText($nextdigit);
+					$result = $this->DigitToText($digit) . " " . $this->DigitToText($nextdigit);
 				$index++;
 			}
 			
 			if ($position == 5)
-				$result = $result . " Ribu";
+				$result = $result . " Thousand";
 			elseif ($position == 8)
-				$result = $result . " Juta";
+				$result = $result . " Million";
 			elseif ($position == 11)
-				$result = $result . " Milyar";
+				$result = $result . " Billion";
 			elseif ($position == 14)
-				$result = $result . " Trilyun";
+				$result = $result . " Trillion";
 		}
 		elseif ($position == 3 || $position == 6 || $position == 9 || $position == 12 || $position == 15)
 		{
 			if ($digit == "1")
-				$result = "Seratus";
+				$result = "A Hundred";
 			else
-				$result = $this->DigitToText($digit) . " Ratus";
+				$result = $this->DigitToText($digit) . " Hundred";
 			
 			if (substr($this->number, $index + 1, 2) == "00")
 			{
 				if ($position == 6)
-					$result = $result . " Ribu";
+					$result = $result . " Thousand";
 				elseif ($position == 9)
-					$result = $result . " Juta";
+					$result = $result . " Million";
 				elseif ($position == 12)
-					$result = $result . " Milyar";
+					$result = $result . " Billion";
 				elseif ($position == 15)
-					$result = $result . " Trilyun";	
+					$result = $result . " Trillion";	
 					
 				$index += 2;
 			}
@@ -141,9 +141,9 @@ class NumberToText
 		elseif ($position == 4)
 		{
 			if ($digit == "1" && $numlen == 4)
-				$result = "Seribu";
+				$result = "A Thousand";
 			else
-				$result = $this->DigitToText($digit) . " Ribu";
+				$result = $this->DigitToText($digit) . " Thousand";
 		}
 		
 		//echo " r $result <br>";
@@ -169,16 +169,16 @@ class NumberToText
 	{
 		switch ($digit)
 		{
-			case "0": return "Nol"; break;
-			case "1": return "Satu"; break;
-			case "2": return "Dua"; break;
-			case "3": return "Tiga"; break;
-			case "4": return "Empat"; break;
-			case "5": return "Lima"; break;
-			case "6": return "Enam"; break;
-			case "7": return "Tujuh"; break;
-			case "8": return "Delapan"; break;
-			case "9": return "Sembilan";
+			case "0": return "Zero"; break;
+			case "1": return "One"; break;
+			case "2": return "Two"; break;
+			case "3": return "Three"; break;
+			case "4": return "Four"; break;
+			case "5": return "Five"; break;
+			case "6": return "Six"; break;
+			case "7": return "Seven"; break;
+			case "8": return "Eight"; break;
+			case "9": return "Nine";
 		}
 	}
 }

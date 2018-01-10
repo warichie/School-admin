@@ -96,15 +96,15 @@ openDb();
 <? include('../library/headercetak.php');  ?>
 <table width="100%" border="0">
 	<tr>
-		<td align="center" colspan="6"><font size="4"><b>PENILAIAN PELAJARAN</b></td>
+		<td align="center" colspan="6"><font size="4"><b>REPORT CARD</b></td>
 	</tr>
 	<tr>
-		<td width="127">Departemen</td>
+		<td width="127">Department</td>
 		<td width="5">:</td>
 		<td width="556"><?=$departemen ?></td>
 	</tr>
 	<tr>
-		<td>Tingkat</td>
+		<td>Grade</td>
 		<td>:</td>		
 		<td>
 		<?
@@ -114,7 +114,7 @@ openDb();
 		 echo $row_tkt[tingkat] ?></td>
 	</tr>
 	<tr>
-		<td>Kelas</td>
+		<td>Class</td>
 		<td>:</td>		
 		<td>
 		<? 
@@ -124,11 +124,11 @@ openDb();
 		echo $row_kls[kelas] ?></td>
 	</tr>
 	<tr>
-		<td>Pelajaran</td>
+		<td>Class Subject</td>
 		<td>:</td>		
 		<td>
 		<? if($pelajaran == "all"){
-				$pel = "Semua Pelajaran";
+				$pel = "All Class Subject";
 			}elseif($pelajaran != "all"){
 				$query_pel = "SELECT nama FROM jbsakad.pelajaran WHERE replid = '$pelajaran'";
 				$result_pel = QueryDb($query_pel);
@@ -150,7 +150,7 @@ openDb();
 <input type="hidden" name="tahun" value="<?=$tahun ?>">
 <input type="hidden" name="semester" value="<?=$semester ?>">
 <input type="hidden" name="jenis" value="<?=$jenis_penilaian ?>">
-    <fieldset><legend><b>Jenis Penilaian</b>
+    <fieldset><legend><b>Assessment Type</b>
 	
 	<?	
 	$query_jp = "SELECT * FROM jbsakad.jenisujian ".
@@ -190,9 +190,9 @@ openDb();
 	?>
 	<table width="100%" id="table" class="tab" border="1">
 		<tr>
-			<td class="headerlong" align="center" height="30">No</td>
-			<td class="headerlong" height="30">NIS</td>
-			<td class="headerlong" height="30">Nama</td>
+			<td class="headerlong" align="center" height="30">#</td>
+			<td class="headerlong" height="30">Student ID</td>
+			<td class="headerlong" height="30">Name</td>
 			<?
 				$query_qz = "SELECT ujian.replid, ujian.tanggal, jenisujian.jenisujian ".
 							"FROM jbsakad.ujian, jbsakad.jenisujian ".
@@ -220,21 +220,21 @@ openDb();
 			$kolom[$row_qz[replid]] = $row_qz[replid];			
 			}
 			?>
-			<td class="headerlong" align="center" height="30">Rata-Rata Siswa</td>
+			<td class="headerlong" align="center" height="30">Student Index</td>
 			<?
 			 $query_ju = "SELECT * FROM jbsakad.jenisujian ".
 						 "WHERE jenisujian.replid = '$jenis_penilaian'";
 			 $result_ju = QueryDb($query_ju);
 			 $row_ju = @mysql_fetch_array($result_ju);
 			?>
-			<td class="headerlong" align="center" height="30">Nilai Akhir <?=$row_ju[jenisujian] ?></td>
+			<td class="headerlong" align="center" height="30">Grade Point <?=$row_ju[jenisujian] ?></td>
 		</tr>			
 			<?
 			$totCol[] = 0;
 		if($my_data == 0){
 			?>
 			<tr>
-				<td colspan="7" align="center">Data Tidak ada</td>
+				<td colspan="7" align="center">Data Not Found.</td>
 			</tr>
 			<?					
         }elseif($my_data != "") {
@@ -311,7 +311,7 @@ openDb();
             }
 			?>
 			<tr>
-				<td colspan="3" align="center" class="header" height="30"><b>Rata-rata Kelas</b></td>
+				<td colspan="3" align="center" class="header" height="30"><b>Class Index Cumulative</b></td>
 				<?
 				foreach($totCol as $key => $val){
 				?>

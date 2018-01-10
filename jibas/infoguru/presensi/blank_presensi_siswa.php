@@ -33,11 +33,10 @@
     <table border="0"width="100%" height="100%">
     <tr>
     	<td align="center"><? if ($_REQUEST['tipe']=="harian") { ?>
-          <font size="2" color="#757575"><b>Klik ikon <img src="../images/ico/view_x.png" border="0"> di
-        atas untuk menampilkan Laporan Presensi Harian Per Kelas</b></font>
+          <font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border="0"> icon above to show Daily Presence Reports by Classes</b></font>
           <? } else { ?>
-          <font size="2" color="#757575"><b>Klik icon <img src="../images/ico/view_x.png" border = "0"> di atas untuk menampilkan
-        Laporan Presensi Siswa Per Kelas</b></font>
+          <font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border = "0"> above to show
+        Student Presence Report by Classes</b></font>
           <? } ?></td>
    	</tr>
     </table>

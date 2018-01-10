@@ -38,7 +38,7 @@ $pin1		= $_REQUEST['Pin1'];
 $pin2		= $_REQUEST['Pin2'];
 $Nama		= $_REQUEST['Nama'];
 $X			= split(' ',$SendTime);
-$smsgeninfo	  = "Pengumuman";	
+$smsgeninfo	  = "Announcement";	
 
 $idsmsgeninfo = GetLastId('replid','smsgeninfo');	
 //echo "Ini loh".$idsmsgeninfo;
@@ -61,7 +61,7 @@ $Nama	= split('>',$Nama);
 $NoID	= split('>',$NoIn);
 $PIN1	= split('>',$pin1);
 $PIN2	= split('>',$pin2);
-$Receiver = 0;
+$Recipient = 0;
 for ($i=0; $i<count($No);$i++){
 	//$sql = "INSERT INTO pesanpenerima SET jadwal=now(),idpesan='$idpesan',penerima='$No[$i]'";
 	if ($No[$i]!=""){
@@ -77,7 +77,7 @@ for ($i=0; $i<count($No);$i++){
 				if ($PIN1[$i]!='undefined')
 					$newformat = str_replace('[PIN]',$PIN1[$i],$newformat);
 			} else {
-				$pinortu   = "PIN Ayah = ".$PIN1[$i].", PIN Ibu = ".$PIN2[$i];
+				$pinortu   = "Father PIN = ".$PIN1[$i].", Mother PIN = ".$PIN2[$i];
 				$newformat = str_replace('[PIN]',$pinortu,$newformat);
 				
 			}
@@ -94,10 +94,10 @@ for ($i=0; $i<count($No);$i++){
 			$sql_insert = "INSERT INTO outboxhistory SET InsertIntoDB=now(), SendingDateTime='$SendTime', Text='$TextMsg', DestinationNumber='$nohp', SenderID='$Sender', idsmsgeninfo=$idsmsgeninfo";
 			QueryDb($sql_insert);
 			//echo $sql_insert."<br>";
-			$Receiver++;
+			$Recipient++;
 	}
 }
 ?>
 <script language='javascript'>
-	parent.bottom.PengumumanAfterSend('<?=$Receiver?>');
+	parent.bottom.PengumumanAfterSend('<?=$Recipient?>');
 </script>

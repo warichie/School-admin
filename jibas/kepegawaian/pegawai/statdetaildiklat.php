@@ -36,7 +36,7 @@ $status = $_REQUEST['status'];
 <head>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -54,18 +54,18 @@ function cetak() {
 <body style="background-color:#F5F5F5">
 <table width="100%" border="0">
   <tr>
-    <td><strong>Eselon : <?=$eselon?></strong><br />
-<strong>Status Diklat: <? if ($status == "S") echo "Sudah"; else echo "Belum"; ?></strong>
+    <td><strong>Echelon : <?=$eselon?></strong><br />
+<strong>Education and Training Status: <? if ($status == "S") echo "Sudah"; else echo "Belum"; ?></strong>
 </td>
-    <td width="100" align="right"><a href="#" onclick="cetak()"><img src="../images/ico/print.png" width="16" height="16" border="0" />&nbsp;Cetak</a>&nbsp;</td>
+    <td width="100" align="right"><a href="#" onclick="cetak()"><img src="../images/ico/print.png" width="16" height="16" border="0" />&nbsp;Print</a>&nbsp;</td>
   </tr>
   <tr>
     <td colspan="2">
 	<table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
 <tr height="35">
-	<td class="header" align="center" width="7%">No</td>
-	<td class="header" align="center" width="40%">NIP</td>
-    <td class="header" align="center" width="40%">Nama</td>
+	<td class="header" align="center" width="7%">#</td>
+	<td class="header" align="center" width="40%">Employee ID</td>
+    <td class="header" align="center" width="40%">Name</td>
 	<td class="header" align="center" width="10%">&nbsp;</td>
 </tr>
 <?
@@ -93,7 +93,7 @@ while ($row = mysql_fetch_row($result)) {
     <td align="center" valign="top"><?=$row[0]?></td>
     <td align="left" valign="top"><?=$row[1] ?></td>
     <td align="center" valign="top">
-	    <a href="JavaScript:DetailPegawai('<?=$row[0]?>')" title="Lihat Detail Pegawai"><img src="../images/ico/lihat.png" border="0" /></a>
+	    <a href="JavaScript:DetailPegawai('<?=$row[0]?>')" title="See Details Pegawai"><img src="../images/ico/lihat.png" border="0" /></a>
     </td>
 </tr>
 <?

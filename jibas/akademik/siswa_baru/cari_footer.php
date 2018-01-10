@@ -30,7 +30,7 @@ $cari = $_REQUEST['cari'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Guru Footer</title>
+<title>Teacher Footer</title>
 </head>
 	<frameset cols = "25%, *" border ="1">
     <frame src = "cari_menu.php?departemen=<?=$dep?>&jenis=<?=$jenis?>&cari=<?=$cari?>" name ="menu"  scrolling="no"/>

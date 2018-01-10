@@ -57,7 +57,7 @@ else if ($bulan == 2 && $tahun % 4 == 0)
 	$n = 29;
 else 
 	$n = 31;
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -77,7 +77,7 @@ function get_fresh(bulan,tahun){
 	parent.kiriatas.location.href="jadwal.php?bulan="+bulan+"&tahun="+tahun;
 }
 function hapus(replid){
-	if (confirm('Anda yakin akan menghapus agenda ini ?')){
+	if (confirm('Are you sure want to delete agenda ini ?')){
 		document.location.href="daftaragenda.php?bulan=<?=$bulan?>&tahun=<?=$tahun?>&op=gj83cs065mnsg4y9fnby37d&replid="+replid;
 	}
 }
@@ -93,13 +93,13 @@ function ubah(replid){
     <th scope="row" align="right">
 	
 	<a href="JavaScript:get_fresh('<?=$bulan?>','<?=$tahun?>')"><img src="../../images/ico/refresh.png" border="0" /> Refresh</a>&nbsp;&nbsp;
-<a href="JavaScript:cetak()"><img src="../../images/ico/print.png" border="0" /> Cetak</a>&nbsp;&nbsp;</th>
+<a href="JavaScript:cetak()"><img src="../../images/ico/print.png" border="0" /> Print</a>&nbsp;&nbsp;</th>
   </tr>
   <tr>
     <th scope="row">
     <table width="100%" border="1" cellspacing="0" class="tab">
   <tr>
-    <th height="30" class="header" scope="row">Tanggal</th>
+    <th height="30" class="header" scope="row">Date</th>
     <td height="30" class="header">Agenda</td>
     <td height="30" class="header">&nbsp;</td>
   </tr>
@@ -126,7 +126,7 @@ function ubah(replid){
 	<? 
 	for ($x=0;$x<=$i-1;$x++){
 		?>
-		<img src="../../images/ico/titik.png" border="0" height="5" width="5"/>&nbsp;<a href="detailagenda.php?replid=<?=$replid[$x]?>" target="kanan" onClick="tampil('<?=$judul[$x]?>')" title="Lihat Detail !"><?=$judul[$x]?></a><br>
+		<img src="../../images/ico/titik.png" border="0" height="5" width="5"/>&nbsp;<a href="detailagenda.php?replid=<?=$replid[$x]?>" target="kanan" onClick="tampil('<?=$judul[$x]?>')" title="See Details !"><?=$judul[$x]?></a><br>
 		<?
 	}
 	?>
@@ -134,12 +134,12 @@ function ubah(replid){
     <td height="25" <? if ($ada>0){ ?> align="right" <? } else { ?> align="left" <? } ?> width="70">
     
 	<? if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){ ?>
-	<img style="cursor:pointer;visibility:visible;" title="Tambah agenda tanggal <?=$y."-".$namabulan[$bulan-1]."-".$tahun?> !" src="../../images/ico/tambah.png" border="0" onClick="tambah('<?=$y."-".$bulan."-".$tahun?>')"/>&nbsp;
+	<img style="cursor:pointer;visibility:visible;" title="Add agenda date <?=$y."-".$namabulan[$bulan-1]."-".$tahun?> !" src="../../images/ico/tambah.png" border="0" onClick="tambah('<?=$y."-".$bulan."-".$tahun?>')"/>&nbsp;
 	<?
 	for ($x=0;$x<=$i-1;$x++){
 		?>
-        <img style="cursor:pointer;visibility:visible;" title="Ubah !" src="../../images/ico/ubah.png" border="0" onClick="ubah('<?=$replid[$x]?>')"/>&nbsp;
-        <img style="cursor:pointer;visibility:visible;" title="Hapus !" src="../../images/ico/hapus.png" border="0" onClick="hapus('<?=$replid[$x]?>')"/>
+        <img style="cursor:pointer;visibility:visible;" title="Edit" src="../../images/ico/ubah.png" border="0" onClick="ubah('<?=$replid[$x]?>')"/>&nbsp;
+        <img style="cursor:pointer;visibility:visible;" title="Delete" src="../../images/ico/hapus.png" border="0" onClick="hapus('<?=$replid[$x]?>')"/>
         <br />
 		<?
 	}

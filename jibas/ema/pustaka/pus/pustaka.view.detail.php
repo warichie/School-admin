@@ -46,7 +46,7 @@ $abstraksi = $row[abstraksi];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Detail Pustaka</title>
+<title>Library Details</title>
 <link href="../../style/style.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../../scr/tools.js"></script>
 <script language="javascript" src="pustaka.daftar.js"></script>
@@ -63,11 +63,11 @@ $abstraksi = $row[abstraksi];
 <body>
 <table width="100%" border="0" cellspacing="5" cellpadding="5">
   <tr>
-    <td width="8%" align="right" valign="top"><span class="style1">Judul</span></td>
+    <td width="8%" align="right" valign="top"><span class="style1">Title</span></td>
     <td colspan="2"><?=$judul?>    </td>
   </tr>
   <tr>
-    <td align="right" valign="top"><? if($sender!='opac'){ ?><span class="style1">Harga&nbsp;Satuan</span><? } ?></td>
+    <td align="right" valign="top"><? if($sender!='opac'){ ?><span class="style1">Unit Price</span><? } ?></td>
     <td width="92%"><? if($sender!='opac'){ ?><?=FormatRupiah($harga)?><? } ?></td>
     <td width="92%" rowspan="7" valign="top">
     	<div style="margin-left:10px">
@@ -79,7 +79,7 @@ $abstraksi = $row[abstraksi];
    	    </div>    </td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Katalog</strong></td>
+    <td align="right" valign="top"><strong class="style1">Catalogue</strong></td>
     <td>
 	<? 
 		$sql = "SELECT kode,nama FROM jbsperpus.katalog WHERE replid='$katalog'";
@@ -89,7 +89,7 @@ $abstraksi = $row[abstraksi];
 	?>    </td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Penerbit</strong></td>
+    <td align="right" valign="top"><strong class="style1">Publisher</strong></td>
     <td>
 	<? 
 		$sql = "SELECT kode,nama FROM jbsperpus.penerbit WHERE replid='$penerbit'";
@@ -99,7 +99,7 @@ $abstraksi = $row[abstraksi];
 	?>    </td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Penulis</strong></td>
+    <td align="right" valign="top"><strong class="style1">Author</strong></td>
     <td>
 	<? 
 		$sql = "SELECT kode,nama FROM jbsperpus.penulis WHERE replid='$penulis'";
@@ -109,7 +109,7 @@ $abstraksi = $row[abstraksi];
 	?>    </td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Tahun&nbsp;Terbit</strong></td>
+    <td align="right" valign="top"><strong class="style1">Year&nbsp;Published</strong></td>
     <td><?=$tahun?></td>
   </tr>
   <tr>
@@ -127,15 +127,15 @@ $abstraksi = $row[abstraksi];
     <td><?=$keyword?></td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Keterangan&nbsp;Fisik</strong></td>
+    <td align="right" valign="top"><strong class="style1">Physical&nbsp;Info</strong></td>
     <td colspan="2"><?=$keteranganfisik?></td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Abstraksi</strong></td>
+    <td align="right" valign="top"><strong class="style1">Abstraction</strong></td>
     <td colspan="2"><?=$abstraksi?></td>
   </tr>
   <tr>
-    <td align="right" valign="top"><strong class="style1">Alokasi&nbsp;Jumlah</strong></td>
+    <td align="right" valign="top"><strong class="style1">Allocation</strong></td>
 <td>
         <?
 		$sql = "SELECT p.nama,COUNT(d.replid) FROM jbsperpus.daftarpustaka d, jbsperpus.perpustakaan p WHERE d.pustaka='$replid' AND d.perpustakaan=p.replid GROUP BY d.perpustakaan ORDER BY p.nama";
@@ -145,8 +145,8 @@ $abstraksi = $row[abstraksi];
 		?>
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
           <tr>
-            <td height="25" align="center" class="header">Perpustakaan</td>
-            <td height="25" align="center" class="header">Jumlah</td>
+            <td height="25" align="center" class="header">Library</td>
+            <td height="25" align="center" class="header">Sum</td>
           </tr>
           <?
 		  while ($row = @mysql_fetch_row($result)){

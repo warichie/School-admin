@@ -33,7 +33,7 @@ require_once('../include/sessionchecker.php');
 
 <body style="background-image:url(../images/BGPresensi.jpg); background-repeat:no-repeat">
 <div align="center" style="font-family:Calibri; color:#666; font-weight:bold; font-size:20px; padding-bottom:10px">
-PRESENSI
+ATTENDANCE
 </div>
 <!-- ImageReady Slices (Untitled-1) -->
 <table id="Table_01" width="304" height="397" border="0" cellpadding="0" cellspacing="0" align="center">
@@ -96,8 +96,8 @@ PRESENSI
 </table>
 <!-- End ImageReady Slices 
 
-<a href="presensi.format.php">Format Pesan Laporan Presensi</a><br />
-<a href="presensi.php">Kirim Pesan Laporan Presensi</a><br />
-<a href="presensi.list.php">Daftar Pesan Laporan Presensi</a>-->
+<a href="presensi.format.php">Format Pesan Reports Presensi</a><br />
+<a href="presensi.php">Send Pesan Reports Presensi</a><br />
+<a href="presensi.list.php">Daftar Pesan Reports Presensi</a>-->
 </body>
 </html>

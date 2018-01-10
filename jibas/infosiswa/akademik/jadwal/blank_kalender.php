@@ -33,7 +33,7 @@
 <tr>
     <td align="center" valign="middle" background="../../images/ico/b_kalender.png"
     style="background-repeat:no-repeat;">
-        <font size="2" color="#757575"><b>Klik pada icon <img src="../../images/ico/view_x.png" border="0"> di atas untuk melihat kegiatan pada Departemen dan Kalender Akademik yang terpilih</font> </td>
+        <font size="2" color="#757575"><b>Click on <img src="../../images/ico/view_x.png" border="0"> above to see actvities based on Department and Academic Calendar entered.</font> </td>
 </tr>
 </table>
 </body>

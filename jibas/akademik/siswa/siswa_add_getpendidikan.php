@@ -29,7 +29,7 @@ $pendidikan_kiriman = $_REQUEST['pendidikan'];
 // Olah untuk combo sekolah
 ?>
 	<select name="pendidikanayah" id="Infopendidikanayah" class="ukuran"  onKeyPress="return focusNext('Infopendidikanibu', event)" onfocus="panggil('Infopendidikanayah')" style="width:140px">
-	<option value="">[Pilih Pendidikan]</option>
+	<option value="">[Select Education]</option>
 <?
 	OpenDb();
 	$sql="SELECT pendidikan FROM jbsumum.tingkatpendidikan ORDER BY pendidikan";

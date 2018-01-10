@@ -52,8 +52,8 @@ $row=@mysql_fetch_array($result);
 </head>
 <body >
 <div align="right">
-<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Agenda Siswa</font><br />
-<a href="../../framecenter.php" style="color:#0000FF" target="framecenter">Home</a> > <strong>Agenda Siswa</strong><br /><br /><br />
+<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Student Agenda</font><br />
+<a href="../../framecenter.php" style="color:#0000FF" target="framecenter">Home</a> > <strong>Student Agenda</strong><br /><br /><br />
 <br /><br /><br /><br />
 </div>
 <table width="350" align="center"  border="0" cellpadding="0" cellspacing="0">

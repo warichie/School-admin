@@ -64,12 +64,12 @@ OpenDb();
 	<input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
     <input type="hidden" name="urut1" id="urut1" value="<?=$urut1 ?>" />
     <input type="hidden" name="urutan1" id="urutan1" value="<?=$urutan1 ?>" />
-	<!--<font size="2" color="#000000"><strong>Cari Siswa</strong></font>--> 	</td>
+	<!--<font size="2" color="#000000"><strong>Search Student</strong></font>--> 	</td>
 </tr>
 <tr>
-    <td width="15%"><font color="#000000">Dept</font></td>
+    <td width="15%"><font color="#000000">Department</font></td>
     <td width="16%"><select name="depart1" id="depart1" onChange="change_departemen(1)" style="width:125px" onkeypress="return focusNext('nis', event)">
-    	<option value=-1>(Semua Departemen)</option>
+    	<option value=-1>(All Department)</option>
 	<?	$dep = getDepartemen(SI_USER_ACCESS());    
         foreach($dep as $value) {
             if ($departemen == "")
@@ -82,12 +82,12 @@ OpenDb();
    	<td width="69%" align="center">&nbsp;</td>
 </tr>
 <tr>
-  <td><font color="#000000">N I S</font></td>
+  <td><font color="#000000">Student ID</font></td>
   <td><input type="text" name="nis" id="nis" value="<?=$_REQUEST['nis'] ?>" size="22" onkeypress="return focusNext('submit', event)"/></td>
-  <td width="69%" rowspan="2" align="center"><input type="button" class="but" name="submit" id="submit" value="Cari" onclick="carilah()"/></td>
+  <td width="69%" rowspan="2" align="center"><input type="button" class="but" name="submit" id="submit" value="Search" onclick="carilah()"/></td>
 </tr>
 <tr>
-  <td><font color="#000000">Nama</font></td>
+  <td><font color="#000000">Name</font></td>
   <td><input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama'] ?>" size="22" onkeypress="return focusNext('submit', event)"/></td>
   </tr>
 <tr>
@@ -124,13 +124,13 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 	
    	<table width="100%" id="table1" class="tab" align="center" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
     <tr height="30" class="header" align="center">
-        <td width="7%">No</td>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan1?>','cari')">N I S <?=change_urut('s.nis',$urut1,$urutan1)?></td>
-        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan1?>','cari')">Nama <?=change_urut('s.nama',$urut1,$urutan1)?></td>
+        <td width="7%">#</td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan1?>','cari')">Student ID <?=change_urut('s.nis',$urut1,$urutan1)?></td>
+        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan1?>','cari')">Name <?=change_urut('s.nama',$urut1,$urutan1)?></td>
         <? if ($departemen == -1)  { ?>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('t.departemen','<?=$urutan1?>','cari')">Dept. <?=change_urut('t.departemen',$urut1,$urutan1)?></td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('t.departemen','<?=$urutan1?>','cari')">Department <?=change_urut('t.departemen',$urut1,$urutan1)?></td>
         <? } ?>
-        <td width="12%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('t.tingkat','<?=$urutan1?>','cari')">Kelas <?=change_urut('t.tingkat',$urut1,$urutan1)?></td>
+        <td width="12%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('t.tingkat','<?=$urutan1?>','cari')">Class <?=change_urut('t.tingkat',$urut1,$urutan1)?></td>
         <td width="10%">&nbsp;</td>
     </tr>
 <?
@@ -168,16 +168,16 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
    
     <table border="0"width="100%" align="center"cellpadding="2" cellspacing="2">
     <tr>
-       	<td align="left"><font color="#000000">Hal
+       	<td align="left"><font color="#000000">Page
         <select name="hal1" id="hal1" onChange="change_hal('cari')">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal1,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     	// Navigasi halaman berikutnya dan sebelumnya
+     	// Navigasi halaman berikutnya and sebelumnya
         ?>
         </font>    	</td>
     	</tr>
@@ -188,8 +188,8 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />            
-		Tambah data siswa di menu Pendataan Siswa pada bagian Kesiswaan. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br /><br />            
+		Add student data in the Student Data menu on Student section. </b></font>	
 	<br /><br />   		</td>
     </tr>
     </table>
@@ -201,7 +201,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
     <td>   
 
 <br /><br />	
-<font size="2" color="#757575"><b>Klik pada tombol "Cari" di atas untuk melihat data  siswa <br />sesuai dengan NIS atau Nama Siswa berdasarkan <i>keyword</i> yang dimasukkan</b></font>	
+<font size="2" color="#757575"><b>Click on the "Search" button above to see student data <br />according to Student ID or Name based on <i>keyword</i> entered.</b></font>	
 <br /><br />    </td>
 </tr>
 </table>

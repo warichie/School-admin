@@ -44,8 +44,8 @@ $(".btnSelectPeg").live('click',function(e){
 <body>
 	<div id="tabs">
 		<ul>
-			<li><a href="#pilih">Pilih Pegawai</a></li>
-			<li><a href="#cari">Cari Pegawai</a></li>
+			<li><a href="#pilih">Select Employee</a></li>
+			<li><a href="#cari">Search Employee</a></li>
 		</ul>
 		<div id="pilih">
 			Loading...

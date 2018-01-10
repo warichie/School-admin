@@ -36,7 +36,7 @@ $DPS = new DaftarPensiun();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -49,8 +49,8 @@ $DPS = new DaftarPensiun();
 <input type="hidden" name="nip" id="nip" value="<?=$DPS->nip?>">
 <p align="center">
 <font class="subtitle"><?=$DPS->nama?> - <?=$DPS->nip?></font><br />
-<a href="JavaScript:Refresh()"><img src="../images/ico/refresh.png" border="0" />&nbsp;refresh</a>&nbsp;
-<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;cetak</a>&nbsp;
+<a href="JavaScript:Refresh()"><img src="../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>&nbsp;
+<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>&nbsp;
 <br />
 </p>
 
@@ -58,16 +58,16 @@ $DPS = new DaftarPensiun();
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Jadwal Pensiun</font><br />
+        <font class="subtitle">Retirement Schedule</font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab" id="table">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="35%" align="center" class="header">Jadwal Pensiun</td>
-	<td width="45%" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="35%" align="center" class="header">Retirement Schedule</td>
+	<td width="45%" align="center" class="header">Info</td>
 	<td width="10%" align="center" class="header">&nbsp;</td>
 </tr>
 <?
@@ -89,7 +89,7 @@ if (mysql_num_rows($result) > 0) {
 	<tr height="80">
     	<td colspan="4" align="center" valign="middle">
 			
-            <font color="#999999"><strong>Belum ada jadwal pensiun pegawai ini. Silahkan hubungi staf kepegawaian.</strong></font>
+            <font color="#999999"><strong>This employee has no pension schedule. Please contact the employement staff.</strong></font>
                     
         </td>
     </tr>

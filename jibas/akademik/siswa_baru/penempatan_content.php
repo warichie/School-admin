@@ -136,7 +136,7 @@ if ($op == "xm8r389xemx23xb2378e23")
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Penempatan Calon Siswa</title>
+<title>Student Candidate Placement</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -157,7 +157,7 @@ function hapus(replid,nis) {
 	var no = document.getElementById('no').value;
 	var nama = document.getElementById('nama').value;
 	
-	if (confirm("Apakah anda yakin akan menghapus siswa ini dari daftar?"))
+	if (confirm("Are you sure want to delete this student from the list?"))
 		document.location.href = "penempatan_content.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&departemen="+departemen+"&angkatan="+angkatan+"&tahunajaran="+tahunajaran+"&tingkat="+tingkat+"&kelas="+kelas+"&proses="+proses+"&kelompok="+kelompok+"&aktif="+aktif+"&cari="+cari+"&no="+no+"&nama="+nama+"&nis="+nis+"&urut=<?=$urut?>&urutan=<?=$urutan?>&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 		
 }
@@ -335,7 +335,7 @@ function refresh_isi() {
     <!-- TABLE TITLE -->
     
     <tr>
-      	<td align="left" width="24%"><strong>Angkatan</strong></td>
+      	<td align="left" width="24%"><strong>Graduates</strong></td>
       	<td align="center">
         	<select name="angkatan" id="angkatan" onChange="change_angkatan()" style="width:228px;" onKeyPress="return focusNext('tahunajaran', event)" onFocus="panggil('angkatan')">
 <?			$sql = "SELECT replid,angkatan FROM angkatan where aktif=1 AND departemen = '$departemen' ORDER BY replid DESC";
@@ -349,7 +349,7 @@ function refresh_isi() {
      		</select></td>
     </tr>
 	<tr>
-    	<td align="left"><strong>Th. Ajaran</strong></td>
+    	<td align="left"><strong>Year</strong></td>
       	<td align="center">
         	<select name="tahunajaran" id="tahunajaran" onChange="change_angkatan()" style="width:228px;" onKeyPress="return focusNext('tingkat', event)" onFocus="panggil('tahunajaran')">
 <?			$sql = "SELECT replid,tahunajaran,aktif FROM tahunajaran where departemen='$departemen' ORDER BY aktif DESC, replid DESC";
@@ -360,7 +360,7 @@ function refresh_isi() {
 					$tahunajaran = $row['replid'];
 					
 				if ($row['aktif']) 
-					$ada = '(Aktif)';
+					$ada = '(Active)';
 				else 
 					$ada = '';	?>
 	    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tahunajaran)?> ><?=$row['tahunajaran'].' '.$ada?></option>
@@ -369,7 +369,7 @@ function refresh_isi() {
             </td>             
     </tr>
     <tr>
-    	<td align="left"><strong>Tingkat</strong></td>
+    	<td align="left"><strong>Grade</strong></td>
         <td align="center">
         	<select name="tingkat" id="tingkat" onChange="change_angkatan()" style="width:228px;" onKeyPress="return focusNext('kelas', event)" onFocus="panggil('tingkat')">
 <?			$sql = "SELECT replid,tingkat FROM tingkat where departemen='$departemen' AND aktif = 1 ORDER BY urutan";
@@ -383,7 +383,7 @@ function refresh_isi() {
         </select></td>
 	</tr>
     <tr>
-    	<td align="left"><strong>Kelas</strong></td>
+    	<td align="left"><strong>Class</strong></td>
     	<td align="center">  
         	<select name="kelas" id="kelas" onChange="change()" style="width:228px;" onKeyPress="return focusNext('tabel', event)" onFocus="panggil('kelas')">
 <?          $sql = "SELECT replid, kelas, kapasitas FROM kelas where idtingkat='$tingkat' AND idtahunajaran='$tahunajaran' AND aktif = 1 ORDER BY kelas";
@@ -458,10 +458,10 @@ function refresh_isi() {
 	
             <table border="1" width="100%" id="table" class="tab" bordercolor="#000000">
             <tr class="header" align="center" height="30">		
-                <td width="8%">No</td>
-				<td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nisn','<?=$urutan?>')">N I S N<?=change_urut('nisn',$urut,$urutan)?></td>
-                <td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nis','<?=$urutan?>')">N I S <?=change_urut('nis',$urut,$urutan)?></td>
-                <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Nama <?=change_urut('nama',$urut,$urutan)?></td>
+                <td width="8%">#</td>
+				<td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nisn','<?=$urutan?>')">National Student ID<?=change_urut('nisn',$urut,$urutan)?></td>
+                <td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nis','<?=$urutan?>')">Student ID <?=change_urut('nis',$urut,$urutan)?></td>
+                <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Name <?=change_urut('nama',$urut,$urutan)?></td>
                 <td width="8%">&nbsp;</td>
             </tr>
 <?	     	if ($page==0)
@@ -479,7 +479,7 @@ function refresh_isi() {
                 <td><a href="#" onClick="newWindow('../library/detail_siswa.php?replid=<?=$row['replid']?>', 'DetailSiswa','800','650','resizable=1,scrollbars=1,status=0,toolbar=0')"><?=$row['nama']?></a></td>
                 <td align="center">
                 <?	if ($row['frompsb'] == 1) { ?>
-                    <a href="JavaScript:hapus(<?=$row['replid']?>,'<?=$row['nis']?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Batalkan Penempatan!', this, event, '80px')"/></a>
+                    <a href="JavaScript:hapus(<?=$row['replid']?>,'<?=$row['nis']?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Cancel', this, event, '80px')"/></a>
                 <? } ?>
                 </td>	
             </tr>
@@ -516,15 +516,15 @@ function refresh_isi() {
     <td>
     <table border="0"width="100%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="50%" align="left">Hal
+       	<td width="50%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
         </td>
-        <td width="50%" align="right">Jml baris per hal
+        <td width="50%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -537,9 +537,9 @@ function refresh_isi() {
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
-        <br />Belum ada calon siswa yang menempati kelas <?=$nama_kelas?>. 
-       	<br />Silahkan pilih Angkatan, Tahun Ajaran, Tingkat dan Kelas yang ingin ditempati.
+    	<font size = "2" color ="red"><b>Data Not Found.
+        <br />No student candidate who in the class <?=$nama_kelas?>. 
+       	<br />Please select Graduates, Year of Teaching, Grade and Class destination.
         </b></font>
 	</td>
 	</tr>
@@ -551,12 +551,12 @@ function refresh_isi() {
 	<tr>
 		<td align="center" valign="middle" height="200">
     	<? if ($departemen <> "") {	?>
-            <font size = "2" color ="red"><b>Belum ada kelas yang dituju.
-            <br />Tambah data kelas pada departemen <?=$departemen?> di menu Kelas pada bagian Referensi. 
+            <font size = "2" color ="red"><b>No Destination Class.
+            <br />Add class data on Department <?=$departemen?> in Class menu on Reference section. 
             </b></font>
         <? } else { ?>
-            <font size = "2" color ="red"><b>Belum ada data Departemen.
-            <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+            <font size = "2" color ="red"><b>No Department yet.
+            <br />Please make a new one in Department menu on Reference section.
             </b></font>
 		<? } ?>    
 	</td>

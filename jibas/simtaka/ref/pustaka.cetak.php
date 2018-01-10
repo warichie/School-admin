@@ -34,7 +34,7 @@ $departemen='yayasan';
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SimTaka [Cetak Perpustakaan]</title>
+<title>JIBAS SimTaka [Library Printed]</title>
 </head>
 
 <body>
@@ -43,15 +43,15 @@ $departemen='yayasan';
 
 <?=GetHeader('alls')?>
  
-<center><font size="4"><strong>DATA PERPUSTAKAAN</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>LIBRARY DATA</strong></font><br /> </center><br /><br />
 
 <br />
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
   <tr>
-	<td height="30" align="center" class="header">Nama</td>
-	<td height="30" align="center" class="header">Jumlah Judul</td>
-    <td height="30" align="center" class="header">Jumlah Pustaka</td>
-	<td height="30" align="center" class="header">Keterangan</td>
+	<td height="30" align="center" class="header">Name</td>
+	<td height="30" align="center" class="header">Title Sum</td>
+    <td height="30" align="center" class="header">Library Sum</td>
+	<td height="30" align="center" class="header">Info</td>
   </tr>
 <? 	
 OpenDb();

@@ -46,7 +46,7 @@ OpenDb();
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0">
 <table width="100%" border="0">
   <tr>
-    <td width="9%">Departemen</td>
+    <td width="9%">Department</td>
     <td width="73%"><select name="departemen2" id="departemen2" onChange="departemen2()">
             <?	$dep = getDepartemen(SI_USER_ACCESS());    
 				foreach($dep as $value) {
@@ -59,7 +59,7 @@ OpenDb();
           </select></td>
     </tr>
   <tr>
-    <td>Kelas</td>
+    <td>Class</td>
     <td><div id="kelas_Info"><select name="kelas" id="kelas" onChange="kelas()" style="width:150px">
             <?	$sql="SELECT k.replid,k.kelas FROM jbsakad.kelas k,jbsakad.tahunajaran ta,jbsakad.tingkat ti WHERE k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND ti.departemen='$departemen' AND ta.departemen='$departemen' AND k.aktif=1 ORDER BY k.kelas";
 			$result=QueryDb($sql);
@@ -78,10 +78,10 @@ OpenDb();
 	<div id="tabel_pilih">&nbsp;
     <table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0">
 <tr height="30">
-	<td class="header" width="7%" align="center" height="30">No</td>
-    <td class="header" width="15%" align="center" height="30">N I S</td>
-    <td class="header" height="30">Nama</td>
-	<td class="header" height="30">Kelas</td>
+	<td class="header" width="7%" align="center" height="30">#</td>
+    <td class="header" width="15%" align="center" height="30">Student ID</td>
+    <td class="header" height="30">Name</td>
+	<td class="header" height="30">Class</td>
 </tr>
 <?
 
@@ -109,7 +109,7 @@ $cnt++;
 }
 CloseDb();	
 if (mysql_num_rows($result) == 0) { ?>
-<tr height="26"><td colspan="4" align="center"><em>Tidak ditemukan data</em></td></tr>
+<tr height="26"><td colspan="4" align="center"><em>Data Not Found.</em></td></tr>
 <? } ?>
 </table>
 	</div>

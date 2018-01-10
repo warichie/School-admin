@@ -44,7 +44,7 @@ if (isset($_REQUEST['Simpan'])) {
 	$result_simpan_cek=QueryDb($sql_simpan_cek);	
 	if (mysql_num_rows($result_simpan_cek) > 0) {
 		CloseDb();
-		$ERROR_MSG = $kalender." sudah digunakan!";
+		$ERROR_MSG = $kalender." has been used";
 	} else {
 		$sql_simpan="INSERT INTO jbsakad.kalenderakademik SET kalender='$kalender', idtahunajaran = '$tahunajaran', departemen = '$departemen', aktif = $aktif"; 
 		
@@ -81,7 +81,7 @@ if (mysql_num_rows($result) > 0) {
 ?>
 <html>
 <head>
-<title>JIBAS SIMAKA [Tambah Kalender Akademik]</title>
+<title>JIBAS SIMAKA [Add Academic Calendar]</title>
 <link rel="stylesheet" type="text/css" href="../../style/style.css">
 <link rel="stylesheet" type="text/css" href="../../style/tooltips.css">
 <script src="../../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -93,8 +93,8 @@ if (mysql_num_rows($result) > 0) {
 <script type="text/javascript" language="javascript" src="../../script/validasi.js"></script>
 <script type="text/javascript" language="javascript">
 function validate() {
-	return validateEmptyText('tahunajaran', 'Tahun Ajaran') &&
-			validateEmptyText('kalender', 'Kalender Akademik'); 
+	return validateEmptyText('tahunajaran', 'Year of Teaching') &&
+			validateEmptyText('kalender', 'Academic Calendar'); 
 }
 
 function focusNext(elemName, evt) {
@@ -125,16 +125,16 @@ function focusNext(elemName, evt) {
 	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
     <!-- TABLE CONTENT -->
     <tr height="25">
-      	<td colspan="2" class="header" align="center">Tambah Info Jadwal</td>
+      	<td colspan="2" class="header" align="center">Add Schedule Info</td>
     </tr>
     <tr>
-        <td width="40%"><strong>Departemen</strong></td>
+        <td width="40%"><strong>Department</strong></td>
         <td><input type="text" name="dept" size="10" maxlength="50" class="disabled" readonly value="<?=$departemen?>"/>
             <input type="hidden" name="departemen" id="departemen" value="<?=$departemen?>">
         </td>
     </tr>
     <tr>
-        <td><strong>Tahun Ajaran</strong></td>
+        <td><strong>Year</strong></td>
         <td>  
         <select name="tahunajaran" id="tahunajaran" style="width:200px;" onKeyPress="return focusNext('kalender', event)">
    		 	<?
@@ -146,7 +146,7 @@ function focusNext(elemName, evt) {
 				if ($tahunajaran == "") 
 					$tahunajaran = $row['replid'];
 				if ($row['aktif']) 
-					$ada = '(Aktif)';
+					$ada = '(Active)';
 				else 
 					$ada = '';			 
 			?>
@@ -159,7 +159,7 @@ function focusNext(elemName, evt) {
         </td>
     </tr>
     <tr>
-      	<td><strong>Periode</strong></td>
+      	<td><strong>Period</strong></td>
         <td>
         <? 	
 		if ($tahunajaran <> "" ) {
@@ -167,7 +167,7 @@ function focusNext(elemName, evt) {
 			$sql = "SELECT * FROM jbsakad.tahunajaran WHERE replid='$tahunajaran'";
 			$result = QueryDb($sql);
 			$row = mysql_fetch_array($result);
-			$periode = TglTextLong($row['tglmulai']).' s/d '.TglTextLong($row['tglakhir']);
+			$periode = TglTextLong($row['tglmulai']).' to '.TglTextLong($row['tglakhir']);
 			$aktif = $row['aktif'];
 		} 
 		?> 
@@ -176,13 +176,13 @@ function focusNext(elemName, evt) {
         </td>
   	</tr>    
     <tr>
-        <td><strong>Kalender Akademik</strong></td>
+        <td><strong>Academic Calendar</strong></td>
         <td><input type="text" name="kalender" id="kalender"  size="30" value="<?=$kalender?>" onKeyPress="return focusNext('Simpan', event)"></td>
     </tr>
     <tr>
         <td colspan="2" align="center">
-            <input type="submit" name="Simpan" value="Simpan" class="but" id="Simpan">
-            <input type="button" name="Tutup" value="Tutup" class="but" onClick="window.close()">
+            <input type="submit" name="Simpan" value="Save" class="but" id="Simpan">
+            <input type="button" name="Tutup" value="Close" class="but" onClick="window.close()">
         </td>
     </tr>
 	</table>

@@ -71,18 +71,18 @@ else
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 function validate()
 {
-	return validateEmptyText('txTempat', 'Nama Tempat Bekerja') &&
-		   validateEmptyText('txThnAwal', 'Tahun Awal Berkerja') && 
-		   validateLength('txThnAwal', 'Tahun Awal Berkerja', 4) &&
-           validateEmptyText('txThnAkhir', 'Tahun Akhir Berkerja') && 
-		   validateEmptyText('txJabatan', 'Jabatan');
+	return validateEmptyText('txTempat', 'Work Place') &&
+		   validateEmptyText('txThnAwal', 'Year of Start Working') && 
+		   validateLength('txThnAwal', 'Year of Start Working', 4) &&
+           validateEmptyText('txThnAkhir', 'Year of End Working') && 
+		   validateEmptyText('txJabatan', 'Position');
 }
 
 function focusNext(elemName, evt)
@@ -104,33 +104,33 @@ function focusNext(elemName, evt)
 <input type="hidden" name="id" id="id" value="<?=$id?>" />
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr height="30">
-	<td width="100%" class="header" align="center">Ubah Data Riwayat Pekerjaan</td>
+	<td width="100%" class="header" align="center">Edit Occupation History Data</td>
 </tr>
 <tr>
 	<td width="100%" align="center">
     
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
-    	<td width="22%" align="right"><strong>Tempat</strong> : </td>
+    	<td width="22%" align="right"><strong>Location</strong> : </td>
 	    <td width="*" align="left" valign="top">
 		    <input type="text" name="txTempat" id="txTempat" value="<?=$tempat?>" onKeyPress="return focusNext('txThnAwal', event)" size="25" maxlength="255"/>
     	</td>
 	</tr>
     <tr>
-    	<td align="right"><strong>Tahun</strong> : </td>
+    	<td align="right"><strong>Year</strong> : </td>
 	    <td width="*" align="left" valign="top">
-		    <input type="text" name="txThnAwal" id="txThnAwal" value="<?=$thnawal?>" onKeyPress="return focusNext('txThnAkhir', event)" size="4" maxlength="4"/>&nbsp;s/d&nbsp;
+		    <input type="text" name="txThnAwal" id="txThnAwal" value="<?=$thnawal?>" onKeyPress="return focusNext('txThnAkhir', event)" size="4" maxlength="4"/>&nbsp;to&nbsp;
             <input type="text" name="txThnAkhir" id="txThnAkhir" value="<?=$thnakhir?>" onKeyPress="return focusNext('txJabatan', event)" size="4" maxlength="4"/>
     	</td>
 	</tr>
     <tr>
-    	<td align="right"><strong>Jabatan</strong> : </td>
+    	<td align="right"><strong>Position</strong> : </td>
 	    <td align="left" valign="top">
             <input type="text" name="txJabatan" id="txJabatan" value="<?=$jabatan?>" size="25" maxlength="255" onKeyPress="return focusNext('txKeterangan', event)" />
         </td>
     </tr>
     <tr>
-    	<td align="right" valign="top">Keterangan : </td>
+    	<td align="right" valign="top">Info : </td>
 	    <td align="left" valign="top">
             <textarea id="txKeterangan" name="txKeterangan" rows="2" cols="40"><?=$keterangan?></textarea>
         </td>
@@ -138,8 +138,8 @@ function focusNext(elemName, evt)
     <tr>
     	<td align="right" valign="top">&nbsp;</td>
 	    <td align="left" valign="top">
-            <input type="submit" value="Simpan" name="btSubmit" class="but" />
-            <input type="button" value="Tutup" onClick="window.close()" class="but" />
+            <input type="submit" value="Save" name="btSubmit" class="but" />
+            <input type="button" value="Close" onClick="window.close()" class="but" />
         </td> 
     </tr>
     </table>

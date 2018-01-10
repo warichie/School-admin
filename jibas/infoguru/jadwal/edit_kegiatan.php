@@ -49,7 +49,7 @@ if($simpan=="Simpan")
 		if ($result_simpan){
 		?>
 <script language="javascript">
-//alert ('Berhasil !');
+//alert ('Berhasil ');
 //parent.opener.refresh_after_add('<?=$_REQUEST[departemen]?>','<?=$row_idterakhir[idterakhir]?>');
 window.close();
 </script>
@@ -57,7 +57,7 @@ window.close();
 		} else {
 		?>
 <script language="javascript">
-alert ('Gagal menyimpan data !');
+alert ('Failed to save data');
 document.location.href="kalender_edit.php?kalender=<?=$_REQUEST[kalender]?>&replid=<?=$_REQUEST[replid]?>";
 </script>
 <?
@@ -105,22 +105,22 @@ function validasi()
 	{
 		if(document.form_kegiatan.tglmulai.value=="")
 			{
-				alert("Tanggal awal belum diisi");
+				alert("Start Date should not leave empty");
 				return false;		
 			}
 		else if(document.form_kegiatan.tglakhir.value=="")
 			{
-				alert("Tanggal akhir belum diisi");
+				alert("End Date should not leave empty");
 				return false;		
 			}
 		else if(cekTanggal(document.form_kegiatan.tglmulai.value,document.form_kegiatan.tglakhir.value)==false)
 			{
-				alert("Tanggal Mulai lebih besar daripada Tanggal Akhir");
+				alert("Start Date is bigger than End Date");
 				return false;
 			}		
 		else if(document.form_kegiatan.kegiatan.value=="")
 			{
-				alert("Kegiatan belum diisi");
+				alert("Activity should not leave empty");
 				return false;
 			}
 		return true;
@@ -144,30 +144,30 @@ function validasi()
 
 	<table width="450"  border="0" align="center" cellpadding="3">
     <tr>
-      <td colspan="3" class="header">Edit Kegiatan</td>
+      <td colspan="3" class="header">Edit Activity</td>
     </tr>
     <tr>
-      <td width="75">Tanggal</td>
+      <td width="75">Date</td>
       <td width="6">:</td>
       <td width="393"><table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr valign="top">
           <td><input type="text" name="tglmulai" id="tglmulai" readonly="readonly" value="<?=TglText($row_get['tanggalawal'])?>"/>
-            <img src="../images/ico/calendar_1.png" alt="Tampilkan Tabel" name="tabel" width="22" height="22" border="0" id="btntglmulai" onMouseOver="showhint('Buka kalendar!', this, event, '120px')"/>
+            <img src="../images/ico/calendar_1.png" alt="Show Table" name="tabel" width="22" height="22" border="0" id="btntglmulai" onMouseOver="showhint('Open calendar', this, event, '120px')"/>
             <input name="kalender" type="hidden" id="kalender" value="<?=$row_get[idkalender];?>">
           <td><input type="text" name="tglakhir" id="tglakhir"  readonly="readonly" value="<?=TglText($row_get['tanggalakhir'])?>" />
-            <img src="../images/ico/calendar_1.png" alt="Tampilkan Tabel" name="tabel" width="22" height="22" border="0" id="btntglakhir" onMouseOver="showhint('Buka kalendar!', this, event, '120px')"/></td>
+            <img src="../images/ico/calendar_1.png" alt="Show Table" name="tabel" width="22" height="22" border="0" id="btntglakhir" onMouseOver="showhint('Open calendar', this, event, '120px')"/></td>
         </tr>
       </table></td>
     </tr>
     <tr valign="top">
-      <td>Kegiatan</td>
+      <td>Activity</td>
       <td>:</td>
       <td><textarea name="kegiatan" cols="50" rows="8" id="kegiatan"><?=$row_get['kegiatan'];?></textarea></td>
     </tr>
     <tr>
       <td colspan="3"><div align="center">
-        <input name="Simpan" id="Simpan" type="Submit" class="but" value="Simpan" >
-        <input name="Submit2" type="button" class="but" value="Tutup" onClick="javascript:window.close();">
+        <input name="Simpan" id="Simpan" type="Submit" class="but" value="Save" >
+        <input name="Submit2" type="button" class="but" value="Close" onClick="javascript:window.close();">
       </div></td>
       </tr>
   </table>

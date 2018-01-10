@@ -1,14 +1,14 @@
 function validate()
 {
-	return validateEmptyText('txNama', 'Nama Pegawai') &&
-		   validateEmptyText('txNIP', 'NIP Pegawai') && 
-		   validateEmptyText('txTmpLahir', 'Tempat Kelahiran Pegawai') && 
-		   validateEmptyText('txThnLahir', 'Tahun Kelahiran Pegawai') && 
-		   validateInteger('txThnLahir', 'Tahun Kelahiran Pegawai') && 
-		   validateLength('txThnLahir', 'Tahun Kelahiran Pegawai', 4) && 
-		   validateEmptyText('txThnMulai', 'Tahun Mulai Kerja Pegawai') && 
-		   validateInteger('txThnMulai', 'Tahun Mulai Kerja Pegawai') && 
-		   validateLength('txThnMulai', 'Tahun Mulai Kerja Pegawai', 4);
+	return validateEmptyText('txNama', 'Employee Name') &&
+		   validateEmptyText('txNIP', 'Employee ID') && 
+		   validateEmptyText('txTmpLahir', 'Employee Birth Place') && 
+		   validateEmptyText('txThnLahir', 'Employee Year of Birth') && 
+		   validateInteger('txThnLahir', 'Employee Year of Birth') && 
+		   validateLength('txThnLahir', 'Employee Year of Birth', 4) && 
+		   validateEmptyText('txThnMulai', 'Employee Year of Start Working') && 
+		   validateInteger('txThnMulai', 'Employee Year of Start Working') && 
+		   validateLength('txThnMulai', 'Employee Year of Start Working', 4);
 }
 
 function focusNext(elemName, evt)
@@ -25,7 +25,7 @@ function focusNext(elemName, evt)
 
 function Hapus(nip)
 {
-	if (confirm("Apakah anda yakin akan menghapus semua data pegawai ini?"))
+	if (confirm("Are you sure want to delete all data?"))
 		document.location.href = "daftarpribadi.php?op=cn984214713289476137246xb78461237841&nip="+nip;		
 }
 

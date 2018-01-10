@@ -89,16 +89,16 @@ function ambil(){
 	}
 	if (jumkirim>0 && jumkirim==1){
 		parent.tujuan_footer.document.getElementById("numpegawaikirim").value=jumkirim;
-		if (confirm('Kirimkan pesan kepada pegawai ini ?')){
+		if (confirm('Send message to this employee?')){
 			parent.pesanguru_add.validate();
 		}
 	} else if (jumkirim>1){
 		parent.tujuan_footer.document.getElementById("numpegawaikirim").value=jumkirim;
-		if (confirm('Kirimkan pesan kepada pegawai-pegawai ini ?')){
+		if (confirm('Send message to these employees?')){
 			parent.pesanguru_add.validate();
 		}
 	} else if (jumkirim==0) {
-		alert ('Setidaknya harus ada 1 penerima untuk melanjutkan !');
+		alert ('You should have at least one receiver to be able to proceed');
 		return false;
 	}
 }
@@ -122,8 +122,8 @@ function cek_all() {
 <input type="hidden" name="bulan" id="bulan" value="<?=$bulan?>"/>
 <table width="100%" border="0" cellspacing="0">
    <tr bgcolor="#FFFFFF">
-    <th scope="row" colspan="2" align="left" valign="bottom"><br><input title="Kirim pesan !" type="button" class="but" onclick="ambil();" name="kirim" id="kirim" value="Kirim" />&nbsp;<input title="Kembali ke Halaman Kotak Pesan !" type="button" class="but" onclick="batal();" name="cancel" id="cancel" value="Batal" />&nbsp;<select name="bagian" id="bagian" onchange="chg_bag()">
-        	<option value="-1" <?=StringIsSelected("-1",$bagian)?>>Semua Bagian</option>
+    <th scope="row" colspan="2" align="left" valign="bottom"><br><input title="Send message" type="button" class="but" onclick="ambil();" name="kirim" id="kirim" value="Send" />&nbsp;<input title="Back to Inbox" type="button" class="but" onclick="batal();" name="cancel" id="cancel" value="Cancel" />&nbsp;<select name="bagian" id="bagian" onchange="chg_bag()">
+        	<option value="-1" <?=StringIsSelected("-1",$bagian)?>>All Sections</option>
         	<? 
 			OpenDb();
 			$sql="SELECT * FROM jbssdm.bagianpegawai ORDER BY bagian";

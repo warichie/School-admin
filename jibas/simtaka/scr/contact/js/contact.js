@@ -105,7 +105,7 @@ var contact = {
 							dataType: 'html',
 							complete: function (xhr) {
 								$('#contact-container .contact-loading').fadeOut(200, function () {
-									$('#contact-container .contact-title').html('Thank you!');
+									$('#contact-container .contact-title').html('Thank you');
 									$('#contact-container .contact-message').html(xhr.responseText).fadeIn(200);
 								});
 							},

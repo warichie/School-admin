@@ -186,7 +186,7 @@ function KirimSMS(ID){
 	
 }
 function ShowMessage2(x){
-	//alert ('Masuk kesini');
+	//alert ('Inbox here');
 	//document.getElementById('DivPopup').innerHTML = x;
 	HidePopup();
 }
@@ -194,7 +194,7 @@ function DeleteSMS(ID){
 	sendRequestText('inbox.ajax.php',ShowMessage2,'InboxID='+ID+'&op=DeleteSMS');
 }
 function DeleteRow(r,ID){
-	if (confirm('Anda yakin akan menghapus SMS ini?'))
+	if (confirm('Are you sure want to delete this SMS?'))
 	{
 		DeleteSMS(ID);
 		var i=r.parentNode.parentNode.rowIndex;

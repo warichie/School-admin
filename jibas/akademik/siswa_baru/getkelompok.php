@@ -41,4 +41,4 @@ $kelompok = $_REQUEST['kelompok'];
 	?>
     <option value="<?=urlencode($row[0])?>" <?=IntIsSelected($row[0], $kelompok)?> ><?=$row[1].', kapasitas: '.$row[2] .', terisi: '.$row1[0]?></option>
     <? } ?>
-</select>&nbsp;<img src="../images/ico/tambah.png" onclick="tampil_kelompok();" onMouseOver="showhint('Tambah Kelompok!', this, event, '60px')" />
+</select>&nbsp;<img src="../images/ico/tambah.png" onclick="tampil_kelompok();" onMouseOver="showhint('Add Group', this, event, '60px')" />

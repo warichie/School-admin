@@ -23,7 +23,7 @@
 <?
 require_once("session.checker.php");
 
-$bulan = array(1=>'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agust','Sep','Okt','Nov','Des');
+$bulan = array(1=>'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
 
 function StringIsSelected($value, $comparer)
 {
@@ -55,29 +55,29 @@ function LongDateFormat($mysqldate) {
 }
 function NamaBulan($bln) {
 	if ($bln == 1)
-		return "Januari";
+		return "January";
 	elseif ($bln == 2)
-		return "Februari";		
+		return "February";		
 	elseif ($bln == 3)
-		return "Maret";		
+		return "March";		
 	elseif ($bln == 4)
 		return "April";		
 	elseif ($bln == 5)
-		return "Mei";
+		return "May";
 	elseif ($bln == 6)
-		return "Juni";		
+		return "June";		
 	elseif ($bln == 7)
-		return "Juli";
+		return "July";
 	elseif ($bln == 8)
-		return "Agustus";		
+		return "August";		
 	elseif ($bln == 9)
 		return "September";
 	elseif ($bln == 10)
-		return "Oktober";		
+		return "October";		
 	elseif ($bln == 11)
 		return "November";
 	elseif ($bln == 12)
-		return "Desember";		
+		return "December";		
 }
 function BlnPdk($bln) {
 	if ($bln == 1)
@@ -89,21 +89,21 @@ function BlnPdk($bln) {
 	elseif ($bln == 4)
 		return "Apr";		
 	elseif ($bln == 5)
-		return "Mei";
+		return "May";
 	elseif ($bln == 6)
 		return "Jun";		
 	elseif ($bln == 7)
 		return "Jul";
 	elseif ($bln == 8)
-		return "Ags";		
+		return "Aug";		
 	elseif ($bln == 9)
 		return "Sep";
 	elseif ($bln == 10)
-		return "Okt";		
+		return "Oct";		
 	elseif ($bln == 11)
 		return "Nov";
 	elseif ($bln == 12)
-		return "Des";		
+		return "Dec";		
 }
 function JmlHari($bln,$th) {
 	if ($bln == 4 || $bln == 6|| $bln == 9 || $bln == 11) 

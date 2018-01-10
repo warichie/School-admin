@@ -57,7 +57,7 @@ if ($op == "0c967123b863486x873n01789b123") {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <style>
 .tanggal {
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -94,12 +94,12 @@ function RefreshAllAgenda() {
 }
 
 function HapusSemua() {
-	if (confirm("Apakah anda yakin akan menghapus semua agenda di tanggal ini?")) 
+	if (confirm("Are you sure want to delete all agenda of the date?")) 
 		document.location.href = "jadwallist.php?op=0c967123b863486x873n01789b123&tgl=<?=$tgl?>&bln=<?=$bln?>&thn=<?=$thn?>";
 }
 
 function HapusAgenda(id) {
-	if (confirm("Apakah anda yakin akan menghapus agenda ini?")) 
+	if (confirm("Are you sure want to delete this agenda?")) 
 		document.location.href = "jadwallist.php?id="+id+"&op=987x1n31237bx136786xb9123&tgl=<?=$tgl?>&bln=<?=$bln?>&thn=<?=$thn?>";
 }
 
@@ -139,13 +139,13 @@ function Cetak() {
 <tr>
 	<td width="70%" align="left" valign="top">
     	<font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="pagetitle">Jadwal Agenda Kepegawaian</font><br />
-        <a href="pegawai.php" target="_parent">Kepegawaian</a> &gt; Jadwal Agenda Kepegawaian
+        <font class="pagetitle">Employee Affair Agenda Schedule</font><br />
+        <a href="pegawai.php" target="_parent">Employee Affair</a> &gt; Employee Affair Agenda Schedule
         <br /><br />
-        <a href="JavaScript:TambahAgenda()"><img src="../images/ico/tambah.png" border="0" /> Tambah</a>&nbsp;
-        <a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" /> Cetak</a>&nbsp;
+        <a href="JavaScript:TambahAgenda()"><img src="../images/ico/tambah.png" border="0" /> Add</a>&nbsp;
+        <a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" /> Print</a>&nbsp;
         <a href="JavaScript:RefreshAgenda()"><img src="../images/ico/refresh.png" border="0" /> Refresh</a><br />
-        <a href="JavaScript:HapusSemua()" title="Hapus semua agenda di tanggal ini"><img src="../images/ico/hapus.png" border="0" /> Hapus Semua</a><br />
+        <a href="JavaScript:HapusSemua()" title="Delete all agenda of the date"><img src="../images/ico/hapus.png" border="0" /> Hapus All</a><br />
     </td>
     <td width="30%" align="left" valign="top">
     
@@ -166,9 +166,9 @@ function Cetak() {
 <br />
 <table width="100%" cellpadding="0" cellspacing="0" class="tab" id="table">
 <tr height="30">
-	<td width="5%" class="header" align="center">No</td>
-    <td width="35%" class="header" align="center">Pegawai</td>
-    <td width="35%" class="header" align="center">Keterangan</td>
+	<td width="5%" class="header" align="center">#</td>
+    <td width="35%" class="header" align="center">Employee</td>
+    <td width="35%" class="header" align="center">Info</td>
     <td width="20%" class="header" align="center">&nbsp;</td>
 </tr>
 <?
@@ -193,14 +193,14 @@ while ($row = mysql_fetch_array($result)) {
         <tr height="25">
             <td align="center" valign="top"><?=++$cnt?></td>
             <td align="left" valign="top">
-            <a href="JavaScript:DetailPegawai('<?=$row2['nip']?>')" title="lihat detail pegawai ini">
+            <a href="JavaScript:DetailPegawai('<?=$row2['nip']?>')" title="See this employee details">
 			<?=$row2['nip'] . "<br>" . $row2['nama']?>
             </a>
             </td>
             <td align="left" valign="top"><?=$row2['keterangan']?></td>
             <td align="center">
             	<a href="JavaScript:UbahAgenda(<?=$row2['replid']?>)" title="edit agenda ini"><img src="../images/ico/ubah.png" border="0" /></a>
-                <a href="JavaScript:HapusAgenda(<?=$row2['replid']?>)" title="hapus agenda ini"><img src="../images/ico/hapus.png" border="0" /></a>
+                <a href="JavaScript:HapusAgenda(<?=$row2['replid']?>)" title="Delete this agenda"><img src="../images/ico/hapus.png" border="0" /></a>
             </td>
         </tr>
 <?	

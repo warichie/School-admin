@@ -58,7 +58,7 @@ for ($i=0;$i<5;$i++) {
 
 
 //$data = array(1 => ($row['hadir']/$total), ($row['ijin']/$total), ($row['sakit']/$total), ($row['cuti']/$total), ($row['alpa']/$total));
-$judul = array('Hadir', 'Ijin', 'Sakit', 'Cuti', 'Alpa');
+$judul = array('Attend', 'Consent', 'Ill', 'Leave', 'Absent');
 
 $color = array('green@0.5','red@0.5','yellow@0.5','blue@0.5','orange@0.5','gold@0.5','navy@0.5','darkblue@0.5','darkred@0.5','darkgreen@0.5', 'pink@0.5','black@0.5','gray@0.5');
 
@@ -88,15 +88,15 @@ $plot->value->SetFormat('%d');
 //memasukkan kedalam grafik
 $graph->Add($plot);
 
-//$graph->title->Set("Statistik Siswa Aktif Berdasarkan Agama");
+//$graph->title->Set("Active Student Statistic based on Religion");
 $graph->xaxis->title->Set("");
-$graph->yaxis->title->Set("Presentase Presensi (%)");
+$graph->yaxis->title->Set("Presence Percentage (%)");
 
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 $graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
-//Pengaturan sumbu x dan sumbu y
+//Settings sumbu x and sumbu y
 $graph->yaxis->HideZeroLabel();
 $graph->ygrid->SetFill(true,'#dedede','#FFFFFF');
 

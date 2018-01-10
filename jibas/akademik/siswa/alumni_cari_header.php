@@ -29,7 +29,7 @@ require_once('../include/db_functions.php');
 require_once('../library/departemen.php');
 require_once('../cek.php');
 
-$tipe = array(array("nis","NIS"), array("idangkatan","Angkatan"), array("tgllulus","Tahun Lulus"), array("nama","Nama"), array("panggilan","Nama Panggilan"), array("agama","Agama"), array("suku","Suku"), array ("status","Status"), array("kondisi","Kondisi Siswa"), array("darah","Golongan Darah"), array("alamatsiswa","Alamat Siswa"), array("asalsekolah","Asal Sekolah"), array("namaayah","Nama Ayah"), array("namaibu","Nama Ibu"), array("alamatortu","Alamat Orang Tua"), array("keterangan","Keterangan"));
+$tipe = array(array("nis","Student ID"), array("idangkatan","Graduates"), array("tgllulus","Graduated"), array("nama","Name"), array("panggilan","Nickname"), array("agama","Religion"), array("suku","Ethnicity"), array ("status","Status"), array("kondisi","Student Conditions"), array("darah","Blood Type"), array("alamatsiswa","Student Address"), array("asalsekolah","Past School"), array("namaayah","Father Name"), array("namaibu","Mother Name"), array("alamatortu","Parent Address"), array("keterangan","Info"));
 
 $departemen = "";
 if (isset($_REQUEST['departemen']))
@@ -49,7 +49,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pencarian Siswa</title>
+<title>Search Student</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -73,14 +73,14 @@ function cari_alumni() {
 	//var angkatan = document.getElementById("angkatan").value;	
 	
 	if (cari == "") {
-		alert ('Keyword tidak boleh kosong');
+		alert ('Keyword should not leave empty');
 		document.getElementById("cari").focus();
 		return false;
 	}
 	
 	if (jenis != 'kondisi' && jenis != 'status' && jenis != 'agama' && jenis != 'suku' && jenis != 'darah' && jenis != 'idangkatan'){
 		if (cari.length<3){
-		 	alert ('Keyword tidak boleh kurang dari 3 karakter');
+		 	alert ('Keyword should not less than 3 characters.');
 	 		return false;
 		}
 	}
@@ -108,7 +108,7 @@ function focusNext( evt) {
 	<td rowspan="2" width="52%">
 	<table width = "98%" border="0" >
     <tr>
-  		<td width = "16%"><strong>Departemen</strong>
+  		<td width = "16%"><strong>Department</strong>
    		<td width = "30%">
         <select name="departemen" id="departemen" onChange="blank()" style="width:140px;" onKeyPress="return focusNext('jenis', event)">
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -118,7 +118,7 @@ function focusNext( evt) {
     		<option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?> ><?=$value ?></option>
        	<?	} ?>
         </select></td>
-        <!--<td width = "18%"><strong>Angkatan</strong></td>
+        <!--<td width = "18%"><strong>Graduates</strong></td>
         <td width = "36%"><select name="angkatan" id="angkatan" onchange="blank()" style="width:140px;">
           <?	$sql_angk="SELECT * FROM jbsakad.angkatan WHERE departemen='$departemen'";
 			$res_angk=QueryDb($sql_angk);
@@ -132,7 +132,7 @@ function focusNext( evt) {
         </select></td>-->
     </tr>
 	<tr> 
-    	<td><strong>Pencarian</strong>
+    	<td><strong>Search</strong>
       	<td><select name="jenis" id="jenis" onchange="blank()" style="width:140px;" onKeyPress="return focusNext('cari', event)">			
        	<?	foreach($tipe as $value) { ?>
 				<option value="<?=$value[0]?>" <?=StringIsSelected($value[0], $jenis)?> ><?=$value[1]?></option>
@@ -196,15 +196,15 @@ CloseDb();
 ?></td>
 	</tr>
     </table>	</td>    
-    <td width="5%" valign="middle"><a href="#" onclick="cari_alumni()" ><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Klik untuk melihat hasil pencarian !', this, event, '120px')" /></a></td>
+    <td width="5%" valign="middle"><a href="#" onclick="cari_alumni()" ><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Click to show search results ', this, event, '120px')" /></a></td>
    	<td width = "*" align="right" valign="top">
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pencarian Alumni</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Search Alumni</font><br />
     <a href="../kelulusan.php" target="content">
-        <font size="1" color="#000000"><b>Kenaikan & Kelulusan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Pencarian alumni</b></font></td>     
+        <font size="1" color="#000000"><b>Grade Promotion and Graduation</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Search Alumni</b></font></td>     
 </tr>
 </table>
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
     	
 </body>
 </html>

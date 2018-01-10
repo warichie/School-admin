@@ -36,7 +36,7 @@ require_once('addfile.function.php');
 <link rel="stylesheet" type="text/css" href="../../style/style.css">
 <link rel="stylesheet" type="text/css" href="../../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Tambah File]</title>
+<title>JIBAS TEACHERS INFO [Add File]</title>
 <script language="JavaScript" src="../../script/tooltips.js"></script>
 
 <script language="javascript" src="../../script/tables.js"></script>
@@ -57,7 +57,7 @@ function validate()
 	
 	if (nfill == 0)
 	{
-		alert ("Anda harus mengisikan file yang hendak di Upload!");
+		alert ("You should select a file to upload");
 		return false;	
 	}
 	return true;
@@ -78,10 +78,10 @@ function validate()
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td colspan="2" align="center" class="header">Unggah Berkas</td>
+<td colspan="2" align="center" class="header">Upload File</td>
 </tr>
 <tr>
-  <td width="12%" align="left" bgcolor="#CCCCCC"><strong>Folder&nbsp;Tujuan&nbsp;:&nbsp;</strong></td>
+  <td width="12%" align="left" bgcolor="#CCCCCC"><strong>Folder&nbsp;Destination&nbsp;:&nbsp;</strong></td>
   <td width="88%" align="center" bgcolor="#CCCCCC">&nbsp;<strong>(root)/<?=$fullpath?></strong></td>
 </tr>
 <tr>
@@ -114,8 +114,8 @@ function validate()
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Unggah" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Upload" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -127,7 +127,7 @@ function validate()
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 <? if ($cek == 1) { ?>
 <script language="javascript">

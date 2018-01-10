@@ -35,10 +35,10 @@ if ($op=="EraseGroup"){
 	if ($MYSQL_ERRNO>0){
 	?>
     <script language="javascript">
-		alert('Data sedang digunakan \nsehingga tidak dapat dihapus!');
+		alert('Your data is being used \ntherefore it should not be deleted');
     </script>
     <?
-	//echo  "<span style='font-family:Verdana; color:red;'>Gagal Menghapus Data<br>Data Sedang Digunakan!</span>";
+	//echo  "<span style='font-family:Verdana; color:red;'>Gagal Menghapus Data<br>Data Sedang Digunakan</span>";
 	//exit;
 	}
 }
@@ -50,10 +50,10 @@ if ($op=="EraseKelompok"){
 	if ($MYSQL_ERRNO>0){
 	?>
     <script language="javascript">
-		alert('Data sedang digunakan \nsehingga tidak dapat dihapus!');
+		alert('The data is being used \ntherefore it should not be deleted');
     </script>
     <?
-	//echo  "<span style='font-family:Verdana; color:red;'>Gagal Menghapus Data<br>Data Sedang Digunakan!</span>";
+	//echo  "<span style='font-family:Verdana; color:red;'>Gagal Menghapus Data<br>Data Sedang Digunakan</span>";
 	//exit;
 	}
 }
@@ -93,12 +93,12 @@ function GetFresh(){
 	document.location.href="Inventory.Left.php";
 }
 function EraseGroup(idgroup){
-	var msg = "Anda yakin akan menghapus Group ini?";
+	var msg = "Are you sure want to delete this Group?";
 	if (confirm(msg))
 		document.location.href="Inventory.Left.php?op=EraseGroup&idgroup="+idgroup;
 }
 function EraseKelompok(idkelompok){
-	var msg = "Anda yakin akan menghapus Kelompok ini?";
+	var msg = "Are you sure want to delete this Group?";
 	if (confirm(msg))
 		document.location.href="Inventory.Left.php?op=EraseKelompok&idkelompok="+idkelompok;
 }
@@ -130,9 +130,9 @@ function SelectKelompok(idkelompok){
 <a href="#" onClick="collapseTree('tree1'); return false;">Collapse All</a><br /><br /><br />
 -->
 <fieldset style="border:#336699 1px solid; background-color:#ffffff" >
-<legend style="background-color:#336699; color:#FFFFFF; font-size:10px; font-weight:bold; padding:5px">&nbsp;Group&nbsp;Barang&nbsp;</legend>
+<legend style="background-color:#336699; color:#FFFFFF; font-size:10px; font-weight:bold; padding:5px">&nbsp;Item&nbsp;Group&nbsp;</legend>
 <div align="right">
-<a href="javascript:AddGroup()"><img src="../images/ico/tambah.png" border="0">Tambah Group</a>
+<a href="javascript:AddGroup()"><img src="../images/ico/tambah.png" border="0">Add Group</a>
 </div>
 <?
 $sql = "SELECT replid,namagroup FROM jbsfina.groupbarang ORDER BY namagroup";
@@ -147,7 +147,7 @@ $class="liOpen";
 if (getNSubDir($row[0])==0)
 	$class="liClose";
 ?>
-<li class="liOpen" style="cursor:default">&nbsp;<img src='../images/ico/folder.gif' border='0'>&nbsp;<strong><?=stripslashes($row[1])?></strong>&nbsp;<a href="javascript:AddKelompok('<?=$row[0]?>')"><img src="../images/ico/tambah.png" border='0' title="Tambah Kelompok"></a><a href="javascript:EditGroup('<?=$row[0]?>')"><img src="../images/ico/ubah.png" border='0' title="Ubah Group"></a><a href="javascript:EraseGroup('<?=$row[0]?>')"><img src="../images/ico/hapus.png" border='0' title="Hapus Group"></a>
+<li class="liOpen" style="cursor:default">&nbsp;<img src='../images/ico/folder.gif' border='0'>&nbsp;<strong><?=stripslashes($row[1])?></strong>&nbsp;<a href="javascript:AddKelompok('<?=$row[0]?>')"><img src="../images/ico/tambah.png" border='0' title="Add Group"></a><a href="javascript:EditGroup('<?=$row[0]?>')"><img src="../images/ico/ubah.png" border='0' title="Edit Group"></a><a href="javascript:EraseGroup('<?=$row[0]?>')"><img src="../images/ico/hapus.png" border='0' title="Delete Group"></a>
 <?
 $sql2 = "SELECT replid,kelompok FROM jbsfina.kelompokbarang WHERE idgroup='$row[0]'"; 
 $result2 = QueryDb($sql2);
@@ -158,7 +158,7 @@ while ($row2 = @mysql_fetch_row($result2)){
 ?>
 <li class="liOpen" id="liOpen<?=$row2[0]?>" onMouseOver="Hover('liOpen<?=$row2[0]?>','1')" onMouseOut="Hover('liOpen<?=$row2[0]?>','0')" onClick="SelectKelompok('<?=$row2[0]?>')">
 <!--<span >-->
-<span ><img src='../images/ico/page.gif' border='0'>&nbsp;<?=stripslashes($row2[1])?></span>&nbsp;<img src="../images/ico/ubah.png" border='0' onClick="EditKelompok('<?=$row2[0]?>')" title="Ubah Kelompok" style="cursor:pointer"><img src="../images/ico/hapus.png" border='0' onClick="EraseKelompok('<?=$row2[0]?>')" title="Hapus Kelompok" style="cursor:pointer">
+<span ><img src='../images/ico/page.gif' border='0'>&nbsp;<?=stripslashes($row2[1])?></span>&nbsp;<img src="../images/ico/ubah.png" border='0' onClick="EditKelompok('<?=$row2[0]?>')" title="Edit Group" style="cursor:pointer"><img src="../images/ico/hapus.png" border='0' onClick="EraseKelompok('<?=$row2[0]?>')" title="Delete Group" style="cursor:pointer">
 <!--</span>-->
 </li>
 <?
@@ -174,7 +174,7 @@ collapseTree('tree1');
 </script>
 <?
 } else {
-echo  "<div align='center'><br><em>Tidak ada Group Barang</em><br><br></div>";
+echo  "<div align='center'><br><em>No Item Group</em><br><br></div>";
 }
 ?>
 </fieldset>

@@ -80,7 +80,7 @@ document.location.href="nilai_pelajaran_content.php?dasar_penilaian=<?=$dasar_pe
 } else {
 ?>
 <script language="javascript">
-alert ('Gagal mengisi data');
+alert ('Failed submit data');
 //document.location.href="nilai_pelajaran_content.php?dasar_penilaian=<?=$dasar_penilaian?>&departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&jenis_penilaian=<?=$jenis_penilaian?>&kelas=<?=$kelas?>&semester=<?=$semester?>&tahun=<?=$tahun?>&idaturan=<?=$idaturan?>&manual=1";
 </script>
 <?

@@ -35,7 +35,7 @@ $DP = new DaftarPribadi();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -49,7 +49,7 @@ $DP = new DaftarPribadi();
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#ffffff">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <table width="100%" border="0" cellspacing="0">
 <tr>
@@ -64,8 +64,8 @@ $DP = new DaftarPribadi();
 </tr>
 <tr>
     <td align="center" valign="top">
-		<a href="JavaScript:Refresh()"><img src="../images/ico/refresh.png" border="0" />&nbsp;refresh</a>&nbsp;
-		<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;cetak</a>&nbsp;
+		<a href="JavaScript:Refresh()"><img src="../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>&nbsp;
+		<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>&nbsp;
 	</td>
 </tr>
 </table>
@@ -77,7 +77,7 @@ $DP = new DaftarPribadi();
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Data Pribadi</font><br />
+        <font class="subtitle">Personal Data</font><br />
     </td>
 </tr>
 <tr><td>
@@ -99,13 +99,13 @@ $DP = new DaftarPribadi();
     </td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Bagian </strong>:</td>
+	<td align="right" valign="top"><strong>Section</strong>:</td>
     <td width="*" align="left" valign="top">
 <?	echo $DP->bagian ?>	
     </td>
 </tr>
 <tr>
-	<td width="140" align="right" valign="top"><strong>Nama </strong>:</td>
+	<td width="140" align="right" valign="top"><strong>Name </strong>:</td>
     <td width="*" align="left" valign="top">
     
     <table border="0" cellpadding="0" cellspacing="0">
@@ -115,20 +115,20 @@ $DP = new DaftarPribadi();
         <td width="120"><input type="text" name="txGelarAkhir" id="txGelarAkhir" size="10" maxlength="45" value="<?=$DP->gelarakhir?>" onKeyPress="return focusNext('txPanggilan', event)"/></td>
     </tr>
     <tr>
-    	<td><font color="#999999"><em>gelar depan</em></font>&nbsp;</td>
+    	<td><font color="#999999"><em>title</em></font>&nbsp;</td>
         <td>&nbsp;</td>
-        <td><font color="#999999"><em>gelar belakang</em></font></td>
+        <td><font color="#999999"><em>academic title</em></font></td>
     </tr>
     </table>    </td>
 </tr>
 <tr>
-	<td align="right" valign="top">Panggilan:</td>
+	<td align="right" valign="top">Abbreviation:</td>
     <td width="*" align="left" valign="top">
 		<input type="text" name="txPanggilan" id="txPanggilan" size="20" maxlength="30" value="<?=$DP->panggilan?>" onKeyPress="return focusNext('txNIP', event)"/>
 	</td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>NIP </strong>:</td>
+	<td align="right" valign="top"><strong>Employee ID </strong>:</td>
     <td width="*" align="left" valign="top">
 		<input type="text" name="txNIP" id="txNIP" size="20" maxlength="30" readonly="readonly" style="background-color:#CCC" value="<?=$DP->nip?>" onKeyPress="return focusNext('txNUPTK', event)"/>
 	</td>
@@ -147,7 +147,7 @@ $DP = new DaftarPribadi();
 </tr>
 
 <tr>
-	<td align="right" valign="top"><strong>Tempat, Tgl Lahir </strong>:</td>
+	<td align="right" valign="top"><strong>Date of Birth </strong>:</td>
     <td width="*" align="left" valign="top">
     <input type="text" name="txTmpLahir" id="txTmpLahir" size="20" maxlength="25" value="<?=$DP->tmplahir?>" onKeyPress="return focusNext('cbTglLahir', event)"/>, 
     <select id="cbTglLahir" name="cbTglLahir" onKeyPress="return focusNext('cbBlnLahir', event)">
@@ -163,7 +163,7 @@ $DP = new DaftarPribadi();
     <input type="text" name="txThnLahir" id="txThnLahir" size="4" maxlength="4" value="<?=$DP->thnlahir?>" onKeyPress="return focusNext('txAlamat', event)"/>    </td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Agama :</strong>    </td>
+	<td align="right" valign="top"><strong>Religion:</strong>    </td>
     <td width="*" align="left" valign="top">
 	<span id="agama_info">
     <select name="cbAgama" id="cbAgama" onKeyPress="return focusNext('cbSuku', event)">
@@ -180,7 +180,7 @@ $DP = new DaftarPribadi();
 	</td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Suku :</strong>    </td>
+	<td align="right" valign="top"><strong>Ethnicity:</strong>    </td>
     <td width="*" align="left" valign="top">
 	<span id="suku_info">
     <select name="cbSuku" id="cbSuku" onKeyPress="return focusNext('cbNikah', event)">
@@ -197,30 +197,30 @@ $DP = new DaftarPribadi();
 	</td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Status Menikah :</strong>    </td>
+	<td align="right" valign="top"><strong>Marital Status :</strong>    </td>
     <td width="*" align="left" valign="top">
     <select name="cbNikah" id="cbNikah" onKeyPress="return focusNext('cbKelamin', event)">
-		 <option value="menikah" <?=StringIsSelected("menikah", $DP->nikah)?> >Menikah</option>
-		 <option value="belum" <?=StringIsSelected("belum", $DP->nikah)?> >Belum</option>
-		 <option value="tak_ada" <?=StringIsSelected("tak_ada", $DP->nikah)?> >Tidak Ada Data</option>
+		 <option value="Married" <?=StringIsSelected("menikah", $DP->nikah)?> >Married</option>
+		 <option value="Not Married" <?=StringIsSelected("belum", $DP->nikah)?> >#</option>
+		 <option value="None" <?=StringIsSelected("tak_ada", $DP->nikah)?> >Data Not Found</option>
     </select>&nbsp;    </td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Jenis Kelamin :</strong>    </td>
+	<td align="right" valign="top"><strong>Gender :</strong>    </td>
     <td width="*" align="left" valign="top">
     <select name="cbKelamin" id="cbKelamin" onKeyPress="return focusNext('txAlamat', event)">
-	   	<option value="L" <?=StringIsSelected("L", $DP->kelamin)?>>Laki-laki</option>
-        <option value="P" <?=StringIsSelected("P", $DP->kelamin)?>>Perempuan</option>
+	   	<option value="L" <?=StringIsSelected("L", $DP->kelamin)?>>Male</option>
+        <option value="P" <?=StringIsSelected("P", $DP->kelamin)?>>Female</option>
     </select>&nbsp;    </td>
 </tr>
 <tr>
-	<td align="right" valign="top">Alamat :</td>
+	<td align="right" valign="top">Address :</td>
     <td width="*" align="left" valign="top"><input type="text" name="txAlamat" id="txAlamat" size="70" onKeyPress="return focusNext('txHP', event)" maxlength="255" value="<?=$DP->alamat?>"/></td>
 </tr>
 <tr>
-	<td align="right" valign="top">HP :</td>
+	<td align="right" valign="top">Mobile :</td>
     <td width="*" align="left" valign="top"><input type="text" name="txHP" id="txHP" size="15" maxlength="15" value="<?=$DP->hp?>" onKeyPress="return focusNext('txTelpon', event)"/>
-    Telpon: <input type="text" name="txTelpon" id="txTelpon" size="15" maxlength="15" value="<?=$DP->telpon?>" onKeyPress="return focusNext('txEmail', event)"/>    </td>
+    Phone: <input type="text" name="txTelpon" id="txTelpon" size="15" maxlength="15" value="<?=$DP->telpon?>" onKeyPress="return focusNext('txEmail', event)"/>    </td>
 </tr>
 <tr>
 	<td align="right" valign="top">Email :</td>
@@ -247,15 +247,15 @@ $DP = new DaftarPribadi();
 	</td>
 </tr>
 <tr>
-  <td valign="top" align="right">Foto :</td>
+  <td valign="top" align="right">Photo :</td>
   <td align="left" valign="top">
 	<input type="file" name="foto" id="foto" size="30"/>
-    <span class="style3">&nbsp;Diisi jika akan mengganti foto</span>
+    <span class="style3">&nbsp;Diisi jika akan mengganti photo</span>
     <input type="hidden" id="ext" name="ext"/>
   </td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Mulai Kerja :</strong></td>
+	<td align="right" valign="top"><strong>Start Working :</strong></td>
     <td width="*" align="left" valign="top">
     <select id="cbTglMulai" name="cbTglMulai" onKeyPress="return focusNext('cbBlnMulai', event)">
 <?	for ($i = 1; $i <= 31; $i++) { ?>    
@@ -271,13 +271,13 @@ $DP = new DaftarPribadi();
     <input type="text" name="txThnMulai" id="txThnMulai" onKeyPress="return focusNext('cbTglPensiun', event)" size="4" maxlength="4" value="<?=$DP->thnmulai?>"/>    </td>
 </tr>
 <tr>
-	<td align="right" valign="top">Keterangan :</td>
+	<td align="right" valign="top">Info :</td>
     <td width="*" align="left" valign="top">
     <textarea id="txKeterangan" name="txKeterangan" rows="3" cols="60" onKeyPress="return focusNext('txAlasan', event)"><?=$DP->keterangan?></textarea>    </td>
 </tr>
 <tr>
 	<td align="center" valign="top" colspan="2" bgcolor="#CCCCCC">
-    <input type="submit" value="Simpan" name="btSubmit" id="btSubmit" class="but" />
+    <input type="submit" value="Save" name="btSubmit" id="btSubmit" class="but" />
 </td>
 </tr>
 </table>

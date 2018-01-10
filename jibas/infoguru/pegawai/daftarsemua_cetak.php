@@ -70,7 +70,7 @@ $keterangan = $row['keterangan'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 </head>
 
 <body>
@@ -81,7 +81,7 @@ $keterangan = $row['keterangan'];
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Data Pribadi</font><br />
+        <font class="subtitle">Personal Data</font><br />
     </td>
 </tr>
 <tr><td>
@@ -92,16 +92,16 @@ $keterangan = $row['keterangan'];
     <td width="*" colspan="2" align="left" valign="top"><?=$status?></td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Bagian :</strong></td>
+	<td align="right" valign="top"><strong>Section :</strong></td>
     <td width="*" colspan="2" align="left" valign="top"><?=$bagian?></td>
 </tr>
 <tr>
-	<td width="140" align="right" valign="top"><strong>Nama </strong>:</td>
+	<td width="140" align="right" valign="top"><strong>Name </strong>:</td>
     <td width="0" align="left" valign="top"><?=$gelarawal . " " . $nama . " " . $gelarakhir?></td>
     <td width="113" rowspan="5" align="center" valign="top" ><img src="../include/gambar.php?nip=<?=$nip?>&table=jbssdm.pegawai&field=foto" height="120" alt="Foto" /></td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>NIP </strong>:</td>
+	<td align="right" valign="top"><strong>Employee ID </strong>:</td>
     <td width="0" align="left" valign="top"><?=$nip?></td>
 </tr>
 <tr>
@@ -113,28 +113,28 @@ $keterangan = $row['keterangan'];
     <td width="0" align="left" valign="top"><?=$nrp?></td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Tempat, Tgl Lahir </strong>:</td>
+	<td align="right" valign="top"><strong>Date of Birth </strong>:</td>
     <td width="0" align="left" valign="top">
     <?=$tmplahir?>, <?=$tgllahir?> <?= NamaBulan($blnlahir)?> <?=$thnlahir?>    </td>
 </tr>
 <tr>
-	<td align="right" valign="top">Agama :</td>
+	<td align="right" valign="top">Religion :</td>
     <td width="0" align="left" valign="top"><?=$agama?></td>
 </tr>
 <tr>
-	<td align="right" valign="top">Suku :</td>
+	<td align="right" valign="top">Ethnicity :</td>
     <td width="0" align="left" valign="top"><?=$suku?></td>
 </tr>
 <tr>
-	<td align="right" valign="top">Alamat :</td>
+	<td align="right" valign="top">Address :</td>
     <td width="0" align="left" valign="top"><?=$alamat?></td>
     </tr>
 <tr>
-	<td align="right" valign="top">HP :</td>
+	<td align="right" valign="top">Mobile :</td>
     <td width="0" align="left" valign="top"><?=$hp?></td>
 </tr>
 <tr>
-	<td align="right" valign="top">Telpon :</td>
+	<td align="right" valign="top">Phone :</td>
     <td width="0" align="left" valign="top"><?=$telpon?></td>
 </tr>
 <tr>
@@ -154,12 +154,12 @@ $keterangan = $row['keterangan'];
     <td width="*" colspan="2" align="left" valign="top"><?=$website?></td>
 </tr>
 <tr>
-	<td align="right" valign="top"><strong>Mulai Kerja :</strong></td>
+	<td align="right" valign="top"><strong>Start Working :</strong></td>
     <td width="*" colspan="2" align="left" valign="top">
 	<?=$tglmulai?> <?=NamaBulan($blnmulai)?> <?=$thnmulai?>    </td>
 </tr>
 <tr>
-	<td align="right" valign="top">Keterangan :</td>
+	<td align="right" valign="top">Info :</td>
     <td width="*" colspan="2" align="left" valign="top">
 	<?=$keterangan?>    </td>
 </tr>
@@ -170,16 +170,16 @@ $keterangan = $row['keterangan'];
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Pensiun</font><br />
+        <font class="subtitle">Pension</font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab" id="table">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="35%" align="center" class="header">Jadwal Pensiun</td>
-	<td width="45%" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="35%" align="center" class="header">Retirement Schedule</td>
+	<td width="45%" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT replid, DATE_FORMAT(tanggal,'%d %M %Y') AS ftmt, keterangan FROM jbssdm.jadwal WHERE nip='$nip' AND jenis='pensiun'";
@@ -196,7 +196,7 @@ if (mysql_num_rows($result) > 0) {
 } else { ?>
 	<tr height="80">
     	<td colspan="3" align="center" valign="middle">
-            <font color="#999999"><strong>Belum ada jadwal pensiun pegawai ini.</font>
+            <font color="#999999"><strong>This employee has no pension schedule.</font>
         </td>
     </tr>
 <? 
@@ -212,18 +212,18 @@ if (mysql_num_rows($result) > 0) {
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Riwayat Golongan</font><br />
+        <font class="subtitle">Position Order History</font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="15%" align="center" class="header">Golongan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="15%" align="center" class="header">Level</td>
     <td width="18%" align="center" class="header">TMT</td>
-    <td width="20%" align="center" class="header">SK</td>
-    <td width="25%" align="center" class="header">Keterangan</td>
+    <td width="20%" align="center" class="header">Legal Number</td>
+    <td width="25%" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT replid, golongan, terakhir, DATE_FORMAT(tmt,'%d %M %Y') AS ftmt, sk, keterangan FROM jbssdm.peggol WHERE nip = '$nip' ORDER BY tmt DESC";
@@ -249,18 +249,18 @@ while ($row = mysql_fetch_array($result)) {
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Riwayat Jabatan</font><br />
+        <font class="subtitle">Position History</font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="25%" align="center" class="header">Jabatan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="25%" align="center" class="header">Position</td>
     <td width="18%" align="center" class="header">TMT</td>
-    <td width="20%" align="center" class="header">SK</td>
-    <td width="15%" align="center" class="header">Keterangan</td>
+    <td width="20%" align="center" class="header">Legal Number</td>
+    <td width="15%" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT p.replid, p.jenis, p.namajab, DATE_FORMAT(p.tmt,'%d %M %Y') AS ftmt, p.sk, p.keterangan, p.terakhir FROM jbssdm.pegjab p WHERE p.nip = '$nip'  ORDER BY tmt DESC";
@@ -286,18 +286,18 @@ while ($row = mysql_fetch_array($result)) {
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Riwayat Diklat</font><br />
+        <font class="subtitle">Education and Training History</font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="25%" align="center" class="header">Diklat</td>
-    <td width="5%" align="center" class="header">Tahun</td>
-    <td width="20%" align="center" class="header">SK</td>
-    <td width="28%" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="25%" align="center" class="header">Education and Training</td>
+    <td width="5%" align="center" class="header">Year</td>
+    <td width="20%" align="center" class="header">Legal Number</td>
+    <td width="28%" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT p.replid, p.iddiklat, d.diklat, p.tahun, p.sk, p.keterangan, p.terakhir FROM jbssdm.pegdiklat p, jbssdm.diklat d WHERE p.nip = '$nip' AND p.iddiklat = d.replid ORDER BY p.tahun DESC, p.replid DESC";
@@ -323,19 +323,19 @@ while ($row = mysql_fetch_array($result)) {
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Riwayat Sekolah</font><br />
+        <font class="subtitle">School History</font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="5%" align="center" class="header">Tingkat</td>
-    <td width="25%" align="center" class="header">Sekolah</td>
-    <td width="5%" align="center" class="header">Lulus</td>
-    <td width="20%" align="center" class="header">SK</td>
-    <td width="23%" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="5%" align="center" class="header">Grade</td>
+    <td width="25%" align="center" class="header">School</td>
+    <td width="5%" align="center" class="header">Graduates</td>
+    <td width="20%" align="center" class="header">Legal Number</td>
+    <td width="23%" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT ps.replid, ps.tingkat, ps.sekolah, ps.sk, ps.lulus, ps.keterangan, ps.terakhir FROM jbssdm.pegsekolah ps 
@@ -364,18 +364,18 @@ while ($row = mysql_fetch_array($result)) {
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Riwayat Sertifikasi</font><br />
+        <font class="subtitle">Certificate History</font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="22%" align="center" class="header">Sertifikasi</td>
-    <td width="22%" align="center" class="header">Lembaga</td>
-    <td width="7%" align="center" class="header">Tahun</td>
-    <td width="*" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="22%" align="center" class="header">Certification</td>
+    <td width="22%" align="center" class="header">Institution</td>
+    <td width="7%" align="center" class="header">Year</td>
+    <td width="*" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT ps.replid, ps.sertifikat, ps.lembaga, ps.tahun, ps.keterangan, ps.terakhir
@@ -406,19 +406,19 @@ while ($row = mysql_fetch_array($result)) {
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Riwayat Pekerjaan</font><br />
+        <font class="subtitle">Work History</font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="10%" align="center" class="header">Tahun Awal</td>
-    <td width="10%" align="center" class="header">Tahun Akhir</td>
-    <td width="20%" align="center" class="header">Tempat</td>
-    <td width="20%" align="center" class="header">Jabatan</td>
-    <td width="*" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="10%" align="center" class="header">Start Year</td>
+    <td width="10%" align="center" class="header">End Year</td>
+    <td width="20%" align="center" class="header">Location</td>
+    <td width="20%" align="center" class="header">Position</td>
+    <td width="*" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT ps.replid, ps.thnawal, ps.thnakhir, ps.tempat, ps.jabatan, ps.keterangan, ps.terakhir
@@ -451,20 +451,20 @@ while ($row = mysql_fetch_array($result))
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Daftar Keluarga</font><br />
+        <font class="subtitle">Family List</font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="20%" align="center" class="header">Nama</td>
-    <td width="12%" align="center" class="header">Hubungan</td>
-    <td width="12%" align="center" class="header">Tgl Lahir</td>
-    <td width="12%" align="center" class="header">HP</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="20%" align="center" class="header">Name</td>
+    <td width="12%" align="center" class="header">Relationship</td>
+    <td width="12%" align="center" class="header">Date of Birth</td>
+    <td width="12%" align="center" class="header">Mobile</td>
     <td width="15%" align="center" class="header">Email</td>
-    <td width="*" align="center" class="header">Keterangan</td>
+    <td width="*" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT ps.replid, ps.nama, ps.alm, ps.hubungan, ps.tgllahir, ps.hp, ps.email, ps.keterangan

@@ -27,7 +27,7 @@
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="background-image:url(../images/BGPengumuman.jpg); background-repeat:no-repeat">
 <div align="center" style="font-family:Calibri; color:#666; font-weight:bold; font-size:20px; padding-bottom:10px">
-PENGUMUMAN
+ANNOUNCEMENT
 </div>
 <!-- ImageReady Slices (Untitled-1) -->
 <table id="Table_01" width="304" height="286" border="0" cellpadding="0" cellspacing="0" align="center">
@@ -63,5 +63,5 @@ PENGUMUMAN
 <!-- End ImageReady Slices -->
 </body>
 </html>
-<!--a href='pengumuman.php'>Kirim Pengumuman</a><br>
+<!--a href='pengumuman.php'>Send Pengumuman</a><br>
 <a href='pengumuman.list.php'>Daftar Pengumuman</a-->

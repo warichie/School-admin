@@ -1,4 +1,4 @@
-function Ubah(){
+function Change(){
 	document.getElementById('BtnEdit').style.display='none';
 	document.getElementById('BtnSave').style.display='block';
 	document.getElementById('Format').disabled=false;

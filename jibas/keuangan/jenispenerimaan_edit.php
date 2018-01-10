@@ -41,7 +41,7 @@ if (isset($_REQUEST['simpan']))
 	
 	if (mysql_num_rows($result) > 0)
 	{
-		$MYSQL_ERROR_MSG = "Nama $_REQUEST[nama] sudah digunakan!";
+		$MYSQL_ERROR_MSG = "Name $_REQUEST[nama] has been used";
 	}
 	else
 	{
@@ -114,7 +114,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Ubah Jenis Penerimaan]</title>
+<title>JIBAS FINANCE [Edit Acquisition Type]</title>
 <script language="JavaScript" src="script/tooltips.js"></script>
 <script language="javascript" src="script/validasi.js"></script>
 <script language="javascript" src="script/tools.js"></script>
@@ -122,12 +122,12 @@ CloseDb();
 <script language="javascript">
 function validasi()
 {
-	return validateEmptyText('nama', 'Nama Jenis Penerimaan') 
-		&& validateEmptyText('rekkas', 'Rekening Kas')
-		&& validateEmptyText('rekpendapatan', 'Rekening Pendapatan')
-		&& validateEmptyText('rekpiutang', 'Rekening Piutang')
-		&& validateEmptyText('rekdiskon', 'Rekening Diskon')
-		&& validateMaxText('keterangan', 255, 'Keterangan Jenis Penerimaan');
+	return validateEmptyText('nama', 'Name Acquisition Type') 
+		&& validateEmptyText('rekkas', 'Bank Account Kas')
+		&& validateEmptyText('rekpendapatan', 'Bank Account Pendapatan')
+		&& validateEmptyText('rekpiutang', 'Bank Account Piutang')
+		&& validateEmptyText('rekdiskon', 'Bank Account Diskon')
+		&& validateMaxText('keterangan', 255, 'Info Acquisition Type');
 }
 
 function accept_rekening(kode, nama, flag)
@@ -197,7 +197,7 @@ function panggil(elem)
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Jenis Penerimaan :.
+    .: Edit Acquisition Type :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -210,60 +210,60 @@ function panggil(elem)
     <input type="hidden" name="id" id="id" value="<?=$id ?>" />    
    	<table border="0" cellpadding="2" cellspacing="2" align="center" background="">
     <tr>
-        <td align="left"><strong>Kategori</strong></td>
+        <td align="left"><strong>Category</strong></td>
         <td align="left"><input type="text" name="kategori" id="kategori" maxlength="100" size="30" readonly style="background-color:#CCCC99" value="<?=$kategori ?>">
         <input type="hidden" name="idkategori" id="idkategori" value="<?=$_REQUEST['idkategori'] ?>" />
         </td>
     </tr>
     <tr>
-        <td align="left"><strong>Departemen</strong></td>
+        <td align="left"><strong>Department</strong></td>
         <td align="left"><input type="text" name="departemen" id="departemen" maxlength="100" size="30" readonly style="background-color:#CCCC99" value="<?=$departemen ?>">
         </td>
     </tr>
     <tr>
-        <td align="left"><strong>Nama</strong></td>
+        <td align="left"><strong>Name</strong></td>
         <td align="left"><input type="text" name="nama" id="nama" value="<?=$nama ?>" maxlength="100" size="30" onKeyPress="return focusNext('rekkas', event)" onFocus="panggil('nama');"></td>
     </tr>
     <tr>
         <td align="left"><strong>Rek. Kas</strong></td>
         <td align="left">
-			<input type="text" name="rekkas" id="rekkas" value="<?=$rekkas . " " . $namarekkas ?>" readonly style="background-color:#CCCC99" maxlength="100" size="30" onKeyPress="cari_rek(1,'HARTA');return focusNext('rekpendapatan', event)" onClick="cari_rek(1,'HARTA')" onFocus="panggil('rekkas')">&nbsp;
-			<a href="#" onClick="JavaScript:cari_rek(1,'HARTA')"><img src="images/ico/lihat.png" border="0" /></a>
+			<input type="text" name="rekkas" id="rekkas" value="<?=$rekkas . " " . $namarekkas ?>" readonly style="background-color:#CCCC99" maxlength="100" size="30" onKeyPress="cari_rek(1,'WEALTH');return focusNext('rekpendapatan', event)" onClick="cari_rek(1,'WEALTH')" onFocus="panggil('rekkas')">&nbsp;
+			<a href="#" onClick="JavaScript:cari_rek(1,'WEALTH')"><img src="images/ico/lihat.png" border="0" /></a>
 			<input type="hidden" name="norekkas" id="norekkas"  value="<?=$rekkas ?>" />
         </td>
     </tr>
     <tr>
         <td align="left"><strong>Rek. Pendapatan</strong></td>
         <td align="left">
-			<input type="text" name="rekpendapatan" id="rekpendapatan" value="<?=$rekpendapatan  . " " . $namarekpendapatan ?>" readonly style="background-color:#CCCC99" maxlength="100" size="30"  onKeyPress="cari_rek(2,'PENDAPATAN');return focusNext('rekpiutang', event)" onClick="cari_rek(2,'PENDAPATAN')" onFocus="panggil('rekpendapatan')">&nbsp;
-			<a href="#" onClick="JavaScript:cari_rek(2,'PENDAPATAN')"><img src="images/ico/lihat.png" border="0" /></a>
+			<input type="text" name="rekpendapatan" id="rekpendapatan" value="<?=$rekpendapatan  . " " . $namarekpendapatan ?>" readonly style="background-color:#CCCC99" maxlength="100" size="30"  onKeyPress="cari_rek(2,'INCOME');return focusNext('rekpiutang', event)" onClick="cari_rek(2,'INCOME')" onFocus="panggil('rekpendapatan')">&nbsp;
+			<a href="#" onClick="JavaScript:cari_rek(2,'INCOME')"><img src="images/ico/lihat.png" border="0" /></a>
 			<input type="hidden" name="norekpendapatan" id="norekpendapatan" value="<?=$rekpendapatan ?>" />
         </td>
     </tr>
     <tr>
         <td align="left"><strong>Rek. Piutang</strong></td>
         <td align="left">
-			<input type="text" name="rekpiutang" id="rekpiutang" value="<?=$rekpiutang . " " . $namarekpiutang ?>" readonly style="background-color:#CCCC99" maxlength="100" size="30" onKeyPress="cari_rek(3,'PIUTANG');return focusNext('rekdiskon', event)" onClick="cari_rek(3,'PIUTANG')" onFocus="panggil('rekpiutang')">&nbsp;
-			<a href="#" onClick="JavaScript:cari_rek(3,'PIUTANG')"><img src="images/ico/lihat.png" border="0" /></a>
+			<input type="text" name="rekpiutang" id="rekpiutang" value="<?=$rekpiutang . " " . $namarekpiutang ?>" readonly style="background-color:#CCCC99" maxlength="100" size="30" onKeyPress="cari_rek(3,'DEBT');return focusNext('rekdiskon', event)" onClick="cari_rek(3,'DEBT')" onFocus="panggil('rekpiutang')">&nbsp;
+			<a href="#" onClick="JavaScript:cari_rek(3,'DEBT')"><img src="images/ico/lihat.png" border="0" /></a>
 			<input type="hidden" name="norekpiutang" id="norekpiutang" value="<?=$rekpiutang ?>" />
         </td>
     </tr>
 	<tr>
         <td align="left"><strong>Rek. Diskon</strong></td>
         <td align="left">
-			<input type="text" name="rekdiskon" id="rekdiskon" value="<?=$rekdiskon  . " " . $namarekdiskon ?>" readonly style="background-color:#CCCC99" maxlength="100" size="30"  onKeyPress="cari_rek(4,'PENDAPATAN');return focusNext('keterangan', event)" onClick="cari_rek(4,'PENDAPATAN')" onFocus="panggil('rekdiskon')">&nbsp;
-			<a href="#" onClick="JavaScript:cari_rek(4,'PENDAPATAN')"><img src="images/ico/lihat.png" border="0" /></a>
+			<input type="text" name="rekdiskon" id="rekdiskon" value="<?=$rekdiskon  . " " . $namarekdiskon ?>" readonly style="background-color:#CCCC99" maxlength="100" size="30"  onKeyPress="cari_rek(4,'INCOME');return focusNext('keterangan', event)" onClick="cari_rek(4,'INCOME')" onFocus="panggil('rekdiskon')">&nbsp;
+			<a href="#" onClick="JavaScript:cari_rek(4,'INCOME')"><img src="images/ico/lihat.png" border="0" /></a>
 			<input type="hidden" name="norekdiskon" id="norekdiskon" value="<?=$rekdiskon ?>" />
         </td>
     </tr>
     <tr>
-        <td align="left" valign="top">Keterangan</td>
+        <td align="left" valign="top">Info</td>
         <td align="left"><textarea name="keterangan" id="keterangan" rows="3" cols="40" onKeyPress="return focusNext('simpan', event)" onFocus="panggil('keterangan')" ><?=$keterangan ?></textarea></td>
     </tr>
     <tr>
         <td colspan="2" align="center">
-        	<input class="but" type="submit" value="Simpan" name="simpan" id="simpan" onFocus="panggil('simpan')" >
-            <input class="but" type="button" value="Tutup" onClick="window.close();">
+        	<input class="but" type="submit" value="Save" name="simpan" id="simpan" onFocus="panggil('simpan')" >
+            <input class="but" type="button" value="Close" onClick="window.close();">
         </td>
     </tr>
     </table>

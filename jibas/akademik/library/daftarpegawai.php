@@ -34,7 +34,7 @@ if (isset($_REQUEST['flag']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cari Pegawai</title>
+<title>Search Employee</title>
 <script language="javascript" src="script/string.js"></script>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript">
@@ -60,18 +60,18 @@ function pilih(nip, nama) {
 <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center" >
 <tr><td>
 <input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
-<font size="2"><strong>Daftar Pegawai</strong></font><br />
-Departemen: <input type="text" name="departemen" id="departemen" value="<?=$_REQUEST['departemen'] ?>" size="10" readonly style="background-color:#CCCCCC" />&nbsp;&nbsp;
-<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" />
+<font size="2"><strong>Employee List</strong></font><br />
+Department: <input type="text" name="departemen" id="departemen" value="<?=$_REQUEST['departemen'] ?>" size="10" readonly style="background-color:#CCCCCC" />&nbsp;&nbsp;
+<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" />
 </td></tr>
 
 <tr><td>
 <br />
 <table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0">
 <tr height="30">
-	<td class="header" width="7%" align="center">No</td>
-    <td class="header" width="15%" align="center">N I P</td>
-    <td class="header" >Nama</td>
+	<td class="header" width="7%" align="center">#</td>
+    <td class="header" width="15%" align="center">Employee ID</td>
+    <td class="header" >Name</td>
     <td class="header" width="10%">&nbsp;</td>
 </tr>
 <?
@@ -86,14 +86,14 @@ while($row = mysql_fetch_row($result)) { ?>
     <td align="center"><?=$row[0] ?></td>
     <td><?=$row[1] ?></td>
     <td align="center">
-    <input type="button" name="pilih" class="but" id="pilih" value="Pilih" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
+    <input type="button" name="pilih" class="but" id="pilih" value="Select" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
     </td>
 </tr>
 <?
 }
 ?>
 <tr height="26">
-	<td colspan="4" align="center"><input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" /></td>
+	<td colspan="4" align="center"><input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" /></td>
 </tr>
 </table>
 </td></tr>

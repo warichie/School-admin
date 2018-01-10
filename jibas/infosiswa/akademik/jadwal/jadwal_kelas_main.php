@@ -22,7 +22,7 @@
  **[N]**/ ?>
 <html>
 <head>
-<title>Susun Jadwal Kelas</title>
+<title>Manage Class Schedule</title>
 </head>
 <frameset rows="21%,*" border="1" frameborder="yes" framespacing="0">
 <frame src="jadwal_kelas_header.php" name="header" id="header">

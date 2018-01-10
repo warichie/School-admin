@@ -69,7 +69,7 @@ function dotnet(){
 	parent.framecenter.location.href="home.php";
 }
 function logout() {
-    if (confirm("Anda yakin akan menutup Aplikasi Manajemen Keuangan ini?"))
+    if (confirm("Are you sure want to akan menutup Aplikasi Manajemen Finance ini?"))
 		document.location.href="logout.php";
 }
 function show_content(x) {
@@ -83,7 +83,7 @@ function ganti() {
 	var login=document.getElementById('login').value;
 	var addr="pengaturan/ganti_password2.php";
 	if (login=="LANDLORD" || login=="landlord"){
-		alert ('Maaf, Administrator tidak dapat mengganti password !');
+		alert ('Sorry, but Administrator should not change the password ');
 		parent.framecenter.location.href="center.php";
 	} else {
 		newWindow(addr,'GantiPasswordUser','419','200','resizeable=0,scrollbars=0,status=0,toolbar=0');
@@ -140,7 +140,7 @@ function BlinkText2(x,Current){
 		<td>
 			<img src="images/Keuangan2_01.png" width="25" height="13" alt=""></td>
 		<td width="50%" height="13" valign="bottom" background="images/Keuangan2_02.png">
-        <!--a class="style9" style="color:#FFFFFF; cursor:pointer" onClick="show_info()" >Tentang JIBAS</a-->		</td>
+        <!--a class="style9" style="color:#FFFFFF; cursor:pointer" onClick="show_info()" >About JIBAS</a-->		</td>
 		<td width="50%" align="right" valign="bottom" background="images/Keuangan2_02.png">
           
         </td>
@@ -159,7 +159,7 @@ function BlinkText2(x,Current){
         <table width="200" border="0" cellspacing="0" cellpadding="0" id="tentang" style="display:none">
           <tr>
             <td align="center"><a href="jibasinfo.php" target="content"><img src="images/jibas_info.png" border="0" /></a><br />
-              <span class="style10">Tentang JIBAS</span></td>
+              <span class="style10">About JIBAS</span></td>
             <td align="center"><a href="jibascontact.php" target="content"><img src="images/jibas_contact.png" border="0" /></a><br />
               <span class="style10">Hubungi Kami</span></td>
           </tr>
@@ -168,29 +168,29 @@ function BlinkText2(x,Current){
         <tr>
         <td align="center"><a href="referensi.php" target="content" style="color:#FFFFFF; text-decoration:none">
     <img src="images/referensi.png" height="40" border="0" /><br />
-    <span class="style10">Referensi</span></a></td>
+    <span class="style10">Reference</span></a></td>
     <td width="5">&nbsp;</td>
         <td align="center"><a href="penerimaan.php" target="content" style="color:#FFFFFF; text-decoration:none">
     <img src="images/down.png" height="40" border="0" /><br />
-    <span class="style10">Penerimaan</span></a></td>
+    <span class="style10">Admission</span></a></td>
     <td width="5">&nbsp;</td>
     <td align="center"><a href="pengeluaran.php" target="content" style="color:#FFFFFF; text-decoration:none"><img src="images/bt_up.png" height="40" border="0" /><br />
-      <span class="style10">Pengeluaran</span></a></td>
+      <span class="style10">Expenditure</span></a></td>
     <td width="5">&nbsp;</td>
     <td align="center"><a href="jurnalumum.php" target="content" style="color:#FFFFFF; text-decoration:none"><img src="images/configuration_settings.png" height="40" border="0" /><br />
-      <span class="style10">Jurnal Umum</span></a></td>
+      <span class="style10">Jurnal Public</span></a></td>
     <td width="5">&nbsp;</td>
     <td align="center"><a href="lapkeuangan.php" target="content" style="color:#FFFFFF; text-decoration:none"><img src="images/coffeecup_red.png" height="40" border="0" /><br />
-      <span class="style10">Laporan Keuangan</span></a></td>
+      <span class="style10">Finance Reports</span></a></td>
     <td width="5">&nbsp;</td>
     <td align="center"><a href="inventori/Inventory.Main.php" target="content" style="color:#FFFFFF; text-decoration:none"><img src="images/inventory.png" height="40" border="0" /><br />
         <span class="style10">Inventory</span></a></td>
     <td width="5">&nbsp;</td>
     <td align="center"><a href="usermenu.php" target="content" style="color:#FFFFFF; text-decoration:none"><img src="images/Settings.png" height="40" border="0" /><br />
-        <span class="style10">Pengaturan</span></a></td>
+        <span class="style10">Settings</span></a></td>
     <td width="5">&nbsp;</td>
     <td align="center"><a href="javascript:logout()" style="color:#FFFFFF; text-decoration:none"><img src="images/logout.png" width="46" height="40" border="0" /><br />
-        <span class="style10">Keluar</span></a></td> 
+        <span class="style10">Logout</span></a></td> 
         </tr>
         </table>
 		

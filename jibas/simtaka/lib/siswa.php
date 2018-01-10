@@ -42,7 +42,7 @@ if (isset($_REQUEST['id']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Daftar Siswa]</title>
+<title>JIBAS SIMAKA [Student List]</title>
 <link rel="stylesheet" type="text/css" href="../sty/style.css" />
 <link rel="stylesheet" type="text/css" href="../scr/tooltips.css" />
 <script language="JavaScript" src="../scr/tables.js"></script>
@@ -110,7 +110,7 @@ function carilah(){
 	var nama = document.getElementById('nama').value;
 	
 	if (nis == "" && nama == "") {
-		alert ('NIS atau Nama Siswa tidak boleh kosong!');
+		alert ('Student ID or Name should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}	
@@ -278,8 +278,8 @@ function change_urut(urut,urutan,tipe) {
     	<td width="100%" bgcolor="#FFFFFF" valign="top">
         <div id="tabs">
             <ul>
-				<li><a href="#panel" onclick="show_tab_pilih()">Pilih Siswa</a></li>
-                <li><a href="#panel" onclick="show_tab_cari()">Cari Siswa</a></li>
+				<li><a href="#panel" onclick="show_tab_pilih()">Select Student</a></li>
+                <li><a href="#panel" onclick="show_tab_cari()">Search Student</a></li>
             </ul>
             <div id="panel">
                 <script language="javascript">

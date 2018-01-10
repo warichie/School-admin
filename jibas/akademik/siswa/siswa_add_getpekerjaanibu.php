@@ -29,7 +29,7 @@ require_once('../include/db_functions.php');
 $pekerjaan_kiriman=$_REQUEST['pekerjaan'];
 ?>
 	<select name="pekerjaanibu" id="Infopekerjaanibu" class="ukuran"  onKeyPress="return focusNext('penghasilanayah1', event)" onfocus="panggil('Infopekerjaanibu')" style="width:140px">
-    <option value="">[Pilih Pekerjaan]</option>
+    <option value="">[Select Occupation]</option>
       <? 
 	OpenDb();
 	

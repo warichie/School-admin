@@ -34,7 +34,7 @@ $departemen=$_REQUEST[departemen];
 <form name="frmPilih">
 <table width="100%" border="0" cellspacing="2" cellpadding="1">
   <tr>
-    <td width="4%" class="tab2">Tingkat</td>
+    <td width="4%" class="tab2">Grade</td>
     <td width="96%">
     <div id="tktInfo">
     <select name="tingkat" class="cmbfrm" id="tingkat" onchange="chg_tkt()">
@@ -61,7 +61,7 @@ $departemen=$_REQUEST[departemen];
     </td>
   </tr>
   <tr>
-    <td class="tab2">Kelas</td>
+    <td class="tab2">Class</td>
     <td>
     <div id="klsInfo">
     <select name="kelas" class="cmbfrm" id="kelas" onchange="chg_kls()">
@@ -86,8 +86,8 @@ $departemen=$_REQUEST[departemen];
     <div id="sisInfo">
     <table width="100%" border="1" class="tab">
       <tr>
-        <td height="25" align="center" class="header">NIS</td>
-        <td height="25" align="center" class="header">Nama</td>
+        <td height="25" align="center" class="header">Student ID</td>
+        <td height="25" align="center" class="header">Name</td>
         <td height="25" align="center" class="header">&nbsp;</td>
       </tr>
       <?
@@ -105,7 +105,7 @@ $departemen=$_REQUEST[departemen];
       <? } ?>
       <? } else { ?>
       <tr>
-        <td height="20" colspan="3" align="center" class="nodata">Tidak ada data</td>
+        <td height="20" colspan="3" align="center" class="nodata">Data Not Found.</td>
       </tr>
 	  <? } ?>
     </table>

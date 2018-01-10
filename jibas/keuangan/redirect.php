@@ -72,7 +72,7 @@ else
 		{
 			?>
 			<script language="JavaScript">
-				alert("Status pengguna sedang tidak aktif!");
+				alert("User status is inactive");
 				document.location.href = "../keuangan";
 			</script>
 			<?
@@ -86,7 +86,7 @@ else
 			$num = mysql_num_rows($result);
 			if($num != 0)
 			{
-				$query3 = "SELECT h.departemen as departemen, h.tingkat as tingkat, p.nama as nama, h.theme as tema FROM jbsuser.hakakses h, jbssdm.pegawai p WHERE h.login = '$username' AND p.nip=h.login AND h.modul='KEUANGAN' AND p.aktif=1";
+				$query3 = "SELECT h.departemen as departemen, h.tingkat as tingkat, p.nama as nama, h.theme as tema FROM jbsuser.hakakses h, jbssdm.pegawai p WHERE h.login = '$username' AND p.nip=h.login AND h.modul='FINANCE' AND p.aktif=1";
 				$result3 = QueryDb($query3) or die(mysql_error());
 				$row3 = mysql_fetch_array($result3);
 				$num3 = mysql_num_rows($result3);
@@ -117,7 +117,7 @@ else
 if(!$user_exists)
 {	?>
     <script language="JavaScript">
-        alert("Username atau password tidak cocok!");
+        alert("Username or password does not match");
         document.location.href = "../keuangan";
     </script>
 <?
@@ -127,7 +127,7 @@ else
 	if ($username=="landlord")
     	$query = "UPDATE jbsuser.landlord SET lastlogin=NOW() WHERE password='".md5($password)."'";
     else 
-		$query = "UPDATE jbsuser.hakakses SET lastlogin=NOW() WHERE login='$username' AND modul = 'KEUANGAN'";
+		$query = "UPDATE jbsuser.hakakses SET lastlogin=NOW() WHERE login='$username' AND modul = 'FINANCE'";
 	$result = queryDb($query);
 	
 	

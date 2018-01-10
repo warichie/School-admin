@@ -42,14 +42,14 @@ $nama = $row[0];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 </head>
 
 <body>
 <table border="0" cellpadding="10" cellpadding="5" width="780" align="left">
 <tr><td align="left" valign="top"><? include("../include/headercetak.php") ?>
   <center>
-    <font size="4"><strong>DATA PENSIUN</strong></font><br />
+    <font size="4"><strong>PENSION DATA</strong></font><br />
    </center><br /><br />
 <br />
 
@@ -57,16 +57,16 @@ $nama = $row[0];
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Jadwal Pensiun <?=$nama?> - <?=$nip?></font><br />
+        <font class="subtitle">Retirement Schedule <?=$nama?> - <?=$nip?></font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="35%" align="center" class="header">Jadwal Pensiun</td>
-	<td width="45%" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="35%" align="center" class="header">Retirement Schedule</td>
+	<td width="45%" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT replid, DATE_FORMAT(tanggal,'%d %M %Y') AS ftmt, keterangan FROM jbssdm.jadwal WHERE nip='$nip' AND jenis='pensiun'";
@@ -84,7 +84,7 @@ if (mysql_num_rows($result) > 0) {
 	<tr height="30">
     	<td colspan="4" align="center" valign="middle">
 			
-            <font color="#999999"><strong>Belum ada jadwal pensiun pegawai ini.<br /></strong></font>
+            <font color="#999999"><strong>This employee has no pension schedule.<br /></strong></font>
                     
         </td>
     </tr>

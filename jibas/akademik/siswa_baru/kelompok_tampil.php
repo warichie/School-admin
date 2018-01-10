@@ -78,7 +78,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Kelompok Calon Siswa]</title>
+<title>JIBAS SIMAKA [Student Candidate Group]</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -106,7 +106,7 @@ function hapus(replid) {
 	var urut = document.getElementById('urut').value;
 	var urutan = document.getElementById('urutan').value;
 	
-	if (confirm("Apakah anda yakin akan menghapus kelompok ini?"))
+	if (confirm("Are you sure want to delete this group?"))
 		document.location.href = "kelompok_tampil.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&departemen="+departemen+"&urut="+urut+"&urutan="+urutan+"&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -202,7 +202,7 @@ function ByeWin() {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Kelompok Calon Siswa :.
+    .: Student Candidate Group :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -220,7 +220,7 @@ function ByeWin() {
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <!-- TABLE LINK -->
     <tr>
-    	<td align="left" width="20%"><strong>Departemen </strong></td>
+    	<td align="left" width="20%"><strong>Department </strong></td>
     	<td width="25%">
         <select name="departemen" id="departemen" onChange="tampil()" style="width:155px;" onKeyPress="return focusNext('Tutup', event)">
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -234,7 +234,7 @@ function ByeWin() {
         </select>  		</td>
     </tr>
     <tr>
-    	<td><strong>Proses Penerimaan </strong></td>
+    	<td><strong>Admission Process </strong></td>
     	<td><?	$sql = "SELECT replid,proses FROM prosespenerimaansiswa WHERE aktif=1 AND departemen='$departemen'";				
 				$result = QueryDb($sql);
 				$row = mysql_fetch_array($result);
@@ -257,9 +257,9 @@ function ByeWin() {
 		if (@mysql_num_rows($result) > 0) {
 	?>
     	<td align="right">
-        <a href="#" onClick="refresh_all()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;    
+        <a href="#" onClick="refresh_all()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;    
 	<?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Kelompok!', this, event, '50px')"/>&nbsp;Tambah Kelompok</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add Group', this, event, '50px')"/>&nbsp;Add Group</a>
 	<?	} ?>    </td>
     </tr>
     </table>
@@ -272,11 +272,11 @@ function ByeWin() {
     
       <!-- TABLE CONTENT -->
       <tr height="30" align="center" class="header">
-        <td width="4%">No</td>
-        <td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kelompok','<?=$urutan?>')">Kelompok <?=change_urut('kelompok',$urut,$urutan)?></td>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kapasitas','<?=$urutan?>')">Kapasitas <?=change_urut('kapasitas',$urut,$urutan)?></td>
-        <td width="8%" class="header" align="center">Terisi</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+        <td width="4%">#</td>
+        <td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kelompok','<?=$urutan?>')">Group <?=change_urut('kelompok',$urut,$urutan)?></td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kapasitas','<?=$urutan?>')">Capacity <?=change_urut('kapasitas',$urut,$urutan)?></td>
+        <td width="8%" class="header" align="center">Filled</td>
+        <td width="*" class="header" align="center">Info</td>
         <td width="8%" class="header">&nbsp;</td>
       </tr>
       <?
@@ -298,12 +298,12 @@ function ByeWin() {
 			echo $row1[0];			
 			if ($row1[0] > 0 ) {
 		?>    
-        	&nbsp;<a href="JavaScript:lihat(<?=$row['replid']?>)"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('Lihat Calon Siswa!', this, event, '65px')"/></a>        
+        	&nbsp;<a href="JavaScript:lihat(<?=$row['replid']?>)"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('See Student Candidate', this, event, '65px')"/></a>        
         <? 	} ?>        </td>        
         <td height="25"><?=$row['keterangan']?></td>
         <td height="25" align="center">
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>
-            <a href="JavaScript:edit(<?=$row['replid'] ?>)" ><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Kelompok!', this, event, '80px')"/></a>&nbsp; <a href="JavaScript:hapus(<?=$row['replid'] ?>)" ><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Kelompok!', this, event, '80px')"/></a>
+            <a href="JavaScript:edit(<?=$row['replid'] ?>)" ><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Group', this, event, '80px')"/></a>&nbsp; <a href="JavaScript:hapus(<?=$row['replid'] ?>)" ><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Group', this, event, '80px')"/></a>
 <?		} ?>		</td>
    	</tr>
 <?		} CloseDb(); ?>
@@ -335,20 +335,20 @@ function ByeWin() {
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -359,9 +359,9 @@ function ByeWin() {
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -379,9 +379,9 @@ function ByeWin() {
 	<tr>
 		<td align="center" valign="middle" height="135">
         
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data 
+    	<font size = "2" color ="red"><b>Data Not Found. 
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
         </b></font>
 	
@@ -401,11 +401,11 @@ function ByeWin() {
 	<tr>
 		<td align="center" valign="middle" height="135">
     	<? if ($departemen != "") { ?> 
-        	<font size = "2" color ="red"><b>Belum ada data Proses Penerimaan Siswa Baru untuk Departemen <?=$departemen?>. 
-            <br> Silahkan isi terlebih dahulu di menu Proses Penerimaan Siswa Baru pada bagian PSB.</font>
+        	<font size = "2" color ="red"><b>No New Student Admission Process data for Department <?=$departemen?>. 
+            <br> Please enter a data in New Student Admission Process menu on New Student Admission section.</font>
 		<? } else { ?>
-            <font size = "2" color ="red"><b>Belum ada data Departemen.
-            <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+            <font size = "2" color ="red"><b>No Department yet.
+            <br />Please make a new one in Department menu on Reference section.
             </b></font>
    		<? } ?> 
         </td>
@@ -419,7 +419,7 @@ function ByeWin() {
     
  	<tr height="35">
 	<td align="center">    
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="tutup()" />
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="tutup()" />
     <input type="hidden" name="kelompok" id="kelompok" value="<?=$kelompok?>" />
     </td>
 </tr>

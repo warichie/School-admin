@@ -99,7 +99,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Bukti Pengeluaran]</title>
+<title>JIBAS FINANCE [Proof of Expenditure]</title>
 </head>
 
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
@@ -127,12 +127,12 @@ CloseDb();
 	<? } ?>
 	<tr>
 		<td align="right" colspan='2'>
-			<font size="1"><strong>No. <?=$nokas ?></strong></font>
+			<font size="1"><strong># <?=$nokas ?></strong></font>
 		</td>
 	</tr>
     <tr>
 		<td align="center" colspan='2'>
-			<font size="1"><strong>BUKTI PENGELUARAN KAS</strong></font>
+			<font size="1"><strong>PROOF OF EXPENDITURE</strong></font>
 		</td>
 	</tr>
     <tr>
@@ -141,12 +141,12 @@ CloseDb();
         <table border="0" cellpadding="2" cellspacing="0" width="100%">
         <tr>
         	<td width="20">&nbsp;</td>
-        	<td width="70">Nama</td>
+        	<td width="70">Name</td>
             <td>:&nbsp;<strong><?=$idpemohon . "  " . $namapemohon ?></strong></td>
         </tr>
 		<tr>
         	<td>&nbsp;</td>
-        	<td>Tanggal</td>
+        	<td>Date</td>
             <td>:&nbsp;<strong><?=LongDateFormat($tanggal) ?></strong></td>
         </tr>
         <tr>
@@ -162,16 +162,16 @@ CloseDb();
 			
         <table border="0" width="100%">
 		<tr><td valign="top">
-		&#149;&nbsp;<em>Tgl cetak: <?= date('d/m/Y H:i:s') ?></em><br>
-		&#149;&nbsp;<em>Keterangan: <?=$keterangan ?></em>
+		&#149;&nbsp;<em>Date cetak: <?= date('d/m/Y H:i:s') ?></em><br>
+		&#149;&nbsp;<em>Info: <?=$keterangan ?></em>
 		</td></tr>
 		</table>
 		<br>
 		<table border="1" width="100%" style="border-collapse:collapse">
 		<tr height="60">
-		<td align="center" width="33%" valign="top">Menyetujui<br /><br /><br />______________</td>
-		<td align="center" width="33%" valign="top">Staf Keuangan<br /><br /><br /><?=$petugas ?></td>
-		<td align="center" width="33%" valign="top">Penerima<br /><br /><br /><?=$namapemohon ?></td>
+		<td align="center" width="33%" valign="top">Approve<br /><br /><br />______________</td>
+		<td align="center" width="33%" valign="top">Finance Staff<br /><br /><br /><?=$petugas ?></td>
+		<td align="center" width="33%" valign="top">Recipient<br /><br /><br /><?=$namapemohon ?></td>
 		</tr>
 		</table>
 		

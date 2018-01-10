@@ -27,18 +27,18 @@ require_once('../../sessionchecker.php');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>SISFO KUA</title>
+<title>STUDENT MARITAL STATUS INFO</title>
 </head>
 
 <body style="background-color:#FFFFFF">
 <center>
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">JADWAL PERNIKAHAN</font><br /><br />
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">MARITAL SCHEDULE</font><br /><br />
 <table id="Table_01" width="441" height="219" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td>
 			<img src="images/jadwal_01.jpg" width="56" height="108" alt=""></td>
 		<td>
-			<a href="jadwal.php" title="Penyusunan Jadwal Pernikahan"><img src="images/jadwal_02.jpg" width="109" height="108" alt="" border="0"></a></td>
+			<a href="jadwal.php" title="Marital Schedule Preparation"><img src="images/jadwal_02.jpg" width="109" height="108" alt="" border="0"></a></td>
 		<td>
 			<img src="images/jadwal_03.jpg" width="93" height="108" alt=""></td>
 		<td>
@@ -50,7 +50,7 @@ require_once('../../sessionchecker.php');
 		<td colspan="3">
 			<img src="images/jadwal_06.jpg" width="258" height="111" alt=""></td>
 		<td>
-			<a href="carijadwal.php" title="Daftar/Pencarian Jadwal Pernikahan"><img src="images/jadwal_07.jpg" width="91" height="111" alt="" border="0"></a></td>
+			<a href="carijadwal.php" title="Register/Search Marital Schedule"><img src="images/jadwal_07.jpg" width="91" height="111" alt="" border="0"></a></td>
 		<td>
 			<img src="images/jadwal_08.jpg" width="92" height="111" alt=""></td>
 	</tr>

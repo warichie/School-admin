@@ -29,7 +29,7 @@ require_once("../include/sessioninfo.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/string.js"></script>
 <script language="javascript">
@@ -53,21 +53,21 @@ function SemuaPegawai()
 
 <body style="background-color:#F0F0F0">
 <form name="main">
-<fieldset><legend><strong>Cari Pegawai</strong></legend>
+<fieldset><legend><strong>Search Employee</strong></legend>
 <table border="0" cellpadding="0" cellspacing="2" width="100%">
 <tr>
-	<td width="50" align="left">Nama: </td>
+	<td width="50" align="left">Name: </td>
     <td width="*" align="left"><input type="text" name="txNama" id="txNama" size="25" /></td>
 </tr>
 <tr>
-	<td align="left">NIP: </td>
+	<td align="left">Employee ID: </td>
     <td width="*" align="left"><input type="text" name="txNIP" id="txNIP" size="25" /></td>
 </tr>
 <tr>
 	<td align="left">&nbsp;</td>
     <td width="*" align="left">
-		<input type="button" value="Cari" onclick="JavaScript:CariPegawai()" class="but" />
-		<input type="button" value="Semua" onclick="JavaScript:SemuaPegawai()" class="but" />	
+		<input type="button" value="Search" onclick="JavaScript:CariPegawai()" class="but" />
+		<input type="button" value="All" onclick="JavaScript:SemuaPegawai()" class="but" />	
 	</td>
 </tr>
 </table>

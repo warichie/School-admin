@@ -33,7 +33,7 @@ require_once('../cek.php');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Pengguna]</title>
+<title>JIBAS SIMAKA [Add User]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="JavaScript" src="../script/tooltips.js"></script>

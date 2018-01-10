@@ -32,7 +32,7 @@ $kls = $_REQUEST['kls'];
 ?>
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td style="padding-right:4px">Departemen</td>
+    <td style="padding-right:4px">Department</td>
     <td class="td">
       <select id="CmbDepSis" name="CmbDepSis" class="Cmb" onchange="ChgCmbDepSis()">
             <?
@@ -48,7 +48,7 @@ $kls = $_REQUEST['kls'];
             ?>
         </select>
       </td>
-    <td class="td">Tingkat</td>
+    <td class="td">Grade</td>
     <td class="td">
         <select id="CmbTktSis" name="CmbTktSis" class="Cmb" onchange="ChgCmbTktThnSis()">
             <?
@@ -66,7 +66,7 @@ $kls = $_REQUEST['kls'];
     </td>
     </tr>
   <tr>
-    <td style="padding-right:4px">Tahun Ajaran</td>
+    <td style="padding-right:4px">Year</td>
     <td class="td">
         <select id="CmbThnSis" name="CmbThnSis" class="Cmb" onchange="ChgCmbTktThnSis()">
             <?
@@ -82,7 +82,7 @@ $kls = $_REQUEST['kls'];
             ?>
         </select>
     </td>
-    <td class="td">Kelas</td>
+    <td class="td">Class</td>
     <td class="td">
         <select id="CmbKlsSis" name="CmbKlsSis" class="Cmb" onchange="ChgCmbKlsSis()">
             <?

@@ -53,7 +53,7 @@ function alertSize() {
 	
 }
 function Logout(){
-	if (confirm('Anda yakin akan keluar dari Jibas SMS Gateway?'))
+	if (confirm('Are you sure want to logout from Jibas SMS Gateway?'))
 		window.location.href="logout.php";
 }
 function ChgPass(){
@@ -109,7 +109,7 @@ html, body{overflow:hidden}
                       </tr>
                       <tr>
                         <td align="center">
-                        <a onClick="CekSession()" class="LinkMenu" href="inbox/inbox.php" target="bottom">Kotak&nbsp;Masuk</a>
+                        <a onClick="CekSession()" class="LinkMenu" href="inbox/inbox.php" target="bottom">Inbox</a>
                         </td>
                       </tr>
                     </table>
@@ -123,7 +123,7 @@ html, body{overflow:hidden}
                       </tr>
                       <tr>
                         <td align="center">
-                        <a onClick="CekSession()" class="LinkMenu" href="presensi/presensi.main.php" target="bottom">Presensi</a>
+                        <a onClick="CekSession()" class="LinkMenu" href="presensi/presensi.main.php" target="bottom">Attendance</a>
                         </td>
                       </tr>
                     </table>
@@ -137,7 +137,7 @@ html, body{overflow:hidden}
                       </tr>
                       <tr>
                         <td align="center">
-                        <a onClick="CekSession()" class="LinkMenu" href="penilaian/penilaian.main.php" target="bottom">Penilaian</a>
+                        <a onClick="CekSession()" class="LinkMenu" href="penilaian/penilaian.main.php" target="bottom">Report Card</a>
                         </td>
                       </tr>
                     </table>
@@ -151,7 +151,7 @@ html, body{overflow:hidden}
                       </tr>
                       <tr>
                         <td align="center">
-                        <a onClick="CekSession()" class="LinkMenu" href="pengumuman/pengumuman.main.php" target="bottom">Pengumuman</a>
+                        <a onClick="CekSession()" class="LinkMenu" href="pengumuman/pengumuman.main.php" target="bottom">Announcement</a>
                         </td>
                       </tr>
                     </table>
@@ -165,7 +165,7 @@ html, body{overflow:hidden}
                       </tr>
                       <tr>
                         <td align="center">
-                        <a onClick="CekSession()" class="LinkMenu" href="kritik/kritik.php" target="bottom">Kritik&nbsp;&&nbsp;Saran</a>
+                        <a onClick="CekSession()" class="LinkMenu" href="kritik/kritik.php" target="bottom">Feedback</a>
                         </td>
                       </tr>
                     </table>
@@ -194,7 +194,7 @@ html, body{overflow:hidden}
                       </tr>
                       <tr>
                         <td align="center">
-                        <a onClick="CekSession()" class="LinkMenu" href="javascript:ChgPass()" >Ganti Password</a>
+                        <a onClick="CekSession()" class="LinkMenu" href="javascript:ChgPass()" >Edit Password</a>
                         </td>
                       </tr>
                     </table>
@@ -213,7 +213,7 @@ html, body{overflow:hidden}
                       </tr>
                       <tr>
                         <td align="center">
-                        <a onClick="CekSession()" class="LinkMenu" href="user/user.php"  target="bottom" >Pengguna</a>
+                        <a onClick="CekSession()" class="LinkMenu" href="user/user.php"  target="bottom" >User</a>
                         </td>
                       </tr>
                     </table>
@@ -299,7 +299,7 @@ html, body{overflow:hidden}
 			<img src="images/slice/BGJbsSMS_34.jpg" width="21" height="18" alt=""></td>
 		<td>
 			<img src="images/slice/BGJbsSMS_35.jpg" width="26" height="18" alt=""></td>
-		<td width="*" height="18" background="images/slice/BGJbsSMS_36.jpg" class="LinkMenu" style="color:#FF0; text-decoration:none">Selamat datang <?=$_SESSION['nama']?>
+		<td width="*" height="18" background="images/slice/BGJbsSMS_36.jpg" class="LinkMenu" style="color:#FF0; text-decoration:none">Welcome <?=$_SESSION['nama']?>
 			</td>
 		<td height="18" colspan="2" background="images/slice/BGJbsSMS_38.jpg" class="Ket" style="color:#CCC">
 	    <?=G_COPYRIGHT?></td>

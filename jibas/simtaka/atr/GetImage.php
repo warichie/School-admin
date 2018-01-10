@@ -39,11 +39,11 @@ if ($op=='Edit'){
         	<img src='../lib/gambar.php?replid=<?=$row[replid]?>&table=<?=$db_name_umum?>.identitas&field=foto'><br />Logo Lama
         </td>
         <td valign="middle"><img src='../img/Arrow-Left.png' /></td>
-        <td valign="middle" align="center"><img src='temp.jpg' /><br />Logo Baru</td>
+        <td valign="middle" align="center"><img src='temp.jpg' /><br />New Logo</td>
       </tr>
     </table>
 	<?
 } else {
-	echo "<img src='temp.jpg' /><br />Logo Baru";
+	echo "<img src='temp.jpg' /><br />New Logo";
 }
 ?>

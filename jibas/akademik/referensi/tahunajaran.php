@@ -65,7 +65,7 @@ if (isset($_REQUEST['action'])) {
 	
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Gagal menyimpan data Tahun Ajaran $_REQUEST[tahunajaran] sudah digunakan!";
+		$ERROR_MSG = "Failed to save data Year of Teaching $_REQUEST[tahunajaran] has been used";
 	} else {
 		if ($_REQUEST['action'] == "add") {
 			$sql = "INSERT INTO tahunajaran SET tahunajaran='".CQ($_REQUEST['tahunajaran'])."',departemen='$_REQUEST[departemen]',tglmulai='$tglmulai',tglakhir='$tglakhir',keterangan='".CQ($_REQUEST['keterangan'])."'";
@@ -131,7 +131,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tahun Ajaran</title>
+<title>Year of Teaching</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -163,10 +163,10 @@ function setaktif(replid, aktif) {
 	var newaktif;
 	
 	if (aktif == 1) {
-		msg = "Apakah anda yakin akan mengubah Tahun Ajaran ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this Year of Teaching to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin akan mengubah Tahun Ajaran ini menjadi AKTIF?";
+		msg = "Are you sure want to change this Year of Teaching to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -181,7 +181,7 @@ function edit(replid) {
 
 function hapus(replid) {
 	var departemen=document.getElementById("departemen").value;
-	if (confirm("Apakah anda yakin akan menghapus tahun ajaran ini?"))
+	if (confirm("Are you sure want to delete Year of Teaching ini?"))
 		document.location.href = "tahunajaran.php?op=hapus&replid="+replid+'&departemen='+departemen+"&urut=<?=$urut?>&urutan=<?=$urutan?>&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 		//document.location.href = "tahunajaran.php?op=xm8r389xemx23xb2378e23&replid="+replid;
 }
@@ -243,11 +243,11 @@ no-repeat">
 	<table border="0"width="95%" align="center">
     <!-- TABLE TITLE -->
     <tr>
-        <td width="92%" align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Tahun Ajaran</font></td>
+        <td width="92%" align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Year</font></td>
         </tr>
     <tr>
         <td align="right"><a href="../referensi.php" target="content">
-          <font size="1" color="#000000"><b>Referensi</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Tahun Ajaran</b></font></td>
+          <font size="1" color="#000000"><b>Reference</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Year</b></font></td>
         </tr>
     <tr>
       <td align="left">&nbsp;</td>
@@ -258,7 +258,7 @@ no-repeat">
     <!-- TABLE LINK -->
     <tr>
     <td align="right" width="34%">
-      <strong>Departemen&nbsp;</strong>
+      <strong>Department&nbsp;</strong>
         <select name="departemen" id="departemen" onChange="change_departemen()">
           <?	$dep = getDepartemen(SI_USER_ACCESS());    
 	foreach($dep as $value) {
@@ -285,22 +285,22 @@ no-repeat">
 	?>
     <input type="hidden" name="total" id="total" value="<?=$total?>"/>
     <td align="right" width="60%">
-    <a href="#" onClick="refresh()"  ><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="#" onClick="refresh()"  ><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
    
-    <a href="JavaScript:cetak()" ><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()" ><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;
 <?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0"   onmouseover="showhint('Tambah!', this, event, '50px')"/>&nbsp;Tambah Tahun Ajaran</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0"   onmouseover="showhint('Add', this, event, '50px')"/>&nbsp;Add Year of Teaching</a>
 <?	} ?>    </td></tr>
     </table><br />
     
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000s">
     <!-- TABLE CONTENT -->
     <tr height="30" align="center" class="header">
-    	<td width="4%">No</td>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('tahunajaran','<?=$urutan?>')">Tahun Ajaran <?=change_urut('tahunajaran',$urut,$urutan)?></td>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('tglmulai','<?=$urutan?>')">Tgl Mulai <?=change_urut('tglmulai',$urut,$urutan)?></td>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('tglakhir','<?=$urutan?>')">Tgl Akhir <?=change_urut('tglakhir',$urut,$urutan)?></td>
-        <td width="*">Keterangan</td> 
+    	<td width="4%">#</td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('tahunajaran','<?=$urutan?>')">Year <?=change_urut('tahunajaran',$urut,$urutan)?></td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('tglmulai','<?=$urutan?>')">Start Date <?=change_urut('tglmulai',$urut,$urutan)?></td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('tglakhir','<?=$urutan?>')">End Date <?=change_urut('tglakhir',$urut,$urutan)?></td>
+        <td width="*">Info</td> 
         <td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('aktif','<?=$urutan?>')">Status <?=change_urut('aktif',$urut,$urutan)?></td>
         <?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
         <td width="8%"></td>
@@ -324,21 +324,21 @@ no-repeat">
         
 <?		if (SI_USER_LEVEL() == $SI_USER_STAFF) {  
 			if ($row['aktif'] == 1) { ?> 
-            	<img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '80px')"/>
+            	<img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '80px')"/>
 <?			} else { ?>                
-				<img src="../images/ico/nonaktif.png" border="0"  onmouseover="showhint('Status Tidak Aktif!', this, event, '80px')" />
+				<img src="../images/ico/nonaktif.png" border="0"  onmouseover="showhint('Status Inactive', this, event, '80px')" />
 <?			}
 		} else { 
 			if ($row['aktif'] == 1) { ?>
-				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '80px')"/></a>
+				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '80px')"/></a>
 <?			} else { ?>
-				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '80px')" /></a>
+				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Inactive', this, event, '80px')" /></a>
 <?			} //end if
 		} //end if ?>        </td>
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?> 		
         <td align="center">
-            <a href="JavaScript:edit(<?=$row['replid'] ?>)"><img src="../images/ico/ubah.png" border="0"  onmouseover="showhint('Ubah Tahun Ajaran!', this, event, '80px')" /></a>&nbsp;
-            <a href="JavaScript:hapus(<?=$row['replid'] ?>)"><img src="../images/ico/hapus.png" border="0"  onmouseover="showhint('Hapus Tahun Ajaran!', this, event, '80px')" /></a>
+            <a href="JavaScript:edit(<?=$row['replid'] ?>)"><img src="../images/ico/ubah.png" border="0"  onmouseover="showhint('Edit Year of Teaching', this, event, '80px')" /></a>&nbsp;
+            <a href="JavaScript:hapus(<?=$row['replid'] ?>)"><img src="../images/ico/hapus.png" border="0"  onmouseover="showhint('Delete Year of Teaching', this, event, '80px')" /></a>
         </td>
 <?		} ?>
     </tr>
@@ -378,20 +378,20 @@ no-repeat">
     <td>
     <table border="0"width="95%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -402,9 +402,9 @@ no-repeat">
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -430,14 +430,14 @@ no-repeat">
 <tr>
 	<td align="center" valign="middle" height="200">
    	<? if ($departemen != "") {	?>
-        <font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+        <font size = "2" color ="red"><b>Data Not Found. 
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
         </b></font>
      <? } else { ?>
-        <font size = "2" color ="red"><b>Belum ada data Departemen.
-        <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+        <font size = "2" color ="red"><b>No Department yet.
+        <br />Please make a new one in Department menu on Reference section.
         </b></font>
     <? } ?>
 	</td>

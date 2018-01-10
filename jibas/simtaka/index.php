@@ -31,7 +31,7 @@ if (!isset($_SESSION['login']))
 }  
 ?>
 <link href="img/jibas.ico" rel="shortcut icon" />
-<title>JIBAS Perpustakaan</title>
+<title>JIBAS Library</title>
 <script language="javascript">
 function backToMenu(i) {
 	var addr;

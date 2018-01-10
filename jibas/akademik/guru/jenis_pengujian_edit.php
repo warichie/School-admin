@@ -38,7 +38,7 @@ if (isset($_REQUEST['Simpan'])) {
 	if (mysql_num_rows($result) > 0) {
 		$jenisujian=$_REQUEST['jenisujianbaru'];
 		CloseDb();
-		$ERROR_MSG = "Jenis Ujian $jenisujian sudah digunakan!";
+		$ERROR_MSG = "Exam Type $jenisujian has been used";
 	} else {
 		$sql = "UPDATE jenisujian SET replid='$_REQUEST[replid]',jenisujian='".CQ($_REQUEST['jenisujianbaru'])."',info1='".CQ($_REQUEST['singkatan'])."',keterangan='".CQ($_REQUEST['keterangan'])."' WHERE jenisujian='$_REQUEST[jenisujian]' AND replid='$_REQUEST[replid]'";
 		$result = QueryDb($sql);
@@ -80,7 +80,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Jenis Pengujian]</title>
+<title>JIBAS SIMAKA [Edit Exam Type]</title>
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextfield.js" type="text/javascript"></script>
@@ -92,9 +92,9 @@ CloseDb();
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('jenisujianbaru', 'Jenis Pengujian') && 
-		   validateEmptyText('singkatan', 'Singkatan') && 
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('jenisujianbaru', 'Exam Type') && 
+		   validateEmptyText('singkatan', 'Code') && 
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -116,7 +116,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Jenis Pengujian :.
+    .: Edit Exam Type :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -131,40 +131,40 @@ function focusNext(elemName, evt) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-  <td><strong>Departemen</strong></td>
+  <td><strong>Department</strong></td>
   <td><input type="text" name="departemen" id="departemen" size="10" maxlength="10" value="<?=$departemen ?>"  class="disabled" readonly/></td>
 </tr>
 <tr>
-  <td><strong>Pelajaran</strong></td>
+  <td><strong>Class Subject</strong></td>
   <td><input type="text" name="pelajaran" id="pelajaran" size="30" maxlength="50" value="<?=$pelajaran ?>" class="disabled" readonly/></td>
 </tr>
 <tr>
-	<td><strong>Jenis Pengujian</strong></td>
+	<td><strong>Exam Type</strong></td>
 	<td>
-    	<input type="text" name="jenisujianbaru" id="jenisujianbaru" size="30" maxlength="50" value="<?=$jenisujian ?>" onFocus="showhint('Nama jenis pengujian tidak boleh lebih dari 50 karakter!', this, event, '120px')" onKeyPress="return focusNext('singkatan', event)" /> <input type="hidden" name="jenisujian" id="jenisujian" size="30" maxlength="50" value="<?=$jenisujian ?>" />   </td>
+    	<input type="text" name="jenisujianbaru" id="jenisujianbaru" size="30" maxlength="50" value="<?=$jenisujian ?>" onFocus="showhint('Exam Type Name should not exceed 50 characters', this, event, '120px')" onKeyPress="return focusNext('singkatan', event)" /> <input type="hidden" name="jenisujian" id="jenisujian" size="30" maxlength="50" value="<?=$jenisujian ?>" />   </td>
 </tr>
 <tr>
-	<td><strong>Singkatan</strong></td>
+	<td><strong>Code</strong></td>
 	<td>
-    	<input type="text" name="singkatan" id="singkatan" size="10" maxlength="10" value="<?=$singkatan ?>" onFocus="showhint('Nama singkatan tidak boleh lebih dari 10 karakter!', this, event, '120px')" onKeyPress="return focusNext('keterangan', event)" /></td>
+    	<input type="text" name="singkatan" id="singkatan" size="10" maxlength="10" value="<?=$singkatan ?>" onFocus="showhint('Code should not exceed 10 characters', this, event, '120px')" onKeyPress="return focusNext('keterangan', event)" /></td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onKeyPress="return focusNext('Simpan', event)"><?=$keterangan ?></textarea>    </td>
 </tr>
 <tr>
 	<td colspan="2" height="25" width="100%" align="left" valign="top" style="border-width:1px; border-style:dashed; border-color:#03F; background-color:#CFF">				      
-	<strong>Anda hanya perlu mengisikan nama jenis pengujian dan singkatannya. Penamaan jenis pengujian juga ditambahkan dengan kriteria/aspek penilaiannya. </strong><br />
-	  <strong>Tidak perlu menambahkan tahun ajaran, semester atau nomor pengujian.<br />
-	  <font color="#FF0000">Contoh yang salah : UTS 2010/2011 Semester 1 ke-1 </font><br />
-	  <font color="Blue">Contoh yang benar : UAS Praktek, UAS Pemahaman Konsep</font></strong>
+	<strong>You only have to fill the Exam Type and its Code. Exam Type naming also need to be added with its Criteria/Assesment Aspect. </strong><br />
+	  <strong>You do not have to add Year of Teaching, Semester, or Exam Number.<br />
+	  <font color="#FF0000">Wrong: End-Semester-Exam 2010/2011 Semester 1 1st </font><br />
+	  <font color="Blue">Correct : End-Semester-Exam Practice, End-Semester-Exam Conceptual Comprehension</font></strong>
 	</td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>

@@ -25,7 +25,7 @@ function GetThemeDir()
 {
 	OpenDb();
 	
-	$sql_tema="Select theme from jbsuser.hakakses where login='".SI_USER_ID()."' AND modul='KEUANGAN' ";
+	$sql_tema="Select theme from jbsuser.hakakses where login='".SI_USER_ID()."' AND modul='FINANCE' ";
 	$hasil=QueryDb($sql_tema);
 	$row_tema=mysql_fetch_array($hasil);
 	$row_tema2=mysql_num_rows($hasil);

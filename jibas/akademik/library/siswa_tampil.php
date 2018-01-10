@@ -105,7 +105,7 @@ function FormatRupiah($value) {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<title>Tampil Siswa</title>
+<title>Student Display</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="JavaScript" src="../script/tooltips.js"></script>
@@ -129,326 +129,326 @@ function FormatRupiah($value) {
 <tr><td align="left" valign="top">
 
 <center>
-  <span class="style1">DATA SISWA</span><br />
+  <span class="style1">STUDENT DATA</span><br />
  </center><br />
  <? if (!$departemen==""){
 	 ?>
- <span class="style2">Departemen : <?=$departemen?> </span>
+ <span class="style2">Department : <?=$departemen?> </span>
 <br />
 <? } ?>
-<span class="style2">Kelas : <?=$namakelas?> </span>
+<span class="style2">Class : <?=$namakelas?> </span>
 <br />
 <br />
 <table width="100%" border="1" cellspacing="0" bordercolor="#666666" id="table" class="tab">
-  <tr >
+  <tr>
     <td width="20%" rowspan="46" align="center" valign="top" bordercolor="#666666" ><br />
       <img src="../library/gambar.php?replid=<?=$row_siswa['replid']?>&table=siswa" width="143" height="198" /></td>
     <td width="3%" height="30" class="header"><strong>A.</strong></td>
-    <td height="30" colspan="4" class="header"><strong>KETERANGAN PRIBADI</strong></td>
+    <td height="30" colspan="4" class="header"><strong>PERSONAL INFO</strong></td>
     </tr>
-  <tr >
-    <td >&nbsp;</td>
+  <tr>
+    <td>&nbsp;</td>
     <td width="3%" >1.</td>
-    <td width="22%" >Nama Peserta Didik</td>
+    <td width="22%" >Student Member Name</td>
     <td colspan="2" >&nbsp;</td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td >a. Lengkap :</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>a. Lengkap :</td>
     <td colspan="2" ><?=$row_siswa['nama']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td >b. Panggilan :</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>b. Nickname :</td>
     <td colspan="2" ><?=$row_siswa['nama']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >2.</td>
-    <td >Jenis Kelamin</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>2.</td>
+    <td>Gender</td>
     <td colspan="2" >
     <? if ($row_siswa['kelamin']=="l"){
-	echo "Laki-laki"; }
+	echo "Male"; }
 	if ($row_siswa['kelamin']=="p"){
-	echo "Perempuan"; }
+	echo "Female"; }
 	?>    </td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >3.</td>
-    <td >Tempat Lahir</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>3.</td>
+    <td>Birth Place</td>
     <td colspan="2" ><?=$row_siswa['tmplahir']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >4.</td>
-    <td >Tanggal Lahir</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>4.</td>
+    <td>Date of Birth</td>
     <td colspan="2" ><?
     switch ($blnnya){
-				case 1 : $namabulan="Januari";
+				case 1 : $namabulan="January";
 				break;
-				case 2 : $namabulan="Pebruari";
+				case 2 : $namabulan="February";
 				break;
-				case 3 : $namabulan="Maret";
+				case 3 : $namabulan="March";
 				break;
 				case 4 : $namabulan="April";
 				break;
-				case 5 : $namabulan="Mei";
+				case 5 : $namabulan="May";
 				break;
-				case 6 : $namabulan="Juni";
+				case 6 : $namabulan="June";
 				break;
-				case 7 : $namabulan="Juli";
+				case 7 : $namabulan="July";
 				break;
-				case 8 : $namabulan="Agustus";
+				case 8 : $namabulan="August";
 				break;
 				case 9 : $namabulan="September";
 				break;
-				case 10 : $namabulan="Oktober";
+				case 10 : $namabulan="October";
 				break;
-				case 11 : $namabulan="Nopember";
+				case 11 : $namabulan="November";
 				break;
-				case 12 : $namabulan="Desember";
+				case 12 : $namabulan="December";
 				break;
 	}
 	echo $tglnya." - ".$namabulan." - ".$thnnya;
 	?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >5.</td>
-    <td >Agama</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>5.</td>
+    <td>Religion</td>
     <td colspan="2" ><?=$row_siswa['agama']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >6.</td>
-    <td >Kewarganegaraan</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>6.</td>
+    <td>Citizenship</td>
     <td colspan="2" ><?=$row_siswa['warga']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >7.</td>
-    <td >Anak ke berapa</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>7.</td>
+    <td>Child #</td>
     <td colspan="2" ><?=$row_siswa['anakke']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >8.</td>
-    <td >Jumlah Saudara</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>8.</td>
+    <td>Siblings</td>
     <td colspan="2" ><?=$row_siswa['jsaudara']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >9.</td>
-    <td >Kondisi Siswa</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>9.</td>
+    <td>Student Conditions</td>
     <td colspan="2" ><?=$row_siswa['kondisi']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >10.</td>
-    <td >Status Siswa</td>
-    <td  colspan="2"><?=$row_siswa['status']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>10.</td>
+    <td>Student Status</td>
+    <td colspan="2"><?=$row_siswa['status']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >11.</td>
-    <td >Bahasa Sehari-hari</td>
-    <td  colspan="2"><?=$row_siswa['bahasa']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>11.</td>
+    <td>Language</td>
+    <td colspan="2"><?=$row_siswa['bahasa']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td  colspan="2">&nbsp;</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
   </tr>
-  <tr >
+  <tr>
     <td height="30" class="header"><strong>B.</strong></td>
-    <td height="30"  colspan="4" class="header"><strong>KETERANGAN TEMPAT TINGGAL</strong></td>
+    <td height="30"  colspan="4" class="header"><strong>RESIDENCY INFO</strong></td>
     </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >12.</td>
-    <td >Alamat</td>
-    <td  colspan="2"><?=$row_siswa['alamatsiswa']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>12.</td>
+    <td>Address</td>
+    <td colspan="2"><?=$row_siswa['alamatsiswa']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >13.</td>
-    <td >Telpon</td>
-    <td  colspan="2"><?=$row_siswa['telponsiswa']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>13.</td>
+    <td>Phone</td>
+    <td colspan="2"><?=$row_siswa['telponsiswa']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >14.</td>
-    <td >HP</td>
-    <td  colspan="2"><?=$row_siswa['hpsiswa']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>14.</td>
+    <td>Mobile</td>
+    <td colspan="2"><?=$row_siswa['hpsiswa']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >15.</td>
-    <td >Email</td>
-    <td  colspan="2"><?=$row_siswa['emailsiswa']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>15.</td>
+    <td>Email</td>
+    <td colspan="2"><?=$row_siswa['emailsiswa']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td  colspan="2">&nbsp;</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
   </tr>
-  <tr >
+  <tr>
     <td height="30" class="header"><strong>C.</strong></td>
-    <td height="30" colspan="4" class="header"><strong>KETERANGAN KESEHATAN</strong></td>
+    <td height="30" colspan="4" class="header"><strong>HEALTH INFO</strong></td>
     </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >16.</td>
-    <td >Berat Badan</td>
-    <td  colspan="2"><?=$row_siswa['berat']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>16.</td>
+    <td>Body Weight</td>
+    <td colspan="2"><?=$row_siswa['berat']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >17.</td>
-    <td >Tinggi Badan</td>
-    <td  colspan="2"><?=$row_siswa['tinggi']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>17.</td>
+    <td>Body Height</td>
+    <td colspan="2"><?=$row_siswa['tinggi']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >18.</td>
-    <td >Golongan Darah</td>
-    <td  colspan="2"><?=$row_siswa['darah']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>18.</td>
+    <td>Blood Type</td>
+    <td colspan="2"><?=$row_siswa['darah']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >19.</td>
-    <td >Riwayat Penyakit</td>
-    <td  colspan="2"><?=$row_siswa['kesehatan']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>19.</td>
+    <td>Illness History</td>
+    <td colspan="2"><?=$row_siswa['kesehatan']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td  colspan="2">&nbsp;</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
   </tr>
-  <tr >
+  <tr>
     <td height="30" class="header"><strong>D.</strong></td>
-    <td height="30" colspan="4" class="header"><strong>KETERANGAN PENDIDIKAN SEBELUMNYA</strong></td>
+    <td height="30" colspan="4" class="header"><strong>PAST EDUCATION INFO</strong></td>
     </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >20.</td>
-    <td >Asal Sekolah</td>
-    <td  colspan="2"><?=$row_siswa['asalsekolah']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>20.</td>
+    <td>Past School</td>
+    <td colspan="2"><?=$row_siswa['asalsekolah']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >21.</td>
-    <td >Keterangan</td>
-    <td  colspan="2"><?=$row_siswa['ketsekolah']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>21.</td>
+    <td>Info</td>
+    <td colspan="2"><?=$row_siswa['ketsekolah']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td  colspan="2">&nbsp;</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
   </tr>
-  <tr >
+  <tr>
     <td height="30" class="header"><strong>E.</strong></td>
-    <td height="30" colspan="4" class="header"><strong>KETERANGAN ORANG TUA</strong></td>
+    <td height="30" colspan="4" class="header"><strong>PARENT INFO</strong></td>
     </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td >Orang Tua</td>
-    <td  width="27%"><div align="center">Ayah</div></td>
-    <td  width="25%"><div align="center">Ibu</div></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Parent</td>
+    <td width="27%"><div align="center">Father</div></td>
+    <td width="25%"><div align="center">Mother</div></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >22.</td>
-    <td >Nama</td>
-    <td ><?=$row_siswa['namaayah']?></td>
-    <td ><?=$row_siswa['namaibu']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>22.</td>
+    <td>Name</td>
+    <td><?=$row_siswa['namaayah']?></td>
+    <td><?=$row_siswa['namaibu']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >23.</td>
-    <td >Pendidikan</td>
-    <td ><?=$row_siswa['pendidikanayah']?></td>
-    <td ><?=$row_siswa['pendidikanibu']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>23.</td>
+    <td>Education</td>
+    <td><?=$row_siswa['pendidikanayah']?></td>
+    <td><?=$row_siswa['pendidikanibu']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >24.</td>
-    <td >Pekerjaan</td>
-    <td ><?=$row_siswa['pekerjaanayah']?></td>
-    <td ><?=$row_siswa['pekerjaanibu']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>24.</td>
+    <td>Occupation</td>
+    <td><?=$row_siswa['pekerjaanayah']?></td>
+    <td><?=$row_siswa['pekerjaanibu']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >25.</td>
-    <td >Penghasilan</td>
-    <td >
+  <tr>
+    <td>&nbsp;</td>
+    <td>25.</td>
+    <td>Income</td>
+    <td>
     <?
 	$value=$row_siswa['penghasilanayah'];  
 	echo FormatRupiah($row_siswa['penghasilanayah']); ?>
     </td>
-    <td ><?
+    <td><?
 	$value=$row_siswa['penghasilanibu'];  
 	echo FormatRupiah($row_siswa['penghasilanibu']); ?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >26. </td>
-    <td >Nama Wali</td>
-    <td  colspan="2"><?=$row_siswa['wali']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>26. </td>
+    <td>Guardian Name</td>
+    <td colspan="2"><?=$row_siswa['wali']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >27.</td>
-    <td >Alamat</td>
-    <td  colspan="2"><?=$row_siswa['alamatortu']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>27.</td>
+    <td>Address</td>
+    <td colspan="2"><?=$row_siswa['alamatortu']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >28.</td>
-    <td >Telpon</td>
-    <td  colspan="2"><?=$row_siswa['telponortu']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>28.</td>
+    <td>Phone</td>
+    <td colspan="2"><?=$row_siswa['telponortu']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >29.</td>
-    <td >HP</td>
-    <td  colspan="2"><?=$row_siswa['hportu']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>29.</td>
+    <td>Mobile</td>
+    <td colspan="2"><?=$row_siswa['hportu']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >30.</td>
-    <td >Email</td>
-    <td  colspan="2"><?=$row_siswa['emailortu']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>30.</td>
+    <td>Email</td>
+    <td colspan="2"><?=$row_siswa['emailortu']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td >&nbsp;</td>
-    <td  colspan="2">&nbsp;</td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
   </tr>
-  <tr >
+  <tr>
     <td class="header"><strong>F.</strong></td>
-    <td class="header" colspan="4"><strong>KETERANGAN LAINNYA</strong></td>
+    <td class="header" colspan="4"><strong>OTHERS</strong></td>
     </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >31.</td>
-    <td >Alamat Surat</td>
-    <td  colspan="2"><?=$row_siswa['alamatsurat']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>31.</td>
+    <td>Mailing Address</td>
+    <td colspan="2"><?=$row_siswa['alamatsurat']?></td>
   </tr>
-  <tr >
-    <td >&nbsp;</td>
-    <td >32.</td>
-    <td >Keterangan</td>
-    <td  colspan="2"><?=$row_siswa['keterangan']?></td>
+  <tr>
+    <td>&nbsp;</td>
+    <td>32.</td>
+    <td>Info</td>
+    <td colspan="2"><?=$row_siswa['keterangan']?></td>
   </tr>
 </table>
 <script language='JavaScript'>
@@ -456,7 +456,7 @@ function FormatRupiah($value) {
 </script><table width="100%" border="0" cellspacing="0">
   <tr>
     <td><div align="center">
-  <input type="button" class="but" value="Tutup" onclick="window.close();" />
+  <input type="button" class="but" value="Close" onclick="window.close();" />
   &nbsp;</div></td>
   </tr>
 </table>	

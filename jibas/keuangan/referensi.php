@@ -29,17 +29,17 @@
 </head>
 
 <body>
-<p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="style2"><font face="Verdana" size="3" color="Gray"><strong>REFERENSI</strong></font></span></p>
+<p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="style2"><font face="Verdana" size="3" color="Gray"><strong>REFERENCE</strong></font></span></p>
 
 <table border="0" cellpadding="0" width="40%" align="left">
 <tr>
 	<td width="33%" align="center" valign="top">
-   <a href="akunrek.php?from=Referensi&sourcefrom=referensi.php">
+   <a href="akunrek.php?from=Reference&sourcefrom=referensi.php">
 	<img src="images/bg_penerimaan_01.jpg" border="0" />
 	</a>
    </td>
 	<td width="33%" align="center" valign="top">
-   <a href="tahunbuku.php?from=Referensi&sourcefrom=referensi.php">
+   <a href="tahunbuku.php?from=Reference&sourcefrom=referensi.php">
 	<img src="images/bg_penerimaan_06.jpg" border="0" />
 	</a>
    </td>

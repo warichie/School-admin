@@ -53,40 +53,40 @@ if (isset($_REQUEST['kriteria']))
 
 switch ($kriteria) {
 	case 1:	$sql = "SELECT * FROM jurnal WHERE transaksi LIKE '%$keyword%' AND idtahunbuku='$idtahunbuku' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			$jurnal = "Umum";
+			$jurnal = "Public";
 		break;
 	case 2: $sql = "SELECT * FROM jurnal WHERE nokas LIKE '%$keyword%' AND idtahunbuku='$idtahunbuku' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			$jurnal = "Umum";
+			$jurnal = "Public";
 		break;
 	case 3: $sql = "SELECT * FROM jurnal WHERE keterangan LIKE '%$keyword%' AND idtahunbuku='$idtahunbuku' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			$jurnal = "Umum";
+			$jurnal = "Public";
 		break;
 	case 4: $sql = "SELECT * FROM jurnal WHERE petugas LIKE '%$keyword%' AND idtahunbuku='$idtahunbuku' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2'ORDER BY tanggal";
-			$jurnal = "Umum";
+			$jurnal = "Public";
 		break;
 	case 5: $sql = "SELECT * FROM jurnal WHERE idtahunbuku = '$idtahunbuku' AND sumber = 'penerimaanjtt' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			$jurnal = "Penerimaan";
+			$jurnal = "Admission";
 		break;
 	case 6: $sql = "SELECT * FROM jurnal WHERE idtahunbuku = '$idtahunbuku' AND sumber = 'penerimaaniuran' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			$jurnal = "Penerimaan";
+			$jurnal = "Admission";
 		break;
 	case 7: $sql = "SELECT * FROM jurnal WHERE idtahunbuku = '$idtahunbuku' AND sumber = 'penerimaanjttcalon' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			$jurnal = "Penerimaan";
+			$jurnal = "Admission";
 		break;
 	case 8: $sql = "SELECT * FROM jurnal WHERE idtahunbuku = '$idtahunbuku' AND sumber = 'penerimaaniurancalon' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			$jurnal = "Penerimaan";
+			$jurnal = "Admission";
 		break;
 	case 9: $sql = "SELECT * FROM jurnal WHERE idtahunbuku = '$idtahunbuku' AND sumber = 'penerimaanlain' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			$jurnal = "Penerimaan";
+			$jurnal = "Admission";
 		break;
 	case 10: $sql = "SELECT * FROM jurnal WHERE idtahunbuku = '$idtahunbuku' AND sumber LIKE 'penerimaan%' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			 $jurnal = "Penerimaan";
+			 $jurnal = "Admission";
 		break;
 	case 11: $sql = "SELECT * FROM jurnal WHERE idtahunbuku = '$idtahunbuku' AND sumber = 'pengeluaran' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			 $jurnal = "Pengeluaran";
+			 $jurnal = "Expenditure";
 		break;
 	case "all" : $sql = "SELECT * FROM jurnal WHERE idtahunbuku = '$idtahunbuku' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' ORDER BY tanggal";
-			$jurnal = "Umum";
+			$jurnal = "Public";
 		break;
 }
 
@@ -101,7 +101,7 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Pencarian Data Jurnal <?=$jurnal?>]</title>
+<title>JIBAS FINANCE [Search Data Jurnal <?=$jurnal?>]</title>
 </head>
 
 <body>
@@ -110,33 +110,33 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 <br /><br />
 <table border="0">
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Departemen </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Department </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=$departemen ?>
     </strong></font></td>
 </tr>
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Tanggal </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Date </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
-      <?=LongDateFormat($tanggal1) . " s/d 	" . LongDateFormat($tanggal2) ?>
+      <?=LongDateFormat($tanggal1) . " to 	" . LongDateFormat($tanggal2) ?>
     </strong></font></td>
 </tr>
-<? if ($jurnal == "Umum" && $kriteria <> "all") { 
+<? if ($jurnal == "Public" && $kriteria <> "all") { 
 		switch ($kriteria) {
-			case 1	: $namakriteria = "Transaksi";
+			case 1	: $namakriteria = "Transaction";
 				break;
 			case 2	: $namakriteria = "No. Jurnal";
 				break;
-			case 3 	: $namakriteria = "Keterangan";
+			case 3 	: $namakriteria = "Info";
 				break;
-            case 4	: $namakriteria = "Nama Petugas";
+            case 4	: $namakriteria = "Officer";
 				break;
 		}
 ?> 
 <tr>
-	<td colspan="2"><font size="2" face="Arial"><strong>Pencarian berdasarkan 
+	<td colspan="2"><font size="2" face="Arial"><strong>Search by 
 	  <?=$namakriteria?> 
-	  dengan keyword 
+	  within keywords 
 	  <?=$keyword?>
 	</strong></font></td>
 </tr>
@@ -146,10 +146,10 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
 <table border="1" style="border-collapse:collapse" cellpadding="5" width="100%" class="tab" bordercolor="#000000">
 <tr height="30">
-	<td width="4%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="18%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No. Jurnal/Tanggal</font></strong></td>
-    <td width="32%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Transaksi</font></strong></td>
-    <td align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Detail Jurnal</font></strong></td>  
+	<td width="4%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="18%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Journal/Date</font></strong></td>
+    <td width="32%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Transaction</font></strong></td>
+    <td align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Journal Details</font></strong></td>  
 </tr>
 
 <?
@@ -177,7 +177,7 @@ while ($row = mysql_fetch_array($result)) {
       <?=$row['transaksi'] ?>
       <?	if (strlen($row['keterangan']) > 0 )  { ?>
 	    <br />
-	    <strong>Keterangan:</strong>
+	    <strong>Info:</strong>
 	    <?=$row['keterangan'] ?> 
       <?	} ?>    
     </font></td>
@@ -206,26 +206,26 @@ while ($row = mysql_fetch_array($result)) {
     </table>    </td>
 </tr>
 <tr>    
-    <td valign="top"><font size="2" face="Arial"><strong>Petugas: </strong>
+    <td valign="top"><font size="2" face="Arial"><strong>Officer: </strong>
       <?=$row['petugas'] ?>
     </font></td>
     <td valign="top">
-      <font size="2" face="Arial"><strong>Sumber: </strong>
+      <font size="2" face="Arial"><strong>Source: </strong>
       <? 	switch($row['sumber']) {	
 		case 'jurnalumum':
-			echo  "Jurnal Umum"; break;
+			echo  "Jurnal Public"; break;
 		case 'penerimaanjtt':
-			echo  "Penerimaan Iuran Wajib Siswa"; break;
+			echo  "Penerimaan Student Mandatory Contribution"; break;
 		case 'penerimaaniuran':
-			echo  "Penerimaan Iuran Sukarela Siswa"; break;
+			echo  "Penerimaan Student Contribution"; break;
 		case 'penerimaanlain':
-			echo  "Penerimaan Lain-Lain"; break;
+			echo  "Penerimaan Other"; break;
 		case 'pengeluaran':
-			echo  "Pengeluaran"; break;
+			echo  "Expenditure"; break;
 		case 'penerimaanjttcalon':
-            echo  "Penerimaan Iuran Wajib Calon Siswa"; break;
+            echo  "Penerimaan Mandatory Contribution Student Candidate"; break;
 		case 'penerimaaniurancalon':
-            echo  "Penerimaan Iuran Sukarela Calon Siswa"; break;
+            echo  "Penerimaan Contribution Student Candidate"; break;
 	} ?>   	
     </font></td>
 </tr>

@@ -43,7 +43,7 @@ CloseDb();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 
-<title>DATA PEGAWAI</title>
+<title>EMPLOYEE DATA</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -59,112 +59,112 @@ function cetak(replid) {
 
 <table width="100%"> 
 <tr height="50">
-	<td><div align="center" class="nav_title"><font size="4"><strong>DATA PEGAWAI</strong></font></div>
+	<td><div align="center" class="nav_title"><font size="4"><strong>EMPLOYEE DATA</strong></font></div>
 	<br /></td>
 </tr>
 <tr>
 	<td align="right"><input type="hidden" name="replid" id="replid" value="<?=$replid?>" />
-      <a href="#" onclick="cetak('<?=$replid?>')"><img src="../img/print.png" border="0"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-      <a href="#" onclick="window.close();"><img src="../img/hapus.png" width="16" height="16" border="0" />&nbsp;Tutup</a>      </div>	</td>
+      <a href="#" onclick="cetak('<?=$replid?>')"><img src="../img/print.png" border="0"/>&nbsp;Print</a>&nbsp;&nbsp;
+      <a href="#" onclick="window.close();"><img src="../img/hapus.png" width="16" height="16" border="0" />&nbsp;Close</a>      </div>	</td>
   </tr>
 </table>  
 <br />
 <table border="0" width="100%" class="tab2" >
   <tr height="30">
-    <td colspan="5" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Data Pribadi Pegawai</strong></font>
+    <td colspan="5" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Employee Personal Data</strong></font>
       <hr width="300" style="line-height:1px; border-style:dashed" align="left" /></td>
   </tr>
   <tr height="20">
     <td width="0" rowspan="8" bgcolor="#FFFFFF" ></td>
     <td width="2%">1.</td>
-    <td colspan="2">Nama Pegawai</td>
+    <td colspan="2">Employee Name</td>
     <td width="46%" rowspan="10" bgcolor="#FFFFFF"><div align="center"><img src="gambar.php?nip=<?=$row['nip']?>" width="120" height="139" /></div></td>
   </tr>
   <tr height="20">
     <td bgcolor="#FFFFFF">&nbsp;</td>
-    <td width="16%">a. Lengkap</td>
+    <td width="16%">a. Full Name</td>
     <td width="36%">:
       <?=$row['nama']?><? if ($row['gelar']!="") echo ", ".$row[gelar]; ?></td>
   </tr>
   <tr height="20">
     <td bgcolor="#FFFFFF">&nbsp;</td>
-    <td>b. Panggilan</td>
+    <td>b. Nickname</td>
     <td>:
       <?=$row['panggilan']?></td>
   </tr>
   <tr height="20">
-    <td >2.</td>
-    <td>Jenis Kelamin</td>
-    <td >:
+    <td>2.</td>
+    <td>Gender</td>
+    <td>:
       <? 	if ($row['kelamin']=="l")
-				echo "Laki-laki"; 
+				echo "Male"; 
 			if ($row['kelamin']=="p")
-				echo "Perempuan"; 
+				echo "Female"; 
 		?></td>
   </tr>
   <tr height="20">
     <td>3.</td>
-    <td>Tempat Lahir</td>
+    <td>Birth Place</td>
     <td>:
       <?=$row['tmplahir']?></td>
   </tr>
   <tr height="20">
     <td>4.</td>
-    <td>Tanggal Lahir</td>
+    <td>Date of Birth</td>
     <td>:
       <?=LongDateFormat($row['tgllahir']) ?></td>
   </tr>
   <tr height="20">
     <td>5.</td>
-    <td>Menikah</td>
+    <td>Marital Status</td>
     <td>:
       <? 	if ($row['nikah']=="menikah")
-				echo "Sudah Menikah"; 
+				echo "Married"; 
 			if ($row['nikah']=="belum")
-				echo "Belum Menikah"; 
+				echo "Not Married"; 
 		?></td>
   </tr>
   <tr height="20">
     <td>6.</td>
-    <td >Agama</td>
+    <td>Religion</td>
     <td>:
       <?=$row['agama']?></td>
   </tr>
   <tr height="20">
     <td bgcolor="#FFFFFF" ></td>
     <td>7.</td>
-    <td >Suku</td>
+    <td>Ethnicity</td>
     <td>:
     <?=$row['suku']?></td>
   </tr>
   <tr height="20">
     <td bgcolor="#FFFFFF" ></td>
     <td>8.</td>
-    <td >No. Identitas</td>
+    <td>Employee ID</td>
     <td>:
     <?=$row['noid']?></td>
   </tr>
   
   <tr height="30">
-    <td colspan="5" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Tempat Tinggal</strong></font>
+    <td colspan="5" align="left" bgcolor="#FFFFFF"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Residency Info</strong></font>
         <hr width="300" style="line-height:1px; border-style:dashed" align="left" /></td>
   </tr>
   <tr height="20">
     <td rowspan="5" bgcolor="#FFFFFF"></td>
     <td>9.</td>
-    <td>Alamat</td>
+    <td>Address</td>
     <td colspan="2">:
       <?=$row['alamat']?></td>
   </tr>
   <tr height="20">
     <td>10.</td>
-    <td>Telepon</td>
+    <td>Phone</td>
     <td colspan="2">:
       <?=$row['telpon']?></td>
   </tr>
   <tr height="20">
     <td>11.</td>
-    <td>Handphone</td>
+    <td>Mobile</td>
     <td colspan="2">:
       <?=$row['handphone']?></td>
   </tr>
@@ -180,13 +180,13 @@ function cetak(replid) {
   
   
   <tr height="30">
-    <td align="left" bgcolor="#FFFFFF" colspan="5"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Lainnya</strong></font>
+    <td align="left" bgcolor="#FFFFFF" colspan="5"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Others</strong></font>
         <hr width="300" style="line-height:1px; border-style:dashed" align="left" /></td>
   </tr>
   <tr height="20">
     <td></td>
     <td>13.</td>
-    <td >Keterangan</td>
+    <td>Info</td>
     <td colspan="2">:
       <?=$row['keterangan']?></td>
   </tr>

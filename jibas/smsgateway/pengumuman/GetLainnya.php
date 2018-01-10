@@ -22,14 +22,14 @@
  **[N]**/ ?>
 <table  border="1" cellspacing="0" cellpadding="0" class="tab">
   <tr style="background-color:#cfddd1">
-	<td width="34%" valign="top" class="tdTop" style="font-weight:bold">Nama</td>
+	<td width="34%" valign="top" class="tdTop" style="font-weight:bold">Name</td>
 	<td width="66%" class="td"><input type="text" class="InputTxt" name="NewReceiptName" id="NewReceiptName" /><div id="ErrNewReceiptName" class="ErrMsg"></div></td>
   </tr>
   <tr>
-	<td valign="top" class="tdTop" style="font-weight:bold">No Ponsel</td>
+	<td valign="top" class="tdTop" style="font-weight:bold">Mobile</td>
 	<td class="td"><input type="text" class="InputTxt" name="NewReceiptNo" id="NewReceiptNo" /><div id="ErrNewReceiptNo" class="ErrMsg"></div></td>
   </tr>
   <tr style="background-color:#cfddd1">
-	<td height="30" colspan="2" align="center"><div class="BtnSilver" onclick="InsertNewReceipt('','','','other')" align="center">Tambahkan</div></td>
+	<td height="30" colspan="2" align="center"><div class="BtnSilver" onclick="InsertNewReceipt('','','','other')" align="center">Add</div></td>
   </tr>
 </table>

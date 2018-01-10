@@ -46,7 +46,7 @@ if (isset($_REQUEST['departemen']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Jenis Penerimaan]</title>
+<title>JIBAS FINANCE [Acquisition Type]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -62,11 +62,11 @@ if (isset($_REQUEST['departemen']))
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen</strong></td>
+	<td width="90"><strong>Department</strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td width="90"><strong>Kategori</strong></td>
+	<td width="90"><strong>Category</strong></td>
     <td><strong>:
 <?	OpenDb();	
 	$sql = "SELECT kategori FROM kategoripenerimaan WHERE kode='$idkategori' ORDER BY urutan";
@@ -80,10 +80,10 @@ if (isset($_REQUEST['departemen']))
 
 <table id="table" class="tab" bordercolor="#000000" border="1" style="border-collapse:collapse" width="100%">
 	<tr height="30" align="center">
-        <td class="header" width="5%" >No</td>
-        <td class="header" width="15%">Nama</td>        
-        <td class="header" width="35%">Kode Rekening</td>
-        <td class="header" width="*">Keterangan</td>
+        <td class="header" width="5%" >#</td>
+        <td class="header" width="15%">Name</td>        
+        <td class="header" width="35%">Code Bank Account</td>
+        <td class="header" width="*">Info</td>
 	</tr>
 <?	OpenDb();
 	$sql = "SELECT * FROM datapenerimaan WHERE idkategori = '$idkategori' AND departemen = '$departemen' ORDER BY replid ";//LIMIT ".(int)$page*(int)$varbaris.",$varbaris";

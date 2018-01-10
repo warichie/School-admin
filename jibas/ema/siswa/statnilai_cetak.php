@@ -61,7 +61,7 @@ $aspekket = $row2[0];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Rapor]</title>
+<title>JIBAS EMA [Print Report Card]</title>
 </head>
 
 <body>
@@ -72,11 +72,11 @@ $aspekket = $row2[0];
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>STATISTIK PEROLEHAN NILAI RAPOR</strong></font><br />
+  <font size="4"><strong>REPORT CARD ACHIEVEMENT STATISTIC</strong></font><br />
  </center><br /><br />
 <table width="84%">
 <tr>
-	<td width="9%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="9%" class="news_content1"><strong>Department</strong></td>
     <td width="42%" class="news_content1">: 
         <?=$departemen?>    </td>
     <td width="7%" class="news_content1"><strong>Semester</strong></td>
@@ -84,18 +84,18 @@ $aspekket = $row2[0];
         <?=getname('semester','semester',$semester)?>    </td>
 </tr>
 <tr>
-	<td class="news_content1"><strong>Tingkat</strong></td>
+	<td class="news_content1"><strong>Grade</strong></td>
     <td class="news_content1">: 
         <?=getname('tingkat','tingkat',$tingkat)?>    </td>
-    <td class="news_content1"><strong>Pelajaran</strong></td>
+    <td class="news_content1"><strong>Class Subject</strong></td>
     <td class="news_content1">: 
         <?=getname('nama','pelajaran',$pelajaran)?>    </td>
 </tr>
 <tr>
-	<td class="news_content1"><strong>Tahun&nbsp;Ajaran</strong></td>
+	<td class="news_content1"><strong>Year&nbsp;</strong></td>
     <td class="news_content1">: 
         <?=getname('tahunajaran','tahunajaran',$tahunajaran) ?>    </td>
-    <td class="news_content1"><strong>Nilai</strong></td>
+    <td class="news_content1"><strong>Point</strong></td>
     <td class="news_content1">: 
         <?=$aspekket?>    </td>
 </tr>
@@ -173,9 +173,9 @@ $aspekket = $row2[0];
                     ?>
 <table width="80%" border="1" class="tab" align="center">
                       <tr>
-                        <td height="25" align="center" class="header">No.</td>
-                        <td height="25" align="center" class="header">Rentang</td>
-                        <td height="25" align="center" class="header">Jumlah Siswa</td>
+                        <td height="25" align="center" class="header">#</td>
+                        <td height="25" align="center" class="header">Range</td>
+                        <td height="25" align="center" class="header">Total Student</td>
                       </tr>
                       <?
                       for ($i=0;$i<count($lab);$i++){
@@ -185,9 +185,9 @@ $aspekket = $row2[0];
                         <td height="20">&nbsp;&nbsp;<?=$lab[$i]?></td>
                         <td height="20">
                         <? if ($data[$i]>0){ ?>
-                        <strong>&nbsp;&nbsp;<?=$data[$i]?> siswa</strong>
+                        <strong>&nbsp;&nbsp;<?=$data[$i]?> student</strong>
                         <? } else { ?>
-                        &nbsp;&nbsp;<?=$data[$i]?> siswa
+                        &nbsp;&nbsp;<?=$data[$i]?> student
                         <? } ?>            </td>
                         <? //} ?>
                       </tr>

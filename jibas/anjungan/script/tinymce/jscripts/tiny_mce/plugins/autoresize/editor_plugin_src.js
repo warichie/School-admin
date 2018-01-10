@@ -61,8 +61,8 @@
 					DOM.setStyle(DOM.get(ed.id + '_ifr'), 'height', resizeHeight + 'px');
 					oldSize = resizeHeight;
 
-					// WebKit doesn't decrease the size of the body element until the iframe gets resized
-					// So we need to continue to resize the iframe down until the size gets fixed
+					// WebKit doesn't decrease the size of the body element to the iframe gets resized
+					// So we need to continue to resize the iframe down to the size gets fixed
 					if (tinymce.isWebKit && deltaSize < 0)
 						resize();
 				}

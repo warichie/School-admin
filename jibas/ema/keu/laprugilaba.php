@@ -72,7 +72,7 @@ $n2 = JmlHari($bln2,$thn2);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Buku Besar</title>
+<title>Ledger Reports</title>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -110,15 +110,15 @@ function show_laporan() {
 	var tanggal2 = escape(thn2 + "-" + bln2 + "-" + tgl2);
 	
 	if (idtahunbuku.length == 0) {	
-		alert ('Tahun Buku tidak boleh kosong!');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('departemen').focus();
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -217,7 +217,7 @@ function panggil(elem){
 	<td rowspan="3" width="60%">
     <table border="0" width = "100%">
     <tr>
-        <td class="news_content1">Departemen </td>
+        <td class="news_content1">Department </td>
         <td colspan="4">
             <select name="departemen" class="cmbfrm" id="departemen" style="width:188px" onchange="change_dep()">
     	        <? 	$sql = "SELECT departemen FROM departemen WHERE aktif = 1 ORDER BY urutan";
@@ -230,7 +230,7 @@ function panggil(elem){
     	        </option>
    	              <? } ?>
   	        </select>
-            <span class="news_content1">Tahun Buku </span>
+            <span class="news_content1">Fiscal Year </span>
             <select name="idtahunbuku" id="idtahunbuku" onchange="change_dep()" style="width:160px">        
 <? 			if ($departemen != "") 
             { 
@@ -269,11 +269,11 @@ function panggil(elem){
 					
 			$n1 = JmlHari($bln1, $thn1);
 			$n2 = JmlHari($bln2, $thn2);	?> 
-        <td class="news_content1">Per Tanggal </td>
+        <td class="news_content1">by Date </td>
         <td width="10">
            <div id="InfoTgl1">  
             <select name="tgl1" class="cmbfrm" id="tgl1" onchange="change_tgl1()" disabled >
-            <option value="">[Tgl]</option> 
+            <option value="">[Date]</option> 
             <? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -290,11 +290,11 @@ function panggil(elem){
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
             </select>
-            <span class="news_content1">s/d        </span></td>
+            <span class="news_content1">to        </span></td>
         <td width="10">
             <div id="InfoTgl2">
             <select name="tgl2" class="cmbfrm" id="tgl2" onchange="change_tgl2()" >
-            <option value="">[Tgl]</option> 
+            <option value="">[Date]</option> 
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -315,9 +315,9 @@ function panggil(elem){
     </table>
 	</td>
 	<td rowspan="2" valign="middle">
-        <a href="#" onclick="show_laporan()"><img src="../img/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Klik untuk menampilkan data laporan rugi laba!', this, event, '180px')" /></a>    </td>
+        <a href="#" onclick="show_laporan()"><img src="../img/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Click to show profit loss reports', this, event, '180px')" /></a>    </td>
     <td width="30%" align="right" valign="top">
-        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="news_title2">Laporan Rugi Laba</span>
+        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="news_title2">Profit Loss Reports</span>
     </td>
 </tr>
 </table>

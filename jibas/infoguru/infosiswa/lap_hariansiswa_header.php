@@ -79,7 +79,7 @@ if (isset($_REQUEST['nis']))  {
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Presensi Harian Siswa</title>
+<title>Student Daily Presence Report Card</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -100,14 +100,14 @@ function tampil() {
 	var nama = document.getElementById('nama1').value;
 	
 	if (nis.length == 0){
-		alert ('NIS siswa tidak boleh kosong !');
+		alert ('Student ID should not leave empty');
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong !');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong !');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -149,17 +149,17 @@ function change_tgl1() {
 	var tgl = parseInt(document.main.tgl1.value);
 	
 	if (th > th1) {
-		alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+		alert ('End Year should not less than Start Year');
 		return false;
 	} 
 	
 	if (th == th1 && bln > bln1 ) {
-		alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+		alert ('End Month should not less than Start Month');
 		return false; 
 	}	
 	
 	if (th == th1 && bln == bln1 && tgl > tgl1 ) { 
-		alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');
+		alert ('End Date should not less than Start Date');
 		return false;
 	}		
 	sendRequestText("../library/gettanggal.php", show1, "tahun="+th+"&bulan="+bln+"&tgl="+tgl);	
@@ -175,17 +175,17 @@ function change_tgl2() {
 	var tgl = parseInt(document.main.tgl2.value);
 	
 	if (th1 > th) {
-		alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+		alert ('End Year should not less than Start Year');
 		return false;
 	} 
 	
 	if (th1 == th && bln1 > bln ) {
-		alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+		alert ('End Month should not less than Start Month');
 		return false; 
 	}	
 	
 	if (th1 == th && bln1 == bln && tgl1 > tgl ) { 
-		alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');
+		alert ('End Date should not less than Start Date');
 		return false;
 	}		
 	sendRequestText("../library/gettanggal.php", show2, "tahun="+th+"&bulan="+bln+"&tgl="+tgl);	
@@ -221,7 +221,7 @@ function focusNext(elemName, evt) {
 	<td rowspan="3" width="55%">
 	<table width = "100%" border = "0" >
     <tr>
-    	<td width="10%"><strong>Siswa</strong></td>
+    	<td width="10%"><strong>Student</strong></td>
         <td width="*">
         	<input name="nis" type="text" class="disabled" id="nis" value="<?=$_REQUEST['nis']?>" size="12" readonly onclick="carisiswa()"/>
             <input type="hidden" name="nis1" id="nis1" value="<?=$_REQUEST['nis']?>">
@@ -232,10 +232,10 @@ function focusNext(elemName, evt) {
       	</td>
     </tr>
    	<tr>
-    	<td><strong>Tanggal</strong></td>
+    	<td><strong>Date</strong></td>
         <td>
         	<select name="tgl1" id = "tgl1Info" onchange="change_tgl1()" onfocus = "panggil()" onKeyPress="focusNext('bln1',event)">
-			<option value="">[Tgl]</option>
+			<option value="">[Date]</option>
 		<? 	for($i=1;$i<=$n;$i++){   ?>      
 		    <option value="<?=$i?>" <?=IntIsSelected($tgl1, $i)?>><?=$i?></option>
 		<?	} ?>
@@ -250,9 +250,9 @@ function focusNext(elemName, evt) {
         <?  for ($i = $tahun1; $i <= $tahun2; $i++) { ?>
           	<option value="<?=$i?>" <?=IntIsSelected($th1, $i)?>><?=$i?></option>	   
        	<?	} ?>	
-        	</select> s/d 
+        	</select> to 
     		<select name="tgl2" id = "tgl2Info" onchange="change_tgl2()" onfocus = "panggil()" onKeyPress="focusNext('bln2',event)">
-			<option value="">[Tgl]</option>
+			<option value="">[Date]</option>
 		<? 	for($i=1;$i<=$n;$i++){   ?>      
 		    <option value="<?=$i?>" <?=IntIsSelected($tgl2, $i)?>><?=$i?></option>
 		      <?	} ?>
@@ -273,13 +273,13 @@ function focusNext(elemName, evt) {
     </table>
     </td> 
     <td width="*" rowspan="2" align="left" valign="middle"><a href="#" onclick="tampil()">
-    	<img src="../images/ico/view.png" height="48" width="48" border="0" name="tabel" id="tabel2" onmouseover="showhint('Klik untuk menampilkan laporan presensi harian siswa!', this, event, '180px')"/></a></td>
+    	<img src="../images/ico/view.png" height="48" width="48" border="0" name="tabel" id="tabel2" onmouseover="showhint('Click to show student daily presence reports', this, event, '180px')"/></a></td>
   	<td width="43%" rowspan="2" align="right" valign="top">
-        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Presensi Harian Siswa</font>	
+        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Daily Presence Report Card</font>	
         <br />
     	<a href="../presensi.php" target="framecenter">
-      	<font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Presensi Harian Siswa</b></font></td>     
+      	<font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Student Daily Presence Report Card</b></font></td>     
     </tr>
 	</table>
     </td>

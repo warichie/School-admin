@@ -37,7 +37,7 @@ OpenDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Daftar Pengguna</title>
+<title>User List</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -56,10 +56,10 @@ function setaktif(replid, aktif) {
 	var newaktif;
 	
 	if (aktif == 1) {
-		msg = "Apakah anda yakin akan mengubah departemen ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this department to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin akan mengubah departemen ini menjadi AKTIF?";
+		msg = "Are you sure want to change this department to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -72,7 +72,7 @@ function edit(replid) {
 }
 
 function hapus(nip) {
-	if (confirm("Apakah anda yakin akan menghapus departemen ini?"))
+	if (confirm("Are you sure want to delete this department?"))
 		document.location.href = "user.php?op=xm8r389xemx23xb2378e23&nip="+nip;
 }
 
@@ -101,7 +101,7 @@ $result = QueryDB($sql);
 </tr>
 <tr>
     <td><div align="center" class="style1">
-      <p>DAFTAR PENGGUNA JIBAS INFOGURU</p>
+      <p>USER LIST JIBAS TEACHERS INFO</p>
       <p>&nbsp;</p>
     </div></td>
 </tr>
@@ -109,10 +109,10 @@ $result = QueryDB($sql);
     <td>
     <table class="tab" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="95%" align="center">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
+    	<td width="4%" class="header" align="center">#</td>
         <td width="15%" class="header" align="center">Login</td>
-        <td width="20%" class="header" align="center">Nama</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+        <td width="20%" class="header" align="center">Name</td>
+        <td width="*" class="header" align="center">Info</td>
         <td width="10%" class="header" align="center" colspan="2">Last Login</td>
     </tr>
 <? 	
@@ -136,12 +136,12 @@ $result = QueryDB($sql);
 		?></td>
         <td><?=$row['keterangan'] ?>
         </td>
-        <td ><?=$row_get_lvl[tanggal]?><br><?=$row_get_lvl[jam]?></td>
+        <td><?=$row_get_lvl[tanggal]?><br><?=$row_get_lvl[jam]?></td>
         
            </tr>
 <?	} } else {
 	 ?>
-     <tr><td colspan="7" align="center">Tidak ada data User</td></tr>	
+     <tr><td colspan="7" align="center">No User data</td></tr>	
 	<?
 	}
 	?>

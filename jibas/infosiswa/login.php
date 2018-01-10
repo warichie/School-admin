@@ -34,7 +34,7 @@ require_once('include/config.php');
 <script src="script/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="script/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS InfoSiswa [Validasi Pengguna]</title>
+<title>JIBAS InfoSiswa [User Validation]</title>
 <link href="style/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../script/bgstretcher.css" />
 <script language="javascript" src="../script/bgstretcher.js"></script>
@@ -46,7 +46,7 @@ function cek_form()
 
 	if(user.length == 0 && pass.length == 0) 
 	{
-		alert("Masukkan dulu Username dan Password Kamu !");
+		alert("Masukkan dulu Username and Password Kamu ");
 		document.form.username.value = "";
 		document.form.password.value = "";
 		document.form.username.focus();
@@ -192,7 +192,7 @@ $(document).ready(function () {
                     <td style="padding-right:4px"><input name="passwordfake" id="passwordsfake" style="color:#636363; display:block;width:80px; border:1px #666666 solid" value="Password" onfocus="ChgInputPass('passwordsfake','passwords','1')" type="text"    />
                 <input name="password" id="passwords" style="color:#000000; display:none;width:80px; border:1px #666666 solid" value="" onblur="ChgInputPass('passwordsfake','passwords','0')"  type="password"    /></td>
                     <td style="padding-right:4px"><input type="submit" style=" background-color:#c9c9c9;font-weight:bold; border:#666666 1px solid;" value="Login" /></td>
-                    <td><a title="Kembali ke Menu Utama" href="../" style="color:#2fcced; font-weight:bold; font-family:Arial;  font-size:12px; text-decoration:underline">Menu Utama</a></td>
+                    <td><a title="Back to Main Menu" href="../" style="color:#2fcced; font-weight:bold; font-family:Arial;  font-size:12px; text-decoration:underline">Main Menu</a></td>
                   </tr>
                 </table>                
                 </td>

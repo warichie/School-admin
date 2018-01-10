@@ -58,7 +58,7 @@ if (isset($_REQUEST['Simpan'])) {
 	
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();		
-		$ERROR_MSG = "Nama guru $nama sudah digunakan!";
+		$ERROR_MSG = "Teacher Name $nama has been used";
 	} else {
 		$sql1 = "INSERT INTO guru SET nip='$nipguru', idpelajaran=$pelajaran, statusguru='$status', keterangan='$keterangan'";
 		$result1 = QueryDb($sql1);
@@ -79,7 +79,7 @@ if (isset($_REQUEST['Simpan'])) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Guru]</title>
+<title>JIBAS SIMAKA [Add Teacher]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -102,8 +102,8 @@ function tutup() {
 }
 
 function validate() {	
-	return validateEmptyText('nip', 'NIP Guru') && 		   
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('nip', 'Teacher ID') && 		   
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -138,7 +138,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Guru :.
+    .: Add Teacher :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -153,14 +153,14 @@ function panggil(elem){
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
 	<td>
     	<input type="text" name="departemen" id="departemen" size="10" maxlength="50" readonly value="<?=$departemen ?>" class="disabled" />
     	<input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />    
 	</td>
 </tr>
 <tr>
-	<td><strong>Pelajaran</strong></td>
+	<td><strong>Class Subject</strong></td>
 	<td>
     <?	if ($_REQUEST['aktif'] == 1) { ?>
     	<input type="text" name="pelajaran" id="pelajaran" size="40" maxlength="50" readonly value="<?=$_REQUEST['guru'] ?>" class="disabled" />
@@ -187,7 +187,7 @@ function panggil(elem){
 	</td>
 </tr>
 <tr>
-    <td><strong>Guru</strong></td>
+    <td><strong>Teacher</strong></td>
     <td>
    	<input type="text" name="nip" id="nip" size="10" class="disabled" readonly value="<?=$nipguru?>"  onClick="caripegawai()" onKeyPress="caripegawai();" onFocus="panggil('nip')"/> 	    
     <input type="hidden" name="nipguru" id="nipguru" value="<?=$nipguru ?>" /> 
@@ -217,14 +217,14 @@ function panggil(elem){
         </select>    </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onKeyPress="focusNext('Simpan',event)" onFocus="panggil('keterangan')"><?=$keterangan ?></textarea>    </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" onFocus="panggil('Simpan')" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" onFocus="panggil('Simpan')" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>

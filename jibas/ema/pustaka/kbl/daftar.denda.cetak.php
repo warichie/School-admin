@@ -56,33 +56,33 @@ if (isset($_REQUEST[telat]) && $_REQUEST[telat]!="")
 	$telat=$_REQUEST[telat];
 	
 if ($kriteria=='all' || $kriteria==''){
-	$title = "<tr><td>Berdasarkan&nbsp;:&nbsp;Semua&nbsp;Penerimaan denda</td></tr>";
+	$title = "<tr><td>Based on&nbsp;:&nbsp;All&nbsp;Fine admission</td></tr>";
 } elseif ($kriteria=='tglpinjam') {
-	$title = "<tr><td width='20'>Berdasarkan</td><td>&nbsp;:&nbsp;Tanggal Peminjaman</td></tr>";
-	$title.= "<tr><td width='20'>Periode</td><td>&nbsp;:&nbsp;$tglAwal s.d. $tglAkhir</td></tr>";
+	$title = "<tr><td width='20'>Sort by</td><td>&nbsp;:&nbsp;Date Borrowed</td></tr>";
+	$title.= "<tr><td width='20'>Period</td><td>&nbsp;:&nbsp;$tglAwal to $tglAkhir</td></tr>";
 } elseif ($kriteria=='tglkembali') {
-	$title = "<tr><td width='20'>Berdasarkan</td><td>&nbsp;:&nbsp;Tanggal Kembali</td></tr>";
-	$title.= "<tr><td width='20'>Periode</td><td>&nbsp;:&nbsp;$tglAwal s.d. $tglAkhir</td></tr>";
+	$title = "<tr><td width='20'>Sort by</td><td>&nbsp;:&nbsp;Return</td></tr>";
+	$title.= "<tr><td width='20'>Period</td><td>&nbsp;:&nbsp;$tglAwal to $tglAkhir</td></tr>";
 } elseif ($kriteria=='nip') {
-	$title = "<tr><td width='20'>Berdasarkan</td><td>&nbsp;:&nbsp;NIP Pegawai</td></tr>";
-	$title.= "<tr><td width='20'>Pegawai</td><td>&nbsp;:&nbsp;$noanggota - $nama</td></tr>";
+	$title = "<tr><td width='20'>Sort by</td><td>&nbsp;:&nbsp;Employee ID</td></tr>";
+	$title.= "<tr><td width='20'>Employee</td><td>&nbsp;:&nbsp;$noanggota - $nama</td></tr>";
 } elseif ($kriteria=='nis') {
-	$title = "<tr><td width='20'>Berdasarkan</td><td>&nbsp;:&nbsp;NIS Siswa</td></tr>";
-	$title.= "<tr><td width='20'>Siswa</td><td>&nbsp;:&nbsp;$noanggota - $nama</td></tr>";
+	$title = "<tr><td width='20'>Sort by</td><td>&nbsp;:&nbsp;Student ID</td></tr>";
+	$title.= "<tr><td width='20'>Student</td><td>&nbsp;:&nbsp;$noanggota - $nama</td></tr>";
 } elseif ($kriteria=='denda') {
 	if ($denda==0)
-		$besardenda = "Tanpa Denda";
+		$besardenda = "No Fine";
 	elseif ($denda==1)
-		$besardenda = "Dibawah Rp 5.000";
+		$besardenda = "Below Rp 5.000";
 	elseif ($denda==2)
-		$besardenda = "Dibawah Rp 10.000";
+		$besardenda = "Below Rp 10.000";
 	elseif ($denda==3)
-		$besardenda = "Diatas Rp 5.000";
-	$title = "<tr><td width='20'>Berdasarkan</td><td>&nbsp;:&nbsp;Denda</td></tr>";
-	$title.= "<tr><td width='20'>Besarnya&nbsp;denda</td><td>&nbsp;:&nbsp;$besardenda</td></tr>";
+		$besardenda = "Above Rp 5.000";
+	$title = "<tr><td width='20'>Sort by</td><td>&nbsp;:&nbsp;Fine</td></tr>";
+	$title.= "<tr><td width='20'>Fine&nbsp;is</td><td>&nbsp;:&nbsp;$besardenda</td></tr>";
 } elseif ($kriteria=='telat') {
-	$title = "<tr><td width='20'>Berdasarkan</td><td>&nbsp;:&nbsp;Keterlambatan</td></tr>";
-	$title.= "<tr><td width='20'>Terlambat</td><td>&nbsp;:&nbsp;$telat&nbsp;hari&nbsp;tanggal&nbsp;pengembalian</td></tr>";
+	$title = "<tr><td width='20'>Sort by</td><td>&nbsp;:&nbsp;Late</td></tr>";
+	$title.= "<tr><td width='20'>Late</td><td>&nbsp;:&nbsp;$telat&nbsp;days&nbsp;from&nbsp;return&nbsp;date</td></tr>";
 }		
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -90,7 +90,7 @@ if ($kriteria=='all' || $kriteria==''){
 <head>
 <link rel="stylesheet" type="text/css" href="../../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SimTaka [Cetak Daftar Penerimaan Denda]</title>
+<title>JIBAS SimTaka [Print Fine Admission List]</title>
 </head>
 
 <body>
@@ -99,7 +99,7 @@ if ($kriteria=='all' || $kriteria==''){
 
 <?=GetHeader('alls')?>
 
-<center><font size="4"><strong>DATA PENERIMAAN DENDA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>FINE ADMISSION DATA</strong></font><br /> </center><br /><br />
 
 <br />
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:verdana; font-size:12px">
@@ -137,11 +137,11 @@ if ($kriteria=='all' || $kriteria==''){
 		<link href="../sty/style.css" rel="stylesheet" type="text/css">
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td height="30" align="center" class="header"> Anggota</td>
-            <td height="30" align="center" class="header">Kode Pustaka</td>
-            <td height="30" align="center" class="header">Terlambat</td>
-            <td height="30" align="center" class="header">Denda</td>
-            <td height="30" align="center" class="header">Keterangan</td>
+            <td height="30" align="center" class="header"> Member</td>
+            <td height="30" align="center" class="header">Library Code</td>
+            <td height="30" align="center" class="header">Late</td>
+            <td height="30" align="center" class="header">Fine</td>
+            <td height="30" align="center" class="header">Info</td>
           </tr>
           <?
 		  if ($num>0){
@@ -173,7 +173,7 @@ if ($kriteria=='all' || $kriteria==''){
 								//return $sql3;
 								$NamaAnggota = $row3[nama];
 							} else {
-								$NamaAnggota = "Tanpa Nama";
+								$NamaAnggota = "No name.";
 							}
 						}
 					}
@@ -191,7 +191,7 @@ if ($kriteria=='all' || $kriteria==''){
 			  }
 		  ?>
 		  <tr style="color:<?=$color?>; <?=$weight?>">
-			    <td height="25" colspan="3" align="right" bgcolor="#CCCCCC">Jumlah&nbsp;&nbsp;</td>
+			    <td height="25" colspan="3" align="right" bgcolor="#CCCCCC">Amount&nbsp;&nbsp;</td>
 			    <td height="25" align="right" bgcolor="#FFFFFF"><div style="padding-right:5px"><?=FormatRupiah($totaldenda)?></div></td>
 		    <td height="25" align="center" bgcolor="#CCCCCC">&nbsp;</td>
 	      </tr>
@@ -199,7 +199,7 @@ if ($kriteria=='all' || $kriteria==''){
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="5" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="5" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

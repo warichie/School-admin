@@ -80,15 +80,15 @@ function show_pembayaran() {
 	
 				
 	if (idtahunbuku.length == 0) {
-		alert ('Tahun buku tidak boleh kosong !');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('idtahunbuku').focus();
 		return false;			
 	} else if (idkategori.length == 0) {
-		alert ('Pastikan kategori pembayaran sudah ada!');
+		alert ('Make sure that payment category is existed');
 		document.getElementById('idkategori').focus();
 		return false;	
 	} else if (idpenerimaan.length == 0) {
-		alert ('Pastikan penerimaan pembayaran sudah ada!');
+		alert ('Make sure that admission is existed');
 		document.getElementById('idpenerimaan').focus();
 		return false;	
 	}
@@ -123,7 +123,7 @@ function focusNext(elemName, evt) {
     <td rowspan="3" width="55%">
     <table width = "100%" border = "0">
     <tr>
-    	<td align="left" width = "15%"><strong>Departemen&nbsp;</strong>
+    	<td align="left" width = "15%"><strong>Department&nbsp;</strong>
       	<td width="*">
         <select name="departemen" id="departemen" style="width:100px" onchange="change_dep()" onKeyPress="return focusNext('idkategori', event)">
 		<?
@@ -135,7 +135,7 @@ function focusNext(elemName, evt) {
             <option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?>><?=getDepartemenInOpenThinkSAS($value) ?></option>
         <? } ?>    
         </select>&nbsp;
-        <strong>Tahun Buku&nbsp;</strong>
+        <strong>Fiscal Year&nbsp;</strong>
         <?
         $sql = "SELECT replid AS id, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
         $result = QueryDb($sql);
@@ -146,7 +146,7 @@ function focusNext(elemName, evt) {
     	</td>
 	</tr>
     <tr>
-    	<td><strong>Pembayaran&nbsp;</strong></td>
+    	<td><strong>Payment&nbsp;</strong></td>
       	<td>    
         <select name="idkategori" id="idkategori" style="width:188px;" onchange="change_kate()" onKeyPress="return focusNext('idpenerimaan', event)">
         <?
@@ -177,13 +177,13 @@ function focusNext(elemName, evt) {
 	</table>
     </td>		
     <td width="*" rowspan="2" valign="middle"><a href="#" onclick="show_pembayaran()">
-    <img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Klik untuk menampilkan data penerimaan pembayaran!', this, event, '180px')"/></a>    
+    <img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Click to show data admission', this, event, '180px')"/></a>    
     </td>
     <td width="30%" colspan = "2" align="right" valign="top">
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Penerimaan Pembayaran</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Penerimaan Payment</font><br />
     <a href="penerimaan.php" target="_parent">
-    <font size="1" color="#000000"><b>Penerimaan</b></font></a>&nbsp>&nbsp
-    <font size="1" color="#000000"><b>Penerimaan Pembayaran</b></font>
+    <font size="1" color="#000000"><b>Admission</b></font></a>&nbsp;>&nbsp;
+    <font size="1" color="#000000"><b>Penerimaan Payment</b></font>
 </td>  
 </tr>
 <tr>	

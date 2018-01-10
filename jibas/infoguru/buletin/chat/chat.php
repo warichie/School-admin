@@ -25,7 +25,7 @@ require_once('../../include/common.php');
 require_once('../../include/config.php');
 require_once('../../include/db_functions.php');
 require_once('../../include/sessioninfo.php');
-$kat="Umum";
+$kat="Public";
 if (isset($_REQUEST[kat]))
 	$kat=$_REQUEST[kat];
 OpenDb();
@@ -44,7 +44,7 @@ CloseDb();
 ?>
 <html>
 	<head>
-	<title>JIBAS INFOGURU Chating Room [<?=$kat?>]</title>
+	<title>JIBAS TEACHERS INFO Chat Room [<?=$kat?>]</title>
     <script language="javascript" src="../../script/tools.js"></script>
     <script language="javascript" src="../../script/SpryAssets/SpryValidationTextField.js"></script>
     <link href="../../script/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
@@ -72,15 +72,15 @@ CloseDb();
   </tr>
   <tr>
     <td width="48" rowspan="2" background="images/chat_15.png">&nbsp;</td>
-    <td bgcolor="#FFFFFF"><strong>Nama</strong></td>
-    <td bgcolor="#FFFFFF"><strong>Pesan</strong></td>
+    <td bgcolor="#FFFFFF"><strong>Name</strong></td>
+    <td bgcolor="#FFFFFF"><strong>Message</strong></td>
     <td bgcolor="#FFFFFF">&nbsp;</td>
     <td width="63" rowspan="2" background="images/chat_17.png">&nbsp;</td>
   </tr>
   <tr height="25">
     <td bgcolor="#FFFFFF"><input align="middle" id="chatnick" readonly value="<?=SI_USER_NICKNAME()?>" type="text" size="9" maxlength="9" ></td>
     <td bgcolor="#FFFFFF"><input id="chatmsg" onFocus="focus('chatmsg')" onBlur="unfocus('chatmsg')" type="text" size="60" maxlength="80"  onkeyup="keyup(event.keyCode);"></td>
-    <td bgcolor="#FFFFFF"><input type="button" value="Kirim" onClick="submit_msg();" style="cursor:pointer;" class="but"></td>
+    <td bgcolor="#FFFFFF"><input type="button" value="Send" onClick="submit_msg();" style="cursor:pointer;" class="but"></td>
   </tr>
   <tr>
     <td width="48" background="images/chat_15.png">&nbsp;</td>
@@ -117,13 +117,13 @@ CloseDb();
   </tr>
   <tr>
     <td background="images/chat_15.png">&nbsp;</td>
-    <td height="30" bgcolor="#FFFFFF"><strong>Kategori</strong></td>
+    <td height="30" bgcolor="#FFFFFF"><strong>Category</strong></td>
     <td height="30" bgcolor="#FFFFFF">
     <select name="kat" id="kat" size="1" onChange="chg_kat()">
-    	<option value="Umum" <?=StringIsSelected($kat,"Umum")?>>Umum</option>
-        <option value="Musik" <?=StringIsSelected($kat,"Musik")?>>Musik</option>
+    	<option value="Public" <?=StringIsSelected($kat,"Public")?>>Public</option>
+        <option value="Music" <?=StringIsSelected($kat,"Music")?>>Music</option>
         <option value="Film" <?=StringIsSelected($kat,"Film")?>>Film</option>
-    </select>&nbsp;<input type="button" value="Ganti Kategori" onClick="chg_kat();" style="cursor:pointer;" class="but">
+    </select>&nbsp;<input type="button" value="Edit Category" onClick="chg_kat();" style="cursor:pointer;" class="but">
     </td>
     <td height="30" bgcolor="#FFFFFF"></td>
     <td width="63" background="images/chat_17.png">&nbsp;</td>
@@ -185,7 +185,7 @@ function accept_smiley(smiley){
 
 /* Internal Variables & Stuff */
 	chatmsg.focus()
-	document.getElementById("chatwindow").innerHTML = "<img src='../../images/ico/movewait.gif' width='16' height='16'> Silakan tunggu...";
+	document.getElementById("chatwindow").innerHTML = "<img src='../../images/ico/movewait.gif' width='16' height='16'> Please wait...";
 
 	var xmlhttp = false;
 	var xmlhttp2 = false;
@@ -264,7 +264,7 @@ function submit_msg(){
 	msg = document.getElementById("chatmsg").value;
 
 	if (nick == "") { 
-		check = prompt("please enter username:"); 
+		check = prompt("Please enter your username:"); 
 		if (check === null) return 0; 
 		if (check == "") check = "anonymous"; 
 		document.getElementById("chatnick").value = check;

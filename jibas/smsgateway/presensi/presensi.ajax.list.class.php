@@ -122,8 +122,8 @@ class PresensiListAjax{
 		?>
 		<table width="300" class="tab" border="1" cellspacing="0" cellpadding="0" id="Table1">
 		  <tr class="Header">
-			<td>No</td>
-			<td>Tanggal</td>
+			<td>#</td>
+			<td>Date</td>
 			<td>&nbsp;</td>
 		  </tr>
 		  <?
@@ -146,7 +146,7 @@ class PresensiListAjax{
 		  } else {
 		  ?>
 		  <tr>
-			<td class="td Ket" align="center" colspan='3' >Tidak ada data</td>
+			<td class="td Ket" align="center" colspan='3' >Data Not Found.</td>
 		  </tr>
 		  <?
 		  }
@@ -158,9 +158,9 @@ class PresensiListAjax{
 		?>
         <table width="97%" border="1" cellspacing="0" cellpadding="0" class="tab" id="Table2">
           <tr class="Header">
-            <td>No</td>
-            <td>HP</td>
-            <td>Pesan</td>
+            <td>#</td>
+            <td>Mobile</td>
+            <td>Message</td>
             <td>&nbsp;</td>
           </tr>
           <?
@@ -189,13 +189,13 @@ class PresensiListAjax{
 					<table border='0' cellpadding='0' cellspacing='0' id="Utility1<?=$row[ID]?>">
 						<tr>
 							<td style='padding-right:2px'>
-								<img title='Ubah lalu kirim ulang' onclick="EditDetailInfoGenList('<?=$row[ID]?>','1')" src="../images/ico/ubah.png" width="16" height="16" border="0" style="cursor:pointer" />
+								<img title='Edit lalu kirim ulang' onclick="EditDetailInfoGenList('<?=$row[ID]?>','1')" src="../images/ico/ubah.png" width="16" height="16" border="0" style="cursor:pointer" />
 							</td>
 							<td style='padding-right:2px'>
 								<img title='Kirim Ulang' onclick="ResendDetailInfoGenList('<?=$row[ID]?>')" src="../images/ico/refresh.png" width="16" height="16" border="0" style="cursor:pointer" />
 							</td>
 							<td style='padding-right:2px'>
-								<img title='Hapus' onclick="DeleteDetailInfoGenList('<?=$row[ID]?>')" src="../images/ico/hapus.png" width="16" height="16" border="0" style="cursor:pointer" />
+								<img title='Delete' onclick="DeleteDetailInfoGenList('<?=$row[ID]?>')" src="../images/ico/hapus.png" width="16" height="16" border="0" style="cursor:pointer" />
 							</td>
 						</tr>
 					</table>
@@ -217,7 +217,7 @@ class PresensiListAjax{
 		  } else {
 		  ?>
           <tr>
-            <td colspan="4" align="center" class="td Ket">Tidak ada data</td>
+            <td colspan="4" align="center" class="td Ket">Data Not Found.</td>
           </tr>
           <?
 		  }

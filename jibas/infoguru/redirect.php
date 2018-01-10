@@ -103,7 +103,7 @@ if (!$user_exists)
 {
 ?>
     <script language="JavaScript">
-        alert("Username atau password tidak cocok!");
+        alert("Username or password does not match");
         document.location.href = "../infoguru";
     </script>
 <?

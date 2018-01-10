@@ -34,7 +34,7 @@ if ($perpustakaan!='alls' && $perpustakaan!='-1') {
 	$row 	= @mysql_fetch_row($result);
 	$nama	= $row[0];
 } else {
-	$nama = "<i>Semua</i>";
+	$nama = "<i>All</i>";
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -42,7 +42,7 @@ if ($perpustakaan!='alls' && $perpustakaan!='-1') {
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Header Perpustakaan</title>
+<title>Library Header</title>
 </head>
 
 <body>

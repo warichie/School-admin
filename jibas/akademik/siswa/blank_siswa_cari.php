@@ -31,8 +31,8 @@
 <tr height="300">
     <!--<td align="center" valign="middle"">-->
     <td align="center">
-        <font size="2" color="#757575"><b>Klik pada icon <img src="../images/ico/view_x.png" border="0"> di
-        atas untuk melihat daftar siswa sesuai dengan Departemen dan Jenis Pencarian berdasarkan <i>keyword</i> yang dimasukkan</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border="0"> 
+        above to show Student List according to Department and Search Type by <i>keyword</i> entered.</b></font>    </td>
 </tr>
 </table>
 </body>

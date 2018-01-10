@@ -1,11 +1,11 @@
-function Tambah()
+function Add()
 {
     var nip = document.getElementById('nip').value;
 	var addr = "gajiaddjadwal.php?nip="+nip;
     newWindow(addr, 'TambahJadwalGaji','480','250','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
-function Ubah(id)
+function Change(id)
 {
 	var addr = "gajieditjadwal.php?id="+id;
     newWindow(addr, 'UbahJadwalGaji','480','250','resizable=1,scrollbars=1,status=0,toolbar=0');
@@ -19,7 +19,7 @@ function Refresh()
 
 function Hapus(id)
 {
-	if (confirm('Apakah anda yakin akan menghapus jadwal ini?'))
+	if (confirm('Are you sure want to delete this schedule?'))
     {
         var nip = document.getElementById('nip').value;
 		document.location.href = "daftargaji.php?id="+id+"&op=1dn09387120n89x713891203712089312&nip="+nip;
@@ -41,7 +41,7 @@ function TambahR()
 
 function HapusR(id)
 {
-	if (confirm("Apakah anda yakin akan menghapus data ini?"))
+	if (confirm("Are you sure want to delete this data?"))
 	{
 		var nip = document.getElementById('nip').value;
 		document.location.href = "daftargaji.php?id="+id+"&op=mnrmd2re2dj2mx2x2x3d2s33&nip="+nip;
@@ -56,7 +56,7 @@ function Cetak()
 
 function ChangeLast(id)
 {
-	if (confirm('Apakah anda yakin akan mengubah menjadi gaji yang aktif saat ini?'))
+	if (confirm('Are you sure want to change this to the latest active salary?'))
     {
         var nip = document.getElementById('nip').value;
 		document.location.href = "daftargaji.php?id="+id+"&op=cn0948cm2478923c98237n23&nip="+nip;

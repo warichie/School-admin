@@ -38,7 +38,7 @@ if (SI_USER_LEVEL()==0){
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <table width="100%" border="0">
   <tr>
-	<td id="up"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>CATATAN KEJADIAN SISWA</strong></font></p></td>
+	<td id="up"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>STUDENT NOTES</strong></font></p></td>
   </tr>
   <tr>
     <td>

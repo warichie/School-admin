@@ -53,7 +53,7 @@ $departemen = $row[4];
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Pembayaran Per Siswa</title>
+<title>Student Payment Reports</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -64,25 +64,25 @@ $departemen = $row[4];
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>DATA PEMBAYARAN CALON SISWA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>STUDENT CANDIDATE PAYMENT DATA</strong></font><br /> </center><br /><br />
 
 <table border="0">
 <tr>
-	<td><strong>Calon Siswa </strong></td>
+	<td><strong>Student Candidate </strong></td>
     <td><strong>: <?=$no . " - " . $namacalon?></strong></td>
 </tr>
 <tr>
-	<td><strong>Proses </strong></td>
+	<td><strong>Process </strong></td>
     <td><strong>: <?=$proses?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelompok </strong></td>
+	<td><strong>Group </strong></td>
     <td><strong>: <?=$kelompok?></strong></td>
 </tr>
 
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) . " s/d " . LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) . " to " . LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -123,23 +123,23 @@ while ($row = mysql_fetch_array($result))
         <td colspan="4" bgcolor="#99CC00"><font size="2"><strong><em><?=$namapenerimaan?></em></strong></font></td>
     </tr>    
     <tr height="25">
-        <td width="20%" bgcolor="#CCFF66"><strong>Total Bayaran</strong> </td>
+        <td width="20%" bgcolor="#CCFF66"><strong>Total Payment</strong> </td>
         <td width="15%" bgcolor="#FFFFFF" align="right"><?=FormatRupiah($besar) ?></td>
-        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Pembayaran Terakhir</strong></td>
-        <td width="43%" bgcolor="#CCFF66" align="center"><strong>Keterangan</strong></td>
+        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Last Payment</strong></td>
+        <td width="43%" bgcolor="#CCFF66" align="center"><strong>Info</strong></td>
     </tr>
     <tr height="25">
-        <td bgcolor="#CCFF66"><strong>Jumlah Besar Pembayaran</strong> </td>
+        <td bgcolor="#CCFF66"><strong>Payment Amount</strong> </td>
         <td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($pembayaran) ?></td>
         <td bgcolor="#FFFFFF" align="center" valign="top" rowspan="3"><?=FormatRupiah($byrakhir) . "<br><i>" . $tglakhir . "</i><br>(diskon " . FormatRupiah($dknakhir) . ")" ?> </td>
         <td bgcolor="#FFFFFF" align="left" valign="top" rowspan="3"><?=$keterangan ?></td>
     </tr>
 	<tr height="25">
-        <td bgcolor="#CCFF66"><strong>Jumlah Diskon</strong> </td>
+        <td bgcolor="#CCFF66"><strong>Discount</strong> </td>
         <td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($diskon) ?></td>
     </tr>
     <tr height="25">
-        <td bgcolor="#CCFF66"><strong>Sisa Bayaran</strong> </td>
+        <td bgcolor="#CCFF66"><strong>Remaining Payment</strong> </td>
         <td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($sisa) ?></td>
     </tr>
     <tr height="3">
@@ -174,9 +174,9 @@ while ($row = mysql_fetch_array($result)) {
         <td colspan="4" bgcolor="#99CC00"><font size="2"><strong><em><?=$namapenerimaan?></em></strong></font></td>
     </tr>  
    	<tr height="25">
-        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Total Pembayaran</strong> </td>
-        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Pembayaran Terakhir</strong></td>
-        <td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><strong>Keterangan</strong></td>
+        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Total Payment</strong> </td>
+        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Last Payment</strong></td>
+        <td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><strong>Info</strong></td>
     </tr>
     <tr height="25">
         <td bgcolor="#FFFFFF" align="center"><?=FormatRupiah($pembayaran) ?></td>

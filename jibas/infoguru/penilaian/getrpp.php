@@ -43,4 +43,4 @@ OpenDb();
 <? } ?>
 
 	</select>
-	<img src="../images/ico/tambah.png" onClick="get_rpp('<?=$_REQUEST['tingkat']?>','<?=$_REQUEST['pelajaran']?>','<?=$_REQUEST['semester']?>')" onMouseOver="showhint('Tambah RPP!', this, event, '80px')">
+	<img src="../images/ico/tambah.png" onClick="get_rpp('<?=$_REQUEST['tingkat']?>','<?=$_REQUEST['pelajaran']?>','<?=$_REQUEST['semester']?>')" onMouseOver="showhint('Add Lesson Plans', this, event, '80px')">

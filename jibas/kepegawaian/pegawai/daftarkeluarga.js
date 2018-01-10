@@ -5,7 +5,7 @@ function TambahS()
     newWindow(addr, 'TambahKeluarga','450','290','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
-function Ubah(id)
+function Change(id)
 {
 	var addr = "keluargaedit.php?id="+id;
     newWindow(addr, 'UbahKeluarga','450','290','resizable=1,scrollbars=1,status=0,toolbar=0');
@@ -19,7 +19,7 @@ function Refresh()
 
 function Hapus(id)
 {
-	if (confirm("Apakah anda yakin akan menghapus data ini?"))
+	if (confirm("Are you sure want to delete this data?"))
 	{
 		var nip = document.getElementById('nip').value;
 		document.location.href = "daftarkeluarga.php?id="+id+"&op=mnrmd2re2dj2mx2x2x3d2s33&nip="+nip;

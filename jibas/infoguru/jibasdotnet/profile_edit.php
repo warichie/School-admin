@@ -132,7 +132,7 @@ function reloadpage($dest){
 ?>
 <html>
 <head>
-<title>Profil Guru</title>
+<title>Teacher Profile</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="../style/style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
@@ -179,8 +179,8 @@ function change_page(page) {
     <td height="20" colspan="3" >&nbsp;</td>
   </tr>  
   <tr>
-    <td height="20" colspan="4" >&nbsp;&nbsp;<input name="ubah" type="button" class="but" style="width:100px;" value="Lihat Profil" onClick="document.location.href='profile.php'">
-    <!--&nbsp;<input name="tema" type="button" class="header" style="width:100px;" value="Tema Profil">&nbsp;<input name="ngobrol" type="button" class="header" style="width:100px;" value="Ajak Ngobrol">&nbsp;<input name="pesan" type="button" class="header" style="width:100px;" value="Kirim Pesan">--></td>
+    <td height="20" colspan="4" >&nbsp;&nbsp;<input name="ubah" type="button" class="but" style="width:100px;" value="See Profile" onClick="document.location.href='profile.php'">
+    <!--&nbsp;<input name="tema" type="button" class="header" style="width:100px;" value="Profile Theme">&nbsp;<input name="ngobrol" type="button" class="header" style="width:100px;" value="Chat">&nbsp;<input name="pesan" type="button" class="header" style="width:100px;" value="Send Message">--></td>
   </tr>
   <tr>
     <td width="19" height="20" style="background-image:url(../images_slice/bg_profil80_01.png); background-repeat:no-repeat; background-position:right;">&nbsp;</td>
@@ -192,27 +192,27 @@ function change_page(page) {
     <td width="453" valign="top" style="background-image:url(../images_slice/bg_profil80_08.png); background-repeat:repeat;">
  <table border="0" cellspacing="2" >
   <tr>
-    <th width="57" height="25" scope="row"><div align="left">Nama </div></th>
+    <th width="57" height="25" scope="row"><div align="left">Name </div></th>
     <th width="2" scope="row">:</th>
     <td width="294" height="25"><div align="left">
     <input name="nama" id="nama" type="text" value="<?=$row[nama]?>" />
     </div></td>
   </tr>
   <tr>
-    <th height="25" scope="row" valign="top"><div align="left">Alamat </div></th>
+    <th height="25" scope="row" valign="top"><div align="left">Address </div></th>
     <th width="2" height="25" scope="row" valign="top">:</th>
     <td height="25"><div align="left">
     <textarea name="alamat" id="alamat"><?=$row[alamat]?></textarea>
     </div></td>
   </tr>
   <tr>
-    <th height="25" scope="row"><div align="left">Telepon </div></th>
+    <th height="25" scope="row"><div align="left">Phone </div></th>
     <th width="2" height="25" scope="row">:</th>
     <td height="25"><div align="left">
     <input name="telpon" id="telpon" type="text" value="<?=$row[telpon]?>" /></div></td>
   </tr>
   <tr>
-    <th height="25" scope="row"><div align="left">HP </div></th>
+    <th height="25" scope="row"><div align="left">Mobile </div></th>
     <th width="2" height="25" scope="row">:</th>
     <td height="25"><div align="left">
     <input name="hp" id="hp" type="text" value="<?=$row[hp]?>" /></div></td>
@@ -234,7 +234,7 @@ function change_page(page) {
     </div></th>
   </tr>
   <tr>
-    <th valign="top" scope="row"><div align="left">Foto</div></th>
+    <th valign="top" scope="row"><div align="left">Photo</div></th>
     <th width="2" valign="top" scope="row">:</th>
     <th align="left" valign="top" scope="row">
 	<?	
@@ -256,12 +256,12 @@ function change_page(page) {
 		?>
 	<img id="gambar" src="../library/gambar.php?replid=<?=$row[replid]?>&table=jbsvcr.profil" width="<?=$new_w?>" height="<?=$new_h?>"  />
 	<? } ?>
-	<input name="foto" id="foto" type="file" size="20" title="Ganti Foto" /><br>
+	<input name="foto" id="foto" type="file" size="20" title="Edit Photo" /><br>
       <span class="style1 style5">(Isi untuk merubah gambar profil..)      </span></th>
     </tr>
   <tr>
-    <th valign="top" scope="row"><div align="left">Latar<br>
-      Belakang</div></th>
+    <th valign="top" scope="row"><div align="left">Background<br>
+      </div></th>
     <th valign="top" scope="row">:</th>
     <th align="left" valign="top" scope="row">
 	<? if ($row[bg]!="") {
@@ -280,8 +280,8 @@ function change_page(page) {
 		}
 		?>
 	<img id="gambarlatar" src="../library/gambarlatar.php?replid=<?=$row[replid]?>&table=jbsvcr.profil" width="<?=$new_w?>" height="<?=$new_h?>"  />
-	<? }  ?><input name="latar" id="latar" type="file" size="20" title="Ganti Gambar Latar" /><br>
-      <span class="style1 style5">(Isi untuk merubah gambar latar belakang ..)      </span></th>
+	<? }  ?><input name="latar" id="latar" type="file" size="20" title="Edit Background Image" /><br>
+      <span class="style1 style5">(Isi untuk merubah gambar latar belakang)      </span></th>
   </tr>
   <tr>
     <th colspan="3" scope="row"></th>
@@ -291,7 +291,7 @@ function change_page(page) {
  
   
   <tr>
-    <th valign="top" scope="row"><div align="left">Buku&nbsp;Favorit</div></th>
+    <th valign="top" scope="row"><div align="left">Favorite&nbsp;Books</div></th>
     <th width="2" valign="top" scope="row">:</th>
     <th align="left" valign="top" scope="row"><div align="left">
       
@@ -301,7 +301,7 @@ function change_page(page) {
   </tr>
   
   <tr>
-    <th valign="top" scope="row"><div align="left">Riwayat&nbsp;Hidup</div></th>
+    <th valign="top" scope="row"><div align="left">Life&nbsp;History</div></th>
     <th width="2" valign="top" scope="row">:</th>
     <th align="left" valign="top" scope="row"><div align="left">
       
@@ -310,7 +310,7 @@ function change_page(page) {
     </div></th>
   </tr>
   <tr>
-    <th valign="top" scope="row"><div align="left">Tentang&nbsp;Saya</div></th>
+    <th valign="top" scope="row"><div align="left">About&nbsp;Me</div></th>
     <th width="2" valign="top" scope="row">:</th>
     <th align="left" valign="top" scope="row">
 	<textarea name="tentang" id="tentang" ><?=$row[tentang]?></textarea></th>
@@ -330,9 +330,9 @@ function change_page(page) {
   <tr>
     <td style="background-image:url(../images_slice/bg_profil80_07.png); background-repeat:repeat-y; background-position:right;">&nbsp;</td>
     <td colspan="2" valign="top" style="background-image:url(../images_slice/bg_profil80_08.png); background-repeat:repeat;"><div align="center">
-  <input name="simpan" type="submit" class="but" id="simpan" value="Simpan">
+  <input name="simpan" type="submit" class="but" id="simpan" value="Save">
   &nbsp;&nbsp;
-      <input name="batal" type="button" class="but" id="batal" value="Batal" onClick="window.self.history.back();">
+      <input name="batal" type="button" class="but" id="batal" value="Cancel" onClick="window.self.history.back();">
     </div></td>
     <td style="background-image:url(../images_slice/bg_profil80_09.png); background-repeat:repeat-y;">&nbsp;</td>
   </tr>

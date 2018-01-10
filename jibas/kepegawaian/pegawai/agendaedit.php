@@ -75,7 +75,7 @@ if (isset($_REQUEST['btSubmit'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Ubah Agenda Kepegawaian</title>
+<title>Edit Employee Affair Agenda</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -91,12 +91,12 @@ function AcceptPegawai(nip, nama) {
 }
 
 function validate() {
-	return validateEmptyText('txThn', 'Tanggal Jadwal Agenda') && 
-  		   validateInteger('txThn', 'Bulan Jadwal Agenda') && 
-		   validateLength('txThn', 'Tahun Jadwal Agenda', 4) && 
-		   validateEmptyText('txNIP', 'NIP Pegawai') &&
-		   validateEmptyText('txKeterangan', 'Keterangan Agenda') &&
-		   confirm("Data sudah benar?");
+	return validateEmptyText('txThn', 'Date Jadwal Agenda') && 
+  		   validateInteger('txThn', 'Month Jadwal Agenda') && 
+		   validateLength('txThn', 'Year Jadwal Agenda', 4) && 
+		   validateEmptyText('txNIP', 'Employee ID') &&
+		   validateEmptyText('txKeterangan', 'Info Agenda') &&
+		   confirm("The data is correct?");
 }
 </script>
 </head>
@@ -109,13 +109,13 @@ function validate() {
 <input type="hidden" name="thn" id="thn" value="<?=$thn?>" />
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr height="30">
-	<td width="100%" class="header" align="center">Ubah Agenda Kepegawaian</td>
+	<td width="100%" class="header" align="center">Edit Employee Affair Agenda</td>
 </tr>
 <tr><td width="100%" align="center">
     
     <table border="0" cellpadding="3" cellspacing="2" width="100%">
     <tr>
-        <td align="right" width="90" valign="top"><strong>Tanggal :</strong></td>
+        <td align="right" width="90" valign="top"><strong>Date :</strong></td>
         <td width="*" align="left" valign="top">
        	 <select id="cbTgl" name="cbTgl" onKeyPress="return focusNext('cbBln', event)">
  		   <?	for ($i = 1; $i <= 31; $i++) { ?>    
@@ -130,7 +130,7 @@ function validate() {
         <input type="text" name="txThn" onKeyPress="return focusNext('txKeterangan', event)" id="txThn" size="4" maxlength="4" value="<?=$thn?>"/>       </td>
 	</tr>
     <tr>
-        <td align="right" valign="top"><strong>Pegawai :</strong></td>
+        <td align="right" valign="top"><strong>Employee :</strong></td>
         <td width="*" align="left" valign="top">
         	<input type="text" name="txNIP" id="txNIP" size="10" readonly="readonly" style="background-color:#CCCCCC" value="<?=$nip?>" />
             <input type="text" name="txNama" id="txNama" size="30" readonly="readonly" style="background-color:#CCCCCC" value="<?=$nama?>" />
@@ -152,15 +152,15 @@ function validate() {
         </td>
 	</tr>
     <tr>
-        <td align="right" valign="top"><strong>Keterangan :</strong></td>
+        <td align="right" valign="top"><strong>Info :</strong></td>
         <td width="*" align="left" valign="top">
         	<textarea id="txKeterangan" name="txKeterangan" rows="3" cols="50"><?=$ket?></textarea>
         </td>
 	</tr>
     <tr>
     	<td colspan="2" align="center">
-        	<input type="submit" name="btSubmit" id="btSubmit" class="but" value="Simpan" />&nbsp;
-            <input type="button" class="but" value="Tutup" onClick="window.close()"/>
+        	<input type="submit" name="btSubmit" id="btSubmit" class="but" value="Save" />&nbsp;
+            <input type="button" class="but" value="Close" onClick="window.close()"/>
         </td>
     </tr>
     </table>

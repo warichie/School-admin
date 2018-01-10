@@ -70,7 +70,7 @@ if ($op == "dw8dxn8w9ms8zs22") {
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Rencana Program Pembelajaran</title>
+<title>Lesson Plans</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -108,10 +108,10 @@ function setaktif(replid, aktif) {
 	var newaktif;
 	
 	if (aktif == 1) {
-		msg = "Apakah anda yakin akan mengubah rencana program pembelajaran ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this Lesson Plans to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin akan mengubah rencana program pembelajaran ini menjadi AKTIF?";
+		msg = "Are you sure want to change this Lesson Plans to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -130,7 +130,7 @@ function hapus(replid) {
 	var urut = document.getElementById('urut').value;
 	var urutan = document.getElementById('urutan').value;
 	var departemen = document.getElementById('departemen').value;
-	if (confirm("Apakah anda yakin akan menghapus rencana program pembelajaran ini?"))
+	if (confirm("Are you sure want to delete this Lesson Plans?"))
 		document.location.href = "rpp_footer.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&semester="+semester+"&pelajaran="+pelajaran+"&tingkat="+tingkat+"&urut="+urut+"&urutan="+urutan+"&departemen="+departemen;
 }
 
@@ -182,9 +182,9 @@ if (@mysql_num_rows($result) > 0){
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="right">            
-    	<a href="JavaScript:refresh()" ><img src="../images/ico/refresh.png" border="0" name="refresh" id="refresh" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak('<?=$urut?>','<?=$urutan?>')" ><img src="../images/ico/print.png" border="0" name="cetak" id="cetak" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-   	    <a href="JavaScript:tambah()" ><img src="../images/ico/tambah.png" border="0" name="tambah" id="tambah" onMouseOver="showhint('Tambah!', this, event, '50px')"/>&nbsp;Tambah Rencana</a>
+    	<a href="JavaScript:refresh()" ><img src="../images/ico/refresh.png" border="0" name="refresh" id="refresh" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak('<?=$urut?>','<?=$urutan?>')" ><img src="../images/ico/print.png" border="0" name="cetak" id="cetak" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
+   	    <a href="JavaScript:tambah()" ><img src="../images/ico/tambah.png" border="0" name="tambah" id="tambah" onMouseOver="showhint('Add', this, event, '50px')"/>&nbsp;Add Plans</a>
  	</td>
 	</tr>          
     </table>
@@ -196,10 +196,10 @@ if (@mysql_num_rows($result) > 0){
 <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="center" bordercolor="#000000">
 <!-- TABLE CONTENT -->
 <tr height="30" class="header" align="center">
-	<td width="4%">No</td>        
-    <td width="8%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('koderpp','<?=$urutan?>')">Kode <?=change_urut('koderpp',$urut,$urutan)?></td>    
-	<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('rpp','<?=$urutan?>')">Materi <?=change_urut('rpp',$urut,$urutan)?></td>
-    <td width="*">Deskripsi</td>
+	<td width="4%">#</td>        
+    <td width="8%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('koderpp','<?=$urutan?>')">Code <?=change_urut('koderpp',$urut,$urutan)?></td>    
+	<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('rpp','<?=$urutan?>')">Subject <?=change_urut('rpp',$urut,$urutan)?></td>
+    <td width="*">Description</td>
     <td width="8%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('aktif','<?=$urutan?>')">Status <?=change_urut('aktif',$urut,$urutan)?></td>	    
     <? //if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
     <td width="*">&nbsp;</td>
@@ -217,23 +217,23 @@ if (@mysql_num_rows($result) > 0){
     <td align="center">  
 <?		//if (SI_USER_LEVEL() == $SI_USER_STAFF) {  
 		//	if ($row[4] == 1) { ?> 
-     	<!--<img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')"/>-->
+     	<!--<img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '50px')"/>-->
 <?		//	} else { ?>                
-        <!--<img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '50px')"/>-->
+        <!--<img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Inactive', this, event, '50px')"/>-->
 <?		//	}
 		//} else { 
 			if ($row[4] == 1) { ?>
-        <a href="JavaScript:setaktif(<?=$row[0] ?>, <?=$row[4] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')"/></a>
+        <a href="JavaScript:setaktif(<?=$row[0] ?>, <?=$row[4] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '50px')"/></a>
 <?			} else { ?>
-        <a href="JavaScript:setaktif(<?=$row[0] ?>, <?=$row[4] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '50px')"/></a>
+        <a href="JavaScript:setaktif(<?=$row[0] ?>, <?=$row[4] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Inactive', this, event, '50px')"/></a>
 <?			} //end if
 		//} //end if ?>        
 	</td>
     
 <?		//if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?> 
     <td align="center">
-    	<a href="JavaScript:edit(<?=$row[0] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah RPP!', this, event, '50px')"/></a>&nbsp;
-        <a href="JavaScript:hapus(<?=$row[0] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus RPP!', this, event, '50px')"/></a>
+    	<a href="JavaScript:edit(<?=$row[0] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Lesson Plans', this, event, '50px')"/></a>&nbsp;
+        <a href="JavaScript:hapus(<?=$row[0] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete', this, event, '50px')"/></a>
 	</td>
 <?		//} ?>  
 </tr>
@@ -249,9 +249,9 @@ if (@mysql_num_rows($result) > 0){
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="250">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
+    	<font size = "2" color ="red"><b>Data Not Found.
        <? //if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru.
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data.
         <? //} ?>
         </p></b></font>
 	</td>

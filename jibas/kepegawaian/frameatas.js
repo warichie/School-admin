@@ -47,7 +47,7 @@ function MM_nbGroup(event, grpName) { //v6.0
 }
 
 function logout(){
-	if (confirm('Keluar dari JIBAS Kepegawaian?'))
+	if (confirm('Logout from JIBAS Employee Affair?'))
 	{
 		document.location.href="logout.php";
 	}

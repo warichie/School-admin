@@ -74,12 +74,12 @@ function validate(){
 	var judul=document.getElementById('judul').value;
 	var pesan=tinyMCE.get('pesan').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Pesan');
+		alert ('Message Title should not leave empty');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (pesan.length==0){
-		alert ('Anda harus mengisikan data untuk Pesan');
+		alert ('Message should not leave empty');
 		document.getElementById('pesan').focus();
 		return false;
 	}
@@ -122,22 +122,22 @@ function simpan(){
 <input type="hidden" name="sender" id="sender" value="tambah" />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td scope="row" align="left"><span class="style1"><font size="2">Tulis pesan untuk Siswa</font></span><br />
+    <td scope="row" align="left"><span class="style1"><font size="2">Write  message for Student</font></span><br />
       <br /></td>
   </tr>
   <tr>
     <td scope="row" align="left">
     <table width="100%" border="0" cellspacing="2" cellpadding="2" >
   <tr>
-    <th width="19%" scope="row">Judul</th>
+    <th width="19%" scope="row">Title</th>
     <td width="81%"><input type="text" name="judul" id="judul" size="50" style="width:100%" /></td>
   </tr>
   <tr>
-    <th scope="row">Tanggal&nbsp;Tampil</th>
-    <td><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <th scope="row">Date&nbsp;Published</th>
+    <td><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
   <tr>
-    <th colspan="2" valign="top" scope="row">Pesan<br />
+    <th colspan="2" valign="top" scope="row">Message<br />
       <textarea name="pesan" id="pesan" rows="27" style="width:100%"></textarea></th>
     </tr>
 </table>

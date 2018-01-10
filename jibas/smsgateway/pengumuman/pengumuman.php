@@ -48,8 +48,8 @@ $P = new Pengumuman();
   <tr>
     <td height="50"  valign="top">
     <div id="SubTitle" align="left">
-    <span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Kirim Pengumuman</span><br />
-    <a href="pengumuman.main.php">Pengumuman</a> > Kirim Pengumuman
+    <span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Send Announcement</span><br />
+    <a href="pengumuman.main.php">Announcement</a> > Send Announcement
     </div>
     </td>
     <td width="100%" rowspan="2" valign="top">

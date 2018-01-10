@@ -40,7 +40,7 @@ if (isset($_REQUEST['bagian']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Daftar Pegawai]</title>
+<title>JIBAS SIMAKA [Employee List]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <link rel="stylesheet" type="text/css" href="../script/tooltips.css" />
 <link href="../script/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
@@ -75,7 +75,7 @@ function pilih(nip, nama) {
 
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#FFFFFF">
 <!--<div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>-->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="58">
@@ -93,8 +93,8 @@ function pilih(nip, nama) {
         
         <div id="TabbedPanels1" class="TabbedPanels">
             <ul class="TabbedPanelsTabGroup">
-                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Pilih Pegawai</font></li>
-                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Cari Pegawai</font></li>
+                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Select Employee</font></li>
+                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Search Employee</font></li>
             </ul>
             <div class="TabbedPanelsContentGroup">
                 <div class="TabbedPanelsContent" id="panel0"></div>
@@ -152,7 +152,7 @@ function carilah(){
 	var nama = document.getElementById('nama').value;
 	
 	if (nip == "" && nama == "") {
-		alert ('NIP atau Nama Pegawai tidak boleh kosong!');
+		alert ('Employee ID or Name should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}

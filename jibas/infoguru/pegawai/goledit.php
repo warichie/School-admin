@@ -71,15 +71,15 @@ else
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 function validate() {
-	return validateEmptyText('txThnTMTGol', 'Tahun TMT Golongan Pegawai') && 
-  		   validateInteger('txThnTMTGol', 'Tahun TMT Golongan Pegawai') && 
-		   validateLength('txThnTMTGol', 'Tahun TMT Golongan Pegawai', 4);
+	return validateEmptyText('txThnTMTGol', 'Year TMT Golongan Pegawai') && 
+  		   validateInteger('txThnTMTGol', 'Year TMT Golongan Pegawai') && 
+		   validateLength('txThnTMTGol', 'Year TMT Golongan Pegawai', 4);
 }
 
 function focusNext(elemName, evt) {
@@ -100,14 +100,14 @@ function focusNext(elemName, evt) {
 <input type="hidden" name="id" id="id" value="<?=$id?>" />
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr height="30">
-	<td width="100%" class="header" align="center">Ubah Golongan</td>
+	<td width="100%" class="header" align="center">Edit Position Order</td>
 </tr>
 <tr>
 	<td width="100%" align="center">
     
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
-        <td align="right" valign="top" width="22%"><strong>Golongan :</strong></td>
+        <td align="right" valign="top" width="22%"><strong>Position Order :</strong></td>
         <td width="*" align="left" valign="top">
         <select name="cbGolongan" id="cbGolongan" onKeyPress="return focusNext('cbTglTMTGol', event)">
     <?	OpenDb();
@@ -138,13 +138,13 @@ function focusNext(elemName, evt) {
         </td>
 	</tr>
     <tr>
-    	<td align="right">SK : </td>
+    	<td align="right">Legal Number : </td>
 	    <td align="left" valign="top">
         <input type="text" name="txSK" value="<?=$sk?>" id="txSK" size="30" maxlength="100" onKeyPress="return focusNext('txKeterangan', event)" />
         </td>
     </tr>
     <tr>
-    	<td align="right" valign="top">Keterangan : </td>
+    	<td align="right" valign="top">Info : </td>
 	    <td align="left" valign="top">
         <textarea id="txKeterangan" name="txKeterangan" rows="2" cols="40" onKeyPress="return focusNext('txAlasan', event)"><?=$keterangan?></textarea>
         </td>
@@ -152,8 +152,8 @@ function focusNext(elemName, evt) {
     <tr>
     	<td align="right" valign="top">&nbsp;</td>
 	    <td align="left" valign="top">
-        <input type="submit" value="Simpan" name="btSubmit" id="btSubmit" class="but" />
-        <input type="button" value="Tutup" onClick="window.close()" class="but" />
+        <input type="submit" value="Save" name="btSubmit" id="btSubmit" class="but" />
+        <input type="button" value="Close" onClick="window.close()" class="but" />
         </td> 
     </tr>
     </table>

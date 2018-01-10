@@ -86,7 +86,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Bukti Pengeluaran]</title>
+<title>JIBAS EMA [Proof of Expenditure]</title>
 </head>
 
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
@@ -98,29 +98,29 @@ CloseDb();
 <td colspan="2" align="center" valign="top">
 	<table border="0" cellpadding="2" cellspacing="0" width="90%" align="center">
     <tr>
-    	<td align="right"><font size="2"><strong>No. <?=$nokas ?></strong></font></td>
+    	<td align="right"><font size="2"><strong># <?=$nokas ?></strong></font></td>
     </tr>
     <tr><td align="center">
     	<br />
-        <font size="2"><strong>BUKTI PENGELUARAN KAS</strong></font>
+        <font size="2"><strong>PROOF OF EXPENDITURE</strong></font>
     </td></tr>
     <tr><td align="left">
-    	<br />Telah terima dari:<br />
+    	<br />Received from:<br />
         <table cellpadding="3" width="100%">
         <tr>
         	<td width="20">&nbsp;</td>
-        	<td>Nama</td>
+        	<td>Name</td>
             <td>:&nbsp;<strong><?=$idpemohon . "  " . $namapemohon ?></strong></td>
         </tr>
         
         <tr>
         	<td>&nbsp;</td>
-            <td>Tanggal </td>
+            <td>Date </td>
             <td>:&nbsp;<strong><?=LongDateFormat($tanggal) ?></strong></td>
         </tr>
       
         <tr>
-        	<td colspan="2">Uang sejumlah</td>
+        	<td colspan="2">Money at the amount of</td>
             <td background="../img/bkmoney.png">
             <font size="2"><strong><em>
             <?=FormatRupiah($jumlah) ?>
@@ -136,7 +136,7 @@ CloseDb();
             </td>
         </tr><p>
         <tr>
-        	<td colspan="3">Untuk <?=$keperluan ?></td>
+        	<td colspan="3">For <?=$keperluan ?></td>
         </tr>
         </table>
         
@@ -144,10 +144,10 @@ CloseDb();
         <tr height="160">
         	<td width="40%">
             <fieldset>
-            <legend><em><strong>Keterangan</strong></em></legend>
+            <legend><em><strong>Info</strong></em></legend>
             <table border="0" width="100%">
             <tr height="80"><td valign="top">
-            <i>Tanggal dikeluarkan: <?=LongDateFormat($tanggalkeluar) ?></i><br />
+            <i>Date issued <?=LongDateFormat($tanggalkeluar) ?></i><br />
             <i><?=$keterangan ?></i>
             </td></tr>
             </table>
@@ -157,9 +157,9 @@ CloseDb();
             <?=$G_LOKASI . ", " . LongDateFormat($tglcetak) ?><br /><br />
             <table border="1" width="100%" style="border-collapse:collapse">
             <tr height="90">
-            <td align="center" width="33%" valign="top">Menyetujui<br /><br /><br /><br /><br />______________</td>
-            <td align="center" width="33%" valign="top">Staf Keuangan<br /><br /><br /><br /><br /> <?=$petugas ?></td>
-            <td align="center" width="33%" valign="top">Penerima<br /><br /><br /><br /><br /> <?=$namapemohon ?></td>
+            <td align="center" width="33%" valign="top">Approve<br /><br /><br /><br /><br />______________</td>
+            <td align="center" width="33%" valign="top">Finance Staff<br /><br /><br /><br /><br /> <?=$petugas ?></td>
+            <td align="center" width="33%" valign="top">Recipient<br /><br /><br /><br /><br /> <?=$namapemohon ?></td>
             </tr>
             </table>
             </td>

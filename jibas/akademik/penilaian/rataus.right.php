@@ -48,7 +48,7 @@ function CetakRataUjianSiswa(pel,kls,sem,nis,tkt,dp){
 <div style="padding-bottom:10px; padding-top:0px">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td style="padding-right:5px"><strong>Pelajaran</strong></td>
+    <td style="padding-right:5px"><strong>Class Subject</strong></td>
     <td style="color:#666666; font-weight:bold">
     <?
     $sql = "SELECT nama,departemen FROM pelajaran WHERE replid='$pel'";
@@ -61,7 +61,7 @@ function CetakRataUjianSiswa(pel,kls,sem,nis,tkt,dp){
     </td>
   </tr>
   <tr>
-    <td><strong>Guru</strong></td>
+    <td><strong>Teacher</strong></td>
     <td style="color:#666666; font-weight:bold">
     <?
     $sql = "SELECT p.nama FROM jbssdm.pegawai p, guru g WHERE g.idpelajaran='$pel' AND g.nip=p.nip";
@@ -122,7 +122,7 @@ function CetakRataUjianSiswa(pel,kls,sem,nis,tkt,dp){
 					while ($row5 = @mysql_fetch_array($res5))
 					{ ?>
 					<div class="TabbedPanelsContent">
-						<div align="right"><span style="cursor:pointer" onclick="CetakRataUjianSiswa('<?=$pel?>','<?=$kls?>','<?=$semester[$i][0]?>','<?=$nis?>','<?=$tkt?>','<?=$row5['dasarpenilaian']?>')"><img src="../images/ico/print.png" width="16" height="16" border="0" />&nbsp;<b>Cetak</b></span></div>
+						<div align="right"><span style="cursor:pointer" onclick="CetakRataUjianSiswa('<?=$pel?>','<?=$kls?>','<?=$semester[$i][0]?>','<?=$nis?>','<?=$tkt?>','<?=$row5['dasarpenilaian']?>')"><img src="../images/ico/print.png" width="16" height="16" border="0" />&nbsp;<b>Print</b></span></div>
 						<?
 						$sql = "SELECT j.replid, j.jenisujian, a.replid FROM aturannhb a, jenisujian j WHERE  a.idpelajaran='$pel' AND a.dasarpenilaian='$row5[dasarpenilaian]' AND a.idjenisujian=j.replid AND a.idtingkat='$tkt' ORDER BY j.jenisujian";
 
@@ -172,13 +172,13 @@ function CetakRataUjianSiswa(pel,kls,sem,nis,tkt,dp){
 							  <legend><?=$row[1]?></legend>
 									<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table_<?=$i?>_<?=$cnt2?>">
 									  <tr>
-										<td width="5%" align="center" class="header">No</td>
-										<td width="*" align="center" class="header">Tanggal/Materi</td>
-										<td width="12%" align="center" class="header">Nilai</td>
-										<td width="12%" align="center" class="header">Rata-rata Kelas</td>
+										<td width="5%" align="center" class="header">#</td>
+										<td width="*" align="center" class="header">Date/Class Subject</td>
+										<td width="12%" align="center" class="header">Point</td>
+										<td width="12%" align="center" class="header">Class Index Cumulative</td>
 										<td width="12%" align="center" class="header">%</td>
-										<td width="12%" align="center" class="header">Rata-rata Nilai</td>
-										<td width="12%" align="center" class="header">Nilai Akhir</td>
+										<td width="12%" align="center" class="header">Index Point</td>
+										<td width="12%" align="center" class="header">Grade Point</td>
 									  </tr>
 									<?
 									if ($num2>0){
@@ -205,7 +205,7 @@ function CetakRataUjianSiswa(pel,kls,sem,nis,tkt,dp){
 									} else {
 										?>
 										<tr>
-											<td height="25" colspan="7" align="center" class="miring">Tidak ada data</td>
+											<td height="25" colspan="7" align="center" class="miring">Data Not Found.</td>
 										</tr>
 										<?
 									}	

@@ -47,8 +47,8 @@ $DD->OnStart();
 <body>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Daftar Penerimaan Denda</font><br />
-        <a href="pengembalian.php" class="welc">Pengembalian</a><span class="welc"> > Daftar Penerimaan Denda</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Fine Admission List</font><br />
+        <a href="pengembalian.php" class="welc">Return</a><span class="welc"> > Fine Admission List</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$DD->Content()?>

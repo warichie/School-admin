@@ -33,9 +33,9 @@ if (isset($_REQUEST['replid']))
 if (isset($_REQUEST['state']))
 	$state = $_REQUEST['state'];
 if ($state=='1') {
-	$title = "Ubah Komentar";
+	$title = "Edit Comment";
 } else {
-	$title = "Tambah Komentar";
+	$title = "Add Comment";
 }
 
 if (isset($_REQUEST['komentar']))
@@ -64,7 +64,7 @@ window.close();
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>Ubah Komentar</TITLE>
+<TITLE>Edit Comment</TITLE>
 <META NAME="Generator" CONTENT="EditPlus">
 <META NAME="Author" CONTENT="">
 <META NAME="Keywords" CONTENT="">
@@ -113,14 +113,14 @@ $ada_get_comment=@mysql_num_rows($result_get_comment);
     <td valign="bottom">
     <table width="100%" border="1" height="100%">
   <tr>
-    <td width="7%"><strong>NIS</strong></td>
+    <td width="7%"><strong>Student ID</strong></td>
     <td width="1%"><strong>:</strong></td>
     <td width="92%"><strong>
       <?=$row_get_comment[2]?>
     </strong></td>
     </tr>
   <tr>
-    <td><strong>Nama</strong></td>
+    <td><strong>Name</strong></td>
     <td><strong>:</strong></td>
     <td><strong>
       <?=$row_get_comment[1]?>
@@ -139,9 +139,9 @@ $ada_get_comment=@mysql_num_rows($result_get_comment);
   </tr>
    <tr valign="top">
     <td><div align="center">
-      <input name="Simpan" type="submit" class="but" id="Simpan" value="Simpan" style="width:100px">
+      <input name="Simpan" type="submit" class="but" id="Simpan" value="Save" style="width:100px">
       &nbsp;
-      <input name="Tutup" type="button" class="but" id="Tutup" onClick="window.close()" value="Tutup" style="width:100px">
+      <input name="Tutup" type="button" class="but" id="Tutup" onClick="window.close()" value="Close" style="width:100px">
     </div></td>
   </tr>
 </table>

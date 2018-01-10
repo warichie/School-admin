@@ -1,7 +1,7 @@
 <?
 ////
 // INJECTION CODE
-//  - untuk mengupgrade data JIBAS keuangan agar menjadi sesuai dengan versi 2.1 atau lebih
+//  - untuk mengupgrade data JIBAS keuangan agar menjadi according to versi 2.1 or lebih
 //  - this script will be removed on future release
 
 //require_once('../include/common.php');
@@ -99,7 +99,7 @@ function fixBesarJttCalon_01($departemen)
 			
 			if ($n == 3)
 			{
-				// Perbaiki cicilan pertama yang terdiri dari 3 koderek ==> Calon Siswa membayar cicilan pertama
+				// Perbaiki cicilan pertama yang terdiri from 3 koderek ==> Student Candidate membayar cicilan pertama
 				$sql = "SELECT debet FROM jurnaldetail WHERE idjurnal = '$idjurnal' AND koderek = '$rekkas'";
 				$kas = FetchSingle($sql);
 				
@@ -128,7 +128,7 @@ function fixBesarJttCalon_01($departemen)
 			{
 				if ($besarjtt != $jumlah)
 				{
-					// BUGS: Perbaiki cicilan pertama menjadi 3 koderek ==> Siswa membayar cicilan pertama
+					// BUGS: Perbaiki cicilan pertama menjadi 3 koderek ==> Student membayar cicilan pertama
 					
 					$sql = "DELETE FROM jurnaldetail WHERE idjurnal = $idjurnal";
 					QueryDbTrans($sql, $success);
@@ -232,7 +232,7 @@ function fixBesarJttCalon_02($departemen)
 			$sql = "SELECT COUNT(replid) FROM besarjttcalon WHERE idcalon = '$idcalon' AND idpenerimaan = '$idpenerimaan' AND info2 = '$idtahunbuku'";
 			if (FetchSingle($sql) == 0)
 			{
-				//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+				//Ambil awalan and cacah tahunbuku untuk bikin nokas;
 				$sql = "SELECT awalan, cacah, tanggalmulai FROM tahunbuku WHERE replid = '$idtahunbuku'";
 				$row2 = FetchSingleRow($sql);
 				$awalan = $row2[0];
@@ -315,7 +315,7 @@ function fixBesarJttCalon_03($departemen)
 		$rekpendapatan = $row2[2];
 		$namapenerimaan = $row2[3];
 		
-		//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+		//Ambil awalan and cacah tahunbuku untuk bikin nokas;
 		$sql = "SELECT awalan, cacah, tanggalmulai FROM tahunbuku WHERE replid = '$idtahunbuku'";
 		$row2 = FetchSingleRow($sql);
 		$awalan = $row2[0];

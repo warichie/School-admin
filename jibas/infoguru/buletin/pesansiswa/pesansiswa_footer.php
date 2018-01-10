@@ -210,7 +210,7 @@ function hapus(replid){
 	var page=document.getElementById("page").value;
 	var bulan=parent.pesansiswa_header.document.getElementById("bulan").value;
 	var tahun=parent.pesansiswa_header.document.getElementById("tahun").value;
-	if (confirm('Anda yakin akan menghapus pesan ini dan lampiran-lampirannya ?')){ 
+	if (confirm('Are you sure want to delete this message and the attachments?')){ 
 		document.location.href="pesansiswa_footer.php?op=bzux834hx8x7x934983xihxf084&replid="+replid+"&bulan="+bulan+"&tahun="+tahun+"&page="+page;
 	}
 }
@@ -248,10 +248,10 @@ function delpesan(){
 	var num = document.inbox.numdel.value;
 	var list = document.inbox.listdel.value;
 	if (list.length==0){
-		alert ('Minimal ada satu pesan yang akan dihapus');
+		alert ('You should have at least one message to deleted');
 		return false;
 	} else {
-		if (confirm('Anda yakin akan menghapus pesan ini?')){
+		if (confirm('Are you sure want to delete this message?')){
 			document.location.href="pesansiswa_footer.php?op=34983xihxf084bzux834hx8x7x93&listdel="+list+"&numdel="+num;
 		} else {
 			document.getElementById("listdel").value="";
@@ -276,10 +276,10 @@ function savepesan(){
 	var num = document.inbox.numdel.value;
 	var list = document.inbox.listdel.value;
 	if (list.length==0){
-		alert ('Minimal ada satu pesan yang akan dipindahkan ke draft');
+		alert ('You should have at least one message to be moved to Draft');
 		return false;
 	} else {
-		if (confirm('Anda yakin akan memindahkan pesan ini ke draft?')){
+		if (confirm('Are you sure want to move this message to draft?')){
 			document.location.href="pesansiswa_footer.php?op=f3fxxa7svys774l3067den747hhd783uu83&listdel="+list+"&numdel="+num;
 		} else {
 			document.getElementById("listdel").value="";
@@ -291,10 +291,10 @@ function savepesan(){
 <body >
 <form name="inbox" id="inbox"  action="pesansiswa_footer.php">
 <div align="right">
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Kotak Masuk</font><br />
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Inbox</font><br />
     <a href="pesansiswa.php" target="framecenter">
-      <font size="1" color="#000000"><b>Pesan siswa</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Kotak Masuk</b></font>
+      <font size="1" color="#000000"><b>Student Message</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Inbox</b></font>
 </div><br />
 <input type="hidden" name="bulan" id="bulan" value="<?=$bulan?>" />
 <input type="hidden" name="tahun" id="tahun" value="<?=$tahun?>" />
@@ -332,24 +332,24 @@ function savepesan(){
 		}
 	
 	?>
-    Halaman : 
-	<input <?=$disback?> type="button" class="but" title="Sebelumnya" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    Page : 
+	<input <?=$disback?> type="button" class="but" title="Previous" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 	<select name="page" id="page" onChange="chg_page()">
 	<? for ($p=1;$p<=$total;$p++){ ?>
 		<option value="<?=$p-1?>" <?=StringIsSelected($page,$p-1)?>><?=$p;?></option>
 	<? } ?>
 	</select>   
-    <input <?=$disnext?> type="button" class="but" name="next" title="Selanjutnya" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">&nbsp;dari&nbsp;<?=$total?> 
+    <input <?=$disnext?> type="button" class="but" name="next" title="Next" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">&nbsp;from&nbsp;<?=$total?> 
 	<? } ?><br><br>
     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab" id="table">
   <tr>
-    <th width="31" height="30" class="header" scope="row"><div align="center">No</div></th>
-    <td width="28" height="30" class="header"><div align="center"><input type="checkbox" name="cek" id="cek" onClick="cek_all()" title="Pilih semua" onMouseOver="showhint('Pilih semua', this, event, '120px')"/></div></td>
-    <td width="117" class="header"><div align="center">Tanggal</div></td>
-    <td width="492" height="30" class="header"><div align="center">Pengirim</div></td>
-    <td width="22" height="30" class="header" title="Lampiran"><div align="center"></div></td>
-    <td width="240" class="header"><div align="center">Judul</div></td>
-    <!--<td width="191" height="30" class="header"><div align="center">Lampiran</div></td>-->
+    <th width="31" height="30" class="header" scope="row"><div align="center">#</div></th>
+    <td width="28" height="30" class="header"><div align="center"><input type="checkbox" name="cek" id="cek" onClick="cek_all()" title="Select all" onMouseOver="showhint('Select all', this, event, '120px')"/></div></td>
+    <td width="117" class="header"><div align="center">Date</div></td>
+    <td width="492" height="30" class="header"><div align="center">Sender</div></td>
+    <td width="22" height="30" class="header" title="Attachment"><div align="center"></div></td>
+    <td width="240" class="header"><div align="center">Title</div></td>
+    <!--<td width="191" height="30" class="header"><div align="center">Attachment</div></td>-->
    	
    </tr>
   <?
@@ -395,7 +395,7 @@ function savepesan(){
 	$sql2="SELECT direktori,namafile FROM jbsvcr.lampiranpesan WHERE idpesan='$row1[replid2]'";
 	$result2=QueryDb($sql2); 
 	?>
-    <td width="22" height="25"><?=$depan?><? if (@mysql_num_rows($result2)>0){ ?><img title="Disertai Lampiran" src="../../images/ico/attachment1.png"/><? } ?><?=$belakang?></td>
+    <td width="22" height="25"><?=$depan?><? if (@mysql_num_rows($result2)>0){ ?><img title="With Attachment" src="../../images/ico/attachment1.png"/><? } ?><?=$belakang?></td>
     <td height="25"><?=$depan?><? if ($row1['baru']==1) { ?><img src="../../images/ico/unread.png" /><? } else { ?><img src="../../images/ico/readen.png" /><? } ?><a href="#" onClick="bacapesan('<?=$row1['replid']?>')">
 	<? 
 	$judul=substr($row1['judul'],0,20);
@@ -408,7 +408,7 @@ function savepesan(){
     <!--<td><?=$depan?>
     <?
 	//while ($row2=@mysql_fetch_array($result2)){
-		//echo "<a title='Buka lampiran ini!' href=\"#\" onclick=newWindow('".$row2[direktori].$row2[namafile]."','View',640,480,'resizable=1'); ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row2['namafile']."</a><br>";
+		//echo "<a title='Open this attachment' href=\"#\" onclick=newWindow('".$row2[direktori].$row2[namafile]."','View',640,480,'resizable=1'); ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row2['namafile']."</a><br>";
 	//}
 	?><?=$belakang?></td>-->
     
@@ -419,7 +419,7 @@ function savepesan(){
   } 
   } else {?>
    <tr>
-    <td scope="row" colspan="8"><div align="center">Tidak ada pesan siswa di kotak Masuk Anda</div></th>   </tr>
+    <td scope="row" colspan="8"><div align="center">No student message in your Inbox.</div></th>   </tr>
   <? } ?>
 </table>
 	</td>
@@ -429,8 +429,8 @@ function savepesan(){
 <input type="hidden" name="listdel" id="listdel">
 <input type="hidden" name="numdel" id="numdel">
 <? if ($numpesan>0){ ?>
-<input type="button" class="but" name="del_pesan" id="del_pesan" value="Hapus" onClick="delpesan()">
-<input type="button" class="but" name="movepesan" id="movepesan" value="Pindahkan ke Draft" onClick="savepesan()">
+<input type="button" class="but" name="del_pesan" id="del_pesan" value="Delete" onClick="delpesan()">
+<input type="button" class="but" name="movepesan" id="movepesan" value="Move to Draft" onClick="savepesan()">
 <? } ?>
 </form>
 </body>

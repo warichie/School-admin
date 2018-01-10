@@ -125,19 +125,19 @@ function show_laporan() {
 	var keyword = escape(keyword);
 	
 	if (idtahunbuku.length == 0) {	
-		alert ('Tahun Buku tidak boleh kosong!');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('departemen').focus();
 		return false;
 	} else if (keyword == "") {
-		alert ('Keyword tidak boleh kosong!');
+		alert ('Keyword should not leave empty');
 		document.getElementById("keyword").focus();	
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -222,7 +222,7 @@ function panggil(elem){
 	<td rowspan="3" width="57%">
     <table border="0" width = "100%">
     <tr>
-    	<td width="15%"><strong>Departemen </strong></font></td>
+    	<td width="15%"><strong>Department </strong></font></td>
     	<td colspan="4">
         <select name="departemen" id="departemen" style="width:115px" onchange="change_dep()" onKeyPress="return focusNext('tgl1',event)" onfocus="panggil('departemen')">
         <?	$dep = getDepartemen(getAccess());
@@ -234,7 +234,7 @@ function panggil(elem){
         <?  } ?>     
         </select>
          &nbsp;
-        <strong>Tahun Buku </strong>
+        <strong>Fiscal Year </strong>
         <select name="idtahunbuku" id="idtahunbuku" onchange="change_dep()" style="width:160px">        
 <? 		if ($departemen != "") 
         { 
@@ -273,11 +273,11 @@ function panggil(elem){
 					
 		$n1 = JmlHari($bln1, $thn1);
 		$n2 = JmlHari($bln2, $thn2);	?>   
-        <td><strong>Tanggal </strong></font></td>
+        <td><strong>Date </strong></font></td>
         <td width="10">
         	<div id="InfoTgl1"> 
             <select name="tgl1" id="tgl1" onchange="change_tgl1()" onfocus = "panggil('tgl1')" onKeyPress="return focusNext('bln1',event)">
-            <option value="">[Tgl]</option>
+            <option value="">[Date]</option>
             <? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -294,12 +294,12 @@ function panggil(elem){
             <? for($i = $G_START_YEAR; $i <= $thn1+1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
-            </select> s/d
+            </select> to
         </td>
        	<td width="10">
          	<div id="InfoTgl2">
             <select name="tgl2" id="tgl2" onchange="change_tgl2()" onfocus = "panggil('tgl2')" onKeyPress="return focusNext('bln2',event)">
-            <option value="">[Tgl]</option>	
+            <option value="">[Date]</option>	
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -320,14 +320,14 @@ function panggil(elem){
         </td>
     </tr>
     <tr>
-        <td><strong>Pencarian </strong></font></td>
+        <td><strong>Search </strong></font></td>
         <td colspan="4">
         <select name="kriteria" id="kriteria" onchange="change_sel()" onKeyPress="return focusNext('keyword',event)" onfocus="panggil('kriteria')">
-            <option value=1 <?=IntIsSelected(1, $kriteria) ?>>Nama Pemohon </option>
-            <option value=2 <?=IntIsSelected(2, $kriteria) ?>>Nama Penerima </option>
-            <option value=3 <?=IntIsSelected(3, $kriteria) ?>>Nama Petugas </option>
-            <option value=4 <?=IntIsSelected(4, $kriteria) ?>>Keperluan </option>
-            <option value=5 <?=IntIsSelected(5, $kriteria) ?>>Keterangan </option>
+            <option value=1 <?=IntIsSelected(1, $kriteria) ?>>Applicant </option>
+            <option value=2 <?=IntIsSelected(2, $kriteria) ?>>Recipient </option>
+            <option value=3 <?=IntIsSelected(3, $kriteria) ?>>Officer </option>
+            <option value=4 <?=IntIsSelected(4, $kriteria) ?>>Necessities </option>
+            <option value=5 <?=IntIsSelected(5, $kriteria) ?>>Info </option>
         </select>
         <input type="text" name="keyword" id="keyword" size="40" maxlength="30" value="<?=$keyword?>" onKeyPress="return focusNext('cari',event)" onfocus="panggil('keyword')"/>
         </td>
@@ -335,13 +335,13 @@ function panggil(elem){
     </table>
 	</td>
  	<td rowspan="2" width="*" valign="middle">
-         <a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Klik untuk melakukan pencarian data pengeluaran!', this, event, '200px')" /></a>
+         <a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Click to begin searching data pengeluaran', this, event, '200px')" /></a>
     </td>
     <td width="38%" align="right" valign="top" >
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pencarian Data Pengeluaran</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Search Expenditure Data</font><br />
     <a target="_parent" href="pengeluaran.php">
-    <font size="1" color="#000000"><b>Pengeluaran</b></font></a>&nbsp>&nbsp
-    <font size="1" color="#000000"><b>Pencarian Data Pengeluaran</b></font>
+    <font size="1" color="#000000"><b>Expenditure</b></font></a>&nbsp;>&nbsp;
+    <font size="1" color="#000000"><b>Search Expenditure Data</b></font>
         
     </td>
 </tr>

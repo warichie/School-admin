@@ -42,7 +42,7 @@ $urutan = "ASC";
 if (isset($_REQUEST['urutan']))
 	$urutan = $_REQUEST['urutan'];
 
-$tipe = array("nisn" => "N I S N","nis" => "NIS", "nama" => "Nama","panggilan" => "Nama Panggilan", "agama" =>"Agama", "suku" => "Suku", "status" => "Status", "kondisi"=>"Kondisi Siswa", "darah"=>"Golongan Darah", "alamatsiswa" => "Alamat Siswa", "asalsekolah" => "Asal Sekolah", "namaayah" => "Nama Ayah", "namaibu" => "Nama Ibu", "alamatortu" => "Alamat Orang Tua", "keterangan" => "Keterangan");
+$tipe = array("nisn" => "National Student ID","nis" => "Student ID", "nama" => "Name","panggilan" => "Nickname", "agama" =>"Religion", "suku" => "Ethnicity", "status" => "Status", "kondisi"=>"Student Conditions", "darah"=>"Blood Type", "alamatsiswa" => "Student Address", "asalsekolah" => "Past School", "namaayah" => "Father Name", "namaibu" => "Mother Name", "alamatortu" => "Parent Address", "keterangan" => "Info");
 
 if ($cari=="")
 $namacari="";
@@ -59,7 +59,7 @@ if (@mysql_num_rows($result)<>0){
 <html>
 <head>
 <title>
-Data Siswa
+Student Data
 </title>
 <style type="text/css">
 <!--
@@ -74,16 +74,16 @@ Data Siswa
     <td>
     <table width="100%" border="0">
   <tr>
-    <td colspan="7"><div align="center">PENCARIAN SISWA</div></td>
+    <td colspan="7"><div align="center">SEARCH STUDENT</div></td>
     </tr>
   <tr>
     <td>&nbsp;</td>
   </tr>
   <tr>
-	<td colspan="7"><strong>Departemen :&nbsp;<?=$departemen?></strong></td>
+	<td colspan="7"><strong>Department :&nbsp;<?=$departemen?></strong></td>
   </tr>
   <tr>
-    <td colspan="7">Pencarian berdasarkan <strong><?=$tipe[$jenis]?></strong> dengan keyword <strong><?=$cari?></strong></td>
+    <td colspan="7">Search by <strong><?=$tipe[$jenis]?></strong> within keywords <strong><?=$cari?></strong></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -96,13 +96,13 @@ Data Siswa
   <tr>
     <td><table border="1">
 <tr height="30">
-<td width="3" valign="middle" bgcolor="#666666"><div align="center" class="style1">No.</div></td>
-<td width="20" valign="middle" bgcolor="#666666"><div align="center" class="style1">NIS</div></td>
-<td width="20" valign="middle" bgcolor="#666666"><div align="center" class="style1">N I S N</div></td>
-<td valign="middle" bgcolor="#666666"><div align="center" class="style1">Nama</div></td>
-<td valign="middle" bgcolor="#666666"><div align="center" class="style1">Tempat, Tanggal Lahir</div></td>
-<td valign="middle" bgcolor="#666666"><div align="center" class="style1">Tingkat</div></td>
-<td valign="middle" bgcolor="#666666"><div align="center" class="style1">Kelas</div></td>
+<td width="3" valign="middle" bgcolor="#666666"><div align="center" class="style1">#</div></td>
+<td width="20" valign="middle" bgcolor="#666666"><div align="center" class="style1">Student ID</div></td>
+<td width="20" valign="middle" bgcolor="#666666"><div align="center" class="style1">National Student ID</div></td>
+<td valign="middle" bgcolor="#666666"><div align="center" class="style1">Name</div></td>
+<td valign="middle" bgcolor="#666666"><div align="center" class="style1">Place and Date of Birth</div></td>
+<td valign="middle" bgcolor="#666666"><div align="center" class="style1">Grade</div></td>
+<td valign="middle" bgcolor="#666666"><div align="center" class="style1">Class</div></td>
 <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Status</div></td>
 </tr>
 <?
@@ -119,9 +119,9 @@ Data Siswa
 	<td align="center"><?=$row_siswa[kelas]?></td>
 	<td align="center"><?
 		if ($row_siswa['aktif']==1){
-			echo "Aktif";
+			echo "Active";
 		} elseif ($row_siswa['aktif']==0){
-			echo "Tidak Aktif ";
+			echo "Inactive";
 			if ($row_siswa['alumni']==1){
 				$sql_get_al="SELECT DATE_FORMAT(a.tgllulus, '%d %M %Y') as tgllulus FROM jbsakad.alumni a WHERE a.nis='$row_siswa[nis]'";	
 				$res_get_al=QueryDb($sql_get_al);
@@ -132,8 +132,8 @@ Data Siswa
 				$sql_get_mut="SELECT DATE_FORMAT(m.tglmutasi, '%d %M %Y') as tglmutasi,j.jenismutasi FROM jbsakad.jenismutasi j, jbsakad.mutasisiswa m WHERE j.replid='$row_siswa[statusmutasi]' AND m.nis='$row_siswa[nis]' AND j.replid=m.jenismutasi";	
 				$res_get_mut=QueryDb($sql_get_mut);
 				$row_get_mut=@mysql_fetch_array($res_get_mut);
-				//echo "<br><a href=\"NULL\" onmouseover=\"showhint('".$row_get_mut[jenismutasi]."<br>".$row_get_mut['tglmutasi']."', this, event, '50px')\"><u>[Termutasi]</u></a>";
-				echo "<br><a style='cursor:pointer;' title='".$row_get_mut[jenismutasi]."\n Tgl : ".$row_get_mut['tglmutasi']."'><u>[Termutasi]</u></a>";
+				//echo "<br><a href=\"NULL\" onmouseover=\"showhint('".$row_get_mut[jenismutasi]."<br>".$row_get_mut['tglmutasi']."', this, event, '50px')\"><u>[Mutated]</u></a>";
+				echo "<br><a style='cursor:pointer;' title='".$row_get_mut[jenismutasi]."\n Tgl : ".$row_get_mut['tglmutasi']."'><u>[Mutated]</u></a>";
 			}
 		}
 		?></td>

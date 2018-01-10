@@ -44,7 +44,7 @@ CloseDb();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Laporan Nilai]</title>
+<title>JIBAS EMA [Print Index Report]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
@@ -58,7 +58,7 @@ CloseDb();
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>LAPORAN NILAI</strong></font><br />
+  <font size="4"><strong>INDEX REPORT</strong></font><br />
  </center><br /><br />
   <table width="100%" border="0" height="100%">
             <tr>
@@ -69,7 +69,7 @@ CloseDb();
                     $row = mysql_fetch_array($result);
                     
                 ?>	
-                <font color="#000000" size="2" class="nav_title"><b>Departemen </b></font>
+                <font color="#000000" size="2" class="nav_title"><b>Department </b></font>
                 <? CloseDb(); ?>               </td>      	
               <td width="33%" valign="top" class="news_content1">&nbsp;<?=$row['departemen']?></td>
                 <td width="5%" valign="top"><? 	OpenDb();
@@ -91,7 +91,7 @@ CloseDb();
                     $row = mysql_fetch_array($result);
                     
                 ?>	
-                <font color="#000000" size="2" class="nav_title"><b>Tahun&nbsp;Ajaran </b></font>
+                <font color="#000000" size="2" class="nav_title"><b>Year&nbsp; </b></font>
                 <? CloseDb(); ?>               </td>      	
         <td valign="top" class="news_content1">&nbsp;<?=$row['tahunajaran']?></td>
                 <td valign="top"><? 	OpenDb();
@@ -100,7 +100,7 @@ CloseDb();
                     $row = mysql_fetch_array($result);
                     
                 ?>	
-                <font color="#000000" size="2" class="nav_title"><b>Kelas </b></font>
+                <font color="#000000" size="2" class="nav_title"><b>Class </b></font>
                 <? CloseDb(); ?>               </td>
         <td valign="top" class="news_content1">&nbsp;<?=$row['kelas']?></td>
       </tr>
@@ -114,7 +114,7 @@ CloseDb();
                     $row = mysql_fetch_array($result);
                     
                 ?>	
-                <font color="#000000" size="2" class="nav_title"><b>Pelajaran </b></font>                </td>
+                <font color="#000000" size="2" class="nav_title"><b>Subject </b></font>                </td>
               <td valign="top" class="news_content1">&nbsp;<?=$row['nama']?><? CloseDb(); ?></td>
               <td valign="top"><? 	OpenDb();
                     $sql = "SELECT * FROM siswa WHERE nis = '$nis'";
@@ -122,7 +122,7 @@ CloseDb();
                     $row = mysql_fetch_array($result);
                     
                 ?>	
-                <font color="#000000" size="2" class="nav_title"><b>Siswa </b></font>
+                <font color="#000000" size="2" class="nav_title"><b>Student </b></font>
                 <? CloseDb(); ?>               </td>
               <td valign="top" class="news_content1">&nbsp;<?=$row['nis']."-".$row['nama']?></td>
       </tr>
@@ -149,10 +149,10 @@ CloseDb();
                     ?>
                         <table border="1" width="100%" id="table19" class="tab" >
                             <tr class="header" align="center" height="30">		
-                                <td width="5%">No</td>
-                                <td width="20%">Tanggal</td>
-                                <td width="10%">Nilai</td>
-                                <td width="*">Keterangan</td>
+                                <td width="5%">#</td>
+                                <td width="20%">Date</td>
+                                <td width="10%">Point</td>
+                                <td width="*">Info</td>
                             </tr>
                             <?	
                                 $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '$row[replid]' AND u.replid = n.idujian AND n.nis = '$nis' ";
@@ -171,7 +171,7 @@ CloseDb();
                         <?		$cnt++;
                                 }	?>
                             <tr>        			
-                                <td colspan="2" height="25" align="center"><strong>Nilai rata rata</strong></td>
+                                <td colspan="2" height="25" align="center"><strong>Index Point/Cumulative</strong></td>
                                 <td width="10" height="25" align="center"><?=round($rata,2)?></td>
                                 <td height="25">&nbsp;</td>            
                             </tr>
@@ -180,7 +180,7 @@ CloseDb();
                         <table width="100%" border="0" align="center" id="table1">          
                             <tr>
                                 <td align="center" valign="middle" height="50">
-                                <font color ="red" size = "2" class="err"><b>Tidak ditemukan adanya data.</b></font>                    </td>
+                                <font color ="red" size = "2" class="err"><b>Data Not Found</b></font>                    </td>
                             </tr>
                         </table>
                         <? } ?>
@@ -192,7 +192,7 @@ CloseDb();
                     <td width="72%" height="50" align="center" valign="middle">
                     <table border="0" width="100%" id="table1" cellpadding="0" cellspacing="0">
                     <tr align="center" valign="middle" >
-                        <td><span class="err">Tidak ditemukan adanya data.</span></td>
+                        <td><span class="err">Data Not Found</span></td>
                     </tr>
                     </table>                    </td>
                 </tr>

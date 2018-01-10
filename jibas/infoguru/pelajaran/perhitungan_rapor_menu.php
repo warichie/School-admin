@@ -45,7 +45,7 @@ if (isset($_REQUEST['nip'])){ //0
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aturan Perhitungan Nilai Rapor[Menu]</title>
+<title>Report Card Calculation Rules [Menu]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -68,7 +68,7 @@ function acceptPegawai(nip, nama, flag) {
 <form name="kiri">
 <table width="80%" border="0">
   <tr>
-    <td><fieldset><legend><strong>Guru</strong></legend>
+    <td><fieldset><legend><strong>Teacher</strong></legend>
             <strong>
         <input type="text" name="nip" id="nip" size="10" style="background-color:#CCCCCC" readonly value="<?=$nip ?>" /> <input type="hidden" name="nipguru" id="nipguru" value="<?=$nipguru ?>" /> 
         <input type="text" name="nama" id="nama" size="20" style="background-color:#CCCCCC" readonly value="<?=$nama ?>" />
@@ -85,7 +85,7 @@ $result = QueryDb($sql);
 		$departemen=$row[0];
 		
 		?>
-        <strong>Pelajaran Yang Diajar Guru
+        <strong>Subject Yang Diajar Guru
         <?=$nama?>
 		</strong><br />
         <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="80%" align="left" bordercolor="#000000">

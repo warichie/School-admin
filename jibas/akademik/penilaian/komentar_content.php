@@ -112,17 +112,17 @@ $ada_get_comment = @mysql_num_rows($result_get_comment);
 	<td valign="bottom">
 		<table width="100%" border="0">
 		  <tr>
-			<td width="6%"><strong>NIS</strong></td>
+			<td width="6%"><strong>Student ID</strong></td>
 			<td width="1%"><strong>:</strong></td>
 			<td width="33%"><strong>
 			  <?=$nis?>
 			</strong></td>
 			<td width="60%" rowspan="2" valign="middle"><div align="left">
-			  <input type="submit" class="but" style="width:150px;" title="Simpan Komentar" name="Simpan" value="Simpan">
+			  <input type="submit" class="but" style="width:150px;" title="Save Comment" name="Simpan" value="Save">
 			</div></td>
 			</tr>
 		  <tr>
-			<td><strong>Nama</strong></td>
+			<td><strong>Name</strong></td>
 			<td><strong>:</strong></td>
 			<td><strong>
 			  <?
@@ -140,13 +140,13 @@ $ada_get_comment = @mysql_num_rows($result_get_comment);
    <td valign="top" ><textarea name="komentar" id="komentar" style="width:100%;height:100px;">
 	<?=$row_get_comment[0]?>
 	</textarea><br>
-   <strong>Predikat:&nbsp;</strong>
+   <strong>Predicate:&nbsp;</strong>
    <select name="predikat" id="predikat">
-   <option value="4" <?=IntIsSelected(4, $row_get_comment[2])?>>Istimewa</option>
-   <option value="3" <?=IntIsSelected(3, $row_get_comment[2])?>>Baik</option>
-   <option value="2" <?=IntIsSelected(2, $row_get_comment[2])?>>Cukup</option>
-   <option value="1" <?=IntIsSelected(1, $row_get_comment[2])?>>Kurang</option>
-   <option value="0" <?=IntIsSelected(0, $row_get_comment[2])?>>Buruk</option>
+   <option value="4" <?=IntIsSelected(4, $row_get_comment[2])?>>Excellent</option>
+   <option value="3" <?=IntIsSelected(3, $row_get_comment[2])?>>Good</option>
+   <option value="2" <?=IntIsSelected(2, $row_get_comment[2])?>>Average</option>
+   <option value="1" <?=IntIsSelected(1, $row_get_comment[2])?>>Not Good</option>
+   <option value="0" <?=IntIsSelected(0, $row_get_comment[2])?>>Bad</option>
    </select>
    <input type="hidden" name="replid" id="replid" value="<?=$row_get_comment[1]?>">
     </td>
@@ -167,7 +167,7 @@ $ada_get_comment = @mysql_num_rows($result_get_comment);
 	{
 		$aspek[$i++] = array($row[0], $row[1]);
 	} ?>
-    <strong>Informasi Nilai Rapor Siswa:</strong>
+    <strong>Information Student Report Card:</strong>
 	<table border="1" class="tab" id="table" bordercolor="#000000">  
 	<tr align="center" height="25">
 <?	for($i = 0; $i < count($aspek); $i++)
@@ -175,7 +175,7 @@ $ada_get_comment = @mysql_num_rows($result_get_comment);
     </tr>
     <tr align="center" height="25">
 <?	for($i = 0; $i < count($aspek); $i++)
-		echo "<td class='header' align='center' width='80'>Angka</td><td class='header' align='center' width='80'>Huruf</td>"; ?>
+		echo "<td class='header' align='center' width='80'>Number</td><td class='header' align='center' width='80'>Letter</td>"; ?>
     </tr>
     <tr align="center" height="25">
 <?	for($i = 0; $i < count($aspek); $i++)

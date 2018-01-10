@@ -29,7 +29,7 @@ require_once('../inc/db_functions.php');
 
 $kriteria = $_REQUEST['kriteria'];
 $kondisi = $_REQUEST['kondisi'];
-$krit = array('','Bagian','Agama','Gelar','Jenis Kelamin','Status Aktif','Status Menikah','Suku','Tahun Kelahiran','Usia');
+$krit = array('','Section','Religion','Academic Title','Gender','Status Active','Marital Status','Ethnicity','Year of Birth','Age');
 $field = array('','bagian','agama','gelar','kelamin','aktif','nikah','suku','YEAR(tgllahir)','');
 
 if ($kriteria == 9){
@@ -52,9 +52,9 @@ $sql = "SELECT nip,nama,replid FROM
 
 <table width="100%" border="1" class="tab" align="left">
   <tr>
-    <td width="25" height="25" align="center" class="header">No.</td>
-    <td height="25" align="center" class="header">NIP</td>
-    <td height="25" align="center" class="header">Nama</td>
+    <td width="25" height="25" align="center" class="header">#</td>
+    <td height="25" align="center" class="header">Employee ID</td>
+    <td height="25" align="center" class="header">Name</td>
     <td height="25" align="center" class="header">&nbsp;</td>
   </tr>
   <?

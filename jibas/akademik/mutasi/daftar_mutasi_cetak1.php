@@ -35,7 +35,7 @@ $tahun=$_REQUEST['tahun'];
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Daftar Mutasi Siswa</title>
+<title>Student Mutation List</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <SCRIPT type="text/javascript" language="JavaScript" src="../script/tables.js"></SCRIPT>
 	<SCRIPT type="text/javascript" language="javascript" src="../script/common.js"></script>
@@ -67,13 +67,13 @@ $tahun=$_REQUEST['tahun'];
         <td colspan="2">
           
           
-          <div align="center" class="style5">DAFTAR SISWA YANG SUDAH DIMUTASI          </div>
+          <div align="center" class="style5">STUDENT LIST YANG SUDAH DIMUTASI          </div>
           <div align="left"><br>
-              <strong>Departemen :
+              <strong>Department :
               <?=$departemen?>
               <br>
               <? if (isset($_REQUEST['tahun'])){ ?>
-              Tahun Mutasi : 
+              Mutation Year : 
               <?=$tahun?><? } ?>
                 </strong></div>
           <br>          </td>
@@ -81,12 +81,12 @@ $tahun=$_REQUEST['tahun'];
       <tr>
         <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="2" id="table" class="tab">
           <tr bgcolor="#CCCCCC">
-            <td width="32" height="30" class="header"><div align="center"><span class="style7">No</span></div></td>
-            <td width="178" height="30" class="header"><div align="center"><span class="style7">NIS</span></div></td>
-            <td width="276" height="30" class="header"><div align="center"><span class="style7">Nama</span></div></td>
-            <td width="146" height="30" class="header"><div align="center"><span class="style7">Tanggal Mutasi</span></div></td>
-            <td width="123" height="30" class="header"><div align="center"><span class="style7">Jenis Mutasi </span></div></td>
-            <td width="198" height="30" class="header"><div align="center"><span class="style7">Keterangan Mutasi</span></div></td>
+            <td width="32" height="30" class="header"><div align="center"><span class="style7">#</span></div></td>
+            <td width="178" height="30" class="header"><div align="center"><span class="style7">Student ID</span></div></td>
+            <td width="276" height="30" class="header"><div align="center"><span class="style7">Name</span></div></td>
+            <td width="146" height="30" class="header"><div align="center"><span class="style7">Mutation Date</span></div></td>
+            <td width="123" height="30" class="header"><div align="center"><span class="style7">Mutation Type </span></div></td>
+            <td width="198" height="30" class="header"><div align="center"><span class="style7">Info</span></div></td>
           </tr>
 		  <tr><td colspan="6">&nbsp;</td></tr>
 		  <? 
@@ -115,7 +115,7 @@ $tahun=$_REQUEST['tahun'];
 		  	{
 		?>
 		<tr>
-			<td height="25" colspan="8" align="center"> "Data Belum Ada"</td>
+			<td height="25" colspan="8" align="center">Data Not Found.</td>
 		</tr>	
 		<?	
 			}

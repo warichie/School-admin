@@ -59,13 +59,13 @@ OpenDb();
     <input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
     <input type="hidden" name="urut" id="urut" value="<?=$urut ?>" />
     <input type="hidden" name="urutan" id="urutan" value="<?=$urutan ?>" />
-    <!--<font size="2" color="#000000"><strong>Daftar Siswa</strong></font><br />-->
+    <!--<font size="2" color="#000000"><strong>Student List</strong></font><br />-->
     </td>
 </tr>
 <tr>
-    <td width="20%"><font color="#000000"><strong>Departemen</strong></font></td>
+    <td width="20%"><font color="#000000"><strong>Department</strong></font></td>
     <td><select name="depart" class="cmbfrm" id="depart" style="width:150px" onChange="change_departemen(0)" onkeypress="return focusNext('tahunajaran', event)">
-	<option value=-1>(Semua Departemen)</option>
+	<option value=-1>(All Department)</option>
 	<?	$sql = "SELECT departemen FROM $db_name_akad.departemen ORDER BY urutan";
         $result = QueryDb($sql);
 		while ($row=@mysql_fetch_array($result)) {
@@ -77,7 +77,7 @@ OpenDb();
         <?	} ?>
   	</select>
     </td>
-    <td><font color="#000000"><strong>Tingkat</strong></font></td>
+    <td><font color="#000000"><strong>Grade</strong></font></td>
     <td>
             <select name="tingkat" class="cmbfrm" id="tingkat" style="width:150px;" onChange="change()" onkeypress="return focusNext('kelas', event)">
         <?
@@ -93,7 +93,7 @@ OpenDb();
     </select></td>
 </tr>
 <tr>
-    <td><font color="#000000"><strong>Tahun Ajaran </strong></font></td>
+    <td><font color="#000000"><strong>Year </strong></font></td>
     <td><select name="tahunajaran" class="cmbfrm" id="tahunajaran" style="width:150px;" onChange="change()" onkeypress="return focusNext('tingkat', event)">
    		 	<?
 			OpenDb();
@@ -104,7 +104,7 @@ OpenDb();
 				if ($tahunajaran == "") 
 					$tahunajaran = $row['replid'];
 				if ($row['aktif']) 
-					$ada = '(Aktif)';
+					$ada = '(Active)';
 				else 
 					$ada = '';			 
 			?>
@@ -115,7 +115,7 @@ OpenDb();
     		?>
    	</select>        </td>
         
-    <td><font color="#000000"><strong>Kelas</strong></font></td>
+    <td><font color="#000000"><strong>Class</strong></font></td>
     <td><select name="kelas" class="cmbfrm" id="kelas" style="width:150px" onChange="change_kelas()">
 <?	if ($tahunajaran <> "") {
 		OpenDb();
@@ -156,9 +156,9 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 ?>
 	<table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
 	<tr height="30" class="header" align="center">
-        <td width="7%" >No</td>
-        <td width="15%">N I S</td>
-        <td>Nama </td>
+        <td width="7%" >#</td>
+        <td width="15%">Student ID</td>
+        <td>Name </td>
         <td width="10%">&nbsp;</td>
 	</tr>
 <?
@@ -173,7 +173,7 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 		<td align="center"><?=$row[0] ?></td>
 		<td align="left"><?=$row[1] ?></td>
 		<!--<td align="center"><?=$row[2] ?></td>-->
-		<td align="center"><input type="button" value="Pilih" onClick="pilih('<?=$row[0]?>','<?=$row[1]?>')"  class="cmbfrm2"></td>
+		<td align="center"><input type="button" value="Select" onClick="pilih('<?=$row[0]?>','<?=$row[1]?>')"  class="cmbfrm2"></td>
 	</tr>
 	<?
 	$cnt++;
@@ -203,16 +203,16 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
     <td colspan="4">
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left"><font color="#000000">Hal
+       	<td width="30%" align="left"><font color="#000000">Page
         <select name="hal" class="cmbfrm" id="hal" onChange="change_hal('daftar')">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     	// Navigasi halaman berikutnya dan sebelumnya
+     	// Navigasi halaman berikutnya and sebelumnya
         ?>
         </font></td>
     	<!--td align="center">
@@ -229,7 +229,7 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 		?>
 	     <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>','daftar')" >
  		</td-->
-        <td width="30%" align="right"><font color="#000000">Jml baris per hal
+        <td width="30%" align="right"><font color="#000000">Row per page
       	<select name="varbaris" class="cmbfrm" id="varbaris" onChange="change_baris('daftar')">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -244,8 +244,8 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />           
-		Tambah data siswa di menu Pendataan Siswa pada bagian Kesiswaan. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br />           
+		Add student data in the Student Data menu on Student section. </b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -257,8 +257,8 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />          
-		Tambah data Tahun Ajaran, Tingkat atau Kelas pada bagian Referensi. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br />          
+		Add Year, Grade or Class data on Reference section. </b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -268,7 +268,7 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 </tr>
 <tr>
 	<td align="center" colspan="4">
-	<input type="button" class="cmbfrm2" name="tutup" id="tutup" value="Tutup" onclick="window.close()" style="width:80px;"/>
+	<input type="button" class="cmbfrm2" name="tutup" id="tutup" value="Close" onclick="window.close()" style="width:80px;"/>
 	</td>
 </tr>
 </table>

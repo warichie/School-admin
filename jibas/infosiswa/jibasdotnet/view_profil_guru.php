@@ -93,7 +93,7 @@ function reloadpage($dest){
 ?>
 <html>
 <head>
-<title>Profil Guru</title>
+<title>Teacher Profile</title>
 <script type="text/javascript" language="javascript" src="../style/lytebox.js"></script>
 <link rel="stylesheet" href="../style/lytebox.css" type="text/css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -170,7 +170,7 @@ function showkarya(replid){
     <td height="20" colspan="3" >&nbsp;</td>
   </tr>
   <tr>
-    <td height="20" colspan="3" >&nbsp;&nbsp;<input name="ubah" type="button" class="but" style="width:100px;" value="My Profile" onClick="document.location.href='profile.php';"><!--&nbsp;<input name="tema" type="button" class="header" style="width:100px;" value="Tema Profil">&nbsp;<input name="ngobrol" type="button" class="header" style="width:100px;" value="Ajak Ngobrol">&nbsp;<input name="pesan" type="button" class="header" style="width:100px;" value="Kirim Pesan">--></td>
+    <td height="20" colspan="3" >&nbsp;&nbsp;<input name="ubah" type="button" class="but" style="width:100px;" value="My Profile" onClick="document.location.href='profile.php';"><!--&nbsp;<input name="tema" type="button" class="header" style="width:100px;" value="Profile Theme">&nbsp;<input name="ngobrol" type="button" class="header" style="width:100px;" value="Chat">&nbsp;<input name="pesan" type="button" class="header" style="width:100px;" value="Send Message">--></td>
   </tr>
   <tr>
     <td width="19" height="20" style="background-image:url(../images_slice/bg_profil80_01.png); background-repeat:no-repeat; background-position:right;">&nbsp;</td>
@@ -186,29 +186,29 @@ function showkarya(replid){
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
                     <td height="25" colspan="3">&nbsp;&nbsp;&nbsp;
-                      <div align="center"><span class="style2">NIP 
+                      <div align="center"><span class="style2">Employee ID 
                       <?=$idguru?>
                       </span>
                         
                     </div><br></td>
                   </tr>
                   <tr>
-                    <td width="33%" height="20" valign="top" style="border-bottom-style:none;"><strong>Nama</strong> </td>
+                    <td width="33%" height="20" valign="top" style="border-bottom-style:none;"><strong>Name</strong> </td>
                     <td width="1%" valign="top" style="border-bottom-style:none;"><strong>:&nbsp;</strong></td>
                     <td width="66%" height="20" valign="top" style="border-bottom-style:none;"><?=$row_prof[nama]?></td>
                   </tr>
                   <tr>
-                    <td height="20" valign="top" style="border-bottom-style:none;"><strong>Alamat</strong> </td>
+                    <td height="20" valign="top" style="border-bottom-style:none;"><strong>Address</strong> </td>
                     <td height="20" valign="top" style="border-bottom-style:none;"><strong>:&nbsp;</strong></td>
                     <td height="20" valign="top" style="border-bottom-style:none;"><?=$row_prof[alamat]?></td>
                   </tr>
                   <tr>
-                    <td height="20" valign="top" style="border-bottom-style:none;"><strong>Telepon</strong> </td>
+                    <td height="20" valign="top" style="border-bottom-style:none;"><strong>Phone</strong> </td>
                     <td height="20" valign="top" style="border-bottom-style:none;"><strong>:&nbsp;</strong></td>
                     <td height="20" valign="top" style="border-bottom-style:none;"><?=$row_prof[telpon]?></td>
                   </tr>
                   <tr>
-                    <td height="20" valign="top" style="border-bottom-style:none;"><strong>HP</strong> </td>
+                    <td height="20" valign="top" style="border-bottom-style:none;"><strong>Mobile</strong> </td>
                     <td height="20" valign="top" style="border-bottom-style:none;"><strong>:&nbsp;</strong></td>
                     <td height="20" valign="top" style="border-bottom-style:none;"><?=$row_prof[hp]?></td>
                   </tr>
@@ -223,12 +223,12 @@ function showkarya(replid){
                     <td height="20" valign="top" style="border-bottom-style:none;"><?=$row_prof[hobi]?></td>
                   </tr>
                   <tr>
-                    <td height="20" valign="top" style="border-bottom-style:none;"><strong>Buku&nbsp;Favorit </strong></td>
+                    <td height="20" valign="top" style="border-bottom-style:none;"><strong>Favorite&nbsp;Books </strong></td>
                     <td height="20" valign="top" style="border-bottom-style:none;"><strong>:&nbsp;</strong></td>
                     <td height="20" valign="top" style="border-bottom-style:none;"><?=$row_prof[buku]?></td>
                   </tr>
                   <tr>
-                    <td height="20" valign="top" style="border-bottom-style:none;"><strong>Riwayat&nbsp;Hidup</strong> </td>
+                    <td height="20" valign="top" style="border-bottom-style:none;"><strong>Life&nbsp;History</strong> </td>
                     <td height="20" valign="top" style="border-bottom-style:none;"><strong>:&nbsp;</strong></td>
                     <td height="20" valign="top" style="border-bottom-style:none;"><?=$row_prof[riwayat]?></td>
                   </tr>
@@ -236,10 +236,10 @@ function showkarya(replid){
                     <td colspan="3">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td colspan="3" bgcolor="#999999" class="headerlong">.: [Daftar Kolega] :.</td>
+                    <td colspan="3" bgcolor="#999999" class="headerlong">.: [Colleague List] :.</td>
                   </tr>
                   <tr>
-                    <td height="25" valign="top"><strong>Guru </strong></td>
+                    <td height="25" valign="top"><strong>Teacher </strong></td>
                     <td height="25" valign="top">&nbsp;</td>
                     <td height="25" align="right" valign="top">&nbsp;<a href="#" onClick="document.location.href='viewallguru.php'"><em>View All <span class="style4">(<?=$jumguru?>)</span> ...</em></a></td>
                   </tr>
@@ -260,7 +260,7 @@ function showkarya(replid){
                         </table>                    </td>
                   </tr>
                   <tr>
-                    <td height="25" valign="top"><div align="left"><strong>Siswa </strong></div></td>
+                    <td height="25" valign="top"><div align="left"><strong>Student </strong></div></td>
                     <td height="25" valign="top">&nbsp;</td>
                     <td height="25" align="right" valign="top">&nbsp;<a href="#" onClick="document.location.href='viewallsiswa.php'"><em>View All <span class="style4">(<?=$jumsiswa?>)</span> ...</em></a></td>
                   </tr>
@@ -284,17 +284,17 @@ function showkarya(replid){
                     <td colspan="3">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td colspan="3" bgcolor="#999999" class="headerlong">.: [Komentar] :.</td>
+                    <td colspan="3" bgcolor="#999999" class="headerlong">.: [Comments] :.</td>
                   </tr>
                   <tr>
                     <td colspan="3">
 						<div align="right">
 						  <? if ($op=="komen"){ ?>
-						  <input type="submit" class="but" value="Kirim Komentar">
+						  <input type="submit" class="but" value="Send Comment">
 						  <input name="replid" type="hidden" value="<?=$replid?>">
 						  
 						  <? } else { ?>
-						  <input onClick="document.location.href='view_profil_guru.php?op=komen&replid=<?=$replid?>'" name="komentar" type="button" class="but" value="Tulis Komentar">
+						  <input onClick="document.location.href='view_profil_guru.php?op=komen&replid=<?=$replid?>'" name="komentar" type="button" class="but" value="Write Comment">
 						  <? } ?>					
 					  </div></td>
                   </tr>
@@ -304,11 +304,11 @@ function showkarya(replid){
                               <? if ($op=="komen"){ ?>
 							  <input type="hidden" name="op" value="komensimpan">
 							  <tr>
-                                <td width="16%" valign="top">Nama</td>
+                                <td width="16%" valign="top">Name</td>
                                 <td width="84%" valign="top"><input type="hidden" name="sender" value="<?=SI_USER_ID()?>"><?=SI_USER_NICKNAME()?></td>
                               </tr>
 							  <tr>
-							    <td valign="top">Komentar</td>
+							    <td valign="top">Comments</td>
 							    <td valign="top"><textarea name="komentar" id="komentar"></textarea></td>
 						      </tr>
 							  <? } else { 
@@ -335,7 +335,7 @@ function showkarya(replid){
                     </table>                    </td>
                   </tr>
                   <tr>
-                    <td><em>Ada&nbsp;<?=$jumkomentar?>&nbsp;komentar...</em></td>
+                    <td><em>&nbsp;<?=$jumkomentar?>&nbsp;comments...</em></td>
                     <td>&nbsp;</td>
                     <td align="right"><?
 						if ($totalkom!=0){
@@ -358,9 +358,9 @@ function showkarya(replid){
 						
 						?>
 						Page : 
-						<input <?=$disback?> type="button" class="but" title="Sebelumnya" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+						<input <?=$disback?> type="button" class="but" title="Previous" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 						<?=$page+1?>
-						<input <?=$disnext?> type="button" class="but" name="next" title="Selanjutnya" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+						<input <?=$disnext?> type="button" class="but" name="next" title="Next" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
 						<? } ?>					</td>
                   </tr>
                 </table>            </td>
@@ -370,17 +370,17 @@ function showkarya(replid){
                 <td width="87"><div align="left" class="style6">
                   <?=$row_peg[panggilan]?>
                 </div></td>
-                <td colspan="3"><span class="style6"> <span class="style5">Tentang saya...</span></span></td>
+                <td colspan="3"><span class="style6"> <span class="style5">About me...</span></span></td>
               </tr>
               <tr>
                 <td colspan="4"><img src="../library/gambar.php?replid=<?=$row_prof[replid]?>&table=jbsvcr.profil" width="20%" height="20%" align="left">
                     <?=$row_prof[tentang]?></td>
               </tr>
               <tr>
-                <td colspan="4" bgcolor="#999999" class="headerlong">.: [Galeri] :.</td>
+                <td colspan="4" bgcolor="#999999" class="headerlong">.: [Gallery] :.</td>
               </tr>
               <tr>
-                <td height="25" valign="top"><strong>Fotoku </strong></td>
+                <td height="25" valign="top"><strong>Photo </strong></td>
                 <td height="25" valign="top">&nbsp;</td>
                 <td height="25" valign="top">&nbsp;</td>
                 <td height="25" align="right" valign="top">&nbsp;<a href="#" onClick="document.location.href='view_profil_guru.php?op=viewallphoto&replid=<?=$replid?>'"><em>View All <span class="style4">(<?=$jumfoto?>)</span> ...</em></a></td>
@@ -410,7 +410,7 @@ function showkarya(replid){
 			  </tr>
 			  <? } ?>
               <tr>
-                <td width="25%" height="25" valign="top"><strong>Karyaku </strong></td>
+                <td width="25%" height="25" valign="top"><strong>My Work </strong></td>
                 <td width="25%" height="25" valign="top">&nbsp;</td>
                 <td width="25%" height="25" valign="top">&nbsp;</td>
                 <td height="25" align="right" valign="top">&nbsp;<a href="#" onClick="document.location.href='view_profil_guru.php?replid=<?=$replid?>&opkarya=viewallkarya'"><em>View All <span class="style4">(<?=$jumkarya?>)</span> ...</em></a></td>

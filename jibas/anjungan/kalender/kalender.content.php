@@ -251,7 +251,7 @@ function getCell1($r, $c, $id, $m)
 
 <html>
 <head>
-<title>Kalender Akademik</title>
+<title>Academic Calendar</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <style>	
 	.thismonth {
@@ -283,7 +283,7 @@ function getCell1($r, $c, $id, $m)
         </td>
         <td align="right" width="320">
         	<? 	if ($next == 1) {?>
-            		<input type="button" class="but" onClick="ka_GoToPrevMonth()" value=" < Bulan sebelumnya " style="width:150px">
+            		<input type="button" class="but" onClick="ka_GoToPrevMonth()" value=" < Previous " style="width:150px">
         		<? } 
 				
 				if ($next == 0 || $last == 0) {
@@ -307,7 +307,7 @@ function getCell1($r, $c, $id, $m)
 						$result = QueryDb($sql);
 						if (mysql_num_rows($result) > 0) {
 			?>   
-            		<input type="button" class="but" onClick="ka_GoToNextMonth()" value=" Bulan berikutnya > " style="width:150px">  
+            		<input type="button" class="but" onClick="ka_GoToNextMonth()" value=" Next > " style="width:150px">  
         			<? } ?>
 				<? } ?>	
         </td>
@@ -319,7 +319,7 @@ function getCell1($r, $c, $id, $m)
     <table border="1" style="border-width:1px; border-collapse: collapse; border-color: #ccc;" cellpadding="5" cellspacing="1" width="100%" style="border-color:#999999" align="center">
     <tr height="30" bgcolor="#DFFFDF">
         <td width="22%" align="center" style="background-color:#3366CC; color:#FFFFFF" rowspan="2" colspan="2">
-        <b>Kegiatan</b></td>
+        <b>Activity</b></td>
         <? 	$batasthn = $thn;			
             for ($i=$bln;$i<=$bln+5;$i++) { 	
                 $n = $i;
@@ -409,7 +409,7 @@ function getCell1($r, $c, $id, $m)
     <table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.</b></font>
+    	<font size = "2" color ="red"><b>Data Not Found</b></font>
         </td>
 	</tr>
 	</table> 

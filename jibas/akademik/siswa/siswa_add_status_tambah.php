@@ -47,10 +47,10 @@ if (isset($_POST['simpan'])) {
 	
 	if (mysql_num_rows($hasil) > 0){
 		CloseDb();
-		$ERROR_MSG = "Status $status sudah digunakan!";
+		$ERROR_MSG = "Status $status has been used";
 	} else if (mysql_num_rows($result1) > 0) {		
 		CloseDb();
-		$ERROR_MSG = "Urutan $urutan sudah digunakan!";	
+		$ERROR_MSG = "Sort $urutan has been used";	
 		$cek = 1;
 	}	else {
 		$sql = "INSERT INTO jbsakad.statussiswa SET status='$status',urutan='$urutan'";
@@ -89,28 +89,28 @@ switch ($cek) {
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="JavaScript" src="../script/tooltips.js"></script>
-<title>JIBAS SIMAKA [Tambah Status Baru]</title>
+<title>JIBAS SIMAKA [Add New Status]</title>
 <script language="javascript">
 function cek() {
 	var status = document.main.status.value;
 	var urutan = document.main.urutan.value;
 	if (status.length == 0) {
-		alert('Anda belum memasukkan Nama Status');
+		alert('You have not enter Status Name yet');
 		document.getElementById('status').focus();				
 		return false;
 	}
 	if (status.length > 100) {
-		alert('Nama Status tidak boleh lebih dari 100 karakter');
+		alert('Status Name should not exceed 100 characters');
 		document.getElementById('status').focus();				
 		return false;
 	}
 	if (urutan.length == 0) {
-		alert('Anda belum memasukkan Urutan Suku');
+		alert('You have not enter Ethnicity Sort yet');
 		document.getElementById('urutan').focus();				
 		return false;
 	}
 	if (isNaN(urutan)){
-		alert("Urutan Suku harus berupa bilangan");
+		alert("Ethnicity Sort should be numeric");
 		document.getElementById('urutan').focus();				
 		return false;
 	}
@@ -148,7 +148,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Status Siswa :.
+    .: Add Student Status :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -162,17 +162,17 @@ function panggil(elem){
     <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td width="35%"><strong>Nama Status</strong></td>
+        <td width="35%"><strong>Status Name</strong></td>
         <td><input name="status" id="status" maxlength="100" size="30" onFocus="panggil('status')" value="<?=$status?>" onKeyPress="return focusNext('urutan', event)"></td>
     </tr>
     <tr>
-        <td><strong>Urutan</strong></td>
-        <td><input name="urutan" id="urutan" maxlength="2" size="2" onFocus="showhint('Urutan tampil Status!', this, event, '120px');panggil('urutan')" value="<?=$urutan?>" onKeyPress="return focusNext('Simpan', event)"></td>
+        <td><strong>Sort</strong></td>
+        <td><input name="urutan" id="urutan" maxlength="2" size="2" onFocus="showhint('Status sort display', this, event, '120px');panggil('urutan')" value="<?=$urutan?>" onKeyPress="return focusNext('Simpan', event)"></td>
     </tr>   
     <tr>
         <td align="center" colspan="2">
-        <input class="but" type="submit" value="Simpan" name="simpan" id="Simpan" onFocus="panggil('Simpan')">
-        <input class="but" type="button" value="Tutup" onClick="window.close();">
+        <input class="but" type="submit" value="Save" name="simpan" id="Simpan" onFocus="panggil('Simpan')">
+        <input class="but" type="button" value="Close" onClick="window.close();">
         </td>
     </tr>
     </table>

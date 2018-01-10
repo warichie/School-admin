@@ -63,7 +63,7 @@ elseif ($username=="adminsiswa")
 	{
 		$_SESSION['login'] = "adminsiswa";
 		$_SESSION['nama'] = "adminsiswa";
-		$_SESSION['panggilan'] = "Admin Siswa";
+		$_SESSION['panggilan'] = "Admin Student";
 		$_SESSION['theme'] = 1;
 		$user_exists = true;
 	}
@@ -87,7 +87,7 @@ if (!$user_exists)
 {
     ?>
     <script language="JavaScript">
-        alert("Username atau password tidak cocok!");
+        alert("Username or password does not match");
         document.location.href = "../infosiswa/";
     </script>
     <?

@@ -67,14 +67,14 @@ class CPustakaAdd
 		if ($state=='1')
 		{ ?>
 			<script language="javascript">
-			alert('Nama perpustakaan sudah digunakan!');
+			alert('Name perpustakaan has been used');
 			document.location.href="pustaka.add.php";
 			</script>
 <?		}
 		else
 		{ ?>
 			<script language="javascript">
-			alert('Perpustakaan sudah digunakan pada departemen <?=$state?>!');
+			alert('Library has been used on departemen <?=$state?>');
 			document.location.href="pustaka.add.php";
 			</script>
 <?		}
@@ -96,11 +96,11 @@ class CPustakaAdd
       <tr>
          <td colspan="2" align="left">
 				<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-	        	<font style="font-size:18px; color:#999999">Tambah Perpustakaan</font>
+	        	<font style="font-size:18px; color:#999999">Add Library</font>
 			</td>
  		</tr>
       <tr>
-         <td>&nbsp;<strong>Departemen</strong></td>
+         <td>&nbsp;<strong>Department</strong></td>
          <td>
          <select id="dep" name="dep" class="cmbfrm2">
 <?			$sql = "SELECT departemen FROM jbsakad.departemen ORDER BY urutan ASC";
@@ -111,15 +111,15 @@ class CPustakaAdd
          </td>
       </tr>
       <tr>
-         <td width="6%">&nbsp;<strong>Nama</strong></td>
+         <td width="6%">&nbsp;<strong>Name</strong></td>
          <td width="94%"><input name="nama" type="text" class="inputtxt" id="nama"></td>
       </tr>
       <tr>
-         <td>&nbsp;Keterangan</td>
+         <td>&nbsp;Info</td>
          <td><textarea name="keterangan" cols="45" rows="5" class="areatxt" id="keterangan"></textarea></td>
       </tr>
       <tr>
-			<td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Simpan" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Batal" onClick="window.close()" ></td>
+			<td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Save" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Cancel" onClick="window.close()" ></td>
       </tr>
       </table>
 		</form>

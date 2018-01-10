@@ -532,9 +532,9 @@ class Image {
         $olda = $this->SetAngle(-$dir);
 
         // We need to use adjusted coordinats for the box to be able
-        // to draw the box below the baseline. This cannot be done before since
+        // to draw the box below the baseline. This should not be done before since
         // the rotating point must be the original x,y since that is arounbf the
-        // point where the text will rotate and we cannot change this since
+        // point where the text will rotate and we should not change this since
         // that is where the GD/GreeType will rotate the text
 
 
@@ -825,7 +825,7 @@ class Image {
 
         if( !is_readable($this->font_file) ) {
             JpGraphError::RaiseL(25093,$this->font_file);
-            //('Can not read font file ('.$this->font_file.') in call to Image::GetBBoxTTF. Please make sure that you have set a font before calling this method and that the font is installed in the TTF directory.');
+            //('Cannot read font file ('.$this->font_file.') in call to Image::GetBBoxTTF. Please make sure that you have set a font before calling this method and that the font is installed in the TTF directory.');
         }
         $bbox = $this->imagettfbbox_fixed($this->font_size,$aAngle,$this->font_file,$aTxt);
 
@@ -1617,7 +1617,7 @@ class Image {
     function FillToBorder($x,$y,$aBordColor) {
         $bc = $this->rgb->allocate($aBordColor);
         if( $bc == -1 ) {
-            JpGraphError::RaiseL(25106);//('Image::FillToBorder : Can not allocate more colors');
+            JpGraphError::RaiseL(25106);//('Image::FillToBorder : Cannot allocate more colors');
         }
         imagefilltoborder($this->img,round($x),round($y),$bc,$this->current_color);
     }
@@ -2166,7 +2166,7 @@ class ImgStreamCache {
                     $diff=time()-filemtime($aCacheFileName);
                     if( $diff < 0 ) {
                         JpGraphError::RaiseL(25112,$aCacheFileName);
-                        //(" Cached imagefile ($aCacheFileName) has file date in the future!!");
+                        //(" Cached imagefile ($aCacheFileName) has file date in the future");
                     }
                     if( $this->timeout>0 && ($diff <= $this->timeout*60) ) return;
                 }

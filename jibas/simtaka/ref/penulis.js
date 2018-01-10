@@ -3,7 +3,7 @@ function getfresh(){
 	document.location.href = "penulis.php?page="+page;
 }
 function hapus(id){
-	if (confirm('Anda yakin akan menghapus penulis ini?'))
+	if (confirm('Are you sure want to delete this author?'))
 		document.location.href = "penulis.php?op=del&id="+id;
 }
 function tambah(){
@@ -19,12 +19,12 @@ function validate(){
 	var kode = document.getElementById('kode').value;
 	var nama = document.getElementById('nama').value;
 	if (kode.length==0){
-		alert ('Anda harus mengisikan nilai untuk kode penulis!');
+		alert ('You must enter a value for author code');
 		document.getElementById('kode').focus();
 		return false;
 	}
 	if (nama.length==0){
-		alert ('Anda harus mengisikan nilai untuk nama penulis!');
+		alert ('You must enter a value for author name');
 		document.getElementById('nama').focus();
 		return false;
 	}
@@ -40,12 +40,12 @@ function change_page(page) {
 }
 function ViewByTitle(id){
 	//State:
-	//1.Perpustakaan
+	//1.Library
 	//2.Format
-	//3.Rak
-	//4.Katalog
-	//5.Penerbit
-	//6.Penulis
+	//3.Shelf
+	//4.Catalogue
+	//5.Publisher
+	//6.Author
 	var addr = "../lib/ViewByTitle.php?id="+id+"&state=6";
 	newWindow(addr, 'LihatJudul','687','578','resizable=1,scrollbars=1,status=0,toolbar=0')
 }

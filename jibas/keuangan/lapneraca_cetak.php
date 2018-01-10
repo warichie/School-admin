@@ -57,7 +57,7 @@ if (isset($_REQUEST['idtahunbuku']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Neraca]</title>
+<title>JIBAS FINANCE [Balance Sheet Reports]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -68,15 +68,15 @@ if (isset($_REQUEST['idtahunbuku']))
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>LAPORAN NERACA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>BALANCE SHEET REPORTS</strong></font><br /> </center><br /><br />
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Per Tanggal </strong></td>
+	<td><strong>by Date </strong></td>
     <td><strong>: <?=LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 </table>
@@ -84,11 +84,11 @@ if (isset($_REQUEST['idtahunbuku']))
 <table border="1" width="100%" align="left" cellpadding="2" cellspacing="5">
 <tr><td width="50%" valign="top">
 
-<font size="2"><strong>HARTA</strong></font><br />
+<font size="2"><strong>WEALTH</strong></font><br />
 <table border="0" style="border-collapse:collapse" cellpadding="2" width="95%" align="center">
 <tr height="28">
 	<td width="2%">&nbsp;</td>
-    <td colspan="6"><strong>AKTIVA LANCAR</strong><br /></td>
+    <td colspan="6"><strong>CURRENT ASSETS</strong><br /></td>
 </tr>
 <?
 OpenDb();
@@ -96,7 +96,7 @@ $sql = "SELECT jd.koderek, ra.nama, sum(jd.debet - jd.kredit)
 	          FROM jurnal j, jurnaldetail jd, rekakun ra 
 			   WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' 
 				  AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' 
-				  AND ra.kategori IN ('HARTA', 'PIUTANG') GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
+				  AND ra.kategori IN ('WEALTH', 'DEBT') GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
 $result = QueryDb($sql);
 $totalaktivalancar = 0;
 while ($row = mysql_fetch_row($result)) {
@@ -117,7 +117,7 @@ while ($row = mysql_fetch_row($result)) {
 <tr height="23">
 	<td width="2%">&nbsp;</td>
     <td width="2%">&nbsp;</td>
-	<td colspan="3" align="left"><strong><em>Sub Total Aktiva Lancar:</em></strong><br /></td>
+	<td colspan="3" align="left"><strong><em>Current Assets Subtotal:</em></strong><br /></td>
     <td align="right"><strong><?=FormatRupiah($totalaktivalancar) ?></strong></td>
     <td>&nbsp;</td>
 </tr>
@@ -127,14 +127,14 @@ while ($row = mysql_fetch_row($result)) {
 <table border="0" style="border-collapse:collapse" cellpadding="2" width="95%" align="center">
 <tr height="28">
 	<td width="2%">&nbsp;</td>
-    <td colspan="6"><strong>AKTIVA TETAP</strong><br /></td>
+    <td colspan="6"><strong>FIXED ASSETS</strong><br /></td>
 </tr>
 <?
 $sql = "SELECT jd.koderek, ra.nama, sum(jd.debet - jd.kredit) 
 			 FROM jurnal j, jurnaldetail jd, rekakun ra 
 			WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode 
 			  AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' 
-			  AND ra.kategori = 'INVENTARIS' GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
+			  AND ra.kategori = 'INVESTMENT' GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
 $result = QueryDb($sql);
 $totalaktivatetap = 0;
 while ($row = mysql_fetch_row($result)) {
@@ -155,7 +155,7 @@ while ($row = mysql_fetch_row($result)) {
 <tr height="23">
 	<td width="2%">&nbsp;</td>
     <td width="2%">&nbsp;</td>
-	<td colspan="3" align="left"><strong><em>Sub Total Aktiva Tetap:</em></strong><br /></td>
+	<td colspan="3" align="left"><strong><em>Fixed Assets Subtotal:</em></strong><br /></td>
     <td align="right"><strong><?=FormatRupiah($totalaktivatetap) ?></strong></td>
     <td>&nbsp;</td>
 </tr>
@@ -164,7 +164,7 @@ while ($row = mysql_fetch_row($result)) {
     <td align="right">+</td>
 </tr>
 <tr height="28">
-    <td colspan="5" align="left"><font size="2"><strong>TOTAL HARTA</strong></font><br /></td>
+    <td colspan="5" align="left"><font size="2"><strong>TOTAL WEALTH</strong></font><br /></td>
     <td align="right"><font size="2"><strong><?=FormatRupiah($totalaktivatetap + $totalaktivalancar) ?></strong></font></td>
     <td>&nbsp;</td>
 </tr>
@@ -173,11 +173,11 @@ while ($row = mysql_fetch_row($result)) {
 
 <td width="50%" valign="top">
 
-<font size="2"><strong>KEWAJIBAN</strong></font><br />
+<font size="2"><strong>OBLIGATIONS</strong></font><br />
 <table border="0" style="border-collapse:collapse" cellpadding="2" width="95%" align="center">
 <tr height="28">
 	<td width="2%">&nbsp;</td>
-    <td colspan="6"><strong>HUTANG</strong><br /></td>
+    <td colspan="6"><strong>DEBT</strong><br /></td>
 </tr>
 <?
 $sql = "SELECT jd.koderek, ra.nama, sum(jd.kredit - jd.debet) FROM jurnal j, jurnaldetail jd, rekakun ra WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'UTANG' GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
@@ -201,7 +201,7 @@ while ($row = mysql_fetch_row($result)) {
 <tr height="23">
 	<td width="2%">&nbsp;</td>
     <td width="2%">&nbsp;</td>
-	<td colspan="3" align="left"><strong><em>Sub Total Hutang:</em></strong><br /></td>
+	<td colspan="3" align="left"><strong><em>Debt Subtotal:</em></strong><br /></td>
     <td align="right"><strong><?=FormatRupiah($totalhutang) ?></strong></td>
     <td>&nbsp;</td>
 </tr>
@@ -210,7 +210,7 @@ while ($row = mysql_fetch_row($result)) {
 <table  border="0" style="border-collapse:collapse" cellpadding="2" width="95%" align="center">
 <tr height="28">
 	<td width="2%">&nbsp;</td>
-    <td colspan="6"><font size="1"><strong>MODAL</strong></font><br /></td>
+    <td colspan="6"><font size="1"><strong>CAPITAL</strong></font><br /></td>
 </tr>
 <?
 $sql = "SELECT tanggalmulai FROM tahunbuku WHERE replid = '$idtahunbuku'";
@@ -219,14 +219,14 @@ $row = mysql_fetch_row($result);
 $tanggal1 = $row[0];
 
 $sql = "SELECT SUM(jd.kredit - jd.debet) FROM rekakun ra,
-jurnal j, jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('PENDAPATAN', 'MODAL')";
+jurnal j, jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('INCOME', 'CAPITAL')";
 //echo  "$sql<br>";
 $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
 $totalpendapatan = (float)$row[0];
 //echo  "$totalpendapatan<br>";
 
-$sql = "SELECT SUM(jd.debet - jd.kredit) FROM rekakun ra, jurnal j, jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'BIAYA'";
+$sql = "SELECT SUM(jd.debet - jd.kredit) FROM rekakun ra, jurnal j, jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'COST'";
 //echo  "$sql<br>";
 $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
@@ -238,7 +238,7 @@ $modalusaha = $totalpendapatan - $totalbiaya;
 	<td width="2%">&nbsp;</td>
     <td width="2%">&nbsp;</td>
     <td width="5%" align="left">&nbsp;</td>
-    <td width="*" align="left">Modal Usaha</td>
+    <td width="*" align="left">Venture Capital</td>
     <td width="28%" align="right"><?=FormatRupiah($modalusaha) ?></td>
     <td width="30%"  align="right">&nbsp;</td>
     <td width="13">&nbsp;</td>
@@ -246,7 +246,7 @@ $modalusaha = $totalpendapatan - $totalbiaya;
 <tr height="23">
 	<td width="2%">&nbsp;</td>
     <td width="2%">&nbsp;</td>
-	<td colspan="3" align="left"><strong><em>Sub Total Modal Usaha:</em></strong><br /></td>
+	<td colspan="3" align="left"><strong><em>Venture Capital Subtotal:</em></strong><br /></td>
     <td align="right"><strong><?=FormatRupiah($modalusaha) ?></strong></td>
     <td>&nbsp;</td>
 </tr>
@@ -255,7 +255,7 @@ $modalusaha = $totalpendapatan - $totalbiaya;
     <td align="right">+</td>
 </tr>
 <tr height="28">
-    <td colspan="5" align="left"><font size="2"><strong>TOTAL KEWAJIBAN DAN MODAL</strong></font><br /></td>
+    <td colspan="5" align="left"><font size="2"><strong>TOTAL OBLIGATIONS AND CAPITAL</strong></font><br /></td>
     <td align="right"><font size="2"><strong><?=FormatRupiah($modalusaha + $totalhutang) ?></strong></font></td>
     <td>&nbsp;</td>
 </tr>

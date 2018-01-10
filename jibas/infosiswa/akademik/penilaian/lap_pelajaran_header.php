@@ -26,7 +26,7 @@
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Penilaian Pelajaran</title>
+<title>Class Index Report</title>
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -47,7 +47,7 @@ function acceptSiswa(nis, nama, flag) {
 }
 
 function validate() {
-	return validateEmptyText('nip', 'NIP Guru');
+	return validateEmptyText('nip', 'Teacher ID');
 }
 </script>
 <style type="text/css">
@@ -65,12 +65,12 @@ function validate() {
 <form name="main" enctype="multipart/form-data" >
 <table width="100%" border="1">
  <tr>
-    <td><strong>NIS</strong></td>
+    <td><strong>Student ID</strong></td>
     <td><strong><input type="text" name="nis" id="nis" size="25"  readonly class="disabled" value="<?=$nis ?>" onclick="carisiswa()" />
     </strong></td>
 </tr>
 <tr>
-    <td><strong>Nama</strong></td>
+    <td><strong>Name</strong></td>
     <td><strong><input type="text" name="nama" id="nama" size="25"  readonly value="<?=$nama ?>" class="disabled"  onclick="carisiswa()"/>
     </strong></td>
 </tr>
@@ -79,7 +79,7 @@ function validate() {
     <td width="51%"></td>
 </tr>
 <tr>
-    <td colspan="2"><div align="center"><a href="JavaScript:carisiswa()" onmouseover="showhint('Cari Siswa!', this, event, '50px')"><img src="../images/ico/lihat.png" border="0"/></a></div></td>
+    <td colspan="2"><div align="center"><a href="JavaScript:carisiswa()" onmouseover="showhint('Search Student', this, event, '50px')"><img src="../images/ico/lihat.png" border="0"/></a></div></td>
     </tr>
 </table>   
   

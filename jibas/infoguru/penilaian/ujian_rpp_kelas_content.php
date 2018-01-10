@@ -89,16 +89,16 @@ function cetak(){
     	<td colspan="2">
         <table width="100%" border="0">
         <!--<tr>
-            <td width="17%"><strong>Pelajaran</strong></td>
+            <td width="17%"><strong>Class Subject</strong></td>
             <td><strong>: <?=$namapel ?> </strong></td>
             <td rowspan="2"></td>
         </tr>
         <tr>
-            <td><strong>RPP</strong></td>
+            <td><strong>Lesson Plans</strong></td>
             <td><strong>: <?=$materi?></strong></td>            
         </tr>-->
         <tr>
-        	<td width="17%"><strong>Jenis Pengujian</strong></td>
+        	<td width="17%"><strong>Exam Type</strong></td>
             <td>           	
     			<select name="ujian" id="ujian" onchange="change()"  style="width:160px">
 			<?
@@ -124,8 +124,8 @@ function cetak(){
 		?>
              <td align="right">
             
-            <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onmouseover="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    		<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
+            <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onmouseover="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    		<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
             </td>
 		</tr>
         </table> 
@@ -139,8 +139,8 @@ function cetak(){
         <?	
 			
 			
-		//echo $ujian.' dan '.$sql1;
-		$data_title = "<font size='4'>Statistik Rata-rata Nilai Ujian RPP setiap Kelas</font>"; // title for the diagram
+		//echo $ujian.' and '.$sql1;
+		$data_title = "<font size='4'>Index Exam Lesson Plans Statistic for each Classes</font>"; // title for the diagram
 
         // sample data array
         //$data = array();
@@ -151,8 +151,8 @@ function cetak(){
 			$data[] = array($row1[1]);
 			//$data[] = $row1[1];
         }
-		$legend_y = array('Rata');
-		//$legend_y = 'Rata';
+		$legend_y = array('Average');
+		//$legend_y = 'Average';
 				
         $graph = new CAsBarDiagram;
         $graph->bwidth = 10; // set one bar width, pixels
@@ -170,9 +170,9 @@ function cetak(){
         <!--<td>
         <table width="100%" border="1" class="tab" id="table">
       	<tr>
-        	<td height="30" class="header"><div align="center">No</div></td>
-        	<td height="30" class="header"><div align="center">Kelas</div></td>
-        	<td height="30" class="header"><div align="center">Rata-rata RPP</div></td>
+        	<td height="30" class="header"><div align="center">#</div></td>
+        	<td height="30" class="header"><div align="center">Class</div></td>
+        	<td height="30" class="header"><div align="center">Lesson Plans Index</div></td>
       	</tr>-->
 	<?		
       	/*$sql_kls="SELECT k.kelas, k.replid FROM kelas k, tahunajaran a WHERE k.idtingkat=$tingkat AND k.aktif = 1 AND k.idtahunajaran = a.replid AND a.aktif = 1 ORDER BY kelas";
@@ -211,7 +211,7 @@ function cetak(){
     <tr>
         <td align="center" valign="middle" height="250">
         
-            <font color ="red" size="2"><b>Tidak ditemukan adanya data. <br /><br />Tambah data nilai ujian siswa  untuk RPP <?=$materi?> dan pelajaran <?=$namapel?><br />di menu Penilaian Pelajaran pada bagian Penilaian.
+            <font color ="red" size="2"><b>Data Not Found. <br /><br />Add student exam data for Lesson Plans <?=$materi?> and Subject <?=$namapel?><br />in the Class Subject Assessment menu on Assessment section.
     		</b></font> 
     	</td>
     </tr>

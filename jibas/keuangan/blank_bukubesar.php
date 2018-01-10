@@ -36,7 +36,7 @@
     <table width="100%" border="0" height="100%"><br><br><br><br><br>
   	<tr>
   		<td align="center">
-        <font size="2" color="#757575"><b>Klik pada <i>hyperlink</i> "Rekening Buku Besar" di panel kiri untuk menampilkan Laporan Buku Besar</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on <i>hyperlink</i> "Bank Account Ledger" on the left panel to show Ledger Reports</b></font>    </td>
 </td>
   </tr>
 </table>

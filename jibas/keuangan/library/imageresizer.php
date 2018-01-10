@@ -38,7 +38,7 @@ class ImageResizer
 			// check supperted image type
 			if (!in_array($imgtype, $this->SupportedImageTypes))
 			{
-				trigger_error("Image type is not supported!<br>");
+				trigger_error("Image type is not supported");
 				exit();
 			}
 			

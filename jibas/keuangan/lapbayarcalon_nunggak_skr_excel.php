@@ -62,7 +62,7 @@ $tgl = MySqlDateFormat($tanggal);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Tunggakan Iuran Sukarela Calon Siswa Per Kelas]</title>
+<title>JIBAS FINANCE [Student Candidate Late Contribution Reports by Classes]</title>
 </head>
 
 <body>
@@ -84,7 +84,7 @@ while($row = mysql_fetch_row($result)) {
 }
 //echo  "$nisstr<br>";
 if (strlen($nisstr) == 0) {
-	echo  "Tidak ditemukan data!";
+	echo  "No data.";
 	CloseDb();
 	exit();
 }
@@ -103,7 +103,7 @@ $row = mysql_fetch_row($result);
 $namapenerimaan = $row[0];
 $departemen = $row[1];
 
-$namakelompok = "Semua Kelompok";
+$namakelompok = "All Group";
 if ($kelompok <> -1) {
 	$sql = "SELECT proses, kelompok FROM jbsakad.kelompokcalonsiswa k, jbsakad.prosespenerimaansiswa p WHERE k.replid = '$kelompok' AND k.idproses = p.replid";
 	$result = QueryDb($sql);
@@ -118,35 +118,35 @@ if ($kelompok <> -1) {
 }
 ?>
 
-<center><font size="4"><strong><font face="Verdana">LAPORAN TUNGGAKAN 
+<center><font size="4"><strong><font face="Verdana">LATE PAYMENT REPORTS 
       <?=strtoupper($namapenerimaan) ?>
 </font><br />
 </strong></font><br />
  </center><br />
 <table border="0">
 <tr>
-	<td><font size="2" face="Arial"><strong>Departemen </strong></font></td>
+	<td><font size="2" face="Arial"><strong>Department </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
           <?=$departemen?>
     </strong></font></td>
 </tr>
 <tr>
-	<td><font size="2" face="Arial"><strong>Proses</strong></font></td>
+	<td><font size="2" face="Arial"><strong>Process</strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
           <?=$namaproses?>
     </strong></font></td>
 </tr>
 <tr>
-	<td><font size="2" face="Arial"><strong>Kelompok</strong></font></td>
+	<td><font size="2" face="Arial"><strong>Group</strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
           <?=$namakelompok?>
     </strong></font></td>
 </tr>
 <tr>
-	<td><font size="2" face="Arial"><strong>Telat Bayar </strong></font></td>
+	<td><font size="2" face="Arial"><strong>Late Payment </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
           <?=$telat ?> 
-      hari dari tanggal 
+      days from date 
       <?=LongDateFormat($tanggal)?>
     </strong></font></td>
 </tr>
@@ -155,19 +155,19 @@ if ($kelompok <> -1) {
 
 <table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width ?>" align="left" bordercolor="#000000">
 <tr height="30">
-	<td width="30" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="80" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No. Reg</font></strong></td>
-    <td width="140" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Nama</font></strong></td>
-    <td width="50" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Kel</font></strong></td>
+	<td width="30" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="80" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Registration Number</font></strong></td>
+    <td width="140" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Name</font></strong></td>
+    <td width="50" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Group</font></strong></td>
 <? 	for($i = 0; $i < $max_n_cicilan; $i++) { 
 			$n = $i + 1; ?>
     		<td width="120" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">
    		    <?="Bayaran-$n" ?>
     		</font></strong></td>	
     <?  } ?>
-    <td width="80" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Telat<br />
-          <em>(hari)</em></font></strong></td>
-    <td width="100" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Pembayaran</font></strong></td>
+    <td width="80" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Late<br />
+          <em>(days)</em></font></strong></td>
+    <td width="100" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Payment</font></strong></td>
 </tr>
 <?
 OpenDb();
@@ -247,7 +247,7 @@ while ($row = mysql_fetch_array($result)) {
 }
 ?>
 <tr height="40">
-	<td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong>T O T A L</strong></font></td>
+	<td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong>Total</strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=FormatNumerik($totalbayarall) ?></strong></font></td>
 </tr>
 </table>

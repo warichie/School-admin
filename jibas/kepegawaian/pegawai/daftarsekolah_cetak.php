@@ -42,14 +42,14 @@ $nama = $row[0];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 </head>
 
 <body>
 <table border="0" cellpadding="10" cellpadding="5" width="780" align="left">
 <tr><td align="left" valign="top"><? include("../include/headercetak.php") ?>
   <center>
-    <font size="4"><strong>DATA SEKOLAH</strong></font><br />
+    <font size="4"><strong>SCHOOL DATA</strong></font><br />
    </center><br /><br />
 <br />
 
@@ -57,20 +57,20 @@ $nama = $row[0];
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Riwayat Sekolah <?=$nama?> - <?=$nip?></font><br />
+        <font class="subtitle">School History <?=$nama?> - <?=$nip?></font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="5%" align="center" class="header">Tingkat</td>
-    <td width="25%" align="center" class="header">Sekolah</td>
-    <td width="5%" align="center" class="header">Lulus</td>
-    <td width="7%" align="center" class="header">Akhir</td>
-    <td width="20%" align="center" class="header">SK</td>
-    <td width="23%" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="5%" align="center" class="header">Grade</td>
+    <td width="25%" align="center" class="header">School</td>
+    <td width="5%" align="center" class="header">Graduates</td>
+    <td width="7%" align="center" class="header">End</td>
+    <td width="20%" align="center" class="header">Legal Number</td>
+    <td width="23%" align="center" class="header">Info</td>
 </tr>
 <?
 $sql = "SELECT ps.replid, ps.tingkat, ps.sekolah, ps.sk, ps.lulus, ps.keterangan, ps.terakhir FROM pegsekolah ps 

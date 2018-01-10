@@ -28,7 +28,7 @@ require_once('include/sessioninfo.php');
 if (getLevel() == 2) 
 { ?>
 <script language="javascript"> 
-	alert('Maaf, anda tidak berhak mengakses halaman ini!'); 
+	alert('Maaf, anda tidak berhak mengakses halaman ini'); 
 	window.history.go(-1);
 </script>
 <? 	
@@ -62,7 +62,7 @@ if (getLevel() == 2)
   	</tr>
     <tr>
     	<td align="right"><a href="referensi.php">
-      	<font size="1" color="#000000"><b>Referensi</b></font></a>&nbsp>&nbsp
+      	<font size="1" color="#000000"><b>Reference</b></font></a>&nbsp;>&nbsp;
         <font size="1" color="#000000"><b>Tutup Buku</b></font>
         </td>
    	</tr>
@@ -74,7 +74,7 @@ if (getLevel() == 2)
   	<table width="70%" align="center" border="1" cellpadding="7" cellspacing="0" style="border-color:#306">
     <tr>
     	<td align="left" width="27%" style="background-color:#306">
-        <font style="font-size:20px;">Langkah 3 dari 3</font>
+        <font style="font-size:20px;">Langkah 3 from 3</font>
         </td>
         <td align="left" valign="middle" style="background-color:#306">
         <font style="font-size:11px;">Selesai</font>
@@ -86,7 +86,7 @@ if (getLevel() == 2)
         <table style="background-color:#DFEFFF; border-color:#006" width="80%" align="center">
         <tr>
             <td align="center" height="80" valign="middle">
-            <font style="color:#003"><strong>Selesai memproses tutup buku dan membuat tahun buku baru!</strong></font>
+            <font style="color:#003"><strong>Selesai memproses tutup buku and membuat tahun buku baru</strong></font>
             </td>
         </tr>
         </table>

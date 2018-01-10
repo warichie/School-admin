@@ -34,7 +34,7 @@ $sourcefrom = $_REQUEST['sourcefrom'];
 
 if (getLevel() == 2) { ?>
 <script language="javascript">
-	alert('Maaf, anda tidak berhak mengakses halaman ini!');
+	alert('Maaf, anda tidak berhak mengakses halaman ini');
 	document.location.href = "<?=$sourcefrom ?>";
 </script>
 <? 	exit();
@@ -63,7 +63,7 @@ if ($op == "12134892y428442323x423")
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kode Perkiraan</title>
+<title>Code Perkiraan</title>
 <script src="script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
@@ -83,7 +83,7 @@ function refresh() {
 
 function del(kode) {
 	
- 	if (confirm("Apakah anda yakin akan menghapus data ini?")) {
+ 	if (confirm("Are you sure want to delete this data?")) {
 		var kate = document.getElementById('kategori').value;
 		document.location.href = "akunrek.php?op=12134892y428442323x423&kategori="+kate+"&kode="+kode+"&from=<?=$from?>&sourcefrom=<?=$sourcefrom?>";
 	}
@@ -116,13 +116,13 @@ function tambah() {
     <!-- TABLE TITLE -->
     <tr>
         <td align="right">
-		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Kode Rekening Perkiraan</font>	
+		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Code Bank Account Perkiraan</font>	
         </td>
   	</tr>
     <tr>
     	<td align="right"><a href="<?=$sourcefrom ?>">
-      	<font size="1" color="#000000"><b><?=$from ?></b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Kode Rekening Perkiraan</b></font></td>
+      	<font size="1" color="#000000"><b><?=$from ?></b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Code Bank Account Perkiraan</b></font></td>
    	</tr>
     <tr>
       	<td align="left">&nbsp;</td>
@@ -133,7 +133,7 @@ function tambah() {
     <!-- TABLE LINK -->
     <tr>
     	<td align="right" width="40%">
-        <strong>Kategori&nbsp;</strong>
+        <strong>Category&nbsp;</strong>
         <select name="kategori" id="kategori" onChange="change_kategori()" style="width:150px">
         <?
         $sql = "SELECT * FROM katerekakun ORDER BY urutan";
@@ -158,10 +158,10 @@ function tambah() {
 	
         
         <td align="right">
-        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;        
+        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;        
         <a href="JavaScript:tambah()">
-            <img src="images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')">&nbsp;Tambah Rekening Perkiraan</a>
+            <img src="images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')">&nbsp;Add Bank Account Perkiraan</a>
         
         </td>
     </tr>
@@ -169,10 +169,10 @@ function tambah() {
     
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
 	<tr height="30" align="center">
-        <td class="header" width="50">No</td>
-        <td class="header" width="10%">Kode</td>
-        <td class="header" width="20%">Nama</td>
-        <td class="header">Keterangan</td>      
+        <td class="header" width="50">#</td>
+        <td class="header" width="10%">Code</td>
+        <td class="header" width="20%">Name</td>
+        <td class="header">Info</td>      
         <td class="header" width="100">&nbsp;</td>        
 	</tr>
     <? 
@@ -187,7 +187,7 @@ function tambah() {
         <td><?=$row['keterangan'] ?></td>        
         <td align="center">
         <a href="#" onClick="newWindow('akunrek_edit.php?kode=<?=$row['kode']?>',
-        'UbahRekening','450','310','resizable=1,scrollbars=0,status=0,toolbar=0')"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Rekening!',this, event, '75px')"></a>&nbsp;<a href="#" onClick="del('<?=$row['kode']?>')"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Rekening!', this, event, '75px')"></a>
+        'UbahRekening','450','310','resizable=1,scrollbars=0,status=0,toolbar=0')"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Bank Account!',this, event, '75px')"></a>&nbsp;<a href="#" onClick="del('<?=$row['kode']?>')"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Bank Account', this, event, '75px')"></a>
         </td>        
     </tr>
     <? 
@@ -215,8 +215,8 @@ function tambah() {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">    
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.         
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+    	<font size = "2" color ="red"><b>Data Not Found.         
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         
         </b></font>
 	</td>

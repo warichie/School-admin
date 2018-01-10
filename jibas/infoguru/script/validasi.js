@@ -27,7 +27,7 @@ function validateEmptyText(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (val.length == 0) {
-		alert("Anda harus mengisikan data untuk " + elementName);
+		alert("You must enter a data for " + elementName);
 		document.getElementById(elementId).focus();
 		//document.getElementById(elementId).style.background='#fa9e9e';
 		return false;
@@ -39,7 +39,7 @@ function validateEmptyCombo(elementId) {
 	var val = document.getElementById(elementId).value;
 	val = vdtrim(val);
 	if (val.length == 0) {
-		alert("Tidak dapat menyimpan siswa karena tidak ada kelas terpilih");
+		alert("No class selected, should not save the student");
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -56,7 +56,7 @@ function validateEmptyCombo(elementId) {
 	{
 		
 		if (!vdIsNumber(val)) {
-		alert(elementName + " harus berupa bilangan ");
+		alert(elementName + " must be numeric ");
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -69,7 +69,7 @@ function validateMaxText(elementId, maxLen, elementName) {
 	val = vdtrim(val);
 	
 	if (val.length > maxLen) {
-		alert("Panjang data untuk " + elementName + " tidak boleh melebihi " + maxLen + " karakter");
+		alert("The data length for " + elementName + " should not exceed " + maxLen + " characters");
 		document.getElementById(elementId).focus();
 		//document.getElementById(elementId).style.background='#fa9e9e';
 		return false;
@@ -81,7 +81,7 @@ function validateNumber(elementId, elementName) {
 	var val = document.getElementById(elementId).value;
 	val = vdtrim(val);
 	if (!vdIsNumber(val)) {
-		alert(elementName + " harus berupa bilangan ");
+		alert(elementName + " must be numeric ");
 		document.getElementById(elementId).value=0;
 		document.getElementById(elementId).focus();
 		//document.getElementById(elementId).style.background='#fa9e9e';
@@ -95,7 +95,7 @@ function validateDecimal(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (vdIsDecimal(val)) {
-		alert("Desimal " + elementName + " harus berupa titik ");
+		alert("Decimal " + elementName + " must be in period ");
 		document.getElementById(elementId).focus();
 		//document.getElementById(elementId).style.background='#fa9e9e';
 		return false;
@@ -109,7 +109,7 @@ function validateString(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (vdIsNumber(val)) {
-		alert(elementName + " harus berupa huruf ");
+		alert(elementName + " must be letters ");
 		document.getElementById(elementId).focus();
 		//document.getElementById(elementId).style.background='#fa9e9e';
 		return false;
@@ -122,7 +122,7 @@ function validateEmptyTextMCE(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (val.length == 0) {
-		alert("Anda harus mengisikan teks untuk " + elementName);
+		alert("You must enter a text for " + elementName);
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -136,7 +136,7 @@ function validateEmail(elementId) {
 		if (val.charAt(i) == "@") 			
 			return true;
 		} else { 
-			alert("Alamat email tidak lengkap");
+			alert("Email tidak lengkap");
 			document.getElementById(elementId).focus();
 			return false;
 		}
@@ -146,17 +146,17 @@ function validateEmail(elementId) {
 }*/
 function validateTgl(tgl,bln,th,tgl1,bln1,th1) {
 	if (th > th1) {
-		alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+		alert ('End Year should not less than Start Year');
 		return false;
 	} 
 	
 	if (th == th1 && bln > bln1 ) {
-		alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+		alert ('End Month should not less than Start Month');
 		return false; 
 	}	
 	
 	if (th == th1 && bln == bln1 && tgl > tgl1 ) { 
-		alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');
+		alert ('End Date should not less than Start Date');
 		return false;
 	}	
 	return true;

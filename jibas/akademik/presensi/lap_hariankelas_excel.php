@@ -51,7 +51,7 @@ $row = mysql_fetch_array($result);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan Presensi Harian Siswa Per Kelas]</title>
+<title>JIBAS SIMAKA [Print Student Daily Presence Reports by Classes]</title>
 <style type="text/css">
 <!--
 .style4 {font-family: Verdana}
@@ -70,19 +70,19 @@ $row = mysql_fetch_array($result);
 
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th scope="row" colspan="8"><span class="style9">Laporan Presensi Harian Setiap Kelas</span></th>
+    <th scope="row" colspan="8"><span class="style9">Daily Presence Reports for each Classes</span></th>
   </tr>
 </table>
 <br />
 <table width="16%">
 <tr>
-	<td width="83%" colspan="2"><span class="style7">Departemen</span></td>
+	<td width="83%" colspan="2"><span class="style7">Department</span></td>
     <td width="17%" colspan="4"><span class="style7">: 
       <?=$row['departemen']?>
     </span></td>
 </tr>
 <tr>
-	<td colspan="2"><span class="style7">Tahun Ajaran</span></td>
+	<td colspan="2"><span class="style7">Year</span></td>
     <td colspan="4"><span class="style7">: 
       <?=$row['tahunajaran']?>
     </span></td>
@@ -94,18 +94,18 @@ $row = mysql_fetch_array($result);
     </span></td>
 </tr>
 <!--<tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
     <td><strong>: <?=$row['tingkat']?></strong></td>
 </tr>-->
 <tr>
-	<td colspan="2"><span class="style7">Kelas</span></td>
+	<td colspan="2"><span class="style7">Class</span></td>
     <td colspan="4"><span class="style7">: 
       <?=$row['tingkat'].' - '.$row['kelas']?>
     </span></td>
 </tr>
 <tr>
-	<td colspan="2"><span class="style7">Periode Presensi</span></td>
-    <td colspan="4"><span class="style7">: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></span></td>
+	<td colspan="2"><span class="style7">Period</span></td>
+    <td colspan="4"><span class="style7">: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></span></td>
 </tr>
 </table>
 <br />
@@ -118,14 +118,14 @@ $row = mysql_fetch_array($result);
 ?>
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
    	<tr height="30" align="center">
-    	<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>No</strong></td>
-		<td width="15%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>N I S</strong></td>
-        <td width="*" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Nama</strong></td>
-   		<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Hadir</strong></td>
-		<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Ijin</strong></td>            
-		<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Sakit</strong></td>
-        <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Alpa</strong></td>     
-        <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Cuti</strong></td>
+    	<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>#</strong></td>
+		<td width="15%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Student ID</strong></td>
+        <td width="*" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Name</strong></td>
+   		<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Attend</strong></td>
+		<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Consent</strong></td>            
+		<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Ill</strong></td>
+        <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Absent</strong></td>     
+        <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><strong>Leave</strong></td>
         
     </tr>
 <?		
@@ -158,7 +158,7 @@ $row = mysql_fetch_array($result);
 <? 	} ?>
 <? 	if ($row[8] == 0) 
 			$tanda = "*";
-			echo "Ket: *Status siswa tidak aktif lagi";
+			echo "PS: *Student Status back to inactive";
     	?>
 </body>
 <script language="javascript">

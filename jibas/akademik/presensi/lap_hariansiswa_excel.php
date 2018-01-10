@@ -50,7 +50,7 @@ $row = mysql_fetch_array($result);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan Presensi Harian Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Daily Presence Reports]</title>
 <style type="text/css">
 <!--
 .style3 {font-family: Verdana; font-weight: bold; font-size: 12px; }
@@ -68,24 +68,24 @@ $row = mysql_fetch_array($result);
 <body>
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th scope="row" colspan="2"><span class="style8">Laporan Presensi Harian Siswa</span></th>
+    <th scope="row" colspan="2"><span class="style8">Student Daily Presence Report Card</span></th>
   </tr>
 </table>
 <br />
 <table width="17%">
 <tr>
-	<td width="65%"><span class="style3">Siswa</span></td>
+	<td width="65%"><span class="style3">Student</span></td>
     <td width="35%" colspan="3"><span class="style3">: 
       <?=$nis.' - '.$row['nama']?>
     </span></td>
 </tr>
 <!--<tr>
-	<td><strong>Nama</strong></td>
+	<td><strong>Name</strong></td>
     <td><strong>: <?=$row['nama']?></strong></td>
 </tr>-->
 <tr>
-	<td><span class="style3">Periode Presensi</span></td>
-    <td  colspan="3"><span class="style3">: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></span></td>
+	<td><span class="style3">Period</span></td>
+    <td  colspan="3"><span class="style3">: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></span></td>
 </tr>
 </table>
 <br />
@@ -98,16 +98,16 @@ $row = mysql_fetch_array($result);
 ?>
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
   <tr height="30" align="center">
-    	<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">No</span></td>
-    <td width="25%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Tanggal</span></td>
+    	<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">#</span></td>
+    <td width="25%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Date</span></td>
      <td width="8%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Semester</span></td>
-    <td width="8%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Kelas</span></td>
-    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Hadir</span></td>
-    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Ijin</span></td>            
-    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Sakit</span></td>
-    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Alpa</span></td>
-    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Cuti</span></td>
-    <td width="*" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Keterangan</span></td>      
+    <td width="8%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Class</span></td>
+    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Attend</span></td>
+    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Consent</span></td>            
+    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Ill</span></td>
+    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Absent</span></td>
+    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Leave</span></td>
+    <td width="*" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Info</span></td>      
     </tr>
 <?		
 	$cnt = 0;
@@ -139,7 +139,7 @@ $row = mysql_fetch_array($result);
 	} 
 	CloseDb() ?>
     <tr>	
-		<td width="5%" colspan="4" align="right" bgcolor="#CCCCCC"><strong>Jumlah&nbsp;&nbsp;</strong></td>
+		<td width="5%" colspan="4" align="right" bgcolor="#CCCCCC"><strong>Amount&nbsp;&nbsp;</strong></td>
    		<td width="5%" height="25" align="center"><?=$h?></td>
 		<td width="5%" height="25" align="center"><?=$i?></td>            
 		<td width="5%" height="25" align="center"><?=$s?></td>

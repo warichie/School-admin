@@ -125,7 +125,7 @@ function bacapesan(replid){
 function hapus(replid){
 	var bulan=parent.pesanguru_header.document.getElementById("bulan").value;
 	var tahun=parent.pesanguru_header.document.getElementById("tahun").value;
-	if (confirm('Anda yakin akan menghapus pesan ini dan lampiran-lampirannya ?')){ 
+	if (confirm('Are you sure want to delete this message and the attachments?')){ 
 		document.location.href="pesan_draft.php?op=bzux834hx8x7x934983xihxf084&replid="+replid+"&bulan="+bulan+"&tahun="+tahun+"&page=0";
 	}
 }
@@ -169,10 +169,10 @@ function delpesan(){
 	var num = document.inbox.numdel.value;
 	var list = document.inbox.listdel.value;
 	if (list.length==0){
-		alert ('Minimal ada satu pesan yang akan dihapus');
+		alert ('You should have at least one message to deleted');
 		return false;
 	} else {
-		if (confirm('Anda yakin akan menghapus pesan ini?')){
+		if (confirm('Are you sure want to delete this message?')){
 			//alert ('List = '+list);
 			document.location.href="pesan_draft.php?op=34983xihxf084bzux834hx8x7x93&listdel="+list+"&numdel="+num;
 		} else {
@@ -187,7 +187,7 @@ function delpesan(){
 <div align="right">
 <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">DRAFT</font><br />
     <a href="pesan.php" target="framecenter">
-      <font size="1" color="#000000"><b>Pesan</b></font></a>&nbsp>&nbsp
+      <font size="1" color="#000000"><b>Message</b></font></a>&nbsp;>&nbsp;
         <font size="1" color="#000000"><b>Draft</b></font>
 </div><br />
 <input type="hidden" name="bulan" id="bulan" value="<?=$bulan?>" />
@@ -220,25 +220,25 @@ function delpesan(){
 		$disnext="style='visibility:hidden;position:absolute;'";
 		}
 	?>
-    Halaman : 
-	<input <?=$disback?> type="button" class="but" title="Sebelumnya" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    Page : 
+	<input <?=$disback?> type="button" class="but" title="Previous" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 	<select name="page" id="page" onChange="chg_page()">
 	<? for ($p=1;$p<=$total;$p++){ ?>
 		<option value="<?=$p-1?>" <?=StringIsSelected($page,$p-1)?>><?=$p;?></option>
 	<? } ?>
 	</select>
 	<? } ?>
-	<input <?=$disnext?> type="button" class="but" name="next" title="Selanjutnya" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">&nbsp;dari&nbsp;<?=$total?>
+	<input <?=$disnext?> type="button" class="but" name="next" title="Next" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">&nbsp;from&nbsp;<?=$total?>
 	<br><br>
     <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
   <tr>
-    <th width="30" height="30" class="header" scope="row"><div align="center">No</div></th>
-    <td width="56" height="30" class="header"><div align="center"><input type="checkbox" name="cek" id="cek" onClick="cek_all()" title="Pilih semua" onMouseOver="showhint('Pilih semua', this, event, '120px')"/></div></td>
-    <td width="246" height="30" class="header"><div align="center">Pengirim</div></td>
-    <td width="267" height="30" class="header" title="Lampiran"><div align="center">Judul</div></td>
-    <td width="244" class="header"><div align="center">Lampiran</div></td>
-    <!--<td width="191" height="30" class="header"><div align="center">Lampiran</div></td>-->
-   	<td width="87" class="header"><div align="center">Tanggal</div></td>
+    <th width="30" height="30" class="header" scope="row"><div align="center">#</div></th>
+    <td width="56" height="30" class="header"><div align="center"><input type="checkbox" name="cek" id="cek" onClick="cek_all()" title="Select all" onMouseOver="showhint('Select all', this, event, '120px')"/></div></td>
+    <td width="246" height="30" class="header"><div align="center">Sender</div></td>
+    <td width="267" height="30" class="header" title="Attachment"><div align="center">Title</div></td>
+    <td width="244" class="header"><div align="center">Attachment</div></td>
+    <!--<td width="191" height="30" class="header"><div align="center">Attachment</div></td>-->
+   	<td width="87" class="header"><div align="center">Date</div></td>
    </tr>
   <?
   OpenDb();
@@ -268,7 +268,7 @@ function delpesan(){
   $belakang="";
   $tr="";
   ?>
-  <tr >
+  <tr>
     <td height="25" scope="row"><div align="center">
       <?=$cnt;?>
     </div></th>
@@ -292,7 +292,7 @@ function delpesan(){
 	}
 	?></a><?=$belakang?>    </td>
     <td height="25"><? while ($row2=@mysql_fetch_array($result2)){
-		echo "<a title='Buka lampiran ini!' href='".$WEB_UPLOAD_DIR."pesan/".$row2[direktori].$row2[namafile]."' target='_blank' ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row2['namafile']."</a><br>";
+		echo "<a title='Open this attachment' href='".$WEB_UPLOAD_DIR."pesan/".$row2[direktori].$row2[namafile]."' target='_blank' ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row2['namafile']."</a><br>";
 	} ?></td>
     <td height="25"><?=$depan?><div align="center"><?=$row1['tanggal']?></div><?=$belakang?></td>
   </tr>
@@ -302,7 +302,7 @@ function delpesan(){
   } 
   } else {?>
    <tr>
-    <td scope="row" colspan="8"><div align="center" class="divNotif">Tidak ada pesan yang tersimpan di kotak Draft Anda</div></td>   </tr>
+    <td scope="row" colspan="8"><div align="center" class="divNotif">No message saved in your Draft.</div></td>   </tr>
   <? } ?>
 </table>		
 	</td>
@@ -312,7 +312,7 @@ function delpesan(){
 <input type="hidden" name="listdel" id="listdel">
 <input type="hidden" name="numdel" id="numdel">
 <? if ($numpesan>0){ ?>
-<input type="button" class="but" name="del_pesan" id="del_pesan" value="Hapus" onClick="delpesan()">
+<input type="button" class="but" name="del_pesan" id="del_pesan" value="Delete" onClick="delpesan()">
 <? } ?>
 </form>
 </body>

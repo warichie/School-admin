@@ -56,35 +56,35 @@ if (isset($_REQUEST['urutan']))
 	$urutan = $_REQUEST['urutan'];
 
 if ($jenis=="tgllulus")
-$namajenis="Tahun&nbsp;Lulus";
+$namajenis="Year&nbsp;Lulus";
 if ($jenis=="nis")
-$namajenis="NIS";
+$namajenis="National Student ID";
 if ($jenis=="nama")
-$namajenis="Nama&nbsp;Siswa";
+$namajenis="Name&nbsp;Student";
 if ($jenis=="panggilan")
-$namajenis="Panggilan&nbsp;Siswa";
+$namajenis="Nickname&nbsp;Student";
 if ($jenis=="agama")
-$namajenis="Agama";
+$namajenis="Religion";
 if ($jenis=="suku")
-$namajenis="Suku";
+$namajenis="Ethnicity";
 if ($jenis=="status")
-$namajenis="Status&nbsp;Siswa";
+$namajenis="Status&nbsp;Student";
 if ($jenis=="kondisi")
-$namajenis="Kondisi&nbsp;Siswa";
+$namajenis="Conditions&nbsp;Student";
 if ($jenis=="darah")
 $namajenis="Golongan&nbsp;Darah";
 if ($jenis=="alamatsiswa")
-$namajenis="Alamat&nbsp;Siswa";
+$namajenis="Alamat&nbsp;Student";
 if ($jenis=="asalsekolah")
 $namajenis="Asal&nbsp;Sekolah";
 if ($jenis=="namaayah")
-$namajenis="Nama&nbsp;Ayah";
+$namajenis="Name&nbsp;Ayah";
 if ($jenis=="namaibu")
-$namajenis="Nama&nbsp;Ibu";
+$namajenis="Name&nbsp;Ibu";
 if ($jenis=="alamatortu")
 $namajenis="Alamat&nbsp;Orang&nbsp;Tua";
 if ($jenis=="keterangan")
-$namajenis="Keterangan";
+$namajenis="Info";
 
 if ($cari=="")
 $namacari="";
@@ -130,21 +130,21 @@ Data Alumni
     <td colspan="7">
     <table width="100%" border="0">
   <tr>
-    <td colspan="2"><div align="center" class="style3 style2">PENCARIAN ALUMNI</div></td>
+    <td colspan="2"><div align="center" class="style3 style2">SEARCH ALUMNI</div></td>
     </tr>
   <tr>
     <td colspan="2">&nbsp;</td>
   </tr>
   <tr>
 
-    <td width="9%"><strong>Departemen</strong></td>
+    <td width="9%"><strong>Department</strong></td>
     <td width="91%" align="left"><strong>:&nbsp;
         <?=$departemen?>
     </strong></td>
   </tr>
   <tr>
     <td colspan="2">
-    Pencarian berdasarkan <strong><?=$namajenis?></strong> dengan kata kunci <strong>'<?=$namacari;?>'</strong></td>
+    Search by <strong><?=$namajenis?></strong> dengan kata kunci <strong>'<?=$namacari;?>'</strong></td>
     <td align="left"><strong>:&nbsp;
            
 	</strong></td>
@@ -158,12 +158,12 @@ Data Alumni
   <tr>
     <td colspan="7"><table border="1" width="100%" bordercolordark="#000000">
 <tr height="30" bordercolor="#000000">
-<td width="3" valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">No.</div></td>
-<td width="20" valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">NIS</div></td>
-<td valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">Nama</div></td>
-<td valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">Kelas Terakhir</div></td>
-<td valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">Tingkat Terakhir</div></td>
-<td valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">Tanggal Lulus</div></td>
+<td width="3" valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">#</div></td>
+<td width="20" valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">Student ID</div></td>
+<td valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">Name</div></td>
+<td valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">Last Class</div></td>
+<td valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">Last Grade</div></td>
+<td valign="middle" bgcolor="#999999" class="header"><div align="center" class="style4">Date Graduated</div></td>
 </tr>
 <?
 	$cnt=1;

@@ -95,7 +95,7 @@ function menu(menuitem){
 	document.getElementById('buletinmenu').style.display='none';
 	document.getElementById('pengaturanmenu').style.display='none';
 	document.getElementById('dotnetmenu').style.display='none';
-		if (confirm('Kamu yakin mau keluar dari InfoSiswa ?'))
+		if (confirm('Kamu yakin mau keluar from InfoSiswa ?'))
 			document.location.href="logout.php";
 	}
 
@@ -123,10 +123,10 @@ function get_fresh(){
         <!--
         <a href="javascript:menu('home');" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Home</a>&nbsp;
         -->
-        <a href="javascript:menu('buletin');" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Buletin</a>&nbsp;
-        <a href="javascript:menu('akademik');" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Akademik</a>&nbsp;
+        <a href="javascript:menu('buletin');" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Bulletin</a>&nbsp;
+        <a href="javascript:menu('akademik');" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Academic</a>&nbsp;
         <!--
-        <a href="javascript:menu('pengaturan');" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Pengaturan</a>&nbsp;
+        <a href="javascript:menu('pengaturan');" style="font-family:Verdana; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none">Settings</a>&nbsp;
         
         <a href="javascript:menu('dotnet');" style="font-family:Verdana; color:#FF9900; font-size:10px; font-weight:bold; text-decoration:none">JIBAS.Net</a>&nbsp;
         -->
@@ -146,20 +146,20 @@ function get_fresh(){
 			<table border="0" cellspacing="0" cellpadding="0">
 			  <tr>
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="akademik/jadwal/kalender_footer.php" target="framecenter" onmouseover="kalender.src='images/icon_menu/kalender_on.png'" name="kalender" id="kalender" onmouseout="kalender.src='images/icon_menu/kalender.png'"><img src="images/icon_menu/kalender.png"  border="0" name="kalender" id="kalender2"/><br>
-				<font face="Verdana" size="1" color="#FFFFFF"><b>Kalender Akademik</b></font></a></div></td>
+				<font face="Verdana" size="1" color="#FFFFFF"><b>Academic Calendar</b></font></a></div></td>
 				<?php
 				if (SI_USER_ID()!="landlord" && SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="adminsiswa" && SI_USER_ID()!="ADMINSISWA") {
 				?>
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="akademik/jadwal/jadwal_kelas_footer.php" target="framecenter" onmouseover="jadwal.src='images/icon_menu/jadwal_on.png'" name="jadwal" id="jadwal" onmouseout="jadwal.src='images/icon_menu/jadwal.png'"><img src="images/icon_menu/jadwal.png"  border="0" name="jadwal" id="jadwal"/><br>
-				<font face="Verdana" size="1" color="#FFFFFF"><b>Jadwal Pelajaran</b></font></a></div></td>
+				<font face="Verdana" size="1" color="#FFFFFF"><b>Schedule Class Subject</b></font></a></div></td>
 				
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="akademik/penilaian/lap_pelajaran_main.php" target="framecenter" onmouseover="penilaian.src='images/icon_menu/penilaian_on.png'" name="penilaian" id="penilaian" onmouseout="penilaian.src='images/icon_menu/penilaian.png'"><img src="images/icon_menu/penilaian.png"  border="0" name="penilaian" id="penilaian"/><br>
-				<font face="Verdana" size="1" color="#FFFFFF"><b>Penilaian</b></font></a></div></td>
+				<font face="Verdana" size="1" color="#FFFFFF"><b>Index</b></font></a></div></td>
 				
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="infosiswa/infosiswa_content.php" target="framecenter" onmouseover="infosiswa.src='images/icon_menu/infosiswa_on.png'" name="infosiswa" id="infosiswa" onmouseout="infosiswa.src='images/icon_menu/infosiswa.png'"><img src="images/icon_menu/infosiswa.png"  border="0" name="infosiswa" id="infosiswa"/><br>
-				<font face="Verdana" size="1" color="#FFFFFF"><b>Info Siswa</b></font></a></div></td><?php } ?>
+				<font face="Verdana" size="1" color="#FFFFFF"><b>Student Info</b></font></a></div></td><?php } ?>
                 <td style="padding-right:5px"><div align="center"><a style="text-decoration:none;" href="perpustakaan/perpustakaan.php" target="framecenter" onmouseover="perpustakaan.src='images/icon_menu/perpustakaan_on.png'" name="perpustakaan" id="perpustakaan" onmouseout="perpustakaan.src='images/icon_menu/perpustakaan.png'"><img src="images/icon_menu/perpustakaan.png" name="perpustakaan" width="40" height="40" border="0" id="perpustakaan"/><br>
-                <font face="Verdana" size="1" color="#FFFFFF"><b>Katalog Pustaka</b></font></a></div></td>
+                <font face="Verdana" size="1" color="#FFFFFF"><b>Library Catalogue</b></font></a></div></td>
 			  </tr>
 			</table>
 	  </div>
@@ -170,22 +170,22 @@ function get_fresh(){
 				if (SI_USER_ID()!="landlord" && SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="adminsiswa" && SI_USER_ID()!="ADMINSISWA") {
 				?>
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="framecenter.php" target="framecenter" onmouseover="info.src='images/icon_menu/info_on.png'" name="info" id="info" onmouseout="info.src='images/icon_menu/info.png'"><img src="images/icon_menu/info.png" name="info" width="40" height="40" border="0" id="info"/><br>
-    <font face="Verdana" size="1" color="#FFFFFF"><b>Notifikasi</b></font></a></div></td>
+    <font face="Verdana" size="1" color="#FFFFFF"><b>Notifications</b></font></a></div></td>
                 
                 <td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="buletin/rubriksekolah/beritasekolah.php" target="framecenter" onmouseover="rubriksekolah.src='images/icon_menu/rubrik_on.png'" name="rubriksekolah" id="rubriksekolah" onmouseout="rubriksekolah.src='images/icon_menu/rubrik.png'"><img src="images/icon_menu/rubrik.png"  border="0" name="rubriksekolah" id="rubriksekolah"/><br>
-				<font face="Verdana" size="1" color="#FFFFFF"><b>Rubrik&nbsp;Sekolah</b></font></a></div></td>
+				<font face="Verdana" size="1" color="#FFFFFF"><b>Rubrik&nbsp;School/b></font></a></div></td>
 				
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="buletin/beritasiswa/beritasiswa.php" target="framecenter" onmouseover="beritasiswa.src='images/icon_menu/beritasiswa_on.png'" name="beritasiswa" id="beritasiswa" onmouseout="beritasiswa.src='images/icon_menu/beritasiswa.png'"><img src="images/icon_menu/beritasiswa.png"  border="0" name="beritasiswa" id="beritasiswa"/><br>
-				<font face="Verdana" size="1" color="#FFFFFF"><b>Berita&nbsp;Siswa</b></font></a></div></td>
+				<font face="Verdana" size="1" color="#FFFFFF"><b>Berita&nbsp;Student</b></font></a></div></td>
 				
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="buletin/pesan/pesan.php" target="framecenter" onmouseover="pesansiswa.src='images/icon_menu/pesan_on.png'" name="pesansiswa" id="pesansiswa" onmouseout="pesansiswa.src='images/icon_menu/pesan.png'"><img src="images/icon_menu/pesan.png"  border="0" name="pesansiswa" id="pesansiswa"/><br>
-				<font face="Verdana" size="1" color="#FFFFFF"><b>Pesan</b></font></a></div></td>
+				<font face="Verdana" size="1" color="#FFFFFF"><b>Message</b></font></a></div></td>
 				
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="buletin/agendasiswa/agenda.php" target="framecenter" onmouseover="agendaguru.src='images/icon_menu/agenda_on.png'" name="agendaguru" id="agendaguru" onmouseout="agendaguru.src='images/icon_menu/agenda.png'"><img src="images/icon_menu/agenda.png"  border="0" name="agendaguru" id="agendaguru"/><br>
-				<font face="Verdana" size="1" color="#FFFFFF"><b>Agenda&nbsp;Siswa</b></font></a></div></td>
+				<font face="Verdana" size="1" color="#FFFFFF"><b>Agenda&nbsp;Student</b></font></a></div></td>
 				
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="buletin/galerifoto/galerifoto.php" target="framecenter" onmouseover="galerifoto.src='images/icon_menu/galeri_on.png'" name="galerifoto" id="galerifoto" onmouseout="galerifoto.src='images/icon_menu/galeri.png'"><img src="images/icon_menu/galeri.png"  border="0" name="galerifoto" id="galerifoto"/><br>
-				<font face="Verdana" size="1" color="#FFFFFF"><b>Galeri&nbsp;Foto</b></font></a></div></td>
+				<font face="Verdana" size="1" color="#FFFFFF"><b>Galeri&nbsp;Photo</b></font></a></div></td>
 				<?php } ?>
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="buletin/filesharing/main.php" target="framecenter" onmouseover="filesharing.src='images/icon_menu/fileshare_on.png'" name="filesharing" id="filesharing" onmouseout="filesharing.src='images/icon_menu/fileshare.png'"><img src="images/icon_menu/fileshare.png"  border="0" name="filesharing" id="filesharing"/><br>
 				<font face="Verdana" size="1" color="#FFFFFF"><b>File&nbsp;Sharing</b></font></a></div></td>
@@ -215,7 +215,7 @@ function get_fresh(){
 				?>	
 			
 				<td style="padding-right:15px"><div align="center"><a style="text-decoration:none;" href="pengaturan/theme_list.php" target="framecenter" onmouseover="gantilogon.src='images/icon_menu/gantitema_on.png'" name="gantilogon" id="gantilogon" onmouseout="gantilogon.src='images/icon_menu/gantitema.png'"><img src="images/icon_menu/gantitema.png"  border="0" name="gantilogon" id="gantilogon2"/><br>
-				<font face="Verdana" size="1" color="#FFFFFF"><b>Ganti Tema</b></font></a></div></td><?php } ?>
+				<font face="Verdana" size="1" color="#FFFFFF"><b>Ganti Theme</b></font></a></div></td><?php } ?>
 			  </tr>
 			</table>
 	  </div>

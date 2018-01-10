@@ -65,7 +65,7 @@ if (isset($_REQUEST['idpenerimaan']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Penerimaan Lain</title>
+<title>Another Admission Reports</title>
 </head>
 
 <body>
@@ -83,15 +83,15 @@ $namapenerimaan = $row[0];
 
 <table border="0">
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Departemen </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Department </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=$departemen ?>
     </strong></font></td>
 </tr>
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Tanggal </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Date </strong></font></td>
     <td><font size="2" face="Arial"><strong>:  
-      <?=LongDateFormat($tanggal1) . " s/d " . LongDateFormat($tanggal2) ?>
+      <?=LongDateFormat($tanggal1) . " to " . LongDateFormat($tanggal2) ?>
     </strong></font></td>
 </tr>
 </table>
@@ -99,12 +99,12 @@ $namapenerimaan = $row[0];
 
 <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 <tr height="30" align="center">
-	<td width="5%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="15%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Tanggal</font></strong></td>
-  	<td width="15%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Sumber</font></strong></td>
-    <td width="15%" align="right" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Jumlah</font></strong></td>
-    <td width="25%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Keterangan</font></strong></td>
-    <td width="10%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Petugas</font></strong></td>
+	<td width="5%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="15%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Date</font></strong></td>
+  	<td width="15%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Source</font></strong></td>
+    <td width="15%" align="right" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Sum</font></strong></td>
+    <td width="25%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Info</font></strong></td>
+    <td width="10%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Officer</font></strong></td>
 </tr>
 <? 
 OpenDb();
@@ -143,7 +143,7 @@ while ($row = mysql_fetch_array($result)) {
 }
 ?>
 <tr height="35">
-	<td bgcolor="#996600" colspan="3" align="center"><font color="#FFFFFF" size="2" face="Arial"><strong>T O T A L</strong></font></td>
+	<td bgcolor="#996600" colspan="3" align="center"><font color="#FFFFFF" size="2" face="Arial"><strong>Total</strong></font></td>
     <td bgcolor="#996600" align="right"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$tot ?></strong></font></td>
     <td bgcolor="#996600" colspan="2">&nbsp;</td>
 </tr>

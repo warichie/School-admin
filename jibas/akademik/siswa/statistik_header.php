@@ -46,7 +46,7 @@ if (isset($_REQUEST['dasar']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Statistik Penerimaan Siswa Baru</title>
+<title>New Student Admission Statistic</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -105,11 +105,11 @@ function panggil(elem){
 	<td rowspan="3" width="45%">
     <table width = "98%" border = "0" cellpadding="0" cellspacing="0">
  	<tr>
-    	<td align="left" width = "35%"><strong>Departemen</strong>
+    	<td align="left" width = "35%"><strong>Department</strong>
       	<td width = "*">
         <? 	if (SI_USER_LEVEL() != $SI_USER_STAFF) {	?>
         <select name="departemen" id="departemen" onchange="change()" style="width:240px;" onKeyPress="return focusNext('dasar', event)" onfocus="panggil('departemen')">
-        	<option value="-1" >(Semua Departemen)</option>    
+        	<option value="-1" >(All Department)</option>    
 		<?
 			$sql = "SELECT * FROM jbsakad.departemen where aktif=1 ORDER BY urutan";
 			OpenDb();
@@ -149,10 +149,10 @@ function panggil(elem){
         </td>
     </tr>
     <tr>
-    	<td align="left"><strong>Proses Penerimaan</strong></td>    
+    	<td align="left"><strong>Admission Process</strong></td>    
 	 	<td>
       	<select name="angkatan" id="angkatan" onchange="change()" <?=$disable?> style="width:240px;" onKeyPress="return focusNext('dasar', event)" onfocus="panggil('angkatan')">      	
-	 	<option value="-1" >(Semua Angkatan)</option>	
+	 	<option value="-1" >(All Graduation)</option>	
 		<?
       		OpenDb();
 			$sql = "SELECT replid,angkatan FROM jbsakad.angkatan WHERE aktif = 1 $dep ";
@@ -166,7 +166,7 @@ function panggil(elem){
      	</td>
     </tr>
     <tr>
-    	<td align="left" width = "13%"><strong>Berdasarkan</strong>
+    	<td align="left" width = "13%"><strong>Sort by</strong>
       	<td>
         <!--<div id="dasarInfo">-->
         <select name="dasar" id="dasar" onchange="change()" style="width:240px;" onKeyPress="return focusNext('tabel', event)" onfocus="panggil('dasar')">
@@ -178,11 +178,11 @@ function panggil(elem){
 	</tr>
 	</table>
     </td>
-   	<td width="5%" rowspan="2" valign="middle"><a href="#" onclick="tampil_statistik()" ><img src="../images/view.png" height="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Klik untuk menampilkan statistik !', this, event, '120px')"/></a></td>
-    <td width="50%" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Statistik Kesiswaan</font><br />
+   	<td width="5%" rowspan="2" valign="middle"><a href="#" onclick="tampil_statistik()" ><img src="../images/view.png" height="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Click to show statistik ', this, event, '120px')"/></a></td>
+    <td width="50%" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Statistic</font><br />
     <a href="../siswa.php" target="content">
-      	<font size="1" color="#000000"><b>Kesiswaan</b></font></a>&nbsp>&nbsp 
-        <font size="1" color="#000000"><b>Statistik Kesiswaan</b></font>
+      	<font size="1" color="#000000"><b>Student</b></font></a>&nbsp;>&nbsp; 
+        <font size="1" color="#000000"><b>Student Statistic.</b></font>
     </td>    
 </tr>
 </table>

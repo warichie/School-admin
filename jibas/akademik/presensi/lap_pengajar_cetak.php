@@ -48,7 +48,7 @@ $row = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan Presensi Pengajar]</title>
+<title>JIBAS SIMAKA [Print Teacher Presence Report]</title>
 </head>
 
 <body>
@@ -59,26 +59,26 @@ $row = mysql_fetch_array($result);
 <?=getHeader($row[departemen])?>
 	
 <center>
-  <font size="4"><strong>LAPORAN PRESENSI PENGAJAR</strong></font><br />
+  <font size="4"><strong>TEACHER PRESENCE REPORT CARD</strong></font><br />
  </center><br /><br />
 <table>
 
 <tr>
-	<td><strong>Guru</strong></td>
+	<td><strong>Teacher</strong></td>
     <td><strong>: <?=$nip.' - '.$row['nama']?></strong></td>
 </tr>
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
-    <td ><strong>: <?=$row['departemen']?></strong></td>
+	<td width="120"><strong>Department</strong></td>
+    <td><strong>: <?=$row['departemen']?></strong></td>
 </tr>
 <tr>
-	<td width="120"><strong>Tahun Ajaran</strong></td>
-    <td ><strong>: <?=$row['tahunajaran']?></strong></td>
+	<td width="120"><strong>Year</strong></td>
+    <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 
 <tr>
-	<td><strong>Periode Presensi</strong></td>
-    <td><strong>: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></strong></td>
+	<td><strong>Period</strong></td>
+    <td><strong>: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -92,16 +92,16 @@ $row = mysql_fetch_array($result);
 ?>      
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
    	<tr height="30">
-    	<td class="header" align="center" width="5%">No</td>
-		<td class="header" align="center" width="5%">Tanggal</td>
-		<td class="header" align="center" width="5%">Pukul</td>            
-		<td class="header" align="center" width="5%">Kelas</td>
-        <td class="header" align="center" width="15%">Pelajaran</td>
+    	<td class="header" align="center" width="5%">#</td>
+		<td class="header" align="center" width="5%">Date</td>
+		<td class="header" align="center" width="5%">Time</td>            
+		<td class="header" align="center" width="5%">Class</td>
+        <td class="header" align="center" width="15%">Class Subject</td>
         <td class="header" align="center" width="14%">Status</td>
-        <td class="header" align="center" >Terlambat</td>
-        <td class="header" align="center" width="5%">Jam</td>
-        <td class="header" align="center" width="17%">Materi</td>
-        <td class="header" align="center" width="25%">Keterangan</td>              
+        <td class="header" align="center" >Late</td>
+        <td class="header" align="center" width="5%">Time</td>
+        <td class="header" align="center" width="17%">Class Subject</td>
+        <td class="header" align="center" width="25%">Info</td>              
     </tr>
 <?		
 	$cnt = 0;
@@ -113,7 +113,7 @@ $row = mysql_fetch_array($result);
         <td align="center"><?=$row[4]?></td>
         <td><?=$row[5]?></td>
         <td><?=$row[6]?></td>
-        <td align="center"><?=$row[7]?> menit</td>
+        <td align="center"><?=$row[7]?> minutes</td>
         <td align="center"><?=$row[8]?></td>
         <td><?=$row[9]?></td>
         <td><?=$row[10]?></td>  
@@ -128,8 +128,8 @@ $row = mysql_fetch_array($result);
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="400" align="left" bordercolor="#000000">
     <tr height="30">
 		<td class="header" width="200">&nbsp;</td>
-		<td align="center" class="header" width="100">Pertemuan</td>
-		<td align="center" class="header" width="100">Jumlah Jam</td>
+		<td align="center" class="header" width="100">Meeting</td>
+		<td align="center" class="header" width="100">Hour</td>
 	</tr>
 <? 	OpenDb();	
 	$sql = "SELECT replid, status FROM statusguru ORDER BY status" ;

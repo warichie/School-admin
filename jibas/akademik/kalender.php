@@ -25,9 +25,9 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kalender</title>
+<title>Calendar</title>
 </head>
 <body>
-<a href="kalender/kalender_main.php">Kalender</a><br />
+<a href="kalender/kalender_main.php">Calendar</a><br />
 </body>
 </html>

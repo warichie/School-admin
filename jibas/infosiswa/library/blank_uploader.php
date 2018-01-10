@@ -45,9 +45,9 @@
 <body>
 <table width="100%" border="0" cellspacing="0">
   <tr height="250">
-    <th scope="row"><span class="style1">Tekan tombol <input type="button" onclick="upload()" value="Upload Gambar" class="but" />
-     untuk meng-upload gambar baru<br /><br />
-    Tekan tombol <input type="button" value="Lihat Gambar" class="but" onclick="browse()" /> untuk memilih gambar yang sudah di-upload sebelumnya</span><br /></th>
+    <th scope="row"><span class="style1">Click on <input type="button" onclick="upload()" value="Image Upload" class="but" />
+     button to upload a new image<br /><br />
+    Click on <input type="button" value="Browse Image" class="but" onclick="browse()" /> button to select an image</span><br /></th>
   </tr>
 </table>
 

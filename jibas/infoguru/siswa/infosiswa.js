@@ -63,7 +63,7 @@ function ShowCatatanHarian()
       }
       else
       {
-            alert ('Periode awal dan periode akhir harus diisi!');
+            alert ('Start and end period is required');
       }
 }
 

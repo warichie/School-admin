@@ -65,7 +65,7 @@ $tingkat = $row[4];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Aturan Perhitungan Nilai Rapor]</title>
+<title>JIBAS SIMAKA [Add Report Card Calculation Rules]</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -87,12 +87,12 @@ function validate() {
 			isi = 1;
 			if (bobot.length > 0){
 				if (isNaN(bobot)){
-					alert("Bobot nilai harus berupa bilangan");
+					alert("Point Quality should be numeric");
 					document.getElementById('bobot'+i).focus();				
 					return false;									
 				} 
 			} else {
-				alert ("Anda harus mengisikan data untuk bobot nilai"); 
+				alert ("You must enter a data for Point Quality"); 
 				document.getElementById('bobot'+i).focus();				
 				return false;
 			} 
@@ -100,7 +100,7 @@ function validate() {
 		
 		if (bobot.length > 0) {
 			if (cek != 1) {
-				alert ("Anda harus memberi centang terlebih dahulu"); 
+				alert ("You have to select at least one"); 
 				document.getElementById('cek'+i).focus();				
 				return false;
 			}
@@ -108,7 +108,7 @@ function validate() {
 					
 	}
 	if (isi == 0) {
-		alert ("Anda harus mengisi setidaknya satu data untuk bobot nilai rapor");
+		alert ("You must enter at least one data for Report Card Assessment Quality");
 		document.getElementById('bobot1').focus;
 		return false; 
 	}
@@ -133,7 +133,7 @@ function simpan(evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:12px; font-weight:bold">
-    .: Tambah Aturan Perhitungan Nilai Rapor :.
+    .: Add Report Card Calculation Rules :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -147,31 +147,31 @@ function simpan(evt) {
 		<table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
 		<!-- TABLE CONTENT -->
 		<tr>
-			<td width="120"><strong>Departemen</strong></td>
+			<td width="120"><strong>Department</strong></td>
 			<td><input type="text" size="10" maxlength="50" class="disabled" readonly value="<?=$departemen ?>" />
     			<input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />    
 			</td>
 		</tr>
 		<tr>
-			<td><strong>Tingkat</strong></td>
+			<td><strong>Grade</strong></td>
 			<td><input type="text" name="tingkat" id="tingkat" size="10" maxlength="50" class="disabled" readonly value="<?=$tingkat ?>" />
         	<input type="hidden" name="id_tingkat" id="id_tingkat" value="<?=$id_tingkat ?>" /> 
 			</td>
 		</tr>
 		<tr>
-			<td><strong>Pelajaran</strong></td>
+			<td><strong>Class Subject</strong></td>
 			<td><input type="text" name="pelajaran" id="pelajaran" size="30" maxlength="50" class="disabled" readonly value="<?=$pelajaran ?>" />
         	<input type="hidden" name="id_pelajaran" id="id_pelajaran" value="<?=$id_pelajaran ?>" /> 
 			</td>
 		</tr>
 		<tr>
-    		<td><strong>Guru</strong></td>
+    		<td><strong>Teacher</strong></td>
     		<td><input type="text" name="guru" id="guru" size="30" class="disabled" readonly value="<?=$guru ?>" /> 
             <input type="hidden" name="nip_guru" id="nip_guru" value="<?=$nip_guru ?>" /> 
         	</td>
 		</tr>
 		<tr>
-			<td><strong>Aspek</strong></td>
+			<td><strong>Aspect</strong></td>
 			<td><select name="aspek" id="aspek" onKeyPress="focusNext('cek1',event)">
 <?			$sql = "SELECT dasarpenilaian, keterangan 
 						 FROM dasarpenilaian 
@@ -197,7 +197,7 @@ function simpan(evt) {
 		</tr>
 		<tr>
 			<td colspan = "2" valign="top">
-			<fieldset><legend><b>Bobot Penilaian</b></legend>
+			<fieldset><legend><b>Point Quality</b></legend>
          <br />
 <?			$sql = "SELECT replid, jenisujian FROM jenisujian WHERE idpelajaran = '$id_pelajaran'"; 
 			$result = QueryDb($sql);
@@ -207,9 +207,9 @@ function simpan(evt) {
             <table border="0" width="100%"  id="table" class="tab">
             <tr>		
                <td class="header" align="center" width="3%" height="30"></td>
-               <td class="header" align="center" width="3%" height="30">No</td>
-                  <td class="header" align="center" width="8%" height="30">Pengujian</td>			
-                  <td class="header" align="center" width="15%" height="30">Bobot</td>
+               <td class="header" align="center" width="3%" height="30">#</td>
+                  <td class="header" align="center" width="8%" height="30">Exam</td>			
+                  <td class="header" align="center" width="15%" height="30">Quality</td>
             </tr>
 <?				$i = 1;
             while ($row = @mysql_fetch_array($result)) 
@@ -235,8 +235,8 @@ function simpan(evt) {
 			else 
 			{ ?>
          	<div align="center">
-            <font size = "2" color ="red"><b>Belum ada data Jenis Pengujian.
-            <br />Silahkan isi terlebih dahulu pada bagian Jenis Pengujian.
+            <font size = "2" color ="red"><b>No Data Found.
+            <br />Please fill the data first in the Exam Type.
             </b></font><br /><br />
             </div>
 <? 		} ?>
@@ -245,9 +245,9 @@ function simpan(evt) {
 		</tr>
         <tr>
 			<td colspan="2" height="25" width="100%" align="left" valign="top" style="border-width:1px; border-style:dashed; border-color:#03F; background-color:#CFF">
-    			<strong>Pilih aspek penilaian.<br>Centang jenis pengujian yang sesuai dengan aspek penilaian yang dipilih.<br>Kemudian berikan bobot nilainya.<br/>
-				<font color="#FF0000">Contoh yang salah: Praktek-UTS-25, Pemahaman Konsep-UTS-25 </font><br />
-				<font color="Blue">Contoh yang benar: Praktek-UTS Praktek-25, Pemahaman Konsep-UTS Pemahaman Konsep-25</font>
+    			<strong>Select Assessment Aspect.<br>Check the Exam Type according to Assessment Aspect entered.<br>And then, give it a Point Quality.<br/>
+				<font color="#FF0000">Wrong: Practice-MidSemesterExam-25, Conceptual Comprehension-MidSemesterExam-25 </font><br />
+				<font color="Blue">Correct: Practice-MidSemesterExam Practice-25, Conceptual Comprehension-MidSemesterExam Conceptual Comprehension-25</font>
 									  </strong>
 			</td>
 		</tr>
@@ -255,9 +255,9 @@ function simpan(evt) {
 			<td colspan="2" align="center">
 <?			if ($num > 0) 
 			{ ?>
-				<input type="button" name="Simpan" id="Simpan" value="Simpan" class="but" onClick="return validate();document.getElementById('main').submit();" />&nbsp;
+				<input type="button" name="Simpan" id="Simpan" value="Save" class="but" onClick="return validate();document.getElementById('main').submit();" />&nbsp;
 <?			} ?>     
-    			<input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    		
+    			<input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    		
 			</td>
 		</tr>
 		<!-- END OF TABLE CONTENT -->

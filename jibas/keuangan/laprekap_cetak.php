@@ -37,13 +37,13 @@ $tanggal2 = $_REQUEST['tanggal2'];
 function NamaJenis($id)
 {
 	if ($id == "JTT")
-		return "Iuran Wajib Siswa";
+		return "Student Mandatory Contribution";
 	elseif ($id == "SKR")
-		return "Iuran Sukarela Siswa";
+		return "Student Contribution";
 	elseif ($id == "CSWJB")
-		return "Iuran Wajib Calon Siswa";
+		return "Mandatory Contribution Student Candidate";
 	elseif ($id == "CSSKR")
-		return "Iuran Sukarela Calon Siswa";
+		return "Contribution Student Candidate";
 	elseif ($id == "LNN")
 		return "Penerimaan Lainnya";
 }
@@ -53,7 +53,7 @@ function NamaJenis($id)
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pembayaran Per Siswa]</title>
+<title>JIBAS FINANCE [Student Payment Report]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -63,7 +63,7 @@ function NamaJenis($id)
 <tr><td align="left" valign="top">
 <?
 $d = ($dept!='ALL')?$dept:'yayasan';
-$d2 = ($dept!='ALL')?$dept:'(Semua departemen)';
+$d2 = ($dept!='ALL')?$dept:'(All department)';
 ?>
 <?=getHeader($d)?>
 
@@ -71,16 +71,16 @@ $d2 = ($dept!='ALL')?$dept:'(Semua departemen)';
 
 <table border="0">
 <tr>
-	<td><strong>Departemen </strong></td>
+	<td><strong>Department </strong></td>
     <td><strong>: <?=$d2 ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Jenis </strong></td>
+	<td><strong>Type of </strong></td>
     <td><strong>: <?=NamaJenis($idkategori) ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) . " s/d " . LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) . " to " . LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -206,7 +206,7 @@ CloseDb();
 ?>
     <tr height="40">
         <td colspan="3" align="right" valign="middle" bgcolor="#333333">
-        <font color="#FFFFFF"><strong>T O T A L</strong></font>
+        <font color="#FFFFFF"><strong>Total</strong></font>
         </td>
         <td valign="middle" align="right" bgcolor="#333333">
         <font color="#FFFFFF"><strong><?=FormatRupiah($total)?></strong></font>

@@ -25,7 +25,7 @@
     <td>   
 
 <br /><br />	
-<font size="2" color="#757575"><b>Klik pada tombol "Cari" di atas untuk melihat data calon siswa <br />sesuai dengan NIS atau Nama Siswa berdasarkan <i>keyword</i> yang dimasukkan</b></font>	
+<font size="2" color="#757575"><b>Click on the Search button to search Student Candidate data <br />according to Student ID or Name based on <i>keyword</i> entered.</b></font>	
 <br /><br />
     </td>
 </tr>

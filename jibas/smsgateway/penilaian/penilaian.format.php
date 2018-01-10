@@ -33,7 +33,7 @@ $FP = new FormatPenilaian();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Format Penilaian</title>
+<title>Reports Format</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <script language="javascript" src="penilaian.format.js"></script>
 <script language="javascript" src="../script/ShowError.js"></script>
@@ -43,8 +43,8 @@ $FP = new FormatPenilaian();
 </head>
 <body id="body">
 <div id="SubTitle" align="right">
-<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Format Penilaian</span><br />
-<a href="penilaian.main.php">Penilaian</a> > Format Laporan Penilaian
+<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Reports Format</span><br />
+<a href="penilaian.main.php">Report Card</a> > Reports Format
 </div>
 <?
 $FP->Main();

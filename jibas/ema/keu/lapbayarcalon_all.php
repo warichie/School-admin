@@ -112,15 +112,15 @@ function show_pembayaran() {
 	var tanggal2 = escape(thn2 + "-" + bln2 + "-" + tgl2);
 	
 	if (idtahunbuku.length == 0) {	
-		alert ('Tahun Buku tidak boleh kosong!');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('departemen').focus();
 		return false;
 	}  else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -204,7 +204,7 @@ function panggil(elem){
 	<td rowspan="3" width="58%">
     <table border="0" width = "100%">
     <tr>
-    	<td width="15%" class="news_content1">Departemen </td>
+    	<td width="15%" class="news_content1">Department </td>
         <td colspan="4">
         <select name="departemen" class="cmbfrm" id="departemen" style="width:188px" onchange="change_dep()">
     	        <? 	$sql = "SELECT departemen FROM departemen WHERE aktif = 1 ORDER BY urutan";
@@ -218,7 +218,7 @@ function panggil(elem){
    	              <? } ?>
           </select>
         &nbsp;
-        <span class="news_content1">Tahun Buku </span>
+        <span class="news_content1">Fiscal Year </span>
         <?
 		if ($departemen != "") {
 			$sql = "SELECT replid AS id, tahunbuku FROM $db_name_fina.tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
@@ -237,11 +237,11 @@ function panggil(elem){
         <input type="hidden" name="idtahunbuku" id="idtahunbuku" value="<?=$idtahunbuku ?>" />        </td>
  	</tr>
     <tr>
-    	<td class="news_content1">Tanggal </td>
+    	<td class="news_content1">Date </td>
         <td width="10">
         	<div id="InfoTgl1">           
             <select name="tgl1" class="cmbfrm" id = "tgl1" onfocus = "panggil('tgl1')" onchange="change_tgl1()" onKeyPress="return focusNext('bln1',event)">
-            	<option value="">[Tgl]</option>
+            	<option value="">[Date]</option>
             <? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -258,11 +258,11 @@ function panggil(elem){
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
             </select> 
-            <span class="news_content1">s/d   		</span></td>
+            <span class="news_content1">to   		</span></td>
         <td width="10">	
         	<div id="InfoTgl2">
             <select name="tgl2" class="cmbfrm" id="tgl2" onfocus = "panggil('tgl2')" onchange="change_tgl2()" onKeyPress="return focusNext('bln2',event)" >
-            	<option value="">[Tgl]</option>
+            	<option value="">[Date]</option>
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -285,9 +285,9 @@ function panggil(elem){
     </table>
     </td>
 	<td width="*" rowspan="2" valign="middle">
-		<a href="#" onclick="show_pembayaran()"><img src="../img/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Klik untuk menampilkan data laporan pembayaran per calon siswa!', this, event, '200px')"/></a>    </td>
+		<a href="#" onclick="show_pembayaran()"><img src="../img/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Click to show data laporan pembayaran per student candidate', this, event, '200px')"/></a>    </td>
 	<td width="40%" align="right" valign="top">
-	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Laporan Pembayaran Per Calon Siswa</font>	</td>
+	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Payment Reports by Student Candidate</font>	</td>
 </tr>
 <tr>	
     <td align="right" valign="top">
@@ -304,8 +304,8 @@ if (isset($_REQUEST[showpembayaran])){
     <td valign="top" width="33%">
         <div id="TabbedPanels1" class="TabbedPanels">
           <ul class="TabbedPanelsTabGroup">
-            <li class="TabbedPanelsTab" tabindex="0">Pilih Calon Siswa</li>
-            <li class="TabbedPanelsTab" tabindex="0">Cari Calon Siswa</li>
+            <li class="TabbedPanelsTab" tabindex="0">Select Student Candidate</li>
+            <li class="TabbedPanelsTab" tabindex="0">Search Student Candidate</li>
           </ul>
           <div class="TabbedPanelsContentGroup">
             <div class="TabbedPanelsContent" id="pilihcalon"></div>
@@ -373,7 +373,7 @@ if (isset($_REQUEST[showpembayaran])){
             var nama = document.getElementById('nama').value;
             if (nopendaftaran.length<3){
                 if (nama.length<3){
-                    alert ('No. Pendaftaran atau Nama harus diisi dan tidak boleh kurang dari 3 karakter!');
+                    alert ('Registration Number or Name is required and should not less than 3 characters.');
                     document.frmCari.nopendaftaran.focus();
                 } else {
                     //show_wait('sisInfoCari');

@@ -27,7 +27,7 @@ require_once("../include/db_functions.php");
 require_once("../include/common.php");
 require_once('../include/theme.php');
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");
 
 $tgl = $_REQUEST['tgl'];
 $bln = $_REQUEST['bln'];
@@ -37,7 +37,7 @@ $thn = $_REQUEST['thn'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <style>
 .tanggal {
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -69,17 +69,17 @@ $thn = $_REQUEST['thn'];
   <? include("../include/headercetak.php") ?>
   <div align="center">
   <br />
-  <span class="style2"><span class="style1">DAFTAR AGENDA</span><br />
+  <span class="style2"><span class="style1">AGENDA LIST</span><br />
   <br />
   </span></div>
-  <strong>Periode : <?=$tgl?> <?=$namabulan[$bln-1]?> <?=$thn?></strong><br />
+  <strong>Period : <?=$tgl?> <?=$namabulan[$bln-1]?> <?=$thn?></strong><br />
   <br />
 
 <table width="100%" cellpadding="0" cellspacing="0" border="1" class="tab" id="table">
 <tr height="30">
-	<td width="5%" class="header" align="center">No</td>
-    <td width="35%" class="header" align="center">Pegawai</td>
-    <td width="35%" class="header" align="center">Keterangan</td>
+	<td width="5%" class="header" align="center">#</td>
+    <td width="35%" class="header" align="center">Employee</td>
+    <td width="35%" class="header" align="center">Info</td>
 </tr>
 <?
 $tanggal = "$thn-$bln-$tgl";
@@ -90,9 +90,9 @@ $cnt = 0;
 while ($row = mysql_fetch_array($result)) { 
 	$jenis = $row['jenis'];	
 	if ($jenis == "golongan")
-		$njenis = "Kenaikan Golongan";
+		$njenis = "Kenaikan Level";
 	elseif ($jenis == "jabatan")
-		$njenis = "Kenaikan Jabatan";
+		$njenis = "Kenaikan Position";
 	elseif ($jenis == "gaji")
 		$njenis = "Kenaikan Gaji";
 	elseif ($jenis == "pensiun")

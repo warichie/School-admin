@@ -40,7 +40,7 @@ if (isset($_REQUEST['departemen']))
 
 OpenDb();
 
-// Dapatkan nis, jenjang dan replid sekarang dan terdahuku
+// Dapatkan nis, jenjang and replid sekarang and terdahuku
 $check_nis = $nis_awal;
 do
 {
@@ -107,7 +107,7 @@ if (isset($_REQUEST['pelajaran']))
 	<table border="0" cellpadding="2"cellspacing="2" width="100%" style="color:#000000">
 	<tr>
 	<td width="18%" class="gry">
-		<strong class="news_content1">Departemen</strong>
+		<strong class="news_content1">Department</strong>
 	</td>
 	<td width="*"> 
 		<select name="departemen" class="cmbfrm" id="departemen" style="width:150px" onChange="ChangeNilaiOption2('departemen')">
@@ -117,7 +117,7 @@ if (isset($_REQUEST['pelajaran']))
 		</select>
 	</td>
 	<td class="gry"><strong class="news_content1">
-		Riwayat&nbsp;Kelas</strong>
+		Class&nbsp;History</strong>
 	</td>
 	<td>
 		<select name="kelas" class="cmbfrm" id="kelas" style="width:200px" onChange="ChangeNilaiOption2('kelas')">
@@ -131,7 +131,7 @@ if (isset($_REQUEST['pelajaran']))
 	</tr>
 	<tr>
 	<td class="gry">
-		<strong class="news_content1">Tahun&nbsp;Ajaran</strong>
+		<strong class="news_content1">Year&nbsp;</strong>
 	</td>
 	<td>
 		<select name="tahunajaran" class="cmbfrm" id="tahunajaran" style="width:150px" onChange="ChangeNilaiOption2('tahunajaran')">
@@ -141,7 +141,7 @@ if (isset($_REQUEST['pelajaran']))
 		</select>    
 	</td>
 	<td class="gry">
-		<strong class="news_content1">Pelajaran </strong>
+		<strong class="news_content1">Class Subject </strong>
 	</td>
 	<td>
 		<select name="pelajaran" class="cmbfrm" id="pelajaran" style="width:200px" onChange="ChangeNilaiOption2('pelajaran')">
@@ -201,7 +201,7 @@ if (isset($_REQUEST['pelajaran']))
 <?						$sql = "SELECT * FROM pelajaran WHERE replid = $pelajaran ";
 						$result = QueryDb($sql);
 						$row = mysql_fetch_array($result); ?>	
-						<font color="#000000" size="3" class="news_content1">Pelajaran <?=$row[nama]?><br />Semester <?=$nmsem?> </font>
+						<font color="#000000" size="3" class="news_content1">Subject <?=$row[nama]?><br />Semester <?=$nmsem?> </font>
 					</td> 
 					<td width="28%" align="right" valign="top"> 
 						&nbsp;
@@ -234,10 +234,10 @@ if (isset($_REQUEST['pelajaran']))
 							{ // if nilai ?>
 								<table border="1" width="100%" id="table19" class="tab" >
 								<tr class="header" align="center" height="30">		
-									<td width="5%">No</td>
-									<td width="20%">Tanggal</td>
-									<td width="10%">Nilai</td>
-									<td width="*">Keterangan</td>
+									<td width="5%">#</td>
+									<td width="20%">Date</td>
+									<td width="10%">Point</td>
+									<td width="*">Info</td>
 								</tr>
 <?								$sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '$row[replid]' AND u.replid = n.idujian AND n.nis = '$nis' ";
 								$result2 = QueryDb($sql2);	
@@ -255,7 +255,7 @@ if (isset($_REQUEST['pelajaran']))
 <?									$cnt++;
 								}	?>
 								<tr>        			
-									<td colspan="2" height="25" align="center"><strong>Nilai rata rata</strong></td>
+									<td colspan="2" height="25" align="center"><strong>Index Point/Cumulative</strong></td>
 									<td width="10" height="25" align="center"><?=round($rata,2)?></td>
 									<td height="25">&nbsp;</td>            
 								</tr>
@@ -266,7 +266,7 @@ if (isset($_REQUEST['pelajaran']))
 								<table width="100%" border="0" align="center" id="table1">          
 								<tr>
 									<td align="center" valign="middle" height="50">
-										<font color ="red" size = "2" class="err"><b>Tidak ditemukan adanya data.</b></font>
+										<font color ="red" size = "2" class="err"><b>Data Not Found</b></font>
 									</td>
 								</tr>
 								</table>
@@ -284,7 +284,7 @@ if (isset($_REQUEST['pelajaran']))
 						<table border="0" width="100%" id="table1" cellpadding="0" cellspacing="0">
 						<tr align="center" valign="middle" >
 							<td>
-							<font size = "2" color ="red"><b><span class="err">Tidak ditemukan adanya data.</span><br /></font>
+							<font size = "2" color ="red"><b><span class="err">Data Not Found</span><br /></font>
 							</td>
 						</tr>
 						</table>
@@ -303,7 +303,7 @@ if (isset($_REQUEST['pelajaran']))
 		<table border="0" width="100%" id="table1" cellpadding="0" cellspacing="0">
 		<tr align="center" valign="middle" >
 			<td>
-				<font size = "2" color ="red"><b><span class="err">Tidak ditemukan adanya data.</span><br /></font>
+				<font size = "2" color ="red"><b><span class="err">Data Not Found</span><br /></font>
 			</td>
 		</tr>
 		</table>   

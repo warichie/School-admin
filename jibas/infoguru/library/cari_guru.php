@@ -42,11 +42,11 @@ $nip = $_REQUEST['nip'];
 <tr>
 	<td>
     	<form name="main">       
-		<font color="#000000"><b>N I P</b></font>
+		<font color="#000000"><b>Employee ID</b></font>
     	<input type="text" name="nip" id="nip" value="<?=$_REQUEST['nip'] ?>" size="20" onKeyPress="return focusNext('submit', event)" />&nbsp;&nbsp; 
-        <font color="#000000"><b>Nama</b></font>
+        <font color="#000000"><b>Name</b></font>
     	<input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama'] ?>" size="20" onKeyPress="return focusNext('submit', event)" />&nbsp;
-		<input type="button" class="but" name="submit" id="submit" value="Cari" onclick="carilah()" style="width:80px;"/>&nbsp;	
+		<input type="button" class="but" name="submit" id="submit" value="Search" onclick="carilah()" style="width:80px;"/>&nbsp;	
 	</form>
     </td>
 </tr>
@@ -73,11 +73,11 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
     <br />
     <table width="100%" class="tab" align="center" cellpadding="2" cellspacing="0" id="table1" border="1" bordercolor="#000000">
     <tr height="30">
-        <td class="header" width="7%" align="center">No</td>
-        <td class="header" width="15%" align="center">N I P</td>
-        <td class="header" align="center" >Nama</td>
-        <td class="header" align="center" >Departemen</td>
-        <!--<td class="header" align="center" >Pelajaran</td>-->
+        <td class="header" width="7%" align="center">#</td>
+        <td class="header" width="15%" align="center">Employee ID</td>
+        <td class="header" align="center" >Name</td>
+        <td class="header" align="center" >Department</td>
+        <!--<td class="header" align="center" >Class Subject</td>-->
         <td class="header" width="10%">&nbsp;</td>
     </tr>
 <?
@@ -90,7 +90,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
         <td align="center"><?=$row[3] ?></td>
 		<!--<td align="center"><?=$row[2] ?></td>-->
 		<td align="center">
-		<input type="button" name="pilih" class="but" id="pilih" value="Pilih" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>', '<?=$row[3]?>', '<?=$row[2]?>')" />
+		<input type="button" name="pilih" class="but" id="pilih" value="Select" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>', '<?=$row[3]?>', '<?=$row[2]?>')" />
 		</td>
 	</tr>
 	<? } CloseDb(); ?>
@@ -101,8 +101,8 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />            
-		Tambah data guru di menu Pendataan Guru pada bagian Guru & Pelajaran. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br /><br />            
+		Add teacher data in the Teacher Data menu on Teacher and Class Subject section. </b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -114,7 +114,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 </tr>
 <tr>
 	<td align="center" >
-	<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" style="width:80px;"/>
+	<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" style="width:80px;"/>
 	</td>
 </tr>
 </table>

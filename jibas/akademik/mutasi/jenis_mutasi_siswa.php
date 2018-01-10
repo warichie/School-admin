@@ -42,7 +42,7 @@ if ($op=="gu7jkds894h98uj32uhi9d8"){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Tambah Jenis Mutasi</title>
+<title>Add Mutation Type</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
@@ -60,7 +60,7 @@ function edit(replid) {
 }
 
 function hapus(replid){
-	if (confirm('Anda yakin akan menghapus jenis mutasi ini?'))
+	if (confirm('Are you sure want to delete jenis mutasi ini?'))
 		document.location.href="jenis_mutasi_siswa.php?op=gu7jkds894h98uj32uhi9d8&replid="+replid;
 }
 
@@ -86,12 +86,12 @@ function refresh() {
 	<table border="0"width="95%" align="center">
     <tr>
     	<td align="right">
-       	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Jenis-Jenis Mutasi Siswa</font>
+       	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Mutation Type</font>
         </td>
 	</tr>
     <tr>
     	<td align="right"><a href="../mutasi.php" target="content"> 
-        	<font size="1" face="Verdana" color="#000000"><b>Mutasi</b></font></a>&nbsp>&nbsp <font size="1" face="Verdana" color="#000000"><b>Jenis-Jenis Mutasi Siswa</b></font></td>
+        	<font size="1" face="Verdana" color="#000000"><b>Mutation</b></font></a>&nbsp;>&nbsp; <font size="1" face="Verdana" color="#000000"><b>Student Mutation Type</b></font></td>
 	</tr>
    	<tr>
     	<td align="left">&nbsp;</td>
@@ -107,18 +107,18 @@ function refresh() {
     <!-- TABLE CONTENT -->
     <tr><td align="right">
     
-    <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;    
+    <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;    
 <?	//if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')" />&nbsp;Tambah Jenis Mutasi</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')" />&nbsp;Add Mutation Type</a>
 <?	//} ?>    
     	</td></tr>
     </table><br />
   	<table width="95%" border="1" class="tab" align="center" cellpadding="0" cellspacing="0" id="table" bordercolor="#000000">
   	<tr class="header">
-    	<td width="4%" height="30"><div align="center">No</div></td>
-    	<td width="35%" height="30"><div align="center">Jenis Mutasi </div></td>
-     	<td width="*" height="30"><div align="center">Keterangan </div></td>
+    	<td width="4%" height="30"><div align="center">#</div></td>
+    	<td width="35%" height="30"><div align="center">Mutation Type </div></td>
+     	<td width="*" height="30"><div align="center">Info </div></td>
     	 <?	//if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
         <td width="8%" height="30">&nbsp;</td>
         <? //} ?>
@@ -132,13 +132,13 @@ function refresh() {
         <td><?=$fetchJenis['keterangan']; ?></td>
         <?	//	if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>         
 		<td align="center">
-            <a href="JavaScript:edit(<?=$fetchJenis['replid'] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Jenis Mutasi!', this, event, '80px')" /></a>&nbsp;
-            <a href="JavaScript:hapus(<?=$fetchJenis['replid'] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Jenis Mutasi!', this, event, '80px')"/></a>
+            <a href="JavaScript:edit(<?=$fetchJenis['replid'] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Mutation Type', this, event, '80px')" /></a>&nbsp;
+            <a href="JavaScript:hapus(<?=$fetchJenis['replid'] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Mutation Type', this, event, '80px')"/></a>
         </td>
 <?		//} ?>  
 
         
-        <!--<td><img title="Ubah" src="../images/ico/ubah.png" width="16" height="16" onClick="newWindow('ubah_jenis_mutasi.php?replid=<?=$fetchJenis['replid']?>','',410,248,'')" style="cursor:pointer"> <img title="Hapus" src="../images/ico/hapus.png" width="16" height="16" onClick="hapus(<?=$fetchJenis['replid']?>)" style="cursor:pointer"></td>-->
+        <!--<td><img title="Edit" src="../images/ico/ubah.png" width="16" height="16" onClick="newWindow('ubah_jenis_mutasi.php?replid=<?=$fetchJenis['replid']?>','',410,248,'')" style="cursor:pointer"> <img title="Delete" src="../images/ico/hapus.png" width="16" height="16" onClick="hapus(<?=$fetchJenis['replid']?>)" style="cursor:pointer"></td>-->
 	</tr>
 <?	} ?>
 	</table>  
@@ -152,9 +152,9 @@ function refresh() {
 
 <tr>
 	<td align="center" valign="middle" height="250" colspan="2">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
+    	<font size = "2" color ="red"><b>Data Not Found.
        <? //if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru.
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data.
         <? //} ?>
         </p></b></font>
 	</td>

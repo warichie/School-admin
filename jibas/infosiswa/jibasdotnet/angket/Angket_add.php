@@ -73,7 +73,7 @@ if ($result1){
 	$dir_thn=date(Y);
 	$dir = $updir . $dir_thn . $dir_bln;
 
-	//KAlo dari ubah berita guru================================================================================================================================
+	//KAlo from ubah berita guru================================================================================================================================
 	$judul=$_REQUEST['judul'];
 	$jenis=$_REQUEST['jenis'];
 	$tgl=explode("-",$_REQUEST['tglmulai']);
@@ -103,7 +103,7 @@ document.location.href="daftar_angket.php?tahun=<?=$tahun?>";
 <link rel="stylesheet" type="text/css" href="../../style/tooltips.css">
 <link href="../../script/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOSISWA [ Tambah ANGKET ]</title>
+<title>JIBAS STUDENT INFO [ Add QUESTIONNAIRE ]</title>
 <script type="text/javascript" src="../../script/calendar.js"></script>
 <script type="text/javascript" src="../../script/lang/calendar-en.js"></script>
 <script type="text/javascript" src="../../script/calendar-setup.js"></script>
@@ -116,12 +116,12 @@ document.location.href="daftar_angket.php?tahun=<?=$tahun?>";
 function validate() {
 	var judul=document.getElementById('judul').value;
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Angket');
+		alert ('You must enter a data for Questionnaire Title');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (judul.length>=255){
-		alert ('Karakter maksimal untuk Judul Angket adalah 255 karakter !');
+		alert ('Max characters for Questionnaire Title are 255 characters');
 		document.getElementById('judul').focus();
 		return false;
 	}
@@ -149,39 +149,39 @@ function refresh() {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td class="header" colspan="2"><div align="center">Tambah  Angket</div></td>
+<td class="header" colspan="2"><div align="center">Add  Questionnaire</div></td>
 </tr>
 <tr>
-  <td valign="top"><strong>Judul</strong></td>
+  <td valign="top"><strong>Title</strong></td>
   <td>
     <textarea name="judul" id="judul" cols="26" rows="5" onKeyPress="return focusNext('jenis', event)"></textarea>
   </td>
 </tr>
 <tr>
-  <td valign="top"><strong>Tanggal Mulai</strong></td>
+  <td valign="top"><strong>Start Date</strong></td>
   <td>
   <div align="left">
-      <input title="Klik untuk membuka kalender !" type="text" name="tglmulai" id="tglmulai" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>" />
-    <img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntglmulai" width="16" height="16" border="0" id="btntglmulai"/>&nbsp;&nbsp;</div>
+      <input title="Click to open the Calendar" type="text" name="tglmulai" id="tglmulai" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>" />
+    <img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntglmulai" width="16" height="16" border="0" id="btntglmulai"/>&nbsp;&nbsp;</div>
   </td>
 </tr>
 <tr>
-	<td width="120" valign="top"><strong>Tanggal Akhir</strong></td>
+	<td width="120" valign="top"><strong>End Date</strong></td>
 	<td><div align="left">
-      <input title="Klik untuk membuka kalender !" type="text" name="tglakhir" id="tglakhir" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>" />
-    <img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntglakhir" width="16" height="16" border="0" id="btntglakhir"/></div>    </td>
+      <input title="Click to open the Calendar" type="text" name="tglakhir" id="tglakhir" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>" />
+    <img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntglakhir" width="16" height="16" border="0" id="btntglakhir"/></div>    </td>
 </tr>
 <tr>
-	<td width="120" valign="top"><strong>Pertanyaan</strong> </td>
+	<td width="120" valign="top"><strong>Question</strong> </td>
     <td>
       <input type="radio" id="jenis" value="1" name="jenis"/>&nbsp;Guru&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="radio" id="jenis" value="2" name="jenis" checked="checked"/>&nbsp;Umum
+      <input type="radio" id="jenis" value="2" name="jenis" checked="checked"/>&nbsp;General
     </td>
 </tr>
 <tr>
   <td colspan="2" align="center">&nbsp;
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" title="Simpan Angket Ini"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />  </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" title="Save this Questionnaire"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />  </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -195,7 +195,7 @@ var sprytextarea1 = new Spry.Widget.ValidationTextarea("judul");
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 </body>
 <script type="text/javascript">
   Calendar.setup(

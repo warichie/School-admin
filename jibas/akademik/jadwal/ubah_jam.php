@@ -77,7 +77,7 @@ if (isset($_REQUEST['simpan'])) {
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Urutan jam ke ".$jamkey." sudah digunakan!";
+		$ERROR_MSG = "Sort of Time (hour) ".$jamkey." has been used";
 	} else {	
 		$jum_sebelumnya=0;
 		$jum_sesudahnya=0;
@@ -96,10 +96,10 @@ if (isset($_REQUEST['simpan'])) {
 		} 
 		echo $jum_awal.' '.$jum_sebelumnya.' '.$jum_akhir.' '.$jum_sesudahnya;
 		if ($jum_awal < $jum_sebelumnya ){
-			$ERROR_MSG = "Jam mulai tidak boleh berpotongan dengan jam akhir urutan sebelumnya!";
+			$ERROR_MSG = "Start Time should not overlapping previous End Time";
 		} else {
 			if ($jum_akhir > $jum_sesudahnya && $jum_sesudahnya != 0){
-				$ERROR_MSG = "Jam selesai tidak boleh berpotongan dengan jam awal urutan selanjutnya!";				
+				$ERROR_MSG = "End Time should not overlapping next Start Time";				
 			} else {
 				//proses simpan data
 				$sql_jam_simpan="UPDATE jbsakad.jam SET jamke='$jamkey',jam1='$jam1',jam2='$jam2' WHERE replid = '$replid'";
@@ -150,7 +150,7 @@ CloseDb();
 ?>
 <html>
 <head>
-<title>JIBAS SIMAKA [Ubah Jam Belajar]</title>
+<title>JIBAS SIMAKA [Edit Session]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -169,82 +169,82 @@ function validate(){
     var jum2y=(jam2y * 60) + menit2y;
 	
 	if (jamkey.length==0){
-		alert('Anda harus mengisikan nilai untuk jamke');
+		alert('You must enter a value for Time');
 		document.tabel_jam.jamkey.focus();
 		return false;
 	}
 	if (isNaN(jamkey)){
-		alert('Jamke harus berupa bilangan!');
+		alert('Time must be numeric');
 		document.tabel_jam.jamkey.focus();
 		return false;
 	}
 	if (jam1y.length==0){
-		alert('Anda harus mengisikan nilai untuk jam mulai');
+		alert('You must enter a value for Start Time');
 		document.tabel_jam.jam1y.focus();
 		return false;
 	}
 	if (isNaN(jam1y)){
-		alert('Jam mulai harus berupa bilangan!');
+		alert('Start Time must be numeric');
 		document.tabel_jam.jam1y.focus();
 		return false;
 	}
 	if (jam1y>23){
-		alert('Bilangan jam mulai berkisar dari 00 sampai 23');
+		alert('Start Time is a range between 00 to 23');
 		document.tabel_jam.jam1y.focus();
 		return false;			
 	}
 	if (menit1y.length==0){
-		alert('Anda harus mengisikan nilai untuk menit mulai');
+		alert('You must enter a value for Minute Start');
 		document.tabel_jam.menit1y.focus();
 		return false;			
 	}
 	if (isNaN(menit1y)){
-		alert('Menit mulai harus berupa bilangan!');
+		alert('Start Minute must be numeric');
 		document.tabel_jam.menit1y.focus();
 		return false;
 			
 	}
 	if (menit1y>59){
-		alert('Bilangan menit mulai berkisar dari 00 sampai 59');
+		alert('Start Minute is a range between 00 to 59');
 		document.getElementById(menit1y).focus();
 		return false;			
 	}
 	if (jam2y.length==0){
-		alert('Anda harus mengisikan nilai untuk jam selesai');
+		alert('You must enter a value for End Time');
 		document.tabel_jam.jam2y.focus();
 		return false;			
 	}
 	if (isNaN(jam2y)){
-		alert('Jam selesai harus berupa bilangan!');
+		alert('End Time must be numeric');
 		document.tabel_jam.jam2y.focus();
 		return false;
 	}
 	if (jam2y>23){
-		alert('Bilangan jam selesai berkisar dari 00 sampai 23');
+		alert('End Time is a range between 00 to 23');
 		document.tabel_jam.jam2y.focus();
 		return false;
 	}
 	
 	if (menit2y.length==0){
-		alert('Anda harus mengisikan nilai untuk menit mulai');
+		alert('You must enter a value for Minute Start');
 		document.tabel_jam.menit2y.focus();
 		return false;
 	}
 	
 	if (isNaN(menit2y)){
-		alert('Menit selesai harus berupa bilangan!');
+		alert('End Minute must be numeric');
 		document.tabel_jam.menit2y.focus();
 		return false;
 			
 	}
 	if (menit2y>59){
-		alert('Bilangan menit selesai berkisar dari 00 sampai 59');
+		alert('End Minute is a range between 00 to 59');
 		document.tabel_jam.menit2y.focus();
 		return false;
 	}
 	
 	if (parseInt(jum1y) >= parseInt(jum2y)){
-		alert('Waktu mulai tidak boleh lebih besar atau sama dengan waktu selesai');
+		alert('Start Time should not bigger or equal to End Time');
 		document.tabel_jam.menit2y.focus();
 		return false;
 	}
@@ -281,7 +281,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Jam Belajar :.
+    .: Edit Session :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -297,25 +297,25 @@ function panggil(elem){
    	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
 	<tr>
-		<td width="120"><strong>Departemen</strong></td>
+		<td width="120"><strong>Department</strong></td>
     	<td><input type="text" name="dept" size="10" maxlength="50" class="disabled" readonly value="<?=$departemen?>"/> 
         <input type="hidden" name="departemen" id="departemen" value="<?=$departemen?>"></td>
 	</tr>
     <tr>
-    	<td width="40%"><strong>Jam ke</strong></td> 
+    	<td width="40%"><strong>Hour</strong></td> 
         <td><input type="text" name="jamkey" id="jamkey" value="<?=$jamkey; ?>"  size="2" maxlength="2" onKeyPress="return focusNext('jamb1y', event)" onFocus="panggil('jamkey')">             
     		<!--<input type="hidden" name="jamkex" id="jamkex" value="<?=$jamkex;?>">
 			<input type="hidden" name="jamkez" id="jamkez" value="<?=$jamkez;?>"> -->
         </td>
     </tr>
   	<tr>
-    	<td><strong>Waktu Mulai</strong></td>
+    	<td><strong>Start Time</strong></td>
         <td><input type="text" name="jam1y" id="jam1y" size="2" maxlength="2" value="<?=$jam1y?>" onKeyPress="return focusNext('menit1y', event)" onFocus="panggil('jam1y')"> :
         	<input type="text" name="menit1y" id="menit1y" size="2" maxlength="2" value="<?=$menit1y?>"  onKeyPress="return focusNext('jam2y', event)" onFocus="panggil('menit1y')">
         </td>
  	</tr>
     <tr>
-        <td><strong>Waktu Selesai</strong></td>
+        <td><strong>End Time</strong></td>
         <td><input type="text" name="jam2y" id="jam2y" size="2" maxlength="2" value="<?=$jam2y?>"  onKeyPress="return focusNext('menit2y', event)" onFocus="panggil('jam2y')"> :
         	<input type="text" name="menit2y" id="menit2y" size="2" maxlength="2" value="<?=$menit2y?>" onKeyPress="return focusNext('Simpan', event)" onFocus="panggil('menit2y')">
         </td>
@@ -325,8 +325,8 @@ function panggil(elem){
     </tr>
     <tr>		  
 		<td colspan="2" align="center">
-        <input type="submit" value="Simpan" name="simpan" id="Simpan" class="but" onFocus="panggil('Simpan')">
-        <input type="button" value="Tutup" onClick="window.close()" class="but">
+        <input type="submit" value="Save" name="simpan" id="Simpan" class="but" onFocus="panggil('Simpan')">
+        <input type="button" value="Close" onClick="window.close()" class="but">
 		</td>
     </tr>
     </table>

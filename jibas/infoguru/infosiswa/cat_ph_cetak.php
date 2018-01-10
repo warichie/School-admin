@@ -60,7 +60,7 @@ $result=QueryDb($sql);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Cetak Catatan Presensi Harian]</title>
+<title>JIBAS TEACHERS INFO [Print Daily Presence Notes]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
@@ -82,22 +82,22 @@ $result=QueryDb($sql);
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>Catatan Presensi Harian</strong></font><br />
+  <font size="4"><strong>Daily Presence Notes</strong></font><br />
  </center><br /><br />
  
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td><fieldset><legend class="style1">Presensi Harian</legend>
+    <td><fieldset><legend class="style1">Daily Presence</legend>
 <table width="100%" border="0" cellspacing="0">
           <tr>
-            <td width="11%"><strong>Siswa</strong></td>
+            <td width="11%"><strong>Student</strong></td>
             <td width="1%"><strong>:</strong></td>
             <td width="88%">[<?=$nis?>]&nbsp;<?=$row_nm_sis[nama]?></td>
           </tr>
           <tr>
-            <td><strong>Periode</strong></td>
+            <td><strong>Period</strong></td>
             <td><strong>:</strong></td>
-            <td><?=ShortDateFormat($_REQUEST['tglawal'])?> s.d. <?=ShortDateFormat($_REQUEST['tglakhir'])?></td>
+            <td><?=ShortDateFormat($_REQUEST['tglawal'])?> to <?=ShortDateFormat($_REQUEST['tglakhir'])?></td>
           </tr>
         </table>	
     </fieldset></td>
@@ -106,9 +106,9 @@ $result=QueryDb($sql);
     <td>
     <table width="100%" border="0" cellspacing="0" class="tab">
   <tr class="header" height="30">
-    <td width="3%" align="center">No.</td>
-    <td width="42%" >Periode</td>
-    <td width="55%" >Keterangan</td>
+    <td width="3%" align="center">#</td>
+    <td width="42%" >Period</td>
+    <td width="55%" >Info</td>
   </tr>
   <?
   if (@mysql_num_rows($result)>0){
@@ -120,7 +120,7 @@ $result=QueryDb($sql);
   ?>
   <tr height="25" <?=$a?>>
     <td align="center"><?=$cnt?></td>
-    <td><?=ShortDateFormat($row[tanggal1])?> s.d. <?=ShortDateFormat($row[tanggal2])?></td>
+    <td><?=ShortDateFormat($row[tanggal1])?> to <?=ShortDateFormat($row[tanggal2])?></td>
     <td><?=$row[keterangan]?></td>
   </tr>
   <?
@@ -129,7 +129,7 @@ $result=QueryDb($sql);
   } else {
   ?>
    <tr height="25">
-    <td align="center" colspan="3">Tidak ada keterangan presensi untuk periode tsb.</td>
+    <td align="center" colspan="3">No presence notes for that particular period.</td>
   </tr>
   <? } ?>
 </table>

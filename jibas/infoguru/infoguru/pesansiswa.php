@@ -183,7 +183,7 @@ function MM_nbGroup(event, grpName) { //v6.0
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td height="250" valign="top" style="background-image:url(backultah.png)"><div align="center"><strong>Daftar Siswa yang Berulang Tahun Hari Ini
+    <td height="250" valign="top" style="background-image:url(backultah.png)"><div align="center"><strong>Birthday of Student List today
       <hr />
     <?
 	if (@mysql_num_rows($result_ultah)>0){
@@ -191,7 +191,7 @@ function MM_nbGroup(event, grpName) { //v6.0
 		echo $row_ultah[nama]."<br>";
 		}
 	} else {
-		echo "Tidak ada Siswa";
+		echo "No student.";
 	}
 	?>
     </strong></div></td>

@@ -1626,7 +1626,7 @@ $.widget("ui.resizable", $.extend({}, $.ui.mouse, {
 
 		o._nodeName = this.element[0].nodeName;
 
-		//Wrap the element if it cannot hold child nodes
+		//Wrap the element if it should not hold child nodes
 		if(o._nodeName.match(/canvas|textarea|input|select|button|img/i)) {
 			var el = this.element;
 
@@ -2838,7 +2838,7 @@ $.widget("ui.sortable", $.extend({}, $.ui.mouse, {
 			var item = this.items[i], itemElement = item.item[0], intersection = this._intersectsWithPointer(item);
 			if (!intersection) continue;
 
-			if(itemElement != this.currentItem[0] //cannot intersect with itself
+			if(itemElement != this.currentItem[0] //should not intersect with itself
 				&&	this.placeholder[intersection == 1 ? "next" : "prev"]()[0] != itemElement //no useless actions that have been done before
 				&&	!$.ui.contains(this.placeholder[0], itemElement) //no action if the item moved is the parent of the item checked
 				&& (this.options.type == 'semi-dynamic' ? !$.ui.contains(this.element[0], itemElement) : true)
@@ -3891,7 +3891,7 @@ function getColor(elem, attr) {
 		do {
 				color = $.curCSS(elem, attr);
 
-				// Keep going until we find an element that has color, or we hit the body
+				// Keep going to we find an element that has color, or we hit the body
 				if ( color != '' && color != 'transparent' || $.nodeName(elem, "body") )
 						break;
 
@@ -3962,7 +3962,7 @@ var colors = {
  *
  * Open source under the BSD License.
  *
- * Copyright © 2008 George McGinley Smith
+ * Copyright ï¿½ 2008 George McGinley Smith
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -4131,7 +4131,7 @@ $.extend($.easing,
  *
  * Open source under the BSD License.
  *
- * Copyright © 2001 Robert Penner
+ * Copyright ï¿½ 2001 Robert Penner
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -6600,7 +6600,7 @@ $.extend(Datepicker.prototype, {
 
 	/* Handle switch to/from daylight saving.
 	   Hours may be non-zero on daylight saving cut-over:
-	   > 12 when midnight changeover, but then cannot generate
+	   > 12 when midnight changeover, but then should not generate
 	   midnight datetime, so jump to 1AM, otherwise reset.
 	   @param  date  (Date) the date to check
 	   @return  (Date) the corrected date */
@@ -8377,7 +8377,7 @@ $.widget("ui.tabs", {
 
 			// Take disabling tabs via class attribute from HTML
 			// into account and update option properly.
-			// A selected tab cannot become disabled.
+			// A selected tab should not become disabled.
 			o.disabled = $.unique(o.disabled.concat(
 				$.map(this.$lis.filter('.' + o.disabledClass),
 					function(n, i) { return self.$lis.index(n); } )
@@ -8648,7 +8648,7 @@ $.widget("ui.tabs", {
 
 	disable: function(index) {
 		var self = this, o = this.options;
-		if (index != o.selected) { // cannot disable already selected tab
+		if (index != o.selected) { // should not disable already selected tab
 			this.$lis.eq(index).addClass(o.disabledClass);
 
 			o.disabled.push(index);

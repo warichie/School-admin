@@ -40,18 +40,18 @@ OpenDb();
 		$row = mysql_fetch_row($result);
 		$departemen = $row[7];
 		$akademik = $row[4];
-		//$periode = LongDateFormat($row[5]).' s/d '.LongDateFormat($row[6]);
-		$periode = TglTextLong($row[5]).' s/d '.TglTextLong($row[6]);
+		//$periode = LongDateFormat($row[5]).' to '.LongDateFormat($row[6]);
+		$periode = TglTextLong($row[5]).' to '.TglTextLong($row[6]);
 
 		if ($row[8] == 1) 
-			$aktif = 'Aktif';
+			$aktif = 'Active';
 		else
-			$aktif = 'Tidak Aktif';
+			$aktif = 'Inactive';
 			
 		if ($row[9] == 1) 
-			$terlihat = 'Terlihat';
+			$terlihat = 'Visible';
 		else
-			$aktif = 'Tidak Terlihat';
+			$aktif = 'Hidden';
 		$bulan1 = $row[0];
 		$tahun1 = $row[1];
 		$bulan2 = $row[2];
@@ -251,7 +251,7 @@ function getCell1($r, $c, $id, $m) {
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Kalender Akademik]</title>
+<title>JIBAS SIMAKA [Print Academic Calendar]</title>
 <script language="javascript" src="../script/tools.js"></script>
 <script type="text/javascript" language="javascript" src="../javascript/tables.js"></script>
 <script type="text/javascript" language="javascript" src="../javascript/common.js"></script>
@@ -266,32 +266,32 @@ function getCell1($r, $c, $id, $m) {
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>Kalender Akademik</strong></font><br />
+  <font size="4"><strong>Academic Calendar</strong></font><br />
  </center><br /><br />
  	<table width="100%">    
 	<tr>
-		<td width="18%"><strong>Departemen</strong> </td> 
+		<td width="18%"><strong>Department</strong> </td> 
 		<td width="*"><strong>:&nbsp;<?=$departemen?></strong></td>
 	</tr>
     <tr>
-		<td><strong>Kalender Akademik</strong></td>
+		<td><strong>Academic Calendar</strong></td>
 		<td><strong>:&nbsp;<?=$akademik?></strong></td>        		
     </tr>
     <tr>
-		<td><strong>Periode</strong></td>
+		<td><strong>Period</strong></td>
 		<td><strong>:&nbsp;<?=$periode?></strong></td>        		
     </tr>
     <tr>
 		<td><strong>Status</strong></td>
-		<td><strong>:&nbsp;<?=$aktif?> dan <?=$terlihat?></strong></td>
+		<td><strong>:&nbsp;<?=$aktif?> and <?=$terlihat?></strong></td>
         <td align="right" width="320">
     	<? if ($last == 0 && $next == 0) { ?>
         	&nbsp;
         <? } else {
 				if ($next == 1) {?>
-    			<!--<input type="button" class="but" onClick="GoToPrevMonth()" value=" < Bulan sebelumnya " style="width:150px">-->
+    			<!--<input type="button" class="but" onClick="GoToPrevMonth()" value=" < Previous " style="width:150px">-->
    				<? 	} if ($next == 0 || $last == 0) {?>   
-    			<!--<input type="button" class="but" onClick="GoToNextMonth()" value=" Bulan berikutnya > " style="width:150px">--> 
+    			<!--<input type="button" class="but" onClick="GoToNextMonth()" value=" Next > " style="width:150px">--> 
                 <? } ?>        
     	<? }?></td>
     </td>        		
@@ -318,7 +318,7 @@ function getCell1($r, $c, $id, $m) {
         </td>
         <td align="right" width="320">
         	<? 	if ($next == 1) {?>
-            		<!--<input type="button" class="but" onClick="GoToPrevMonth()" value=" < Bulan sebelumnya " style="width:150px">-->
+            		<!--<input type="button" class="but" onClick="GoToPrevMonth()" value=" < Previous " style="width:150px">-->
         		<? } 
 				
 				if ($next == 0 || $last == 0) {
@@ -342,7 +342,7 @@ function getCell1($r, $c, $id, $m) {
 						$result = QueryDb($sql);
 						if (mysql_num_rows($result) > 0) {
 			?>   
-            		<!--<input type="button" class="but" onClick="GoToNextMonth()" value=" Bulan berikutnya > " style="width:150px">-->  
+            		<!--<input type="button" class="but" onClick="GoToNextMonth()" value=" Next > " style="width:150px">-->  
         			<? } ?>
 				<? } ?>	
         </td>
@@ -354,7 +354,7 @@ function getCell1($r, $c, $id, $m) {
     <table border="1" cellpadding="0" cellspacing="0" width="100%" style="border-color:#000000; border-collapse:collapse; border:solid" align="center">
     <tr height="30">
         <td width="22%" align="center" style="border-color:#000000;color:#000000" rowspan="2" colspan="2">
-        <b>Kegiatan</b></td>
+        <b>Activity</b></td>
         <? 	$batasthn = $thn;			
             for ($i=$bln;$i<=$bln+5;$i++) { 	
                 $n = $i;
@@ -459,7 +459,7 @@ function getCell1($r, $c, $id, $m) {
 	 <table border="1" cellpadding="0" cellspacing="0" width="100%" style="border-color:#000000; border-collapse:collapse; border:solid" align="center">
 	 <tr height="30" >
         <td width="22%" align="center"  rowspan="2" colspan="2" style="border-color:#000000;color:#000000">
-        <b>Kegiatan</b></td>
+        <b>Activity</b></td>
         <? 	$batasthn = $thn;			
             for ($i=$bln;$i<=$bln+5;$i++) { 	
                 $n = $i;
@@ -541,7 +541,7 @@ function getCell1($r, $c, $id, $m) {
     <table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+    	<font size = "2" color ="red"><b>Data Not Found. 
         
         </b></font>
         </td>

@@ -29,7 +29,7 @@ $proses = $_REQUEST['proses'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Guru Footer</title>
+<title>Teacher Footer</title>
 </head>
 <frameset cols = "60%, *" border ="1" framespacing="0">
 	<frameset rows = "120,60%" border ="0" framespacing="0" >

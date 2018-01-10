@@ -60,7 +60,7 @@ if ($op == "12134892y428442323x423") {
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Cari Pemohon Lainnya]</title>
+<title>JIBAS FINANCE [Cari Applicant Lainnya]</title>
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <script language="javascript" src="script/tooltips.js"></script>
 <script language="javascript" src="script/tables.js"></script>
@@ -71,7 +71,7 @@ function refresh() {
 }
 
 function del(id) {
- 	if (confirm("Apakah anda yakin akan menghapus data ini?")) 
+ 	if (confirm("Are you sure want to delete this data?")) 
 		document.location.href = "carilain.php?op=12134892y428442323x423&id=" + id;
 }
 
@@ -120,7 +120,7 @@ function change_urut(urut,urutan) {
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Pemohon Lainnya :.
+    .: Applicant Lainnya :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -152,9 +152,9 @@ function change_urut(urut,urutan) {
     <!-- TABLE LINK -->
     <tr>
       	<td align="right">
-        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp; 
+        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp; 
         <?  if (getLevel() != 2) { ?> 
-        <a href="#" onClick="JavaScript:tambah()"><img src="images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')">Tambah Data Pemohon</a>&nbsp;
+        <a href="#" onClick="JavaScript:tambah()"><img src="images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')">Add Data Applicant</a>&nbsp;
         <?  } ?>
     	</td>
     </tr>
@@ -167,9 +167,9 @@ function change_urut(urut,urutan) {
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 	<!--<table id="table" class="tab" border="0" width="100%" background="images/bttablelong.png" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">-->
 	<tr height="30" align="center" class="header">
-        <td width="7%">No</td>
-        <td width="30%">Nama</td>
-        <td width="*">Keterangan</td>
+        <td width="7%">#</td>
+        <td width="30%">Name</td>
+        <td width="*">Info</td>
         <?  if (getLevel() != 2) { ?>
         <td width="12%">&nbsp;</td>
         <? } ?>
@@ -182,18 +182,18 @@ function change_urut(urut,urutan) {
 		$no = (int)$page*(int)$varbaris;
 
 	while ($row = mysql_fetch_array($result)) { ?>
-    <tr >
+    <tr>
     	<td align="center"  onClick="pilih('<?=$row[id]?>','<?=$row[nama]?>')" style="cursor:pointer"><?=++$no ?></td>
         <td  onClick="pilih('<?=$row[id]?>','<?=$row[nama]?>')" style="cursor:pointer"><?=$row['nama'] ?></td>
         <td  onClick="pilih('<?=$row[id]?>','<?=$row[nama]?>')" style="cursor:pointer"><?=$row['keterangan'] ?></td>
         <?  if (getLevel() != 2) { ?>
         <td align="center">
-        	<a href="#" onclick="ubah('<?=$row['id']?>')" ><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Data Pemohon!', this, event, '80px')"></a>&nbsp;
-        	<a href="#" onClick="del(<?=$row['id']?>)"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Data Pemohon!', this, event, '80px')"></a>&nbsp;
+        	<a href="#" onclick="ubah('<?=$row['id']?>')" ><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Data Applicant', this, event, '80px')"></a>&nbsp;
+        	<a href="#" onClick="del(<?=$row['id']?>)"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Data Applicant', this, event, '80px')"></a>&nbsp;
         </td>
         <? } ?>
         <td>
-        <input type="button" class="but" value="Pilih" onclick="pilih(<?=$row['id'] ?>, '<?=$row['nama'] ?>')" />
+        <input type="button" class="but" value="Select" onclick="pilih(<?=$row['id'] ?>, '<?=$row['nama'] ?>')" />
         </td>
     </tr>
     
@@ -228,20 +228,20 @@ function change_urut(urut,urutan) {
     <td>
     <table border="0"width="100%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Hal
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -252,9 +252,9 @@ function change_urut(urut,urutan) {
 				 
 	    }
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jml baris per hal
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -267,9 +267,9 @@ function change_urut(urut,urutan) {
     <table width="100%" border="0" align="center">            
     <tr>
         <td align="center" valign="middle" height="200">    
-           	<font size = "2" color ="red"><b>Tidak ditemukan adanya data 
+           	<font size = "2" color ="red"><b>Data Not Found. 
 			<? if (getLevel() != 2) { ?>
-            <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+            <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
             <? } ?>
             </b></font>
         </td>
@@ -280,7 +280,7 @@ function change_urut(urut,urutan) {
 </tr> 
  <tr height="26">
     <td colspan="4" align="center">
-    <input type="button" value="Tutup" onclick="window.close()" class="but" />
+    <input type="button" value="Close" onclick="window.close()" class="but" />
     </td>
 </tr>
 </table>

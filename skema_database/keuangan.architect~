@@ -852,7 +852,7 @@
        <remarks></remarks>
       </column>
       <column id="COL291" populated="true" UUID="35b7ee18-fc85-4bc3-bfbc-9fdf7ceb55f9" autoIncrement="false" defaultValue="0" name="status" nullable="1" physicalName="status" precision="0" referenceCount="1" scale="0" sourceDataTypeName="BIT" type="-7" >
-       <remarks>0 -&gt; Baru, 1 -&gt; Siswa Pindah Departemen</remarks>
+       <remarks>0 -&gt; Baru, 1 -&gt; Student Pindah Department</remarks>
       </column>
       <column id="COL292" populated="true" UUID="be1d30ea-d9b2-449b-9b23-0db02c17932a" autoIncrement="false" name="keterangan" nullable="1" physicalName="keterangan" precision="255" referenceCount="1" scale="0" sourceDataTypeName="VARCHAR" type="12" >
        <remarks></remarks>

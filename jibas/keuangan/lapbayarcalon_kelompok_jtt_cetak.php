@@ -62,14 +62,14 @@ $departemen = FetchSingle($sql);
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pembayaran Iuran Wajib Calon Siswa Per Kelompok]</title>
+<title>JIBAS FINANCE [Payment Reports Mandatory Contribution Student Candidate by Group]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
 
 <body>
 <?
-// Dapatkan banyaknya pembayaran yang telah terjadi untuk pembayaran terpilih di kelas terpilih
+// Dapatkan banyaknya pembayaran yang telah terjadi untuk pembayaran selected di kelas selected
 if ($statuslunas == -1)
 	if ($kelompok == -1)
 		$sql = "SELECT MAX(jumlah) 
@@ -110,27 +110,27 @@ $namapenerimaan = FetchSingle($sql);
 <?=getHeader($departemen)?>
 
 
-<center><font size="4"><strong>LAPORAN PEMBAYARAN IURAN WAJIB CALON SISWA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>STUDENT MANDATORY CONTRIBUTION REPORTS</strong></font><br /> </center><br /><br />
 
 <br />
 
 
 <table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width ?>" align="left" bordercolor="#000000">
 <tr height="30" align="center">
-	<td class="header" width="30" align="center">No</td>
-    <td class="header" width="80" align="center">No. Reg</td>
-    <td class="header" width="140">Nama</td>
-    <td class="header" width="50" align="center">Kel</td>
+	<td class="header" width="30" align="center">#</td>
+    <td class="header" width="80" align="center">Registration Number</td>
+    <td class="header" width="140">Name</td>
+    <td class="header" width="50" align="center">Group</td>
     <? 	for($i = 0; $i < $max_n_cicilan; $i++) { 
 			$n = $i + 1; ?>
     		<td class="header" width="120" align="center"><?="Bayaran-$n" ?></td>	
     <?  } ?>
     <td class="header" width="80" align="center">Status</td>
     <td class="header" width="125" align="center"><?=$namapenerimaan ?></td>
-    <td class="header" width="125" align="center">Total Besar Pembayaran</td>
-    <td class="header" width="125" align="center">Total Diskon</td>
-    <td class="header" width="125" align="center">Total Tunggakan</td>
-    <td class="header" width="200" align="center">Keterangan</td>
+    <td class="header" width="125" align="center">Total Payment</td>
+    <td class="header" width="125" align="center">Total Discount</td>
+    <td class="header" width="125" align="center">Total Late Payment</td>
+    <td class="header" width="200" align="center">Info</td>
 </tr>
 
 <?
@@ -236,11 +236,11 @@ while ($row = mysql_fetch_array($result))
 	$ketjtt = $row['keterangan'];
 	$lunasjtt = $row['lunas'];
 	if ($lunasjtt == 1)
-		$infojtt = "<font color=blue><strong>Lunas</strong></font>";
+		$infojtt = "<font color=blue><strong>Paid Off</strong></font>";
 	elseif ($lunasjtt == 2)
-		$infojtt = "<font color=green><strong>Gratis</strong></font>";
+		$infojtt = "<font color=green><strong>Free</strong></font>";
 	else
-		$infojtt = "<font color=red><strong>Belum Lunas</strong></font>";
+		$infojtt = "<font color=red><strong>No Paid Off Yet</strong></font>";
 	$totalbiayaall += $besarjtt;
 		
 ?>
@@ -300,7 +300,7 @@ while ($row = mysql_fetch_array($result))
 	$totalDiskonAll = $row[1];
 ?>
 <tr height="40">
-	<td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+	<td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
 	<td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalBiayaAll) ?></strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalBayarAll) ?></strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalDiskonAll) ?></strong></font></td>

@@ -125,15 +125,15 @@ OpenDb();
 	//memasukkan kedalam grafik
 	$graph->Add($plot);
 	
-	$graph->title->Set("Statistik Perolehan Nilai Rapor");
-	$graph->xaxis->title->Set("Rentang Nilai");
-	$graph->yaxis->title->Set("Jumlah Siswa");
+	$graph->title->Set("Report Card Achievement Statistic");
+	$graph->xaxis->title->Set("Point Range");
+	$graph->yaxis->title->Set("Total Student");
 	
 	$graph->title->SetFont(FF_FONT1,FS_BOLD);
 	$graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
 	$graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 	
-	//Pengaturan sumbu x dan sumbu y
+	//Settings sumbu x and sumbu y
 	$graph->yaxis->HideZeroLabel();
 	$graph->ygrid->SetFill(true,'#dedede','#FFFFFF');
 	

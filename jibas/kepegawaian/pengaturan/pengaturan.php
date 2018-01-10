@@ -28,7 +28,7 @@ require_once('../include/sessioninfo.php');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style.css" />
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -41,7 +41,7 @@ function ganti() {
 <body>
 <table width="489" border="0" cellpadding="0" cellspacing="0" align="center">
   <tr>
-    <td align="center"><h3>PENGATURAN</h3></td>
+    <td align="center"><h3>SETTINGS</h3></td>
   </tr>
   <tr>
     <td>

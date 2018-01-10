@@ -113,18 +113,18 @@ function show_pembayaran()
 	<td rowspan="3" width="60%">
     <table border="0" style="border-collapse: collapse" width = "100%">
     <tr>
-        <td width="15%"><strong>Departemen </strong></td>
+        <td width="15%"><strong>Department </strong></td>
         <td colspan="4">
     	<select id="departemen" name="departemen" style="width:188px" onchange="change_sel()">
    <?   if (getAccess() == "ALL")
-   		    echo  "<option value='ALL' selected>(Semua)</option>";
+   		    echo  "<option value='ALL' selected>(All)</option>";
 			
         $dep = getDepartemen(getAccess());
         foreach($dep as $value) 
 		{  ?>
             <option value="<?=$value ?>"><?=$value ?></option>
         <? } ?>  
-    	</select>&nbsp;<strong>Jenis</strong>&nbsp;
+    	</select>&nbsp;<strong>Type</strong>&nbsp;
         <select name="idkategori" id="idkategori" style="width:188px;" onchange="change_sel()" >
         <?  $sql = "SELECT kode, kategori FROM kategoripenerimaan ORDER BY urutan";
             $result = QueryDb($sql);
@@ -137,11 +137,11 @@ function show_pembayaran()
         </td>
  	</tr>
     <tr>
-    	<td><strong>Tanggal </strong></td>
+    	<td><strong>Date </strong></td>
        	<td width="10">
         	<div id="InfoTgl1">      
             <select name="tgl1" id = "tgl1" onchange="change_sel()" >
-            <option value="">[Tgl]</option>
+            <option value="">[Date]</option>
             <? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -158,12 +158,12 @@ function show_pembayaran()
             <? for($i = $G_START_YEAR; $i <= $thn1+1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
-            </select> s/d
+            </select> to
        	</td>
         <td width="10">
          	<div id="InfoTgl2">
         	<select name="tgl2" id="tgl2" onchange="change_sel()" >
-            <option value="">[Tgl]</option>
+            <option value="">[Date]</option>
 			<? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -184,7 +184,7 @@ function show_pembayaran()
     	</td>
    	</tr>
     <tr>
-    	<td width="15%"><strong>Laporan </strong></td>
+    	<td width="15%"><strong>Reports </strong></td>
         <td colspan="4">
         <select name="laporan" id="laporan" style="width:148px;" onchange="change_sel()" >
         	<option value="1">Rekapitulasi Total</option>
@@ -195,13 +195,13 @@ function show_pembayaran()
     </table>
     </td>
 	<td width="*" rowspan="3" valign="middle">
-		<a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48"  width="48" id="tabel" onmouseover="showhint('Klik untuk menampilkan data laporan pembayaran per siswa!', this, event, '200px')"/></a>
+		<a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48"  width="48" id="tabel" onmouseover="showhint('Click to show payment reports for each students', this, event, '200px')"/></a>
      </td>
 	<td width="40%" colspan="3" align="right" valign="top">
-	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Rekapitulasi Penerimaan</font><br />
+	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Reports Rekapitulasi Penerimaan</font><br />
     <a href="penerimaan.php" target="_parent">
-      <font size="1" color="#000000"><b>Penerimaan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Rekapitulasi Penerimaan</b></font>
+      <font size="1" color="#000000"><b>Admission</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Reports Rekapitulasi Penerimaan</b></font>
 	</td>
 </tr>
 <tr>	

@@ -52,7 +52,7 @@ function ChgPass(){
 <body>
 <div id="title" align="center">
 	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-	<font style="font-size:18px; color:#999999">Pengaturan</font><br />
+	<font style="font-size:18px; color:#999999">Settings</font><br />
 </div>
 <br>
 <!-- ImageReady Slices (Untitled-5) -->
@@ -89,7 +89,7 @@ function ChgPass(){
         <table  border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td align="center"><a href="javascript:ChgPass()"><img src="../img/lock.png" width="64" height="63" border="0" /><br />
-              <span class="style4">Ganti&nbsp;Password</span></a></td>
+              <span class="style4">Edit&nbsp;Password</span></a></td>
           </tr>
         </table>
         </td>
@@ -105,9 +105,9 @@ function ChgPass(){
     <table border="0">
       <tr>
         <td width="105"><a href="javascript:OpenConf()"><img src="../img/Konfigurasi.png" width="105" height="105" border="0" /><br />
-          <span class="style2">Konfigurasi</span></a></td>
+          <span class="style2">Configuration</span></a></td>
         <td width="95" align="center"><a href="Header.php"><img src="../img/header.png" width="105" height="105" border="0" /><br />
-          <span class="style4">Header Cetak</span></a></td>
+          <span class="style4">Print Header</span></a></td>
         <td width="95" align="center"><a href="queryerror.php"><img src="../img/ico/b_warning.png" width="105" height="105" border="0" /><br />
           <span class="style4">Query Error Log</span></a></td>
       </tr>

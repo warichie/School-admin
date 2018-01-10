@@ -36,9 +36,9 @@
     <td height="33" align="left" valign="top">
     <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td width="28%" class="headerlink" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pendataan Alumni</font><br />
+    <td width="28%" class="headerlink" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Alumni Data Collection</font><br />
       <a href="../kelulusan.php" target="content">
-      <font size="1" color="#000000"><b>Kelulusan</b></font></a>&nbsp>&nbsp<font size="1" color="#000000"><b>Pendataan Alumni</b></font></td>
+      <font size="1" color="#000000"><b>Graduation</b></font></a>&nbsp;>&nbsp;<font size="1" color="#000000"><b>Alumni Data Collection</b></font></td>
   </tr>
   <tr></tr>
   
@@ -48,7 +48,7 @@
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_alumni.png"
     style="background-repeat:no-repeat;">
-        <font size="2" color="#757575"><b>Aktifkan ceklist(<input name="" type="checkbox" value="" disabled checked  style="cursor:text">) di panel kiri lalu klik tombol (<input type="button" value=" >> " class="but" disabled style="cursor:text">) untuk mengalumnikan siswa</b></font> </td>
+        <font size="2" color="#757575"><b>Activated the checkboxes (<input name="" type="checkbox" value="" disabled checked  style="cursor:text">) on the left panel and then click on (<input type="button" value=" >> " class="but" disabled style="cursor:text">) to to alumni the student</b></font> </td>
 </tr>
 
 </table>

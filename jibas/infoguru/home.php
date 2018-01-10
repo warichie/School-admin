@@ -42,17 +42,17 @@ OpenDb();
 $sql1="SELECT YEAR(tanggal) as thn,MONTH(tanggal) as bln,DAY(tanggal) as tgl,replid,judul,abstrak FROM jbsvcr.beritaguru ORDER BY replid DESC LIMIT 0,".$VAR_BERITA_GURU;
 $result1=QueryDb($sql1);
 //$row1=@mysql_fetch_array($result1);
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");	
 $tglberita=$row1['tgl']." ".$namabulan[$row1['bln']-1]." ".$row1['thn'];
 $sql2="SELECT * FROM jbsvcr.tujuanpesan t, jbsvcr.pesan p WHERE t.idpenerima='".SI_USER_ID()."' AND t.baru=1 AND t.idpesan=p.replid ORDER BY t.replid DESC";
 //echo $sql2;
 $result2=QueryDb($sql2);
 $row2=@mysql_fetch_array($result2);
 if (@mysql_num_rows($result2)>0){
-$pesanbaru = "Ada <font color=\"red\">".@mysql_num_rows($result2)."</font> pesan baru yang belum dibaca !";
+$pesanbaru = "<font color=\"red\">".@mysql_num_rows($result2)."</font> unread message";
 			 //"<br>Masuk ke Kotak Masuk";
 } else {
-$pesanbaru = "Tidak ada pesan baru !";
+$pesanbaru = "No new message";
 }
 $sql_bs="SELECT YEAR(tanggal) as thn,MONTH(tanggal) as bln,DAY(tanggal) as tgl,replid,judul,abstrak FROM jbsvcr.beritasiswa ORDER BY replid DESC LIMIT 0,".$VAR_BERITA_SISWA;
 $result_bs=QueryDb($sql_bs);
@@ -113,7 +113,7 @@ if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){
 ?>
 <div>
 <div align="right">
-	<font color="#666666">Selamat <?=$salam?>, <?=SI_USER_NAME()?><br /></font>
+	<font color="#666666"> <?=$salam?>, <?=SI_USER_NAME()?><br /></font>
 </div>
 </div>
 <table width="100%" border="0" cellspacing="5" >
@@ -121,16 +121,16 @@ if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){
     <td width="46%" valign="top" scope="row">
     <table cellpadding="0" cellspacing="0" border="0" width="100%">
       <tr>
-        <td><div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">Pesan  Baru</span> </div>
+        <td><div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">New Message</span> </div>
               <div align="left"> <span style="color:#999999">
                 <?=$pesanbaru?>
                 </span>
-                  <div align="left" style="padding-top:5px"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="buletin/pesan/pesan.php" target="framecenter" class="style4" onclick="parent.frametop.buletin();">Masuk ke Kotak Pesan</a></div>
+                  <div align="left" style="padding-top:5px"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="buletin/pesan/pesan.php" target="framecenter" class="style4" onclick="parent.frametop.buletin();">Go to Inbox</a></div>
               </div></td>
       </tr>
       <tr>
         <td style="padding-top:20px">
-        <div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">Berita Guru Terbaru</span> </div>
+        <div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">Recent Teacher News</span> </div>
               <div align="left">
                 <table cellspacing="1" cellpadding="1">
                   <?
@@ -146,7 +146,7 @@ if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){
                     </font>
                       <?=$row1[abstrak]?>
                       </span>
-                        <div align="right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" class="style4" onclick="bacaberita('<?=$row1[replid]?>')" >Baca Selengkapnya</a></div></td>
+                        <div align="right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" class="style4" onclick="bacaberita('<?=$row1[replid]?>')" >Read more</a></div></td>
                   </tr>
                   <tr>
                     <td style="background-image:url(images/box_hr1.gif); background-repeat:repeat-x">&nbsp;</td>
@@ -160,9 +160,9 @@ if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){
     <td valign="top">
     <table>
     <tr>
-        <td ><div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">
+        <td><div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">
           <?=$VAR_CATATAN_SISWA?>
-          Catatan Siswa Terbaru</span> </div>
+          Recent Student Notes</span> </div>
               <div align="left">
                 <table cellspacing="1" cellpadding="1">
                   <?
@@ -189,7 +189,7 @@ if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){
               </div></td>
       </tr>
       <tr>
-        <td style="padding-top:20px"><div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">Berita Siswa Terbaru</span> </div>
+        <td style="padding-top:20px"><div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">Recent Student News</span> </div>
               <div align="left">
                 <table cellpadding="1" cellspacing="1" width="100%">
                   <?
@@ -205,7 +205,7 @@ if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){
                     </font>
                       <?=$row_bs[abstrak]?>
                       </span>
-                        <div align="right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" class="style4" onclick="bacaberitasiswa('<?=$row_bs[replid]?>')" >Baca Selengkapnya</a></div></td>
+                        <div align="right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" class="style4" onclick="bacaberitasiswa('<?=$row_bs[replid]?>')" >Read more</a></div></td>
                   </tr>
                   <tr>
                     <td style="background-image:url(images/box_hr1.gif); background-repeat:repeat-x">&nbsp;</td>

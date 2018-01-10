@@ -82,15 +82,15 @@ function manageLock(no) {
 <tr><td align="left">
 <!-- BOF CONTENT -->
 
-	<font size="5" color="#660000"><b>Pendataan DSP</b></font><br />
-	<a href="index.php" style="color:#0000FF">Menu Utama</a> > <strong>Pendataan DSP</strong><br /><br />
+	<font size="5" color="#660000"><b>Data Collection DSP</b></font><br />
+	<a href="index.php" style="color:#0000FF">Main Menu</a> > <strong>Data Collection DSP</strong><br /><br />
     
     <a href="#" onclick="document.location.reload();">Refresh</a><br />
 
 	<?  OpenDb(); ?>
 	<table border="0" cellspacing="3" cellpadding="0" width="80%">
 	<tr>
-    	<td width="100">Departemen:</td>
+    	<td width="100">Department:</td>
         <td>
         
         <select id="departemen" name="departemen" style="width:120px" onchange="change_dep()">
@@ -109,7 +109,7 @@ function manageLock(no) {
         </td>
     </tr>    
     <tr>
-    	<td width="100">Angkatan:</td>
+    	<td width="100">Graduates:</td>
         <td>
         <select id="idangkatan" name="idangkatan" style="width:150px" onchange="change_ang()">
         	<? 
@@ -127,7 +127,7 @@ function manageLock(no) {
         </td>
     </tr>    
     <tr>
-    	<td width="100">Kelas:</td>
+    	<td width="100">Class:</td>
         <td>
         <select id="idkelas" name="idkelas" style="width:150px" onchange="change_kel()">
         	<? 
@@ -148,12 +148,12 @@ function manageLock(no) {
     <br /><br />
     <table border="0" id="table" class="tab" cellpadding="2" cellspacing="0" width="100%">
     <tr height="30">
-    	<td class="header" width="5%" align="center">No</td>
-        <td class="header" width="10%" align="center">NIS</td>
-        <td class="header" width="25%">Nama</td>
+    	<td class="header" width="5%" align="center">#</td>
+        <td class="header" width="10%" align="center">Student ID</td>
+        <td class="header" width="25%">Name</td>
         <td class="header" width="6%">&nbsp;</td>
         <td class="header" width="15%">Biaya DSP</td>
-        <td class="header" width="40%">Keterangan</td>
+        <td class="header" width="40%">Info</td>
     </tr>
     <? 
 	$sql = "SELECT nis, nama FROM jbsakad.siswa WHERE idkelas = '$idkelas' ORDER BY nama";
@@ -196,7 +196,7 @@ function manageLock(no) {
     <tr height="30">
     	<td colspan="6" align="right" bgcolor="#999900">
         <input type="hidden" name="ndata" id="ndata" value="<?=$no?>" />
-        <input type="button" value="Simpan" name="Simpan" id="Simpan" class="but" />
+        <input type="button" value="Save" name="Simpan" id="Simpan" class="but" />
         </td>
     </tr>
     </table>

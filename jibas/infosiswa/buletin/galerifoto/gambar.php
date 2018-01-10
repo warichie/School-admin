@@ -33,7 +33,7 @@ $p = $_GET['page'];
 
 switch($p) {
 case "galeri":
-echo '<h2>Halaman Galeri</h2>';
+echo '<h2>Page Galeri</h2>';
 ?>
 <?
      OpenDb();
@@ -41,7 +41,7 @@ echo '<h2>Halaman Galeri</h2>';
 	 $result=QueryDb($sql);
 	 CloseDb();
 	 while ($row=@mysql_fetch_array($result)){ ?>
-			<img style="cursor:pointer;" title="Klik untuk tampilan lebih besar !" src="../../library/gambar.php?replid=	
+			<img style="cursor:pointer;" title="Click for larger image" src="../../library/gambar.php?replid=	
 						 <?=$row['replid']?>&table=jbsvcr.galerifoto" border="0" width="100px" height="100px" onclick=
                              "tampil('<?=$row['replid']?>')" id="theImage"/>&nbsp;
 	<?  } ?><br />
@@ -62,12 +62,12 @@ case "contact":
 	 ?>
 	 <table>
        <tr>
-        <td style="font-size:16px">Alamat</td>
+        <td style="font-size:16px">Address</td>
         <td>:</td>
         <td style="font-size:16px"><?=$row[alamat]; ?></td>
        </tr>
        <tr>
-        <td style="font-size:16px">No Telepon</td>
+        <td style="font-size:16px">Phone</td>
         <td>:</td>
         <td style="font-size:16px"><?=$row[telpon]; ?></td>
        </tr>
@@ -98,9 +98,9 @@ case "about": default:
        
        <img src="../../library/gambar.php?replid=<?=$replid?>&table=jbsvcr.profil" 
           width="140px" height="140px" id="theImage"/><br /></td>
-       <td width="634" style="">Nama &nbsp;&nbsp;&nbsp; : <?=$row[nama]; ?><br />
-         Alamat &nbsp; : <?=$row[alamat]; ?><br  />
-         No. Telp : <?=$row[telpon]; ?> </td>
+       <td width="634" style="">Name &nbsp;&nbsp;&nbsp; : <?=$row[nama]; ?><br />
+         Address &nbsp; : <?=$row[alamat]; ?><br  />
+         Phone : <?=$row[telpon]; ?> </td>
       </tr>
   	  <tr>
   	    <td style="">&nbsp;</td>

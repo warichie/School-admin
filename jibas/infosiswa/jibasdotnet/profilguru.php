@@ -190,15 +190,15 @@ function get_fresh(){
 	}
 }
 function tambah_foto() {
-	newWindow('tambahfoto.php?source=profil', 'Tambah','558','163','resizable=1,scrollbars=1,status=0,toolbar=0')
+	newWindow('tambahfoto.php?source=profil', 'Add','558','163','resizable=1,scrollbars=1,status=0,toolbar=0')
 }
 function hapus_foto(replid) {
 	var x=document.getElementById('op').value;
 	if (x=="ubah"){
-		if (confirm('Anda yakin akan menghapus gambar ini ?'))
+		if (confirm('Are you sure want to delete this image?'))
 		document.location.href="profilguru.php?op=ubah&op2=fh873jh62ft6dsg7h7whgufdte3&replid="+replid;
 	} else {
-		if (confirm('Anda yakin akan menghapus gambar ini ?'))
+		if (confirm('Are you sure want to delete this image?'))
 		document.location.href="profilguru.php?op2=fh873jh62ft6dsg7h7whgufdte3&replid="+replid;
 	}
 	
@@ -220,16 +220,16 @@ function tampil(replid){
 <body>
 <form action="profilguru.php" method="post" enctype="multipart/form-data">
 <? if ($op=="ubah"){ ?>
-<input class="but" type="submit" name="simpan" id="simpan" value="Simpan"  style="visibility:visible;width:80px;" />
+<input class="but" type="submit" name="simpan" id="simpan" value="Save"  style="visibility:visible;width:80px;" />
 <? } else { ?>
-<input class="but" type="button" name="ubah" id="ubah" value="Ubah" onClick="ubah_profil()" style="visibility:visible;width:80px;" title="Klik disini untuk merubah profil guru dan galeri foto !" />
+<input class="but" type="button" name="ubah" id="ubah" value="Edit" onClick="ubah_profil()" style="visibility:visible;width:80px;" title="Click here to change teacher profile and photo gallery!" />
 <? } ?>
 <table width="100%" border="0" cellspacing="0">
   <tr>
     <th width="31%" align="left" scope="row" valign="top">
     <table width="489%" border="0" cellspacing="2" >
   <tr>
-    <th width="31%" height="25" scope="row"><div align="left">Nama </div></th>
+    <th width="31%" height="25" scope="row"><div align="left">Name </div></th>
     <th width="9%" scope="row">:</th>
     <td width="60%" height="25"><div align="left">
     <? if ($op=="ubah"){ ?><input name="nama" id="nama" type="text" value="<?=$nama?>" />
@@ -239,7 +239,7 @@ function tampil(replid){
     </div></td>
   </tr>
   <tr>
-    <th height="25" scope="row"><div align="left">Alamat </div></th>
+    <th height="25" scope="row"><div align="left">Address </div></th>
     <th height="25" scope="row">:</th>
     <td height="25"><div align="left">
     <? if ($op=="ubah"){ ?>
@@ -250,7 +250,7 @@ function tampil(replid){
     </div></td>
   </tr>
   <tr>
-    <th height="25" scope="row"><div align="left">Telepon </div></th>
+    <th height="25" scope="row"><div align="left">Phone </div></th>
     <th height="25" scope="row">:</th>
     <td height="25"><div align="left">
     <? if ($op=="ubah"){ ?>
@@ -260,7 +260,7 @@ function tampil(replid){
 	} ?>
   </tr>
   <tr>
-    <th height="25" scope="row"><div align="left">HP </div></th>
+    <th height="25" scope="row"><div align="left">Mobile </div></th>
     <th height="25" scope="row">:</th>
     <td height="25"><div align="left">
     <? if ($op=="ubah"){ ?>
@@ -292,7 +292,7 @@ function tampil(replid){
   </tr>
   
   <tr>
-    <th valign="top" scope="row"><div align="left">Buku Favorit </div></th>
+    <th valign="top" scope="row"><div align="left">Favorite Books </div></th>
     <th valign="top" scope="row">:</th>
     <th align="left" valign="top" scope="row"><div align="left">
       <? if ($op=="ubah"){ ?>
@@ -304,7 +304,7 @@ function tampil(replid){
   </tr>
   
   <tr>
-    <th valign="top" scope="row"><div align="left">Riwayat Hidup </div></th>
+    <th valign="top" scope="row"><div align="left">Life History </div></th>
     <th valign="top" scope="row">:</th>
     <th align="left" valign="top" scope="row"><div align="left">
       	<? if ($op=="ubah"){ ?>
@@ -320,7 +320,7 @@ function tampil(replid){
 </table>
 
     </th>
-    <td width="69%" align="left" valign="top"><div align="center"><font face='Arial' style='font-size: 16pt' color='#800000'>Tentang 
+    <td width="69%" align="left" valign="top"><div align="center"><font face='Arial' style='font-size: 16pt' color='#800000'>About 
       <?=$nama?>
       </font></div><br />
       
@@ -328,10 +328,10 @@ function tampil(replid){
       <? if ($op=="ubah"){ ?>
       <br />
       <strong>Gambar : </strong><br>
-      <input name="file" id="file" type="file" size="20" title="Ganti Gambar" /><br>
-      <span class="style1">(Isi untuk mengganti gambar utama..)      </span><br />
+      <input name="file" id="file" type="file" size="20" title="Edit Image" /><br>
+      <span class="style1">(To change main image)      </span><br />
       <br /><br /><br />
-      <strong>Tentang : </strong><br />
+      <strong>About : </strong><br />
       <textarea name="tentang" style="width:200px; height:100px;" id="tentang"  ><?=$tentang?>
       </textarea>
       <? } else {
@@ -347,7 +347,7 @@ function tampil(replid){
 	<? 
 	$total=@mysql_num_rows($result2);
 	if ($op=="ubah" && $total<20){ ?>
-    <a href="#" title="Tambah gambar koleksi" onClick="tambah_foto()"><img src="../images/ico/tambah.png" border="0" />Tambah Koleksi Gambar</a><br /><br />
+    <a href="#" title="Add gambar koleksi" onClick="tambah_foto()"><img src="../images/ico/tambah.png" border="0" />Add Image Collections</a><br /><br />
 	<? } ?>	
 	
     Galeri Foto :<br /><br />
@@ -371,11 +371,11 @@ function tampil(replid){
 		$result_blob=QueryDb($sql_blob);
 		CloseDb();
 		while ($row_blob=@mysql_fetch_array($result_blob)){ ?>
-			<th scope="row" width="20%" align="center"><img style="cursor:pointer;" title="Klik untuk menampilkan dalam ukuran sebenarnya !" src="../library/gambar.php?replid=<?=$row_blob['replid']?>&table=jbsvcr.galerifoto" width="132" onClick="tampil('<?=$row_blob['replid']?>')" /><br>
+			<th scope="row" width="20%" align="center"><img style="cursor:pointer;" title="Click to show image in its original size!" src="../library/gambar.php?replid=<?=$row_blob['replid']?>&table=jbsvcr.galerifoto" width="132" onClick="tampil('<?=$row_blob['replid']?>')" /><br>
 			<? if ($op=="ubah"){ ?>
             <img src="../images/ico/hapus.png" style="cursor:pointer;" onclick="hapus_foto('<?=$row_blob['replid']?>')"/><br />
-            <span class="style3">Ket : </span>
-            <input title="Keterangan Gambar" type="text" name="ket<?=$row_blob['replid']?>" id="ket<?=$row_blob['replid']?>" value="<?=$row_blob['keterangan']?>">
+            <span class="style3">Info : </span>
+            <input title="Image Info" type="text" name="ket<?=$row_blob['replid']?>" id="ket<?=$row_blob['replid']?>" value="<?=$row_blob['keterangan']?>">
 			<? } else { 
 			if ($row_blob['keterangan']!=""){
 			?><?=$row_blob['keterangan']?><?

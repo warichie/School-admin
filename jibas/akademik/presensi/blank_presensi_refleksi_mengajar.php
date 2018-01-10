@@ -36,8 +36,8 @@
    
     
 	</table><br><br><br><br><br><br><br><br><br><br>
-        <font size="2" color="#757575"><b>Click ikon <img src="../images/view.png" width="48" height="48"> di
-        atas untuk menampilkan presensi refleksi mengajar</b></font></td>
+        <font size="2" color="#757575"><b>Click on <img src="../images/view.png" width="48" height="48"> 
+        above to show Teaching Reflection Presence</b></font></td>
 </tr>
 </table>
 </body>

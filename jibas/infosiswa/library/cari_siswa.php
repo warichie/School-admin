@@ -40,11 +40,11 @@ OpenDb();
 <tr>
 	<td>
 	<input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
-	<font size="2" color="#000000"><strong>Cari Siswa</strong></font>
+	<font size="2" color="#000000"><strong>Search Student</strong></font>
  	</td>
 </tr>
 <tr>
-    <td width="20%"><font color="#000000"><strong>Departemen</strong></font></td>
+    <td width="20%"><font color="#000000"><strong>Department</strong></font></td>
     <td><select name="depart" id="depart" onChange="change_departemen(1)" style="width:150px" onkeypress="return focusNext('nama', event)">
 	<?	$dep = getDepartemen(SI_USER_ACCESS());    
         foreach($dep as $value) {
@@ -57,14 +57,14 @@ OpenDb();
   	</select>
     </td>
    	<td rowspan="2" width="15%" align="center">
-    <input type="button" class="but" name="submit" id="submit" value="Cari" onclick="carilah()" style="width:70px;height:40px"/>
+    <input type="button" class="but" name="submit" id="submit" value="Search" onclick="carilah()" style="width:70px;height:40px"/>
     </td>
 </tr>
 <tr>
-    <td><font color="#000000"><strong>Nama Siswa</strong></font></td>
+    <td><font color="#000000"><strong>Student Name</strong></font></td>
     <td><input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama'] ?>" size="22" onKeyPress="return focusNext('submit', event)"/>
 		&nbsp;
-        <font color="#000000"><strong>NIS</strong></font>	
+        <font color="#000000"><strong>Student ID</strong></font>	
         <input type="text" name="nis" id="nis" value="<?=$_REQUEST['nis'] ?>" size="20" onKeyPress="return focusNext('submit', event)"/>     
   	</td>   
 </tr>
@@ -89,11 +89,11 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 	<br>
    	<table width="100%" id="table1" class="tab" align="center" cellpadding="2" cellspacing="0" border="1">
     <tr height="30">
-        <td class="header" width="7%" align="center" height="30">No</td>
-        <td class="header" width="15%" align="center" height="30">N I S</td>
-        <td class="header" >Nama</td>
-        <td class="header" align="center">Departemen</td>
-        <td class="header" align="center">Kelas</td>
+        <td class="header" width="7%" align="center" height="30">#</td>
+        <td class="header" width="15%" align="center" height="30">Student ID</td>
+        <td class="header" >Name</td>
+        <td class="header" align="center">Department</td>
+        <td class="header" align="center">Class</td>
         <td class="header" width="10%">&nbsp;</td>
     </tr>
 <?
@@ -102,10 +102,10 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
    	<tr height="25" onClick="pilih('<?=$row[0]?>','<?=$row[1]?>')" style="cursor:pointer">
         <td align="center" ><?=++$cnt ?></td>
         <td align="center"><?=$row[0] ?></td>
-        <td ><?=$row[1] ?></td>
+        <td><?=$row[1] ?></td>
         <td align="center"><?=$row[3] ?></td>
         <td align="center"><?=$row[2] ?></td>
-        <td align="center"><input type="button" value="Pilih" onclick="pilih('<?=$row[0]?>','<?=$row[1]?>')" class="but"></td>
+        <td align="center"><input type="button" value="Select" onclick="pilih('<?=$row[0]?>','<?=$row[1]?>')" class="but"></td>
 	</tr>
 <? } CloseDb(); ?>
  	</table>
@@ -115,8 +115,8 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />            
-		Tambah data siswa di menu Pendataan Siswa pada bagian Kesiswaan. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br /><br />            
+		Add student data in the Student Data menu on Student section. </b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -129,7 +129,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
     <td>   
 
 <br /><br />	
-<font size="2" color="#757575"><b>Klik pada tombol "Cari" di atas untuk melihat data calon siswa <br />sesuai dengan NIS atau Nama Siswa berdasarkan <i>keyword</i> yang dimasukkan</b></font>	
+<font size="2" color="#757575"><b>Click on the Search button to search Student Candidate data <br />according to Student ID or Name based on <i>keyword</i> entered.</b></font>	
 <br /><br />
     </td>
 </tr>
@@ -142,7 +142,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 </tr>
 <tr>
 	<td align="center" colspan="3">
-	<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" style="width:80px;"/>
+	<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" style="width:80px;"/>
 	</td>
 </tr>
 </table>

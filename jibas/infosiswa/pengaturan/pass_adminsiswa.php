@@ -37,7 +37,7 @@ if (isset($_REQUEST['simpan'])) {
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) {
 		CloseDb(); 
-		$MYSQL_ERROR_MSG = "Password lama anda tidak cocok!";
+		$MYSQL_ERROR_MSG = "Your old password does not match";
 	} else {
 		$sql = "UPDATE jbsuser.adminsiswa SET password=md5('$_REQUEST[pass1]')";
 		$result = QueryDb($sql);
@@ -45,7 +45,7 @@ if (isset($_REQUEST['simpan'])) {
 	
 		if ($result) { ?>
 			<script language="javascript">
-				alert("Password anda telah berubah");
+				alert("Your password has been changed");
 				window.close();
 			</script> 
 <?		}	
@@ -66,7 +66,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Ganti Password Pengguna</title>
+<title>Edit User Password</title>
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -78,22 +78,22 @@ function validasi() {
 		var pass1 = document.getElementById('pass1').value;
 		var pass2 = document.getElementById('pass2').value;
 		if (passlama.length==0){
-			alert('Anda harus mengisikan data untuk Password Lama!');
+			alert('You must enter a data for Old Password');
 			document.getElementById('passlama').focus();
 			return false;
 		}
 		if (pass1.length==0){
-			alert('Silakan masukan password baru!');
+			alert('Please enter a new password');
 			document.getElementById('pass1').focus();
 			return false;
 		}
 		if (pass2.length==0){
-			alert('Silakan masukan password baru (ulang)!');
+			alert('Please enter a new password (confirm)');
 			document.getElementById('pass2').focus();
 			return false;
 		}
 		if (pass1 != pass2) {
-			alert('Password yang anda masukkan tidak sama!');
+			alert('Your password does not match');
 			document.getElementById('pass2').focus();
 			return false;
 		} else {
@@ -111,15 +111,15 @@ function validasi() {
     <input type="hidden" name="login" id="login" value="<?=$login ?>" />
     <table border="0" background="images/bttable300.png">
     <tr>
-        <td colspan="2" class="header">Ubah Password Pengguna</td>
+        <td colspan="2" class="header">Edit User Password</td>
     </tr>
     <tr>
-        <td align="left">Nama:</td>
+        <td align="left">Name:</td>
         <td align="left">
         <input type="text" name="nis" id="nis" size="20" readonly="readonly" value="<?=$nis ?>" style="background-color:#CCCCCC" /></td>
     </tr>
     <tr>
-    	<td align="left">Password Lama:</td>
+    	<td align="left">Old Password:</td>
         <td align="left"><input type="password" name="passlama" id="passlama" size="20" /></td>
     </tr>
     <tr>
@@ -127,14 +127,14 @@ function validasi() {
         <td align="left"><input type="password" name="pass1" id="pass1" size="20" /></td>
     </tr>
     <tr>
-    	<td align="left">Ulangi Password:</td>
+    	<td align="left">Confirm:</td>
         <td align="left"><input type="password" name="pass2" id="pass2" size="20" /></td>
     </tr>
     <tr>
         <td colspan="2" align="left">
         	<div align="center">
-        	  <input class="but" type="submit" value="Ganti" name="simpan">&nbsp;
-        	  <input class="but" type="button" value="Tutup" onClick="window.close();">        
+        	  <input class="but" type="submit" value="Edit" name="simpan">&nbsp;
+        	  <input class="but" type="button" value="Close" onClick="window.close();">        
       	  </div></td>
         </tr>
     </table>

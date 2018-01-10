@@ -75,7 +75,7 @@ if ($op == "xm8r389xemx23xb2378e23")
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -94,7 +94,7 @@ function edit(replid) {
 }
 
 function hapus(login) {
-	if (confirm("Apakah anda yakin akan menghapus pengguna ini?"))
+	if (confirm("Are you sure want to delete this user?"))
 		document.location.href = "user.php?op=xm8r389xemx23xb2378e23&login="+login+"&urut=<?=$urut?>&urutan=<?=$urutan?>&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -150,11 +150,11 @@ function change_baris() {
 	<table border="0" width="95%" align="center">
     <tr>
         <td align="right">
-         <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Daftar Pengguna</font>
+         <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">User List</font>
          </td>
     </tr>
     <tr>
-        <td align="right"><a href="user.php"><font size="1" color="#000000"><b>Pengaturan</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Daftar Pengguna</b></font>
+        <td align="right"><a href="user.php"><font size="1" color="#000000"><b>Settings</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>User List</b></font>
         </td>
     </tr>
 	<tr>
@@ -189,23 +189,23 @@ function change_baris() {
     <!-- TABLE CONTENT -->
     <tr>
       	<td align="right">   
-    	<a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    	<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;
+    	<a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    	<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;
 <?	if (SI_USER_LEVEL() != $SI_USER_STAFF && SI_USER_LEVEL() != $SI_USER_MANAGER) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')" />&nbsp;Tambah Pengguna</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')" />&nbsp;Add User</a>
 <?	} ?>    
     </td>
     </tr>
     </table><br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
     <tr height="30" class="header" align="center">
-    	<td width="4%">No</td>
+    	<td width="4%">#</td>
         <td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" onClick="change_urut('login','<?=$urutan?>')" style="cursor:pointer;">Login <?=change_urut('login',$urut,$urutan)?></td>
-        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" onClick="change_urut('nama','<?=$urutan?>')" style="cursor:pointer;">Nama <?=change_urut('nama',$urut,$urutan)?></td>
-        <td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" onClick="change_urut('tingkat','<?=$urutan?>')" style="cursor:pointer;">Tingkat <?=change_urut('tingkat',$urut,$urutan)?></td>
+        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" onClick="change_urut('nama','<?=$urutan?>')" style="cursor:pointer;">Name <?=change_urut('nama',$urut,$urutan)?></td>
+        <td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" onClick="change_urut('tingkat','<?=$urutan?>')" style="cursor:pointer;">Grade <?=change_urut('tingkat',$urut,$urutan)?></td>
         <td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" onClick="change_urut('aktif','<?=$urutan?>')" style="cursor:pointer;">Status <?=change_urut('aktif',$urut,$urutan)?></td>
-        <td width="*">Keterangan</td>  
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" onClick="change_urut('tanggal','<?=$urutan?>')" style="cursor:pointer;">Login Terakhir <?=change_urut('tanggal',$urut,$urutan)?></td>
+        <td width="*">Info</td>  
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" onClick="change_urut('tanggal','<?=$urutan?>')" style="cursor:pointer;">Last Login <?=change_urut('tanggal',$urut,$urutan)?></td>
 <?	if (SI_USER_LEVEL() != $SI_USER_STAFF && SI_USER_LEVEL() != $SI_USER_MANAGER) { ?>
         <td width="8%">&nbsp;</td>
 <? 	} ?>
@@ -225,19 +225,19 @@ function change_baris() {
 		{
 			case 0: echo "Landlord";
 				break;
-			case 1: echo "Manajer";
+			case 1: echo "Manager";
 				break;
 			case 2: echo "Staf";
 				break;
 		}  	?>
         </td>
-        <td align="center"><? if ($row['aktif'] == 1) echo 'Aktif'; else echo 'Tidak Aktif'; ?></td>
+        <td align="center"><? if ($row['aktif'] == 1) echo 'Active'; else echo 'Inactive'; ?></td>
         <td><?=$row['keterangan'] ?></td>
         <td align="center"><?=format_tgl($row['tanggal'])?> <?=$row['jam']?></td>
  <?		if (SI_USER_LEVEL() != $SI_USER_STAFF && SI_USER_LEVEL() != $SI_USER_MANAGER) {  ?> 
         <td align="center">
-            <a href="JavaScript:edit('<?=$row['replid'] ?>')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Pengguna!', this, event, '75px')" /></a>&nbsp;
-            <a href="JavaScript:hapus('<?=$row['login'] ?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Pengguna!', this, event, '75px')"/></a>
+            <a href="JavaScript:edit('<?=$row['replid'] ?>')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit User', this, event, '75px')" /></a>&nbsp;
+            <a href="JavaScript:hapus('<?=$row['login'] ?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete User', this, event, '75px')"/></a>
         </td>
 <?		} ?>
     </tr>
@@ -271,20 +271,20 @@ function change_baris() {
     <td>
     <table border="0"width="95%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -295,9 +295,9 @@ function change_baris() {
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -313,9 +313,9 @@ function change_baris() {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">
-       	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+       	<font size = "2" color ="red"><b>Data Not Found. 
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF && SI_USER_LEVEL() != $SI_USER_MANAGER) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
 	</td>
 </tr>

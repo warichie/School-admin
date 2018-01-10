@@ -30,10 +30,10 @@ $tanggal = $_REQUEST['tanggal'];
 <center>
 <table border="0" width="350" cellpadding="2" cellspacing="1">
 <tr>
-	<td width="10" align="center" style="background-color:#111111; color:#FFFFFF; font-weight:bold">No</td>
-    <td width="100" align="center" style="background-color:#111111; color:#FFFFFF; font-weight:bold">Tempat/Jam</td>
-    <td width="120" align="center" style="background-color:#111111; color:#FFFFFF; font-weight:bold">Penghulu</td>
-    <td width="120" align="center" style="background-color:#111111; color:#FFFFFF; font-weight:bold">Pasangan</td>
+	<td width="10" align="center" style="background-color:#111111; color:#FFFFFF; font-weight:bold">#</td>
+    <td width="100" align="center" style="background-color:#111111; color:#FFFFFF; font-weight:bold">Place/Time</td>
+    <td width="120" align="center" style="background-color:#111111; color:#FFFFFF; font-weight:bold">Headman</td>
+    <td width="120" align="center" style="background-color:#111111; color:#FFFFFF; font-weight:bold">Couples</td>
 </tr>
 <? 	OpenDb();
 	$sql = "SELECT j.replid,jam,penghulu,nama,pasangan,tempat,keterangan FROM jadwal j, penghulu p WHERE j.penghulu = p.nip AND tanggal='$tanggal' ORDER BY jam ASC";    

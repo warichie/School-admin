@@ -15,7 +15,7 @@ function ChgPass(){
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" >
 <div align="center" style="font-family:Calibri; color:#666; font-weight:bold; font-size:20px; padding-bottom:10px">
-PENGGUNA
+USER
 </div>
 
 <table border="0" cellspacing="0" cellpadding="2" align="center">
@@ -24,8 +24,8 @@ PENGGUNA
     <td align="center"><a href="userlist.php"><img src="../images/slice/userList.jpg" width="66" height="66" border="0" /></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="javascript:ChgPass()" style="font-family:Arial;color:#666666;font-weight:bold; font-size:14px" >Ganti Password</a></td>
-    <td align="center"><a href="userlist.php"  style="font-family:Arial;color:#666666;font-weight:bold; font-size:14px">Daftar Pengguna</a></td>
+    <td align="center"><a href="javascript:ChgPass()" style="font-family:Arial;color:#666666;font-weight:bold; font-size:14px" >Edit Password</a></td>
+    <td align="center"><a href="userlist.php"  style="font-family:Arial;color:#666666;font-weight:bold; font-size:14px">User List</a></td>
   </tr>
 </table>
 

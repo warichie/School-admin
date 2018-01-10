@@ -62,7 +62,7 @@ function reloadpage($dest){
 ?>
 <html>
 <head>
-<title>Profil Guru</title>
+<title>Teacher Profile</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="../style/style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
@@ -126,7 +126,7 @@ function change_page(page) {
     <td height="20" colspan="3" >&nbsp;</td>
   </tr>
   <tr>
-    <td height="20" colspan="3" >&nbsp;&nbsp;<input name="ubah" type="button" class="but" style="width:100px;" value="My Profile" onClick="document.location.href='profile.php'"><!--&nbsp;<input name="tema" type="button" class="header" style="width:100px;" value="Tema Profil">&nbsp;<input name="ngobrol" type="button" class="header" style="width:100px;" value="Ajak Ngobrol">&nbsp;<input name="pesan" type="button" class="header" style="width:100px;" value="Kirim Pesan">--></td>
+    <td height="20" colspan="3" >&nbsp;&nbsp;<input name="ubah" type="button" class="but" style="width:100px;" value="My Profile" onClick="document.location.href='profile.php'"><!--&nbsp;<input name="tema" type="button" class="header" style="width:100px;" value="Profile Theme">&nbsp;<input name="ngobrol" type="button" class="header" style="width:100px;" value="Chat">&nbsp;<input name="pesan" type="button" class="header" style="width:100px;" value="Send Message">--></td>
   </tr>
   <tr>
     <td width="19" height="20" style="background-image:url(../images_slice/bg_profil80_01.png); background-repeat:no-repeat; background-position:right;">&nbsp;</td>
@@ -139,7 +139,7 @@ function change_page(page) {
         <table width="100%" border="0" cellspacing="0">
           <tr>
 			<td>
-            <div align="right"><span class="style8">Daftar Siswa</span> 
+            <div align="right"><span class="style8">Student List</span> 
             </div>
             <table width="100%" height="400" border="0">
 			<tr><td height="100" valign="top">
@@ -163,8 +163,8 @@ function change_page(page) {
 					$panggilan=$rw3[panggilan];
 					echo "<td width='20%' valign='top' ><img title='".$rw[nama]."' style='cursor:pointer;' onclick=\"document.location.href='view_profil_guru.php?replid=".$rw[replid]."'\" src='../library/gambar.php?replid=$rw[replid]&table=jbsvcr.profil' width='75' align='left'>".
 						 "<span class='style5'>".$panggilan."</span><br>".
-						 "<span class='style7'><a style='text-decoration:none;' href='view_profil_siswa.php?replid=".$rw[replid]."'>Lihat</a></span><br>".
-						 "<span class='style6'><u>Kirim Pesan</u></span>".
+						 "<span class='style7'><a style='text-decoration:none;' href='view_profil_siswa.php?replid=".$rw[replid]."'>View</a></span><br>".
+						 "<span class='style6'><u>Send Message</u></span>".
 						 "</td>";
 					if ($x+1%5==0){
 						echo "</tr>";
@@ -198,7 +198,7 @@ function change_page(page) {
 						
 						?>
 						<div align="center">
-						<input <?=$disback?> type="button" class="but" title="Kembali ke halaman sebelumnya" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+						<input <?=$disback?> type="button" class="but" title="Back" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 						<?
 						for ($hal=1;$hal<=$totalpage;$hal++){
 							?>
@@ -214,7 +214,7 @@ function change_page(page) {
 						<?
 						}
 						?>
-						<input <?=$disnext?> type="button" class="but" name="next" title="Lanjut ke halaman berikutnya" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+						<input <?=$disnext?> type="button" class="but" name="next" title="Next" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
 						<? } ?>
 						</div>
 		 </td></tr>

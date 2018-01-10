@@ -42,7 +42,7 @@ if (isset($_REQUEST['nama']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Daftar Mutasi Siswa</title>
+<title>Student Mutation List</title>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript">
@@ -80,7 +80,7 @@ function tampil() {
 	var nama = document.siswa_cari_mutasi.nama.value;
 	if (nis==""){
 		if (nama==""){
-			alert ('NIS atau Nama tidak boleh kosong !');
+			alert ('Student ID or Name should not leave empty');
 			document.siswa_cari_mutasi.nis.focus();
 			return false;
 
@@ -88,7 +88,7 @@ function tampil() {
 	}
 	if (nama==""){
 		if (nis==""){
-			alert ('NIS atau Nama tidak boleh kosong !');
+			alert ('Student ID or Name should not leave empty');
 			document.siswa_cari_mutasi.nis.focus();
 			return false;
 
@@ -96,7 +96,7 @@ function tampil() {
 	}
 	if (!nama==""){
 		if (nama.length<3){
-			alert ('Nama yang akan dicari tidak boleh kurang dari 3 karakter !');
+			alert ('Search Name should not less than 3 characters.');
 			document.siswa_cari_mutasi.nama.focus();
 			return false;
 
@@ -104,7 +104,7 @@ function tampil() {
 	}
 	if (!nis==""){
 		if (nis.length<3){
-			alert ('NIS yang akan dicari tidak boleh kurang dari 3 karakter !');
+			alert ('Student ID should not less than 3 characters.');
 			document.siswa_cari_mutasi.nis.focus();
 			return false;
 
@@ -118,7 +118,7 @@ function tampil_kelas() {
 	var departemen = document.siswa_cari_mutasi.departemen.value;	
 	var kelas = document.siswa_cari_mutasi.kelas.value;
 	if (kelas==""){
-		alert ('Tidak ada kelas yang sesuai dengan departemen terpilih !');
+		alert ('No Class according to Department selected.');
 		document.siswa_cari_mutasi.departemen.focus();
 		return false;
 		}
@@ -130,7 +130,7 @@ function tampil_kelas() {
 	
 <body>
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <table border="0" width="100%" align="center">
 <!-- TABLE CENTER -->
@@ -145,14 +145,12 @@ function tampil_kelas() {
       <td width="38%" align="left">
         <br />
       <td width="39%" align="left" valign="middle"> </td>
-      <td width="23%" rowspan="4" align="right" valign="top"><font size="4" color="#660000"><b> MUTASI
-            SISWA</b></font><a href="../mutasi.php" target="content"><br />
-        <font size="1" color="#000000"><b>Mutasi</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Mutasi
-        Siswa</b></font></td>
+      <td width="23%" rowspan="4" align="right" valign="top"><font size="4" color="#660000"><b> STUDENT MUTATION</b></font><a href="../mutasi.php" target="content"><br />
+        <font size="1" color="#000000"><b>Mutation</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Student Mutation</b></font></td>
     </tr>
     
     <tr>
-      	<td colspan="2" align="left" valign="top"><div align="center"><strong>Departemen</strong>
+      	<td colspan="2" align="left" valign="top"><div align="center"><strong>Department</strong>
       	      <select name="departemen" id="departemen"  onchange="change_departemen()"  style="width:100px">
               <?	$dep = getDepartemen(SI_USER_ACCESS());    
 	foreach($dep as $value) {
@@ -172,21 +170,21 @@ function tampil_kelas() {
 	<tr height="50">
     	<td align="left">
     	  <fieldset>
-    	  <legend>Tampilkan berdasarkan NIS atau Nama</legend>    
+    	  <legend>Sort by Student ID or Name</legend>    
       	
       	  <table width="100%" border="0">
             <tr>
-              <td width="18%"><strong>NIS</strong></td>
+              <td width="18%"><strong>Student ID</strong></td>
               <td width="40%"><input type="text" name="nis" id="nis" 
 		<?
 		if ($nis<>"")
 		echo "value='$nis'";
 		?>
 		/></td>
-              <td width="42%" rowspan="2"><a href="#" onclick="tampil()" onMouseOver="showhint('Tampilkan Daftar Siswa Berdasarkan NIS atau Nama', this, event, '120px')"><img src="../images/view.png" alt="Tampilkan Tabel" height="30" border="0" name="tabel" id="tabel2"/></a></td>
+              <td width="42%" rowspan="2"><a href="#" onclick="tampil()" onMouseOver="showhint('Show Student List based on Student ID or Name', this, event, '120px')"><img src="../images/view.png" alt="Show Table" height="30" border="0" name="tabel" id="tabel2"/></a></td>
             </tr>
             <tr>
-              <td><strong>Nama</strong></td>
+              <td><strong>Name</strong></td>
               <td><input type="text" name="nama" id="nama" 
 		<?
 		if ($nama<>"")
@@ -197,10 +195,10 @@ function tampil_kelas() {
           </table>
     	  </fieldset>    	        
     	<td width="39%" align="left" valign="middle"><fieldset>
-	    <legend>Tampilkan berdasarkan kelas</legend>
+	    <legend>Sort by Class</legend>
           <table width="100%" height="50" border="0">
             <tr>
-              <td width="18%"><strong>Kelas</strong></td>
+              <td width="18%"><strong>Class</strong></td>
               <td width="44%"><div id="kelasInfo"><select name="kelas" id="kelas" onchange="change_kelas()" style="width:100px">
               <?
               OpenDb();
@@ -222,7 +220,7 @@ function tampil_kelas() {
 				CloseDb();
 			?>
                   </select></div></td>
-              <td width="38%"><a href="#" onclick="tampil_kelas()" onMouseOver="showhint('Tampilkan Daftar Siswa Berdasarkan Kelas', this, event, '120px')"><img src="../images/view.png" alt="Tampilkan Tabel" name="tabel" width="30" height="30" border="0" id="tabel2"/></a></td>
+              <td width="38%"><a href="#" onclick="tampil_kelas()" onMouseOver="showhint('Show Student List based on Class', this, event, '120px')"><img src="../images/view.png" alt="Show Table" name="tabel" width="30" height="30" border="0" id="tabel2"/></a></td>
             </tr>
           </table>
 	  </fieldset> </td>

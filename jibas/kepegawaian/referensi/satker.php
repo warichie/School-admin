@@ -46,7 +46,7 @@ if ($op == "xm8r389xemx23xb2378e23") {
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -66,7 +66,7 @@ function edit(replid) {
 }
 
 function hapus(replid) {
-	if (confirm("Apakah anda yakin akan menghapus satuan kerja ini?"))
+	if (confirm("Are you sure want to delete this work unit?"))
 		document.location.href = "satker.php?op=xm8r389xemx23xb2378e23&replid="+replid;
 }
 
@@ -81,8 +81,8 @@ function cetak() {
 <tr>
   <td width="100%" align="right" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
     <font style="background-color:#FFCC33; font-size:24px">&nbsp;&nbsp;</font>
-    <font class="subtitle">Satuan Kerja</font><br />
-    <a href="referensi.php">Referensi</a> &gt; Satuan Kerja<br />
+    <font class="subtitle">Work Unit</font><br />
+    <a href="referensi.php">Reference</a> &gt; Work Unit<br />
     </td>
     
 </tr>
@@ -99,9 +99,9 @@ function cetak() {
     <tr>
       <td align="right">
     
-    <a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
 <?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	<a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')" />&nbsp;Tambah Satuan Kerja</a>
+	<a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')" />&nbsp;Add Work Unit</a>
 <?	} ?>	
     </td>
     </tr>
@@ -109,9 +109,9 @@ function cetak() {
     
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">Satuan Kerja</td>
-        <td width="15%" class="header" align="center">Nama</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Work Unit</td>
+        <td width="15%" class="header" align="center">Name</td>
         <td width="8%" class="header">&nbsp;</td>
     </tr>
 <? 	
@@ -129,8 +129,8 @@ function cetak() {
 			&nbsp;
 <?			if ($isdefault == 0 && SI_USER_LEVEL() != $SI_USER_STAFF)
 			{ ?>		
-				<a href="JavaScript:edit('<?= $row[0] ?>')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Satuan Kerja!', this, event, '80px')" /></a>&nbsp;
-				<a href="JavaScript:hapus('<?= $row[0] ?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Satuan Kerja!', this, event, '80px')"/></a>        
+				<a href="JavaScript:edit('<?= $row[0] ?>')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Work Unit', this, event, '80px')" /></a>&nbsp;
+				<a href="JavaScript:hapus('<?= $row[0] ?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Work Unit', this, event, '80px')"/></a>        
 <?			} ?>
 		</td>
     </tr>
@@ -150,9 +150,9 @@ function cetak() {
 
 <tr>
 	<td align="center" valign="middle" height="250" colspan="2">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
+    	<font size = "2" color ="red"><b>Data Not Found.
        <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru.
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data.
         <? } ?>
         </p></b></font>
 	</td>

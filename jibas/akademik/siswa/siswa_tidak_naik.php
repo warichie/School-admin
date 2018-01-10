@@ -35,7 +35,7 @@ if (isset($_REQUEST['departemen'])){
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tidak Naik Kelas</title>
+<title>Fail a Grade</title>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript">
 function change_departemen() {
@@ -56,11 +56,11 @@ alert ('Blank');
 	
 <body background="../images/bkmainlong.jpg">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td width="32%" rowspan="3"><strong>Departemen :</strong>      <select name="departemen" id="departemen" onchange="change_departemen()">
+    <td width="32%" rowspan="3"><strong>Department :</strong>      <select name="departemen" id="departemen" onchange="change_departemen()">
           
 			<?
 				$sql = "SELECT * FROM jbsakad.departemen where aktif=1 ORDER BY urutan ASC";
@@ -78,13 +78,13 @@ alert ('Blank');
 			?>
      	</select>    </td>
     <td width="40%" rowspan="3">&nbsp;</td>
-    <td width="28%" class="headerlink"><div align="right"><font size="5" color="#660000"><b>TIDAK NAIK KELAS</b></font></div></td>
+    <td width="28%" class="headerlink"><div align="right"><font size="5" color="#660000"><b>DID NOT PROMOTE TO NEXT GRADE</b></font></div></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><div align="right" class="headerlink"><a href="../siswa.php">Kesiswaan</a> &gt; Siswa Tidak Naik Kelas Kelas</div></td>
+    <td><div align="right" class="headerlink"><a href="../siswa.php">Student</a> &gt; Student Fail a Grade</div></td>
   </tr>
 </table>
 </body>

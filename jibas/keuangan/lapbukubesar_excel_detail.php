@@ -70,7 +70,7 @@ if (isset($_REQUEST['urutan']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Detail Buku Besar]</title>
+<title>JIBAS FINANCE [Reports Detail Ledger]</title>
 </head>
 
 <body>
@@ -84,21 +84,21 @@ if (isset($_REQUEST['urutan']))
 
 <table border="0">
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Departemen </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Department </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=$departemen ?>
     </strong></font></td>
 </tr>
 <tr>
-	<td><font size="2" face="Arial"><strong>Tanggal </strong></font></td>
+	<td><font size="2" face="Arial"><strong>Date </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=LongDateFormat($tanggal1) ?> 
-      s/d 
+      to 
       <?=LongDateFormat($tanggal2) ?>
     </strong></font></td>
 </tr>
 <tr>
-	<td><font size="2" face="Arial"><strong>Rekening </strong></font></td>
+	<td><font size="2" face="Arial"><strong>Bank Account </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=$koderek. " - ".GetValue("rekakun", "nama", "kode='$koderek'") ?>
     </strong></font></td>
@@ -107,12 +107,12 @@ if (isset($_REQUEST['urutan']))
 <br />
 <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000"s>
 <tr height="30">
-	<td width="4%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="13%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No. Jurnal/Tgl</font></strong></td>
-    <td width="9%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Petugas</font></strong></td>
-    <td width="*" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Transaksi</font></strong></td>
-    <td width="12%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Debet</font></strong></td>
-    <td width="12%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Kredit</font></strong></td>
+	<td width="4%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="13%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Journal/Date</font></strong></td>
+    <td width="9%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Officer</font></strong></td>
+    <td width="*" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Transaction</font></strong></td>
+    <td width="12%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Debit</font></strong></td>
+    <td width="12%" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Credit</font></strong></td>
 </tr>
 <?
 $sql = "SELECT date_format(j.tanggal, '%d-%b-%Y') AS tanggal, j.petugas, j.transaksi, j.keterangan, j.nokas, jd.debet, jd.kredit FROM jurnal j, jurnaldetail jd WHERE j.replid = jd.idjurnal AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND jd.koderek = '$koderek' ORDER BY $urut $urutan, j.petugas";
@@ -144,7 +144,7 @@ while($row = mysql_fetch_array($result)) {
       <?=$row['transaksi'] ?>
       <br />
       <? if ($row['keterangan'] <> "") { ?>
-      <strong>Keterangan: </strong>
+      <strong>Info: </strong>
       <?=$row['keterangan'] ?>
       <? } ?>    
     </font></td>
@@ -160,7 +160,7 @@ while($row = mysql_fetch_array($result)) {
 CloseDb();
 ?>
 <tr height="30">
-	<td colspan="4" align="center" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong>T O T A L</strong></font></td>
+	<td colspan="4" align="center" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong>Total</strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totaldebet ?></strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totalkredit ?></strong></font></td>
 </tr>

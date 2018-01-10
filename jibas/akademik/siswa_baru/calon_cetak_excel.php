@@ -49,7 +49,7 @@ if (@mysql_num_rows($result)<>0){
 <html>
 <head>
 <title>
-Data Siswa per Kelas
+Student Data by Classes
 </title>
 <style type="text/css">
 <!--
@@ -64,7 +64,7 @@ Data Siswa per Kelas
     <td>
     <table width="100%" border="0">
   <tr>
-    <td colspan="2"><div align="center">Data Siswa per Kelas</div></td>
+    <td colspan="2"><div align="center">Student Data by Classes</div></td>
     </tr>
   <tr>
     <td colspan="2">&nbsp;</td>
@@ -75,17 +75,17 @@ Data Siswa per Kelas
 	$result_proses = QueryDb($sql_proses);
 	$row_proses = @mysql_fetch_array($result_proses);
   ?>
-    <td width="24%">Departemen</td>
+    <td width="24%">Department</td>
     <td width="76%"><strong>:</strong>&nbsp;<?=$departemen?></td>
   </tr>
   <tr>
-    <td>Proses Penerimaan</td>
+    <td>Admission Process</td>
     <td><strong>:</strong>&nbsp;
     <?=$row_proses['proses'];
 	?>    </td>
   </tr>
   <tr>
-    <td>Kelompok Calon Siswa</td>
+    <td>Student Candidate Group</td>
     <td><strong>:</strong>&nbsp;<?
 	$sql_kel = "SELECT kelompok FROM kelompokcalonsiswa WHERE replid='$kelompok'";
 	$result_kel = QueryDb($sql_kel);
@@ -104,56 +104,56 @@ Data Siswa per Kelas
   <tr>
     <td><table border="1">
 <tr height="30">
-<td width="3" rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">No.</div></td>
-<td width="20" rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">No. Pendaftaran</div></td>
-<td width="20" rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">NISN</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Nama</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Kelamin</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Tahun Masuk</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Asal Sekolah</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Tempat, Tanggal Lahir</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Alamat</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Kode Pos</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Telpon</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">HP</div></td>
+<td width="3" rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">#</div></td>
+<td width="20" rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Registration Number</div></td>
+<td width="20" rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">National Student ID</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Name</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Gender</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Year Joining</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Past School</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Place and Date of Birth</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Address</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Post Code</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Phone</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Mobile</div></td>
 <td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Email</div></td>
 <td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Status</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Kondisi</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Kesehatan</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Bahasa</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Suku</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Agama</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Warga</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Berat</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Tinggi</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Gol.Darah</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Anak Ke</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Bersaudara</div></td>
-<td colspan="5" valign="middle" bgcolor="#666666"><div align="center" class="style1">Ayah</div></td>
-<td colspan="5" valign="middle" bgcolor="#666666"><div align="center" class="style1">Ibu</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Alamat</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Telpon</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">HP</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Sumbangan 1</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Sumbangan 2</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Ujian 1</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Ujian 2</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Ujian 3</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Ujian 4</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Ujian 5</div></td>
-<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Status Aktif</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Conditions</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Health</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Language</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Ethnicity</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Religion</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Citizenship</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Body Weight</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Body Height</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Blood Type</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Child #</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Siblings</div></td>
+<td colspan="5" valign="middle" bgcolor="#666666"><div align="center" class="style1">Father</div></td>
+<td colspan="5" valign="middle" bgcolor="#666666"><div align="center" class="style1">Mother</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Address</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Phone</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Mobile</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Contribution 1</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Contribution 2</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Exam 1</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Exam 2</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Exam 3</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Exam 4</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Exam 5</div></td>
+<td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Status Active</div></td>
 </tr>
 <tr height="30">
-  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Nama</div></td>
+  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Name</div></td>
   <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Email</div></td>
-  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Pendidikan</div></td>
-  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Pekerjaan</div></td>
-  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Penghasilan</div></td>
-  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Nama</div></td>
+  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Education</div></td>
+  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Occupation</div></td>
+  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Income</div></td>
+  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Name</div></td>
   <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Email</div></td>
-  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Pendidikan</div></td>
-  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Pekerjaan</div></td>
-  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Penghasilan</div></td>
+  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Education</div></td>
+  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Occupation</div></td>
+  <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Income</div></td>
 </tr>
 <?
 	$cnt=1;
@@ -163,7 +163,7 @@ Data Siswa per Kelas
 			$sql3 = "SELECT nis FROM jbsakad.siswa WHERE replid = $row[replidsiswa]";
 			$result3 = QueryDb($sql3);
 			$row3 = @mysql_fetch_array($result3);
-			$siswa = "<br>NIS Siswa: <b>".$row3['nis']."</b>";
+			$siswa = "<br>Student ID: <b>".$row3['nis']."</b>";
 		}
 	?>
 	<tr height="25">

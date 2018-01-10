@@ -77,19 +77,19 @@
 		<img src="images/bg_penerimaan_24.jpg" width="201" height="158" alt="">
     </td>
 	<td colspan="4" width="313" valign="top" align="left">
-        <a href="pembayaran_tunggak_main.php">Pembayaran Sisa Tunggakan</a><br />
+        <a href="pembayaran_tunggak_main.php">Payment Sisa Tunggakan</a><br />
         <hr style="border-style:dashed; border-width:1px; color:#CCC; width:200px" align="left" />
-        <font style="color:#900; font-size:12px; font-weight:bold">Laporan</font><br />
-        <a href="lapbayarsiswa_kelas_main.php">Pembayaran Per Kelas</a><br>
-        <a href="lapbayarsiswa_all_main.php">Pembayaran Per Siswa</a><br>
-        <a href="lapbayarsiswa_nunggak_main.php">Pembayaran Siswa Yang Menunggak</a><br>
-        <a href="lapbayarcalon_kelompok_main.php">Pembayaran Per Kelompok Calon Siswa</a><br>
-        <a href="lapbayarcalon_all_main.php">Pembayaran Per Calon Siswa</a><br>
-        <a href="lapbayarcalon_nunggak_main.php">Pembayaran Calon Siswa Yang Menunggak</a><br>
+        <font style="color:#900; font-size:12px; font-weight:bold">Reports</font><br />
+        <a href="lapbayarsiswa_kelas_main.php">Pembayaranby Classes</a><br>
+        <a href="lapbayarsiswa_all_main.php">Payment Per Student</a><br>
+        <a href="lapbayarsiswa_nunggak_main.php">Payment Student Late Payment</a><br>
+        <a href="lapbayarcalon_kelompok_main.php">Payment by Student Candidate Group</a><br>
+        <a href="lapbayarcalon_all_main.php">Payment by Student Candidate</a><br>
+        <a href="lapbayarcalon_nunggak_main.php">Payment Student Candidate Late Payment</a><br>
         <a href="laprekap_main.php">Rekapitulasi Penerimaan</a><br>
-        <a href="laprekapsiswa_main.php">Rekapitulasi Tunggakan Siswa</a><br>
+        <a href="laprekapsiswa_main.php">Rekapitulasi Tunggakan Student</a><br>
         <a href="lappenerimaanlain_main.php">Penerimaan Lain</a><br>
-        <a href="jurnalpenerimaan_main.php">Jurnal Penerimaan</a><br />
+        <a href="jurnalpenerimaan_main.php">Admission Journal</a><br />
         
 	</td>
 </tr>

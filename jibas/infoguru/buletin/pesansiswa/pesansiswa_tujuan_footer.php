@@ -76,10 +76,10 @@ function cek_all() {
 <form name="tujuan" id="tujuan" action="pesansimpan.php">
 <table width="100%" border="0" cellspacing="0" class="tab" id="table">
   <tr>
-    <th width="18%" height="30" class="header" scope="row">No</th>
-    <td width="3%" height="30" class="header"><input type="checkbox" name="cek" id="cek" onClick="cek_all()" title="Pilih semua" onMouseOver="showhint('Pilih semua', this, event, '120px')"/></td>
-    <td width="26%" height="30" class="header">NIS</td>
-    <td width="53%" height="30" class="header">Nama</td>
+    <th width="18%" height="30" class="header" scope="row">#</th>
+    <td width="3%" height="30" class="header"><input type="checkbox" name="cek" id="cek" onClick="cek_all()" title="Select all" onMouseOver="showhint('Select all', this, event, '120px')"/></td>
+    <td width="26%" height="30" class="header">Student ID</td>
+    <td width="53%" height="30" class="header">Name</td>
   </tr>
   <? 
 			OpenDb();

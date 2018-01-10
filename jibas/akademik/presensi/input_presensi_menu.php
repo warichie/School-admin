@@ -73,7 +73,7 @@ $tahun2 = $jgk2[0];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Input Presensi Harian</title>
+<title>Daily Presence</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -97,7 +97,7 @@ function baru() {
 	var aktif = document.getElementById('aktif').value;
 	
 	if (aktif == 0) {
-		alert ('Pastikan waktu presensi berada dalam periode tahun ajaran!');
+		alert ('Make sure that Presence time in the teaching period range');
 		document.getElementById('bln').focus();
 		return false;
 	}
@@ -139,17 +139,17 @@ function change() {
 	<!-- TABLE LINK -->
     <tr>
         <td align="center" bgcolor="#CCCCCC">             
-           	<input type="button" name="tampil" value="Input Presensi Baru" class="but" style="width:150px" onclick="baru()" />
+           	<input type="button" name="tampil" value="New Presence" class="but" style="width:150px" onclick="baru()" />
     	</td>
     </tr>
     <tr>	    
     	<td align="left" width="100%">
-	        <br /><strong>Data Presensi</strong>
+	        <br /><strong>Presence Data</strong>
       	</td>
     </tr>
     <tr>
     	<td>
-    	<strong>Bulan</strong>&nbsp;
+    	<strong>Month</strong>&nbsp;
             <select name="bln" id="bln" onChange="change()" onFocus="panggil()" onKeyPress="focusNext('th',event)">
         <? 	for ($i=1;$i<=12;$i++) { ?>
           	<option value="<?=$i?>" <?=IntIsSelected($bln, $i)?>><?=$bulan[$i]?></option>	
@@ -204,8 +204,8 @@ if (mysql_num_rows($result)) {
     <!-- TABLE CONTENT -->
     
     <tr height="30">    	
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="*" class="header" align="center">Tanggal</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="*" class="header" align="center">Date</td>
     </tr>
    	<?
 		$cnt = 0;
@@ -233,7 +233,7 @@ if (mysql_num_rows($result)) {
     <table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-   		<font size = "2" color ="red"><b>Tidak ditemukan adanya data presensi pada bulan <?=NamaBulan($bln).' '.$th?> .  </b></font>
+   		<font size = "2" color ="red"><b>No presence data found on month <?=NamaBulan($bln).' '.$th?> .  </b></font>
        	
 		</td>
 	</tr>
@@ -247,7 +247,7 @@ if (mysql_num_rows($result)) {
 	<tr>
 		<td align="center" valign="middle" height="200">
    		<font size = "2" color ="red"><b>
-        Waktu data presensi tidak boleh melebihi batas <br /><?=format_tgl($awal)?> s/d <?=format_tgl($akhir)?> pada tahun ajaran <?=$tahunajaran?>.</b></font>
+        Presence time should not exceed <br /><?=format_tgl($awal)?> to <?=format_tgl($akhir)?> on the teaching year <?=$tahunajaran?>.</b></font>
        	
 		</td>
 	</tr>

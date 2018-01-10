@@ -48,13 +48,13 @@ class CInfo{
         <span class="err"><?=$nis?></span> <span class="news_title1"><?=$this->get_name($nis)?></span>
 		<div id="TabbedPanels2" class="TabbedPanels">
           <ul class="TabbedPanelsTabGroup">
-            <li class="TabbedPanelsTab" tabindex="0">Data Pribadi</li>
-            <li class="TabbedPanelsTab" tabindex="1">Keuangan</li>
-            <li class="TabbedPanelsTab" tabindex="2">Presensi Harian</li>
-            <li class="TabbedPanelsTab" tabindex="3">Presensi Pelajaran</li>
-            <li class="TabbedPanelsTab" tabindex="4">Nilai</li>
-            <li class="TabbedPanelsTab" tabindex="5">Rapor</li>
-            <li class="TabbedPanelsTab" tabindex="6">Perpustakaan</li>
+            <li class="TabbedPanelsTab" tabindex="0">Personal Data</li>
+            <li class="TabbedPanelsTab" tabindex="1">Finance</li>
+            <li class="TabbedPanelsTab" tabindex="2">Daily Presence</li>
+            <li class="TabbedPanelsTab" tabindex="3">Class Presence</li>
+            <li class="TabbedPanelsTab" tabindex="4">Point</li>
+            <li class="TabbedPanelsTab" tabindex="5">Report Card</li>
+            <li class="TabbedPanelsTab" tabindex="6">Library</li>
           </ul>
           <div class="TabbedPanelsContentGroup">
             <div class="TabbedPanelsContent" id="datapribadi"></div>

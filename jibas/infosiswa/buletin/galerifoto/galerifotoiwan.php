@@ -155,28 +155,28 @@ li.active a { background-color:#FFF; }
 </head>
 <body background="../../images/bg1.jpg">
 <div align="right">
-<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Galeri Foto</font><br />
-<a href="../../home.php" style="color:#0000FF" target="framecenter">Home</a> > <strong>Galeri Foto</strong><br /><br /><br />
+<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Photo Gallery</font><br />
+<a href="../../home.php" style="color:#0000FF" target="framecenter">Home</a> > <strong>Photo Gallery</strong><br /><br /><br />
 </div>
 <table width="98%">
  <tr>
   <td></td>
   <td style="float:right;font-size:12px;font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
             "><div align="right"><img src="../../images/ico/tambah.png" alt="tambah gambar"/>
-            <a href="JavaScript:tambah()">Tambah</a></div> </td>
+            <a href="JavaScript:tambah()">Add</a></div> </td>
  </tr>
 </table>
 <div class="page">
 <div>
 <ul id="menu" style="background-image:url(bg.gif)">   
              <li id="about"><a href="#" title="about">About Me</a></li>
-             <li id="galeri"><a href="#" title="galeri">My galeri</a></li>
+             <li id="galeri"><a href="#" title="galeri">My Gallery</a></li>
             <!--<li id="contact"><a href="#" title="contact">Kontak</a></li>-->  
 </ul>
 <br style="clear:both;" />
 </div>
 <div id="outcontent">
-<div id="loading"><strong>HARAP TUNGGU</strong></div>
+<div id="loading"><strong>Please wait...</strong></div>
 <div class="content"></div>
 </div>
 </div>

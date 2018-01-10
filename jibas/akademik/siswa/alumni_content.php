@@ -152,7 +152,7 @@ function hapus(nis, replid) {
 	var tingkat = document.getElementById('tingkat').value;
 	var tahun = document.getElementById('tahun').value;
 	
-	if (confirm("Apakah anda yakin akan mengembalikan siswa ini ke Departemen, Tingkat dan Kelas sebelumnya?"))
+	if (confirm("Are you sure want to send this Student back to Department, Grade and former Class?"))
 		document.location.href = "alumni_content.php?op=xm8r389xemx23xb2378e23&nis="+nis+"&replid="+replid+"&tahunajaran="+tahunajaran+"&departemen="+departemen+"&tingkat="+tingkat+"&urut=<?=$urut?>&urutan=<?=$urutan?>&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>"
 }
 
@@ -212,7 +212,7 @@ function change_baris() {
 <!-- TABLE CENTER -->
 <tr>
   	<td>  
-    <strong>Tahun Lulus</strong>&nbsp;
+    <strong>Graduated</strong>&nbsp;
     <select name="tahun" id="tahun" onChange="change_tahun()" style="width:60px">
 	<?  
 	OpenDb();
@@ -256,14 +256,14 @@ if ($tahun <> "" ) {
 	if ($jum > 0) { ?> 
     <table width="100%" border="1" cellspacing="0" class="tab" id="table" bordercolor="#000000">
   	<tr align="center" height="30" class="header">
-    	<td width="4%">No</td>
-        <td width="13%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>')">N I S <?=change_urut('s.nis',$urut,$urutan)?></td>
-        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>')">Nama <?=change_urut('s.nama',$urut,$urutan)?></td>
-        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('t.tingkat, k.kelas','<?=$urutan?>')">Kls Terakhir <?=change_urut('t.tingkat,k.kelas',$urut,$urutan)?></td>
+    	<td width="4%">#</td>
+        <td width="13%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>')">Student ID <?=change_urut('s.nis',$urut,$urutan)?></td>
+        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>')">Name <?=change_urut('s.nama',$urut,$urutan)?></td>
+        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('t.tingkat, k.kelas','<?=$urutan?>')">Last Class <?=change_urut('t.tingkat,k.kelas',$urut,$urutan)?></td>
         <!--<td width="9%"> Tingkat Terakhir</td>
-        <td width="11%">Departemen Terakhir</td>-->
-		<td width="22%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('al.tgllulus','<?=$urutan?>')">Tanggal Lulus <?=change_urut('al.tgllulus',$urut,$urutan)?></td>
-        <!--<td width="10%" class="header" align="center">Keterangan</td>--->
+        <td width="11%">Department Terakhir</td>-->
+		<td width="22%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('al.tgllulus','<?=$urutan?>')">Date Graduated <?=change_urut('al.tgllulus',$urut,$urutan)?></td>
+        <!--<td width="10%" class="header" align="center">Info</td>--->
         <td width="5%">&nbsp;</td>
     </tr>
 <? 	
@@ -280,7 +280,7 @@ if ($tahun <> "" ) {
         <td><a href="#" onClick="newWindow('../library/detail_siswa.php?replid=<?=$row_siswa['replidsiswa']?>', 'DetailSiswa','800','650','resizable=1,scrollbars=1,status=0,toolbar=0')" ><?=$row_siswa['nama']?></a></td>
         <td align="center"><?=$row_siswa['tingkat']." - ".$row_siswa['kelas']?></td>
         <td align="center"><?=LongDateFormat($row_siswa['tgllulus'])?></td>
-        <td align="center"><a href="JavaScript:hapus('<?=$row_siswa['nis'] ?>', <?=$row_siswa['replid']?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Batalkan sebagai alumnus!', this, event, '100px')"/></a>
+        <td align="center"><a href="JavaScript:hapus('<?=$row_siswa['nis'] ?>', <?=$row_siswa['replid']?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Batalkan sebagai alumnus', this, event, '100px')"/></a>
 		</td>
    	</tr>
 	<?	$cnt++; 
@@ -315,20 +315,20 @@ if ($tahun <> "" ) {
     <td>
     <table border="0"width="100%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="50%" align="left">Hal
+       	<td width="50%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	 <!--td align="center">
-   <input <?=$disback?> type="button" class="but" name="back" value="<<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+   <input <?=$disback?> type="button" class="but" name="back" value="<<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -339,9 +339,9 @@ if ($tahun <> "" ) {
 				 
 	    }*/
 		?>
-	    <input <?=$disnext?> type="button" class="but" name="next" value=">>" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	    <input <?=$disnext?> type="button" class="but" name="next" value=">>" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="50%" align="right">Jml baris per hal
+        <td width="50%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -357,7 +357,7 @@ if ($tahun <> "" ) {
 	<tr>
 		<td align="center" valign="middle" height="250">
 
-    	<font size = "2" color ="red"><b>Belum ada data Alumni pada departemen <?=$departemen?>
+    	<font size = "2" color ="red"><b>No Alumni data on Department <?=$departemen?>
        	</b></font>
 		</td>
 	</tr>
@@ -368,7 +368,7 @@ if ($tahun <> "" ) {
 	<tr>
 		<td align="center" valign="middle" height="250">
 
-    	<font size = "2" color ="red"><b>Belum ada data Alumni pada departemen <?=$departemen?>
+    	<font size = "2" color ="red"><b>No Alumni data on Department <?=$departemen?>
        	</b></font>
 		</td>
 	</tr>

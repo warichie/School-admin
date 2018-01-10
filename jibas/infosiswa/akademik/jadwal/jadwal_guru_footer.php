@@ -118,7 +118,7 @@ function getCell($r, $c) {
 			return $s;
 		} else {
 			$s = "<td class='jadwal' width='110px'>";			
-			$s.= "[Kosong]";
+			$s.= "[Empty]";
 			$s.= "</td>";
 
 			return $s;
@@ -140,7 +140,7 @@ loadJadwal();
 
 <html>
 <head>
-<title>Jadwal Guru</title>
+<title>Teacher Schedule</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <style>
 	.jadwal {
@@ -175,7 +175,7 @@ function hapus(replid, field) {
 	var nip = document.getElementById('nip').value;
 	var info = document.getElementById('info').value;
 	
-	if (confirm("Apakah anda yakin akan menghapus jadwal kelas ini?"))
+	if (confirm("Are you sure want to delete this Class Schedule?"))
 		document.location.href = "jadwal_guru_footer.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&field="+field+"&nip="+nip+"&info="+info+"&departemen="+departemen;
 }
 
@@ -223,22 +223,22 @@ function refresh() {
     <table width="95%" border="0" align="center">
   	<tr>
 		<td align="right">
-       <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+       <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
        	<a href="JavaScript:cetak()">
-        <img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
+        <img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
     	</td>
     </tr>
     </table>
     <br>
     <table border="1" width="95%" id="table" class="tab" align="center" cellpadding="2" style="border-collapse:collapse" cellspacing="2">
     <tr>
-        <td width="110px" class="header" align="center">Jam</td>
-        <td width="110px" class="header" align="center">Senin</td>
-        <td width="110px" class="header" align="center">Selasa</td>
-        <td width="110px" class="header" align="center">Rabu</td>
-        <td width="110px" class="header" align="center">Kamis</td>
-        <td width="110px" class="header" align="center">Jumat</td>
-        <td width="110px" class="header" align="center">Sabtu</td>
+        <td width="110px" class="header" align="center">Time</td>
+        <td width="110px" class="header" align="center">Monday</td>
+        <td width="110px" class="header" align="center">Tuesday</td>
+        <td width="110px" class="header" align="center">Wednesday</td>
+        <td width="110px" class="header" align="center">Thursday</td>
+        <td width="110px" class="header" align="center">Friday</td>
+        <td width="110px" class="header" align="center">Saturday</td>
     </tr>
 	<?
 	
@@ -263,8 +263,8 @@ function refresh() {
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Belum ada data Jam Belajar untuk Departemen <?=$departemen?>. 
-        <br> Silahkan isi terlebih dahulu di menu Jam Belajar pada bagian Jadwal & Pelajaran.</font>
+    	<font size = "2" color ="red"><b>No session data for department <?=$departemen?>. 
+        <br> Please make a new one in the Session on Schedule and Class Subject section.</font>
 		</td>
 	</tr>
 	</table> 
@@ -276,7 +276,7 @@ function refresh() {
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data jadwal mengajar. <br /><br />Tambah data pelajaran yang akan diajar oleh guru <?=$_REQUEST['nama']?> pada departemen <?=$departemen?><br> di menu Pendataan Guru pada bagian Guru & Pelajaran.</b></font>
+    	<font size = "2" color ="red"><b>No Data Found. <br /><br />Add Teaching data by Teacher <?=$_REQUEST['nama']?> on Department <?=$departemen?><br> in the Teacher Data menu on Teacher and Class Subject section.</b></font>
 		</td>
 	</tr>
 	</table> 

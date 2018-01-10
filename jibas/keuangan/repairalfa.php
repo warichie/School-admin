@@ -15,7 +15,7 @@ $n_pasiva = 0;
 $sql = "SELECT jd.koderek, SUM(jd.debet - jd.kredit) 
 			 FROM jurnal j, jurnaldetail jd, rekakun ra 
 		   WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' 
-			  AND ra.kategori IN ('HARTA', 'PIUTANG', 'INVENTARIS') 
+			  AND ra.kategori IN ('WEALTH', 'DEBT', 'INVESTMENT') 
 		GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
 $result = QueryDb($sql); 
 while($row = mysql_fetch_row($result))
@@ -41,18 +41,18 @@ while($row = mysql_fetch_row($result))
 $sql = "SELECT SUM(jd.kredit - jd.debet) 
 		    FROM rekakun ra, jurnal j, jurnaldetail jd 
 		   WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' 
-			  AND ra.kategori IN ('PENDAPATAN', 'MODAL')";
+			  AND ra.kategori IN ('INCOME', 'CAPITAL')";
 $income = (float)FetchSingle($sql);
 		
 $sql = "SELECT SUM(jd.debet - jd.kredit) 
 			 FROM rekakun ra, jurnal j, jurnaldetail jd 
 			WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' 
-			  AND ra.kategori='BIAYA'";
+			  AND ra.kategori='COST'";
 $outcome = (float)FetchSingle($sql);
 
 $re = $income - $outcome;
 
-//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+//Ambil awalan and cacah tahunbuku untuk bikin nokas;
 $sql = "SELECT awalan, cacah, tanggalmulai FROM tahunbuku WHERE replid = 4";
 $row2 = FetchSingleRow($sql);
 $awalan = $row2[0];
@@ -68,7 +68,7 @@ BeginTrans();
 // Simpan ke jurnal
 $idjurnal = 0;
 if ($success)
-	$success = SimpanJurnal(4, "2010-03-02", "Saldo Awal Tahun Buku 2010/2011 Dept SMA", $nokas, "", "SYSTEM", "saldoawal", $idjurnal);
+	$success = SimpanJurnal(4, "2010-03-02", "Saldo Awal Fiscal Year 2010/2011 Dept SMA", $nokas, "", "SYSTEM", "saldoawal", $idjurnal);
 
 // Save Aktiva
 for($i = 0; $success && $i < count($aktiva); $i++)

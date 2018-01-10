@@ -45,9 +45,9 @@ $kelas = $_REQUEST['kelas'];
             $row = mysql_fetch_array($result);
             
         ?>	
-        <font color="#000000" size="3" class="news_content1">Pelajaran <?=$row[nama]?><br />Semester <?=$namasemester?> </font></td> 
+        <font color="#000000" size="3" class="news_content1">Subject <?=$row[nama]?><br />Semester <?=$namasemester?> </font></td> 
         <td width="28%" align="right" valign="top"> 
-        <a href="JavaScript:cetak('X_<?=$semester?>')"><img src="../img/print.png" border="0" />&nbsp;Cetak</a>              </td>
+        <a href="JavaScript:cetak('X_<?=$semester?>')"><img src="../img/print.png" border="0" />&nbsp;Print</a>              </td>
     </tr>
     <?	OpenDb();
         $sql = "SELECT j.replid, j.jenisujian FROM jenisujian j, ujian u WHERE j.idpelajaran = '$pelajaran' AND u.idjenis = j.replid ".
@@ -71,10 +71,10 @@ $kelas = $_REQUEST['kelas'];
         ?>
             <table border="1" width="100%" id="table19" class="tab" >
                 <tr class="header" align="center" height="30">		
-                    <td width="5%">No</td>
-                    <td width="20%">Tanggal</td>
-                    <td width="10%">Nilai</td>
-                    <td width="*">Keterangan</td>
+                    <td width="5%">#</td>
+                    <td width="20%">Date</td>
+                    <td width="10%">Point</td>
+                    <td width="*">Info</td>
                 </tr>
                 <?	
                     $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '$row[replid]' AND u.replid = n.idujian AND n.nis = '$nis' ";
@@ -93,7 +93,7 @@ $kelas = $_REQUEST['kelas'];
             <?		$cnt++;
                     }	?>
                 <tr>        			
-                    <td colspan="2" height="25" align="center"><strong>Nilai rata rata</strong></td>
+                    <td colspan="2" height="25" align="center"><strong>Index Point/Cumulative</strong></td>
                     <td width="10" height="25" align="center"><?=round($rata,2)?></td>
                     <td height="25">&nbsp;</td>            
                 </tr>
@@ -102,7 +102,7 @@ $kelas = $_REQUEST['kelas'];
             <table width="100%" border="0" align="center" id="table1">          
                 <tr>
                     <td align="center" valign="middle" height="50">
-                    <font color ="red" size = "2" class="err"><b>Tidak ditemukan adanya data.</b></font>                    </td>
+                    <font color ="red" size = "2" class="err"><b>Data Not Found</b></font>                    </td>
                 </tr>
             </table>
             <? } ?>
@@ -115,7 +115,7 @@ $kelas = $_REQUEST['kelas'];
         <td align="center" valign="middle" height="50">
         <table border="0" width="100%" id="table1" cellpadding="0" cellspacing="0">
         <tr align="center" valign="middle" >
-            <td><span class="err"><font size = "2" color ="red"><b>Tidak ditemukan adanya data.</font></span><font size = "2" color ="red"><br />
+            <td><span class="err"><font size = "2" color ="red"><b>Data Not Found</font></span><font size = "2" color ="red"><br />
           </font></td>
         </tr>
         </table>

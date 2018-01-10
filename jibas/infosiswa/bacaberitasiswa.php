@@ -40,14 +40,14 @@ $result=QueryDb($sql);
 $row=@mysql_fetch_array($result);
 }
 CloseDb();
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");	
 $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Berita Siswa</title>
+<title>Student News</title>
 <script language="javascript" src="script/tools.js"></script>
 <link href="style/style.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
@@ -70,7 +70,7 @@ $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 	</tr>
 	<tr>
 	  <td background="images/BGNews_04.png"></td>
-	  <td background="images/BGNews_05.png"><div align="left" style="padding-bottom:10px"><span style="color:#339900; font-size:20px; font-weight:bold">.:</span><span style="color:#FF6600; font-family:Calibri; font-size:16px; font-weight:bold; ">Berita Siswa</span></div></td>
+	  <td background="images/BGNews_05.png"><div align="left" style="padding-bottom:10px"><span style="color:#339900; font-size:20px; font-weight:bold">.:</span><span style="color:#FF6600; font-family:Calibri; font-size:16px; font-weight:bold; ">Student News</span></div></td>
 	  <td align="right" valign="top" background="images/BGNews_05.png"><img src="images/ico/hapus.png" width="16" height="16" style="cursor:pointer" onclick="window.close();" /></td>
 	  <td background="images/BGNews_06.png"></td>
   </tr>
@@ -79,27 +79,27 @@ $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 		<td width="*" colspan="2" background="images/BGNews_05.png">
             <table width="100%" border="0" cellspacing="0">
               <tr>
-                <td width="62" scope="row" align="left"><strong>Dari </strong></td>
+                <td width="62" scope="row" align="left"><strong>From </strong></td>
                 <td width="17" scope="row" align="left"><strong>:</strong></td>
                 <td width="853" scope="row" align="left"><?=$row['nama']?></td>
               </tr>
               <tr>
-                <td align="left" scope="row"><strong>Tanggal </strong></td>
+                <td align="left" scope="row"><strong>Date </strong></td>
                 <td align="left" scope="row"><strong>:</strong></td>
                 <td scope="row" align="left"><?=$tglberita?></td>
               </tr>
               <tr>
-                <td align="left" scope="row"><strong>Judul </strong></td>
+                <td align="left" scope="row"><strong>Title </strong></td>
                 <td align="left" scope="row"><strong>:</strong></td>
                 <td scope="row" align="left"><?=$row['judul']?></td>
               </tr>
               <tr>
-                <td align="left" valign="top" scope="row"><strong>Abstrak </strong></td>
+                <td align="left" valign="top" scope="row"><strong>Abstract </strong></td>
                 <td align="left" valign="top" scope="row"><strong>:</strong></td>
                 <td scope="row" align="left" style="background-image:url(images/box_hr1.gif); background-repeat:repeat-x"><?=$row['abstrak']?><br /></td>
               </tr>
               <tr>
-                <td align="left" valign="top" scope="row"><strong>Berita </strong></td>
+                <td align="left" valign="top" scope="row"><strong>News </strong></td>
                 <td align="left" valign="top" scope="row"><strong>:</strong></td>
                 <td scope="row" align="left" style="background-image:url(images/box_hr1.gif); background-repeat:repeat-x"><?
                     $brt = str_replace("../../","",$row['berita']);
@@ -115,7 +115,7 @@ $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
         $sql2="SELECT direktori,namafile FROM jbsvcr.lampiranberitasiswa WHERE idberita='$row[replid]'";
         $result2=QueryDb($sql2);
         while ($row2=@mysql_fetch_array($result2)){
-            echo "<a title='Buka lampiran ini!' href='".$row2[direktori].$row2[namafile]."' target='_blank'><img border='0' src='images/ico/titik.png' width='5' height='5'/> ".$row2['namafile']."</a><br>";
+            echo "<a title='Open this attachment' href='".$row2[direktori].$row2[namafile]."' target='_blank'><img border='0' src='images/ico/titik.png' width='5' height='5'/> ".$row2['namafile']."</a><br>";
         }
         CloseDb();
         ?></td>

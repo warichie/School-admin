@@ -117,25 +117,25 @@ if ($num_infonap > 0) {
 }
           
 if ($replid_infonap == 0) {
-	$query = "SELECT siswa.NIS, siswa.Nama, nau.NilaiAU, nau.IdJenis ".
+	$query = "SELECT siswa.Student ID, siswa.Nama, nau.NilaiAU, nau.IdJenis ".
    	         "FROM sistoakademik.siswa, sistoakademik.nau ".
-             "WHERE siswa.NIS = nau.NIS ".
-			 "AND siswa.NIS = '$nois' ".
+             "WHERE siswa.Student ID = nau.Student ID ".
+			 "AND siswa.Student ID = '$nois' ".
              "AND nau.IdKelas = '$kelas'  ".
              "AND IdPelajaran = '$pelajaran' ".
              "AND IdSemester = '$semester' AND siswa.StatusSiswa = '1' ORDER BY Nama";
 } else {
-   $query = "SELECT siswa.NIS, siswa.Nama, nau.NilaiAU, nau.IdJenis ".
+   $query = "SELECT siswa.Student ID, siswa.Nama, nau.NilaiAU, nau.IdJenis ".
    	        "FROM sistoakademik.siswa, sistoakademik.nau ".
-            "WHERE siswa.NIS = nau.NIS ".
-			"AND siswa.NIS = '$nois' ".
+            "WHERE siswa.Student ID = nau.Student ID ".
+			"AND siswa.Student ID = '$nois' ".
             "AND nau.IdKelas = '$kelas'  ".
             "AND IdPelajaran = '$pelajaran' ".
             "AND IdSemester = '$semester'" .
             "AND siswa.IdKelas = '$kelas'" .
             "AND siswa.Tingkat = '$tingkat'" .
             "AND siswa.StatusSiswa = '1'".
-            "AND siswa.NIS IN " .
+            "AND siswa.Student ID IN " .
             " ( SELECT nis FROM nap WHERE nap.idinfo = '$replid_infonap' ) ORDER BY Nama";
 };     
 $result = QueryDb($query) or die(mysql_error());
@@ -143,8 +143,8 @@ $num = @mysql_num_rows($result);
 
 $my_data = "";
 while($row = @mysql_fetch_array($result)) {
-    $my_data[$row[NIS]][nama] = $row[Nama];
-    $my_data[$row[NIS]][$row[IdJenis]] = $row[NilaiAU];
+    $my_data[$row[Student ID]][nama] = $row[Nama];
+    $my_data[$row[Student ID]][$row[IdJenis]] = $row[NilaiAU];
 }
 
 $query_cek = "SELECT Replid, NilaiMin FROM sistoakademik.infonap ".
@@ -236,24 +236,24 @@ if($my_data != "") {
 
 <html>
 <head>
-<title>Perhitungan Ulang Nilai Rapor <?=$disp_nama?></title>
+<title>Re-Calculation Report Card <?=$disp_nama?></title>
 <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
 <link rel="stylesheet" type="text/css" href="../css/tooltips.css">
 <script language="JavaScript" src="../javascript/tooltips.js"></script>
 <script language="JavaScript" src="../javascript/tables.js"></script>
 
 <body>
-<form name="main" method="post" onSubmit="return confirm('Apakah anda yakin akan mengubah nilai rapor siswa ini?');">
+<form name="main" method="post" onSubmit="return confirm('Are you sure want to change this student Report?');">
 <fieldset>
-<legend><b>Perhitungan Ulang Nilai Rapor</b></legend>
+<legend><b>Re-Calculation Report Card</b></legend>
 <table border="0">
 <tr>
-	<td width="70">NIS</td>
+	<td width="70">Student ID</td>
 	<td width="10">:</td>
 	<td><?=$disp_nis?></td>
 </tr>
 <tr>
-	<td width="70">Nama</td>
+	<td width="70">Name</td>
 	<td width="10">:</td>
 	<td><?=$disp_nama?></td>
 </tr>
@@ -261,9 +261,9 @@ if($my_data != "") {
 <br>
 <table width="95%" class="tab" border="1" id="table">
 <tr>
-	<td class="header" align="center">Aspek</td>
-	<td class="header" width="120" align="center">Nilai Angka</td>
-	<td class="header" width="120" align="center">Nilai Huruf</td>
+	<td class="header" align="center">Aspect</td>
+	<td class="header" width="120" align="center">Number</td>
+	<td class="header" width="120" align="center">Letter</td>
 </tr>
 <?
 for($i = 0; $i < $nnilai; $i++) {
@@ -282,14 +282,14 @@ for($i = 0; $i < $nnilai; $i++) {
 }
 ?>
 <tr>
-	<td><em><strong>Predikat</strong></em></td>
+	<td><em><strong>Predicate</strong></em></td>
 	<td colspan="2" align="center">
 	<select name='predikat'>
 		<option value='0' ></option>
-        <option value='1' >Amat Baik</option>
-        <option value='2' >Baik</option>
-        <option value='3' >Cukup</option>
-        <option value='4' >Kurang</option>
+        <option value='1' >Excellent</option>
+        <option value='2' >Good</option>
+        <option value='3' >Average</option>
+        <option value='4' >Not Good</option>
 	</select>
 	</td>
 </tr>
@@ -304,8 +304,8 @@ for($i = 0; $i < $nnilai; $i++) {
 <input type="hidden" name="semester" value="<?=$semester?>">
 <input type="hidden" name="pelajaran" value="<?=$pelajaran?>">
 <input type="hidden" name="idinfo" value="<?=$replid_infonap?>">
-<input type="submit" name="simpan" value="Simpan" class="but">
-<input type="button" name="Tutup" value="Tutup" class="but" onClick="window.close()">
+<input type="submit" name="simpan" value="Save" class="but">
+<input type="button" name="Tutup" value="Close" class="but" onClick="window.close()">
 </fieldset>
 </form>
 <script language='JavaScript'>

@@ -34,7 +34,7 @@ $departemen='yayasan';
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SimTaka [Cetak Daftar Anggota]</title>
+<title>JIBAS SimTaka [Print Member List]</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@ $departemen='yayasan';
 
 <?=GetHeader('alls')?>
 
-<center><font size="4"><strong>DATA ANGGOTA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>MEMBER DATA</strong></font><br /> </center><br /><br />
 
 <br />
 		<?
@@ -54,11 +54,11 @@ $departemen='yayasan';
 		<link href="../sty/style.css" rel="stylesheet" type="text/css">
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td height="30" align="center" class="header">No. Registrasi</td>
-            <td height="30" align="center" class="header">Nama</td>
+            <td height="30" align="center" class="header">Reg Number</td>
+            <td height="30" align="center" class="header">Name</td>
             <td height="30" align="center" class="header">Email</td>
-            <td height="30" align="center" class="header">Telepon</td>
-            <td height="30" align="center" class="header">Keterangan</td>
+            <td height="30" align="center" class="header">Phone</td>
+            <td height="30" align="center" class="header">Info</td>
 		  </tr>
           <?
 		  if ($num>0){
@@ -76,7 +76,7 @@ $departemen='yayasan';
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="5" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="5" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

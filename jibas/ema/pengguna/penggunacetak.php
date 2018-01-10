@@ -32,7 +32,7 @@ $departemen = "yayasan";
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Daftar Pengguna]</title>
+<title>JIBAS EMA [Print User List]</title>
 </head>
 
 <body>
@@ -43,15 +43,15 @@ $departemen = "yayasan";
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>DAFTAR PENGGUNA</strong></font> <br />
+  <font size="4"><strong>USER LIST</strong></font> <br />
  </center><br /><br />
 
 <table width="100%" border="1" class="tab">
   <tr>
-    <td height="25" align="center" class="header">No.</td>
-    <td height="25" align="center" class="header">NIP</td>
-    <td height="25" align="center" class="header">Nama</td>
-    <td align="center" class="header">Last&nbsp;Login</td>
+    <td height="25" align="center" class="header">#</td>
+    <td height="25" align="center" class="header">Employee ID</td>
+    <td height="25" align="center" class="header">Name</td>
+    <td align="center" class="header">Last Login</td>
     <td height="25" align="center" class="header">Status</td>
   </tr>
   <?
@@ -81,7 +81,7 @@ $departemen = "yayasan";
   } else { 
   ?>
   <tr>
-    <td colspan="6" align="center" class="nodata">Tidak ada data</td>
+    <td colspan="6" align="center" class="nodata">Data Not Found.</td>
   </tr>
   <?
   }

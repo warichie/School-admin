@@ -56,7 +56,7 @@ if (isset($_REQUEST['departemen']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Rekapitulasi Tunggakan Siswa</title>
+<title>Reports Rekapitulasi Tunggakan Student</title>
 <script language="javascript" src="script/tooltips.js"></script>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
@@ -78,7 +78,7 @@ function excel()
 <?
 OpenDb();
 
-// Ambil penerimaan di departemen terpilih
+// Ambil penerimaan di departemen selected
 $arrpen = array();
 $sql = "SELECT replid, nama FROM datapenerimaan WHERE departemen='$departemen' AND idkategori='JTT'";
 $res = QueryDb($sql);
@@ -91,7 +91,7 @@ while($row = mysql_fetch_row($res))
 }
 $n_arrpen = $i;
 
-// Ambil data siswa
+// Ambil student data
 if ($idtingkat == -1) 
 {		
 	// semua tingkat & kelas
@@ -105,7 +105,7 @@ else
 { 
 	if ($idkelas == -1) 
 	{			
-		// semua kelas di tingkat terpilih
+		// semua kelas di tingkat selected
 		$sqlsiswa = "SELECT DISTINCT s.nis, s.nama, s.pinsiswa, t.tingkat, k.kelas, s.alamatsiswa, s.kodepossiswa, s.namaayah, s.namaibu, s.telponortu, s.hportu
 				 	   FROM jbsakad.siswa s, jbsakad.kelas k, jbsakad.tingkat t, jbsfina.besarjtt b
 				 	  WHERE s.idkelas = k.replid AND k.idtingkat = t.replid AND s.nis = b.nis AND b.besar <> 0 AND b.lunas = 0 AND b.info2 = '$idtahunbuku' AND 
@@ -114,7 +114,7 @@ else
 	} 
 	else 
 	{
-		// tingkat & kelas terpilih
+		// tingkat & kelas selected
 		$sqlsiswa = "SELECT DISTINCT s.nis, s.nama, s.pinsiswa, t.tingkat, k.kelas, s.alamatsiswa, s.kodepossiswa, s.namaayah, s.namaibu, s.telponortu, s.hportu
 				 	   FROM jbsakad.siswa s, jbsakad.kelas k, jbsakad.tingkat t, jbsfina.besarjtt b
 				 	  WHERE s.idkelas = k.replid AND k.idtingkat = t.replid AND s.nis = b.nis AND b.besar <> 0 AND b.lunas = 0 AND b.info2 = '$idtahunbuku' AND 
@@ -134,18 +134,18 @@ $width = 1180 + $n_arrpen * 600;
     <!-- TABLE CONTENT //-->
 	<table class="tab" width="<?=$width?>" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width?>" align="left" bordercolor="#000000">
     <tr align="center" class="header">
-        <td width="30" rowspan="2">No</td>
-        <td width="80" rowspan="2">NIS</td>
-        <td width="140" rowspan="2">Nama</td>
+        <td width="30" rowspan="2">#</td>
+        <td width="80" rowspan="2">Student ID</td>
+        <td width="140" rowspan="2">Name</td>
         <td width="60" rowspan="2">PIN</td>
-        <td width="75" rowspan="2">Tingkat</td>
-        <td width="75" rowspan="2">Kelas</td>
-        <td width="140" rowspan="2">Ayah</td>
-        <td width="140" rowspan="2">Ibu</td>
-        <td width="200" rowspan="2">Alamat</td>
-        <td width="80" rowspan="2">Kode Pos</td>
-        <td width="80" rowspan="2">Telpon Ortu</td>
-        <td width="80" rowspan="2">HP Ortu</td>
+        <td width="75" rowspan="2">Grade</td>
+        <td width="75" rowspan="2">Class</td>
+        <td width="140" rowspan="2">Father</td>
+        <td width="140" rowspan="2">Mother</td>
+        <td width="200" rowspan="2">Address</td>
+        <td width="80" rowspan="2">Post Code</td>
+        <td width="80" rowspan="2">Parent Phone</td>
+        <td width="80" rowspan="2">Parent Mobile</td>
         <? for ($i = 0; $i < $n_arrpen; $i++) { ?>
         <td width="800" colspan="8"><?=$arrpen[$i][1]?></td>
         <? } ?> 
@@ -154,10 +154,10 @@ $width = 1180 + $n_arrpen * 600;
  	    <? for ($i = 0; $i < $n_arrpen; $i++) { ?>
         <td width="100">Cicilan</td>
         <td width="100">Total</td>
-        <td width="100">Pembayaran</td>
+        <td width="100">Payment</td>
 		<td width="100">Diskon</td>
         <td width="100">Sisa</td>
-        <td width="100">Tgl.Akhir</td>
+        <td width="100">Date.Akhir</td>
         <td width="100">Bay.Akhir</td>
         <td width="100">Ket.Akhir</td>
         <? } ?> 
@@ -254,7 +254,7 @@ $width = 1180 + $n_arrpen * 600;
     </tr>        
 <?	} ?>
 	<tr height="25">
-    	<td colspan="12" style="background-color:#3CF" align="right"><strong>T O T A L</strong></td>
+    	<td colspan="12" style="background-color:#3CF" align="right"><strong>Total</strong></td>
 <?		for($i = 0; $i < $n_arrpen; $i++) 
 			for($j = 0; $j < 8; $j++)
 				if ($j < 5)

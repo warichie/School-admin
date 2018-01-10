@@ -131,7 +131,7 @@ function hapus(replid){
 	var page=document.getElementById("page").value;
 	var bulan=parent.pesanguru_header.document.getElementById("bulan").value;
 	var tahun=parent.pesanguru_header.document.getElementById("tahun").value;
-	if (confirm('Anda yakin akan menghapus pesan ini dan lampiran-lampirannya ?')){ 
+	if (confirm('Are you sure want to delete this message and the attachments?')){ 
 		document.location.href="pesan_inbox.php?op=bzux834hx8x7x934983xihxf084&replid="+replid+"&bulan="+bulan+"&tahun="+tahun+"&page="+page;
 	}
 }
@@ -169,10 +169,10 @@ function delpesan(){
 	var num = document.inbox.numdel.value;
 	var list = document.inbox.listdel.value;
 	if (list.length==0){
-		alert ('Minimal ada satu pesan yang akan dihapus');
+		alert ('You should have at least one message to deleted');
 		return false;
 	} else {
-		if (confirm('Anda yakin akan menghapus pesan ini?')){
+		if (confirm('Are you sure want to delete this message?')){
 			document.location.href="pesan_inbox.php?op=34983xihxf084bzux834hx8x7x93&listdel="+list+"&numdel="+num;
 		} else {
 			document.getElementById("listdel").value="";
@@ -197,10 +197,10 @@ function savepesan(){
 	var num = document.inbox.numdel.value;
 	var list = document.inbox.listdel.value;
 	if (list.length==0){
-		alert ('Minimal ada satu pesan yang akan dipindahkan ke draft');
+		alert ('You should have at least one message to be moved to Draft');
 		return false;
 	} else {
-		if (confirm('Anda yakin akan memindahkan pesan ini ke draft?')){
+		if (confirm('Are you sure want to move this message to draft?')){
 			document.location.href="pesan_inbox.php?op=f3fxxa7svys774l3067den747hhd783uu83&listdel="+list+"&numdel="+num;
 		} else {
 			document.getElementById("listdel").value="";
@@ -220,10 +220,10 @@ function loadawal()
 <body onLoad="loadawal()" >
 <form name="inbox" id="inbox" action="pesan_inbox.php">
 <div align="right">
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Kotak Masuk</font><br />
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Inbox</font><br />
     <a href="pesan.php" target="framecenter">
-      <font size="1" color="#000000"><b>Pesan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Kotak Masuk</b></font>
+      <font size="1" color="#000000"><b>Message</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Inbox</b></font>
 </div><br />
 <input type="hidden" name="bulan" id="bulan" value="<?=$bulan?>" />
 <input type="hidden" name="tahun" id="tahun" value="<?=$tahun?>" />
@@ -256,26 +256,26 @@ function loadawal()
 		}
 	
 	?>
-    Halaman : 
-	<input <?=$disback?> type="button" class="but" title="Sebelumnya" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    Page : 
+	<input <?=$disback?> type="button" class="but" title="Previous" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 	<select name="page" id="page" onChange="chg_page()">
 	<? for ($p=1;$p<=$total;$p++){ ?>
 		<option value="<?=$p-1?>" <?=StringIsSelected($page,$p-1)?>><?=$p;?></option>
 	<? } ?>
 	</select>   
-    <input <?=$disnext?> type="button" class="but" name="next" title="Selanjutnya" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">&nbsp;dari&nbsp;<?=$total?> 
+    <input <?=$disnext?> type="button" class="but" name="next" title="Next" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">&nbsp;from&nbsp;<?=$total?> 
 	<? } ?><br><br>
 	
     <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
 	 <tr>
-		  <th width="3%" height="30" class="header" scope="row" align="center">No</th>
+		  <th width="3%" height="30" class="header" scope="row" align="center">#</th>
 		  <td width="3%" height="20" class="header" align="center">
-				<input type="checkbox" name="cek" id="cek" onclick="cek_all()" title="Pilih semua" onmouseover="showhint('Pilih semua', this, event, '120px')"/>
+				<input type="checkbox" name="cek" id="cek" onclick="cek_all()" title="Select all" onmouseover="showhint('Select all', this, event, '120px')"/>
 		  </td>
 		  <td width="5%" height="30" class="header">&nbsp;</td>
-		  <td width="12%" class="header"><div align="center">Tanggal</div></td>
-		  <td width="20%" height="30" class="header"><div align="center">Pengirim</div></td>
-	     <td width="*" class="header"><div align="center">Judul</div></td>
+		  <td width="12%" class="header"><div align="center">Date</div></td>
+		  <td width="20%" height="30" class="header"><div align="center">Sender</div></td>
+	     <td width="*" class="header"><div align="center">Title</div></td>
    </tr>
 <?
 	 OpenDb();
@@ -324,10 +324,10 @@ function loadawal()
 				  </td>
 				  <td align="left">
 				  <? if ($row1['baru']==1) { ?>
-					 <img src="../../images/ico/unread.png" width="16" height="13" title="Belum dibaca..." />
+					 <img src="../../images/ico/unread.png" width="16" height="13" title="Not Read" />
 					 <img src="../../images/ico/new.png" width="10" height="14" />
 				  <? } else { ?>
-					 <img src="../../images/ico/readen.png" width="15" height="14" title="Sudah dibaca..." />
+					 <img src="../../images/ico/readen.png" width="15" height="14" title="Read" />
 				  <? } ?>
 				  </td>
 				  <td>
@@ -341,7 +341,7 @@ function loadawal()
 						  $row_sis=@mysql_fetch_array($r_sis);
 						  $id=$row_sis[nis];
 						  $nm=$row_sis[nama];
-						  $gol=" [Siswa]";
+						  $gol=" [Student]";
 					  }
 					  if ($row1[idguru]!="")
 					  {
@@ -370,7 +370,7 @@ function loadawal()
   { ?>
 	 <tr>
 		<td scope="row" colspan="9">
-		<div align="center"  class="divNotif"">Tidak ada pesan di kotak Masuk Anda</div>
+		<div align="center"  class="divNotif"">No message in your Inbox.</div>
 		</td>
 	 </tr>
 <?

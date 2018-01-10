@@ -55,10 +55,10 @@ if (isset($_REQUEST['Simpan'])) {
 		
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Nama proses ".$proses." sudah digunakan!";
+		$ERROR_MSG = "Process Name ".$proses." has been used";
 	} else if (mysql_num_rows($result2) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Kode awalan ".$kode." sudah digunakan!";
+		$ERROR_MSG = "Prefix Code ".$kode." has been used";
 		$cek = 1;
 	} else {
 		$sql = "INSERT INTO prosespenerimaansiswa SET proses='$proses', kodeawalan='$kode', departemen='$departemen', keterangan='$keterangan'";
@@ -94,7 +94,7 @@ switch ($cek) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Proses Penerimaan Siswa Baru]</title>
+<title>JIBAS SIMAKA [Add New Student Admission Process]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -102,9 +102,9 @@ switch ($cek) {
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('proses', 'Nama Proses') && 
-		   validateEmptyText('kode', 'Kode Awalan') && 	
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('proses', 'Process Name') && 
+		   validateEmptyText('kode', 'Prefix Code') && 	
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -137,7 +137,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Proses Penerimaan Siswa Baru :.
+    .: Add New Student Admission Process :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -151,38 +151,38 @@ function panggil(elem){
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
     <td><input type="text" name="departemen" size="10" value="<?=$departemen ?>" readonly class="disabled"/>
     	<input type="hidden" name="departemen" id="departemen" value ="<?=$departemen ?>" /></td>
 </tr>
 <tr>
-	<td><strong>Nama Proses</strong></td>
+	<td><strong>Process Name</strong></td>
 	<td>
-    	<input type="text" name="proses" id="proses" size="30" maxlength="100"  value="<?=$proses?>" onFocus="showhint('Nama proses tidak boleh lebih dari 100 karakter!', this, event, '120px');panggil('proses')"  onKeyPress="return focusNext('kode', event)" />
+    	<input type="text" name="proses" id="proses" size="30" maxlength="100"  value="<?=$proses?>" onFocus="showhint('Name proses should not exceed 100 characters', this, event, '120px');panggil('proses')"  onKeyPress="return focusNext('kode', event)" />
     </td>
 </tr>
 <tr>
-	<td><strong>Kode Awalan</strong></td>
+	<td><strong>Prefix Code</strong></td>
 	<td>
-    	<input type="text" name="kode" id="kode" size="10" maxlength="5" value="<?=$kode?>" onFocus="showhint('Kode awalan tidak boleh lebih dari 5 karakter!', this, event, '120px');panggil('kode')" onKeyPress="return focusNext('keterangan', event)" />
+    	<input type="text" name="kode" id="kode" size="10" maxlength="5" value="<?=$kode?>" onFocus="showhint('Kode awalan should not exceed 5 characters', this, event, '120px');panggil('kode')" onKeyPress="return focusNext('keterangan', event)" />
     </td>
 </tr>
 <tr>
 	<td>
     </td>
-    <td>*)untuk membangkitkan nomor pendaftaran
+    <td>*) to generate registration number
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onFocus="panggil('keterangan')" onKeyPress="return focusNext('Simpan', event)"><?=$keterangan ?></textarea>
     </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" onFocus="panggil('Simpan')"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" onFocus="panggil('Simpan')"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->

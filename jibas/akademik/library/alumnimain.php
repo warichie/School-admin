@@ -53,24 +53,24 @@ windowIMA=opener.ref_del_agama();
 </head>
 <body bgcolor="#FFFFFF" onUnload="ByeWin()">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 
 <table width="100%" border="0">
   <tr>
-    <td align="center"><strong>DAFTAR SISWA</strong></td>
+    <td align="center"><strong>STUDENT LIST</strong></td>
   </tr>
   <tr>
     <td>
     <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" bgcolor="#000000">
 
-    <tr >
+    <tr>
     	<td width="100%" bgcolor="#FFFFFF" valign="top">
         
         <div id="TabbedPanels1" class="TabbedPanels">
 		<ul class="TabbedPanelsTabGroup">
-		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Cari Siswa</font></li>
-		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Pilih Siswa</font></li>
+		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Search Student</font></li>
+		    <li class="TabbedPanelsTab" tabindex="0"><font size="1">Select Student</font></li>
            
 		</ul>
 		<div class="TabbedPanelsContentGroup">
@@ -90,7 +90,7 @@ windowIMA=opener.ref_del_agama();
     </td>
   </tr>
    <tr valign="top">
-    <td align="center"><input type="button" value="Tutup" onclick="window.close();" class="but"></td>
+    <td align="center"><input type="button" value="Close" onclick="window.close();" class="but"></td>
   </tr>
 </table>
 </body>
@@ -124,21 +124,21 @@ function cari(){
 	var nama=document.getElementById("nama").value;
 	var cari;
 	if (nama.length==0 && nis.length==0){
-		alert ('Anda harus mengisikan data untuk NIS dan/atau Nama !');
+		alert ('You must enter a data for Student ID and/or Name.');
 		document.getElementById("nis").focus();
 		cari=0;
 	}
 	if (nama.length>0 && nama.length<3){
-		alert ('Nama tidak boleh kurang dari 3 karakter !');
+		alert ('Name should not less than 3 characters.');
 		document.getElementById("nama").focus();
 		cari=0;
 	}
 	if (nis.length>0 && nis.length<3){
-		alert ('NIS tidak boleh kurang dari 3 karakter !');
+		alert ('Student ID should not less than 3 characters.');
 		document.getElementById("nis").focus();
 		cari=0;
 	}		
-	//alert ('Dep='+departemen+'NIS='+nis+'Nama='+nama);
+	//alert ('Dep='+departemen+'Student ID='+nis+'Nama='+nama);
 	if (cari!=0){
 	show_wait("tabel_cari");
 	
@@ -200,7 +200,7 @@ function show_tabelpilih(x) {
 
 function ambilpilih(nis,nama) {
 	var flag=0;
-	//alert ('NIS='+nis);
+	//alert ('Student ID='+nis);
 	opener.acceptSiswa(nis, nama, flag);
 	window.close();
 	//document.getElementById("tabel_pilih").innerHTML = x;

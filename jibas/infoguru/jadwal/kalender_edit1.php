@@ -42,7 +42,7 @@ $result_cek=QueryDb($sql_cek);
 if (@mysql_num_rows($result_cek)>0){
 ?>
 <script language="javascript">
-alert ('Nama kalender sudah digunakan !');
+alert ('Calendar name has been used ');
 document.location.href="kalender_edit.php?op=edit&replid=<?=$_REQUEST[replid]?>";
 </script>
 <?
@@ -54,7 +54,7 @@ $result_simpan=QueryDb($sql_simpan);
 if ($result_simpan){
 ?>
 <script language="javascript">
-//alert ('Berhasil !');
+//alert ('Berhasil ');
 parent.opener.refresh_with_dept('<?=$_REQUEST[departemen]?>');
 window.close();
 </script>
@@ -62,7 +62,7 @@ window.close();
 } else {
 ?>
 <script language="javascript">
-alert ('Gagal menyimpan data !');
+alert ('Failed to save data');
 document.location.href="kalender_add.php?kalender=<?=$_REQUEST[kalender]?>&tglmulai=<?=$_REQUEST[tglmulai]?>&tglakhir=<?=$_REQUEST[tglakhir]?>&departemen=<?=$_REQUEST[departemen]?>";
 </script>
 <?
@@ -90,17 +90,17 @@ var kalender=document.getElementById("kalender").value;
 var tglmulai=document.getElementById("tglmulai").value;
 var tglakhir=document.getElementById("tglakhir").value;
 if (kalender.length<1){
-	alert ('Nama kalender harus diisi !');
+	alert ('Calendar name is required');
 	document.getElementById("kalender").focus();
 	return false;
 	}
 if (tglmulai.length<1){
-	alert ('Tanggal mulai harus diisi !');
+	alert ('Start date is required');
 	document.getElementById("tglmulai").focus();
 	return false;
 	}
 if (tglakhir.length<1){
-	alert ('Tanggal selesai harus diisi !');
+	alert ('End date is required');
 	document.getElementById("tglakhir").focus();
 	return false;
 	}
@@ -123,25 +123,25 @@ document.location.href="kalender_edit.php?op=simpan&kalender="+kalender+"&tglmul
     <form name="inputkalender"  id="inputkalender" >
    <table width="95%" border="0" class="tab" id="table">
   <tr>
-    <td height="25" colspan="2" class="header"><div align="left">Ubah Kalender Akademik</div></td>
+    <td height="25" colspan="2" class="header"><div align="left">Edit Academic Calendar</div></td>
     </tr>
   <tr>
-    <td width="39%">Kalender Akademik</td>
+    <td width="39%">Academic Calendar</td>
     <td width="61%"><input type="text" name="kalender" id="kalender"  value="<?=$row_get['kalender']?>"/>
     <input type="hidden" name="replid" id="replid" value="<?=$replid?>" /></td>
     </tr>
   <tr>
-    <td colspan="2"><fieldset><legend>Periode</legend>
+    <td colspan="2"><fieldset><legend>Period</legend>
     <table width="100%" border="0">
   <tr>
-    <td width="46%">Tanggal Mulai</td>
+    <td width="46%">Start Date</td>
     <td width="19%"><input type="text" name="tglmulai" id="tglmulai" readonly="readonly" value="<?=TglText($row_get['tglmulai'])?>"/></td>
-    <td width="35%"><img src="../images/ico/calendar_1.png" alt="Tampilkan Tabel" name="tabel" width="22" height="22" border="0" id="btntglmulai" onMouseOver="showhint('Buka kalendar!', this, event, '120px')"/></td>
+    <td width="35%"><img src="../images/ico/calendar_1.png" alt="Show Table" name="tabel" width="22" height="22" border="0" id="btntglmulai" onMouseOver="showhint('Open calendar', this, event, '120px')"/></td>
   </tr>
   <tr>
-    <td>Tanggal Selesai</td>
+    <td>End Date</td>
     <td><input type="text" name="tglakhir" id="tglakhir"  readonly="readonly" value="<?=TglText($row_get['tglakhir'])?>"/></td>
-    <td><img src="../images/ico/calendar_1.png" alt="Tampilkan Tabel" name="tabel" width="22" height="22" border="0" id="btntglakhir" onMouseOver="showhint('Buka kalendar!', this, event, '120px')"/></td>
+    <td><img src="../images/ico/calendar_1.png" alt="Show Table" name="tabel" width="22" height="22" border="0" id="btntglakhir" onMouseOver="showhint('Open calendar', this, event, '120px')"/></td>
   </tr>
 </table>
 
@@ -149,8 +149,8 @@ document.location.href="kalender_edit.php?op=simpan&kalender="+kalender+"&tglmul
     </tr>
   <tr>
     <td colspan="2"><div align="center">
-      <input class="but" type="button" name="Simpan" id="Simpan" value="Simpan" onClick="simpan();"/>
-      <input class="but" type="button" name="Tutup" id="Tutup" value="Tutup" onClick="window.close();"/>
+      <input class="but" type="button" name="Simpan" id="Simpan" value="Save" onClick="simpan();"/>
+      <input class="but" type="button" name="Tutup" id="Tutup" value="Close" onClick="window.close();"/>
     </div></td>
     </tr>
 </table>

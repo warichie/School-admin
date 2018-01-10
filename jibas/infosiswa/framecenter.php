@@ -37,7 +37,7 @@ $sql3="SELECT YEAR(tanggal) as thn,MONTH(tanggal) as bln,DAY(tanggal) as tgl,rep
 $result1=QueryDb($sql1);
 $result2=QueryDb($sql2);
 $result3=QueryDb($sql3);
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");	
 $tglberita=$row1['tgl']." ".$namabulan[$row1['bln']-1]." ".$row1['thn'];
 $tglberita2=$row2['tgl']." ".$namabulan[$row2['bln']-1]." ".$row2['thn'];
 $tglberita3=$row3['tgl']." ".$namabulan[$row3['bln']-1]." ".$row3['thn'];
@@ -108,7 +108,7 @@ function show_msg(){
 <table border="0" cellspacing="5" cellpadding="5">
   <tr>
     <td valign="top" align="left">
-        <div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">Pesan  Baru</span> </div>
+        <div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">New Message</span> </div>
         <div align="left"> <span style="color:#999999">
         <?php
 	  	OpenDb();
@@ -117,10 +117,10 @@ function show_msg(){
 		$result4=QueryDb($sql4);
 		$row4=@mysql_fetch_array($result4);
 		if (@mysql_num_rows($result4)>0){
-			$pesanbaru = "Ada <font color=\"red\">".@mysql_num_rows($result4)."</font> pesan baru yang belum dibaca !".
+			$pesanbaru = "<font color=\"red\">".@mysql_num_rows($result4)."</font> unread message".
 					 	 "<div align='right' style='text-align:right'><img src='images/ico/arr1.gif' />&nbsp;&nbsp;<a onclick='show_msg()' href='#'>Masuk ke kotak pesan</a></div>";
 		} else {
-			$pesanbaru = "Tidak ada pesan baru !";
+			$pesanbaru = "No new message";
 		}
 		echo $pesanbaru;
 	    ?>
@@ -139,7 +139,7 @@ function show_msg(){
                 	<em><?php echo $tglberita2?></em>      <br />
                   <font color="#3C859C" size="-2"><?php echo $row2[judul]?></font>
                   <span class="style8"><?php echo $row2[abstrak]?></span>
-                  <div align="right" style="text-align:right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacaberitasekolah('<?php echo $row2[replid]?>')" >Baca Selengkapnya</a></div>
+                  <div align="right" style="text-align:right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacaberitasekolah('<?php echo $row2[replid]?>')" >Read more</a></div>
                 </td>
               </tr>
               <tr>
@@ -148,7 +148,7 @@ function show_msg(){
             </table><br />
            <?php } ?>
         </div>
-        <div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">Rubrik Sekolah</span> </div>
+        <div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">School News</span> </div>
         <div align="left">
         <?php 
             while ($row3=@mysql_fetch_array($result3)){
@@ -160,7 +160,7 @@ function show_msg(){
           <em><?php echo $tglberita3?></em>      <br />
           <font color="#3C859C" size="-2"><?php echo $row3[judul]?></font>
           <span class="style8"><?php echo $row3[abstrak]?></span>
-          <div align="right" style="text-align:right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacaberitasekolah('<?php echo $row3[replid]?>')" >Baca Selengkapnya</a></div>
+          <div align="right" style="text-align:right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacaberitasekolah('<?php echo $row3[replid]?>')" >Read more</a></div>
           		</td>
           	</tr>
           	<tr>
@@ -169,7 +169,7 @@ function show_msg(){
            </table><br />
           <?php } ?>
         </div>
-        <div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">Berita Siswa</span> </div>
+        <div align="left" style="padding-bottom:10px"> <span style="background-color:#FF9900;color:#FF9900; font-size:18px">&nbsp;</span>&nbsp;<span style="color:#999999; font-size:14px; font-weight:bold">Student News</span> </div>
         <div align="left">
     <?php 
 		while ($row1=@mysql_fetch_array($result1)){
@@ -182,7 +182,7 @@ function show_msg(){
         <font color="#3C859C" size="-2"><?php echo $row1[judul]?></font>
         <span class="style8"><?php echo $row1[abstrak]?>
           </span>
-        <div align="right" style="text-align:right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacaberitasiswa('<?php echo $row1[replid]?>')" >Baca Selengkapnya</a></div>
+        <div align="right" style="text-align:right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacaberitasiswa('<?php echo $row1[replid]?>')" >Read more</a></div>
           		</td>
           	</tr>
           	<tr>
@@ -209,17 +209,17 @@ function show_msg(){
          <td colspan="3"></td>
        </tr>
        <tr>
-         <td width="53"><span class="style18">Nama</span></td>
+         <td width="53"><span class="style18">Name</span></td>
          <td width="12"><span class="style20">: </span></td>
          <td width="359"><span class="style22"><?php echo  $row[nama]; ?></span></td>
        </tr>
        <tr>
-         <td height="22"><span class="style18">Alamat</span></td>
+         <td height="22"><span class="style18">Address</span></td>
          <td><span class="style20">:</span></td>
          <td><span class="style22"><?php echo  $row[alamat]; ?></span></td>
        </tr>
        <tr>
-         <td><span class="style18">Telepon</span></td>
+         <td><span class="style18">Phone</span></td>
          <td><span class="style20">:</span></td>
          <td><span class="style22"><?php echo  $row[telpon]; ?></span></td>
        </tr>

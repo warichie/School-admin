@@ -98,13 +98,13 @@ if (isset($_REQUEST['Simpan']))
     {
         CommitTrans();
         CloseDb();
-        ShowMessageClose("Berhasil");
+        ShowMessageClose("Succeed");
     }
     else
     {
         RollbackTrans();
         CloseDb();
-        ShowMessageClose("Gagal mengunggah data!");
+        ShowMessageClose("Failed to upload");
     }
 }    
 

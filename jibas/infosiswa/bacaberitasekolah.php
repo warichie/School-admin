@@ -40,7 +40,7 @@ if ($num>0){
 	$row=@mysql_fetch_array($result);
 }
 CloseDb();
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");	
 $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -80,27 +80,27 @@ $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 		<td width="*" colspan="2" background="images/BGNews_05.png">
             <table width="100%" border="0" cellspacing="0" >
               <tr>
-                <td width="62" scope="row" align="left"><strong>Dari </strong></td>
+                <td width="62" scope="row" align="left"><strong>From </strong></td>
                 <td width="17" scope="row" align="left"><strong>:</strong></td>
                 <td width="853" scope="row" align="left"><?=$row['nama']?></td>
               </tr>
               <tr>
-                <td align="left" scope="row"><strong>Tanggal </strong></td>
+                <td align="left" scope="row"><strong>Date </strong></td>
                 <td align="left" scope="row"><strong>:</strong></td>
                 <td scope="row" align="left"><?=$tglberita?></td>
               </tr>
               <tr>
-                <td align="left" scope="row"><strong>Judul </strong></td>
+                <td align="left" scope="row"><strong>Title </strong></td>
                 <td align="left" scope="row"><strong>:</strong></td>
                 <td scope="row" align="left"><?=$row['judul']?></td>
               </tr>
               <tr>
-                <td align="left" valign="top" scope="row"><strong>Abstrak </strong></td>
+                <td align="left" valign="top" scope="row"><strong>Abstract </strong></td>
                 <td align="left" valign="top" scope="row"><strong>:</strong></td>
                 <td scope="row" align="left" style="background-image:url(images/box_hr1.gif); background-repeat:repeat-x"><?=$row['abstrak']?></td>
               </tr>
               <tr>
-                <td align="left" valign="top" scope="row"><strong>Berita </strong></td>
+                <td align="left" valign="top" scope="row"><strong>News </strong></td>
                 <td align="left" valign="top" scope="row"><strong>:</strong></td>
                 <td scope="row" align="left" style="background-image:url(images/box_hr1.gif); background-repeat:repeat-x"><?
                     $brt = str_replace("../../","",$row['berita']);

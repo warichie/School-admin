@@ -72,24 +72,24 @@ if (isset($_REQUEST['idtahunbuku']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pengeluaran]</title>
+<title>JIBAS FINANCE [Expenditure Reports]</title>
 </head>
 
 <body>
-<center><font size="4" face="Verdana"><strong>LAPORAN PENGELUARAN</strong></font><br /> 
+<center><font size="4" face="Verdana"><strong>EXPENDITURE REPORTS</strong></font><br /> 
 </center>
 <br /><br />
 <table border="0">
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Departemen </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Department </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=$departemen ?>
     </strong> </font></td>
 </tr>
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Tanggal </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Date </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
-      <?=LongDateFormat($tanggal1) . " s/d 	" . LongDateFormat($tanggal2) ?>
+      <?=LongDateFormat($tanggal1) . " to 	" . LongDateFormat($tanggal2) ?>
     </strong></font></td>
 </tr>
 </table>
@@ -97,14 +97,14 @@ if (isset($_REQUEST['idtahunbuku']))
 
 <table id="table" class="tab" border="1" style="border-collapse:collapse" width="100%" bordercolor="#000000">
 <tr height="30" align="center">
-	<td width="4%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="8%" bgcolor="#CCCCCC" class="header" ><strong><font size="2" face="Arial">Tanggal</font></strong></td>
-    <td width="15%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Pengeluaran</font></strong></td>
-    <td width="18%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Pemohon</font></strong></td>
-    <td width="10%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Penerima</font></strong></td>
-    <td width="12%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Jumlah</font></strong></td>
-    <td width="*" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Keperluan</font></strong></td>
-    <td width="7%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Petugas</font></strong></td>
+	<td width="4%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="8%" bgcolor="#CCCCCC" class="header" ><strong><font size="2" face="Arial">Date</font></strong></td>
+    <td width="15%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Expenditure</font></strong></td>
+    <td width="18%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Applicant</font></strong></td>
+    <td width="10%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Recipient</font></strong></td>
+    <td width="12%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Sum</font></strong></td>
+    <td width="*" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Necessities</font></strong></td>
+    <td width="7%" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Officer</font></strong></td>
 </tr>
 <?
 OpenDb();
@@ -178,10 +178,10 @@ while ($row = mysql_fetch_array($result)) {
       <?=$row['jumlah'] ?>
     </font></td>
     <td valign="top">
-      <font size="2" face="Arial"><strong>Keperluan: </strong>
+      <font size="2" face="Arial"><strong>Necessities: </strong>
       <?=$row['keperluan'] ?>
       <br />
-      <strong>Keterangan: </strong>
+      <strong>Info: </strong>
       <?=$row['keterangan'] ?>	
     </font></td>
     <td valign="top" align="center"><font size="2" face="Arial">
@@ -194,7 +194,7 @@ CloseDb();
 ?>
 <tr height="30">
 	<td colspan="5" align="center" bgcolor="#999900">
-    <font color="#FFFFFF" size="2" face="Arial"><strong>T O T A L</strong></font>    </td>
+    <font color="#FFFFFF" size="2" face="Arial"><strong>Total</strong></font>    </td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2"><strong><?=$totalbiaya ?></strong></font></td>
     <td colspan="2" bgcolor="#999900"><font size="2">&nbsp;</font></td>
 </tr>

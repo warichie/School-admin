@@ -73,7 +73,7 @@ function validate(){
 	var x=document.getElementById("jumlah").value;
 	var y=1;
 	if (x.length==0){
-		alert ('Minimal harus ada 1 gambar yang akan di Upload!');
+		alert ('You should upload at least one image');
 		return false;
 	} else {
 		while (y<=3){
@@ -81,7 +81,7 @@ function validate(){
 		var file=document.getElementById("file"+y).value;
 		if (file.length>0){
 			if (ext!='.JPG' && ext!='.jpg' && ext!='.Jpg' && ext!='.JPg' && ext!='.JPEG' && ext!='.jpeg'){
-				alert ('Format Gambar harus ber-extensi jpg atau JPG !');
+				alert ('Image should be jpg or JPG formatted');
 				document.getElementById("file"+y).value='';
 				document.getElementById("tr"+y).style.background = "#FF8080" ;
 				return false;
@@ -106,11 +106,11 @@ return true;
 <input name="source" id="source" type="hidden" size="20" value="<?=$source?>" />
 <table width="100%" border="0" cellspacing="0" class="tab">
   <tr>
-    <th colspan="2" class="header" scope="row">Tambah Foto Baru</th>
+    <th colspan="2" class="header" scope="row">Add New Photo</th>
   </tr>
   <tr>
-    <th align="center" bgcolor="#CCCC99" scope="row">File Gambar</th>
-    <th align="center" bgcolor="#CCCC99" scope="row">Keterangan</th>
+    <th align="center" bgcolor="#CCCC99" scope="row">Image File</th>
+    <th align="center" bgcolor="#CCCC99" scope="row">Info</th>
   </tr>
   <?
   if ($jatahfoto<3){
@@ -130,17 +130,17 @@ return true;
   </tr>
   <? } } else { ?>
   <tr>
-    <th colspan="2" align="center" scope="row"><span class="style1">Maaf, jumlah gambar yang Anda miliki sudah melebihi batas Quota !</span><br>
-	  <span class="style2">Silakan hapus bererapa gambar terlebih dahulu !</span></th>
+    <th colspan="2" align="center" scope="row"><span class="style1">Sorry, but your images exceeded the limit</span><br>
+	  <span class="style2">Please remove a few images first </span></th>
   </tr>
   <? } ?>
   <tr>
-    <th colspan="2" align="center" scope="row">* Format Gambar harus jpg atau jpeg</th>
+    <th colspan="2" align="center" scope="row">* Image should be jpg or jpeg formatted</th>
   </tr>
   <tr>
-    <th colspan="2" align="center" scope="row"><input title="Simpan foto !" type="submit" class="but" name="simpan" id="simpan" value="Simpan" />&nbsp;&nbsp;
+    <th colspan="2" align="center" scope="row"><input title="Save photo!" type="submit" class="but" name="simpan" id="simpan" value="Save" />&nbsp;&nbsp;
 	<input type="hidden" id="jumlah" name="jumlah"/>
-    <input title="Tutup !" type="button" class="but" onClick="window.close();" name="tutup" id="tutup" value="Tutup" /></th>
+    <input title="Close" type="button" class="but" onClick="window.close();" name="tutup" id="tutup" value="Close" /></th>
   </tr>
 </table>
 </form>

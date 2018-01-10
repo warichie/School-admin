@@ -2151,7 +2151,7 @@ var withinElement = function( event ) {
 	var parent = event.relatedTarget;
 
 	// Firefox sometimes assigns relatedTarget a XUL element
-	// which we cannot access the parentNode property of
+	// which we should not access the parentNode property of
 	try {
 		// Traverse up the tree
 		while ( parent && parent !== this ) {
@@ -3858,8 +3858,8 @@ jQuery.each({
 	parents: function( elem ) {
 		return jQuery.dir( elem, "parentNode" );
 	},
-	parentsUntil: function( elem, i, until ) {
-		return jQuery.dir( elem, "parentNode", until );
+	parentsUntil: function( elem, i, to ) {
+		return jQuery.dir( elem, "parentNode", to );
 	},
 	next: function( elem ) {
 		return jQuery.nth( elem, 2, "nextSibling" );
@@ -3873,11 +3873,11 @@ jQuery.each({
 	prevAll: function( elem ) {
 		return jQuery.dir( elem, "previousSibling" );
 	},
-	nextUntil: function( elem, i, until ) {
-		return jQuery.dir( elem, "nextSibling", until );
+	nextUntil: function( elem, i, to ) {
+		return jQuery.dir( elem, "nextSibling", to );
 	},
-	prevUntil: function( elem, i, until ) {
-		return jQuery.dir( elem, "previousSibling", until );
+	prevUntil: function( elem, i, to ) {
+		return jQuery.dir( elem, "previousSibling", to );
 	},
 	siblings: function( elem ) {
 		return jQuery.sibling( elem.parentNode.firstChild, elem );
@@ -3891,11 +3891,11 @@ jQuery.each({
 			jQuery.makeArray( elem.childNodes );
 	}
 }, function( name, fn ) {
-	jQuery.fn[ name ] = function( until, selector ) {
-		var ret = jQuery.map( this, fn, until );
+	jQuery.fn[ name ] = function( to, selector ) {
+		var ret = jQuery.map( this, fn, to );
 		
 		if ( !runtil.test( name ) ) {
-			selector = until;
+			selector = to;
 		}
 
 		if ( selector && typeof selector === "string" ) {
@@ -3921,9 +3921,9 @@ jQuery.extend({
 		return jQuery.find.matches(expr, elems);
 	},
 	
-	dir: function( elem, dir, until ) {
+	dir: function( elem, dir, to ) {
 		var matched = [], cur = elem[dir];
-		while ( cur && cur.nodeType !== 9 && (until === undefined || cur.nodeType !== 1 || !jQuery( cur ).is( until )) ) {
+		while ( cur && cur.nodeType !== 9 && (to === undefined || cur.nodeType !== 1 || !jQuery( cur ).is( to )) ) {
 			if ( cur.nodeType === 1 ) {
 				matched.push( cur );
 			}

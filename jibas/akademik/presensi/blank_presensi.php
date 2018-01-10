@@ -34,13 +34,13 @@
     <tr>
     	<td align="center">
        	<? if ($_REQUEST['tipe']=="harian") { ?>
-           	<font size="2" color="#757575"><b>Klik icon <img src="../images/ico/view_x.png" border = "0"> di atas untuk menampilkan
-        Presensi Harian</b></font>
+           	<font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border = "0"> above to show
+        Daily Presence</b></font>
         <? } elseif ($_REQUEST['tipe']=="isi") { ?>
-        	<font size="2" color="#757575"><b>Klik pada tombol "<strong>Input Presensi Baru</strong>" atau <em>hyperlink</em> "<strong>Tanggal</strong>" di panel kiri untuk menampilkan Presensi Harian</b></font>
+        	<font size="2" color="#757575"><b>Click on "<strong>New Presence</strong>" or <em>hyperlink</em> "<strong>Date</strong>" on the left panel to show Daily Presence</b></font>
 		<? } else { ?>
-        	<font size="2" color="#757575"><b>Klik icon <img src="../images/ico/view_x.png" border = "0"> di atas untuk menampilkan
-        Presensi Pelajaran</b></font>
+        	<font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border = "0"> above to show
+        Class Presence</b></font>
        	  <? } ?></td>
    	</tr>
     </table>

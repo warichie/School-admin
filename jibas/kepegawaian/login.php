@@ -24,7 +24,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link href="images/jibas.ico" rel="shortcut icon" />
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" href="../script/bgstretcher.css" />
@@ -39,7 +39,7 @@ function cek_form()
 	pass = document.form.password.value;
 	if(user.length == 0 || pass.length == 0) 
 	{
-		alert("Anda harus mengisi username dan password!");
+		alert("You should enter a username and password");
 		document.form.username.focus();
 		return false;
 	}
@@ -144,7 +144,7 @@ $(document).ready(function () {
                 <td rowspan="4" valign="top"><img src="../images/imfront_kepegawaian.png"></td>
                 <td height="70" valign="bottom" align="left">
 				<font style="font-family:helvetica; font-size:16px; color:#fff; font-weight:bold;">
-					SISTEM INFORMASI <font style="color:#000">KEPEGAWAIAN</font>
+					<font style="color:#000">EMPLOYEMENT</font> INFORMATION SYSTEM
 				</font>
 				</td>
             </tr>
@@ -157,7 +157,7 @@ $(document).ready(function () {
                     <td style="padding-right:4px"><input name="passwordfake" id="passwordsfake" style="color:#636363; display:block;width:80px; border:1px #666666 solid" value="Password" onfocus="ChgInputPass('passwordsfake','passwords','1')" type="text"    />
                 <input name="password" id="passwords" style="color:#000000; display:none;width:80px; border:1px #666666 solid" value="" onblur="ChgInputPass('passwordsfake','passwords','0')"  type="password"    /></td>
                     <td style="padding-right:4px"><input type="submit" style=" background-color:#c9c9c9;font-weight:bold; border:#666666 1px solid;" value="Login" /></td>
-                    <td><a title="Kembali ke Menu Utama" href="../" style="color:#2fcced; font-weight:bold; font-family:Arial; font-size:12px; text-decoration:underline">Menu Utama</a></td>
+                    <td><a title="Back to Main Menu" href="../" style="color:#2fcced; font-weight:bold; font-family:Arial; font-size:12px; text-decoration:underline">Main Menu</a></td>
                   </tr>
                 </table>
 				

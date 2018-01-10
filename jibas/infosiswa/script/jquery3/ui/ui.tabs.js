@@ -159,7 +159,7 @@ $.widget("ui.tabs", {
 
 			// Take disabling tabs via class attribute from HTML
 			// into account and update option properly.
-			// A selected tab cannot become disabled.
+			// A selected tab should not become disabled.
 			o.disabled = $.unique(o.disabled.concat(
 				$.map(this.$lis.filter('.' + o.disabledClass),
 					function(n, i) { return self.$lis.index(n); } )
@@ -430,7 +430,7 @@ $.widget("ui.tabs", {
 
 	disable: function(index) {
 		var self = this, o = this.options;
-		if (index != o.selected) { // cannot disable already selected tab
+		if (index != o.selected) { // should not disable already selected tab
 			this.$lis.eq(index).addClass(o.disabledClass);
 
 			o.disabled.push(index);

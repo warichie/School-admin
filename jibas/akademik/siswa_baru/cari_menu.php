@@ -57,7 +57,7 @@ if (isset($_REQUEST['hal']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pencarian Calon Siswa</title>
+<title>Search Student Candidate</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -169,10 +169,10 @@ function change_baris() {
 	<table width="100%" border="0">
     <tr>
     	<td align="right">
-        <a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp; 		
-        <a href="#" onClick="cetak_excel()"><img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Cetak dalam format Excel!', this
-        , event, '80px')"/>&nbsp;Cetak Excel</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>
+        <a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp; 		
+        <a href="#" onClick="cetak_excel()"><img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Excel', this
+        , event, '80px')"/>&nbsp;Excel</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>
 		</td>
   	</tr>
 	</table>   	
@@ -181,11 +181,11 @@ function change_baris() {
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <!-- TABLE CONTENT -->
     <tr height="30" align="center" class="header">    	
-    	<td width="4%">No</td>
-        <td width="18%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nopendaftaran','<?=$urutan?>')">No. Pendaftaran <?=change_urut('nopendaftaran',$urut,$urutan)?></td>
-		<td width="18%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nisn','<?=$urutan?>')">NISN <?=change_urut('nisn',$urut,$urutan)?></td>
-        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Nama Calon Siswa <?=change_urut('nama',$urut,$urutan)?></td>
-        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kelompok','<?=$urutan?>')">Kelompok <?=change_urut('kelompok',$urut,$urutan)?></td>
+    	<td width="4%">#</td>
+        <td width="18%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nopendaftaran','<?=$urutan?>')">Registration Number <?=change_urut('nopendaftaran',$urut,$urutan)?></td>
+		<td width="18%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nisn','<?=$urutan?>')">National Student ID <?=change_urut('nisn',$urut,$urutan)?></td>
+        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Student Candidate Name <?=change_urut('nama',$urut,$urutan)?></td>
+        <td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kelompok','<?=$urutan?>')">Group <?=change_urut('kelompok',$urut,$urutan)?></td>
         <td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('aktif','<?=$urutan?>')" >Status <?=change_urut('aktif',$urut,$urutan)?></td>
         <td width="8%">Detail</td>
     </tr>   
@@ -204,13 +204,13 @@ function change_baris() {
         <td><?=$row['nama']?></td>
         <td><?=$row['kelompok'] ?></td>
         <td align="center"><?	if ($row['aktif']==1){
-					echo "Aktif";
+					echo "Active";
 				} elseif ($row['aktif']==0){
-					echo "Tidak Aktif ";
+					echo "Inactive";
 				}
 			?>	
         </td>
-        <td align="center"><a href="JavaScript:tampil(<?=$row['replid'] ?>)"><img src="../images/ico/lihat.png" border="0" onmouseover="showhint('Detail Data Calon Siswa!', this, event, '80px')" /></a>&nbsp;</td>        
+        <td align="center"><a href="JavaScript:tampil(<?=$row['replid'] ?>)"><img src="../images/ico/lihat.png" border="0" onmouseover="showhint('Student Candidate Details', this, event, '80px')" /></a>&nbsp;</td>        
     </tr>
 <?	} 
 	CloseDb(); 
@@ -244,20 +244,20 @@ function change_baris() {
 	<td>
     <table border="0"width="100%" align="center">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -268,9 +268,9 @@ function change_baris() {
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=10; $m <= 100; $m=$m+10) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -284,8 +284,8 @@ function change_baris() {
 <table width="100%" border="0" align="center" height="300">          
 <tr>
 	<td align="center" valign="middle">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
-        <br />Silahkan ulangi pencarian kembali.
+    	<font size = "2" color ="red"><b>Data Not Found.
+        <br />Try search with another keywords.
        	</b></font>
 	</td>
 </tr>

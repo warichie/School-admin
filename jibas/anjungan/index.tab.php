@@ -51,7 +51,7 @@
     <div id="#vtabs-content-b">
         <table border="0" cellpadding="2" cellspacing="2" width="100%">
         <tr><td align="right">
-            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">BERITA SEKOLAH</font>
+            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">SCHOOL NEWS</font>
         </td></tr>           
         </table>
         <div id="content-pane-b" style="overflow: auto; background-color: transparent;">
@@ -61,7 +61,7 @@
     <div id="#vtabs-content-c">
         <table border="0" cellpadding="2" cellspacing="2" width="100%">
         <tr><td align="right">
-            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">INFORMASI SISWA</font>
+            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">STUDENT INFO</font>
         </td></tr>           
         </table>
         <div id="content-pane-c" style="overflow: auto; background-color: transparent">
@@ -71,7 +71,7 @@
     <div id="#vtabs-content-d">
         <table border="0" cellpadding="2" cellspacing="2" width="100%">
         <tr><td align="right">
-            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">KALENDER AKADEMIK</font>
+            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">ACADEMIC CALENDAR</font>
         </td></tr>           
         </table>
         <div id="content-pane-d" style="overflow: auto; background-color: transparent">
@@ -81,7 +81,7 @@
     <div id="#vtabs-content-e">
         <table border="0" cellpadding="2" cellspacing="2" width="100%">
         <tr><td align="right">
-            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">JADWAL GURU</font>
+            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">TEACHER SCHEDULE</font>
         </td></tr>           
         </table>
         <div id="content-pane-e" style="overflow: auto; background-color: transparent">
@@ -91,7 +91,7 @@
     <div id="#vtabs-content-f">
         <table border="0" cellpadding="2" cellspacing="2" width="100%">
         <tr><td align="right">
-            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">JADWAL KELAS</font>
+            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">CLASS SCHEDULE</font>
         </td></tr>           
         </table>
         <div id="content-pane-f" style="overflow: auto; background-color: transparent">
@@ -101,7 +101,7 @@
     <div id="#vtabs-content-g">
         <table border="0" cellpadding="2" cellspacing="2" width="100%">
         <tr><td align="right">
-            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">KEPEGAWAIAN</font>
+            <font style="font-family: Tahoma; font-size: 22px; color: #557d1d">EMPLOYEMENT</font>
         </td></tr>           
         </table>
         <div id="content-pane-g" style="overflow: auto; background-color: transparent">

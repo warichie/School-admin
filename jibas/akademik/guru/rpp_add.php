@@ -55,7 +55,7 @@ if (isset($_REQUEST['Simpan'])) {
 	
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Kode pembelajaran $kode sudah digunakan!";
+		$ERROR_MSG = "Lesson Code $kode has been used";
 	} else {
 		$sql = "INSERT INTO rpp SET idtingkat = '$tingkat', idsemester = '$semester', idpelajaran = '$pelajaran', koderpp = '$kode', rpp = '$materi', deskripsi = '$deskripsi'";
 		$result = QueryDb($sql);
@@ -90,7 +90,7 @@ $namapel = $row["nama"];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Rencana Program Pembelajaran]</title>
+<title>JIBAS SIMAKA [Add Lesson Plans]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../script/tooltips.js"></script>
@@ -106,9 +106,9 @@ tinyMCE.init({
 });
 
 function validate() {
-	return 	validateEmptyText('kode', 'Kode pembelajaran') && 
-			validateEmptyText('materi', 'Materi pembelajaran') && 
-		   	validateMaxText('materi', 255, 'Materi pembelajaran');
+	return 	validateEmptyText('kode', 'Lesson Code') && 
+			validateEmptyText('materi', 'Subject Matter') && 
+		   	validateMaxText('materi', 255, 'Subject Matter');
 }
 
 function focusNext(elemName, evt) {
@@ -140,7 +140,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Rencana Program Pembelajaran :.
+    .: Add Lesson Plans :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -153,11 +153,11 @@ function panggil(elem){
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="12%"><strong>Departemen</strong></td>
+	<td width="12%"><strong>Department</strong></td>
 	<td width="12%">
     	<input type="text" name="departemen1" id="departemen1" size="10" readonly value="<?=$departemen ?>" class="disabled" />
     	<input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />    
-    <td width="12%"><strong>Tingkat</strong></td>
+    <td width="12%"><strong>Grade</strong></td>
     <td>
         <input type="text" name="tingkat1" id="tingkat1" size="10" readonly value="<?=$namatingkat ?>" class="disabled" />
         <input type="hidden" name="tingkat" id="tingkat" value="<?=$tingkat?>"/>
@@ -171,29 +171,29 @@ function panggil(elem){
     </td>
 </tr>
 <tr>
-	<td><strong>Kode RPP</strong></td>
+	<td><strong>Lesson Plans Code</strong></td>
 	<td>
-    	<input type="text" name="kode" id="kode" size="10" maxlength="20" value="<?=$kode?>" onFocus="showhint('Kode pembelajaran tidak boleh lebih dari 20 karakter!', this, event, '120px');panggil('kode')"  onKeyPress="return focusNext('materi', event)"/>
-    <td><strong>Pelajaran</strong></td>
+    	<input type="text" name="kode" id="kode" size="10" maxlength="20" value="<?=$kode?>" onFocus="showhint('Lesson Code should not exceed 20 characters', this, event, '120px');panggil('kode')"  onKeyPress="return focusNext('materi', event)"/>
+    <td><strong>Class Subject</strong></td>
     <td colspan="3">
          <input type="text" name="pelajaran1" id="pelajaran1" size="48" readonly value="<?=$namapel ?>" class="disabled" />
         <input type="hidden" name="pelajaran" id="pelajaran" value="<?=$pelajaran?>"/>    </td>
 </tr>
 <tr>
-	<td valign="top"><strong>Materi</strong></td>
+	<td valign="top"><strong>Subject Matter</strong></td>
 	<td colspan="5"><input type="text" name="materi" id="materi" size="75" maxlength="225" value="<?=$materi?>" onFocus="panggil('materi')"  onKeyPress="return focusNext('deskripsi', event)"/>    </td>
 </tr>
 <tr>
 	<td colspan = "6" height="200" valign="top">
-	<fieldset><legend><b>Deskripsi Program Pembelajaran</b></legend>
+	<fieldset><legend><b>Lesson Plans Description</b></legend>
     <br />
     <textarea name="deskripsi" id="deskripsi" rows="20" onFocus="panggil('deskripsi')" style="width:100%"><?=$deskripsi?></textarea>
     </fieldset></tr>
 
 <tr>
 	<td colspan="6" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" onFocus="panggil('Simpan')" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" onFocus="panggil('Simpan')" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>

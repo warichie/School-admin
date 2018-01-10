@@ -24,7 +24,7 @@
 if (isset($_REQUEST['theme']))
 	$theme = $_REQUEST['theme'];
 ?>
-<title>JIBAS - KEUANGAN</title>
+<title>JIBAS - FINANCE</title>
 <link href="images/jibas.ico" rel="shortcut icon" />
 <frameset rows="120,*,50" frameborder="0" border="0" framespacing="0">
 	<frameset cols="50,*,40" frameborder="0" framespacing="0">

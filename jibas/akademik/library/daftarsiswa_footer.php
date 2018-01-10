@@ -46,7 +46,7 @@ if (isset($_REQUEST['kelas']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Daftar Pegawai</title>
+<title>Employee List</title>
 <script language="javascript" src="../script/string.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript">
@@ -69,10 +69,10 @@ if (isset($_REQUEST['kelas']))
 ?>
 <table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0">
 <tr height="30">
-		<td class="header" width="7%" align="center">No</td>
-    <td class="header" width="15%" align="center">N I S</td>
-    <td class="header" align="center">Nama</td>
-    <!--<td class="header" width="10%" align="center">Kelas</td>-->
+		<td class="header" width="7%" align="center">#</td>
+    <td class="header" width="15%" align="center">Student ID</td>
+    <td class="header" align="center">Name</td>
+    <!--<td class="header" width="10%" align="center">Class</td>-->
     <td class="header" width="10%" align="center">&nbsp;</td>
 </tr>
 <?
@@ -85,7 +85,7 @@ if (isset($_REQUEST['kelas']))
     <td onclick="parent.pilih('<?=$row[0]?>', '<?=$row[1]?>')"  style="cursor:pointer"><?=$row[1] ?></td>
     <!--<td align="center"><?=$row[2] ?></td>-->
     <td align="center" onclick="parent.pilih('<?=$row[0]?>', '<?=$row[1]?>')"  style="cursor:pointer">
-    <input type="button" name="pilih" class="but" id="pilih" value="Pilih" onclick="parent.pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
+    <input type="button" name="pilih" class="but" id="pilih" value="Select" onclick="parent.pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
     </td>
 </tr>
 <? $cnt++; 
@@ -99,13 +99,13 @@ if (isset($_REQUEST['kelas']))
 
 <? 
 } else { 
-	echo "<strong><font color='red'>Tidak ditemukan adanya data</strong></td></tr>";
+	echo "<strong><font color='red'>Data Not Found.</strong></td></tr>";
 }		
 ?>
 </td></tr>
 <tr height="26">
 	<td colspan="5" align="center" bgcolor="">
-    <input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="parent.tutup()" /></td>
+    <input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="parent.tutup()" /></td>
 </tr>
 
 

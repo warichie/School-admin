@@ -31,34 +31,34 @@ $stat = $_REQUEST['stat'];
 if ($stat==5){
 	$satker = $_REQUEST['satker'];
 	$status = $_REQUEST['status'];
-	$judul = "Daftar Pegawai Berdasarkan Diklat";
+	$judul = "Employee List based on Education and Training";
 } elseif ($stat==6){
 	$sat = $_REQUEST['sat'];
 	$nikah  = $_REQUEST['nikah'];
-	$judul = "Daftar Pegawai Berdasarkan Status Pernikahan";
+	$judul = "Employee List based on Marital Status";
 } elseif ($stat==7){
 	$sat = $_REQUEST['sat'];
 	$jk  = $_REQUEST['jk'];
-	$judul = "Daftar Pegawai Berdasarkan Jenis Kelamin";
+	$judul = "Employee List based on Gender";
 } else {
 	$ref = $_REQUEST['ref'];
 	if ($stat == 1) 
 	{
-		$subjudul = "Satuan Kerja";
+		$subjudul = "Work Unit";
 	} 
 	elseif ($stat == 2)
 	{
-		$subjudul = "Tingkat Pendidikan";
+		$subjudul = "Educational Level";
 	}
 	elseif ($stat == 3)
 	{
-		$subjudul = "Golongan";
+		$subjudul = "Level";
 	}
 	elseif ($stat == 4)
 	{
-		$subjudul = "Usia";
+		$subjudul = "Age";
 	}
-	$judul = "Daftar Pegawai Berdasarkan ".$subjudul;
+	$judul = "Employee List based on ".$subjudul;
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -66,7 +66,7 @@ if ($stat==5){
 <head>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -89,13 +89,13 @@ function cetak() {
    </center><br /><br />
    
 <? if ($stat==5){ ?>
-	<strong>Satuan Kerja : <?=$satker?></strong><br />
-	<strong>Status Diklat: <? if ($status == "S") echo "Sudah"; else echo "Belum"; ?></strong><br /><br />
+	<strong>Work Unit : <?=$satker?></strong><br />
+	<strong>Education and Training Status: <? if ($status == "S") echo "Sudah"; else echo "Belum"; ?></strong><br /><br />
 	<table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
 	<tr height="35">
-		<td class="header" align="center" width="7%">No</td>
-		<td class="header" align="center" width="40%">NIP</td>
-		<td class="header" align="center" width="40%">Nama</td>
+		<td class="header" align="center" width="7%">#</td>
+		<td class="header" align="center" width="40%">Employee ID</td>
+		<td class="header" align="center" width="40%">Name</td>
 	  </tr>
 	<?
 	OpenDb();
@@ -128,13 +128,13 @@ function cetak() {
 	?>
 	</table>
 <? } elseif ($stat==6){ ?>
-	<strong>Satuan Kerja : <?=$sat?></strong><br />
-	<strong>Status Pernikahan : <?=$nikah?></strong><br /><br />
+	<strong>Work Unit : <?=$sat?></strong><br />
+	<strong>Marital Status : <?=$nikah?></strong><br /><br />
 	<table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
 	<tr height="35">
-		<td class="header" align="center" width="7%">No</td>
-		<td class="header" align="center" width="40%">NIP</td>
-		<td class="header" align="center" width="40%">Nama</td>
+		<td class="header" align="center" width="7%">#</td>
+		<td class="header" align="center" width="40%">Employee ID</td>
+		<td class="header" align="center" width="40%">Name</td>
 	  </tr>
 	<?
 	OpenDb();
@@ -157,13 +157,13 @@ function cetak() {
 	?>
 	</table>
 <? } elseif ($stat==7){ ?>
-	<strong>Satuan Kerja : <?=$sat?></strong><br />
-	<strong>Kelamin : <? if ($jk == "L") echo "Pria"; else echo "Wanita"; ?></strong><br /><br />
+	<strong>Work Unit : <?=$sat?></strong><br />
+	<strong>Gender : <? if ($jk == "L") echo "Pria"; else echo "Wanita"; ?></strong><br /><br />
 	<table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
 	<tr height="35">
-		<td class="header" align="center" width="7%">No</td>
-		<td class="header" align="center" width="40%">NIP</td>
-		<td class="header" align="center" width="40%">Nama</td>
+		<td class="header" align="center" width="7%">#</td>
+		<td class="header" align="center" width="40%">Employee ID</td>
+		<td class="header" align="center" width="40%">Name</td>
 	  </tr>
 	<?
 	OpenDb();
@@ -189,28 +189,28 @@ function cetak() {
 	<?
 	if ($stat == 1) 
 	{
-		$info = "Satuan Kerja";
+		$info = "Work Unit";
 		$sql = "SELECT p.nip, TRIM(CONCAT(IFNULL(p.gelarawal,''), ' ', p.nama, ' ', IFNULL(p.gelarakhir,''))) AS fnama 
 				FROM pegawai p, peglastdata pl, pegjab pj, jabatan j
 				WHERE p.aktif = 1 AND p.nip = pl.nip AND pl.idpegjab = pj.replid AND pj.idjabatan = j.replid AND j.satker='$ref' ORDER BY p.nama";	
 	} 
 	elseif ($stat == 2)
 	{
-		$info = "Tingkat Pendidikan";
+		$info = "Educational Level";
 		$sql = "SELECT p.nip, TRIM(CONCAT(IFNULL(p.gelarawal,''), ' ', p.nama, ' ', IFNULL(p.gelarakhir,''))) AS fnama 
 				FROM pegawai p, peglastdata pl, pegsekolah ps
 				WHERE p.aktif = 1 AND  p.nip = pl.nip AND pl.idpegsekolah = ps.replid AND ps.tingkat = '$ref' ORDER BY p.nama";
 	}
 	elseif ($stat == 3)
 	{
-		$info = "Golongan";
+		$info = "Level";
 		$sql = "SELECT p.nip, TRIM(CONCAT(IFNULL(p.gelarawal,''), ' ', p.nama, ' ', IFNULL(p.gelarakhir,''))) AS fnama 
 				FROM pegawai p, peglastdata pl, peggol pg
 				WHERE p.aktif = 1 AND  p.nip = pl.nip AND pl.idpeggol = pg.replid AND pg.golongan = '$ref' ORDER BY p.nama";
 	}
 	elseif ($stat == 4)
 	{
-		$info = "Usia";
+		$info = "Age";
 		$sql = "SELECT nip, fnama FROM (
 				  SELECT nip, fnama, IF(usia < 24, '<24',
 							  IF(usia >= 24 AND usia <= 29, '24-29',
@@ -228,9 +228,9 @@ function cetak() {
 		<strong><?=$info?> : <?=$ref?></strong><br /><br />
 		<table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
 			<tr height="35">
-				<td class="header" align="center" width="7%">No</td>
-				<td class="header" align="center" width="40%">NIP</td>
-				<td class="header" align="center" width="40%">Nama</td>
+				<td class="header" align="center" width="7%">#</td>
+				<td class="header" align="center" width="40%">Employee ID</td>
+				<td class="header" align="center" width="40%">Name</td>
 			</tr>
 			<?
 			OpenDb();

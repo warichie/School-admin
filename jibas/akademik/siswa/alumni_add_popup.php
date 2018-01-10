@@ -67,7 +67,7 @@ if(isset($_REQUEST["simpan"])){
 		CommitTrans(); 
 		?>
 		<script language="javascript">
-			alert ('Berhasil mengisi data!');
+			alert ('Data saved successfully');
 			parent.opener.refresh();
 			window.close();
 	 	</script>
@@ -101,14 +101,14 @@ if(isset($_REQUEST["simpan"])){
 		keterangan = document.tambah_alumni.keterangan.value;
         
         if(nis.length == 0) {
-            alert("NIS dan Nama alumni tidak boleh kosong");
+            alert("Student ID and Name should not leave empty");
             document.tambah_alumni.nis.value = "";
             document.tambah_alumni.nis.focus();
             return false;
         }
 
 		if(tanggal.length == 0) {
-            alert("Tanggal kelulusan tidak boleh kosong");
+            alert("Date Graduated should not leave empty");
             document.tambah_alumni.tanggal.value = "";
             document.tambah_alumni.btntanggal.focus();
             return false;
@@ -116,13 +116,13 @@ if(isset($_REQUEST["simpan"])){
        
        
         if(keterangan.length > 255) {
-            alert("Keterangan tidak boleh lebih dari 255 karakter");
+            alert("Info should not exceed 255 characters");
             document.tambah_alumni.keterangan.value = "";
             document.tambah_alumni.keterangan.focus();
             return false;
         }
 		
-		if (confirm('Anda yakin akan merubah ststus siswa ini menjadi alumni?')){
+		if (confirm('Are you sure want to change this student status to alumni?')){
 		return true;
         }
     }
@@ -171,34 +171,34 @@ if(isset($_REQUEST["simpan"])){
             <td colspan="2" class="header"><div align="center">Input Alumni Baru</div></td>
         </tr>
         <tr>
-            <td>NIS</td><td>
+            <td>Student ID</td><td>
             <input type="text" size="40" name="nis" readonly="readonly"  value="<?=$_GET[nis] ?>" class="disabled" onClick="carisiswa()">&nbsp
             <a href="#null" onClick="carisiswa()"><img src="../images/ico/cari.png" border="0" onMouseOver="showhint('Cari siswa',
             this, event, '100px')"></a>
-            <img src="../images/ico/hapus.png" border="0" onClick="clear_nis();" onMouseOver="showhint('Kosongkan NIS dan Nama',
+            <img src="../images/ico/hapus.png" border="0" onClick="clear_nis();" onMouseOver="showhint('Kosongkan Student ID and Nama',
             this, event, '100px')" style="cursor:pointer">
             </td>
         </tr>
         <tr>
-            <td>Nama</td><td>
+            <td>Name</td><td>
             <input type="text" size="50" name="nama" readonly="readonly" value="<?=$_GET[nama]?>" class="disabled" onClick="carisiswa()">
             </td>
         </tr>
         <tr>
-            <td>Tanggal Lulus</td>
-            <td><input type="text" size="25" name="tanggal" id="tanggal" readonly="readonly"  class="disabled" onMouseOver="showhint('Buka kalendar!', this, event, '120px')">
-              <img src="../images/ico/calendar_1.png" alt="Tampilkan Tabel" name="btntanggal" width="22" height="22" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '120px')"/></td>
+            <td>Date Graduated</td>
+            <td><input type="text" size="25" name="tanggal" id="tanggal" readonly="readonly"  class="disabled" onMouseOver="showhint('Open calendar', this, event, '120px')">
+              <img src="../images/ico/calendar_1.png" alt="Show Table" name="btntanggal" width="22" height="22" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '120px')"/></td>
         </tr>
         <tr>
-            <td>Keterangan</td>
+            <td>Info</td>
             <td><textarea wrap="soft" name="keterangan" cols="47" rows="3"
-            onFocus="showhint('Keterangan tidak boleh lebih dari 255 karakter',
+            onFocus="showhint('Info should not exceed 255 characters',
             this, event, '100px')"></textarea></td>
         </tr>
         <tr>
             <td colspan="2"><div align="center">
-              <input type="submit" value="Simpan" name="simpan" class="but">&nbsp;
-                <input type="button" value="Tutup" name="batal" class="but" onClick="window.close();">
+              <input type="submit" value="Save" name="simpan" class="but">&nbsp;
+                <input type="button" value="Close" name="batal" class="but" onClick="window.close();">
             </div></td>
           </tr>
     </table>

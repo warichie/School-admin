@@ -109,7 +109,7 @@ if ($aktif == 1) {
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Penempatan Calon Siswa</title>
+<title>Student Candidate Placement</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -132,12 +132,12 @@ function pindah(replid, nisn)
 	var tahunajaran = parent.isi.document.getElementById('tahunajaran').value;		
 	
 	if (kelas == "" ) {
-		alert ('Belum ada kelas yang dituju!');
+		alert ('No Destination Class');
 		return false;
 	} 
 	
 	if (kapasitas == isi) {
-		alert("Kapasitas kelas tidak mencukupi untuk menambah data siswa baru!");
+		alert("Do not have enough classroom to add more new students");
 		parent.isi.document.getElementById('kelas').focus();		
 		return false;
 	}
@@ -157,7 +157,7 @@ function hapus(replid,nis) {
 	var no = document.getElementById('no').value;
 	var nama = document.getElementById('nama').value;
 	
-	if (confirm("Apakah anda yakin akan membatalkan penempatan siswa ini pada kelas ini?"))
+	if (confirm("Are you sure want to cancel this student placement to this class?"))
 		document.location.href = "penempatan_daftar.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&nis="+nis+"&departemen="+departemen+"&angkatan="+angkatan+"&tahunajaran="+tahunajaran+"&tingkat="+tingkat+"&kelas="+kelas+"&proses="+proses+"&kelompok="+kelompok+"&aktif=1&cari="+cari+"&no="+no+"&nama="+nama+"&urut=<?=$urut?>&urutan=<?=$urutan?>&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -309,7 +309,7 @@ function refresh_daftar() {
 		var nama = document.getElementById('nama').value;
 		parent.isi.location.href = "penempatan_content.php?departemen="+departemen+"&angkatan="+angkatan+"&tahunajaran="+tahunajaran+"&tingkat="+tingkat+"&kelas="+kelas+"&proses="+proses+"&kelompok="+kelompok+"&aktif=0&cari="+cari+"&no="+no+"&nama="+nama;
 		
-		alert ('Belum ada calon siswa yang terdaftar!');
+		alert ('No student candidate yang terdaftar');
 		
 	</script>
 	<? 
@@ -317,7 +317,7 @@ function refresh_daftar() {
         <table width="100%">
         <tr height="200">
             <td align="center">
-                <font size = "2" color ="red"><b>Tidak ada calon siswa yang belum memiliki kelas.
+                <font size = "2" color ="red"><b>No student candidate who have no class yet.
                 </b></font>
             </td>
         </tr>
@@ -332,12 +332,12 @@ function refresh_daftar() {
     <!--<table border="1" width="100%" id="table" class="tab">-->
     <!-- TABLE CONTENT -->
     <tr align="center" height="30" class="header">    	
-    	<td width="4%">No</td>
-        <td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nopendaftaran','<?=$urutan?>')">No. Pendaftaran <?=change_urut('nopendaftaran',$urut,$urutan)?></td>
-		<td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nisn','<?=$urutan?>')">NISN <?=change_urut('nisn',$urut,$urutan)?></td>
-        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Nama <?=change_urut('nama',$urut,$urutan)?></td>
-        <td width="15%">NIS </td>
-        <td width="10%">Kelas </td>
+    	<td width="4%">#</td>
+        <td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nopendaftaran','<?=$urutan?>')">Registration Number <?=change_urut('nopendaftaran',$urut,$urutan)?></td>
+		<td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nisn','<?=$urutan?>')">National Student ID <?=change_urut('nisn',$urut,$urutan)?></td>
+        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Name <?=change_urut('nama',$urut,$urutan)?></td>
+        <td width="15%">Student ID </td>
+        <td width="10%">Class </td>
         <td width="8%"></td>
     </tr>   
     <?	
@@ -372,7 +372,7 @@ function refresh_daftar() {
         
         <td align="center">
 		<? if ($row['replidsiswa'] == NULL) { ?>
-        <input type="button" name="pindah" id="pindah" value=" > " class="but" onClick="pindah(<?=$row['replid']?>, '<?=$row[nisn]?>')" onmouseover="showhint('Klik untuk menempatkan calon siswa!', this, event, '90px')"/>        
+        <input type="button" name="pindah" id="pindah" value=" > " class="but" onClick="pindah(<?=$row['replid']?>, '<?=$row[nisn]?>')" onmouseover="showhint('Click to place the student candidate', this, event, '90px')"/>        
         <? } ?>
         </td>
 		
@@ -409,20 +409,20 @@ function refresh_daftar() {
     <td>
     <table border="0"width="100%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Hal
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -433,9 +433,9 @@ function refresh_daftar() {
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jml baris per hal
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>

@@ -191,7 +191,7 @@ Version 3.4.9 (2012-02-23)
 	Fixed bug where content css files where loaded twice into the iframe.
 	Fixed so elements with comments would be trated as non empty elements. Patch contributed by Arjan Scherpenisse.
 Version 3.4.8 (2012-02-02)
-	Fixed bug in IE where selected text ending with space cannot be formatted then formatted again to get original text.
+	Fixed bug in IE where selected text ending with space should not be formatted then formatted again to get original text.
 	Fixed bug in IE where images larger than editor area were being deselected when toolbar buttons are clicked.
 	Fixed bug where wrong text align buttons are active when multiple block elements are selected.
 	Fixed bug where selected link not showing in target field of link dialog in some selection cases.
@@ -200,7 +200,7 @@ Version 3.4.8 (2012-02-02)
 	Added API method 'onSetAttrib' that fires when the attribute value on a node changes.
 	Fix font size dropdown value not being updated when text already has a font size in the advanced template.
 	Fixed bug in IE where IE doesn't use ARIA attributes properly on options - causing labels to be read out 2 times.
-	Fixed bug where caret cannot be placed after table if table is at end of document in IE.
+	Fixed bug where caret should not be placed after table if table is at end of document in IE.
 	Fixed bug where adding range isn't always successful so we need to check range count otherwise an exception can occur.
 	Added spacebar onclick handler to toolbar buttons to ensure that the accessibility behaviour works correctly.
 	Fixed bug where a stranded bullet point would get created in WebKit.
@@ -376,7 +376,7 @@ Version 3.4.2 (2011-04-07)
 	Rewritten the fullpage plugin to handle style contents better and have a more normalized behavior across browsers.
 	Fixed bug where contents inserted with mceInsertContent wasn't parsed using the default dom parser.
 	Fixed bug where blocks containing a single anchor element would be treated as empty.
-	Fixed bug where merging of table cells on IE 6, 7 wouldn't look correctly until the contents was refreshed.
+	Fixed bug where merging of table cells on IE 6, 7 wouldn't look correctly to the contents was refreshed.
 	Fixed bug where context menu wouldn't work properly on Safari since it was passing out the ctrl key as pressed.
 	Fixed bug where image border color/style values were overwritten by advimage plugin.
 	Fixed bug where setting border in advimage plugin would throw error in IE.
@@ -424,7 +424,7 @@ Version 3.4.1 (2011-03-24)
 	Fixed bug where some mispelled words could be not highlighted using spellchecker plugin.
 	Fixed bug where spellchecking would merge some words on IE.
 	Fixed bug where spellchecker context menu was not always positioned correctly.
-	Fixed bug with empty anchors list in advlink popup when Invisible Elements feature was disabled.
+	Fixed bug with empty anchors list in advlink popup when Hidden Elements feature was disabled.
 	Fixed bug where older IE versions wouldn't properly handle some elements if they where placed at the top of editor contents.
 	Fixed bug where selecting the whole table would enable table tools for cells and rows.
 	Fixed bug where it wasn't possible to replace selected contents on IE when pasting using the paste plugin.

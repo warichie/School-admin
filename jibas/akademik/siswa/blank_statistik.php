@@ -36,7 +36,7 @@
     <table width="100%" border="0" height="100%">
   	<tr>
 	<td align="center">
-    <font size="2" color="#757575"><b>Klik pada icon <img src="../images/ico/view_x.png" border="0"> di atas untuk menampilkan grafik statistik siswa
+    <font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border="0"> above to show student statistic
     </font> 
     	</td>
   </tr>

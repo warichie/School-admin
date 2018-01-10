@@ -31,10 +31,10 @@
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 <table border="0" width="100%">
 <tr><td align="right">
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pembayaran Pengeluaran</font><br />
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Payment Expenditure</font><br />
     <a href="pengeluaran.php" target="_parent">
-      <font size="1" color="#000000"><b>Pengeluaran</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Pembayaran Pengeluaran</b></font>
+      <font size="1" color="#000000"><b>Expenditure</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Payment Expenditure</b></font>
 </td></tr>
 </table>
 </body>

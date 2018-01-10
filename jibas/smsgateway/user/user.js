@@ -47,7 +47,7 @@ saveUser = function(){
 	var hp  = $("#hp").val();
 	var addr2 = "";
 	if (nip==""){
-		alert("Pegawai harus dipilih !");
+		alert("Pegawai harus dipilih ");
 		$("#nip").focus();
 		return false;
 	}
@@ -55,17 +55,17 @@ saveUser = function(){
 		var password1= $("#password1").val();
 		var password2= $("#password2").val();
 		if (password1==""){
-			alert("Password harus diisi !");
+			alert("Password is required");
 			$("#password1").focus();
 			return false;
 		}
 		if (password2==""){
-			alert("Password (ulangi) harus diisi !");
+			alert("Password (confirm) is required");
 			$("#password2").focus();
 			return false;
 		}
 		if (password1!=password2){
-			alert("Kedua password harus sama!");
+			alert("Both password should match");
 			$("#password2").focus();
 			return false;
 		}
@@ -75,7 +75,7 @@ saveUser = function(){
 $(".btnDel").live('click',function(e){
 	e.preventDefault;
 	var id = $(this).attr('id');
-	if (confirm('Anda yakin akan menghapus data pengguna ini?'))
+	if (confirm('Are you sure want to delete this user data?'))
 		location.href = "userlist.php?cmd=del&id="+id;
 })
 

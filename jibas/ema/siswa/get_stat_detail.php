@@ -69,9 +69,9 @@ $sql = "SELECT s.nis, s.nama, s.replid FROM
 
 <table width="100%" border="1" class="tab" align="left">
   <tr>
-    <td width="25" height="25" align="center" class="header">No.</td>
-    <td height="25" align="center" class="header">NIS</td>
-    <td height="25" align="center" class="header">Nama</td>
+    <td width="25" height="25" align="center" class="header">#</td>
+    <td height="25" align="center" class="header">Student ID</td>
+    <td height="25" align="center" class="header">Name</td>
     <td height="25" align="center" class="header">&nbsp;</td>
   </tr>
   <?

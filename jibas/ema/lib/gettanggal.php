@@ -42,7 +42,7 @@ else
 
 ?>
 <select name="<?=$namatgl?>" id="<?=$namatgl?>" class="cmbfrm" >
-    <option value="">[Tgl]</option>  
+    <option value="">[Date]</option>  
 <? 	for($i=1;$i<=$n;$i++){ ?>      
     <option value="<?=$i?>" <?=IntIsSelected($tgl, $i)?>><?=$i?></option>
 <?	} ?>           

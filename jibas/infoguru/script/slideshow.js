@@ -299,7 +299,7 @@ function slideshow( slideshowname ) {
         this.slides[next].load();
         this.slides[prev].load();
 
-        // Keep going until we have fetched
+        // Keep going to we have fetched
         // the designated number of slides
 
       } while (++count < this.prefetch);
@@ -415,13 +415,13 @@ function slideshow( slideshowname ) {
         slides_copy[i];
 
       // Remove the slide from the sequential array,
-      // so it cannot be chosen again
+      // so it should not be chosen again
       for (i2 = i + 1; i2 < slides_copy.length; i2++) {
         slides_copy[i2 - 1] = slides_copy[i2];
       }
       slides_copy.length--;
 
-      // Keep going until we have removed all the slides
+      // Keep going to we have removed all the slides
 
     } while (slides_copy.length);
 

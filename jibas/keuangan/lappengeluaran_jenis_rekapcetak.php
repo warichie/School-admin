@@ -50,7 +50,7 @@ if (isset($_REQUEST['idtahunbuku']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Rekapitulasi Pengeluaran]</title>
+<title>JIBAS FINANCE [Reports Rekapitulasi Expenditure]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -64,12 +64,12 @@ if (isset($_REQUEST['idtahunbuku']))
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) . " s/d 	" . LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) . " to 	" . LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 
 </table>
@@ -77,9 +77,9 @@ if (isset($_REQUEST['idtahunbuku']))
 
 <table id="table" class="tab" style="border-collapse:collapse" border="1" width="100%" bordercolor="#000000">
 <tr height="30">
-	<td width="10%" class="header" align="center">No</td>
-    <td width="50%" class="header" align="center">Pengeluaran</td>
-    <td width="*" class="header" align="center">Jumlah</td>
+	<td width="10%" class="header" align="center">#</td>
+    <td width="50%" class="header" align="center">Expenditure</td>
+    <td width="*" class="header" align="center">Sum</td>
 </tr>
 <?
 OpenDb();
@@ -103,7 +103,7 @@ while ($row = mysql_fetch_array($result)) {
 CloseDb();
 ?>
 <tr height="30">
-	<td bgcolor="#999900" colspan="2" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+	<td bgcolor="#999900" colspan="2" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
     <td bgcolor="#999900" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font></td>
 </tr>
 </table>

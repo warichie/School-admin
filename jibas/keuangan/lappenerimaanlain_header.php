@@ -111,20 +111,20 @@ function show_laporan() {
 	var idpenerimaan = document.getElementById('idpenerimaan').value;
 	
 	if (idpenerimaan.length == 0) {	
-		alert ('Pastikan penerimaan pembayaran sudah ada!');
+		alert ('Make sure that admission is existed');
 		document.getElementById('idpenerimaan').focus();
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
 	if (idtahunbuku.length == 0) {	
-		alert ('Belum ada Tahun buku yang Aktif di departemen ybs.\nSilakan isi/aktifkan Tahun Buku di menu Referensi!');
+		alert ('No Fiscal Year yang Aktif di departemen ybs.\nSilakan isi/aktifkan Fiscal Year di menu Reference');
 		return false;
 	}
 	var validasi = validateTgl(tgl1,bln1,thn1,tgl2,bln2,thn2);
@@ -205,7 +205,7 @@ function panggil(elem){
     <td width="60%" rowspan="3">
     <table border="0" width = "100%">
     <tr>
-        <td width="15%"><strong>Departemen </strong></font></td>
+        <td width="15%"><strong>Department </strong></font></td>
         <td colspan="4">
         <select name="departemen" id="departemen" onchange="change_dep();" style="width:115px" onKeyPress="return focusNext('idpenerimaan',event)" onfocus="panggil('departemen')">
         <?	$dep = getDepartemen(getAccess());
@@ -239,11 +239,11 @@ function panggil(elem){
         </td>
     </tr>
     <tr>
-        <td><strong>Tanggal </strong></td>
+        <td><strong>Date </strong></td>
         <td width="10">
         	<div id="InfoTgl1"> 
             <select name="tgl1" id = "tgl1" onchange="change_tgl1()" onfocus = "panggil('tgl1')" onKeyPress="return focusNext('bln1',event)" >
-            	<option value="">[Tgl]</option>
+            	<option value="">[Date]</option>
             <? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -260,12 +260,12 @@ function panggil(elem){
             <? for($i = $G_START_YEAR; $i <= $thn1+1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
-            </select> s/d
+            </select> to
        	</td>
        	<td width="10">
          	<div id="InfoTgl2">
             <select name="tgl2" id="tgl2" onchange="change_tgl2()" onfocus = "panggil('tgl2')" onKeyPress="return focusNext('bln2',event)">
-            	<option value="">[Tgl]</option>
+            	<option value="">[Date]</option>
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -288,13 +288,13 @@ function panggil(elem){
     </table>
 	</td>
  	<td rowspan="2" width="*" valign="middle">
-	    <a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" id= "tabel" onmouseover="showhint('Klik untuk menampilkan data laporan penerimaan lainnya!', this, event, '200px')"/></a>
+	    <a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" id= "tabel" onmouseover="showhint('Click to show another admission reports', this, event, '200px')"/></a>
    	</td>
 	<td width="40%" align="right" colspan="2" valign="top">
-	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Penerimaan Lainnya</font><br />
+	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Another Admission Reports</font><br />
     <a href="penerimaan.php" target="_parent">
-      <font size="1" color="#000000"><b>Penerimaan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Penerimaan Lainnya</b></font>
+      <font size="1" color="#000000"><b>Admission</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Another Admission Reports</b></font>
 	</td>
 </tr>
 <tr>	

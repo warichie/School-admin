@@ -1,6 +1,6 @@
 stm_bm(["menu63a3",650,"","blank.gif",0,"","",0,0,162,0,333,1,0,0,"","",0,0,1,1,"default","hand",""],this);
 stm_bp("p0",[0,4,0,0,0,3,0,0,100,"",-2,"",-2,90,0,0,"#7F7F7F","transparent","",3,0,0,"#000000"]);
-stm_ai("p0i0",[0,"     Tema    ","","",-1,-1,0,"","_self","","","","",0,0,0,"","",0,0,0,1,1,"#FFFFFF",1,"#99FFFF",1,"bg_trans.gif","bg_trans.gif",3,3,0,0,"","#000000 #000000 #000000 #000000","#FFFFFF","#FFFF00","bold 9pt Arial","bold 9pt Arial",0,0]);
+stm_ai("p0i0",[0,"     Theme    ","","",-1,-1,0,"","_self","","","","",0,0,0,"","",0,0,0,1,1,"#FFFFFF",1,"#99FFFF",1,"bg_trans.gif","bg_trans.gif",3,3,0,0,"","#000000 #000000 #000000 #000000","#FFFFFF","#FFFF00","bold 9pt Arial","bold 9pt Arial",0,0]);
 stm_bpx("p1","p0",[0,4,-1,0,0,3,0,0,80,"progid:DXImageTransform.Microsoft.Fade(overlap=.5,enabled=0,Duration=0.43)",-2,"",-2,67,0,0,"#7F7F7F","#FFFFFF"]);
 stm_aix("p1i0","p0i0",[0,"Green        ","","",-1,-1,0,"javascript:chg_thm(1);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#99FF00",0,"","",3,3,0,0,"#FFFFFF #666699 #FFFFFF #666699","#666699 #FFFFFF #666699 #FFFFFF","#999999","#000000","9pt Arial","9pt Arial"]);
 stm_aix("p1i1","p1i0",[0,"Pink           ","","",-1,-1,0,"javascript:chg_thm(2);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#FF99FF"]);

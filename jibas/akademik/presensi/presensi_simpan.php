@@ -104,7 +104,7 @@ if ($success) {
 	CommitTrans();?>
 
 <script language="javascript">
-	alert ('Data telah tersimpan');
+	alert ('Data saved successfully');
 	parent.footer.location.href = "blank_presensi.php";
 </script> 
 <?   
@@ -112,7 +112,7 @@ if ($success) {
 	RollbackTrans();
 ?>
 <script language="javascript">
-	alert ('Data gagal disimpan');
+	alert ('Failed to save data');
 </script>
 <? }
 CloseDb();?>

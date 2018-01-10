@@ -31,7 +31,7 @@ $jenis=$_REQUEST['jenis'];
 $departemen=$_REQUEST['departemen'];
 $cari=$_REQUEST['cari'];
 
-$tipe = array("nopendaftaran" => "No. Pendaftaran", "nisn" => "NISN", "nama" => "Nama","panggilan" => "Nama Panggilan", "agama" =>"Agama", "suku" => "Suku", "status" => "Status", "kondisi"=>"Kondisi Siswa", "darah"=>"Golongan Darah", "alamatsiswa" => "Alamat Siswa", "asalsekolah" => "Asal Sekolah", "namaayah" => "Nama Ayah", "namaibu" => "Nama Ibu", "alamatortu" => "Alamat Orang Tua", "keterangan" => "Keterangan");
+$tipe = array("nopendaftaran" => "Registration Number", "nisn" => "National Student ID", "nama" => "Name","panggilan" => "Nickname", "agama" =>"Religion", "suku" => "Ethnicity", "status" => "Status", "kondisi"=>"Student Conditions", "darah"=>"Blood Type", "alamatsiswa" => "Student Address", "asalsekolah" => "Past School", "namaayah" => "Father Name", "namaibu" => "Mother Name", "alamatortu" => "Parent Address", "keterangan" => "Info");
 
 $urut = $_REQUEST['urut'];
 $urutan = $_REQUEST['urutan'];
@@ -45,7 +45,7 @@ $total = $_REQUEST['total'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Pencarian Calon Siswa]</title>
+<title>JIBAS SIMAKA [Print Search Student Candidate]</title>
 </head>
 
 <body>
@@ -55,25 +55,25 @@ $total = $_REQUEST['total'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>PENCARIAN DATA CALON SISWA</strong></font><br />
+  <font size="4"><strong>SEARCH STUDENT CANDIDATE DATA</strong></font><br />
  </center><br /><br />
 <br />
 <table>
 <tr>
-	<td><strong>Departemen :&nbsp;<?=$departemen?></strong></td>
+	<td><strong>Department :&nbsp;<?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td>Pencarian berdasarkan <strong><?=$tipe[$jenis]?></strong> dengan keyword <strong><?=$cari?></strong></td>
+	<td>Search by <strong><?=$tipe[$jenis]?></strong> within keywords <strong><?=$cari?></strong></td>
 </table>
 <br />
 </span>
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="20%" class="header" align="center">Kelompok</td>
-        <td width="18%" class="header" align="center">No. Pendaftaran</td>
-		<td width="18%" class="header" align="center">NISN</td>
-		<td width="*" class="header" align="center">Nama Calon Siswa</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="20%" class="header" align="center">Group</td>
+        <td width="18%" class="header" align="center">Registration Number</td>
+		<td width="18%" class="header" align="center">National Student ID</td>
+		<td width="*" class="header" align="center">Student Candidate Name</td>
         
     </tr>
 <? 	OpenDb();
@@ -103,7 +103,7 @@ $total = $_REQUEST['total'];
 	CloseDb() ?>	
     </table>
 <!--<tr>
-    <td align="right">Halaman <strong><?=$page+1?></strong> dari <strong><?=$total?></strong> halaman</td>
+    <td align="right">Page <strong><?=$page+1?></strong> from <strong><?=$total?></strong> halaman</td>
 </tr>-->
 <!-- END TABLE CENTER -->    
 </table>

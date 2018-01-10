@@ -24,7 +24,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style.css" />
 <script language="javascript">
 function ShowStat() {
@@ -39,20 +39,20 @@ function ShowStat() {
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 	<td width="60%" align="left">
-    	Statistik Jumlah Pegawai berdasarkan 
+    	Amount of Employee Statistic based on 
         <select name="cbStatistik" id="cbStatistik" onchange="JavaScript:ShowStat()">
-        	<option value="1">Satuan Kerja</option>
-            <option value="2">Pendidikan Sekolah</option>
-            <option value="3">Golongan</option>
-            <option value="4">Usia</option>
-            <option value="6">Jenis Kelamin Per SatKer</option>
-            <option value="7">Status Perkawinan Per SatKer</option>
+        	<option value="1">Work Unit</option>
+            <option value="2">Educational Background</option>
+            <option value="3">Level</option>
+            <option value="4">Age</option>
+            <option value="6">Gender Per Work Unit</option>
+            <option value="7">Marital Status Per Work Unit</option>
         </select>
     </td>
     <td width="40%" align="right">
 	    <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Statistik Kepegawaian</font><br />
-        <a href="pegawai.php" target="_parent">Kepegawaian</a> &gt; Statistik Kepegawaian
+        <font class="subtitle">Employee Affair Statistic</font><br />
+        <a href="pegawai.php" target="_parent">Employee Affair</a> &gt; Employee Affair Statistic
     </td>
 </tr>
 </table>

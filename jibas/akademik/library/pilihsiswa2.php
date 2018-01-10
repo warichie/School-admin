@@ -47,7 +47,7 @@ if(isset($_REQUEST[tahun_ajaran])){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Plih Siswa</title>
+<title>Select Student</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" href="../style/style.css" type="text/css">
 
@@ -58,13 +58,13 @@ var test;
 	test2 = document.main.cr_nama.value;
 	
 	if(test.length == 0 && test2.length == 0){
-		alert("NIS atau nama harus dimasukkan");
+		alert("Student ID or Name is required");
 		document.main.cr_nis.focus();
 		return false;
 		}
 		
 		if(test.length < 3 && test2.length < 3){
-		alert("NIS atau nama harus minimal 3 karakter");
+		alert("Student ID or Name should be minimum 3 characters");
 		document.main.cr_nis.focus();
 		return false;
 		}
@@ -78,7 +78,7 @@ function tekan() {
 	var rno = document.main.selected.value;
 	//alert(rno);
 	if (rno.length == 0) {
-			alert('Anda belum menentukan Siswa!');
+			alert('You have not specified the Student yet');
 			return false;
 		}
 	eval("nis = document.main.nis" + rno + ".value;");
@@ -125,15 +125,15 @@ openDB();
 <input type="hidden" name="selected">
 <table>
   <tr>
-		<td height="30" background="../style/formbg2.gif" onMouseOver="background='../style/formbg2agreen.gif'" onMouseOut="background='../style/formbg2.gif'"><a href="carisiswa2.php" class="headerlink style2">Cari Siswa</a></td>
-		<td height="30" background="../style/formbg2agreen.gif" onMouseOver="background='../style/formbg2agreen.gif'" onMouseOut="background='../style/formbg2agreen.gif'"><span class="style1">Pilih Siswa</span></td>
+		<td height="30" background="../style/formbg2.gif" onMouseOver="background='../style/formbg2agreen.gif'" onMouseOut="background='../style/formbg2.gif'"><a href="carisiswa2.php" class="headerlink style2">Search Student</a></td>
+		<td height="30" background="../style/formbg2agreen.gif" onMouseOver="background='../style/formbg2agreen.gif'" onMouseOut="background='../style/formbg2agreen.gif'"><span class="style1">Select Student</span></td>
 	</tr>
 </table>
-  <fieldset><legend><b>Pilih Siswa Berdasarkan</b></legend>
+  <fieldset><legend><b>Select Student based on</b></legend>
 			<!--  BEGIN TABLE FORM -->
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" >
 			  <tr>
-				<td>Departemen</td>
+				<td>Department</td>
 				<td colspan="2">
 				<select name="departemen" onChange="change_sel()" style="width:100px ">
 				<?
@@ -163,12 +163,12 @@ openDB();
 			$rep = $row_thn[replid];
 				?>
 				</select></td>
-            <td>Tahun Ajaran</td>
+            <td>Year</td>
              <td><input type="text" name="tahun_ajaran" value="<?=$row_thn[tahunajaran] ?>" readonly size="25">
            </td>
 			  </tr>
 			  <tr>
-			  	<td>Tingkat</td>
+			  	<td>Grade</td>
 				<td colspan="2">
 					<select name="tingkat" onChange="change_sel2();" style="width:100px ">
 					<?
@@ -194,7 +194,7 @@ openDB();
 					</select>	
 
 				</td>
-				<td>Kelas</td>
+				<td>Class</td>
 				<td><select name="kelas" style="width:100px ">
 				<?
 				$query_kls = "SELECT * FROM jbsakad.kelas WHERE kelas.departemen = '$departemen' ".
@@ -215,11 +215,11 @@ openDB();
 				?>
 				</select></td>
 				<td>
-				<input type="submit" name="cari" value="Cari" class="but">
+				<input type="submit" name="cari" value="Search" class="but">
 				</td>
 			  </tr>
 			  
-			   <tr >
+			   <tr>
 				 <td colspan="10" class="titlemenu">&nbsp;</td>
 			   </tr>
 			</table>
@@ -241,14 +241,14 @@ if ((isset($_POST["cari"]))){
 			  <td>
 			 	<table border='0' width='100%'>
 					<tr>
-						<td class='header' align='center'>NIS</td>
-						<td class='header'>Nama</td>
+						<td class='header' align='center'>Student ID</td>
+						<td class='header'>Name</td>
 	<?
 	$jml_data = @mysql_num_rows($result_sis);
 	
 	if($jml_data == "0"){
 		echo "<tr>
-				<td colspan='3' align='center' class='style4' bgcolor='#B3C0D0'>Data Siswa Tidak Ada</td>
+				<td colspan='3' align='center' class='style4' bgcolor='#B3C0D0'>Data Not Found.</td>
 			 </tr>";
 			 
 	}else{
@@ -270,7 +270,7 @@ if ((isset($_POST["cari"]))){
 	?>
 	<tr>
 		<td colspan='3' align="right" class="header">
-		<input type='button' class='but' value='Pilih >>' name='pilih' onclick='tekan()'></td>
+		<input type='button' class='but' value='Select >>' name='pilih' onclick='tekan()'></td>
 		</form>
 		</tr>
 	</table>

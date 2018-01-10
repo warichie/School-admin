@@ -46,7 +46,7 @@ $fullpath = str_replace($rootname, "", $dirfullpath);
 $cek = 0;
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
-	echo "Masuk";
+	echo "Login";
 			$bln=date(m);
 			if (strLen($bln)<2){
 			$bln="0".$bln;
@@ -85,7 +85,7 @@ if (isset($_REQUEST['Simpan'])) {
 <link rel="stylesheet" type="text/css" href="../../style/style.css">
 <link rel="stylesheet" type="text/css" href="../../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Tambah File]</title>
+<title>JIBAS TEACHERS INFO [Add File]</title>
 <script language="JavaScript" src="../../script/tooltips.js"></script>
 
 <script language="javascript" src="../../script/tables.js"></script>
@@ -95,7 +95,7 @@ if (isset($_REQUEST['Simpan'])) {
 function validate(){
 var f = document.getElementById("file").value;
 if (f.length==0){
-	alert ("Anda harus mengisikan file yang hendak di Upload !");
+	alert ("Upload File is required");
 	return false;
 }
 return true;
@@ -113,10 +113,10 @@ return true;
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td colspan="2" align="center" class="header">Tambah File</td>
+<td colspan="2" align="center" class="header">Add File</td>
 </tr>
 <tr>
-  <td width="12%" align="left" bgcolor="#CCCCCC"><strong>Folder&nbsp;Tujuan&nbsp;:&nbsp;</strong></td>
+  <td width="12%" align="left" bgcolor="#CCCCCC"><strong>Folder&nbsp;Destination&nbsp;:&nbsp;</strong></td>
   <td width="88%" align="center" bgcolor="#CCCCCC">
     <div align="left">&nbsp;<strong>(root)/<?=$fullpath?></strong></div></td>
 </tr>
@@ -131,14 +131,14 @@ return true;
     </div></td>
 </tr>
 <tr>
-  <td colspan="2" align="left" bgcolor="#CCCCCC"><div align="center"><span class="style1">Ukuran file maksimal yang dapat di-Upload adalah 
+  <td colspan="2" align="left" bgcolor="#CCCCCC"><div align="center"><span class="style1">Max upload file size is 
     <?=$max_uploaded_file_size?>
   </span></div></td>
   </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -150,7 +150,7 @@ return true;
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 <? if ($cek == 1) { ?>
 <script language="javascript">

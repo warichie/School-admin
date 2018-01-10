@@ -42,19 +42,19 @@ if (isset($_REQUEST[tglAwal]))
 if (isset($_REQUEST[tglAkhir]))
 	$tglAkhir = $_REQUEST[tglAkhir];
 if ($kriteria=='all' || $kriteria==''){
-	$title = "<tr><td>Berdasarkan&nbsp;:&nbsp;Semua&nbsp;Peminjaman</td></tr>";
+	$title = "<tr><td>Based on&nbsp;:&nbsp;All&nbsp;Borrows</td></tr>";
 } elseif ($kriteria=='tglpinjam') {
-	$title = "<tr><td width='20'>Berdasarkan</td><td>&nbsp;:&nbsp;Tanggal Peminjaman</td></tr>";
-	$title.= "<tr><td width='20'>Periode</td><td>&nbsp;:&nbsp;$tglAwal s.d. $tglAkhir</td></tr>";
+	$title = "<tr><td width='20'>Sort by</td><td>&nbsp;:&nbsp;Date Borrowed</td></tr>";
+	$title.= "<tr><td width='20'>Period</td><td>&nbsp;:&nbsp;$tglAwal to $tglAkhir</td></tr>";
 } elseif ($kriteria=='tglkembali') {
-	$title = "<tr><td width='20'>Berdasarkan</td><td>&nbsp;:&nbsp;Tanggal Kembali</td></tr>";
-	$title.= "<tr><td width='20'>Periode</td><td>&nbsp;:&nbsp;$tglAwal s.d. $tglAkhir</td></tr>";
+	$title = "<tr><td width='20'>Sort by</td><td>&nbsp;:&nbsp;Return</td></tr>";
+	$title.= "<tr><td width='20'>Period</td><td>&nbsp;:&nbsp;$tglAwal to $tglAkhir</td></tr>";
 } elseif ($kriteria=='nip') {
-	$title = "<tr><td width='20'>Berdasarkan</td><td>&nbsp;:&nbsp;NIP Pegawai</td></tr>";
-	$title.= "<tr><td width='20'>Pegawai</td><td>&nbsp;:&nbsp;$noanggota - $nama</td></tr>";
+	$title = "<tr><td width='20'>Sort by</td><td>&nbsp;:&nbsp;Employee ID</td></tr>";
+	$title.= "<tr><td width='20'>Employee</td><td>&nbsp;:&nbsp;$noanggota - $nama</td></tr>";
 } elseif ($kriteria=='nis') {
-	$title = "<tr><td width='20'>Berdasarkan</td><td>&nbsp;:&nbsp;NIS Siswa</td></tr>";
-	$title.= "<tr><td width='20'>Siswa</td><td>&nbsp;:&nbsp;$noanggota - $nama</td></tr>";
+	$title = "<tr><td width='20'>Sort by</td><td>&nbsp;:&nbsp;Student ID</td></tr>";
+	$title.= "<tr><td width='20'>Student</td><td>&nbsp;:&nbsp;$noanggota - $nama</td></tr>";
 }
 
 ?>
@@ -63,7 +63,7 @@ if ($kriteria=='all' || $kriteria==''){
 <head>
 <link rel="stylesheet" type="text/css" href="../../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SimTaka [Cetak Daftar Peminjaman]</title>
+<title>JIBAS SimTaka [Print Borrowing List]</title>
 </head>
 
 <body>
@@ -72,7 +72,7 @@ if ($kriteria=='all' || $kriteria==''){
 
 <?=GetHeader('alls')?>
 
-<center><font size="4"><strong>DATA PEMINJAMAN</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>BORROWING DATA</strong></font><br /> </center><br /><br />
 
 <br />
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:verdana; font-size:12px">
@@ -97,12 +97,12 @@ if ($kriteria=='all' || $kriteria==''){
 		<link href="../../sty/style.css" rel="stylesheet" type="text/css">
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td height="30" align="center" class="header"> Anggota</td>
-            <td height="30" align="center" class="header">Kode Pustaka</td>
-            <td height="30" align="center" class="header">Tgl Pinjam</td>
-            <td height="30" align="center" class="header">Jadwal Kembali</td>
-            <td height="30" align="center" class="header">Keterangan</td>
-		    <td align="center" class="header">Telat(<em>hari</em>)</td>
+            <td height="30" align="center" class="header"> Member</td>
+            <td height="30" align="center" class="header">Library Code</td>
+            <td height="30" align="center" class="header">Date Borrowed</td>
+            <td height="30" align="center" class="header">Return</td>
+            <td height="30" align="center" class="header">Info</td>
+		    <td align="center" class="header">Late(<em>days</em>)</td>
           </tr>
           <?
 		  if ($num>0){
@@ -129,7 +129,7 @@ if ($kriteria=='all' || $kriteria==''){
 							//return $sql3;
 							$NamaAnggota = $row3[nama];
 						} else {
-							$NamaAnggota = "Tanpa Nama";
+							$NamaAnggota = "No name.";
 						}
 					}
 				}
@@ -143,13 +143,13 @@ if ($kriteria=='all' || $kriteria==''){
 			  $img = '<img src="../../img/ico/Valid.png" width="16" height="16" title='.$alt.' />';
 			  if ($row[tglkembali]<=$now) {
 			  	if ($row[tglkembali]==$now) {
-					$alt = 'Hari&nbsp;ini&nbsp;batas&nbsp;pengembalian&nbsp;terakhir';
+					$alt = 'Today&nbsp;is&nbsp;the&nbsp;last&nbsp;day&nbsp;for&nbsp;returning';
 					$color='#cb6e01';
 					$weight='font-weight:bold';
 					$telat='';
 				} elseif ($row[tglkembali]<$now){
 					$diff = @mysql_fetch_row(QueryDb("SELECT DATEDIFF('".$now."','".$row[tglkembali]."')"));
-					$alt = 'Terlambat&nbsp;'.$diff[0].'&nbsp;hari';
+					$alt = 'Late&nbsp;'.$diff[0].'&nbsp;days';
 					$color='red';
 					$weight='font-weight:bold';
 					$telat=$diff[0];
@@ -170,7 +170,7 @@ if ($kriteria=='all' || $kriteria==''){
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="6" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="6" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

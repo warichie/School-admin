@@ -67,7 +67,7 @@ if (isset($_REQUEST['tglakhir']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Statistik Harian Kehadiran Setiap Siswa</title>
+<title>Daily Presence Statistic for each Students</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -107,17 +107,17 @@ function cetak() {
         <!-- TABLE LINK -->
         <tr>
             <td align="right"> 	
-            <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-            <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
+            <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+            <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
             </td>
         </tr>
         </table>
         <br />
         <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">	
     	<tr height="30" align="center">		
-			<td width="5%" class="header">No</td>
-		  	<td width="10%" class="header">N I S</td>
-            <td width="15%" class="header">Nama</td>
+			<td width="5%" class="header">#</td>
+		  	<td width="10%" class="header">Student ID</td>
+            <td width="15%" class="header">Name</td>
             <td width="*" class="header"></td>
 		</tr>
 		<? 
@@ -145,7 +145,7 @@ function cetak() {
 	 <table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="250">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />Tambah data presensi kelas di menu Presensi Harian atau <br />Presensi Pelajaran pada bagian Presensi.</b></font>
+    	<font size = "2" color ="red"><b>Data Not Found. <br />Add class presence data in the Daily Presence menu or <br />Class Presence on Presence section.</b></font>
 		</td>
 	</tr>
 	</table>

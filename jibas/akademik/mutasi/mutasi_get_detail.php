@@ -48,11 +48,11 @@ function tampil(replid) {
 </script-->
 <table width="95%" border="1" class="tab" id="table" align="center">
   <tr>
-    <td class="header" height="30">No.</td>
-    <td class="header" height="30">NIS</td>
-    <td class="header" height="30">Nama</td>
-    <td class="header" height="30">Tgl Mutasi</td>
-    <td class="header" height="30">Keterangan</td>
+    <td class="header" height="30">#</td>
+    <td class="header" height="30">Student ID</td>
+    <td class="header" height="30">Name</td>
+    <td class="header" height="30">Mutation Date</td>
+    <td class="header" height="30">Info</td>
     <td class="header" height="30">&nbsp;</td>
   </tr>
   <?

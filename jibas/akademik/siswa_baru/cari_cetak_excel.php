@@ -36,11 +36,11 @@ $departemen=$_REQUEST['departemen'];
 $cari=$_REQUEST['cari'];
 
 switch($jenis) {
-	case 'nopendaftaran': $namajenis = 'No Pendaftaran';
+	case 'nopendaftaran': $namajenis = 'Registration Number';
 		break;
-	case 'kelompok' 	: $namajenis = 'Kelompok'; 
+	case 'kelompok' 	: $namajenis = 'Group'; 
 		break;
-	case 'nama'			: $namajenis = 'Nama Calon Siswa';
+	case 'nama'			: $namajenis = 'Student Candidate Name';
 		break;
 }
 $urut= $_REQUEST[urut];
@@ -57,7 +57,7 @@ if (@mysql_num_rows($result)<>0){
 ?>
 <html>
 <head>
-<title>Pencarian Data Calon Siswa
+<title>Search Student Candidate Data
 </title>
 <style type="text/css">
 <!--
@@ -72,16 +72,16 @@ if (@mysql_num_rows($result)<>0){
     <td>
     <table width="100%" border="0">
   <tr>
-    <td colspan="4"><div align="center">Data Calon Siswa</div></td>
+    <td colspan="4"><div align="center">Student Candidate Data</div></td>
     </tr>
   <tr>
     <td colspan="2">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="4"><strong>Departemen :&nbsp;<?=$departemen?></strong></td>
+    <td colspan="4"><strong>Department :&nbsp;<?=$departemen?></strong></td>
   </tr>
   <tr>
-    <td colspan="4">Pencarian berdasarkan <strong><?=$namajenis?></strong> dengan keyword <strong><?=$cari?></strong></td>
+    <td colspan="4">Search by <strong><?=$namajenis?></strong> within keywords <strong><?=$cari?></strong></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -93,11 +93,11 @@ if (@mysql_num_rows($result)<>0){
   <tr>
     <td><table border="1">
 <tr height="30">
-<td width="1" valign="middle" bgcolor="#666666"><div align="center" class="style1">No.</div></td>
-<td width="20" valign="middle" bgcolor="#666666"><div align="center" class="style1">No. Pendaftaran</div></td>
-<td width="20" valign="middle" bgcolor="#666666"><div align="center" class="style1">NISN</div></td>
-<td valign="middle" bgcolor="#666666"><div align="center" class="style1">Nama Calon Siswa</div></td>
-<td width="20" valign="middle" bgcolor="#666666"><div align="center" class="style1">Kelompok</div></td>
+<td width="1" valign="middle" bgcolor="#666666"><div align="center" class="style1">#</div></td>
+<td width="20" valign="middle" bgcolor="#666666"><div align="center" class="style1">Registration Number</div></td>
+<td width="20" valign="middle" bgcolor="#666666"><div align="center" class="style1">National Student ID</div></td>
+<td valign="middle" bgcolor="#666666"><div align="center" class="style1">Student Candidate Name</div></td>
+<td width="20" valign="middle" bgcolor="#666666"><div align="center" class="style1">Group</div></td>
 <td width="10" valign="middle" bgcolor="#666666"><div align="center" class="style1">Status</div></td>
 </tr>
 <?
@@ -112,9 +112,9 @@ if (@mysql_num_rows($result)<>0){
         <td><?=$row['kelompok'] ?></td>
         <td align="center">
 		<?	if ($row['aktif']==1){
-				echo "Aktif";
+				echo "Active";
 			} elseif ($row['aktif']==0){
-				echo "Tidak Aktif ";
+				echo "Inactive";
 			}
 		?>	
         </td> 

@@ -71,21 +71,21 @@ $namatingkat = $row['tingkat'];
   <tr>
     <td><table width="100%" border="0">
   <tr>
-    <td width="8%">Departemen</td>
+    <td width="8%">Department</td>
     <td width="27%">:&nbsp;<?=$departemen?></td>
-    <td width="6%">Pelajaran</td>
+    <td width="6%">Class Subject</td>
     <td width="59%">:&nbsp;<?=$namapel?></td>
   </tr>
   <tr>
     <td>Semester</td>
     <td>:&nbsp;<?=$namasemester?></td>
-    <td>Ujian</td>
+    <td>Exam</td>
     <td>:&nbsp;<?=$jenisujian?></td>
   </tr>
   <tr>
-    <td>Tingkat</td>
+    <td>Grade</td>
     <td>:&nbsp;<?=$namatingkat?></td>
-    <td>RPP</td>
+    <td>Lesson Plans</td>
     <td>:&nbsp;<?=$materi?></td>
   </tr>
   <tr>
@@ -95,7 +95,7 @@ $namatingkat = $row['tingkat'];
 		$sql1 = "SELECT k.kelas, round(SUM(nilaiujian)/(COUNT(DISTINCT u.replid)*COUNT(DISTINCT s.nis)),2) FROM nilaiujian n, siswa s, ujian u, jenisujian j, kelas k, tahunajaran a WHERE n.idujian = u.replid AND u.idsemester = '$semester' AND u.idkelas = k.replid AND u.idjenis = '$ujian' AND u.idrpp = '$rpp' AND u.idpelajaran = '$pelajaran' AND s.nis = n.nis AND u.idjenis = j.replid AND s.idkelas = k.replid AND s.aktif = 1 AND k.idtingkat = '$tingkat' AND k.aktif = 1 AND k.idtahunajaran = a.replid AND a.aktif = 1 GROUP BY k.replid ORDER BY k.kelas, u.tanggal, s.nama";
        
 		$result1 = QueryDb($sql1);		
-		$data_title = "<font size='4'>Statistik Rata-rata Nilai Ujian Kelas per RPP</font>"; // title for the diagram
+		$data_title = "<font size='4'>Class Exam Index Statistic by Lesson Plans</font>"; // title for the diagram
 
         // sample data array
         //$data = array();
@@ -106,8 +106,8 @@ $namatingkat = $row['tingkat'];
 			$data[] = array($row1[1]);
 			//$data[] = $row1[1];
         }
-		$legend_y = array('Rata');
-		//$legend_y = 'Rata';
+		$legend_y = array('Average');
+		//$legend_y = 'Average';
 				
         $graph = new CAsBarDiagram;
         $graph->bwidth = 10; // set one bar width, pixels

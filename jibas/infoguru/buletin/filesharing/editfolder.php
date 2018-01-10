@@ -64,14 +64,14 @@ function deldir($dir){
   rmdir(${dir});
 }
 function my_dir_copy($oldname, $newname){
- echo "masuk $oldname, $newname<br>";
+ echo "enter $oldname, $newname<br>";
  if(!is_dir($newname)){
     $makefolder = mkdir($newname, 0644);
 	
 	if ($makefolder)
-		echo "Bisa`".$newname."`<br>";
+		echo "Success`".$newname."`<br>";
 	else
-		echo "gagal `".$newname."`<br>";
+		echo "Failed `".$newname."`<br>";
 	
 	chmod($newname, 0777);
 	//echo "Bikin folder baru `".$newname."`<br>";
@@ -258,7 +258,7 @@ if (isset($_REQUEST['Simpan'])) {
 <link rel="stylesheet" type="text/css" href="../../style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="../../script/SpryAssets/SpryValidationTextField.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Tambah Folder]</title>
+<title>JIBAS TEACHERS INFO [Add Folder]</title>
 <script language="JavaScript" src="../../script/tooltips.js"></script>
 <script language="javascript" src="../../script/tables.js"></script>
 <script language="javascript" src="../../script/tools.js"></script>
@@ -268,7 +268,7 @@ if (isset($_REQUEST['Simpan'])) {
 function validate(){
 var folder=document.getElementById('folder').value;
 if (folder.length==0){
-	alert ('Anda harus mengisikan nama untuk Folder!');
+	alert ('You should enter a name for Folder');
 	document.getElementById('folder').focus();	
 	return false;
 	}
@@ -298,7 +298,7 @@ function kopikecopy(){
 <table border="0" width="95%" cellspacing="0" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td height="25" colspan="2" class="header"><div align="center">Ubah Folder</div></td>
+<td height="25" colspan="2" class="header"><div align="center">Edit Folder</div></td>
 </tr>
 <tr>
   <td width="6%" align="right"><div align="left"><strong>Folder&nbsp;:&nbsp;</strong></div></td>
@@ -307,8 +307,8 @@ function kopikecopy(){
 </tr>
 <tr>
 	<td colspan="2" align="center" bgcolor="#CCCCCC">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -320,7 +320,7 @@ function kopikecopy(){
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 </body>
 </html>
 <script language="javascript">

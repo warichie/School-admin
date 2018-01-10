@@ -119,7 +119,7 @@ $row = mysql_fetch_array($result);
 
 <html>
 <head>
-<title>JIBAS SIMAKA [Cetak Jadwal Kelas]</title>
+<title>JIBAS SIMAKA [Print Class Schedule]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <style>
 	.jadwal {
@@ -148,39 +148,39 @@ $row = mysql_fetch_array($result);
 <tr><td align="left" valign="top">
   	<?=getHeader($departemen)?>
 <center>
-  <font size="4"><strong>JADWAL KELAS</strong></font><br />
+  <font size="4"><strong>CLASS SCHEDULE</strong></font><br />
  </center><br /><br />
 
 <br />
 <table>
 <tr>
-	<td><strong>Departemen</strong></td>
+	<td><strong>Department</strong></td>
     <td><strong>: <?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelas</strong></td>
+	<td><strong>Class</strong></td>
     <td><strong>: <?=$row['kelas'] ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Info Jadwal</strong></td>
+	<td><strong>Schedule Info</strong></td>
     <td><strong>: <?=$row['deskripsi']?></strong></td>
 </tr>
 </table>
 <br>
 <table border="1" width="100%" id="table" class="tab" align="center" style="border-collapse:collapse">
 <tr height="30">
-    <td width="110px" class="header" align="center">Jam</td>
-    <td width="95px" class="header" align="center">Senin</td>
-    <td width="95px" class="header" align="center">Selasa</td>
-    <td width="95px" class="header" align="center">Rabu</td>
-    <td width="95px" class="header" align="center">Kamis</td>
-    <td width="95px" class="header" align="center">Jumat</td>
-    <td width="95px" class="header" align="center">Sabtu</td>
-    <td width="95px" class="header" align="center">Minggu</td>
+    <td width="110px" class="header" align="center">Time</td>
+    <td width="95px" class="header" align="center">Monday</td>
+    <td width="95px" class="header" align="center">Tuesday</td>
+    <td width="95px" class="header" align="center">Wednesday</td>
+    <td width="95px" class="header" align="center">Thursday</td>
+    <td width="95px" class="header" align="center">Friday</td>
+    <td width="95px" class="header" align="center">Saturday</td>
+    <td width="95px" class="header" align="center">Sunday</td>
 </tr>
 <?
 

@@ -166,7 +166,7 @@ if ($_REQUEST["op"]  == "dw984j5hx3vbdc")
 		CommitTrans(); 
 		CloseDb(); ?>
 		<script language="JavaScript">
-            alert ('Data telah dihapus');
+            alert ('Data has been deleted');
             document.location.href="penentuan_content.php?departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&semester=<?=$semester?>&nip=<?=$nip?>&tahun=<?=$tahun?>&aspek=<?=urlencode($aspek)?>&aspekket=<?=urlencode($aspekket)?>";
         </script>
 <?		exit();
@@ -176,14 +176,14 @@ if ($_REQUEST["op"]  == "dw984j5hx3vbdc")
 		RollbackTrans(); 
 		CloseDb(); ?>
 		<script language="JavaScript">
-            alert ('Gagal menghapus data!');
+            alert ('Failed to delete data');
             document.location.href="penentuan_content.php?departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&semester=<?=$semester?>&nip=<?=$nip?>&tahun=<?=$tahun?>&aspek=<?=urlencode($aspek)?>&aspekket=<?=urlencode($aspekket)?>";
         </script>
 <?		exit();
 	}
 }
 
-//cek keberadaan nap dan idinfo
+//cek keberadaan nap and idinfo
 $idinfo = 0;
 $nap_ada = 0;
 $nilaimin = "";
@@ -205,7 +205,7 @@ if (mysql_num_rows($res) > 0)
 	$nap_ada = $row[0];
 }
 
-// Hitung jumlah bobot dan banyaknya aturan
+// Hitung jumlah bobot and banyaknya aturan
 $sql = "SELECT SUM(bobot) as bobotPK, COUNT(a.replid) 
 		  FROM jbsakad.aturannhb a, kelas k 
 		 WHERE a.nipguru = '$nip' AND a.idtingkat = k.idtingkat AND k.replid = '$kelas' 
@@ -243,7 +243,7 @@ while ($row = @mysql_fetch_array($res))
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Perhitungan Rapor [Content]</title>
+<title>Report Card Calculation [Subject Matter]</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -262,7 +262,7 @@ function cek()
 	
 	if (nilaimin.length == 0)
 	{
-		alert ('Anda harus memasukan Nilai Kriteria Ketuntasan Minimal');
+		alert ('You must enter Minimum Completeness Point');
 		document.getElementById("nilaimin").focus();
 		return false;
 	} 
@@ -270,13 +270,13 @@ function cek()
 	{	
 		if (isNaN(nilaimin))
 		{
-			alert ('Nilai KKM harus berupa bilangan!');			
+			alert ('Minimum Completeness Point must be numeric');			
 			document.getElementById("nilaimin").focus();
 			return false;
 		}
 		if (parseInt(nilaimin) > 100)
 		{
-			alert ('Rentang nilai KKM harus di antara 0 s/d 100!');
+			alert ('Minimum Completeness Point range must be between 0 to 100');
 			document.getElementById("nilaimin").focus();
 			return false;
 		}
@@ -291,7 +291,7 @@ function cek()
 //		var gpk = document.getElementById("G_PK_"+counter).value;
 //		var p = document.getElementById("P_"+counter).value;
 //		var gp = document.getElementById("G_P_"+counter).value;
-//		//alert ('NIS='+nis+' ,Nil PK='+pk+' ,Grade PK='+gpk+' ,Nil P='+p+' ,Grade P='+gp);
+//		//alert ('Student ID='+nis+' ,Nil PK='+pk+' ,Grade PK='+gpk+' ,Nil P='+p+' ,Grade P='+gp);
 //		counter++;
 //	}
 	return true;
@@ -299,13 +299,13 @@ function cek()
 
 function hapus(replid)
 {
-	if (confirm('Anda yakin akan menghapus data nilai dan komentar siswa di kelas ini?'))
+	if (confirm('Are you sure want to delete Point data and Student Comments of the class?'))
 		document.location.href="penentuan_content.php?op=dw984j5hx3vbdc&replid="+replid+"&pelajaran=<?=$pelajaran?>&departemen=<?=$departemen?>&kelas=<?=$kelas?>&nip=<?=$nip?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahun=<?=$tahun?>&aspek=<?=urlencode($aspek)?>&aspekket=<?=urlencode($aspekket)?>";
 }
 
 function recount()
 {
-	if (confirm('Anda yakin akan menghitung ulang nilai rapor siswa di kelas ini?'))
+	if (confirm('Are you sure want to re-calculate student index reports of the class?'))
 		document.location.href="penentuan_content.php?op=b91c61e239xn8e3b61ce1&pelajaran=<?=$pelajaran?>&departemen=<?=$departemen?>&kelas=<?=$kelas?>&nip=<?=$nip?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahun=<?=$tahun?>&aspek=<?=urlencode($aspek)?>&aspekket=<?=urlencode($aspekket)?>";
 }
 
@@ -393,15 +393,15 @@ function panggil(elem, total)
     <table width="100%" border="0" height="100%">
 	 <tr>
     <td align="left" width="60%">
-    <strong>Nilai Kriteria Ketuntasan Minimal (KKM): </strong>
+    <strong>Minimum Completeness Point (Minimum Completeness Criteria): </strong>
     <input type="text" name="nilaimin" id="nilaimin" value="<?=$nilaimin?>" size="7" maxlength="5" />
     </td>
     <td align="right" width="40%">
          <a href="#" style="cursor:pointer" onClick="document.location.reload()">
-         	<img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh
+         	<img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh
          </a>&nbsp;&nbsp;
          <a href="JavaScript:cetak_excel()">
-         	<img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Cetak dalam format Excel!', this, event, '80px')"/>&nbsp;Cetak Excel
+         	<img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Excel', this, event, '80px')"/>&nbsp;Excel
          </a>
     </td>
     </tr>
@@ -409,11 +409,11 @@ function panggil(elem, total)
     <br />    
 	<table width="100%" border="1" class="tab" id="table" bordercolor="#000000">  
   	<tr align="center">
-    	<td height="30" class="headerlong" width="4%" rowspan="2">No</td>
-        <td height="30" class="headerlong" width="10%" rowspan="2">N I S</td>
-        <td height="30" class="headerlong" width="*" rowspan="2">Nama</td>    	    
-        <td height="15" colspan="<?=(int)$jum_PK?>" class="headerlong">Nilai Akhir</td>
-		<td height="15" colspan="2" class="headerlong" width="13%"><span class="style1">Nilai <?=$aspekket?></span></td>
+    	<td height="30" class="headerlong" width="4%" rowspan="2">#</td>
+        <td height="30" class="headerlong" width="10%" rowspan="2">Student ID</td>
+        <td height="30" class="headerlong" width="*" rowspan="2">Name</td>    	    
+        <td height="15" colspan="<?=(int)$jum_PK?>" class="headerlong">Grade Point</td>
+		<td height="15" colspan="2" class="headerlong" width="13%"><span class="style1"><?=$aspekket?> Points</span></td>
     </tr>
     <tr height="15" class="header" align="center">
 	<?	$i = 0;
@@ -424,8 +424,8 @@ function panggil(elem, total)
             	<span class="style1"><?= $row_PK['jenisujian']." (".$row_PK['bobot'].")" ?></span>
             </td>
     <?	} ?>
-		<td align="center" class="headerlong"><span class="style1">Angka</span></td>
-        <td align="center" class="headerlong"><span class="style1">Huruf</span></td>
+		<td align="center" class="headerlong"><span class="style1">Number</span></td>
+        <td align="center" class="headerlong"><span class="style1">Letter</span></td>
 	</tr>
 <?	//Mulai perulangan siswa
 	$sql = "SELECT replid, nis, nama 
@@ -440,7 +440,7 @@ function panggil(elem, total)
   	<tr height="25">
     	<td align="center"><?=$cnt?></td>
     	<td align="center">
-        	<a href="#" onMouseOver="showhint('Lihat Detail Siswa', this, event, '80px')" 
+        	<a href="#" onMouseOver="showhint('See Student Details', this, event, '80px')" 
                onClick="detail(<?=$row_siswa['replid']?>)"><?=$row_siswa['nis']?>
             </a>
         </td>
@@ -477,7 +477,7 @@ function panggil(elem, total)
 		
 		if ($nilaiangka_pemkonsep == 0) 
 		{		
-			//Belum ada data nilai di database
+			//No points data di database
 			$jumlah = 0;
 			foreach ($ujian as $value) 
 			{		
@@ -502,11 +502,11 @@ function panggil(elem, total)
 	<?	} 
 		else 
 		{ 
-			//Ada data nilai di database
+			//Ada points data di database
 			$nilakhirpk = $row_get_nap_pemkonsep[1];
 			$warna = "";
 			if ($nilakhirpk < $row_get_nap_pemkonsep[2])
-				$warna = "onMouseOver=\"showhint('Nilai di bawah nilai standar kelulusan', this, event, '100px')\" class='text_merah'";	?>
+				$warna = "onMouseOver=\"showhint('The Point is below Standard Graduation Point', this, event, '100px')\" class='text_merah'";	?>
                 
 				<input <?=$dis_text?> type="text" name="PK_<?=$cnt?>" id="PK_<?=$cnt?>" value="<?=$nilakhirpk?>" 
                  size="4" <?=$warna?> maxlength="5" onKeyPress="return focusNext('G_PK_<?=$cnt?>',event)" onFocus="panggil('PK_<?=$cnt?>',<?=$total?>)">
@@ -559,11 +559,11 @@ function panggil(elem, total)
 	<?		if ($nap_ada > 0)
 			{	?>
 				
-				<input <?=$dis?> class="but" type="submit" value="Ubah" name="Simpan" id="simpan" />&nbsp;&nbsp;
-			    <input <?=$dis?> class="but" type="button" value="Hitung Ulang Angka & Huruf" name="Recount" id="Recount" onClick="recount()"/>    <? 		} 
+				<input <?=$dis?> class="but" type="submit" value="Edit" name="Simpan" id="simpan" />&nbsp;&nbsp;
+			    <input <?=$dis?> class="but" type="button" value="Re-calculate Number and Letter" name="Recount" id="Recount" onClick="recount()"/>    <? 		} 
 			else 
 			{ ?>
-				<input <?=$dis?> class="but" type="submit" value="Simpan" name="Simpan" id="simpan"/>
+				<input <?=$dis?> class="but" type="submit" value="Save" name="Simpan" id="simpan"/>
 	<? 		} ?>
         </td>
 	</tr>

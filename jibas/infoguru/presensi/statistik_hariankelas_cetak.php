@@ -45,7 +45,7 @@ $row = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Cetak Statistik Kehadiran Harian Setiap Kelas]</title>
+<title>JIBAS TEACHERS INFO [Print Daily Presence Statistic for each Classes]</title>
 </head>
 
 <body>
@@ -56,15 +56,15 @@ $row = mysql_fetch_array($result);
 <?=getHeader($row[departemen])?>
 	
 <center>
-  <font size="4"><strong>STATISTIK KEHADIRAN HARIAN SETIAP SISWA</strong></font><br />
+  <font size="4"><strong>DAILY PRESENCE STATISTIC FOR EACH STUDENTS</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td width="25%"><strong>Departemen</strong></td>
+	<td width="25%"><strong>Department</strong></td>
     <td><strong>: <?=$row['departemen']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 <tr>
@@ -72,12 +72,12 @@ $row = mysql_fetch_array($result);
     <td><strong>: <?=$row['semester']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
     <td><strong>: <?=$row['tingkat'] ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Periode Presensi</strong></td>
-    <td><strong>: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></strong></td>
+	<td><strong>Period</strong></td>
+    <td><strong>: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -90,8 +90,8 @@ $row = mysql_fetch_array($result);
 ?>
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
    	<tr height="30" align="center">
-    	<td width="5%" class="header">No</td>
-		<td width="10%" class="header">Kelas</td>
+    	<td width="5%" class="header">#</td>
+		<td width="10%" class="header">Class</td>
         <td width="*" class="header"></td>
     </tr>
 <?		

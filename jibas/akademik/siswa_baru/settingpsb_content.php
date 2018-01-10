@@ -107,7 +107,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Konfigurasi Pendataan PSB</title>
+<title>Student Candidate Admission Data Collection Configurations</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -115,7 +115,7 @@ CloseDb();
 <script language="javascript">
 function validate()
 {
-	return confirm("Simpan data?");
+	return confirm("Do you want to save the data?");
 }
 
 </script>
@@ -138,48 +138,48 @@ function validate()
     <input type="hidden" name="proses" id="proses" value="<?=$proses ?>" />
     <table border="1" cellpadding="2" cellspacing="0" align="left" width="50%" class="tab">
     <tr height="30">
-        <td align="left" width="30%" class="header">Jenis</td>
-        <td align="center" width="20%" class="header">Kode</td>
-        <td align="left" width="*" class="header">Nama</td>
+        <td align="left" width="30%" class="header">Type</td>
+        <td align="center" width="20%" class="header">Code</td>
+        <td align="left" width="*" class="header">Name</td>
     </tr>
     <tr>
-    	<td align="left">Sumbangan #1</td>
+    	<td align="left">Contribution #1</td>
         <td align="center"><input type="text" id="kdsum1" value="<?= $kdsum1 ?>" name="kdsum1" size="5" maxlength="5" /></td>
         <td align="left"><input type="text" id="nmsum1" value="<?= $nmsum1 ?>" name="nmsum1" size="30" maxlength="50" /></td>
     </tr>
     <tr>
-    	<td align="left">Sumbangan #2</td>
+    	<td align="left">Contribution #2</td>
         <td align="center"><input type="text" id="kdsum2" value="<?= $kdsum2 ?>" name="kdsum2" size="5" maxlength="5" /></td>
         <td align="left"><input type="text" id="nmsum2" value="<?= $nmsum2 ?>" name="nmsum2" size="30" maxlength="50" /></td>
     </tr>
     <tr>
-    	<td align="left">Ujian #1</td>
+    	<td align="left">Exam #1</td>
         <td align="center"><input type="text" id="kdujian1" value="<?= $kdujian1 ?>" name="kdujian1" size="5" maxlength="5" /></td>
         <td align="left"><input type="text" id="nmujian1" value="<?= $nmujian1 ?>" name="nmujian1" size="30" maxlength="50" /></td>
     </tr>
     <tr>
-    	<td align="left">Ujian #2</td>
+    	<td align="left">Exam #2</td>
         <td align="center"><input type="text" id="kdujian2" value="<?= $kdujian2 ?>" name="kdujian2" size="5" maxlength="5" /></td>
         <td align="left"><input type="text" id="nmujian2" value="<?= $nmujian2 ?>" name="nmujian2" size="30" maxlength="50" /></td>
     </tr>
     <tr>
-    	<td align="left">Ujian #3</td>
+    	<td align="left">Exam #3</td>
         <td align="center"><input type="text" id="kdujian3" value="<?= $kdujian3 ?>" name="kdujian3" size="5" maxlength="5" /></td>
         <td align="left"><input type="text" id="nmujian3" value="<?= $nmujian3 ?>" name="nmujian3" size="30" maxlength="50" /></td>
     </tr>
     <tr>
-    	<td align="left">Ujian #4</td>
+    	<td align="left">Exam #4</td>
         <td align="center"><input type="text" id="kdujian4" value="<?= $kdujian4 ?>" name="kdujian4" size="5" maxlength="5" /></td>
         <td align="left"><input type="text" id="nmujian4" value="<?= $nmujian4 ?>" name="nmujian4" size="30" maxlength="50" /></td>
     </tr>
     <tr>
-    	<td align="left">Ujian #5</td>
+    	<td align="left">Exam #5</td>
         <td align="center"><input type="text" id="kdujian5" value="<?= $kdujian5 ?>" name="kdujian5" size="5" maxlength="5" /></td>
         <td align="left"><input type="text" id="nmujian5" value="<?= $nmujian5 ?>" name="nmujian5" size="30" maxlength="50" /></td>
     </tr>
     <tr>
         <td colspan="3" align="center" style="background-color:#CCC">
-        <input type="submit" class="but" name="Simpan" id="Simpan" value="Simpan" />
+        <input type="submit" class="but" name="Simpan" id="Simpan" value="Save" />
         </td>
     </tr>
     </table>

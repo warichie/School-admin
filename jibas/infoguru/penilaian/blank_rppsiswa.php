@@ -28,7 +28,7 @@
 <table border="0" width="100%" height="100%">
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_rppsiswa.png"
-    style="background-repeat:no-repeat;"><strong><font color="#757575" size="2">Klik pada icon <img src="../images/ico/view_x.png" width="32" height="32">di atas untuk menampilkan Nilai Rata-rata Ujian RPP setiap siswa sesuai dengan Kelas dan Pelajaran yang terpilih</font></strong>           </td>
+    style="background-repeat:no-repeat;"><strong><font color="#757575" size="2">Click on <img src="../images/ico/view_x.png" width="32" height="32"> icon above to show Lesson Plans Exam Index for each students according to Class and Class Subject entered.</font></strong>           </td>
 </tr>
 </table>
 </body>

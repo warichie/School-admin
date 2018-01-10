@@ -56,7 +56,7 @@ elseif ($sender=="ubah")
 	$bulan=$_REQUEST['bulan'];
 	$tahun=$_REQUEST['tahun'];
 	
-	//KAlo dari ubah berita guru================================================================================================================================
+	//KAlo from ubah berita guru================================================================================================================================
 	$judul=CQ($_REQUEST['judul']);
 	$tgl=explode("-",$_REQUEST['tanggal']);
 	$tanggal=$tgl[2]."-".$tgl[1]."-".$tgl[0];

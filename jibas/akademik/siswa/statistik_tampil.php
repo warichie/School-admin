@@ -46,39 +46,39 @@ if (isset($_REQUEST['urutan']))
 
 
 if ($iddasar==""){
-	if ($dasar == 'Golongan Darah') {
-		if ($judul == 'Tidak ada data'){ 
+	if ($dasar == 'Blood Type') {
+		if ($judul == 'No data.'){ 
 			$filter = "s.$tabel = '' AND s.aktif = 1";
 		} else {
 			$filter = "s.$tabel = '$judul' AND s.aktif = 1";
 		}
-	} elseif ($dasar == 'Jenis Kelamin' ) {	
-		if ($judul == 'Laki-laki') 
+	} elseif ($dasar == 'Gender' ) {	
+		if ($judul == 'Male') 
 			$filter = "s.$tabel = 'l' AND s.aktif = 1";		
 		else 
 			$filter = "s.$tabel = 'p' AND s.aktif = 1";		
-	/*} elseif ($dasar == 'Penghasilan Orang Tua' ) {	
-		$judul = array(1 => '< Rp 1000000','Rp 1000000 s/d Rp 2500000','Rp 2500000 s/d Rp 5000000','> Rp 5000000');		
+	/*} elseif ($dasar == 'Parent Income' ) {	
+		$judul = array(1 => '< Rp 1000000','Rp 1000000 to Rp 2500000','Rp 2500000 to Rp 5000000','> Rp 5000000');		
 		if ($judul == '< Rp 1000000') 
 			$filter = "s.$tabel < 1000000 AND s.aktif = 1";		
-		elseif ($judul == 'Rp 1000000 s/d Rp 2500000') 
+		elseif ($judul == 'Rp 1000000 to Rp 2500000') 
 			$filter = "1000000 < s.$tabel < 2500000 AND s.aktif = 1";		
-		elseif ($judul == 'Rp 2500000 s/d Rp 5000000') 
+		elseif ($judul == 'Rp 2500000 to Rp 5000000') 
 			$filter = "2500000 < s.$tabel < 5000000 AND s.aktif = 1";
 		else 
 			$filter = "s.$tabel > 5000000 AND s.aktif = 1";	*/			
-	} elseif ($dasar == 'Status Aktif') {
-		if ($judul == 'Aktif') 
+	} elseif ($dasar == 'Status Active') {
+		if ($judul == 'Active') 
 			$filter = "s.$tabel = 1 ";
 		else 
 			$filter = "s.$tabel = 0 ";			
-	} elseif ($dasar == 'Tahun Kelahiran') {
+	} elseif ($dasar == 'Year of Birth') {
 		$filter = "YEAR(tgllahir) = $judul AND s.aktif = 1 ";
-	} elseif ($dasar == 'Usia') {
+	} elseif ($dasar == 'Age') {
 		$filter =  "YEAR(now()) - YEAR(tgllahir) = $judul AND s.aktif = 1"; 	
 	} elseif ($judul == NULL) {
 		$filter = "s.$tabel is NULL AND s.aktif = 1";
-		$judul = "Tidak ada data";
+		$judul = "No data.";
 	} else {
 		$filter = "s.$tabel = '$judul' AND s.aktif = 1";
 	}
@@ -124,7 +124,7 @@ if ($iddasar==""){
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tampil Statistik</title>
+<title>Statistic Display</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="JavaScript" src="../script/tooltips.js"></script>
@@ -150,18 +150,18 @@ function change_urut(urut,urutan) {
 	//echo $sql;
 ?>
 <!--<a href="#" onclick="newWindow('statistik_cetak_excel.php?idangkatan=<?=$idangkatan?>&departemen=<?=$departemen?>&dasar=<?=$dasar?>&tabel=<?=$tabel?>&judul=<?=$judul?>&iddasar=<?=$iddasar?>&keyword=<?=$keyword?>','CetakExcel',100,100,'');">-->
-<a href="#" onclick="newWindow('statistik_cetak_excel.php?sql=<?=$sql?>&departemen=<?=$departemen?>&dasar=<?=$dasar?>&judul=<?=$judul?>&idangkatan=<?=$idangkatan?>','CetakExcel',100,100,'');"><img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Cetak dalam format Excel!', this, event, '80px')"/>&nbsp;Cetak Excel</a></div>
+<a href="#" onclick="newWindow('statistik_cetak_excel.php?sql=<?=$sql?>&departemen=<?=$departemen?>&dasar=<?=$dasar?>&judul=<?=$judul?>&idangkatan=<?=$idangkatan?>','CetakExcel',100,100,'');"><img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Excel', this, event, '80px')"/>&nbsp;Excel</a></div>
 <br />
 <table width="100%" border="1" class="tab" id="table" align="center" bordercolor="#000000">
 	<tr height="30" class="header" align="center">
-  		<td width="5%" >No</td>
-     	<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>')">N I S <?=change_urut('s.nis',$urut,$urutan)?></td>
-    	<td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>')">Nama <?=change_urut('s.nama',$urut,$urutan)?></td>
-    	<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('k.kelas','<?=$urutan?>')">Kelas <?=change_urut('k.kelas',$urut,$urutan)?></td>
+  		<td width="5%" >#</td>
+     	<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>')">Student ID <?=change_urut('s.nis',$urut,$urutan)?></td>
+    	<td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>')">Name <?=change_urut('s.nama',$urut,$urutan)?></td>
+    	<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('k.kelas','<?=$urutan?>')">Class <?=change_urut('k.kelas',$urut,$urutan)?></td>
         <td width="8%">&nbsp;</td>
 	</tr> 
 	<?  if (@mysql_num_rows($result1)<1) { ?> 
-					<td colspan="5" align="center"><strong>Tidak Ada Data</strong></td>
+					<td colspan="5" align="center"><strong>Data Not Found.</strong></td>
 					 
   	<? } else{
 	
@@ -171,7 +171,7 @@ function change_urut(urut,urutan) {
      	<td align="center"><?=$row1[0] ?></td>
     	<td><?=$row1[1] ?></td>
     	<td align="center"><?=$row1[5]?><br /><?=$row1[6]." - ".$row1[3] ?></td>
-        <td ><div align="center"><a href="#" onclick="newWindow('../library/detail_siswa.php?replid=<?=$row1[4]?>','DetailSiswa',790,610,'resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/lihat.png" width="16" height="16" border="0" onMouseOver="showhint('Detail Data Siswa!', this, event, '80px')"/></a></div></td>
+        <td><div align="center"><a href="#" onclick="newWindow('../library/detail_siswa.php?replid=<?=$row1[4]?>','DetailSiswa',790,610,'resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/lihat.png" width="16" height="16" border="0" onMouseOver="showhint('Student Data Details', this, event, '80px')"/></a></div></td>
    </tr>
 		<? }
     }

@@ -80,7 +80,7 @@ function BlinkText2(x,Current){
 <body style="background-color:#6a6a6a" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" >
 <table id="Table_01" width="100%"  border="0" cellpadding="0" cellspacing="0">
 	<tr>
-		<td >
+		<td>
 			<img src="images/Keuangan2_19.png" width="25" height="10" alt=""></td>
 		<td height="10" colspan="2" background="images/Keuangan2_20.png">		</td>
   <td width="1%">
@@ -95,7 +95,7 @@ function BlinkText2(x,Current){
         <span style="color:#FFFF00; font-family:Verdana; font-size:12px; padding-bottom:2px">
 		<?
 		if ($_SESSION['namakeuangan']=="landlord"){
-		echo  "Administrator JIBAS [Keuangan]";
+		echo  "Administrator JIBAS [Finance]";
 		} else {
 		echo  $_SESSION['namakeuangan'];
 		}

@@ -53,7 +53,7 @@ class Kritik{
 			echo '</head>';
 			echo '<body>';
 			echo '<div id="SubTitle" align="right">';
-			echo '<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Pesan,Kritik dan Saran</span>';
+			echo '<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Message and Feedback</span>';
 			echo '</div>';
 		}
 		switch($cmd){
@@ -90,7 +90,7 @@ class Kritik{
 			<div align='left' style='border-bottom:1px dashed #919191; padding-bottom:5px; margin-bottom:5px'>
 			<table border="0" cellspacing="0" cellpadding="2">
 			  <tr>
-				<td>Bulan :</td>
+				<td>Month :</td>
 				<td>
 					<select class="Cmb filter" id='month'>
 						<?php
@@ -115,12 +115,12 @@ class Kritik{
 				</td>
 			  </tr>
 			  <tr>
-				<td>Jenis :</td>
+				<td>Type :</td>
 				<td>
 					<select class="Cmb filter" id='jenis'>
-						<option value='pesan'>Pesan</option>
-						<option value='kritik'>Kritik</option>
-						<option value='saran'>Saran</option>
+						<option value='pesan'>Message</option>
+						<option value='kritik'>Critics</option>
+						<option value='saran'>Feedback</option>
 					</select>
 				</td>
 			  </tr>
@@ -163,9 +163,9 @@ class Kritik{
 	public function showList(){
 		ob_start();
 			if (count($this->sms)==0){
-				echo "<div class='ui-state-highlight' align='center' id='nodata' style='display:block'>Tidak ada $this->jenis</div>";
+				echo "<div class='ui-state-highlight' align='center' id='nodata' style='display:block'>No $this->jenis</div>";
 			} else {
-				echo "<div class='ui-state-highlight' align='center' id='nodata' style='display:none'>Tidak ada $this->jenis</div>";
+				echo "<div class='ui-state-highlight' align='center' id='nodata' style='display:none'>No $this->jenis</div>";
 				?>
 				<table cellspacing="0" cellpadding="0" border="1" width="100%" class="tab" id='tableInbox'>
 				<?php
@@ -195,8 +195,8 @@ class Kritik{
 	
 	public function getRowHeader(){
 		return "<tr height='20' class='Header'>
-			<td width='250'>Pengirim</td>
-					<td width='150'>Tanggal</td>
+			<td width='250'>Sender</td>
+					<td width='150'>Date</td>
                     <td width='*'>".ucfirst(strtolower($this->jenis))."</td>
                     <td width='50'>&nbsp;</td>
 			</tr>";
@@ -211,7 +211,7 @@ class Kritik{
 				<td align='center'>
 				<img src='../images/ico/lihat.png' alt='Lihat' style='cursor:pointer' class='btnView' id='_ID_'>";
 		if ($_SESSION['tingkat']!='2')
-		$tmp .= "<img src='../images/ico/hapus.png' alt='Hapus' style='cursor:pointer' class='btnDel' id='_ID_'>";
+		$tmp .= "<img src='../images/ico/hapus.png' alt='Delete' style='cursor:pointer' class='btnDel' id='_ID_'>";
 
 		$tmp .= "</td>
 				</tr>";
@@ -268,7 +268,7 @@ class Kritik{
 			$nama  = $rowph[0];
 			?>
 			<div style="font-family:Arial; color:#666666; font-weight:bold">
-				Tanggal : 	
+				Date : 	
 			</div>
 			<div style="padding-left:10px">
 				<?php echo $data[3] ?>
@@ -280,7 +280,7 @@ class Kritik{
 				<?php echo $data[1] ?> &lt;<?php echo $nama ?>&gt;
 			</div>
 			<div style="font-family:Arial; color:#666666; font-weight:bold; border-top:1px dashed #999999; margin-top:5px">
-				Pesan : 	
+				Message : 	
 			</div>
 			<div style="padding-left:10px">
 				<?php echo $data[2] ?>

@@ -36,7 +36,7 @@
     <table width="100%" border="0" height="100%">
   	<tr>
   		<td align="center">
-<font size="2" color="#757575"><b>Klik pada <i>hyperlink</i> "Tabel Data Pengeluaran" di panel kiri untuk melihat Laporan Pengeluaran</b></font>
+<font size="2" color="#757575"><b>Click on <i>hyperlink</i> "Tabel Data Expenditure" on the left panel to show Expenditure Reports</b></font>
 </td>
   </tr>
 </table>

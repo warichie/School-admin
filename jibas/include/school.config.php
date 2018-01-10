@@ -22,14 +22,14 @@
  **[N]**/ ?>
 <?
 /*
-   Konfigurasi Untuk Logo dan Judul di Halaman Muka
-   Ukuran logo 60x60 pixel. Menggunakan format PNG atau GIF dengan latar belakang transparan
+   Konfigurasi Untuk Logo and Title di Page Muka
+   Ukuran logo 60x60 pixel. Menggunakan format PNG or GIF dengan latar belakang transparan
    Simpan Gambar Logo di direktori images
    Jika tidak menggunakan logo, masukkan nama gambar nologo.png
 */
 $G_LOGO_DEPAN_KIRI="tutwuri.png"; // nama file gambarnya, jika tidak ada gunakan nama file nologo.png
 $G_LOGO_DEPAN_KANAN="tutwuri.png";
-$G_JUDUL_DEPAN_1="SEKOLAH PENDIDIKAN INDONESIA";
-$G_JUDUL_DEPAN_2="YAYASAN PENDIDIKAN INDONESIA";
-$G_JUDUL_DEPAN_3="(atur kembali logo dan identitas sekolah di file school.config.php <br> untuk lebih jelasnya silahkan baca file readme.txt)";
+$G_JUDUL_DEPAN_1="INDONESIA EDUCATION SCHOOL";
+$G_JUDUL_DEPAN_2="INDONESIA EDUCATION FOUNDATION";
+$G_JUDUL_DEPAN_3="(reconfig logo and school identity in school.config.php <br> for more information please read readme.txt)";
 ?>

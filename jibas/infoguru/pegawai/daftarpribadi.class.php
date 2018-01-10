@@ -129,7 +129,7 @@ class DaftarPribadi
     	$result = QueryDb($sql);
         if (mysql_num_rows($result) > 0)
         {
-    		$this->ERRMSG = "Telah ada pegawai dengan NIP $nip";
+    		$this->ERRMSG = "There is an employee with Employee ID $nip";
         }
         else
         {
@@ -173,7 +173,7 @@ class DaftarPribadi
 			}
 			else
 			{
-				$this->ERRMSG = "Gagal menyimpan data!";
+				$this->ERRMSG = "Failed to save data";
 				RollbackTrans();
 			}
 	    }

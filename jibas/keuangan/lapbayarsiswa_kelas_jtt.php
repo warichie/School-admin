@@ -73,7 +73,7 @@ if (isset($_REQUEST['urutan']))
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Pembayaran Siswa Per Kelas</title>
+<title>Student Payment Reports by Classes</title>
 <script language="javascript" src="script/tooltips.js"></script>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
@@ -144,7 +144,7 @@ if (mysql_num_rows($res) == 0)
 	CloseDb();
 	
 	echo "<script>";
-	echo "alert ('Belum ada Tahun buku yang Aktif di departemen ".$departemen.". Silakan isi/aktifkan Tahun Buku di menu Referensi!');";
+	echo "alert ('No Active Fiscal Year on department ".$departemen.". Please fill/activated Fiscal Year in Reference menu');";
 	echo "</script>";
 	
 	exit();
@@ -152,7 +152,7 @@ if (mysql_num_rows($res) == 0)
 $row = mysql_fetch_row($res);
 $idtahunbuku = $row[0];
 
-// -- Dapatkan banyaknya pembayaran yang telah terjadi untuk pembayaran terpilih di kelas terpilih ----
+// -- Dapatkan banyaknya pembayaran yang telah terjadi untuk pembayaran selected di kelas selected ----
 if ($statuslunas == -1) 
 {
 	// status belum lunas
@@ -169,7 +169,7 @@ if ($statuslunas == -1)
 	{ 
 		if ($idkelas == -1) 
 		{			
-			// semua kelas di tingkat terpilih
+			// semua kelas di tingkat selected
 			$sql = "SELECT MAX(jumlah), COUNT(nis) 
 			        FROM ((SELECT b.nis AS nis, COUNT(p.replid) AS jumlah 
 							 FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k 
@@ -178,7 +178,7 @@ if ($statuslunas == -1)
 		} 
 		else 
 		{
-			// tingkat & kelas terpilih
+			// tingkat & kelas selected
 			$sql = "SELECT MAX(jumlah), COUNT(nis) 
 			        FROM ((SELECT b.nis AS nis, COUNT(p.replid) AS jumlah 
 					         FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s 
@@ -202,7 +202,7 @@ else
 	{
 		if ($idkelas == -1) 
 		{
-			// semua kelas di tingkat terpilih						
+			// semua kelas di tingkat selected						
 			$sql = "SELECT MAX(jumlah), COUNT(nis) 
 					  FROM ((SELECT b.nis AS nis, COUNT(p.replid) AS jumlah 
 						 	  FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k 
@@ -211,7 +211,7 @@ else
 		} 
 		else 
 		{
-			// tingkat & kelas terpilih
+			// tingkat & kelas selected
 			$sql = "SELECT MAX(jumlah), COUNT(nis) 
 					  FROM ((SELECT b.nis AS nis, COUNT(p.replid) AS jumlah 
 							  FROM penerimaanjtt p RIGHT JOIN  besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s 
@@ -258,18 +258,18 @@ if ($max_n_cicilan > 0 || $ndata > 0)
     <table width="100%" border="0" align="center">
     <tr>
     	<td valign="bottom">
-    <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
-    <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka dengan Microsoft Excel!', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;    	</td>
+    <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
+    <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka dengan Microsoft Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;    	</td>
 	</tr>
 	</table>
 	<br />
 	<table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width?>" align="left" bordercolor="#000000">
         <tr height="30" align="center" class="header">
-        <td width="30">No</td>
-        <td width="80" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nis','<?=$urutan?>')">N I S  <?=change_urut('nis',$urut,$urutan)?></td>
-        <td width="140" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Nama  <?=change_urut('nama',$urut,$urutan)?></td>
-        <td width="75" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kelas','<?=$urutan?>')">Kls <?=change_urut('kelas',$urut,$urutan)?></td>
+        <td width="30">#</td>
+        <td width="80" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nis','<?=$urutan?>')">Student ID  <?=change_urut('nis',$urut,$urutan)?></td>
+        <td width="140" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Name  <?=change_urut('nama',$urut,$urutan)?></td>
+        <td width="75" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kelas','<?=$urutan?>')">Class <?=change_urut('kelas',$urut,$urutan)?></td>
         <? 	for($i = 0; $i < $max_n_cicilan; $i++)
 			{ 
                 $n = $i + 1; ?>
@@ -277,10 +277,10 @@ if ($max_n_cicilan > 0 || $ndata > 0)
         <?  } ?>
         <td width="90" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('lunas','<?=$urutan?>')">Status  <?=change_urut('lunas',$urut,$urutan)?></td>
         <td width="125" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('besar','<?=$urutan?>')"><?=$namapenerimaan ?> <?=change_urut('besar',$urut,$urutan)?></td>
-        <td width="125">Total Besar Pembayaran</td>
-		<td width="125">Total Diskon</td>
-        <td width="125">Total Tunggakan</td>
-        <td class="header" width="200">Keterangan</td>
+        <td width="125">Total Payment</td>
+		<td width="125">Total Discount</td>
+        <td width="125">Total Late Payment</td>
+        <td class="header" width="200">Info</td>
 	</tr>
 
 <?
@@ -314,7 +314,7 @@ if ($statuslunas == -1)
 	{
 		if ($idkelas == -1) 
 		{
-			// semua kelas di tingkat terpilih
+			// semua kelas di tingkat selected
 			$sql_sum_biaya = "SELECT SUM(b.besar) AS TotalBiaya
 							  FROM besarjtt b, jbsakad.siswa s, jbsakad.kelas k, jbsakad.tingkat t 
 							 WHERE b.info2 = '$idtahunbuku' AND s.nis = b.nis AND b.idpenerimaan = $idpenerimaan AND s.idangkatan = $idangkatan 
@@ -338,7 +338,7 @@ if ($statuslunas == -1)
 		} 
 		else 
 		{
-			// tingkat & kelas terpilih
+			// tingkat & kelas selected
 			$sql_sum_biaya = "SELECT SUM(b.besar) AS TotalBiaya 
 							  FROM besarjtt b, jbsakad.siswa s, jbsakad.kelas k
 							 WHERE b.info2 = '$idtahunbuku' AND s.nis = b.nis AND b.idpenerimaan = $idpenerimaan AND s.idkelas = $idkelas 
@@ -459,11 +459,11 @@ while ($row = mysql_fetch_array($result))
 	$lunasjtt = $row['lunas'];
 	
 	if ($lunasjtt == 1)
-		$infojtt = "<font color=blue><strong>Lunas</strong></font>";
+		$infojtt = "<font color=blue><strong>Paid Off</strong></font>";
 	elseif ($lunasjtt == 2)
-		$infojtt = "<font color=green><strong>Gratis</strong></font>";
+		$infojtt = "<font color=green><strong>Free</strong></font>";
 	else	
-		$infojtt = "<font color=red><strong>Belum Lunas</strong></font>"; ?>
+		$infojtt = "<font color=red><strong>No Paid Off Yet</strong></font>"; ?>
 		
     <tr height="40">
         <td align="center"><?=++$cnt ?></td>
@@ -529,7 +529,7 @@ if ($total - 1 == $page)
 	$totalDiskonAll = $row[1];
 ?>    
     <tr height="40">
-        <td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+        <td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalBiayaAll) ?></strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalBayarAll) ?></strong></font></td>
 		<td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalDiskonAll) ?></strong></font></td>
@@ -566,18 +566,18 @@ if ($total - 1 == $page)
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left" colspan="2">Halaman
-		<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+       	<td width="30%" align="left" colspan="2">Page
+		<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-		<input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
-	  	dari <?=$total?> halaman, <?=$ndata?> data
+		<input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
+	  	from <?=$total?> pages, <?=$ndata?> data
 	     
  		</td>
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -590,8 +590,8 @@ if ($total - 1 == $page)
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="250">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
-        <br />Tambah data pembayaran pada 
+    	<font size = "2" color ="red"><b>Data Not Found.
+        <br />Add payment data on 
 		<? 	if ($idtingkat <> -1) {	
 				if ($idkelas <> -1) 
                     echo  "kelas ".$namakelas; 
@@ -600,7 +600,7 @@ if ($total - 1 == $page)
 			} else {
 				echo  "departemen ".$departemen;
 			}	
-		?> dan kategori <?=$namapenerimaan?> di menu Penerimaan Pembayaran pada bagian Penerimaan.
+		?> and category <?=$namapenerimaan?> in the Admission Payment on Admission section.
         
         </b></font>
 	</td>

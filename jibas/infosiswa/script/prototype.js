@@ -37,7 +37,7 @@ if (Prototype.Browser.MobileSafari)
   Prototype.BrowserFeatures.SpecificElementExtensions = false;
 
 
-/* Based on Alex Arnell's inheritance implementation. */
+/* based on Alex Arnell's inheritance implementation. */
 var Class = {
   create: function() {
     var parent = null, properties = $A(arguments);

@@ -34,7 +34,7 @@ require_once('library/openthinksas.jibas.php');
 if (getLevel() == 2) 
 { ?>
 <script language="javascript"> 
-	alert('Maaf, anda tidak berhak mengakses halaman ini!'); 
+	alert('Maaf, anda tidak berhak mengakses halaman ini'); 
 	window.history.go(-1);
 </script>
 <? 	exit();
@@ -53,7 +53,7 @@ if (isset($_REQUEST['lanjut']))
 	if ($n == 0)
 	{
 		CloseDb(); 
-		$errmsg = "Belum ada tahun buku untuk departemen $dept!<br>Tentukan terlebih dahulu tahun buku awal di menu Tahun Buku";
+		$errmsg = "No tahun buku untuk departemen $dept!<br>Tentukan terlebih dahulu tahun buku awal di menu Fiscal Year";
 	}
 	else
 	{
@@ -66,26 +66,26 @@ if (isset($_REQUEST['lanjut']))
 		$sql = "SELECT SUM(jd.debet - jd.kredit) 
 				FROM jurnal j, jurnaldetail jd, rekakun ra 
 				WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = $idtahunbuku 
-					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('HARTA', 'PIUTANG', 'INVENTARIS')";
+					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('WEALTH', 'DEBT', 'INVESTMENT')";
 		$aktiva = (float)FetchSingle($sql);
 		
 		$sql = "SELECT SUM(jd.kredit - jd.debet) 
 				FROM jurnal j, jurnaldetail jd, rekakun ra 
 				WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = $idtahunbuku 
-					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('UTANG', 'PENDAPATAN', 'MODAL')";
+					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('UTANG', 'INCOME', 'CAPITAL')";
 		$pasiva = (float)FetchSingle($sql);
 		
 		$sql = "SELECT SUM(jd.debet - jd.kredit) 
 				FROM rekakun ra, jurnal j, jurnaldetail jd 
 				WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = $idtahunbuku 
-					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'BIAYA'";
+					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'COST'";
 		$pasiva = $pasiva - (float)FetchSingle($sql);
 		
 		CloseDb();
 		
 		if ($aktiva != $pasiva)
 		{
-			$errmsg = "Laporan neraca tidak seimbang! Anda perlu memeriksa kembali data-data transaksi agar laporan neraca menjadi seimbang";
+			$errmsg = "Reports neraca tidak seimbang! Anda perlu memeriksa kembali data-data transaksi agar laporan neraca menjadi seimbang";
 		}
 		else
 		{
@@ -101,7 +101,7 @@ if (isset($_REQUEST['lanjut']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kode Perkiraan</title>
+<title>Code Perkiraan</title>
 <script src="script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="style/calendar-green.css">
@@ -125,7 +125,7 @@ function refresh() {
 
 function del(kode) {
 	
- 	if (confirm("Apakah anda yakin akan menghapus data ini?")) {
+ 	if (confirm("Are you sure want to delete this data?")) {
 		var kate = document.getElementById('kategori').value;
 		document.location.href = "akunrek.php?op=12134892y428442323x423&kategori="+kate+"&kode="+kode+"&from=<?=$from?>&sourcefrom=<?=$sourcefrom?>";
 	}
@@ -196,7 +196,7 @@ OpenDb();
   	</tr>
     <tr>
     	<td align="right"><a href="referensi.php">
-      	<font size="1" color="#000000"><b>Referensi</b></font></a>&nbsp>&nbsp
+      	<font size="1" color="#000000"><b>Reference</b></font></a>&nbsp;>&nbsp;
         <font size="1" color="#000000"><b>Tutup Buku</b></font>
         </td>
    	</tr>
@@ -208,7 +208,7 @@ OpenDb();
     <table width="70%" align="center" border="1" cellpadding="7" cellspacing="0" style="border-color:#306">
     <tr>
     	<td align="left" width="27%" style="background-color:#306">
-        <font style="font-size:20px; color:#FFF">Langkah 1 dari 3</font>
+        <font style="font-size:20px; color:#FFF">Langkah 1 from 3</font>
         </td>
         <td align="left" valign="middle" style="background-color:#306">
         <font style="font-size:11px; color:#FFF">Menentukan tanggal tutup buku, memeriksa laporan neraca</font>
@@ -221,7 +221,7 @@ OpenDb();
         <table border="0" cellpadding="2" cellspacing="2" width="70%" align="left" background="">
         <!-- TABLE CONTENT -->
         <tr>
-            <td align="left" width="35%"><strong>Departemen:</strong></td>
+            <td align="left" width="35%"><strong>Department:</strong></td>
             <td align="left">
             <select name="departemen" id="departemen" style="width:100px" onKeyPress="return focusNext('ttutup', event)">
             <?
@@ -234,11 +234,11 @@ OpenDb();
             </td>
 	    </tr>
         <tr>
-            <td align="left"><strong>Tanggal Tutup Buku:</strong></td>
+            <td align="left"><strong>Date Tutup Buku:</strong></td>
             <td align="left">
             	<input type="text" name="ttutup" id="ttutup" readonly size="15" value="<?=date("d-m-Y")?>" onKeyPress="return focusNext('ttutup', event);" 
              		onFocus="panggil('tawal')" onClick="Calendar.setup()" style="background-color:#CCCC99">&nbsp;
-	        	<img src="images/calendar.jpg" name="tabel" border="0" id="bttutup" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/>
+	        	<img src="images/calendar.jpg" name="tabel" border="0" id="bttutup" onMouseOver="showhint('Open calendar', this, event, '100px')"/>
             </td>
         </tr>
         <td  colspan="2" align="left">

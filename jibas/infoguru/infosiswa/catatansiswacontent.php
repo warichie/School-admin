@@ -86,7 +86,7 @@ function hapus(replid){
 	var nis = document.getElementById('nis').value;
 	var idkategori = document.getElementById('idkategori').value;
 	var tahunajaran = document.getElementById('tahunajaran').value;
-	if (confirm('Anda yakin akan menghapus catatan siswa ini ?'))
+	if (confirm('Are you sure want to delete catatan this student ?'))
 	document.location.href="catatansiswacontent.php?op=kwe9823h98hd29h98hd9h&replid="+replid+"&nis="+nis+"&idkategori="+idkategori+"&tahunajaran="+tahunajaran;
 }
 </script>
@@ -96,17 +96,17 @@ function hapus(replid){
 <input type="hidden" id="nis" name="nis" value="<?=$nis?>">
 <input type="hidden" id="tahunajaran" name="tahunajaran" value="<?=$tahunajaran?>">
 <input type="hidden" id="idkategori" name="idkategori" value="<?=$idkategori?>">
-<strong>Catatan : 
+<strong>Notes : 
 <?=$namakat?>
 <BR>
-Tahun Ajaran : 
+Year : 
 <?=$namathnajrn?>
 </strong><BR><BR>
 <table width="100%" border="1" cellspacing="0" bordercolor="#000000" class="tab" >
   <tr>
-    <td height="30" class="header">No</td>
-    <td height="30" class="header">Tanggal/Guru</td>
-    <td height="30" class="header">Catatan</td>
+    <td height="30" class="header">#</td>
+    <td height="30" class="header">Date/Teacher</td>
+    <td height="30" class="header">Notes</td>
     <td height="30" class="header">&nbsp;</td>
   </tr>
   <?
@@ -145,7 +145,7 @@ Tahun Ajaran :
   	}
   } else { ?>
   <tr>
-    <td height="25" colspan="4"><div align="center"><em>Tidak ada catatan Kejadian Siswa untuk NIS : 
+    <td height="25" colspan="4"><div align="center"><em>No student attendance notes for Student ID : 
       <?=$nis?>
     </em></div></td>
   </tr>

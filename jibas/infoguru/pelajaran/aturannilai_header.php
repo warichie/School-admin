@@ -26,7 +26,7 @@
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aturan Penentuan Grading Nilai</title>
+<title>Grade Point Rules</title>
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -45,7 +45,7 @@ function acceptPegawai(nip, nama, flag) {
 }
 
 function validate() {
-	return validateEmptyText('nip', 'NIP Guru');
+	return validateEmptyText('nip', 'Teacher ID');
 }
 </script>
 </head>
@@ -53,22 +53,22 @@ function validate() {
 <body leftmargin="0" style="background-color:#EEEEEE">
 
 <form name="main" enctype="multipart/form-data" >
-<strong>Pilih Guru </strong>
+<strong>Select Teacher </strong>
 <table width="100%" border="0" align="center">
   <tr>
-  	<td><strong>NIP</strong></td>
+  	<td><strong>Employee ID</strong></td>
     <td><input type="text" name="nip" id="nip" size="10" class="disabled" readonly value="<?=$nip ?>"  onClick="caripegawai()"/>&nbsp;&nbsp;
-    <a href="JavaScript:caripegawai()" onmouseover="showhint('Cari Guru!', this, event, '80px')"><img src="../images/ico/lihat.png" border="0"/></a>
+    <a href="JavaScript:caripegawai()" onmouseover="showhint('Search Teacher', this, event, '80px')"><img src="../images/ico/lihat.png" border="0"/></a>
     </td>
 </tr>
 <tr>
-    <td><strong>Nama</strong></td>
+    <td><strong>Name</strong></td>
     <td><input type="text" name="nama" id="nama" size="25" class="disabled" readonly value="<?=$nama ?>"  onClick="caripegawai()"/>
     </td>
 </tr>
  
   <!--<tr>
-    <td colspan="2" align="center"><a href="JavaScript:caripegawai()" onmouseover="showhint('Cari Guru!', this, event, '50px')"><img src="../images/ico/lihat.png" border="0"/></a></div></td>
+    <td colspan="2" align="center"><a href="JavaScript:caripegawai()" onmouseover="showhint('Search Teacher', this, event, '50px')"><img src="../images/ico/lihat.png" border="0"/></a></div></td>
     </tr>-->
 </table>
 

@@ -93,7 +93,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cetak Kuitansi</title>
+<title>Print Kuitansi</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 <script language="javascript">
@@ -114,12 +114,12 @@ function cetakbukti(id) {
     <!-- TABLE TITLE -->
     <tr>
      
-      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pembayaran Pengeluaran</font></div></td>
+      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Payment Expenditure</font></div></td>
     </tr>
     
     <tr>
       <td align="left" valign="top"><div align="right"><a href="pengeluaran.php" target="_parent">
-        <font size="1" color="#000000"><b>Pengeluaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Pembayaran Pengeluaran</b></font> </div></td>
+        <font size="1" color="#000000"><b>Expenditure</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Payment Expenditure</b></font> </div></td>
     </tr>
 	</table>
     </td></tr>
@@ -132,41 +132,41 @@ function cetakbukti(id) {
             <legend></legend>
             <table border="0" cellpadding="2" cellspacing="2" align="center" width="80%">
 			<tr>
-                <td width="35%" align="left"><strong>Tahun Buku</strong></td>
+                <td width="35%" align="left"><strong>Fiscal Year</strong></td>
                 <td width="65%" align="left"><strong>: <?=$tahunbuku?></strong>            	</td>
             </tr>
             <tr>
-            	<td align="left"><strong>Pembayaran</strong> </td>
+            	<td align="left"><strong>Payment</strong> </td>
             	<td align="left"><strong>: <?=$namapengeluaran?></strong></td>
             </tr>
             <tr>
-            	<td align="left"><strong>Pemohon</strong></td>
+            	<td align="left"><strong>Applicant</strong></td>
                 <td align="left"><strong>: <?=$idpemohon . " - " . $namapemohon ?></strong></td>
             </tr>
             <tr>
-                <td align="left"><strong>Penerima</strong></td>
+                <td align="left"><strong>Recipient</strong></td>
                 <td align="left"><strong>: <?=$penerima?></strong></td>
             </tr>
             <tr>
-                <td align="left"><strong>Tanggal</strong></td>
+                <td align="left"><strong>Date</strong></td>
                 <td align="left"><strong>: <?=LongDateFormat($tanggal) ?></strong></td>
             </tr>	
             <tr>
-                <td align="left"><strong>Jumlah</strong></td>
+                <td align="left"><strong>Sum</strong></td>
                 <td align="left"><strong>: <?=$jumlah ?></strong></td>
             </tr>
             <tr>
-                <td valign="top" align="left"><strong>Keperluan</strong></td>
+                <td valign="top" align="left"><strong>Necessities</strong></td>
                 <td align="left"><strong>: <?=$keperluan?></strong></td>
             </tr>
             <tr>
-                <td valign="top" align="left"><strong>Keterangan</strong></td>
+                <td valign="top" align="left"><strong>Info</strong></td>
                 <td align="left"><strong>: <?=$keterangan ?></strong></td>
             </tr>
             <tr height="50">
                 <td align="center" colspan="3" valign="bottom" >
-               	<input type="button" value="Cetak" class="but" onclick="cetakbukti(<?=$idtransaksi ?>)" />
-				<input type="button" value="Tutup" class="but" onclick="document.location.href = 'pengeluaran_blank.php'" />
+               	<input type="button" value="Print" class="but" onclick="cetakbukti(<?=$idtransaksi ?>)" />
+				<input type="button" value="Close" class="but" onclick="document.location.href = 'pengeluaran_blank.php'" />
             </td>
             </tr>
             </table>

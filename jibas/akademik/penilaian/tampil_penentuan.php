@@ -108,13 +108,13 @@ function newWindow(mypage,myname,w,h,features) {
       win.window.focus();
 }
 function hapus() {
-    return window.confirm("Anda yakin akan menghapus data ini?");
+    return window.confirm("Are you sure want to delete this data?");
 }
 
 function cek() {
   	var nlulus = document.tampil_penentuan.nlulus.value;
   	if(nlulus.length == 0) {
-	    alert("Nilai standard kelulusan tidak boleh kosong");
+	    alert("Point for Standard Graduation should not leave empty");
 	    return false;
 	}
 	return true;
@@ -122,7 +122,7 @@ function cek() {
 
 function delnap() {
 
-	if (confirm("Apakah anda yakin akan menghapus nilai rapor pelajaran ini?")) {
+	if (confirm("Are you sure want to delete this index reports?")) {
 		document.location.href = "tampil_penentuan.php?op=del&departemen=<?=$departemen ?>&tingkat=<?=$tingkat ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&semester=<?=$semester ?>&pelajaran=<?=$pelajaran ?>";
 	}
 }
@@ -215,7 +215,7 @@ $rw = mysql_fetch_array($rr);
 if($num_nhb2 == 0) {
   	?>
   	<script language="javascript">
-  		alert("Masukkan terlebih dahulu Dasar Penilaian dan Bobot Penilaian untuk Pelajaran <?=$row_p[nama] ?> dan Tingkat <?=$rw[tingkat] ?>");
+  		alert("Please enter Basic and Quality Assessment for Class Subject <?=$row_p[nama] ?> and Grade <?=$rw[tingkat] ?>");
   	</script>
   	<?
 }else {
@@ -224,9 +224,9 @@ if($num_cek > 0) {
 }else {
     if($num == 0) {
         echo "
-            <font color='red' size='2'><b>Nilai Akhir Ujian untuk pelajaran</font>
-            <font color='black' size='2'>$row_p[nama] </font><font color='red' size='2'>belum ada.
-            Masukkanlah terlebih dahulu nilai akhir pelajaran tersebut !</b></font>
+            <font color='red' size='2'><b>Grade Point Exam for</font>
+            <font color='black' size='2'>$row_p[nama] </font><font color='red' size='2'>is not existed.
+            Please enter Final Point for the lesson first</b></font>
         ";
     }else {
         $n = 0;
@@ -246,9 +246,9 @@ if($num_cek > 0) {
     </table>
     <table width="95%" class="tab" border="1" id="table">
     <tr>
-        <td rowspan="2" class="headerlong" width="30" height="30">No</td>
-        <td rowspan="2" class="headerlong" width="70" height="30">NIS</td>
-        <td rowspan="2" class="headerlong" width="150" height="30">Nama</td>
+        <td rowspan="2" class="headerlong" width="30" height="30">#</td>
+        <td rowspan="2" class="headerlong" width="70" height="30">Student ID</td>
+        <td rowspan="2" class="headerlong" width="150" height="30">Name</td>
         <?
         $query_ju = "SELECT replid, jenisujian FROM jbsakad.jenisujian WHERE idpelajaran = '$pelajaran'";
         $result_ju = QueryDb($query_ju) or die(mysql_error());
@@ -262,7 +262,7 @@ if($num_cek > 0) {
 		$result_ju = QueryDb($query_ju) or die(mysql_error());
         ?>
         
-        <td class="headerlong" colspan="<?=$num_ju;?>" align="center">Nilai Akhir</td>
+        <td class="headerlong" colspan="<?=$num_ju;?>" align="center">Grade Point</td>
         
         <?
         $query_nhb = "SELECT replid, dasarpenilaian, bobot ".
@@ -293,7 +293,7 @@ if($num_cek > 0) {
 						}
 					    $as[$cnt] = $bobot;
                     }
-					if ($row_nhb[dasarpenilaian] == "Praktik") {
+					if ($row_nhb[dasarpenilaian] == "Practice") {
 						$idpraktek = $idpraktek . "[" . $ujian . "]";
 					} else {
 						$idkonsep = $idkonsep . "[" . $ujian . "]";
@@ -303,18 +303,18 @@ if($num_cek > 0) {
             $v++;
 			$r_aturan[] = $row_nhb[replid];
 			$color = "white";
-			if ($row_nhb[dasarpenilaian] == "Praktik")
+			if ($row_nhb[dasarpenilaian] == "Practice")
 				$color = "cyan";
-			else if ($row_nhb[dasarpenilaian] == "Pemahaman Konsep")
+			else if ($row_nhb[dasarpenilaian] == "Conceptual Comprehension")
 				$color = "yellow";
 				
             echo "<td class='headerlong' colspan='2' align='center'>
                 <input type='hidden' name='aturan$v' value='$row_nhb[replid]'>
-                <font size='1' color='$color'>Nilai $row_nhb[dasarpenilaian]</font></td>";
+                <font size='1' color='$color'>Point $row_nhb[dasarpenilaian]</font></td>";
         }
         ?>
         <td rowspan="2" class="headerlong" align="center">
-        <input type='hidden' name='num_nhb' value='<?=$num_nhb?>'>Predikat</td>
+        <input type='hidden' name='num_nhb' value='<?=$num_nhb?>'>Predicate</td>
     </tr>
     <tr>
         <?
@@ -344,7 +344,7 @@ if($num_cek > 0) {
         }
 
         for($i=1;$i<=$num_nhb;$i++) {
-            echo "<td class='headerlong' align='center'>Angka</td><td class='header' align='center'>Huruf</td>";
+            echo "<td class='headerlong' align='center'>Letter</td><td class='header' align='center'>Number</td>";
         }
 		
         ?>
@@ -425,10 +425,10 @@ if($num_cek > 0) {
             echo "
                 <td align='center'><select name='predikat$i'>
                 <option value='0' $selK$i></option>
-                <option value='1' $selA$i>Amat Baik</option>
-                <option value='2' $selB$i>Baik</option>
-                <option value='3' $selC$i>Cukup</option>
-                <option value='4' $selD$i>Kurang</option>
+                <option value='1' $selA$i>Excellent</option>
+                <option value='2' $selB$i>Good</option>
+                <option value='3' $selC$i>Average</option>
+                <option value='4' $selD$i>Not Good</option>
                 </select>
 
                 </td>
@@ -444,8 +444,8 @@ if($num_cek > 0) {
         </script>
 	<input type="hidden" name="num_data" value="<?=$i ?>">
     <table width="95%" bgcolor="#a5ae0e" border="1">
-        <tr><td align='left'>Nilai Standar Kelulusan : <input type="text" name="nlulus">
-            <input type="submit" value="Simpan" name="simpan" class="but">
+        <tr><td align='left'>Standard Graduation Point : <input type="text" name="nlulus">
+            <input type="submit" value="Save" name="simpan" class="but">
         </td></tr>
     </table>
     </form>

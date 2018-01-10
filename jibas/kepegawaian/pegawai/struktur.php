@@ -56,7 +56,7 @@ if ($op == "1cn3897nx387123n089x7103971") {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style.css" />
 <link rel="stylesheet" href="../script/mktree.css" />
 <script language="javascript" src="../script/mktree.js"></script>
@@ -196,8 +196,8 @@ function traverse($idroot, $count)
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Struktur Organisasi</font><br />
-        <a href="pegawai.php">Kepegawaian</a> &gt; Struktur Organisasi<br />
+        <font class="subtitle">Organization Structure</font><br />
+        <a href="pegawai.php">Employee Affair</a> &gt; Organization Structure<br />
     </td>
 </tr>
 </table>
@@ -207,7 +207,7 @@ function traverse($idroot, $count)
 <tr><td>
 <a href="#" onclick="expandTree('tree1'); return false;">Expand All</a>&nbsp;|&nbsp;
 <a href="#" onclick="collapseTree('tree1'); return false;">Collapse All</a>&nbsp;|&nbsp;
-<a href="#" onclick="Cetak();">Cetak</a>&nbsp;|&nbsp;
+<a href="#" onclick="Cetak();">Print</a>&nbsp;|&nbsp;
 <a href="#" onclick="document.location.reload()">Refresh</a>
 <br /><br />
 <?
@@ -215,7 +215,7 @@ $sql = "SELECT replid, singkatan, jabatan FROM jabatan WHERE rootid=0";
 $result = QueryDb($sql);
 if (mysql_num_rows($result) == 0) 
 {
-	echo "Belum ada data";
+	echo "No data yet";
 } 
 else 
 {

@@ -66,7 +66,7 @@ class CStat{
 		<select name="perpustakaan" id="perpustakaan" class="cmbfrm"  onchange="chg()">
 		<?
 		if (SI_USER_LEVEL()!=2){
-			echo "<option value='-1' ".IntIsSelected('-1',$this->perpustakaan).">(Semua)</option>";
+			echo "<option value='-1' ".IntIsSelected('-1',$this->perpustakaan).">(All)</option>";
 		}
 		while ($row = @mysql_fetch_row($result)){
 		if ($this->perpustakaan=="")
@@ -89,13 +89,13 @@ class CStat{
            	  <div align="left">
                   <table width="100%" border="0" cellspacing="2" cellpadding="2">
                     <tr>
-                      <td width="20">Perpustakaan </td>
+                      <td width="20">Library </td>
                       <td width="200"><?=$this->GetPerpus()?></td>
                         <td width="66%" rowspan="3">
                         	<a href="javascript:show()"><img src="../img/view.png" width="48" height="48" border="0" /></a>                        </td>
                     </tr>
                     <tr>
-                      <td>Bulan</td>
+                      <td>Month</td>
                       <td width="*">
                       		<?
 							$yearnow = date(Y);
@@ -121,7 +121,7 @@ class CStat{
                                     echo "</select>";
 									?>                                </td>
                                 <td>
-                                	<?="&nbsp;s.d.&nbsp;";
+                                	<?="&nbsp;to&nbsp;";
 									?>                                </td>
                                 <td>
                                 	<?="<select name='BlnAkhir' id='BlnAkhir' class='cmbfrm' onchange='chg()'>";
@@ -145,7 +145,7 @@ class CStat{
                             </table>						</td>
                     </tr>
                     <tr>
-                      <td>Jumlah&nbsp;data&nbsp;yang&nbsp;ditampilkan</td>
+                      <td>Display</td>
                       <td>
                       	<?="<select name='Limit' id='Limit' class='cmbfrm' onchange='chg()'>";
 						for ($i=5;$i<=20;$i+=5){
@@ -161,8 +161,8 @@ class CStat{
             <td valign="top">
             	<div id="title" align="right">
                     <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-                    <font style="font-size:18px; color:#999999">Statistik Peminjam Terbanyak</font><br />
-                    <a href="pustaka.php" class="welc">Pustaka</a><span class="welc"> > Statistik Peminjam</span><br /><br /><br />
+                    <font style="font-size:18px; color:#999999">Most Borrowers Statistic</font><br />
+                    <a href="pustaka.php" class="welc">Library</a><span class="welc"> > Most Borrowers Statistic</span><br /><br /><br />
                 </div>
             </td>
           </tr>
@@ -191,7 +191,7 @@ class CStat{
 		<table width="100%" border="0" cellspacing="2" cellpadding="2">
 		  <? if (@mysql_num_rows($result)>0) { ?>
           <tr>
-		    <td colspan="2" align="center" valign="top"><a href="javascript:Cetak()"><img src="../img/ico/print1.png" width="16" height="16" border="0" />&nbsp;Cetak</a></td>
+		    <td colspan="2" align="center" valign="top"><a href="javascript:Cetak()"><img src="../img/ico/print1.png" width="16" height="16" border="0" />&nbsp;Print</a></td>
 	      </tr>
 		  <tr>
 			<td width="50%" align="center" valign="top">
@@ -207,9 +207,9 @@ class CStat{
 					<td width="350" valign="top">
 						<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
 						  <tr>
-							<td height="25" align="center" class="header">No</td>
-							<td height="25" align="center" class="header">Anggota</td>
-							<td height="25" align="center" class="header">Jumlah</td>
+							<td height="25" align="center" class="header">#</td>
+							<td height="25" align="center" class="header">Member</td>
+							<td height="25" align="center" class="header">Sum</td>
 							<td height="25" align="center" class="header">&nbsp;</td>
 						  </tr>
                           <? if (@mysql_num_rows($result)>0) { ?>
@@ -229,7 +229,7 @@ class CStat{
                           <? } ?>
 						  <? } else { ?>
 						  <tr>
-							<td height="20" align="center" colspan="4" class="nodata">Tidak ada data</td>
+							<td height="20" align="center" colspan="4" class="nodata">Data Not Found.</td>
 						  </tr>	
 						  <? } ?>
 				    </table>					</td>
@@ -261,7 +261,7 @@ class CStat{
 					$row3 = @mysql_fetch_array($result3);
 					return $row3[nama];
 				} else {
-					return "Tanpa Nama";
+					return "No name.";
 				}
 			}
 		}

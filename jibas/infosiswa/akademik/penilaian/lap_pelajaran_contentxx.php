@@ -87,12 +87,12 @@ function cetak(semester) {
 
 <body leftmargin="0" topmargin="0">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../../images/movewait.gif" border="0" />Please wait...
 </div>
 <input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />
 <div align="right">
-      <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Nilai Siswa</font><br />
-            <!--<a href="../penilaian.php" target="framecenter"> <font size="1" color="#000000"><b>Penilaian</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Laporan Nilai Siswa</b></font>-->
+      <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Index Report</font><br />
+            <!--<a href="../penilaian.php" target="framecenter"> <font size="1" color="#000000"><b>Index</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Student Index Report</b></font>-->
 </div>
 <table border="0" cellpadding="20" bgcolor="#FFFFFF" cellspacing="0" width="100%" >
     <tr height="600">
@@ -113,14 +113,14 @@ function cetak(semester) {
                 <table width="100%" border="0" height="100%">
                 <tr>
                     <td valign="top" colspan="2">
-                    <font size="2" color="#000000"><b>Pelajaran <?=$pel?></b></font></td>      	
+                    <font size="2" color="#000000"><b>Class Subject <?=$pel?></b></font></td>      	
                 </tr>
                 <tr>
                     <td valign="right"></td>
                 </tr>
                 <tr>
                     <td valign="top" align="right"> 
-                    <a href="JavaScript:cetak('<?=$sem[$k][0]?>')"><img src="../../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp; 
+                    <a href="JavaScript:cetak('<?=$sem[$k][0]?>')"><img src="../../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp; 
                     </td>
                 </tr>
                 
@@ -135,10 +135,10 @@ function cetak(semester) {
                     <br /><br />		
                     <table border="1" width="100%" id="table" class="tab" bordercolor="#000000">
                     <tr>		
-                        <td width="5" height="30" align="center" class="header">No</td>
-                        <td width="250" class="header" align="center" height="30">Tanggal</td>
-                        <td width="10" height="30" align="center" class="header">Nilai</td>
-                        <td width="400" class="header" align="center" height="30">Keterangan</td>
+                        <td width="5" height="30" align="center" class="header">#</td>
+                        <td width="250" class="header" align="center" height="30">Date</td>
+                        <td width="10" height="30" align="center" class="header">Point</td>
+                        <td width="400" class="header" align="center" height="30">Info</td>
                     </tr>
 			<? 	OpenDb();		
                 $sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[$k][0]."' AND u.idjenis = '$row[replid]' AND u.replid = n.idujian AND n.nis = '$nis' ORDER BY u.tanggal";
@@ -161,13 +161,13 @@ function cetak(semester) {
 			<?		$cnt++;
                 	} ?>
                     <tr>        			
-                        <td colspan="2" height="25" align="center"><strong>Nilai rata rata</strong></td>
+                        <td colspan="2" height="25" align="center"><strong>Index Point/Cumulative</strong></td>
                         <td width="10" height="25" align="center"><?=round($rata,2)?></td>
                         <td height="25">&nbsp;</td>            
                     </tr>                    
 			<? } else { ?>
                     <tr>        			
-                        <td colspan="4" height="25" align="center">Tidak ada nilai</td>
+                        <td colspan="4" height="25" align="center">No index.</td>
                     </tr>
            	<? } ?>
                     </table>

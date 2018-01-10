@@ -42,7 +42,7 @@ class CInfoSiswa
 		else
 		{
 			if (!isset($_SESSION['infosiswa.reporttype']))
-				$_SESSION['infosiswa.reporttype'] = "PROFIL";
+				$_SESSION['infosiswa.reporttype'] = "PROFILE";
 		}
 		
 		$this->nis = $_SESSION['infosiswa.nis'];
@@ -62,17 +62,17 @@ class CInfoSiswa
     public function ShowReportComboBox()
     {
         echo "<br><br>";
-        echo "Laporan : ";
+        echo "Reports : ";
         echo "<select id='reporttype' name='reporttype' onchange='GetReportContent()'>";
-        echo "<option value='PROFIL' " . StringIsSelected($this->reporttype, "PROFIL") . ">Data Pribadi</option>";
-		echo "<option value='KEUANGAN' " . StringIsSelected($this->reporttype, "KEUANGAN") . ">Keuangan</option>";
-        echo "<option value='PRESENSIHARIAN' " . StringIsSelected($this->reporttype, "PRESENSIHARIAN") . ">Presensi Harian</option>";
-		echo "<option value='PRESENSIPELAJARAN' " . StringIsSelected($this->reporttype, "PRESENSIPELAJARAN") . ">Presensi Pelajaran</option>";
-        echo "<option value='NILAI' " . StringIsSelected($this->reporttype, "NILAI") . ">Nilai</option>";
-		echo "<option value='RAPOR' " . StringIsSelected($this->reporttype, "RAPOR") . ">Rapor</option>";
-		echo "<option value='PERPUSTAKAAN' " . StringIsSelected($this->reporttype, "PERPUSTAKAAN") . ">Perpustakaan</option>";
+        echo "<option value='PROFILE' " . StringIsSelected($this->reporttype, "PROFILE") . ">Personal Data</option>";
+		echo "<option value='FINANCE' " . StringIsSelected($this->reporttype, "FINANCE") . ">Finance</option>";
+        echo "<option value='DAILYPRESENCE' " . StringIsSelected($this->reporttype, "DAILYPRESENCE") . ">Daily Presence</option>";
+		echo "<option value='LESSONPRESENCE' " . StringIsSelected($this->reporttype, "LESSONPRESENCE") . ">Class Presence</option>";
+        echo "<option value='POINT' " . StringIsSelected($this->reporttype, "POINT") . ">Point</option>";
+		echo "<option value='REPORTCARD' " . StringIsSelected($this->reporttype, "REPORTCARD") . ">Report Card</option>";
+		echo "<option value='LIBRARY' " . StringIsSelected($this->reporttype, "LIBRARY") . ">Library</option>";
         echo "</select>";
-		echo "<input type='button' class='but' style='color:red' value='LOGOUT' onclick='is_Logout()'>";
+		echo "<input type='button' class='but' style='color:red' value='Logout' onclick='is_Logout()'>";
     }
     
     private function getSiswaName($nis)
@@ -85,25 +85,25 @@ class CInfoSiswa
 	
 	public function ShowReportContent()
 	{
-		if ($this->reporttype == "PROFIL")
+		if ($this->reporttype == "PROFILE")
 			require_once("infosiswa.profile.php");
-		elseif ($this->reporttype == "KEUANGAN")
+		elseif ($this->reporttype == "FINANCE")
 			require_once("infosiswa.keuangan.php");
-		elseif ($this->reporttype == "PRESENSIHARIAN")
+		elseif ($this->reporttype == "DAILYPRESENCE")
 			require_once("infosiswa.presensiharian.php");
-		elseif ($this->reporttype == "PRESENSIPELAJARAN")
+		elseif ($this->reporttype == "LESSONPRESENCE")
 			require_once("infosiswa.presensipelajaran.php");
-		elseif ($this->reporttype == "NILAI")
+		elseif ($this->reporttype == "POINT")
 			require_once("infosiswa.nilai.php");
-		elseif ($this->reporttype == "RAPOR")
+		elseif ($this->reporttype == "REPORTCARD")
 			require_once("infosiswa.rapor.php");
-		elseif ($this->reporttype == "PERPUSTAKAAN")
+		elseif ($this->reporttype == "LIBRARY")
 			require_once("infosiswa.perpustakaan.php");
-		elseif ($this->reporttype == "CATSISWA")
+		elseif ($this->reporttype == "STUDENTNOTES")
 			require_once("infosiswa.catatansiswa.php");
-		elseif ($this->reporttype == "CATPPEL")
+		elseif ($this->reporttype == "CLASSPRESENCENOTES")
 			require_once("infosiswa.catatanpelajaran.php");
-		elseif ($this->reporttype == "CATPHAR")
+		elseif ($this->reporttype == "DAILYPRESENCENOTES")
 			require_once("infosiswa.catatanharian.php");			
 	}
 }

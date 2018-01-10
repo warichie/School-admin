@@ -43,8 +43,8 @@ $T->OnStart();
 <body>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Daftar Peminjaman Yang Terlambat</font><br />
-        <a href="peminjaman.php" class="welc">Peminjaman</a><span class="welc"> > Daftar Peminjaman Yang Terlambat</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Late Borrowing List</font><br />
+        <a href="peminjaman.php" class="welc">Borrowing</a><span class="welc"> > Late Borrowing List</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$T->Content()?>

@@ -25,31 +25,31 @@ require_once('../include/config.php');
 require_once('../include/db_functions.php');
 require_once('../include/common.php');
 OpenDb();
-$bag = $_REQUEST['Bagian'];
+$bag = $_REQUEST['Section'];
 if ($bag=="")
 	$bag='-1';
-$NIP 	= $_REQUEST['NIP'];
+$Employee ID 	= $_REQUEST['Employee ID'];
 $Nama 	= $_REQUEST['Nama'];
 $Source = $_REQUEST['Source'];
 ?>
 <link href="style/style.css" rel="stylesheet" type="text/css" />
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
   <tr class="Header">
-    <td>No</td>
-    <td>NIP/Nama</td>
-    <td>No. Ponsel</td>
+    <td>#</td>
+    <td>Employee ID/Name</td>
+    <td>Mobile</td>
     <td>&nbsp;</td>
   </tr>
   <?
-    if ($Source=='Pilih'){
+    if ($Source=='Select'){
 		if ($bag=='-1')
 			$sql = "SELECT * FROM $db_name_sdm.pegawai";
 		else
 			$sql = "SELECT * FROM $db_name_sdm.pegawai WHERE bagian='$bag'";
 	} else {
 		$sql = "SELECT * FROM $db_name_sdm.pegawai WHERE replid>0";
-		if ($NIP!="")
-			$sql .= " AND nip LIKE '%$NIP%'";
+		if ($Employee ID!="")
+			$sql .= " AND nip LIKE '%$Employee ID%'";
 		if ($Nama!="")
 			$sql .= " AND nama LIKE '%$Nama%'";	
 	}
@@ -65,7 +65,7 @@ $Source = $_REQUEST['Source'];
     <td class="td"><?=$row['handphone']?></td>
     <td class="td" align="center">
     <? if (strlen($row['handphone'])>0){ ?>
-    <span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center"  />Pilih</span>
+    <span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center"  />Select</span>
     <? } ?>
     </td>
   </tr>
@@ -75,7 +75,7 @@ $Source = $_REQUEST['Source'];
     } else {
     ?>
   <tr>
-    <td colspan="4" class="Ket" align="center">Tidak ada data</td>
+    <td colspan="4" class="Ket" align="center">Data Not Found.</td>
   </tr>
   <?
     }

@@ -45,7 +45,7 @@ if (isset($_REQUEST['id']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Daftar Siswa]</title>
+<title>JIBAS FINANCE [Student List]</title>
 <link rel="stylesheet" type="text/css" href="style/style.css" />
 <link href="script/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
 <script src="script/SpryTabbedPanels.js" type="text/javascript"></script>
@@ -67,14 +67,14 @@ function pilih(nis, nama) {
 
 <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" style="background-color:#dfdec9">
 <!--<div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>-->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="58">
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Siswa :.
+    .: Student :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -90,8 +90,8 @@ function pilih(nis, nama) {
         
         <div id="TabbedPanels1" class="TabbedPanels">
             <ul class="TabbedPanelsTabGroup">
-                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Pilih Siswa</font></li>
-                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Cari Siswa</font></li>
+                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Select Student</font></li>
+                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Search Student</font></li>
             </ul>
             <div class="TabbedPanelsContentGroup">
                 <div class="TabbedPanelsContent" id="panel0"></div>
@@ -153,7 +153,7 @@ function carilah(){
 	var nama = document.getElementById('nama').value;
 	
 	if (nis == "" && nama == "") {
-		alert ('NIS atau Nama Siswa tidak boleh kosong!');
+		alert ('Student ID or Name should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}	

@@ -4,7 +4,7 @@ function getFresh(){
 	document.location.href = "aktivitas.list.php?tglAwal="+tglAwal+"&tglAkhir="+tglAkhir;
 }
 function hapus(id){
-	if (confirm('Anda yakin akan menghapus aktivitas ini?'))
+	if (confirm('Are you sure want to delete aktivitas ini?'))
 		document.location.href = "aktivitas.list.php?op=del&id="+id;
 }
 function cetak(){

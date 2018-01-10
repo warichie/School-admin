@@ -92,7 +92,7 @@ function hapus(replid){
 	var page=document.getElementById("page").value;
 	var bulan=parent.beritasekolah_header.document.getElementById("bulan").value;
 	var tahun=parent.beritasekolah_header.document.getElementById("tahun").value;
-	if (confirm('Anda yakin akan menghapus berita ini ?')){ 
+	if (confirm('Are you sure want to delete this news?')){ 
 		document.location.href="beritasekolah_footer.php?op=bzux834hx8x7x934983xihxf084&replid="+replid+"&bulan="+bulan+"&tahun="+tahun+"&page="+page;
 	}
 }
@@ -155,14 +155,14 @@ function chg_title_color(id,stat){
 		}
 	
 	?>
-    Halaman : 
-	<input <?=$disback?> type="button" class="but" title="Sebelumnya" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    Page : 
+	<input <?=$disback?> type="button" class="but" title="Previous" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 	<select name="page" id="page" onchange="chg_page()">
 	<? for ($p=1;$p<=$total;$p++){ ?>
 		<option value="<?=$p-1?>" <?=StringIsSelected($page,$p-1)?>><?=$p;?></option>
 	<? } ?>
 	</select>   
-    <input <?=$disnext?> type="button" class="but" name="next" title="Selanjutnya" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">&nbsp;dari&nbsp;<?=$total?> 
+    <input <?=$disnext?> type="button" class="but" name="next" title="Next" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">&nbsp;from&nbsp;<?=$total?> 
 	<? } ?><br><br>
 	<table width="80%" border="0" cellspacing="5" cellpadding="5">
       <tr>
@@ -170,7 +170,7 @@ function chg_title_color(id,stat){
           <?
 		  OpenDb();
 		  $sql1="SELECT b.replid as replid, b.judul as judul, DATE_FORMAT(b.tanggal, '%e %b %Y') as tanggal, TIME_FORMAT(b.tanggal, '%H:%i') as waktu, ".
-				"IF(b.jenisberita=1,'Darurat','Umum') as berita, b.abstrak as abstrak, b.isi as isi, b.idpengirim as idpengirim FROM jbsvcr.beritasekolah b ".
+				"IF(b.jenisberita=1,'Important','General') as berita, b.abstrak as abstrak, b.isi as isi, b.idpengirim as idpengirim FROM jbsvcr.beritasekolah b ".
 				"WHERE MONTH(b.tanggal)='$bulan' AND YEAR(b.tanggal)='$tahun' ORDER BY replid DESC LIMIT ".(int)$page*(int)$varbaris.",$varbaris";
 		  //echo $sql1;
 		  $result1=QueryDb($sql1);
@@ -206,9 +206,9 @@ function chg_title_color(id,stat){
                 <em>
 					<?
                     if ($row1['idpengirim']=="adminsiswa"){
-                        echo "Administrator Siswa";
+                        echo "Student Administrator";
                     } elseif ($row1['idpengirim']=="landlord") {
-                            echo "Administrator JIBAS InfoSiswa";
+                            echo "JIBAS Student Info Administrator";
                     } else {
                     $rs=QueryDb("SELECT nama FROM jbssdm.pegawai WHERE nip='$row1[idpengirim]'");
                     if (@mysql_num_rows($rs)>0){
@@ -233,7 +233,7 @@ function chg_title_color(id,stat){
               <tr>
               	<td colspan="2" align="right">
               		<? if ($row1[idpengirim]==SI_USER_ID()){ ?>
-                        <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1[replid]?>','<?=$page?>')" style="cursor:pointer;" title="Ubah Berita ini !" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1[replid]?>')" style="cursor:pointer;" title="Hapus Berita ini !" />
+                        <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1[replid]?>','<?=$page?>')" style="cursor:pointer;" title="Edit this News" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1[replid]?>')" style="cursor:pointer;" title="Delete this News" />
 	                <? } ?>              	</td>
               </tr>
             </table>
@@ -248,7 +248,7 @@ function chg_title_color(id,stat){
 		}
 		} else {
 		?>
-        <div align="center" class="divNotif">Tidak ada berita Sekolah</div>
+        <div align="center" class="divNotif">No news.</div>
         <?
 		}
 		?>

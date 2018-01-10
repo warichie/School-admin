@@ -153,21 +153,21 @@ function change_baris() {
     <table border="0" width="100%" align="center">
 	<tr>
     	<td align="right">
-    	<a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    	<a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka di Ms Excel!', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
+    	<a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    	<a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
+        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Open in Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
     	</td>
 	</tr>
 	</table>
     <br />
 	<table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="100%" align="left" bordercolor="#000000">
     <tr height="30" align="center">
-        <td width="4%" class="header" >No</td>
-        <td width="18%" class="header" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nokas','<?=$urutan?>')">No. Jurnal/Tanggal <?=change_urut('nokas',$urut,$urutan)?></td>
-        <td width="10%" class="header" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('petugas','<?=$urutan?>')">Petugas <?=change_urut('petugas',$urut,$urutan)?></td>
-        <td width="*" class="header" >Transaksi</td>
-        <td width="15%" class="header" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('debet','<?=$urutan?>')">Debet <?=change_urut('debet',$urut,$urutan)?></td>
-        <td width="15%" class="header" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kredit','<?=$urutan?>')">Kredit <?=change_urut('kredit',$urut,$urutan)?></td>
+        <td width="4%" class="header" >#</td>
+        <td width="18%" class="header" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nokas','<?=$urutan?>')">Journal/Date <?=change_urut('nokas',$urut,$urutan)?></td>
+        <td width="10%" class="header" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('petugas','<?=$urutan?>')">Officer <?=change_urut('petugas',$urut,$urutan)?></td>
+        <td width="*" class="header" >Transaction</td>
+        <td width="15%" class="header" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('debet','<?=$urutan?>')">Debit <?=change_urut('debet',$urut,$urutan)?></td>
+        <td width="15%" class="header" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kredit','<?=$urutan?>')">Credit <?=change_urut('kredit',$urut,$urutan)?></td>
     </tr>
 <?		if ($page==0)
             $cnt = 0;
@@ -183,7 +183,7 @@ function change_baris() {
         <td valign="top" align="center"><?=$row['petugas'] ?></td>
         <td align="left" valign="top"><?=$row['transaksi'] ?>
         <? if ($row['keterangan'] <> "") { ?>
-        <br /><strong>Keterangan: </strong><?=$row['keterangan'] ?>
+        <br /><strong>Info: </strong><?=$row['keterangan'] ?>
         <? } ?>
         </td>
         <td align="right" valign="top"><?=FormatRupiah($row['debet']) ?></td>
@@ -192,7 +192,7 @@ function change_baris() {
 <?
 		}
 		CloseDb();
-	//echo  'total '.$total.' dan '.$page;	
+	//echo  'total '.$total.' and '.$page;	
 	if ($total-1 == $page) {
 		
 		
@@ -200,7 +200,7 @@ function change_baris() {
    
     <tr height="30">
         <td colspan="4" align="center" bgcolor="#999900">
-        <font color="#FFFFFF"><strong>T O T A L</strong></font>
+        <font color="#FFFFFF"><strong>Total</strong></font>
         </td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>
@@ -234,18 +234,18 @@ function change_baris() {
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left" colspan="2">Halaman
-		<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+       	<td width="30%" align="left" colspan="2">Page
+		<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-		<input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
-	  	dari <?=$total?> halaman
+		<input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
 		<?
 		//for($a=0;$a<$total;$a++){
@@ -259,7 +259,7 @@ function change_baris() {
 		?>
 	     
  		</td>
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -272,7 +272,7 @@ function change_baris() {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="300">
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br />Tambah data transaksi keuangan pada departemen <?=$departemen?> antara tanggal <?=LongDateFormat($tanggal1)?> s/d <?=LongDateFormat($tanggal2)?><br />.</font>
+            <font size = "2" color ="red"><b>Data Not Found<br />Add finance transaction on <?=$departemen?> between <?=LongDateFormat($tanggal1)?> to <?=LongDateFormat($tanggal2)?><br />.</font>
             
         </td>
     </tr>

@@ -58,7 +58,7 @@ if(isset($_POST["semester"])){
 
 <html>
 <head>
-<title>Laporan Akhir Rapor Siswa</title>
+<title>Student Final Report Card</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
@@ -97,37 +97,37 @@ function show(){
    // var nip = document.filter_laporan_rapor.nip.value;	
     
     if(departemen.length == 0) {
-        alert("Departemen tidak boleh kosong");
+        alert("Department should not leave empty");
         document.filter_laporan_rapor.departemen.value = "";
         document.filter_laporan_rapor.departemen.focus();
         return false;
     }
     else if(tingkat.length == 0) {
-        alert("Tingkat tidak boleh kosong");
+        alert("Grade should not leave empty");
         document.filter_laporan_rapor.tingkat.value = "";
         document.filter_laporan_rapor.tingkat.focus();
         return false;
     }
     else if(tahun.length == 0) {
-        alert("Tahun Ajaran tidak boleh kosong");
+        alert("Year of Teaching should not leave empty");
         document.filter_laporan_rapor.tahun.value = "";
         document.filter_laporan_rapor.tahun.focus();
         return false;
     }
     else if(semester.length == 0) {
-        alert("Semester tidak boleh kosong");
+        alert("Semester should not leave empty");
         document.filter_laporan_rapor.semester.value = "";
         document.filter_laporan_rapor.semester.focus();
         return false;
     }
     else if(kelas.length == 0) {
-        alert("Kelas tidak boleh kosong");
+        alert("Class should not leave empty");
         document.filter_laporan_rapor.kelas.value = "";
         document.filter_laporan_rapor.kelas.focus();
         return false;
     }
 	/*else if(nip.length == 0) {
-        alert("Guru tidak boleh kosong");
+        alert("Guru should not leave empty");
         document.filter_laporan_rapor.nip.value = "";
         document.filter_laporan_rapor.nip.focus();
         return false;
@@ -148,7 +148,7 @@ if (!isset($_POST['lihat'])) {
     target="footer">
     <table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
         <tr>
-            <td width="97"><strong>Departemen</strong></td>
+            <td width="97"><strong>Department</strong></td>
             <td width="158">
             <select name="departemen" id="departemen"  style="width:150px;" onChange="change_sel();">
               <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -176,11 +176,11 @@ if (!isset($_POST['lihat'])) {
 			<input type="text" size="21" value="<?=$row_s[semester]?>" readonly class="disabled">			</td>
             <td align="left" valign="bottom" width="72" rowspan="3"><img src="../images/view.png" width="48" height="48" border="0" onClick="show()" style="cursor:pointer;"></td>
           <td align="right" valign="top" width="398" rowspan="3">
-          <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Nilai Rapor Siswa</font><br />
-            <a href="../penilaian.php?flag=1" target="content"> <font size="1" color="#000000"><b>Penilaian</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Nilai Rapor Siswa</b></font>          </td>
+          <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Report Card</font><br />
+            <a href="../penilaian.php?flag=1" target="content"> <font size="1" color="#000000"><b>Index</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Student Report Card</b></font>          </td>
         </tr>
         <tr>
-            <td><strong>Tingkat</strong></td>
+            <td><strong>Grade</strong></td>
             <td><select name="tingkat" id="tingkat" size="1" style="width:150px;" onChange="change_sel2();">
 <?
 
@@ -207,7 +207,7 @@ if (!isset($_POST['lihat'])) {
             ?>
             </select>			</td>
 			
-			<td><strong>Kelas</strong></td>
+			<td><strong>Class</strong></td>
             <td><select name="kelas" id="kelas" size="1" style="width:150px;" onChange="change_sel4()">
             <?
             $query_th = "SELECT replid, tahunajaran FROM jbsakad.tahunajaran ".
@@ -242,12 +242,12 @@ if (!isset($_POST['lihat'])) {
             </select>		</td>
         </tr>
         <tr>
-            <td><strong>Tahun Ajaran</strong></td>
+            <td><strong>Year</strong></td>
             <td>
                 <input type="hidden" name="idtahun" value="<?=$replid;?>">
                 <input type="text" name="tahun" size="22" value="<?=$tahun;?>" readonly class="disabled">            </td>
-            <td><strong>Presensi</strong></td>
-			<td><input type="checkbox" name="harian" id="harian" >			  Harian&nbsp;			  <input type="checkbox" name="pelajaran" id="pelajaran" >Pelajaran</td>
+            <td><strong>Presence</strong></td>
+			<td><input type="checkbox" name="harian" id="harian" >Daily&nbsp;<input type="checkbox" name="pelajaran" id="pelajaran" >Class Subject</td>
           </tr>
     </table>
     </form>

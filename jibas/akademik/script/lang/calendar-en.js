@@ -34,14 +34,14 @@ Calendar._DN = new Array
 
 // short day names
 Calendar._SDN = new Array
-("Ahad",
- "Senin",
- "Selasa",
- "Rabu",
- "Kamis",
- "Jumat",
- "Sabtu",
- "Ahad");
+("Sunday",
+ "Monday",
+ "Tuesday",
+ "Wednesday",
+ "Thursday",
+ "Friday",
+ "Saturday",
+ "Sunday");
 
 // First day of the week. "0" means display Sunday first, "1" means display
 // Monday first, etc.
@@ -49,59 +49,59 @@ Calendar._FD = 0;
 
 // full month names
 Calendar._MN = new Array
-("Januari",
- "Februari",
- "Maret",
+("January",
+ "February",
+ "March",
  "April",
- "Mei",
- "Juni",
- "Juli",
- "Agustus",
+ "May",
+ "June",
+ "July",
+ "August",
  "September",
- "Oktober",
- "Nopember",
- "Desember");
+ "October",
+ "November",
+ "December");
 
 // short month names
 Calendar._SMN = new Array
 ("Jan",
  "Feb",
- "Maret",
+ "March",
  "April",
- "Mei",
- "Juni",
- "Juli",
- "Agst",
+ "May",
+ "June",
+ "July",
+ "Aug",
  "Sept",
- "Okt",
- "Nop",
- "Des");
+ "Oct",
+ "Nov",
+ "Dec");
 
 // tooltips
 Calendar._TT = {};
-Calendar._TT["INFO"] = "Tentang kalender";
+Calendar._TT["INFO"] = "About calendar";
 
 Calendar._TT["ABOUT"] =
 
-"Cara memilih tanggal:\n" +
-"- Gunakan tombol \xab , \xbb untuk memilih tahun \n" +
-"- Gunakan tombol " + String.fromCharCode(0x2039) + " , " + String.fromCharCode(0x203a) + " untuk memilih bulan \n" +
-"- Klik (tekan) mouse (tetikus) pada setiap tombol yang tersedia \n " + 
-"  (untuk memilih menu atau tanggal dengan cepat) ";
+"How to select a date:\n" +
+"- User \xab button, \xbb for year \n" +
+"- Use" + String.fromCharCode(0x2039) + " , " + String.fromCharCode(0x203a) + " for month \n" +
+"- Click on any available buttons \n " + 
+"  (to select a menu or date) ";
 Calendar._TT["ABOUT_TIME"] = "\n\n" +
 "Time selection:\n" +
 "- Click on any of the time parts to increase it\n" +
 "- or Shift-click to decrease it\n" +
 "- or click and drag for faster selection.";
 
-Calendar._TT["PREV_YEAR"] = "tahun lalu (tekan untuk ganti menu)";
-Calendar._TT["PREV_MONTH"] = "bulan lalu (tekan untuk ganti menu)";
-Calendar._TT["GO_TODAY"] = "ke hari ini";
-Calendar._TT["NEXT_MONTH"] = "bulan depan (tekan untuk ganti menu)";
-Calendar._TT["NEXT_YEAR"] = "tahun depan (tekan untuk ganti menu)";
-Calendar._TT["SEL_DATE"] = "pilih tanggal";
-Calendar._TT["DRAG_TO_MOVE"] = "tekan untuk ganti";
-Calendar._TT["PART_TODAY"] = " (hari ini)";
+Calendar._TT["PREV_YEAR"] = "last year (click to change the menu)";
+Calendar._TT["PREV_MONTH"] = "last month (click to change the menu)";
+Calendar._TT["GO_TODAY"] = "today";
+Calendar._TT["NEXT_MONTH"] = "next month (click to change the menu)";
+Calendar._TT["NEXT_YEAR"] = "next year (click to change the menu)";
+Calendar._TT["SEL_DATE"] = "select a date";
+Calendar._TT["DRAG_TO_MOVE"] = "click to change";
+Calendar._TT["PART_TODAY"] = " (today)";
 
 // the following is to inform that "%s" is to be the first day of week
 // %s will be replaced with the day name.
@@ -112,8 +112,8 @@ Calendar._TT["DAY_FIRST"] = "Display %s first";
 // means Monday, etc.
 Calendar._TT["WEEKEND"] = "0,6";
 
-Calendar._TT["CLOSE"] = "tutup";
-Calendar._TT["TODAY"] = "hari ini";
+Calendar._TT["CLOSE"] = "close";
+Calendar._TT["TODAY"] = "today";
 Calendar._TT["TIME_PART"] = "(Shift-)Click or drag to change value";
 
 // date formats

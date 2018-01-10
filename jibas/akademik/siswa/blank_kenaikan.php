@@ -33,8 +33,8 @@
   	<tr>
     <td align="center" valign="top">
     	<br /><br /><br /><br /><br />    	
-    	<font size="2" color="#757575"><b>Klik pada tombol &quot;Tampil&quot;, &quot;Cari&quot; atau &quot;Lihat&quot; untuk
-      menampilkan daftar siswa yang akan naik kelas &nbsp;</b></font></td>
+    	<font size="2" color="#757575"><b>Click on Show, Search or See
+      to show grade promoted student list</b></font></td>
     </tr>
 	</table>
 	</td>

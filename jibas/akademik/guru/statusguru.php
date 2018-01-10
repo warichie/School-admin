@@ -44,7 +44,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Status Guru</title>
+<title>Teacher Status</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -64,7 +64,7 @@ function edit(replid) {
 }
 
 function hapus(replid) {
-	if (confirm('Anda yakin akan menghapus status guru ini?'))
+	if (confirm('Are you sure want to delete this Teacher Status?'))
 		document.location.href="statusguru.php?op=xm8r389xemx23xb2378e23&replid="+replid;	
 }
 
@@ -88,10 +88,10 @@ function cetak() {
 	<table border="0"width="95%" align="center">
     <!-- TABLE TITLE -->
     <tr>
-        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Status Guru</font></td>
+        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Teacher Status</font></td>
         </tr>
     <tr>
-      <td align="right"><a href="../guru.php?page=g" target="content"><font size="1" color="#000000"><b>Guru & Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Status
+      <td align="right"><a href="../guru.php?page=g" target="content"><font size="1" color="#000000"><b>Teacher and Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Status
         Guru</b></font></td>
       </tr>
     <tr>
@@ -106,12 +106,12 @@ function cetak() {
 ?>
     <table width="95%" border="0" align="center">
   <tr>
-    <td align="right"><a href="#" onclick="document.location.reload()" onMouseOver="showhint('Refresh!', this, event, '50px')"><img src="../images/ico/refresh.png" border="0" /></a>
+    <td align="right"><a href="#" onclick="document.location.reload()" onMouseOver="showhint('Refresh', this, event, '50px')"><img src="../images/ico/refresh.png" border="0" /></a>
 	
-		<a href="#" onclick="refresh()">&nbsp;<strong>Refresh</strong></a>&nbsp;&nbsp; <a href="JavaScript:cetak()" onMouseOver="showhint('Cetak!', this, event, '50px')"><img src="../images/ico/print.png" border="0"/></a>&nbsp;<a href="JavaScript:cetak()"><strong>Cetak</strong></a>&nbsp;&nbsp;
+		<a href="#" onclick="refresh()">&nbsp;<strong>Refresh</strong></a>&nbsp;&nbsp; <a href="JavaScript:cetak()" onMouseOver="showhint('Print', this, event, '50px')"><img src="../images/ico/print.png" border="0"/></a>&nbsp;<a href="JavaScript:cetak()"><strong>Print</strong></a>&nbsp;&nbsp;
     <? //if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <a href="JavaScript:tambah()" onMouseOver="showhint('Tambah!', this, event, '50px')"><img src="../images/ico/tambah.png" border="0" /></a>&nbsp;<a href="JavaScript:tambah()"><strong>Tambah
-          Status Guru</strong></a>
+        <a href="JavaScript:tambah()" onMouseOver="showhint('Add', this, event, '50px')"><img src="../images/ico/tambah.png" border="0" /></a>&nbsp;<a href="JavaScript:tambah()"><strong>Add
+          Teacher Status</strong></a>
     <?	//} ?>
     </td>
   </tr>  
@@ -120,9 +120,9 @@ function cetak() {
     <!-- TABLE CONTENT -->
     
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="25%" class="header" align="center">Status Guru</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="25%" class="header" align="center">Teacher Status</td>
+        <td width="*" class="header" align="center">Info</td>
         <? //if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
         <td width="8%" class="header" align="center">&nbsp;</td>
         <? //} ?>
@@ -143,9 +143,9 @@ function cetak() {
         
 
 		<td align="center">
-            <a href="JavaScript:edit(<?=$row['replid'] ?>)" onmouseover="showhint('Ubah Status Guru!', this, event, '80px')" ><img src="../images/ico/ubah.png" border="0" /></a>&nbsp;
+            <a href="JavaScript:edit(<?=$row['replid'] ?>)" onmouseover="showhint('Edit Teacher Status', this, event, '80px')" ><img src="../images/ico/ubah.png" border="0" /></a>&nbsp;
 <?		//if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?> 
-            <a href="JavaScript:hapus(<?=$row['replid'] ?>)" onMouseOver="showhint('Hapus Status Guru!', this, event, '80px')"><img src="../images/ico/hapus.png" border="0" /></a>
+            <a href="JavaScript:hapus(<?=$row['replid'] ?>)" onMouseOver="showhint('Delete', this, event, '80px')"><img src="../images/ico/hapus.png" border="0" /></a>
         </td>
 <?	//	} ?>
     </tr>
@@ -168,9 +168,9 @@ function cetak() {
        
 <tr>
 	<td align="center" valign="middle" height="200" colspan="2">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data 
+    	<font size = "2" color ="red"><b>Data Not Found. 
         <? //if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? //}?>
         </p></b></font>
 	</td>

@@ -32,12 +32,12 @@ OpenDb();
 
 $rootid = $_REQUEST['rootid'];
 
-$title = "Tambah Jabatan";
-$label = "Jabatan";
+$title = "Add Position";
+$label = "Position";
 if ($rootid != 0) 
 {
-	$title = "Tambah Sub Jabatan";
-	$label = "Sub Jabatan";
+	$title = "Add Sub Position";
+	$label = "Sub Position";
 }
 
 if (isset($_REQUEST['btSimpan'])) 
@@ -62,7 +62,7 @@ if (isset($_REQUEST['btSimpan']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tambah Jabatan</title>
+<title>Add Position</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -91,7 +91,7 @@ if ($rootid != 0) {
 	$row = mysql_fetch_row($result);
 	$jab = $row[0]; ?>
 <tr>
-	<td align="right" width="120">Jabatan :</td>
+	<td align="right" width="120">Position :</td>
     <td align="left"><input type="text" name="txParentJabatan" id="txParentJabatan" style="background-color:#CCCCCC" readonly size="30" maxlength="255" value="<?=$jab?>" /></td>
 </tr>
 <? } ?>
@@ -100,11 +100,11 @@ if ($rootid != 0) {
     <td align="left"><input type="text" name="txJabatan" id="txJabatan" size="50" maxlength="255" /></td>
 </tr>
 <tr>
-	<td align="right">Singkatan :</td>
+	<td align="right">Abbreviation :</td>
     <td align="left"><input type="text" name="txSingkatan" id="txSingkatan" size="50" maxlength="255" /></td>
 </tr>
 <tr>
-	<td align="right">Eselon :</td>
+	<td align="right">Echelon :</td>
     <td align="left">
     <select name="cbEselon" id="cbEselon" onKeyPress="return focusNext('txSingkatan', event)">
 <?	$sql = "SELECT eselon FROM eselon WHERE urutan >= 1 ORDER BY urutan";
@@ -116,7 +116,7 @@ if ($rootid != 0) {
     </td>
 </tr>
 <tr>
-	<td align="right">Satuan Kerja :</td>
+	<td align="right">Work Unit :</td>
     <td align="left">
     <select name="cbSatKer" id="cbSatKer">
 <? 		 $sql = "SELECT satker, nama FROM satker";
@@ -130,8 +130,8 @@ if ($rootid != 0) {
 </tr>
 <tr>
 	<td colspan="2" align="center" bgcolor="#EAEAEA">
-    <input type="submit" class="but" name="btSimpan" value="Simpan" />&nbsp;
-    <input type="button" class="but" name="btClose" value="Tutup" onClick="window.close()" />
+    <input type="submit" class="but" name="btSimpan" value="Save" />&nbsp;
+    <input type="button" class="but" name="btClose" value="Close" onClick="window.close()" />
     </td>
 </tr>
 </table>

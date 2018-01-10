@@ -53,7 +53,7 @@ if (isset($_REQUEST['Simpan'])) {
 		CloseDb();
 		?>
         <script language="javascript">
-			alert ('Kode pembelajaran <?=$kode?> sudah digunakan!');
+			alert ('Lesson Code <?=$kode?> has been used');
 		</script>
         <?		
 	} else {
@@ -89,7 +89,7 @@ $pelajaran = $row['idpelajaran'];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Ubah Rencana Program Pembelajaran]</title>
+<title>JIBAS TEACHERS INFO [Edit Lesson Plans]</title>
 <script src="../script/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../script/tooltips.js"></script>
@@ -114,9 +114,9 @@ tinyMCE.init({
 });
 
 function validate() {
-	return 	validateEmptyText('kode', 'Kode pembelajaran') && 
-			validateEmptyText('materi', 'Materi pembelajaran') && 
-		   	validateMaxText('materi', 255, 'Materi pembelajaran');
+	return 	validateEmptyText('kode', 'Lesson Code') && 
+			validateEmptyText('materi', 'Subject Matter') && 
+		   	validateMaxText('materi', 255, 'Subject Matter');
 }
 function focusNext(elemName, evt) {
     evt = (evt) ? evt : event;
@@ -149,31 +149,31 @@ function focusNext(elemName, evt) {
 <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td colspan="2" align="left"><font size="+2" style="background-color:#FF9900">&nbsp;&nbsp;</font>&nbsp;<span class="style1">Rencana Program Pembelajaran</span><br /><br /></td>
+<td colspan="2" align="left"><font size="+2" style="background-color:#FF9900">&nbsp;&nbsp;</font>&nbsp;<span class="style1">Lesson Plans</span><br /><br /></td>
 </tr>
 <tr>
-	<td width="50"><strong>Kode</strong></td>
+	<td width="50"><strong>Code</strong></td>
 	<td>
-    	<input title="Kode pembelajaran tidak boleh lebih dari 20 karakter!" type="text" name="kode" id="kode" size="10" maxlength="20" value="<?=$kode?>"   onKeyPress="return focusNext('materi', event)"/>
+    	<input title="Lesson Code should not exceed 20 characters!" type="text" name="kode" id="kode" size="10" maxlength="20" value="<?=$kode?>"   onKeyPress="return focusNext('materi', event)"/>
     </td>
 </tr>
 <tr>
-	<td valign="top"><strong>Materi</strong></td>
-	<td><input type="text" name="materi" id="materi" size="83" maxlength="225" value="<?=$materi?>" title="Materi pembelajaran tidak boleh lebih dari 20 karakter!" />
+	<td valign="top"><strong>Subject Matter</strong></td>
+	<td><input type="text" name="materi" id="materi" size="83" maxlength="225" value="<?=$materi?>" title="Subject Matter should not exceed 20 characters!" />
     	<!--<textarea name="materi" id="materi" rows="3" cols="45"><?=$materi?></textarea>-->
     </td>
 </tr>
 <tr>
 	<td colspan = "2" height="200" valign="top">
-	<fieldset><legend><b>Deskripsi Program Pembelajaran</b></legend>
+	<fieldset><legend><b>Lesson Plans Description</b></legend>
     <br />
     <textarea name="deskripsi" id="deskripsi" rows="20"><?=$deskripsi?></textarea>
     </fieldset>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
@@ -186,7 +186,7 @@ function focusNext(elemName, evt) {
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 </body>
 </html>

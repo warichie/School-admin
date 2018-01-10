@@ -87,7 +87,7 @@ OpenDb();
 ?>
 <table width="100%" border="0">
 	<tr>
-		<td align="center" colspan="9"><font size="4"><b>LAPORAN NILAI PELAJARAN</b></td>
+		<td align="center" colspan="9"><font size="4"><b>CLASS INDEX REPORT</b></td>
 	</tr>
 	<tr>
 	  <td>&nbsp;</td>
@@ -98,7 +98,7 @@ OpenDb();
 	  <td>&nbsp;</td>
   </tr>
 	<tr>
-		<td width="94">Departemen</td>
+		<td width="94">Department</td>
 		<td width="5">:</td>
 		<td width="322"><?=$departemen ?></td>
 	    <td width="94">Semester</td>
@@ -110,7 +110,7 @@ OpenDb();
 		echo $row_sem[semester] ?></td>
 	</tr>
 	<tr>
-		<td>Kelas</td>
+		<td>Class</td>
 		<td>:</td>		
 		<td>
 		<? 
@@ -118,16 +118,16 @@ OpenDb();
 		$result_kls = QueryDb($query_kls);
 		$row_kls = mysql_fetch_array($result_kls);
 		echo $row_kls[kelas] ?></td>
-	    <td>NIS</td>
+	    <td>Student ID</td>
 	    <td>:</td>
 	    <td><?=$nis?></td>
 	</tr>
 	<tr>
-		<td>Pelajaran</td>
+		<td>Class Subject</td>
 		<td>:</td>		
 		<td>
 		<? if($pelajaran == "all"){
-				$pel = "Semua Pelajaran";
+				$pel = "All Class Subject";
 			}elseif($pelajaran != "all"){
 				$query_pel = "SELECT nama FROM jbsakad.pelajaran WHERE replid = '$pelajaran'";
 				$result_pel = QueryDb($query_pel);
@@ -135,7 +135,7 @@ OpenDb();
 				$pel = $row_pel[nama];
 			}
 		echo $pel ?></td>
-	    <td>Nama</td>
+	    <td>Name</td>
 	    <td>:</td>
 	    <td><? 
 		$query_nama = "SELECT * FROM jbsakad.siswa WHERE nis = '$nis'";
@@ -183,10 +183,10 @@ while ($row = @mysql_fetch_row($result)) {
    
   <table border="1" width="100%" id="table" class="tab" bordercolor="#000000">
 		<tr>		
-			<td width="5" height="30" align="center" class="header"><div align="center">No</div></td>
-			<td width="120" class="header" align="center" height="30">Tanggal</td>
-            <td width="100" height="30" align="center" class="header">Nilai</td>
-			<td width="400" class="header" align="center" height="30">Keterangan</td>
+			<td width="5" height="30" align="center" class="header"><div align="center">#</div></td>
+			<td width="120" class="header" align="center" height="30">Date</td>
+            <td width="100" height="30" align="center" class="header">Point</td>
+			<td width="400" class="header" align="center" height="30">Info</td>
 		</tr>
 		<? 	OpenDb();		
 			$sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[0][0]."' AND u.idjenis = '$row[replid]' AND u.replid = n.idujian AND n.nis = '$nis' ORDER BY u.tanggal";
@@ -215,13 +215,13 @@ while ($row = @mysql_fetch_row($result)) {
 		</tr>	
         <? } ?>
 		<tr style="background-color:#E1FFFF">        			
-			<td colspan="2" height="25"><div align="center">Nilai rata rata</div></td>
+			<td colspan="2" height="25"><div align="center">Index Point/Cumulative</div></td>
 			<td height="25"><div align="center"><?=round($rata,2)?></div></td>
             <td height="25">&nbsp;</td>            
 		</tr>
 		<? } else { ?>
 		<tr>        			
-			<td colspan="4" height="25" align="center">Tidak ada nilai</td>
+			<td colspan="4" height="25" align="center">No index.</td>
 		</tr>
 		<? }
 			?>

@@ -32,7 +32,7 @@ $dbnameperpus = "jbsperpus";
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Daftar Siswa]</title>
+<title>JIBAS TEACHERS INFO [Student List]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <link rel="stylesheet" type="text/css" href="../script/tooltips.css" />
 <script src="../script/SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
@@ -71,18 +71,18 @@ function ShowBook(x){
 function FocusText(State){
 	var x = document.getElementById('search').value;
 	if (State=='1'){
-		if (x=='Cari'){
+		if (x=='Search'){
 			document.getElementById('search').value = '';
 			document.getElementById('search').style.color = '#000000';
 		} else {
 			document.getElementById('search').style.color = '#000000';
 		}
 	} else {
-		if (x=='Cari'){
+		if (x=='Search'){
 			document.getElementById('search').style.color = '#999999';
 		} else {
 			if (x==''){
-				document.getElementById('search').value = 'Cari';
+				document.getElementById('search').value = 'Search';
 				document.getElementById('search').style.color = '#999999';
 			} else {
 				document.getElementById('search').style.color = '#000000';
@@ -110,7 +110,7 @@ if ($num>0){
 	<table width="99%" border="0" cellspacing="0" cellpadding="0">
 	  <tr>
 		<td width="27%" style="padding-left:3px; padding-right:5px;" valign="top">
-		<div class="brown" style="padding-top:5px; padding-bottom:5px; font-size: 14px; font-weight: bold;">Katalog</div>
+		<div class="brown" style="padding-top:5px; padding-bottom:5px; font-size: 14px; font-weight: bold;">Catalogue</div>
 		<table width="100%" border="1" cellspacing="0" cellpadding="0" id="Table1" class="tab">
 		<?
 		while ($row = @mysql_fetch_array($result)){
@@ -129,10 +129,10 @@ if ($num>0){
 		</script>
 		</td>
 		<td width="70%" valign="top">
-		<div class="brown" style="padding-top:5px; padding-bottom:5px; font-size: 14px; font-weight: bold; padding-left:7px">Daftar Buku</div>
+		<div class="brown" style="padding-top:5px; padding-bottom:5px; font-size: 14px; font-weight: bold; padding-left:7px">Book List</div>
 		<div id="MainBookList">
 			<div align="center" style="padding-top:50px;color: #FF9900;font-weight: bold;font-size: 16px;">
-			Silakan Pilih Katalog
+			Please select a catalogue
 			</div>
 		</div>
 		</td>
@@ -141,7 +141,7 @@ if ($num>0){
 	<?
 } else {
 	?>
-	<center><span style="color:#FF0000; font-size:12px">Tidak ada data</span></center>  
+	<center><span style="color:#FF0000; font-size:12px">Data Not Found</span></center>  
 	<?
 }
 ?>

@@ -43,7 +43,7 @@ if (isset($_REQUEST['Simpan'])) {
 	$row = mysql_num_rows($result);
 	if (mysql_num_rows($result) > 0){ 
 		CloseDb();
-		$ERROR_MSG = "Jenis Mutasi $jenismutasi sudah digunakan!";	
+		$ERROR_MSG = "Mutation Type $jenismutasi has been used";	
     } else {
         $sql = "INSERT INTO jbsakad.jenismutasi SET jenismutasi='$jenismutasi',keterangan='$keterangan'";
         $result = QueryDb($sql);
@@ -65,7 +65,7 @@ if (isset($_REQUEST['Simpan'])) {
 <link href="../style/style.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Jenis Mutasi]</title>
+<title>JIBAS SIMAKA [Add Mutation Type]</title>
 <SCRIPT language="JavaScript" src="../script/validasi.js"></SCRIPT>
 <SCRIPT language="JavaScript" src="../script/tables.js"></SCRIPT>
 <SCRIPT language="javascript" src="../script/common.js"></script>
@@ -88,8 +88,8 @@ function focusNext(elemName, evt) {
 }
 
 function validate(){
-	return	validateEmptyText('jenismutasi', 'Jenis Mutasi') &&
-			validateMaxText('keterangan', 255, 'Keterangan');
+	return	validateEmptyText('jenismutasi', 'Mutation Type') &&
+			validateMaxText('keterangan', 255, 'Info');
 }			
 </script>
 </head>
@@ -100,7 +100,7 @@ function validate(){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Jenis Mutasi :.
+    .: Add Mutation Type :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -111,17 +111,17 @@ function validate(){
     <!-- CONTENT GOES HERE //--->
     <table width="95%" border="0" cellspacing="2" cellpadding="2" align="center">
     <tr>
-       <td width="80"><strong>Jenis Mutasi </strong></td>
+       <td width="80"><strong>Mutation Type </strong></td>
        <td><input name="jenismutasi" type="text" id="jenismutasi" size="30" maxlength="45" value="<?=$jenismutasi?>" onKeyPress="return focusNext('keterangan', event)"></td>
     </tr>
     <tr valign="top">
-       <td>Keterangan</td>
+       <td>Info</td>
        <td><textarea name="keterangan" cols="30" rows="4" id="keterangan" onKeyPress="return focusNext('simpan', event)"><?=$keterangan?></textarea></td>
     </tr>
     <tr>
     	<td colspan="2" align="center">
-    	<input name="Simpan" type="Submit" class="but" value="Simpan" id="simpan">&nbsp;                     
-        <input name="Tutup" type="button" class="but" value="Tutup" onClick="window.close()">
+    	<input name="Simpan" type="Submit" class="but" value="Save" id="simpan">&nbsp;                     
+        <input name="Tutup" type="button" class="but" value="Close" onClick="window.close()">
        	</td>
     </tr>
     </table>

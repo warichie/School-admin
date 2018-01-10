@@ -35,16 +35,16 @@
     <!-- TABLE TITLE -->
     <tr>
      
-      <td align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Aturan Perhitungan Grading Nilai</font></td>
+      <td align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Report Card Calculation Rules</font></td>
     </tr>
     
     <tr>
       <td align="right" valign="top"><a href="../pelajaran.php" target="framecenter">
-        <font size="1" color="#000000"><b>Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000">Aturan Perhitungan Grading Nilai</font> </td>
+        <font size="1" color="#000000"><b>Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000">Report Card Calculation Rules</font> </td>
     </tr>
     
 	</table><br><br><br><br><br><br><br><br><br><br>
-        <font size="2" color="#757575"><b>Klik pada <em>hyperlink</em> "Pelajaran" untuk melihat aturan perhitungan Grading nilai rapor</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on <em>hyperlink</em> "Class Subject" to show report card Grade calculation rules</b></font>    </td>
 </tr>
 </table>
 </body>

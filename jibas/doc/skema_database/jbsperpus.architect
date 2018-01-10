@@ -606,7 +606,7 @@
       <index id="IDX205" populated="true" UUID="2f6393ea-a7a0-4c50-8f37-c64adb28e2a1" clustered="false" name="perpustakaan_PK" physicalName="perpustakaan_PK" primaryKeyIndex="true" qualifier="" unique="true" >
        <index-column id="IDC206" populated="true" UUID="cb6ca095-5cb2-4891-a2b4-2de5004885c9" ascendingOrDescending="UNSPECIFIED" column-ref="COL196" name="replid" physicalName="replid" />
       </index>
-      <index id="IDX207" populated="true" UUID="cdd47d5a-083f-45cc-9c85-719cef27bb14" clustered="false" index-type="BTREE" name="Nama" physicalName="Nama" primaryKeyIndex="false" qualifier="" unique="true" >
+      <index id="IDX207" populated="true" UUID="cdd47d5a-083f-45cc-9c85-719cef27bb14" clustered="false" index-type="BTREE" name="Name" physicalName="Name" primaryKeyIndex="false" qualifier="" unique="true" >
        <index-column id="IDC208" populated="true" UUID="1192d4f3-81e9-4c66-aed6-c6c09b95d365" ascendingOrDescending="ASCENDING" column-ref="COL197" name="nama" physicalName="nama" />
       </index>
       <index id="IDX209" populated="true" UUID="37a9542e-0b5c-451d-9356-24610570ecd6" clustered="false" index-type="BTREE" name="IX_perpustakaan_ts" physicalName="IX_perpustakaan_ts" primaryKeyIndex="false" qualifier="" unique="false" >
@@ -896,7 +896,7 @@
     <index id="IDX317" populated="true" UUID="d85efbbb-4321-416b-95a5-9968d1fd4b5b" clustered="false" name="perpustakaan_PK" physicalName="perpustakaan_PK" primaryKeyIndex="true" qualifier="" unique="true" >
      <index-column id="IDC318" populated="true" UUID="8f5262db-cd81-4257-a7dd-f65f99d0762f" ascendingOrDescending="UNSPECIFIED" column-ref="COL308" name="replid" physicalName="replid" />
     </index>
-    <index id="IDX319" populated="true" UUID="adb26522-fef4-4b14-bd1b-47f0df47ebfe" clustered="false" index-type="BTREE" name="Nama" physicalName="Nama" primaryKeyIndex="false" qualifier="" unique="true" >
+    <index id="IDX319" populated="true" UUID="adb26522-fef4-4b14-bd1b-47f0df47ebfe" clustered="false" index-type="BTREE" name="Name" physicalName="Name" primaryKeyIndex="false" qualifier="" unique="true" >
      <index-column id="IDC320" populated="true" UUID="1ea4f779-6c03-4ac7-a73b-bc2538f212e6" ascendingOrDescending="ASCENDING" column-ref="COL309" name="nama" physicalName="nama" />
     </index>
     <index id="IDX321" populated="true" UUID="55bae5c3-e26d-4edb-8296-e5f269e365f9" clustered="false" index-type="BTREE" name="IX_perpustakaan_ts" physicalName="IX_perpustakaan_ts" primaryKeyIndex="false" qualifier="" unique="false" >

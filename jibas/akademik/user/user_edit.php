@@ -74,7 +74,7 @@ if (isset($_REQUEST['simpan'])) {
 
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Pengguna ".$_REQUEST['nip']." sudah mempunyai account untuk tingkat dan departemen ini!";
+		$ERROR_MSG = "User ".$_REQUEST['nip']." has an account for this grade and department";
 	} else {
 		if ($tingkat==1){
 			//Kalo manajer
@@ -115,7 +115,7 @@ if($status_user == 1 || $status_user == "") {
 
 <html>
 <head>
-<title>JIBAS SIMAKA [Ubah Pengguna]</title>
+<title>JIBAS SIMAKA [Edit User]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="JavaScript" src="../script/tooltips.js"></script>
@@ -131,42 +131,42 @@ function cek_form() {
 	var ket = document.tambah_user.keterangan.value;
 		
 	if (nip.length == 0) {
-		alert("User tidak boleh kosong");
+		alert("User should not leave empty");
 		return false;
 	}
 
 	/*if (pass.length == 0) {
-		alert("Password tidak boleh kosong!");
+		alert("Password should not leave empty");
 		document.tambah_user.password.focus();
 		return false;
 	} else if (kon.length == 0) {
-		alert("Konfirmasi tidak boleh kosong!");
+		alert("Confirmation should not leave empty");
 		document.tambah_user.konfirmasi.focus();
 		return false;
 	}
 	
 	if (pass != kon) {
-		alert("Password dan konfirmasi harus sama!");
+		alert("Password and confirmation should match");
 		document.tambah_user.konfirmasi.focus();
 		return false;
 	}*/
 
 	if (stat.length == 0) {
-		alert("Tingkat tidak boleh kosong!");
+		alert("Grade should not leave empty");
 		document.tambah_user.status_user.focus();
 		return false;
 	}
 	
 	if (stat != 1) {
 		if (dep.length==0) {
-		alert("Departemen tidak boleh kosong!");
+		alert("Department should not leave empty");
 		document.tambah_user.departemen.focus();
 		return false;
 		}
 	}
 	
 	if (ket.length > 255) {
-		alert("Keterangan tidak boleh lebih dari 255 karakter!");
+		alert("Info should not exceed 255 characters");
 		document.tambah_user.keterangan.focus();
 		return false;
 	}
@@ -222,7 +222,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Pengguna :.
+    .: Edit User :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -240,7 +240,7 @@ function panggil(elem){
     <td><input type="text" size="10" name="nip1" readonly value="<?=$nip ?>" class="disabled">&nbsp;<input type="text" size="32" name="nama1" readonly value="<?=$nama?>" class="disabled">
     	<input type="hidden" name="nip" id="nip" value="<?=$nip?>">
         <input type="hidden" name="nama" id="nama" value="<?=$nama?>">
-        <!--<a href="#" onClick="caripegawai()"><img src="../images/ico/cari.png" border="0" onMouseOver="showhint('Cari pegawai',this, event, '100px')"></a>-->
+        <!--<a href="#" onClick="caripegawai()"><img src="../images/ico/cari.png" border="0" onMouseOver="showhint('Search employee',this, event, '100px')"></a>-->
     </td>
 </tr>
 <!--<tr>
@@ -248,18 +248,18 @@ function panggil(elem){
     <td><input type="text" size="25" name="password" readonly class='disabled' value='********' id="dis"></td>
 </tr>
 <tr>
-    <td><strong>Konfirmasi</strong></td>
+    <td><strong>Confirm</strong></td>
     <td><input type="text" size="25" name="konfirmasi" readonly class='disabled' value='********' id="dis" ></td>
 </tr>--->
 <tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
     <td><select name="status_user" id="status_user" style="width:165px" onChange="change_tingkat();" onFocus="panggil('status_user')" <?=$fokus?>>
             <option value="1"
             <?
                 if ($status_user==1)
                 echo "selected";
                 ?>
-            >Manajer Akademik</option>
+            >Academic Manager</option>
             <option value="2"
             <?
                 if ($status_user==2)
@@ -269,10 +269,10 @@ function panggil(elem){
     </select></td>
 </tr>
 <tr>
-    <td><strong>Departemen</strong></td>
+    <td><strong>Department</strong></td>
     <td><select name="departemen" style="width:165px;" id="tt" <?=$dd ?> onKeyPress="return focusNext('keterangan', event)" onFocus="panggil('tt')">
     <?  if ($status_user == 1 || $status_user == ""){	
-    		echo "<option value='' selected='selected'>Semua</option>";
+    		echo "<option value='' selected='selected'>All</option>";
     	}
 		OpenDb();
 		$query_pro = "SELECT departemen FROM jbsakad.departemen WHERE aktif=1 ORDER BY urutan ASC";
@@ -301,13 +301,13 @@ function panggil(elem){
     	</option></select></td>
 </tr>
 <tr>
-    <td valign="top">Keterangan</td>
+    <td valign="top">Info</td>
     <td><textarea wrap="soft" id="keterangan" name="keterangan" cols="40" rows="3" onFocus="panggil('keterangan')" onKeyPress="return focusNext('simpan', event)"><?=$keterangan?></textarea></td>
 </tr>
 <tr>
     <td colspan="2"><div align="center">
-      	<input type="submit" value="Simpan" name="simpan" id="simpan" class="but" onFocus="panggil('simpan')">&nbsp;
-        <input type="button" value="Tutup" name="batal" class="but" onClick="window.close();">
+      	<input type="submit" value="Save" name="simpan" id="simpan" class="but" onFocus="panggil('simpan')">&nbsp;
+        <input type="button" value="Close" name="batal" class="but" onClick="window.close();">
     </div></td>
   </tr>
 </table>

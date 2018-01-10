@@ -80,8 +80,8 @@ if ($departemen<>"-1" && $idproses>0)
     <table width="100%" border="0" height="100%">
    	<tr>
   		<td align="center">
-		<font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br />
-	Tambah data calon siswa pada departemen <?=$departemen?> di menu Pendataan Calon Siswa pada bagian PSB. 
+		<font size = "2" color ="red"><b>Data Not Found<br />
+	Add student candidate data on Department <?=$departemen?> in the Student Candidate Data Collection on New Student Admission section. 
 		</b></font>        
     	</td>
   	</tr>

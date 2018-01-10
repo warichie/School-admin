@@ -84,29 +84,29 @@ function RandStr($length) {
 
 function NamaBulan($bln) {
 	if ($bln == 1)
-		return "Januari";
+		return "January";
 	elseif ($bln == 2)
-		return "Februari";		
+		return "February";		
 	elseif ($bln == 3)
-		return "Maret";		
+		return "March";		
 	elseif ($bln == 4)
 		return "April";		
 	elseif ($bln == 5)
-		return "Mei";
+		return "May";
 	elseif ($bln == 6)
-		return "Juni";		
+		return "June";		
 	elseif ($bln == 7)
-		return "Juli";
+		return "July";
 	elseif ($bln == 8)
-		return "Agustus";		
+		return "August";		
 	elseif ($bln == 9)
 		return "September";
 	elseif ($bln == 10)
-		return "Oktober";		
+		return "October";		
 	elseif ($bln == 11)
-		return "Nopember";
+		return "November";
 	elseif ($bln == 12)
-		return "Desember";		
+		return "December";		
 }
 function NamaBulanPdk($bln) {
 	if ($bln == 1)
@@ -118,21 +118,21 @@ function NamaBulanPdk($bln) {
 	elseif ($bln == 4)
 		return "Apr";		
 	elseif ($bln == 5)
-		return "Mei";
+		return "May";
 	elseif ($bln == 6)
 		return "Jun";		
 	elseif ($bln == 7)
 		return "Jul";
 	elseif ($bln == 8)
-		return "Ags";		
+		return "Aug";		
 	elseif ($bln == 9)
 		return "Sep";
 	elseif ($bln == 10)
-		return "Okt";		
+		return "Oct";		
 	elseif ($bln == 11)
-		return "Nop";
+		return "Nov";
 	elseif ($bln == 12)
-		return "Des";		
+		return "Dec";		
 }
 
 function NamaBulanH($Bln) {
@@ -163,29 +163,29 @@ function NamaBulanH($Bln) {
 } 
 	
 function nilaibulan($bln) {
-	if ($bln == "Januari")
+	if ($bln == "January")
 		return '01';
-	elseif ($bln == "Februari")
+	elseif ($bln == "February")
 		return '02';		
-	elseif ($bln == "Maret")
+	elseif ($bln == "March")
 		return '03';		
-	elseif ($bln == "Mei")
+	elseif ($bln == "May")
 		return '04';		
 	elseif ($bln == "April")
 		return '05';
-	elseif ($bln == "Juni")
+	elseif ($bln == "June")
 		return '06';		
-	elseif ($bln == "Juli")
+	elseif ($bln == "July")
 		return '07';
-	elseif ($bln == "Agustus")
+	elseif ($bln == "August")
 		return '08';		
 	elseif ($bln == "September")
 		return '09';
-	elseif ($bln == "Oktober")
+	elseif ($bln == "October")
 		return '10';		
-	elseif ($bln == "Nopember")
+	elseif ($bln == "November")
 		return '11';
-	elseif ($bln == "Desember")
+	elseif ($bln == "December")
 		return '12';		
 }
 
@@ -270,8 +270,8 @@ function bulan($bulan)
  if($bulan==""){
   $bulan=date("m");
  }
-  $bulan_a= array("01"=>"januari","02"=>"Februari","03"=>"maret","04"=>"april",
-  "05"=>"mei","06"=>"juni","07"=>"juli","08"=>"Agustus","09"=>"september","10"=>"oktober","11"=>"November","11"=>"desember");
+  $bulan_a= array("01"=>"januari","02"=>"February","03"=>"maret","04"=>"april",
+  "05"=>"mei","06"=>"juni","07"=>"juli","08"=>"August","09"=>"september","10"=>"oktober","11"=>"November","11"=>"desember");
 
     foreach ($bulan_a as $key => $val) {
  
@@ -328,7 +328,7 @@ $int=(int)$int;
 	if ($int>0 && $int<=30){
 		return $r[$int-1];
 	} else {
-		return "Out Of Range";
+		return "Out of range";
 	}
 }
 function Number2Alphabet($int){
@@ -337,7 +337,7 @@ $int=(int)$int;
 	if ($int>0 && $int<=30){
 		return $r[$int-1];
 	} else {
-		return "Out Of Range";
+		return "Out of range";
 	}
 }
 

@@ -33,7 +33,7 @@ $middle="0";
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th width="35%" scope="row"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>PELAJARAN</strong></font></p></th>
+    <th width="35%" scope="row"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>LESSON</strong></font></p></th>
     <th>&nbsp;</th>
   </tr>
   <tr>
@@ -49,7 +49,7 @@ $middle="0";
 		<td colspan="2" rowspan="5">
 			<img src="images/pelajaran_02.jpg" width="143" height="272" alt=""></td>
 		<td colspan="2">
-			<a href="pelajaran/rpp.php" title="Rencana Program Pembelajaran"><img src="images/pelajaran_03.jpg" width="94" height="95" alt="" border="0"></a></td>
+			<a href="pelajaran/rpp.php" title="Lesson Plans"><img src="images/pelajaran_03.jpg" width="94" height="95" alt="" border="0"></a></td>
 		<td colspan="2" rowspan="4">
 			<img src="images/pelajaran_04.jpg" width="162" height="265" alt=""></td>
 		<td>
@@ -63,7 +63,7 @@ $middle="0";
 	</tr>
 	<tr>
 		<td colspan="2">
-			<a href="pelajaran/jenis_pengujian.php" title="Jenis Pengujian"><img src="images/pelajaran_06.jpg" alt="" width="94" height="83" border="0"></a></td>
+			<a href="pelajaran/jenis_pengujian.php" title="Exam Type"><img src="images/pelajaran_06.jpg" alt="" width="94" height="83" border="0"></a></td>
 		<td>
 			<img src="images/spacer.gif" width="1" height="83" alt=""></td>
 	</tr>
@@ -75,7 +75,7 @@ $middle="0";
 	</tr>
 	<tr>
 		<td rowspan="2">
-			<a href="pelajaran/perhitungan_rapor.php" title="Aturan Perhitungan Nilai Rapor"><img src="images/pelajaran_08.jpg" alt="" width="125" height="98" border="0"></a></td>
+			<a href="pelajaran/perhitungan_rapor.php" title="Report Card Calculation Rules"><img src="images/pelajaran_08.jpg" alt="" width="125" height="98" border="0"></a></td>
 		<td rowspan="3">
 			<img src="images/pelajaran_09.jpg" width="37" height="146" alt=""></td>
 		<td>
@@ -85,7 +85,7 @@ $middle="0";
 		<td rowspan="2">
 			<img src="images/pelajaran_10.jpg" width="24" height="139" alt=""></td>
 		<td colspan="2">
-			<a href="pelajaran/aturannilai_main.php" title="Aturan Perhitungan Grading Nilai"><img src="images/pelajaran_11.jpg" alt="" width="130" height="91" border="0"></a></td>
+			<a href="pelajaran/aturannilai_main.php" title="Report Card Calculation Rules"><img src="images/pelajaran_11.jpg" alt="" width="130" height="91" border="0"></a></td>
 		<td rowspan="2">
 			<img src="images/pelajaran_12.jpg" width="83" height="139" alt=""></td>
 		<td>
@@ -118,9 +118,9 @@ $middle="0";
 <!-- End ImageReady Slices -->
     </th>
     <th align="left" valign="top">
-    <a href="pelajaran/aspeknilai.php" style="text-decoration:none;" onMouseOver="showhint('Aspek Penilaian', this, event, '100px')">
+    <a href="pelajaran/aspeknilai.php" style="text-decoration:none;" onMouseOver="showhint('Assessment Aspect', this, event, '100px')">
     <img src="images/jadwal.png" height="70" alt="" border="0"><br>
-    <font style="font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#000; font-weight:bold">Aspek Penilaian</font>
+    <font style="font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#000; font-weight:bold">Assessment Aspect</font>
     </a>
     </th>
   </tr>

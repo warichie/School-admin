@@ -40,7 +40,7 @@
 <body>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100">
   <tr>
-    <td align="center"><span class="style2">Silakan cari siswa dengan mengklik ikon <img src="../images/ico/cari.png" /> di atas</span></td>
+    <td align="center"><span class="style2">Search for student by click on the <img src="../images/ico/cari.png" /> icon above</span></td>
   </tr>
 </table>
 </body>

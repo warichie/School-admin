@@ -101,7 +101,7 @@ if ($op == "dw8dxn8w9ms8zs22") {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Rencana Program Pembelajaran]</title>
+<title>JIBAS SIMAKA [Lesson Plans]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="JavaScript" src="../script/tables.js"></script>
@@ -130,10 +130,10 @@ function setaktif(replid, aktif) {
 	var newaktif;
 	
 	if (aktif == 1) {
-		msg = "Apakah anda yakin akan mengubah rencana program pengajaran ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this Lesson Plans to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin akan mengubah rencana program pengajaran ini menjadi AKTIF?";
+		msg = "Are you sure want to change this Lesson Plans to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -180,7 +180,7 @@ function hapus(replid) {
 	var urut = document.getElementById('urut').value;
 	var urutan = document.getElementById('urutan').value;
 	
-	if (confirm("Apakah anda yakin akan menghapus rencana program pengajaran ini?"))
+	if (confirm("Are you sure want to delete this Lesson Plans?"))
 		document.location.href = "rpp_tampil.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&semester=<?=$semester?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&departemen=<?=$departemen?>&urut="+urut+"&urutan="+urutan+"&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -274,7 +274,7 @@ function ByeWin() {
 	<table border="0"width="100%">
     <!-- TABLE TITLE -->
     <tr>
-    	<td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Rencana Program Pembelajaran</font></td>
+    	<td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Lesson Plans</font></td>
     </tr>
     <tr>
         <td align="left">&nbsp;</td>
@@ -283,16 +283,16 @@ function ByeWin() {
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <!-- TABLE LINK -->
     <tr>
-    	<td width="13%"><strong>Departemen</strong></td>
+    	<td width="13%"><strong>Department</strong></td>
     	<td><input type="text" readonly value="<?=$departemen?>" class="disabled" size="15"/></td>
     	<td width="10%"><strong>Semester</strong></td>
     	<td><input type="text" readonly value="<?=$namasemester?>" class="disabled" size="27" /></td>
         
    	</tr>
     <tr>
-        <td><strong>Tingkat</strong></td>
+        <td><strong>Grade</strong></td>
         <td><input type="text" readonly value="<?=$namatingkat?>" class="disabled" size="15" /></td>
-        <td><strong>Pelajaran</strong></td>
+        <td><strong>Class Subject</strong></td>
         <td><input type="text" readonly value="<?=$namapelajaran?>" class="disabled"  size="27"/></td>
     <? 	
 		OpenDb();
@@ -309,8 +309,8 @@ function ByeWin() {
 	?>	
                 
         <td align="right">
-        <a href="#" onClick="refresh_all()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png"onMouseOver="showhint('Tambah RPP!', this, event, '50px')" border="0" />&nbsp;Tambah RPP</a>&nbsp;</td>
+        <a href="#" onClick="refresh_all()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png"onMouseOver="showhint('Add Lesson Plans', this, event, '50px')" border="0" />&nbsp;Add Lesson Plans</a>&nbsp;</td>
   	</tr>
   	</table>
 	</td>
@@ -321,10 +321,10 @@ function ByeWin() {
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left">    
       <!-- TABLE CONTENT -->
 	<tr height="30" align="center" class="header">
-        <td width="4%">No</td>        
-    	<td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('koderpp','<?=$urutan?>')">Kode <?=change_urut('koderpp',$urut,$urutan)?></td>    
-		<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('rpp','<?=$urutan?>')">Materi <?=change_urut('rpp',$urut,$urutan)?></td>
-    	<td width="*">Deskripsi</td>
+        <td width="4%">#</td>        
+    	<td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('koderpp','<?=$urutan?>')">Code <?=change_urut('koderpp',$urut,$urutan)?></td>    
+		<td width="20%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('rpp','<?=$urutan?>')">Subject <?=change_urut('rpp',$urut,$urutan)?></td>
+    	<td width="*">Description</td>
     	<td width="10%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('aktif','<?=$urutan?>')">Status <?=change_urut('aktif',$urut,$urutan)?></td>	    
         <td width="10%">&nbsp;</td>
   	</tr>
@@ -344,22 +344,22 @@ function ByeWin() {
         <td align="center">  
     <?		if (SI_USER_LEVEL() == $SI_USER_STAFF) {  
                 if ($row[4] == 1) { ?> 
-            <img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '80px')"/>
+            <img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '80px')"/>
     <?			} else { ?>                
-            <img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '80px')"/>
+            <img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Inactive', this, event, '80px')"/>
     <?			}
             } else { 
                 if ($row[4] == 1) { ?>
-            <a href="JavaScript:setaktif(<?=$row[0] ?>, <?=$row[4] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '80px')"/></a>
+            <a href="JavaScript:setaktif(<?=$row[0] ?>, <?=$row[4] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '80px')"/></a>
     <?			} else { ?>
-            <a href="JavaScript:setaktif(<?=$row[0] ?>, <?=$row[4] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '80px')"/></a>
+            <a href="JavaScript:setaktif(<?=$row[0] ?>, <?=$row[4] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Inactive', this, event, '80px')"/></a>
     <?			} //end if
             } //end if ?>        
         </td>
 
         <td align="center">
-            <a href="JavaScript:edit(<?=$row[0] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah RPP!', this, event, '50px')"/></a>&nbsp;
-            <a href="JavaScript:hapus(<?=$row[0] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus RPP!', this, event, '50px')"/></a>
+            <a href="JavaScript:edit(<?=$row[0] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Lesson Plans', this, event, '50px')"/></a>&nbsp;
+            <a href="JavaScript:hapus(<?=$row[0] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete', this, event, '50px')"/></a>
         </td>
     </tr>
 	<?	} ?>
@@ -393,20 +393,20 @@ function ByeWin() {
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<td align="center">
-    <!--input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <!--input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -417,9 +417,9 @@ function ByeWin() {
 				 
 	    }
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')"-->
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')"-->
  		</td>
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -436,9 +436,9 @@ function ByeWin() {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="250">
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data.
+            <font size = "2" color ="red"><b>Data Not Found.
            <? //if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-            <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru.
+            <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data.
             <? //} ?>
             </p></b></font>
         </td>
@@ -452,7 +452,7 @@ function ByeWin() {
 </tr>
 <tr height="35">
 	<td align="center">    
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="tutup()" />
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="tutup()" />
     <input type="hidden" name="idrpp" id="idrpp" value="<?=$idrpp?>" />
     </td>
 </tr>

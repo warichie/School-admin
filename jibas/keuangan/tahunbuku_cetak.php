@@ -43,7 +43,7 @@ if (isset($_REQUEST['departemen']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Tahun Buku]</title>
+<title>JIBAS FINANCE [Fiscal Year]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -59,18 +59,18 @@ if (isset($_REQUEST['departemen']))
 
 <table border="0">
 <tr>
-	<td><strong>Departemen : <?=$departemen ?></strong></td>
+	<td><strong>Department : <?=$departemen ?></strong></td>
 </tr>
 </table>
 <br />
 
     <table id="table" class="tab" bordercolor="#000000" border="1" style="border-collapse:collapse" width="100%">
 	<tr height="30" align="center">
-        <td class="header" width="5%">No</td>
-        <td class="header" width="12%">Tahun Buku</td>
-        <td class="header" width="18%">Tanggal Mulai</td>
+        <td class="header" width="5%">#</td>
+        <td class="header" width="12%">Fiscal Year</td>
+        <td class="header" width="18%">Start Date</td>
         <td class="header" width="15%">Awalan Kuitansi</td>
-        <td class="header" width="*">Keterangan</td>
+        <td class="header" width="*">Info</td>
 	</tr>
     <?
 	OpenDb();

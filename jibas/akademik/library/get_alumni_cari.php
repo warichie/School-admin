@@ -28,10 +28,10 @@ require_once('../include/db_functions.php');
 ?>
 <table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0" bordercolor="#000000">
 <tr height="30">
-	<td class="header" width="7%" align="center" height="30">No</td>
-    <td class="header" width="15%" align="center" height="30">N I S</td>
-    <td class="header" height="30">Nama</td>
-	<td class="header" height="30">Kelas</td>
+	<td class="header" width="7%" align="center" height="30">#</td>
+    <td class="header" width="15%" align="center" height="30">Student ID</td>
+    <td class="header" height="30">Name</td>
+	<td class="header" height="30">Class</td>
 	<td class="header" height="30">&nbsp;</td>
 </tr>
 <?
@@ -63,14 +63,14 @@ if ($cnt%2==1)
     <td align="center" height="25" <?=$bg?> onClick="ambilpilih('<?=$row[0]?>','<?=$row[1]?>')" style="cursor:pointer"><?=$row[0] ?></td>
     <td height="25" <?=$bg?> onClick="ambilpilih('<?=$row[0]?>','<?=$row[1]?>')" style="cursor:pointer"><?=$row[1] ?></td>
 	<td height="25" <?=$bg?> onClick="ambilpilih('<?=$row[0]?>','<?=$row[1]?>')" style="cursor:pointer"><?=$row[2] ?></td>
-	<td height="25" <?=$bg?> onClick="ambilpilih('<?=$row[0]?>','<?=$row[1]?>')" style="cursor:pointer" align="center"><input type="button" value="Pilih" onclick="ambilpilih('<?=$row[0]?>','<?=$row[1]?>')" class="but"></td>
+	<td height="25" <?=$bg?> onClick="ambilpilih('<?=$row[0]?>','<?=$row[1]?>')" style="cursor:pointer" align="center"><input type="button" value="Select" onclick="ambilpilih('<?=$row[0]?>','<?=$row[1]?>')" class="but"></td>
 </tr>
 <?
 $cnt++;
 }
 CloseDb();	
 if (mysql_num_rows($result) == 0) { ?>
-<tr height="26"><td colspan="4" align="center"><em>Tidak ditemukan data</em></td></tr>
+<tr height="26"><td colspan="4" align="center"><em>Data Not Found.</em></td></tr>
 <? } ?>
 
 </table>

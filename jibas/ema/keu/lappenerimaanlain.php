@@ -129,15 +129,15 @@ function show_laporan() {
 	var idpenerimaan = document.getElementById('idpenerimaan').value;
 	
 	if (idpenerimaan.length == 0) {	
-		alert ('Pastikan penerimaan pembayaran sudah ada!');
+		alert ('Make sure that admission is existed');
 		document.getElementById('idpenerimaan').focus();
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -160,15 +160,15 @@ function show_laporan() {
 	var idpenerimaan = document.getElementById('idpenerimaan').value;
 	
 	if (idpenerimaan.length == 0) {	
-		alert ('Pastikan penerimaan pembayaran sudah ada!');
+		alert ('Make sure that admission is existed');
 		document.getElementById('idpenerimaan').focus();
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -281,7 +281,7 @@ function panggil(elem){
     <td width="60%" rowspan="3">
     <table width="676" border="0">
     <tr>
-        <td width="68"><span class="news_content1">Departemen</span> </font></td>
+        <td width="68"><span class="news_content1">Department</span> </font></td>
         <td colspan="4">
         <select name="departemen" class="cmbfrm" id="departemen" style="width:188px" onchange="change_dep()">
     	        <? 	$sql = "SELECT departemen FROM departemen WHERE aktif = 1 ORDER BY urutan";
@@ -294,7 +294,7 @@ function panggil(elem){
    	          </option>
    	              <? } ?>
           </select></td>
-        <td width="285"><span class="news_content1">Penerimaan</span>
+        <td width="285"><span class="news_content1">Admission</span>
 <? //$sql = "SELECT replid, nama FROM $db_name_fina.datapenerimaan WHERE aktif = 1 AND idkategori = 'LNN' AND departemen = '$departemen' ORDER BY nama"; 
 		//echo $sql; ?>
           <select name="idpenerimaan" class="cmbfrm" id="idpenerimaan" style="width:180px" onchange="change_sel()">
@@ -312,11 +312,11 @@ function panggil(elem){
         </select></td>
     </tr>
     <tr>
-        <td class="news_content1">Tanggal </td>
+        <td class="news_content1">Date </td>
         <td width="58">
         	<div id="InfoTgl1"> 
             <select name="tgl1" class="cmbfrm" id = "tgl1" onchange="change_tgl1()" >
-            	<option value="">[Tgl]</option>
+            	<option value="">[Date]</option>
             <? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -337,10 +337,10 @@ function panggil(elem){
               </option>
             <? } ?>
           </select>
-          s/d </span></td>
+          to </span></td>
        	<td width="58"><div id="InfoTgl2">
             <select name="tgl2" class="cmbfrm" id="tgl2" onchange="change_tgl2()" >
-            	<option value="">[Tgl]</option>
+            	<option value="">[Date]</option>
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -364,9 +364,9 @@ function panggil(elem){
     </table>
 	</td>
  	<td rowspan="2" width="*" valign="middle">
-	    <a href="#" onclick="show_laporan()"><img src="../img/view.png" border="0" height="48" width="48" id= "tabel" onmouseover="showhint('Klik untuk menampilkan data laporan penerimaan lainnya!', this, event, '200px')"/></a>   	</td>
+	    <a href="#" onclick="show_laporan()"><img src="../img/view.png" border="0" height="48" width="48" id= "tabel" onmouseover="showhint('Click to show another admission reports', this, event, '200px')"/></a>   	</td>
 	<td width="40%" align="right" colspan="2" valign="top">
-	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Laporan Penerimaan Lainnya</font>	</td>
+	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Another Admission Reports</font>	</td>
 </tr>
 <tr>	
     <td align="right" valign="top">
@@ -421,19 +421,19 @@ $namapenerimaan = $row[0];
 	<table width="100%" border="0" align="center">
     <tr>
     	<td align="right" valign="bottom">
-    <!--<a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;-->
-    <a href="JavaScript:cetak()"><img src="../img/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;    	</td>
+    <!--<a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;-->
+    <a href="JavaScript:cetak()"><img src="../img/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;    	</td>
 	</tr>
 	</table>
     <br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 	<tr height="30" align="center" class="header">
-        <td width="5%">No</td>
-        <td width="15%">No. Jurnal/Tanggal</td>
-        <td width="15%">Sumber</td>
-        <td width="15%">Jumlah</td>
-        <td width="25%">Keterangan</td>
-        <td width="10%">Petugas</td>
+        <td width="5%">#</td>
+        <td width="15%">Journal/Date</td>
+        <td width="15%">Source</td>
+        <td width="15%">Sum</td>
+        <td width="25%">Info</td>
+        <td width="10%">Officer</td>
     </tr>
 <? 
 
@@ -460,7 +460,7 @@ while ($row = mysql_fetch_array($result)) {
     <input type="hidden" name="tes" id="tes" value="<?=$total?>"/>
     <? if ($page==$total-1){ ?>
 	<tr height="35">
-        <td bgcolor="#996600" colspan="3" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+        <td bgcolor="#996600" colspan="3" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td bgcolor="#996600" align="right" ><font color="#FFFFFF"><strong><?=FormatRupiah($totalall) ?></strong></font></td>
         <td bgcolor="#996600" colspan="3">&nbsp;</td>
     </tr>
@@ -492,19 +492,19 @@ while ($row = mysql_fetch_array($result)) {
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left" class="news_content1">Halaman
+       	<td width="30%" align="left" class="news_content1">Page
         <select name="page" class="cmbfrm" id="page" onChange="change_page('XX')">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($page,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>        </td>
     	<td align="center">
-    <!--input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <!--input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		for($a=0;$a<$total;$a++){
                 if ($page==$a){
@@ -515,9 +515,9 @@ while ($row = mysql_fetch_array($result)) {
                      
             }
 		?>
-	     <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')"-->
+	     <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')"-->
  		</td>
-        <td width="30%" align="right"><!--Jumlah baris per halaman
+        <td width="30%" align="right"><!--Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -530,7 +530,7 @@ while ($row = mysql_fetch_array($result)) {
     <table width="100%" border="0" align="center">          
     <tr>
         <td height="250" align="center" valign="middle" class="err">
-            Tidak ditemukan adanya data.        	       </td>
+            No Data Found.        	       </td>
     </tr>
     </table>  
 <? } ?>

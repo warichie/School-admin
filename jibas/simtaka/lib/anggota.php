@@ -35,7 +35,7 @@ if (isset($_REQUEST['flag']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMTAKA[Daftar Anggota]</title>
+<title>JIBAS SIMTAKA [Member List]</title>
 <link rel="stylesheet" type="text/css" href="../sty/style.css" />
 <script language="JavaScript" src="../scr/tables.js"></script>
 <script language="JavaScript" src="../scr/tools.js"></script>
@@ -195,7 +195,7 @@ function carilah(){
 	var nama = document.getElementById('nama').value;
 	
 	if (nip == "" && nama == "") {
-		alert ('No Registrasi atau Nama Anggota tidak boleh kosong!');
+		alert ('Registration Number or Name should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}
@@ -229,8 +229,8 @@ function cari(x) {
     	<td width="100%" bgcolor="#FFFFFF" valign="top">
         <div id="tabs">
             <ul>
-                <li><a href="#panel" onclick="view_tab_daftar()">Daftar Anggota</a></li>
-                <li><a href="#panel" onclick="view_tab_cari()">Cari Anggota</a></li>
+                <li><a href="#panel" onclick="view_tab_daftar()">Member List</a></li>
+                <li><a href="#panel" onclick="view_tab_cari()">Search Member</a></li>
             </ul>
             <div id="panel">
                 <script language="javascript">

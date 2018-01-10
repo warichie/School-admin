@@ -49,7 +49,7 @@ class CFormatEdit{
 	function exist(){
 		?>
         <script language="javascript">
-			alert('Kode sudah digunakan!');
+			alert('The Code has been used');
 			document.location.href="format.edit.php?id=<?=$_REQUEST[replid]?>";
 		</script>
         <?
@@ -70,22 +70,22 @@ class CFormatEdit{
           <tr>
             <td colspan="2" align="left">
             	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        		<font style="font-size:18px; color:#999999">Ubah Format Pustaka</font>            </td>
+        		<font style="font-size:18px; color:#999999">Edit Library Format</font>            </td>
   		  </tr>
           <tr>
-            <td width="6%">&nbsp;<strong>Kode</strong></td>
+            <td width="6%">&nbsp;<strong>Code</strong></td>
             <td width="94%"><input name="kode" type="text" class="inputtxt" id="kode" value="<?=$this->kode?>"  maxlength="3" size="3"></td>
           </tr>
           <tr>
-            <td>&nbsp;<strong>Nama</strong></td>
+            <td>&nbsp;<strong>Name</strong></td>
             <td><input name="nama" type="text" class="inputtxt" id="nama" value="<?=$this->nama?>"></td>
           </tr>
           <tr>
-            <td>&nbsp;Keterangan</td>
+            <td>&nbsp;Info</td>
             <td><textarea name="keterangan" cols="45" rows="5" class="areatxt" id="keterangan"><?=$this->keterangan?></textarea></td>
           </tr>
           <tr>
-            <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Simpan" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Batal" onClick="window.close()" ></td>
+            <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Save" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Cancel" onClick="window.close()" ></td>
           </tr>
         </table>
 		</form>

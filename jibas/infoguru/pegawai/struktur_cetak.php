@@ -27,7 +27,7 @@ require_once("../include/db_functions.php");
 require_once("../include/common.php");
 require_once('../include/theme.php');
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");
 
 $agenda = $_REQUEST['agenda'];
 $bln = $_REQUEST['bln'];
@@ -37,7 +37,7 @@ $thn = $_REQUEST['thn'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <link rel="stylesheet" href="../script/mktree.css" />
 <script language="javascript" src="../script/mktree.js"></script>
@@ -61,7 +61,7 @@ $thn = $_REQUEST['thn'];
 <?
 OpenDb();
 ?>
-<span class="style2"><span class="style1">STRUKTUR ORGANISASI
+<span class="style2"><span class="style1">ORGANIZATION STRUCTURE
 <br /><br />
 </span>
 </div>
@@ -71,7 +71,7 @@ $sql = "SELECT replid, singkatan, jabatan FROM jbssdm.jabatan WHERE rootid=0";
 $result = QueryDb($sql);
 if (mysql_num_rows($result) == 0) 
 {
-	echo "Belum ada data";
+	echo "No data yet";
 } 
 else 
 {

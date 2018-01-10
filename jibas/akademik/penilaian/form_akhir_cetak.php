@@ -47,7 +47,7 @@ $row = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Form Pengisian Nilai Akhir Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Final Point Form]</title>
 </head>
 
 <body>
@@ -55,40 +55,40 @@ $row = mysql_fetch_array($result);
 <tr><td align="left" valign="top">
 <?=getHeader($row[dep])?>
 <center>
-  <font size="4"><strong>FORM PENGISIAN NILAI AKHIR SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT FINAL POINT FORM</strong></font><br />
  </center><br /><br />
 
 <br />
 <table>
 <tr>
-    <td width="18%"><strong>Departemen</strong></td>
+    <td width="18%"><strong>Department</strong></td>
     <td width="40%"><strong>:&nbsp;<?=$row['departemen'] ?></strong></td>
-    <td width="18%"><strong>Pelajaran</strong></td>
+    <td width="18%"><strong>Class Subject</strong></td>
     <td><strong>:&nbsp;<?=$row['nama'] ?></strong></td>
 </tr>
 <tr>
-    <td><strong>Tahun Ajaran</strong></td>
+    <td><strong>Year</strong></td>
     <td><strong>:&nbsp;<?=$row['tahunajaran'] ?></strong></td>
-    <td><strong>Dasar Penilaian</strong></td>
+    <td><strong>Basic Assessment.</strong></td>
     <td><strong>:&nbsp;<?=$row['dasarpenilaian']?></strong></td>
 </tr>
 <tr>
     <td><strong>Semester</strong></td>
     <td><strong>:&nbsp;<?=$row['namasemester']?></strong></td>		
-   	<td><strong>Jenis Pengujian</strong></td>
+   	<td><strong>Exam Type</strong></td>
     <td><strong>:&nbsp;<?=$row['jenisujian']?></strong></td>
 </tr>
 <tr>
-    <td><strong>Kelas</strong></td>
+    <td><strong>Class</strong></td>
     <td><strong>:&nbsp;<?=$row['tingkat'].' - '.$row['namakelas']?></strong></td>		
 </tr>
 </table>
 <br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left">
     <tr align="center">
-        <td bordercolor="#000000" class="headerlong" align="center">No</td>
-        <td class="headerlong">N I S</td>
-        <td class="headerlong">Nama</td>
+        <td bordercolor="#000000" class="headerlong" align="center">#</td>
+        <td class="headerlong">Student ID</td>
+        <td class="headerlong">Name</td>
 <?  $sql_nhb_PK = "SELECT * FROM jbsakad.ujian 
 				   WHERE idaturan=$idaturan AND idkelas=$kelas AND idsemester=$semester 
 				   ORDER by tanggal ASC";
@@ -103,8 +103,8 @@ $row = mysql_fetch_array($result);
         </td>
 <?      $cntujian++;
     }  ?>
-        <td class="headerlong">Rata-rata Siswa</td>
-        <td class="headerlong">Nilai Akhir <?=$row['jenisujian']?></td>
+        <td class="headerlong">Student Index</td>
+        <td class="headerlong">Grade Point <?=$row['jenisujian']?></td>
     </tr>
 <?	$sql_get_nis = "SELECT nis,nama,aktif,idkelas FROM jbsakad.siswa WHERE idkelas = $kelas ORDER BY nama";
     $result_get_nis=QueryDb($sql_get_nis);
@@ -141,14 +141,14 @@ $row = mysql_fetch_array($result);
 	</td>
 </tr>
 <tr>
-	<td><?="Ket: *Status siswa tidak aktif lagi"; ?></td>
+	<td><?="PS: *Student Status back to inactive"; ?></td>
 </tr>
 <tr>
 	<td>
     <table width="100%" border="0">
         <tr>
             <td width="80%" align="left"></td>
-            <td width="20%" align="center"><br><br>Guru</td>
+            <td width="20%" align="center"><br><br>Teacher</td>
         </tr>
         <tr>
             <td colspan="2" align="right">&nbsp;<br /><br /><br /><br /><br /></td>
@@ -157,7 +157,7 @@ $row = mysql_fetch_array($result);
             <td></td>
             <td valign="bottom" align="center"><strong><?=$row['guru']?></strong>
             <br /><hr />
-            <strong>NIP. <?=$nip?></strong>
+            <strong>Employee ID <?=$nip?></strong>
         </tr>
     </table>
     </td>

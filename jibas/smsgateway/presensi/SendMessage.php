@@ -33,7 +33,7 @@ $op	= $_REQUEST['op'];
 $Type		= $_REQUEST['Type'];
 $Dep		= $_REQUEST['Dep'];
 $Kls		= $_REQUEST['Kls'];
-$NIS		= $_REQUEST['NIS'];
+$Student ID		= $_REQUEST['Student ID'];
 $Pres		= $_REQUEST['Pres'];
 $Date1		= $_REQUEST['Date1'];
 $Date2		= $_REQUEST['Date2'];
@@ -46,10 +46,10 @@ $KeOrtu		= $_REQUEST['KeOrtu'];
 if ($KeOrtu=="")
 	$KeOrtu = 0;
 $SendDate	= $_REQUEST['SendDate'];
-$Receiver	= 0;
+$Recipient	= 0;
 if ($op=='SavePresensi'){
 	if ($Type=='0'){
-		$NIS = $NIS;	
+		$Student ID = $Student ID;	
 	} else {
 		if ($Kls=='-1'){
 			$sql =  "SELECT s.nis FROM $db_name_akad.siswa s, $db_name_akad.kelas k, $db_name_akad.tingkat ti, $db_name_akad.tahunajaran ta ".
@@ -59,12 +59,12 @@ if ($op=='SavePresensi'){
 			$sql =  "SELECT nis FROM $db_name_akad.siswa WHERE idkelas='$Kls' AND aktif=1";
 		}
 		$res = QueryDb($sql);
-		$NIS = "";
+		$Student ID = "";
 		while ($row = @mysql_fetch_row($res)){
-			if ($NIS == "")
-				$NIS = $row[0];
+			if ($Student ID == "")
+				$Student ID = $row[0];
 			else
-				$NIS = $NIS.','.$row[0];
+				$Student ID = $Student ID.','.$row[0];
 		}
 	}
 	
@@ -73,9 +73,9 @@ if ($op=='SavePresensi'){
 	$dt = split('-',$x[0]);
 	$smsgeninfo .= $dt[2].'-'.$SMonth[$dt[1]-1].'-'.$dt[0]."<br>";
 	if ($Type=='0'){
-		$smsgeninfo .= "NIS : ".$NIS;
+		$smsgeninfo .= "National Student ID : ".$Student ID;
 	} else {
-		$smsgeninfo .= "Dept : ".$Dep.", Kelas : ";
+		$smsgeninfo .= "Dept : ".$Dep.", Class : ";
 		if ($Kls=='-1'){
 			$smsgeninfo .= "All";
 		} else {
@@ -86,18 +86,18 @@ if ($op=='SavePresensi'){
 		}
 	}
 	if ($Pres=='0')
-		$smsgeninfo .= ", Presensi : Harian";
+		$smsgeninfo .= ", Attendance : Daily";
 	else
-		$smsgeninfo .= ", Presensi : Pelajaran";
+		$smsgeninfo .= ", Attendance : Subject";
 	
-	$smsgeninfo .= ", Pengirim : ".$Sender;
+	$smsgeninfo .= ", Sender : ".$Sender;
 	
 	$idsmsgeninfo = GetLastId('replid','smsgeninfo');	
 	$sql = "INSERT INTO smsgeninfo SET replid='$idsmsgeninfo',tanggal='$x[0]',tipe='0',info='$smsgeninfo',pengirim='$Sender'";
 	$res = QueryDb($sql);
 	
 	$NIS2 = "";
-	$ALLNIS	= split(',',$NIS);
+	$ALLNIS	= split(',',$Student ID);
 	for ($i=0;$i<count($ALLNIS);$i++){
 		if ($NIS2 == "")
 			$NIS2 = "'".trim($ALLNIS[$i])."'";
@@ -180,7 +180,7 @@ if ($op=='SavePresensi'){
 
 				$sql = "INSERT INTO outboxhistory SET InsertIntoDB=now(), SendingDateTime='$SendDate', Text='$TextMsg', DestinationNumber='$nohp', SenderID='$Sender', idsmsgeninfo='$idsmsgeninfo'";
 				QueryDb($sql);
-				$Receiver++;
+				$Recipient++;
 			}
 			if ($KeSiswa==1 && $hpsiswa!=''){
 				$nohp = $hpsiswa;
@@ -192,7 +192,7 @@ if ($op=='SavePresensi'){
 
 				$sql = "INSERT INTO outboxhistory SET InsertIntoDB=now(), SendingDateTime='$SendDate', Text='$TextMsg', DestinationNumber='$nohp', SenderID='$Sender', idsmsgeninfo='$idsmsgeninfo'";
 				QueryDb($sql);
-				$Receiver++;
+				$Recipient++;
 			}
 			//echo "SQL = ".$sql."<br>";
 			//echo "<pre>";
@@ -294,7 +294,7 @@ if ($op=='SavePresensi'){
 				$sql = "INSERT INTO outboxhistory SET InsertIntoDB=now(), SendingDateTime='$SendDate', Text='$TextMsg', DestinationNumber='$nohp', SenderID='$Sender', idsmsgeninfo='$idsmsgeninfo'";
 				//echo $sql."<br>";
 				QueryDb($sql);
-				$Receiver++;
+				$Recipient++;
 			}
 			if ($KeSiswa==1 && $hpsiswa!=''){
 				$nohp = $hpsiswa;
@@ -308,9 +308,9 @@ if ($op=='SavePresensi'){
 				$sql = "INSERT INTO outboxhistory SET InsertIntoDB=now(), SendingDateTime='$SendDate', Text='$TextMsg', DestinationNumber='$nohp', SenderID='$Sender', idsmsgeninfo='$idsmsgeninfo'";
 				//echo $sql."<br>";
 				QueryDb($sql);
-				$Receiver++;
+				$Recipient++;
 			}	
-			//echo "NIS = ".$ALLNIS[$i].", Hadir=".$NumHadir.", Absen=".$NumAbsen."<br>";	
+			//echo "National Student ID = ".$ALLNIS[$i].", Hadir=".$NumHadir.", Absen=".$NumAbsen."<br>";	
 		//echo "<hr>";
 		}
 
@@ -320,5 +320,5 @@ if ($op=='SavePresensi'){
 
 ?>
 <script language='javascript'>
-	parent.bottom.PresensiAfterSend('<?=$Receiver?>');
+	parent.bottom.PresensiAfterSend('<?=$Recipient?>');
 </script>

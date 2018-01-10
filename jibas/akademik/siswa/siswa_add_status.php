@@ -43,7 +43,7 @@ if (isset($_REQUEST['hal']))
 
 $op = $_GET['op'];
 $nama_status = $_GET['nama_status'];
-$status_kiriman=$_REQUEST['status']; //ini pengambilan status yang dikirim dari siswa_add_status_tambah.php, Setelah ini buat input hidden untuk menampung hasil kiriman.
+$status_kiriman=$_REQUEST['status']; //ini pengambilan status yang dikirim from siswa_add_status_tambah.php, Setelah ini buat input hidden untuk menampung hasil kiriman.
 
 if (($op == "del") && (strlen($nama_status) > 0)) {
 	OpenDb();
@@ -90,7 +90,7 @@ function refresh(status) {
 }
 
 function del(nama_status) {
-	if (confirm("Apakah anda yakin akan menghapus status "+nama_status+" ?"))
+	if (confirm("Are you sure want to delete status "+nama_status+" ?"))
 		document.location.href = "siswa_add_status.php?op=del&nama_status="+nama_status+"&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -146,7 +146,7 @@ windowIMA=opener.ref_del_status();
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Status Siswa :.
+    .: Student Status :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -174,8 +174,8 @@ windowIMA=opener.ref_del_status();
     <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
     <tr>
         <td align="right">
-        	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')">&nbsp;Refresh</a>&nbsp;&nbsp;
-            <a href="#" onClick="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Status!', this, event, '50px')">&nbsp;Tambah Status</a></td>
+        	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')">&nbsp;Refresh</a>&nbsp;&nbsp;
+            <a href="#" onClick="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add Status', this, event, '50px')">&nbsp;Add Status</a></td>
     </tr>
 	</table>
     </td>
@@ -185,7 +185,7 @@ windowIMA=opener.ref_del_status();
     <br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left">
 	<tr class="header" align="center" height="30">
-        <td width="10%">No</td>
+        <td width="10%">#</td>
         <td width="*">Status</td>
         <td width="15%">&nbsp;</td>
 	</tr>
@@ -208,7 +208,7 @@ windowIMA=opener.ref_del_status();
         
         <td align="center">
         <a href="#" onClick="newWindow('siswa_add_status_edit.php?status=<?=$row['status']?>&urutan=<?=$urutan?>&replid=<?=$replid?>',
-        'UbahStatus','400','240','resizable=1,scrollbars=1,status=0,toolbar=0')" ><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Status!', this, event, '50px')"></a>&nbsp;<a href="#" onclick="del('<?=$row['status']?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Status!', this, event, '50px')"></a>        </td>
+        'UbahStatus','400','240','resizable=1,scrollbars=1,status=0,toolbar=0')" ><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Status', this, event, '50px')"></a>&nbsp;<a href="#" onclick="del('<?=$row['status']?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Status', this, event, '50px')"></a>        </td>
 	</tr> 
      
     <?
@@ -244,20 +244,20 @@ windowIMA=opener.ref_del_status();
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="35%" align="left">Hal
+       	<td width="35%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -268,9 +268,9 @@ windowIMA=opener.ref_del_status();
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="35%" align="right">Jml baris per hal
+        <td width="35%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -288,9 +288,9 @@ windowIMA=opener.ref_del_status();
    	</tr>
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+    	<font size = "2" color ="red"><b>Data Not Found. 
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
         </b></font>
         </td>
@@ -301,7 +301,7 @@ windowIMA=opener.ref_del_status();
 </tr>
 <tr height="35">
 	<td colspan="3" align="center">
-       	<input class="but" type="button" value="Tutup" onClick="tutup()">
+       	<input class="but" type="button" value="Close" onClick="tutup()">
         <input type="hidden" name="status_kiriman" id="status_kiriman" value="<?=$status_kiriman?>" />
    	</td>
 </tr>  

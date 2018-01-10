@@ -44,10 +44,10 @@ if (isset($_REQUEST['simpan'])){
 	
 	if (mysql_fetch_array($hasil1) > 0){
 		CloseDb();		
-		$ERROR_MSG = "Nama proses $_REQUEST[proses] sudah digunakan!";
+		$ERROR_MSG = "Process Name $_REQUEST[proses] has been used";
 	} else if (mysql_fetch_array($hasil2) > 0){
 		CloseDb();		
-		$ERROR_MSG = "Kode awalan $_REQUEST[kode] sudah digunakan!";
+		$ERROR_MSG = "Prefix Code $_REQUEST[kode] has been used";
 		$cek = 1;
 	} else{	
 		$sql_update = "UPDATE jbsakad.prosespenerimaansiswa SET proses='".CQ($_REQUEST['proses'])."', kodeawalan='".CQ($_REQUEST['kode'])."', keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid='$replid'";
@@ -93,7 +93,7 @@ if (isset($_REQUEST['keterangan']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Proses Penerimaan Siswa Baru]</title>
+<title>JIBAS SIMAKA [Edit New Student Admission Process]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -101,9 +101,9 @@ if (isset($_REQUEST['keterangan']))
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('proses', 'Proses penerimaan siswa baru ') && 	
-		   validateEmptyText('kode', 'Kode awalan ') && 	
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('proses', 'New student admission process') && 	
+		   validateEmptyText('kode', 'Prefix code') && 	
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -136,7 +136,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Proses Penerimaan Siswa Baru :.
+    .: Edit New Student Admission Process :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -151,39 +151,39 @@ function panggil(elem){
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
 	<td><input type="text" name="departemen" id="departemen" size="10" maxlength="50" value="<?=$departemen ?>" readonly class="disabled"/>
     	<input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />
     </td>
 </tr>
 <tr>
-    <td><strong>Nama Proses</strong></td>
+    <td><strong>Process Name</strong></td>
     <td>
-    	<input type="text" name="proses" id="proses" size="30" maxlength="100" value="<?=$proses ?>" onFocus="showhint('Nama proses tidak boleh lebih dari 100 karakter!', this, event, '120px');panggil('proses')"  onKeyPress="return focusNext('kode', event)"  />
+    	<input type="text" name="proses" id="proses" size="30" maxlength="100" value="<?=$proses ?>" onFocus="showhint('Name proses should not exceed 100 characters', this, event, '120px');panggil('proses')"  onKeyPress="return focusNext('kode', event)"  />
     </td>
 </tr>
 <tr>
-	<td><strong>Kode Awalan</strong></td>
+	<td><strong>Prefix Code</strong></td>
 	<td>
-    	<input type="text" name="kode" id="kode" size="10" maxlength="5" value="<?=$kode ?>" onFocus="showhint('Kode awalan tidak boleh lebih dari 5 karakter!', this, event, '120px');panggil('kode')"  onKeyPress="return focusNext('keterangan', event)" />
+    	<input type="text" name="kode" id="kode" size="10" maxlength="5" value="<?=$kode ?>" onFocus="showhint('Kode awalan should not exceed 5 characters', this, event, '120px');panggil('kode')"  onKeyPress="return focusNext('keterangan', event)" />
     </td>
 </tr>
 <tr>
 	<td>
     </td>
-    <td>*)untuk membangkitkan nomor pendaftaran
+    <td>*) to generate registration number
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onKeyPress="return focusNext('simpan', event)" onFocus="panggil('keterangan')"><?=$keterangan ?></textarea>
     </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="simpan" id="simpan" value="Simpan" class="but" onFocus="panggil('simpan')"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="simpan" id="simpan" value="Save" class="but" onFocus="panggil('simpan')"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->

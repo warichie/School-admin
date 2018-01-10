@@ -68,12 +68,12 @@ $departemen = FetchSingle($sql);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pembayaran Iuran Wajib Calon Siswa Per Kelompok]</title>
+<title>JIBAS FINANCE [Payment Reports Mandatory Contribution Student Candidate by Group]</title>
 </head>
 
 <body>
 <?
-// Dapatkan banyaknya pembayaran yang telah terjadi untuk pembayaran terpilih di kelas terpilih
+// Dapatkan banyaknya pembayaran yang telah terjadi untuk pembayaran selected di kelas selected
 if ($statuslunas == -1)
 	if ($kelompok == -1)
 		$sql = "SELECT MAX(jumlah) 
@@ -108,17 +108,17 @@ $table_width = 810 + $max_n_cicilan * 90;
 $sql = "SELECT nama FROM datapenerimaan WHERE replid='$idpenerimaan'";
 $namapenerimaan = FetchSingle($sql);
 ?>
-<center><font size="4"><strong><font face="Verdana">LAPORAN PEMBAYARAN IURAN WAJIB CALON SISWA</font></strong></font><font face="Verdana"><br /> 
+<center><font size="4"><strong><font face="Verdana">STUDENT MANDATORY CONTRIBUTION REPORTS</font></strong></font><font face="Verdana"><br /> 
   </font>
 </center>
 <br /><br />
 <br />
 <table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width ?>" align="left" bordercolor="#000000">
 <tr height="30" align="center">
-	<td width="30" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No</font></strong></td>
-    <td width="80" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">No. Reg</font></strong></td>
-    <td width="140" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Nama</font></strong></td>
-    <td width="50" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Kel</font></strong></td>
+	<td width="30" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">#</font></strong></td>
+    <td width="80" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Registration Number</font></strong></td>
+    <td width="140" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Name</font></strong></td>
+    <td width="50" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Group</font></strong></td>
 <? 	for($i = 0; $i < $max_n_cicilan; $i++) { 
 			$n = $i + 1; ?>
     		<td width="120" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">
@@ -129,10 +129,10 @@ $namapenerimaan = FetchSingle($sql);
     <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">
       <?=$namapenerimaan ?>
     </font></strong></td>
-    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Besar Pembayaran</font></strong></td>
-    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Diskon</font></strong></td>
-    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Tunggakan</font></strong></td>
-    <td width="200" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Keterangan</font></strong></td>
+    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Payment</font></strong></td>
+    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Discount</font></strong></td>
+    <td width="125" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Total Late Payment</font></strong></td>
+    <td width="200" align="center" bgcolor="#CCCCCC" class="header"><strong><font size="2" face="Arial">Info</font></strong></td>
 </tr>
 
 <?
@@ -242,11 +242,11 @@ while ($row = mysql_fetch_array($result))
 	$ketjtt = $row['keterangan'];
 	$lunasjtt = $row['lunas'];
 	if ($lunasjtt == 1)
-		$infojtt = "<font color=blue><strong>Lunas</strong></font>";
+		$infojtt = "<font color=blue><strong>Paid Off</strong></font>";
 	elseif ($lunasjtt == 2)
-		$infojtt = "<font color=green><strong>Gratis</strong></font>";
+		$infojtt = "<font color=green><strong>Free</strong></font>";
 	else
-		$infojtt = "<font color=red><strong>Belum Lunas</strong></font>";
+		$infojtt = "<font color=red><strong>No Paid Off Yet</strong></font>";
 ?>
 <tr height="40" bgcolor="<?=$bg1?>">
 	<td align="center">	  <font size="2" face="Arial">
@@ -332,7 +332,7 @@ while ($row = mysql_fetch_array($result))
 	$totalDiskonAll = $row[1];
 ?>
 <tr height="40">
-	<td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong>T O T A L</strong></font></td>
+	<td align="center" colspan="<?=5 + $max_n_cicilan ?>" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong>Total</strong></font></td>
 	<td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totalBiayaAll ?></strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totalBayarAll ?></strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF" size="2" face="Arial"><strong><?=$totalDiskonAll ?></strong></font></td>

@@ -65,7 +65,7 @@ class CPustaka{
 		<select name="perpustakaan" id="perpustakaan" class="cmbfrm"  onchange="chg_perpus()">
 		<?
 		if (SI_USER_LEVEL()!=2){
-			echo "<option value='-1' ".IntIsSelected('-1',$this->perpustakaan).">(Semua)</option>";
+			echo "<option value='-1' ".IntIsSelected('-1',$this->perpustakaan).">(All)</option>";
 		}
 		while ($row = @mysql_fetch_row($result)){
 		if ($this->perpustakaan=="")
@@ -112,26 +112,26 @@ class CPustaka{
 		<link href="../sty/style.css" rel="stylesheet" type="text/css">
         <table width="100%" border="0" cellspacing="3" cellpadding="0">
           <tr>
-            <td width="9%"><strong>Perpustakaan</strong></td>
+            <td width="9%"><strong>Library</strong></td>
             <td width="29%">&nbsp;<?=$this->GetPerpus()?></td>
             <td width="62%" rowspan="2"><a href="javascript:cari()"><img src="../img/view.png" width="48" height="48" border="0" /></a></td>
           </tr>
           <tr>
-            <td><strong>Cari&nbsp;berdasarkan</strong></td>
+            <td><strong>Sort by</strong></td>
             <td>
             	<div style="margin-left:3px">
                     <table width="100%" border="0" cellspacing="5" cellpadding="0">
                       <tr>
                         <td>
                             <select name="kategori" class="cmbfrm" id="kategori" onchange="chg_kat()">
-                                <option value="judul" <?=StringIsSelected($this->kategori,'judul')?> >Judul</option>
-                                <option value="rak" <?=StringIsSelected($this->kategori,'rak')?> >Rak</option>
-                                <option value="katalog" <?=StringIsSelected($this->kategori,'katalog')?> >Katalog</option>
-                                <option value="penerbit" <?=StringIsSelected($this->kategori,'penerbit')?> >Penerbit</option>
-                                <option value="penulis" <?=StringIsSelected($this->kategori,'penulis')?> >Penulis</option>
-                                <option value="tahun" <?=StringIsSelected($this->kategori,'tahun')?> >Tahun Terbit</option>
-                                <option value="abstraksi" <?=StringIsSelected($this->kategori,'abstraksi')?> >Abstraksi</option>
-                                <option value="keteranganfisik" <?=StringIsSelected($this->kategori,'keteranganfisik')?> >Keterangan Fisik</option>
+                                <option value="judul" <?=StringIsSelected($this->kategori,'judul')?> >Title</option>
+                                <option value="rak" <?=StringIsSelected($this->kategori,'rak')?> >Shelf</option>
+                                <option value="katalog" <?=StringIsSelected($this->kategori,'katalog')?> >Catalogue</option>
+                                <option value="penerbit" <?=StringIsSelected($this->kategori,'penerbit')?> >Publisher</option>
+                                <option value="penulis" <?=StringIsSelected($this->kategori,'penulis')?> >Author</option>
+                                <option value="tahun" <?=StringIsSelected($this->kategori,'tahun')?> >Year Terbit</option>
+                                <option value="abstraksi" <?=StringIsSelected($this->kategori,'abstraksi')?> >Abstraction</option>
+                                <option value="keteranganfisik" <?=StringIsSelected($this->kategori,'keteranganfisik')?> >Physical Info</option>
                           </select>                        </td>
                         <td><?
                         if ($this->kategori=='rak' || $this->kategori=='katalog' || $this->kategori=='penerbit' || $this->kategori=='penulis'){
@@ -150,17 +150,17 @@ class CPustaka{
         </table>
 
 <div align="right">
- 			<a href="javascript:document.location.reload()"><img src="../img/ico/refresh.png" width="16" height="16" border="0" />&nbsp;Refresh</a>&nbsp;&nbsp;<a href="javascript:cetak('XX')"><img src="../img/ico/print1.png" border="0" />&nbsp;Cetak</a>
+ 			<a href="javascript:document.location.reload()"><img src="../img/ico/refresh.png" width="16" height="16" border="0" />&nbsp;Refresh</a>&nbsp;&nbsp;<a href="javascript:cetak('XX')"><img src="../img/ico/print1.png" border="0" />&nbsp;Print</a>
         </div><br />
         <?
 		if (isset($_REQUEST[cari])){
 		?>
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr class="header" height="30">
-            <td height="30" align="center">No</td>
-            <td height="30" align="center">Judul</td>
-            <td height="30" align="center">Jumlah Tersedia</td>
-            <td height="30" align="center">Jumlah Dipinjam</td>
+            <td height="30" align="center">#</td>
+            <td height="30" align="center">Title</td>
+            <td height="30" align="center">Available</td>
+            <td height="30" align="center">Borrowed</td>
             <td align="center">&nbsp;</td>
             <td height="30" align="center">&nbsp;</td>
           </tr>
@@ -223,7 +223,7 @@ class CPustaka{
 				<td height="25" align="center"><?=$rtersedia?></td>
 				<td height="25" align="center"><?=$rdipinjam?></td>
 				<td align="center" bgcolor="#FFFFFF">
-					<a title="Lihat Detail" href="javascript:lihat(<?=$row[0]?>)"><img src="../img/ico/lihat.png" width="16" height="16" border="0" /></a>&nbsp;
+					<a title="See Details" href="javascript:lihat(<?=$row[0]?>)"><img src="../img/ico/lihat.png" width="16" height="16" border="0" /></a>&nbsp;
 					<a title="Cetak Label" href="javascript:cetak_nomor('<?=$row[0]?>','<?=$this->perpustakaan?>')"><img src="../img/ico/print1.png" width="16" height="16" border="0" /></a>
 				</td>
 				<td height="25" align="center" bgcolor="#FFFFFF">
@@ -259,7 +259,7 @@ class CPustaka{
 		  } else {
 		  ?>
           <tr>
-            <td height="20" colspan="6" align="center" class="nodata">Tidak ada data</td>
+            <td height="20" colspan="6" align="center" class="nodata">Data Not Found.</td>
           </tr>
           <? 
 		  }
@@ -269,18 +269,18 @@ class CPustaka{
 		<? if ($num>0){ ?>
 		<table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
 			<tr>
-				<td width="30%" align="left" class="news_content1" colspan="2">Halaman
-				<input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$this->page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+				<td width="30%" align="left" class="news_content1" colspan="2">Page
+				<input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$this->page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
                 <select name="page" class="cmbfrm" id="page" onChange="change_page('XX')">
 				<?	for ($m=0; $m<$pagenum; $m++) {?>
 					 <option value="<?=$m ?>" <?=IntIsSelected($this->page,$m) ?>><?=$m+1 ?></option>
 				<? } ?>
 				</select>
-                <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$this->page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
-				dari <?=$pagenum?> halaman
+                <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$this->page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
+				from <?=$pagenum?> pages
 				
 				<? 
-			 // Navigasi halaman berikutnya dan sebelumnya
+			 // Navigasi halaman berikutnya and sebelumnya
 				?>       
 					<?
 					/*for($a=0;$a<$pagenum;$a++){

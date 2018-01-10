@@ -29,7 +29,7 @@ class Kritik{
         <div align="left" style="padding-bottom:10px">
         	<table border="0" cellspacing="3" cellpadding="3">
               <tr>
-                <td style="padding-right:4px">Bulan</td>
+                <td style="padding-right:4px">Month</td>
                 <td style="padding-right:4px">
                 <select id="Month" class="Cmb" onchange="ChgCmb()">
                     <?
@@ -56,16 +56,16 @@ class Kritik{
                 </select>                </td>
               </tr>
               <tr>
-                <td style="padding-right:4px">Jenis</td>
+                <td style="padding-right:4px">Type</td>
                 <td colspan="2" style="padding-right:4px"><span style="padding-right:2px">
                   <select name="Type" class="Cmb" id="Type" onchange="ChgCmb()">
                     <?
 				if ($Type=="")
 					$Type="kritik";
 				?>
-                    <option value="kritik" <?=StringIsSelected($Type,'kritik')?>>Kritik</option>
-                    <option value="saran" <?=StringIsSelected($Type,'kritik')?>>Saran</option>
-                    <option value="pesan" <?=StringIsSelected($Type,'kritik')?>>Pesan</option>
+                    <option value="kritik" <?=StringIsSelected($Type,'kritik')?>>Critics</option>
+                    <option value="saran" <?=StringIsSelected($Type,'kritik')?>>Feedback</option>
+                    <option value="pesan" <?=StringIsSelected($Type,'kritik')?>>Message</option>
                   </select>
                 </span></td>
               </tr>
@@ -74,9 +74,9 @@ class Kritik{
         <div id="Kritik">
         <table width="100%" border="1" id="KritikTable" class="tab" cellspacing="0" cellpadding="0">
           <tr class="Header">
-            <td>No</td>
-            <td>No HP</td>
-            <td>Tanggal</td>
+            <td>#</td>
+            <td>Mobile</td>
+            <td>Date</td>
             <td><?=ucfirst($Type) ?></td>
             <td>&nbsp;</td>
           </tr>

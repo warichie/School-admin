@@ -89,7 +89,7 @@ if(isset($_REQUEST['ubah']))
 
 <html>
 <head>
-<title>JIBAS SIMAKA [Tambah Data Nilai Ujian]</title>
+<title>JIBAS SIMAKA [Add Exam Point Data]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="JavaScript" src="../script/tooltips.js"></script>
@@ -98,7 +98,7 @@ if(isset($_REQUEST['ubah']))
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript">
 function cek_form() {  
-	return validateEmptyText('nilai', 'Nilai');	
+	return validateEmptyText('nilai', 'Point');	
 }
 
 function focusNext(elemName, evt) {
@@ -130,33 +130,33 @@ function focusNext(elemName, evt) {
 	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
    	<!-- TABLE CONTENT -->
     <tr height="25">
-        <td colspan="2" class="header" align="center">Tambah Nilai Ujian</td>
+        <td colspan="2" class="header" align="center">Add Exam Point</td>
     </tr>
     <tr>
-        <td><strong>NIS</strong></td>
+        <td><strong>Student ID</strong></td>
         <td>            
         <input type="text" class="disabled" size="50" name="nis" value="<?=$nis?>" readonly></td>
     </tr>
     <tr>
-        <td><strong>Nama</strong></td><td>       
+        <td><strong>Name</strong></td><td>       
         <input type="text" class="disabled" size="50" name="nama" value="<?=$nama;?>" readonly></td>
     </tr>
     <tr>
-        <td><strong>Nilai</strong></td>
+        <td><strong>Point</strong></td>
         <td><input type="text" name="nilai" id="nilai" size="5" value="<?=$nilai?>" maxlength="7" onKeyPress="return focusNext('keterangan',event)">
        </td>
     </tr>
     <tr>
-        <td>Keterangan</td>
+        <td>Info</td>
         <td><input type="text" id="keterangan" name="keterangan" size="50" value="<?=$keterangan?>" onKeyPress="return focusNext('ubah',event)"> </td>
     </tr>
 	<tr>
-		<td colspan="2" align="center"><strong><font color="red">Setelah menambah nilai ujian, disarankan untuk menghitung ulang nilai nilai akhir siswa.</font></strong></td>	
+		<td colspan="2" align="center"><strong><font color="red">After adding Exam Point, it is recommended to re-calculate the student Final Point.</font></strong></td>	
     </tr>
 	<tr>
         <td align="center" colspan="2">
-            <input type="submit" value="Simpan" name="ubah" id="ubah" class="but">
-            <input type="button" value="Tutup" name="batal" class="but" onClick="window.close();">
+            <input type="submit" value="Save" name="ubah" id="ubah" class="but">
+            <input type="button" value="Close" name="batal" class="but" onClick="window.close();">
          </td>
     </tr>
     </table>

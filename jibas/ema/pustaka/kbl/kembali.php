@@ -49,8 +49,8 @@ $K->OnStart();
 <body <?=$K->OnLoad()?>>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Pengembalian Pustaka</font><br />
-        <a href="pengembalian.php" class="welc">Pengembalian</a><span class="welc"> > Pengembalian Pustaka</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Library Return</font><br />
+        <a href="pengembalian.php" class="welc">Return</a><span class="welc"> > Library Return</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$K->Content()?>

@@ -72,12 +72,12 @@ if (1 == (int)$_REQUEST['issubmit'])
 	$rekkredit = $_REQUEST['rekkredit'];
 	$rekdebet = $_REQUEST['rekdebet'];
 	
-	//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+	//Ambil awalan and cacah tahunbuku untuk bikin nokas;
 	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) {
 		CloseDb();
-		trigger_error("Tidak ditemukan data tahun buku!", E_USER_ERROR);
+		trigger_error("No Data Found.", E_USER_ERROR);
 	} else {
 		$row = mysql_fetch_row($result);
 		$awalan = $row[0];
@@ -135,7 +135,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	{		
 		RollbackTrans();
 		CloseDb();
-		$errmsg = urlencode("Gagal menyimpan data!");
+		$errmsg = urlencode("Failed to save data");
 		header("Location: pengeluaran_content.php?idpengeluaran=$idpengeluaran&idtahunbuku=$idtahunbuku&errmsg=$errmsg");
 		exit();	
 	}
@@ -171,13 +171,13 @@ $namapengeluaran = $row[0];
 <script language="javascript">
 function ValidateSubmit() 
 {
-	var isok =  validateEmptyText('nama', 'Nama Pemohon') &&
-		   		validateEmptyText('tcicilan', 'Tanggal Pengeluaran') &&
-		  	 	validateEmptyText('jumlah', 'Jumlah Pengeluaran') && 
+	var isok =  validateEmptyText('nama', 'Applicant') &&
+		   		validateEmptyText('tcicilan', 'Date Expenditure') &&
+		  	 	validateEmptyText('jumlah', 'Jumlah Expenditure') && 
 		   		validasiAngka() &&
-		   		validateEmptyText('keperluan', 'Keperluan Pengeluaran') && 
-		   		validateMaxText('keperluan', 255, 'Keperluan Pengeluaran') &&
-		   		confirm('Data sudah benar?');
+		   		validateEmptyText('keperluan', 'Necessities Expenditure') && 
+		   		validateMaxText('keperluan', 255, 'Necessities Expenditure') &&
+		   		confirm('The data is correct?');
 				
 	document.getElementById('issubmit').value = isok ? 1 : 0;				
 	
@@ -196,14 +196,14 @@ function validasiAngka()
 {
 	var angka = document.getElementById("angkabesar").value;
 	if(isNaN(angka)) {
-		alert ('Jumlah pengeluaran harus berupa bilangan!');
+		alert ('Jumlah pengeluaran must be numeric');
 		document.getElementById('jumlah').value = "";
 		document.getElementById('jumlah').focus();
 		return false;
 	}
 	else if (angka <= 0)
 	{
-		alert ('Jumlah pengeluaran harus positif!');
+		alert ('Jumlah pengeluaran harus positif');
 		document.getElementById('jumlah').focus();
 		return false;
 	}
@@ -292,12 +292,12 @@ function panggil(elem){
     <!-- TABLE TITLE -->
     <tr>
      
-      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pembayaran Pengeluaran</font></div></td>
+      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Payment Expenditure</font></div></td>
     </tr>
     
     <tr>
       <td align="left" valign="top"><div align="right"><a href="pengeluaran.php" target="_parent">
-        <font size="1" color="#000000"><b>Pengeluaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Pembayaran Pengeluaran</b></font> </div></td>
+        <font size="1" color="#000000"><b>Expenditure</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Payment Expenditure</b></font> </div></td>
     </tr>
 	</table>
     </td></tr>
@@ -312,7 +312,7 @@ function panggil(elem){
             <legend></legend>
             <table border="0" cellpadding="2" cellspacing="2" align="center">
 			<tr>
-                <td width="20%" align="left"><strong>Tahun Buku</strong></td>
+                <td width="20%" align="left"><strong>Fiscal Year</strong></td>
                 <td colspan="2" align="left">
 		<?  	$sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
                 $result = QueryDb($sql);
@@ -324,7 +324,7 @@ function panggil(elem){
             	</td>
             </tr>
             <tr>
-            	<td align="left"><strong>Pembayaran</strong> </td>
+            	<td align="left"><strong>Payment</strong> </td>
             	<td colspan="2" align="left">
                 <input type="text" name="pengeluaran" id="pengeluaran" size="35" readonly style="background-color:#CCCC99" value="<?=$namapengeluaran ?>">
                 <!--<strong>&nbsp;<?=$namapengeluaran ?>&nbsp;</strong> -->
@@ -339,7 +339,7 @@ function panggil(elem){
             $rekkredit = $row[1];
             ?>
             <tr>
-                <td align="left"><strong>Rek. Kredit </strong></td>
+                <td align="left"><strong>Rek. Credit </strong></td>
                 <td colspan="2" align="left">
                 <select name="rekkredit" id="rekkredit" style="width:225px" onKeyPress="return focusNext('rekdebet', event)" onfocus="panggil('rekkredit')">
             <?	$sql = "SELECT kode, nama FROM rekakun WHERE kategori IN (SELECT kategori FROM rekakun ra, datapengeluaran dp WHERE ra.kode = dp.rekkredit AND dp.replid = '$idpengeluaran') ORDER BY kode";
@@ -351,7 +351,7 @@ function panggil(elem){
                 </td>
             </tr>
             <tr>
-                <td align="left"><strong>Rek. Debet</strong></td>
+                <td align="left"><strong>Rek. Debit</strong></td>
                 <td colspan="2" align="left">
                 <select name="rekdebet" id="rekdebet" style="width:225px" onKeyPress="return focusNext('penerima', event)" onfocus="panggil('rekdebet')"> 
             <?	$sql = "SELECT kode, nama FROM rekakun WHERE kategori IN (SELECT kategori FROM rekakun ra, datapengeluaran dp WHERE ra.kode = dp.rekdebet AND dp.replid = '$idpengeluaran') ORDER BY kode";
@@ -363,11 +363,11 @@ function panggil(elem){
                 </td>
             </tr>
             <tr>
-            	<td align="left"><strong>Pemohon</strong></td>
+            	<td align="left"><strong>Applicant</strong></td>
                 <td colspan="2" align="left">
                 <input type="hidden" name="spemohon" id="spemohon" value="1" />
                 <input type="radio" name="jpemohon" id="jpemohon" checked="checked" style="background:none" onclick="clearvalue(1)"/>&nbsp;Pegawai&nbsp;&nbsp;
-                <input type="radio" name="jpemohon" id="jpemohon" style="background:none" onclick="clearvalue(2)"/>&nbsp;Siswa&nbsp;&nbsp;
+                <input type="radio" name="jpemohon" id="jpemohon" style="background:none" onclick="clearvalue(2)"/>&nbsp;Student&nbsp;&nbsp;
                 <input type="radio" name="jpemohon" id="jpemohon" style="background:none" onclick="clearvalue(3)"/>&nbsp;Lainnya&nbsp;&nbsp;
                 </td>
             </tr>
@@ -381,35 +381,35 @@ function panggil(elem){
                 </td>
             </tr>
             <tr>
-                <td align="left">Penerima</td>
+                <td align="left">Recipient</td>
                 <td colspan="2" align="left"><input type="text" name="penerima" id="penerima" value="<?=$_REQUEST['penerima'] ?>" size="35" onKeyPress="return focusNext('tcicilan', event)" onfocus="panggil('penerima')"/></td>
             </tr>
             <tr>
-                <td align="left"><strong>Tanggal</strong></td>
+                <td align="left"><strong>Date</strong></td>
                 <td align="left">
                 <input type="text" name="tcicilan" id="tcicilan" readonly size="15" value="<?=$tanggalmulai?>" onKeyPress="return focusNext('jumlah', event)" onClick="Calendar.setup()" style="background-color:#CCCC99" ></td>
                 <td width="60%" align="left">
-                <img src="images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/>
+                <img src="images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '100px')"/>
                 </td>
             </tr>	
             <tr>
-                <td align="left"><strong>Jumlah</strong></td>
+                <td align="left"><strong>Sum</strong></td>
                 <td colspan="2" align="left"><input type="text" name="jumlah" id="jumlah" size="15" value="<?=FormatRupiah($_REQUEST['jumlah']) ?>" onblur="formatRupiah('jumlah')" onfocus="unformatRupiah('jumlah');panggil('jumlah')" onKeyPress="return focusNext('keperluan', event)" onkeyup="salinangka()"/>
                	<input type="hidden" name="angkabesar" id="angkabesar" value="<?=$_REQUEST['jumlah']?>"/>
                 </td>
             </tr>
             <tr>
-                <td valign="top" align="left"><strong>Keperluan</strong></td>
+                <td valign="top" align="left"><strong>Necessities</strong></td>
                 <td colspan="2" align="left"><textarea name="keperluan" id="keperluan" rows="2" cols="40" onKeyPress="return focusNext('keterangan', event)" onfocus="panggil('keperluan')"><?=$_REQUEST['keperluan'] ?></textarea></td>
             </tr>
             <tr>
-                <td valign="top" align="left">Keterangan</td>
+                <td valign="top" align="left">Info</td>
                 <td colspan="2" align="left"><textarea name="keterangan" id="keterangan" rows="2" cols="40" onKeyPress="return focusNext('Simpan', event)" onfocus="panggil('keterangan')"><?=$_REQUEST['keterangan'] ?></textarea></td>
             </tr>
             <tr>
                 <td align="center" colspan="3">
-                <input type="button" name="Simpan" value="Simpan" id="Simpan" class="but" onclick="this.disabled = true; ValidateSubmit();"/>&nbsp;
-                <input type="button" value="Tutup" class="but" onclick="document.location.href = 'pengeluaran_blank.php'"/>
+                <input type="button" name="Simpan" value="Save" id="Simpan" class="but" onclick="this.disabled = true; ValidateSubmit();"/>&nbsp;
+                <input type="button" value="Close" class="but" onclick="document.location.href = 'pengeluaran_blank.php'"/>
             </td>
             </tr>
             </table>

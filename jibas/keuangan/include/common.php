@@ -25,7 +25,7 @@ require_once("sessionchecker.php");
 
 //$UPLOAD_DIR = "c:\\xampp\\htdocs\\alfakeu\\upload\\";
 //$BASE_ADDR  = "http://localhost/alfakeu/";
-$bulan = array(1=>'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agust','Sep','Okt','Nov','Des');
+$bulan = array(1=>'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
 
 function StringIsSelected($value, $comparer) {
 	if ($value == $comparer) 
@@ -68,29 +68,29 @@ function RandStr($length) {
 
 function NamaBulan($bln) {
 	if ($bln == 1)
-		return "Januari";
+		return "January";
 	elseif ($bln == 2)
-		return "Februari";		
+		return "February";		
 	elseif ($bln == 3)
-		return "Maret";		
+		return "March";		
 	elseif ($bln == 4)
 		return "April";		
 	elseif ($bln == 5)
-		return "Mei";
+		return "May";
 	elseif ($bln == 6)
-		return "Juni";		
+		return "June";		
 	elseif ($bln == 7)
-		return "Juli";
+		return "July";
 	elseif ($bln == 8)
-		return "Agustus";		
+		return "August";		
 	elseif ($bln == 9)
 		return "September";
 	elseif ($bln == 10)
-		return "Oktober";		
+		return "October";		
 	elseif ($bln == 11)
 		return "November";
 	elseif ($bln == 12)
-		return "Desember";		
+		return "December";		
 }
 
 function rpad($string, $padchar, $length) {

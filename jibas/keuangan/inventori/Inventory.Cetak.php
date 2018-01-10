@@ -44,7 +44,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Jenis Penerimaan]</title>
+<title>JIBAS FINANCE [Acquisition Type]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 </head>
@@ -55,10 +55,10 @@ OpenDb();
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>INVENTORI</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>INVENTORY</strong></font><br /> </center><br /><br />
 <table border="0">
 <tr>
-	<td width="90"><strong>Kelompok</strong></td>
+	<td width="90"><strong>Group</strong></td>
     <td><strong>:
 <?	$sql = "SELECT kelompok FROM jbsfina.kelompokbarang WHERE replid='$idkelompok'";
     $result = QueryDb($sql);
@@ -99,9 +99,9 @@ if ($num > 0)
         </div>
         <img src="gambar.php?table=jbsfina.barang&replid=<?=$row[replid]?>"  style="padding:2px" />
         <div align="left">
-            Jumlah: <?=$jumlah?>&nbsp;<?=$satuan?>&nbsp;@<?=FormatRupiah($harga)?><br />
+            Sum: <?=$jumlah?>&nbsp;<?=$satuan?>&nbsp;@<?=FormatRupiah($harga)?><br />
             Total: <?=FormatRupiah($total)?><br>
-            Tanggal: <?=substr($row[tglperolehan],8,2)."-".substr($row[tglperolehan],5,2)."-".substr($row[tglperolehan],0,4)?><br />
+            Date: <?=substr($row[tglperolehan],8,2)."-".substr($row[tglperolehan],5,2)."-".substr($row[tglperolehan],0,4)?><br />
         </div>
         </div>
     </td>
@@ -130,7 +130,7 @@ if ($num > 0)
 else
 {
     ?>
-    <div align="center"><span style="font-family:verdana; font-size:12px; font-style:italic; color:#666666">Tidak ada Data Barang Untuk Kelompok <?=stripslashes($namakelompok)?></span></div>
+    <div align="center"><span style="font-family:verdana; font-size:12px; font-style:italic; color:#666666">No Item Data For Group <?=stripslashes($namakelompok)?></span></div>
 <?
 }
 ?>

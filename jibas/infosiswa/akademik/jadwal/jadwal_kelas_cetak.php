@@ -120,7 +120,7 @@ $row = mysql_fetch_array($result);
 
 <html>
 <head>
-<title>JIBAS SIMAKA [Cetak Jadwal Kelas]</title>
+<title>JIBAS SIMAKA [Print Class Schedule]</title>
 <link rel="stylesheet" type="text/css" href="../../style/style.css">
 <style>
 	.jadwal {
@@ -150,38 +150,38 @@ $row = mysql_fetch_array($result);
 <tr><td align="left" valign="top">
   	<?=getHeader($row[departemen])?>
 <center>
-  <font size="4"><strong>JADWAL KELAS</strong></font><br />
+  <font size="4"><strong>CLASS SCHEDULE</strong></font><br />
  </center><br /><br />
 
 <table>
 <tr>
-	<td><strong>Departemen</strong></td>
+	<td><strong>Department</strong></td>
     <td><strong>: <?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelas</strong></td>
+	<td><strong>Class</strong></td>
     <td><strong>: <?=$row['kelas'] ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Info Jadwal</strong></td>
+	<td><strong>Schedule Info</strong></td>
     <td><strong>: <?=$row['deskripsi']?></strong></td>
 </tr>
 </table>
 <br>
 <table border="1" width="100%" id="table" class="tab" align="center" cellpadding="2" style="border-collapse:collapse" cellspacing="2">
 <tr>
-    <td width="110px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Jam</strong></td>
-    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Senin</strong></td>
-    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Selasa</strong></td>
-    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Rabu</strong></td>
-    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Kamis</strong></td>
-    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Jumat</strong></td>
-    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Sabtu</strong></td>
-    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Minggu</strong></td>
+    <td width="110px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Time</strong></td>
+    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Monday</strong></td>
+    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Tuesday</strong></td>
+    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Wednesday</strong></td>
+    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Thursday</strong></td>
+    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Friday</strong></td>
+    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Saturday</strong></td>
+    <td width="95px" align="center" bgcolor="#A0A0A0" class="style2 header"><strong>Sunday</strong></td>
 </tr>
 <?
 

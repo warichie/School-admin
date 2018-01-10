@@ -41,7 +41,7 @@ $row=@mysql_fetch_array($result);
 <body>
 <table width="100%" border="0" cellspacing="0">
  <tr>
-    <th height="30" scope="row" align="center"><input class="but" type="button" value="Kembali" onclick="window.self.history.back();" /></th>
+    <th height="30" scope="row" align="center"><input class="but" type="button" value="Back" onclick="window.self.history.back();" /></th>
   </tr>
   <tr>
     <th scope="row">

@@ -56,7 +56,7 @@ if (isset($_REQUEST['harian']))
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>Laporan Hasil Belajar</TITLE>
+<TITLE>Report Card</TITLE>
 <META NAME="Generator" CONTENT="EditPlus">
 <META NAME="Author" CONTENT="">
 <META NAME="Keywords" CONTENT="">
@@ -93,11 +93,11 @@ if (isset($_REQUEST['harian']))
         HASIL BELAJAR</div></td>
     </tr>
   <tr>
-    <td height="20">Departemen</td>
+    <td height="20">Department</td>
     <td height="20">:&nbsp;<?=$departemen?></td>
   </tr>
   <tr>
-    <td height="20">Tahun Ajaran</td>
+    <td height="20">Year</td>
     <?
     $sql_get_ta="SELECT tahunajaran FROM jbsakad.tahunajaran WHERE replid='$tahunajaran'";
 	$result_get_ta=QueryDb($sql_get_ta);
@@ -105,13 +105,13 @@ if (isset($_REQUEST['harian']))
 	?><td height="20">:&nbsp;<?=$row_get_ta[tahunajaran]?></td>
   </tr>
   <tr>
-    <td width="6%" height="20">NIS 
+    <td width="6%" height="20">Student ID 
     </td>
     <td width="93%" height="20">:&nbsp;<?=$nis?>
     </td>
   </tr>
   <tr>
-    <td height="20">Nama</td>
+    <td height="20">Name</td>
     <?
 	$sql_get_nama="SELECT nama FROM jbsakad.siswa WHERE nis='$nis'";
 	$result_get_nama=QueryDb($sql_get_nama);
@@ -120,7 +120,7 @@ if (isset($_REQUEST['harian']))
 	<td height="20">:&nbsp;<?=$row_get_nama[nama]?></td>
   </tr>
   <tr>
-    <td height="20">Kelas/Semester&nbsp;</td>
+    <td height="20">Class/Semester&nbsp;</td>
     
     <?
     $sql_get_kls="SELECT kelas FROM jbsakad.kelas WHERE replid='$kelas'";
@@ -138,8 +138,8 @@ if (isset($_REQUEST['harian']))
 </td>
   </tr>
   <tr>
-    <td><fieldset><legend><strong>Laporan Hasil Belajar</strong></legend>
-	<!-- Content Laporan disini -->
+    <td><fieldset><legend><strong>Report Card</strong></legend>
+	<!-- Content Reports disini -->
     <?	$sql = "SELECT DISTINCT a.dasarpenilaian, d.keterangan
 		  	    FROM infonap i, nap n, aturannhb a, dasarpenilaian d
 			   WHERE i.replid = n.idinfo AND n.nis = '$nis' 
@@ -155,17 +155,17 @@ if (isset($_REQUEST['harian']))
 	} ?>  
 	<table width="100%" border="1" class="tab" bordercolor="#000000">
 	<tr>
-		<td width="15%" rowspan="2" class="headerlong"><div align="center">Pelajaran</div></td>
-		<td width="10%" rowspan="2" class="headerlong"><div align="center">KKM</div></td>
+		<td width="15%" rowspan="2" class="headerlong"><div align="center">Class Subject</div></td>
+		<td width="10%" rowspan="2" class="headerlong"><div align="center">Minimum Completeness Criteria</div></td>
 <?		for($i = 0; $i < count($aspekarr); $i++)
 			echo "<td class='headerlong' colspan='3' align='center' width='18%'>" . $aspekarr[$i][1] . "</td>"; ?>
-		<td width="15%" rowspan="2" class="headerlong"><div align="center">Predikat</div></td>
+		<td width="15%" rowspan="2" class="headerlong"><div align="center">Predicate</div></td>
   	</tr>
 	<tr>
 <?	for($i = 0; $i < count($aspekarr); $i++)
-		echo "<td class='header' align='center' width='7%'>Angka</td>
-			   <td class='header' align='center' width='7%'>Huruf</td>
-				<td class='header' align='center' width='20%'>Bilang</td>"; ?>   
+		echo "<td class='header' align='center' width='7%'>Number</td>
+			   <td class='header' align='center' width='7%'>Letter</td>
+				<td class='header' align='center' width='20%'>Spelled Out</td>"; ?>   
    </tr>
 <?	$sql = "SELECT pel.replid, pel.nama
 				 FROM ujian uji, nilaiujian niluji, siswa sis, pelajaran pel 
@@ -238,13 +238,13 @@ if (isset($_REQUEST['harian']))
 			
 			switch ($tmp)
 			{
-				case 4:	$pred = "Istimewa"; break;
-				case 3:	$pred = "Baik"; break;
-				case 2:	$pred = "Cukup"; break;
-				case 1:	$pred = "Kurang"; break;
-				case 0:	$pred = "Buruk"; break;
+				case 4:	$pred = "Excellent"; break;
+				case 3:	$pred = "Good"; break;
+				case 2:	$pred = "Average"; break;
+				case 1:	$pred = "Not Good"; break;
+				case 0:	$pred = "Bad"; break;
 				default:
-					$pred = "Baik";
+					$pred = "Good";
 			}
 		}			
 		echo "<td align='left'>$pred</td>"; 
@@ -255,12 +255,12 @@ if (isset($_REQUEST['harian']))
 	</td>
   </tr>
   <tr>
-    <td><fieldset><legend><strong>Komentar Hasil Belajar</strong></legend>
-	<!-- Content Komentar disini -->
+    <td><fieldset><legend><strong>Comments</strong></legend>
+	<!-- Konten Komentar disini -->
 	<table border="1" id="table" class="tab" width="100%">
 	<tr>
-	<td width="27%" height="30" align="center" class="header">Pelajaran</td>
-	<td width="73%" height="30" align="center" class="header">Komentar</td>
+	<td width="27%" height="30" align="center" class="header">Class Subject</td>
+	<td width="73%" height="30" align="center" class="header">Comments</td>
 	</tr>
 	<!-- Ambil pelajaran per departemen-->
 	<?
@@ -297,7 +297,7 @@ if (isset($_REQUEST['harian']))
   if ($harian!="false"){
   ?>
   <tr>
-    <td><fieldset><legend><strong>Presensi Harian</strong></legend>
+    <td><fieldset><legend><strong>Daily Presence</strong></legend>
 	<?
 
 
@@ -316,31 +316,31 @@ if (isset($_REQUEST['harian']))
 	<!-- Content Presensi disini -->
 	<table width="100%" border="1" class="tab" id="table">
   <tr>
-    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style1 style14"><strong>Hadir</strong></div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Sakit</div></td>
-    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style1 style14"><strong>Ijin</strong></div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Alpa</div></td>
-    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style14 style1"><strong>Cuti</strong></div></td>
+    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style1 style14"><strong>Attend</strong></div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Ill</div></td>
+    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style1 style14"><strong>Consent</strong></div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Absent</div></td>
+    <td height="25" colspan="2" background="../style/formbg2agreen.gif"><div align="center" class="style14 style1"><strong>Leave</strong></div></td>
     </tr>
   <tr>
     <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1 style14">
-      <div align="center"><strong>Jumlah</strong></div>
+      <div align="center"><strong>Sum</strong></div>
     </div></td>
     <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style14 style1">
       <div align="center"><strong>%</strong></div>
     </div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
     <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1 style14">
-      <div align="center"><strong>Jumlah</strong></div>
+      <div align="center"><strong>Sum</strong></div>
     </div></td>
     <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style1 style14">
       <div align="center"><strong>%</strong></div>
     </div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
     <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style14 style1">
-      <div align="center"><strong>Jumlah</strong></div>
+      <div align="center"><strong>Sum</strong></div>
     </div></td>
     <td width="6" background="../style/formbg2agreen.gif"><div align="center" class="style14 style1">
       <div align="center"><strong>%</strong></div>
@@ -413,24 +413,24 @@ if (isset($_REQUEST['harian']))
  if ($prespel!="false"){
  ?>
  <tr>
-    <td><fieldset><legend><strong>Presensi Pelajaran</strong></legend>
+    <td><fieldset><legend><strong>Class Presence</strong></legend>
 	<!-- Content Presensi disini -->
 	<table width="100%" border="1" class="tab" id="table">
   <tr>
-    <td width="27%" rowspan="2" class="headerlong"><div align="center">Pelajaran</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Hadir</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Sakit</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Ijin</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Alpa</div></td>
+    <td width="27%" rowspan="2" class="headerlong"><div align="center">Class Subject</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Attend</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Ill</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Consent</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Absent</div></td>
     </tr>
   <tr>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
   </tr>
   <!-- Ambil pelajaran per departemen-->

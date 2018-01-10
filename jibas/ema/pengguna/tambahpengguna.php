@@ -74,7 +74,7 @@ if (isset($_REQUEST['simpan'])) {
 		?>
 		<script language="javascript">
 			//alert ('Lom');
-			alert ('Gagal menambah pengguna');
+			alert ('Failed to add a user');
 			parent.opener.fresh();
 			window.close();
 		</script>
@@ -142,22 +142,22 @@ function cek_form()
 	var keterangan = document.getElementById('keterangan').value;
 	
 	if (nip.length==0){
-		alert ('NIP tidak boleh kosong!');
+		alert ('Employee ID should not leave empty');
 		return false;
 	}
 	if (haspwd==0){
 		if (password.length==0){
-			alert ('Password tidak boleh kosong!');
+			alert ('Password should not leave empty');
 			document.getElementById('password').focus();
 			return false;
 		}
 		if (konfirmasi.length==0){
-			alert ('Konfirmasi Password tidak boleh kosong!');
+			alert ('Password Confirmation should not leave empty');
 			document.getElementById('konfirmasi').focus();
 			return false;
 		}
 		if (konfirmasi!=password){
-			alert ('Password dan Konfirmasi Password harus sesuai!');
+			alert ('Password and Confirmation should match');
 			document.getElementById('konfirmasi').value="";
 			document.getElementById('konfirmasi').focus();
 			return false;
@@ -171,19 +171,19 @@ function cek_form()
 </head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#FFFFFF">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-	<img src="../img/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+	<img src="../img/movewait.gif" border="0" />Please wait...
 </div>
 <form action="tambahpengguna.php" method="post" name="tambah_user" onSubmit="return cek_form()">
 <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-	<td height="25" colspan="3" class="header" align="center">Tambah Pengguna</td>
+	<td height="25" colspan="3" class="header" align="center">Add User</td>
 </tr>
 <tr>
     <td width="80" class="news_content1"><strong>Login</strong></td>
     <td width="1025"><input type="text" size="10" name="nip1" id="nip1" readonly value="<?=$_REQUEST['nip'] ?>" class="inputtxt" onClick="caripegawai()">&nbsp;<input type="text" size="30" name="nama1" id="nama1" readonly value="<?=$_REQUEST['nama']?>" class="inputtxt" onClick="caripegawai()">
     	<input type="hidden" name="nip" id="nip" value="<?=$_REQUEST['nip']?>">
-        <input type="hidden" name="nama" id="nama" value="<?=$_REQUEST['nama']?>"><a href="#" onClick="caripegawai()"><img src="../img/cari.png" border="0" onMouseOver="showhint('Cari pegawai',this, event, '100px')"></a>    </td>
+        <input type="hidden" name="nama" id="nama" value="<?=$_REQUEST['nama']?>"><a href="#" onClick="caripegawai()"><img src="../img/cari.png" border="0" onMouseOver="showhint('Search employee',this, event, '100px')"></a>    </td>
 </tr>
 <tr>
 	<td colspan="2">
@@ -192,13 +192,13 @@ function cek_form()
         </div>	</td>
 </tr>
 <tr>
-    <td width="80" valign="top" class="news_content1">Keterangan</td>
+    <td width="80" valign="top" class="news_content1">Info</td>
     <td><textarea name="keterangan" cols="47" rows="3" wrap="soft" class="areatxt2" id="keterangan" onFocus="panggil('keterangan')" onKeyPress="return focusNext('simpan', event)"><?=$keterangan?></textarea></td>
 </tr>
 <tr>
     <td colspan="2" align="center">
-   		<input type="submit" value="Simpan" name="simpan" id="simpan" class="cmbfrm2" onFocus="panggil('simpan')">&nbsp;
-        <input type="button" value="Tutup" name="batal" class="cmbfrm2" onClick="window.close();">    </td>
+   		<input type="submit" value="Save" name="simpan" id="simpan" class="cmbfrm2" onFocus="panggil('simpan')">&nbsp;
+        <input type="button" value="Close" name="batal" class="cmbfrm2" onClick="window.close();">    </td>
 </tr>
 </table>
 </form>

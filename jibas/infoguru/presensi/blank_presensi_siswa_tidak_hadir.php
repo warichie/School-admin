@@ -35,11 +35,11 @@
    	<tr>
     	<td align="center">
        	<? if ($_REQUEST['tipe']=="harian") { ?>
-           	<font size="2" color="#757575"><b>Klik icon <img src="../images/ico/view_x.png" border = "0"> di atas untuk menampilkan
-        Laporan Harian Data Siswa yang Tidak Hadir</b></font>
+           	<font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border = "0"> above to show
+        Absent Student Daily Report Card</b></font>
         <? } else { ?> 
-        <font size="2" color="#757575"><b>Klik ikon <img src="../images/ico/view_x.png" border = "0"> di
-        atas untuk menampilkan Laporan Data Siswa yang Tidak Hadir</b></font>
+        <font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border = "0"> 
+        above to show Absent Student Data Report Card</b></font>
         <? } ?>
         </td>
         

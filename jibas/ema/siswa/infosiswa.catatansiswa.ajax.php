@@ -49,8 +49,8 @@ $num=@mysql_num_rows($result);
 ?>
 <table width="100%" border="1" cellspacing="0" class="tab">
 <tr>
-    <td height="30" width="43" class="header"><div align="center">No</div></td>
-    <td height="30" width="900" class="header">Tanggal/Guru</td>
+    <td height="30" width="43" class="header"><div align="center">#</div></td>
+    <td height="30" width="900" class="header">Date/Teacher</td>
     </tr>
 <?
 if ($num>0)
@@ -83,7 +83,7 @@ else
 { ?>
 <tr>
     <td height="25" colspan="4">
-        <div align="center"><em>Tidak ada catatan Kejadian Siswa untuk NIS : <?=$nis?></em></div>
+        <div align="center"><em>No student attendance notes for Student ID : <?=$nis?></em></div>
     </td>
 </tr>
 <?

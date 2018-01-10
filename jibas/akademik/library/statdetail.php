@@ -35,7 +35,7 @@ $ref = $_REQUEST['ref'];
 <head>
 <link rel="stylesheet" href="style/style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>SISFO KUA</title>
+<title>MARITAL STATUS INFO</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 <script language="javascript">
@@ -66,7 +66,7 @@ if ($key == 2) {
 	$thn1 = $info[0];
 	$thn2 = $info[1];
 
-	$column = "Tahun";
+	$column = "Year";
 	$sql = "SELECT replid, DATE_FORMAT(tanggal, '%d %M %Y') AS tgl, nomor, suami, istri, idbukunikah, idaktanikah FROM aktanikahgab WHERE status=1 AND YEAR(tanggal) = $ref ORDER BY tanggal";	
 } else {
 	$info = split("-", $keyword);
@@ -74,41 +74,41 @@ if ($key == 2) {
 	$thn2 = $info[3] . "-" . $info[2] . "-31";
 	
 	if ($key == 1) {
-		$column = "Bulan";
+		$column = "Month";
 		$sql = "SELECT replid, DATE_FORMAT(tanggal, '%d %M %Y') AS tgl, nomor, suami, istri, idbukunikah, idaktanikah FROM aktanikahgab WHERE status=1 AND tanggal BETWEEN '$thn1' AND '$thn2' AND  MONTH(tanggal)='$ref' ORDER BY tanggal DESC ";	
 	} elseif ($key == 3) {
-		$column = "Usia Suami";
+		$column = "Husband Age";
 		$sql = "SELECT replid, DATE_FORMAT(tanggal, '%d %M %Y') AS tgl, nomor, suami, istri, idbukunikah, idaktanikah FROM aktanikahgab WHERE (YEAR(tanggal)-thnlahirsuami) = $ref AND status=1 AND tanggal BETWEEN '$thn1' AND '$thn2' ORDER BY tanggal DESC";
 	} elseif ($key == 4) {
-		$column = "Tahun Kelahiran Suami";
+		$column = "Husband Year of Birth";
 		$sql = "SELECT replid, DATE_FORMAT(tanggal, '%d %M %Y') AS tgl, nomor, suami, istri, idbukunikah, idaktanikah FROM aktanikahgab WHERE thnlahirsuami=$ref AND status=1 AND tanggal BETWEEN '$thn1' AND '$thn2' ORDER BY tanggal DESC";
 	} elseif ($key == 5) {
-		$column = "Usia Istri";
+		$column = "Wife Age";
 		$sql = "SELECT replid, DATE_FORMAT(tanggal, '%d %M %Y') AS tgl, nomor, suami, istri, idbukunikah, idaktanikah FROM aktanikahgab WHERE (YEAR(tanggal)-thnlahiristri) = $ref AND status=1 AND tanggal BETWEEN '$thn1' AND '$thn2' ORDER BY tanggal DESC";
 	} elseif ($key == 6) {
-		$column = "Tahun Kelahiran Istri";
+		$column = "Wife Year of Birth";
 		$sql = "SELECT replid, DATE_FORMAT(tanggal, '%d %M %Y') AS tgl, nomor, suami, istri, idbukunikah, idaktanikah FROM aktanikahgab WHERE thnlahiristri=$ref AND status=1 AND tanggal BETWEEN '$thn1' AND '$thn2' ORDER BY tanggal DESC";
 	}
 }
 if ($key == 7 || $key == 8 || $key == 9 || $key == 10 || $key == 11) {
 	if ($key==7){
-	$column = "Jabatan";
+	$column = "Position";
 	$sql = "SELECT p.nip,p.nama,p.replid FROM pegawai p, jabatan j WHERE p.aktif=1 AND p.jabatan=j.replid AND p.jabatan='$ref' ORDER BY j.replid  ";	
 	}
 	if ($key==8){
-	$column = "Golongan";
+	$column = "Level";
 	$sql = "SELECT p.nip,p.nama,p.replid FROM pegawai p, golongan g WHERE p.aktif=1 AND p.golongan=g.replid AND p.golongan='$ref' ORDER BY g.replid  ";	
 	}
 	if ($key==9){
-	$column = "Pendidikan";
+	$column = "Education";
 	$sql = "SELECT p.nip,p.nama,p.replid FROM pegawai p, pendidikan pend WHERE p.aktif=1 AND p.pendidikan=pend.replid AND p.pendidikan='$ref' ORDER BY pend.replid ";	
 	}
 	if ($key==10){
-	$column = "Suku";
+	$column = "Ethnicity";
 	$sql = "SELECT p.nip,p.nama,p.replid FROM pegawai p, suku s WHERE p.aktif=1 AND p.suku=s.suku AND p.suku='$ref' ORDER BY s.suku ";	
 	}
 	if ($key==11){
-	$column = "Agama";
+	$column = "Religion";
 	$sql = "SELECT p.nip,p.nama,p.replid FROM pegawai p, agama a WHERE p.aktif=1 AND p.agama=a.agama AND p.agama='$ref' ORDER BY a.agama ";	
 	}
 }
@@ -117,9 +117,9 @@ if ($key == 12 || $key == 13 || $key == 14 || $key == 15) {
 		$info = split("-", $keyword);
 		$thn1 = $info[0];
 		$thn2 = $info[1];
-	$column = "Jabatan";
-	$column1 = "Tahun";
-	$column2 = "Jumlah";
+	$column = "Position";
+	$column1 = "Year";
+	$column2 = "Sum";
 	$sql = "SELECT w.replid,w.tanggal,w.nilai FROM wakaf w WHERE YEAR(w.tanggal)='$thn2' ORDER BY w.replid  ";	
 	}
 	if ($key==13){
@@ -127,50 +127,50 @@ if ($key == 12 || $key == 13 || $key == 14 || $key == 15) {
 		$thn1 = $info[1] . "-" . $info[0] . "-1";
 		$thn2 = $info[3] . "-" . $info[2] . "-31";
 		$bln1 = $info[1];
-	$column = "Golongan";
-	$column1 = "Bulan";
-	$column2 = "Jumlah";
+	$column = "Level";
+	$column1 = "Month";
+	$column2 = "Sum";
 	$sql = "SELECT w.replid,w.tanggal,w.nilai FROM wakaf w WHERE MONTH(w.tanggal)='$bln1' ORDER BY w.replid  ";	
 	}
 	if ($key==14){
 		$info = split("-", $ref);
 		$thn1 = $info[0];
 		$bln1 = $info[1];
-	$column = "Pendidikan";
-	$column1 = "Tahun";
-	$column2 = "Nilai";
+	$column = "Education";
+	$column1 = "Year";
+	$column2 = "The value for";
 	$sql = "SELECT w.replid,w.tanggal,w.nilai FROM wakaf w WHERE YEAR(w.tanggal)='$thn1' ORDER BY w.replid ";	
 	}
 	if ($key==15){
 		$info = split("-", $ref);
 		$thn1 = $info[0];
 		$bln1 = $info[1];
-	$column = "Nilai";
-	$column1 = "Tahun";
-	$column2 = "Nilai";
+	$column = "The value for";
+	$column1 = "Year";
+	$column2 = "The value for";
 	$sql = "SELECT w.replid,w.tanggal,w.nilai FROM wakaf w WHERE MONTH(w.tanggal)='$bln1' ORDER BY w.replid";	
 	}
 }
 ?>
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%" bordercolor="#000000">
 <tr height="35">
-	<td class="header" align="center" width="7%">No</td>
+	<td class="header" align="center" width="7%">#</td>
 	<?
 	if ($key == 7 || $key == 8 || $key == 9 || $key == 10 || $key == 11) {
     ?>
-	<td class="header" align="center" width="35%">NIP</td>
-    <td class="header" align="center" width="35%">Nama</td>
+	<td class="header" align="center" width="35%">Employee ID</td>
+    <td class="header" align="center" width="35%">Name</td>
     <?
 	}
 	if ($key == 1 || $key == 2 || $key == 3 || $key == 4 || $key == 5 || $key == 6) {
 	?>
-	<td class="header" align="center" width="35%">Nomor/<br/>Tanggal</td>
-    <td class="header" align="center" width="35%">Pasangan</td>
+	<td class="header" align="center" width="35%">Number/<br/>Date</td>
+    <td class="header" align="center" width="35%">Couples</td>
 	<?
 	}
 	if ($key == 12 || $key == 13 || $key == 14 || $key == 15) {
 	?>
-	<td class="header" align="center" width="35%">Tanggal</td>
+	<td class="header" align="center" width="35%">Date</td>
     <td class="header" align="center" width="35%"><?=$column2?></td>
 	<?
 	}
@@ -201,10 +201,10 @@ while ($row = mysql_fetch_row($result)) {
     <td align="left" valign="top"><?=$row[3] . "<br>" . $row[4] ?></td>
     <td align="center" valign="top">
     <? if ($idakta > 0) { ?>
-	    <a href="JavaScript:OpenDetail('<?=$idakta?>')" title="Lihat Akta Nikah"><img src="Images/aktaico.png" border="0" /></a>&nbsp; 
+	    <a href="JavaScript:OpenDetail('<?=$idakta?>')" title="See Marriage Certificate"><img src="Images/aktaico.png" border="0" /></a>&nbsp; 
     <? } ?>
     <? if ($idbuku > 0) { ?>
-	    <a href="JavaScript:OpenBuku('<?=$idbuku?>')" title="Lihat Buku Nikah"><img src="Images/bukuico.png" border="0" /></a>
+	    <a href="JavaScript:OpenBuku('<?=$idbuku?>')" title="See Marriage Book"><img src="Images/bukuico.png" border="0" /></a>
     <? } ?>
     </td>
 	<?

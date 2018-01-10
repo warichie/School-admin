@@ -32,7 +32,7 @@ require_once('../include/db_functions.php');*/
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aturan Penentuan Grading Nilai</title>
+<title>Grade Point Rules</title>
 
 <!--<script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>-->
@@ -67,7 +67,7 @@ function acceptPegawai(nip, nama, flag) {
 </head>
 <body background="../images/buatdiatas_120.jpg">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <form name="main" enctype="multipart/form-data" >
 <table width="100%"  border="0"  cellpadding="0" cellspacing="0" style="margin-left:10">
@@ -79,8 +79,8 @@ function acceptPegawai(nip, nama, flag) {
     <td rowspan="4" align="left" valign="middle">&nbsp;</td>
     </tr>
   <tr>
-    <td valign="bottom"><span class="style1"><font color="#660000">ATURAN PERHITUNGAN NILAI RAPOR</font></span></td>
-    <td colspan="2" rowspan="2"><div id="tingkatInfo"><strong>Guru</strong>
+    <td valign="bottom"><span class="style1"><font color="#660000">REPORT CARD CALCULATION RULES</font></span></td>
+    <td colspan="2" rowspan="2"><div id="tingkatInfo"><strong>Teacher</strong>
             <strong>
         <input type="text" name="nip" id="nip" size="10" style="background-color:#CCCCCC" readonly value="<?=$nip ?>" /> <input type="hidden" name="nipguru" id="nipguru" value="<?=$nipguru ?>" /> 
         <input type="text" name="nama" id="nama" size="20" style="background-color:#CCCCCC" readonly value="<?=$nama ?>" />
@@ -90,8 +90,8 @@ function acceptPegawai(nip, nama, flag) {
     </tr>
   <tr>
     <td valign="top"><a href="../guru.php" target="content">
-        <font size="1" color="#000000"><b>Guru&nbsp;&amp;&nbsp;Pelajaran</b></font></a>&nbsp>&nbsp
-    <font size="1" color="#000000"><b>Departemen</b></font></td>
+        <font size="1" color="#000000"><b>Teacher&nbsp;&amp;&nbsp;Class Subject</b></font></a>&nbsp;>&nbsp;
+    <font size="1" color="#000000"><b>Department</b></font></td>
     </tr>
   <tr>
     <td></td>

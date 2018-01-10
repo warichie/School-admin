@@ -45,10 +45,10 @@ $result=QueryDb($sql);
 kjhsjdfjuygkjgkhgfukhg
 <table width="100%" border="0" id="tablecari" class="tab">
 <tr>
-    <td  height="30" align="center"  class="header" >No.</td>
-    <td  height="30" align="center"  class="header">NIS</td>
-    <td  height="30" align="center"  class="header">Nama</td>
-    <td  height="30" align="center"  class="header">Kelas</td>
+    <td  height="30" align="center"  class="header" >#</td>
+    <td  height="30" align="center"  class="header">Student ID</td>
+    <td  height="30" align="center"  class="header">Name</td>
+    <td  height="30" align="center"  class="header">Class</td>
 </tr>
 <?
 if (@mysql_num_rows($result)>0){
@@ -75,7 +75,7 @@ $i++;
 
 ?>
 <tr>
-    <td colspan="4" align="center" height="25">Tidak ditemukan data</td>
+    <td colspan="4" align="center" height="25">Data Not Found.</td>
 </tr>
 <?
 

@@ -37,7 +37,7 @@ $pagesource = $_REQUEST["pagesource"];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tambah Foto</title>
+<title>Add Photo</title>
 <script src="../../script/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../../script/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript">
@@ -66,7 +66,7 @@ function validate()
 	var y=1;
 	if (x.length==0)
 	{
-		alert ('Minimal harus ada 1 gambar yang akan di Upload!');
+		alert ('You should upload at least one image');
 		return false;
 	}
 	else
@@ -80,7 +80,7 @@ function validate()
 				ext = ext.toLowerCase();
 				if (ext!='jpg' && ext!='jpeg' && ext!='gif' && ext!='bmp' && ext!='png')
 				{
-					alert ('Format Gambar harus ber-extensi jpg, gif, bmp atau png!');
+					alert ('Image should be jpg, gif, bmp, or png formatted');
 					document.getElementById("file"+y).value='';
 					document.getElementById("tr"+y).style.background = "#FF8080" ;
 					return false;
@@ -111,14 +111,14 @@ function validate()
 <input name="source" id="source" type="hidden" size="20" value="<?=$source?>" />
 <table width="100%" border="0" cellspacing="0" >
   <tr>
-    <td colspan="3" scope="row"><span class="style3"><strong><font size="2">Foto Baru :</font></strong><br />
+    <td colspan="3" scope="row"><span class="style3"><strong><font size="2">New Photo :</font></strong><br />
         <br />
     </span></td>
   </tr>
   <tr>
-    <th width="21%" height="25" align="center" bgcolor="#CCCC99" class="headerlong" scope="row"><div align="left">File Gambar</div></th>
-    <th width="39%" height="25" align="center" bgcolor="#CCCC99" class="headerlong" scope="row">Nama</th>
-    <th width="40%" align="center" bgcolor="#CCCC99" class="headerlong" scope="row"><div align="left">Keterangan</div></th>
+    <th width="21%" height="25" align="center" bgcolor="#CCCC99" class="headerlong" scope="row"><div align="left">Image File</div></th>
+    <th width="39%" height="25" align="center" bgcolor="#CCCC99" class="headerlong" scope="row">Name</th>
+    <th width="40%" align="center" bgcolor="#CCCC99" class="headerlong" scope="row"><div align="left">Info</div></th>
   </tr>
 <? 	for ($i = 1; $i <= 3; $i++)
 	{  ?>
@@ -136,13 +136,13 @@ function validate()
 	</tr>
 <? 	} ?>
   <tr>
-    <th colspan="3" align="center" scope="row">* Format Gambar harus jpg, gif, bmp atau png</th>
+    <th colspan="3" align="center" scope="row">* Image should be jpg, gif, bmp, or png formatted</th>
   </tr>
   <tr>
     <th colspan="3" align="center" scope="row">
-    <input title="Simpan foto !" type="submit" class="but" name="simpan" id="simpan" value="Simpan" />&nbsp;&nbsp;
+    <input title="Save photo!" type="submit" class="but" name="simpan" id="simpan" value="Save" />&nbsp;&nbsp;
     <input type="hidden" id="jumlah" name="jumlah"/>
-    <input title="Tutup !" type="button" class="but" onClick="window.close();" name="tutup" id="tutup" value="Tutup" /></th>
+    <input title="Close" type="button" class="but" onClick="window.close();" name="tutup" id="tutup" value="Close" /></th>
   </tr>
 </table>
 </form>

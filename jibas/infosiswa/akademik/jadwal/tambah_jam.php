@@ -70,7 +70,7 @@ if (isset($_REQUEST['simpan'])) {
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Urutan jam ke ".$jamke." sudah digunakan!";		
+		$ERROR_MSG = "Sort of Time (hour) ".$jamke." has been used";		
 	} else {
 		if ($jamke_asli==$jamke){		
 			$sql_jam_sebelumnya="SELECT replid as replidsebelumnya, jamke as jamkesebelumnya, HOUR(jam2) As jamakhirsebelumnya, MINUTE(jam2) As menitakhirsebelumnya FROM jbsakad.jam WHERE departemen='$departemen' AND jamke<$jamke ORDER BY jamke DESC LIMIT 1";
@@ -78,7 +78,7 @@ if (isset($_REQUEST['simpan'])) {
 			$row_jam_sebelumnya=@mysql_fetch_array($result_jam_sebelumnya);
 			$jum_sebelumnya=((int)$row_jam_sebelumnya['jamakhirsebelumnya']*60)+(int)$row_jam_sebelumnya['menitakhirsebelumnya'];
 			if ($jum_awal<$jum_sebelumnya){			
-				$ERROR_MSG = "Jam mulai tidak boleh berpotongan dengan jam akhir urutan sebelumnya!";				
+				$ERROR_MSG = "Start Time should not overlapping previous End Time";				
 			} else {	
 				$sql_jam_simpan="INSERT INTO jbsakad.jam SET jamke='$jamke',jam1='$jam1',jam2='$jam2',departemen='$departemen'";
 				$result_jam_simpan=QueryDb($sql_jam_simpan);
@@ -106,10 +106,10 @@ if (isset($_REQUEST['simpan'])) {
 			$jum_sesudahnya=((int)$row_jam_sesudahnya['jamawalsesudahnya']*60)+(int)$row_jam_sesudahnya['menitawalsesudahnya'];
 			
 			if ($jum_awal < $jum_sebelumnya ){
-				$ERROR_MSG = "Jam mulai tidak boleh berpotongan dengan jam akhir urutan sebelumnya!";
+				$ERROR_MSG = "Start Time should not overlapping previous End Time";
 			} else {
 				if ($jum_akhir > $jum_sesudahnya){
-					$ERROR_MSG = "Jam selesai tidak boleh berpotongan dengan jam awal urutan selanjutnya!";				
+					$ERROR_MSG = "End Time should not overlapping next Start Time";				
 				} else {
 					//proses simpan data
 					
@@ -144,7 +144,7 @@ if (!isset($jamke))
 ?>
 <html>
 <head>
-<title>JIBAS SIMAKA [Tambah Jam Belajar]</title>
+<title>JIBAS SIMAKA [Add Session]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -164,81 +164,81 @@ function validate(){
 	var jum_akhir = (jam2baru*60) + menit2baru;
 	
 	if (jamke.length==0){
-		alert('Anda harus mengisikan nilai untuk jamke');
+		alert('You must enter a value for Time');
 		document.tabel_jam.jamke.focus();
 		return false;
 	}
 	if (isNaN(jamke)){
-		alert('Jamke harus berupa bilangan!');
+		alert('Time must be numeric');
 		document.tabel_jam.jamke.focus();
 		return false;
 	}
 	if (jam1baru.length==0){
-		alert('Anda harus mengisikan nilai untuk jam mulai');
+		alert('You must enter a value for Start Time');
 		document.tabel_jam.jam1baru.focus();
 		return false;
 	}
 	if (isNaN(jam1baru)){
-		alert('Jam mulai harus berupa bilangan!');
+		alert('Start Time must be numeric');
 		document.tabel_jam.jam1baru.focus();
 		return false;
 	}
 	if (jam1baru>23){
-		alert('Bilangan jam mulai berkisar dari 00 sampai 23');
+		alert('Start Time is a range between 00 to 23');
 		document.tabel_jam.jam1baru.focus();
 		return false;			
 	}
 	if (menit1baru.length==0){
-		alert('Anda harus mengisikan nilai untuk menit mulai');
+		alert('You must enter a value for Minute Start');
 		document.tabel_jam.menit1baru.focus();
 		return false;			
 	}
 	if (isNaN(menit1baru)){
-		alert('Menit mulai harus berupa bilangan!');
+		alert('Start Minute must be numeric');
 		document.tabel_jam.menit1baru.focus();
 		return false;
 			
 	}
 	if (menit1baru>59){
-		alert('Bilangan menit mulai berkisar dari 00 sampai 59');
+		alert('Start Minute is a range between 00 to 59');
 		document.getElementById(menit1baru).focus();
 		return false;			
 	}
 	if (jam2baru.length==0){
-		alert('Anda harus mengisikan nilai untuk jam selesai');
+		alert('You must enter a value for End Time');
 		document.tabel_jam.jam2baru.focus();
 		return false;			
 	}
 	if (isNaN(jam2baru)){
-		alert('Jam selesai harus berupa bilangan!');
+		alert('End Time must be numeric');
 		document.tabel_jam.jam2baru.focus();
 		return false;
 	}
 	if (jam2baru>23){
-		alert('Bilangan jam selesai berkisar dari 00 sampai 23');
+		alert('End Time is a range between 00 to 23');
 		document.tabel_jam.jam2baru.focus();
 		return false;
 	}
 	
 	if (menit2baru.length==0){
-		alert('Anda harus mengisikan nilai untuk menit mulai');
+		alert('You must enter a value for Minute Start');
 		document.tabel_jam.menit2baru.focus();
 		return false;
 	}
 	
 	if (isNaN(menit2baru)){
-		alert('Menit selesai harus berupa bilangan!');
+		alert('End Minute must be numeric');
 		document.tabel_jam.menit2baru.focus();
 		return false;
 			
 	}
 	if (menit2baru>59){
-		alert('Bilangan menit selesai berkisar dari 00 sampai 59');
+		alert('End Minute is a range between 00 to 59');
 		document.tabel_jam.menit2baru.focus();
 		return false;
 	}
 	if (jum_awal>=jum_akhir){
-		alert('Waktu mulai tidak boleh lebih besar atau sama dengan waktu selesai');
+		alert('Start Time should not bigger or equal to End Time');
 		document.tabel_jam.menit2baru.focus();
 		return false;
 	}
@@ -276,27 +276,27 @@ function focusNext(elemName, evt) {
     <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
 	<tr height="25">
-    	<td colspan="2" class="header" align="center">Tambah Jam Belajar</td>	        
+    	<td colspan="2" class="header" align="center">Add Session</td>	        
   	</tr>
     <tr>
-		<td width="120"><strong>Departemen</strong></td>
+		<td width="120"><strong>Department</strong></td>
     	<td><input type="text" name="dept" size="10" maxlength="50" class="disabled" readonly value="<?=$departemen?>"/> 
         <input type="hidden" name="departemen" id="departemen" value="<?=$departemen?>"></td>
 	</tr>
     <tr>
-    	<td width="40%"><strong>Jam ke</strong></td>        
+    	<td width="40%"><strong>Hour</strong></td>        
         <td><input type="text" name="jamke" id="jamke" value="<?=$jamke; ?>"  size="2" maxlength="2" onKeyPress="return focusNext('jamb1baru', event)" > 
             <input type="hidden" name="jamke_asli" id="jamke_asli" value="<?=(int)$row_ambil_jamke_terakhir[jamke]+1; ?>">
         </td>
     </tr>
     <tr>
-    	<td><strong>Waktu Mulai</strong></td>
+    	<td><strong>Start Time</strong></td>
         <td><input type="text" name="jam1baru" id="jam1baru" size="2" maxlength="2" value="<?=$jam1baru?>" onKeyPress="return focusNext('menit1baru', event)"> :
         	<input type="text" name="menit1baru" id="menit1baru" size="2" maxlength="2" value="<?=$menit1baru?>"  onKeyPress="return focusNext('jam2baru', event)">
         </td>
    </tr>
    <tr>
-        <td><strong>Waktu Selesai</strong></td>
+        <td><strong>End Time</strong></td>
         <td><input type="text" name="jam2baru" id="jam2baru" size="2" maxlength="2" value="<?=$jam2baru?>"  onKeyPress="return focusNext('menit2baru', event)"> :
         	<input type="text" name="menit2baru" id="menit2baru" size="2" maxlength="2" value="<?=$menit2baru?>" onKeyPress="return focusNext('Simpan', event)">
         </td>
@@ -306,8 +306,8 @@ function focusNext(elemName, evt) {
     </tr>
     <tr>
         <td colspan="2" align="center">
-          <input type="submit" value="Simpan" name="simpan" id="Simpan" class="but">         
-          <input type="button" value="Tutup" onClick="window.close()" class="but">
+          <input type="submit" value="Save" name="simpan" id="Simpan" class="but">         
+          <input type="button" value="Close" onClick="window.close()" class="but">
         </td>
     </tr>
     </table>

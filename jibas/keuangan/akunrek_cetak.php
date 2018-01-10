@@ -38,7 +38,7 @@ if (isset($_GET['kategori']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Cetak Kode Rekening Perkiraan]</title>
+<title>JIBAS FINANCE [Print Kode Bank Account Perkiraan]</title>
 </head>
 
 <body>
@@ -51,7 +51,7 @@ if (isset($_GET['kategori']))
 
 <table border="0">
 <tr>
-	<td><strong>Kategori :</strong></td>
+	<td><strong>Category :</strong></td>
     <td><strong><?=$kategori ?></strong></td>
 </tr>
 </table>
@@ -59,10 +59,10 @@ if (isset($_GET['kategori']))
 
 <table id="table" class="tab" style="border-collapse:collapse" border="1" width="100%" bordercolor="#000000">
 	<tr height="30" align="center">
-        <td class="header" width="50" >No</td>
-        <td class="header" width="10%">Kode</td>
-        <td class="header" width="20%">Nama</td>
-        <td class="header">Keterangan</td>
+        <td class="header" width="50" >#</td>
+        <td class="header" width="10%">Code</td>
+        <td class="header" width="20%">Name</td>
+        <td class="header">Info</td>
 	</tr>
 <? 	OpenDb();
 	$sql = "SELECT * FROM rekakun WHERE kategori = '$kategori' ORDER BY kode";

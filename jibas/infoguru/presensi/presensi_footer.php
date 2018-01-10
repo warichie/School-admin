@@ -30,7 +30,7 @@ require_once('../sessionchecker.php');
 
 $id = 0;
 $status = 0;
-$st = array('Hadir', 'Ijin', 'Sakit', 'Alpa', 'Cuti', '(Belum ada data)');
+$st = array('Attend', 'Consent', 'Ill', 'Absent', 'Leave', '(no data)');
 if (isset($_REQUEST['departemen']))
 	$departemen = $_REQUEST['departemen'];
 if (isset($_REQUEST['semester']))
@@ -79,12 +79,12 @@ if ($op == "dw8dxn8w9ms8zs22") {
 	if(mysql_affected_rows() > 0) {
 	?>
     <script language="JavaScript">
-        alert('Data presensi pelajaran berhasil dihapus');
+        alert('Class Subject Presence data deleted successfully');
 		parent.header.show();
 	</script>
 <?	} else { ?>
     <script language="JavaScript">
-        alert('Data presensi pelajaran gagal dihapus, Periksalah apakah data sudah terpakai');	
+        alert('Failed to delete Class Subject Presence data, please check whether the data has been used by others.');	
 	</script>
 <?	CloseDb();
 	}
@@ -136,7 +136,7 @@ if ($jml > 0) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pendataan Calon Siswa</title>
+<title>Student Candidate Data Collection</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -155,7 +155,7 @@ function refresh() {
 }
 
 function hapus(replid) {
-	if (confirm("Apakah anda yakin akan menghapus data presensi pelajaran ini?"))
+	if (confirm("Are you sure want to delete data presensi pelajaran ini?"))
 		document.location.href = "presensi_footer.php?op=xm8r389xemx23xb2378e23&replid="+replid;
 }
 function tambah(id) {	
@@ -214,23 +214,23 @@ function validate() {
 	var jumlah = document.getElementById("jumlah").value;	
 	
 	if (nip.length == 0 ) {	
-		alert ('NIP Guru tidak boleh kosong !');	
+		alert ('Teacher ID should not leave empty');	
 		document.getElementById('nip').focus();
 		return false;	
 	} else if (jenis.length == 0 ) {	
-		alert('Tambah status data guru '+nama+' \ndi menu Pendataan Guru pada bagian Guru & Pelajaran!');		
+		alert('Add teacher data status '+nama+' \nin the Teacher Data Collection on Teacher and Class Subject section');		
 		document.getElementById('jenis').focus();
 		return false;	
 	} else if (materi.length == 0) {	
-		alert ('Materi tidak boleh kosong!');	
+		alert ('Subject Matter should not leave empty');	
 		document.getElementById('materi').focus();
 		return false;	
 	} else if (isNaN(telat)) {	
-		alert ('Keterlambatan harus berupa bilangan!');	
+		alert ('Late must be numeric');	
 		document.getElementById('telat').focus();
 		return false;
 	} else if (isNaN(jumlah)) {	
-		alert ('Jumlah jam mengajar harus berupa bilangan!');	
+		alert ('Teaching hours must be numeric');	
 		document.getElementById('jumlah').focus();
 		return false;			
 	}
@@ -274,14 +274,14 @@ function focusNext(elemName, evt) {
 <table border="0" width="100%" align="center">
 <!-- TABLE CENTER -->
 <tr height="25">	
-	<td colspan="2" class="header" align="center">Data Presensi Pelajaran</td>
+	<td colspan="2" class="header" align="center">Data Class Presence</td>
 </tr>
 <tr>
 	<td colspan="2">
 <div id ="InfoGuru">
 <table cellpadding="0" width="100%">
 <tr>
-	<td width="17%"><strong>Guru yang Mengajar</strong></td>
+	<td width="17%"><strong>Teacher</strong></td>
     <td>
         <input type="text" name="nipguru" id="nipguru" size="15" class="disabled" value="<?=$nip ?>" readonly />        
     	<input type="text" name="namaguru" id="namaguru" size="30" class="disabled" value="<?=$nama ?>" readonly />        
@@ -292,7 +292,7 @@ function focusNext(elemName, evt) {
    	</td>
 </tr>
 <tr>
-	<td><strong>Status Guru</strong></td>
+	<td><strong>Teacher Status</strong></td>
     <td>
     <?
     	//$sql = "SELECT s.replid,s.status FROM statusguru s, guru g WHERE g.nip = $nip AND g.idpelajaran = $pelajaran AND g.statusguru = s.status ORDER BY status";	
@@ -326,34 +326,34 @@ function focusNext(elemName, evt) {
 	</td>
 </tr>
 <tr>
-	<td valign="top" width="17%">Keterangan Kehadiran Guru</td>
+	<td valign="top" width="17%">Teacher Attendance Info</td>
     <td><textarea name="keterangan" id="keterangan" rows="2" cols="80%" onKeyPress="return focusNext('materi', event)"><?=$keterangan ?></textarea></td>
 </tr>
 <tr>
-	<td valign="top"><strong>Materi</strong></td>
-    <td><textarea name="materi" id="materi" rows="2" cols="80%" onFocus="showhint('Materi tidak boleh kosong!', this, event, '120px')" onKeyPress="return focusNext('materi_lanjut', event)"><?=$materi ?></textarea></td>
+	<td valign="top"><strong>Subject Matter</strong></td>
+    <td><textarea name="materi" id="materi" rows="2" cols="80%" onFocus="showhint('Subject Matter should not leave empty', this, event, '120px')" onKeyPress="return focusNext('materi_lanjut', event)"><?=$materi ?></textarea></td>
 </tr>
 <tr>
-	<td valign="top">Materi Selanjutnya</td>
+	<td valign="top">Next Subject Matter</td>
     <td><textarea name="materi_lanjut" id="materi_lanjut" rows="2" cols="80%" onKeyPress="return focusNext('telat', event)"><?=$materi_lanjut ?></textarea></td>
 </tr>
 <tr>
-	<td>Keterlambatan</td>
-    <td><input type="text" name="telat" id="telat" size="3" maxlength="3" value="<?=$telat ?>" onKeyPress="return focusNext('jumlah', event)"/> menit</td>
+	<td>Late</td>
+    <td><input type="text" name="telat" id="telat" size="3" maxlength="3" value="<?=$telat ?>" onKeyPress="return focusNext('jumlah', event)"/> minutes</td>
 </tr>
 <tr>
-	<td>Jumlah Jam Mengajar</td>
-    <td><input type="text" name="jumlah" id="jumlah" size="3" maxlength="3" value="<?=$jumlah ?>" onKeyPress="return focusNext('status1', event)"/> jam</td>
+	<td>Hour Mengajar</td>
+    <td><input type="text" name="jumlah" id="jumlah" size="3" maxlength="3" value="<?=$jumlah ?>" onKeyPress="return focusNext('status1', event)"/> hours</td>
 </tr>
 <tr>
     <td align="left" valign="top" colspan="2">       
 	 <table class="tab" id="table" border="1"  style="border-collapse:collapse"  width="100%" align="center" bordercolor="#000000">
 		<tr>		
-			<td width="3%" height="30" align="center" class="header">No</td>
-			<td width="10%" height="30" align="center" class="header">N I S</td>
-			<td width="*" height="30" align="center" class="header">Nama</td>
-            <td width="8%" height="30" align="center" class="header">Presensi</td>
-            <td width="51%" height="30" align="center" class="header">Catatan</td>
+			<td width="3%" height="30" align="center" class="header">#</td>
+			<td width="10%" height="30" align="center" class="header">Student ID</td>
+			<td width="*" height="30" align="center" class="header">Name</td>
+            <td width="8%" height="30" align="center" class="header">Presence</td>
+            <td width="51%" height="30" align="center" class="header">Notes</td>
 		</tr>
 		<? 
 		OpenDb();
@@ -385,14 +385,14 @@ function focusNext(elemName, evt) {
 			<? if ($row['idkelas'] <> $kelas) { 
 			$sisbedkel+=1;
 			?>
-            <td align="center" onMouseOver="showhint('Kelas tetap di <?=$row[kelas]?>', this, event, '80px')">
+            <td align="center" onMouseOver="showhint('Class is still in <?=$row[kelas]?>', this, event, '80px')">
             <font color="#FF0000"><?=$row['nis']?></font></td>
-            <td onMouseOver="showhint('Kelas tetap di <?=$row[kelas]?>', this, event, '80px')">
+            <td onMouseOver="showhint('Class is still in <?=$row[kelas]?>', this, event, '80px')">
             <font color="#FF0000"><?=$row['nama']?></font></td>			
 		<? } else if ($row['aktif'] == 0) { ?>			
-            <td align="center" onMouseOver="showhint('Status siswa tidak aktif lagi!', this, event, '80px')">
+            <td align="center" onMouseOver="showhint('Student status is back to inactive', this, event, '80px')">
             <font color="#FF0000"><?=$row['nis']?></font></td>
-            <td onMouseOver="showhint('Status siswa tidak aktif lagi!', this, event, '80px')">
+            <td onMouseOver="showhint('Student status is back to inactive', this, event, '80px')">
             <font color="#FF0000"><?=$row['nama']?></font></td>		
 		<? } else {	?>
             <td align="center"><?=$row['nis']?></td>
@@ -423,18 +423,18 @@ function focusNext(elemName, evt) {
 	<? if ($sisbedkel>0){ ?>
     <tr>
 		<td align="left" colspan="2">
-		<span class="style1">*) Siswa di kelas berbeda	    </span></td>
+		<span class="style1">*) Student in different class	    </span></td>
 	</tr>
     <? } ?>
     <tr>    
     	<td align="right" colspan="2">
-        <input type="button" name="simpan" id="simpan" value="Simpan" class="but" style="width:100px; " onClick="return validate();"/>
+        <input type="button" name="simpan" id="simpan" value="Save" class="but" style="width:100px; " onClick="return validate();"/>
         <?
 			if($id){
 				$action = "Update";
 		?>
-        	<input type="button" value="(+) Tambah Siswa" class="but" onClick="tambah(<?=$id ?>)">
-			<input type="button" value="Hapus Data" class="but" onClick="hapus(<?=$id ?>)" style="width:100px; ">
+        	<input type="button" value="(+) Add Student" class="but" onClick="tambah(<?=$id ?>)">
+			<input type="button" value="Delete Data" class="but" onClick="hapus(<?=$id ?>)" style="width:100px; ">
 			
 			<?
 			}else{

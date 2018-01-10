@@ -29,7 +29,7 @@ require_once('../include/db_functions.php');
 require_once('../library/departemen.php');
 require_once('../cek.php');
 
-$tipe = array(array("nis","NIS"),array("nisn","N I S N"), array("nama","Nama"), array("panggilan","Nama Panggilan"), array("agama","Agama"), array("suku","Suku"), array ("status","Status"), array("kondisi","Kondisi Siswa"), array("darah","Golongan Darah"), array("alamatsiswa","Alamat Siswa"), array("asalsekolah","Asal Sekolah"), array("namaayah","Nama Ayah"), array("namaibu","Nama Ibu"), array("alamatortu","Alamat Orang Tua"), array("keterangan","Keterangan"));
+$tipe = array(array("nis","Student ID"),array("nisn","National Student ID"), array("nama","Name"), array("panggilan","Nickname"), array("agama","Religion"), array("suku","Ethnicity"), array ("status","Status"), array("kondisi","Student Conditions"), array("darah","Blood Type"), array("alamatsiswa","Student Address"), array("asalsekolah","Past School"), array("namaayah","Father Name"), array("namaibu","Mother Name"), array("alamatortu","Parent Address"), array("keterangan","Info"));
 
 $departemen = "";
 if (isset($_REQUEST['departemen']))
@@ -46,7 +46,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pencarian Siswa</title>
+<title>Search Student</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -75,14 +75,14 @@ function cari_siswa() {
 	var departemen = document.getElementById("departemen").value;	
 	
 	if (cari == "") {
-		alert ('Keyword tidak boleh kosong');
+		alert ('Keyword should not leave empty');
 		document.getElementById("cari").focus();
 		return false;
 	}
 	
 	if (jenis != 'kondisi' && jenis != 'status' && jenis != 'agama' && jenis != 'suku' && jenis != 'darah'){
 		if (cari.length<3){
-		 	alert ('Keyword tidak boleh kurang dari 3 karakter');
+		 	alert ('Keyword should not less than 3 characters.');
 	 		return false;
 		}
 	}
@@ -114,7 +114,7 @@ function focusNext(elemName, evt) {
 	<td rowspan="2" width="60%">
 	<table  border = "0">
     <tr>
-  		<td width = "16%"><strong>Departemen</strong>
+  		<td width = "16%"><strong>Department</strong>
    		<td width = "*">
         <select name="departemen" id="departemen" onChange="blank()" style="width:140px;" onKeyPress="return focusNext('jenis', event)">
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -126,10 +126,10 @@ function focusNext(elemName, evt) {
         </select></td>
         <td width = "*">&nbsp;</td>
         <td width = "*" rowspan="2" align="left">
-        	<a href="#" onclick="cari_siswa()" ><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Klik untuk melihat hasil pencarian !', this, event, '120px')" /></a>        </td>
+        	<a href="#" onclick="cari_siswa()" ><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Click to show search results ', this, event, '120px')" /></a>        </td>
     </tr>
 	<tr> 
-    	<td><strong>Pencarian</strong>
+    	<td><strong>Search</strong>
       	<td><select name="jenis" id="jenis" onchange="blank_jenis()" style="width:140px;" onKeyPress="return focusNext('cari', event)">			
        	<?	foreach($tipe as $value) { ?>
 				<option value="<?=$value[0]?>" <?=StringIsSelected($value[0], $jenis)?> ><?=$value[1]?></option>
@@ -182,13 +182,13 @@ CloseDb();
 	</tr>
     </table>	</td>    
     <td width = "*" align="right" valign="top">
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pencarian Siswa</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Search Student</font><br />
     <a href="../siswa.php" target="content">
-        <font size="1" color="#000000"><b>Kesiswaan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Pencarian Siswa</b></font></td>     
+        <font size="1" color="#000000"><b>Student</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Search Student</b></font></td>     
 </tr>
 </table>
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
     	
 </body>
 </html>

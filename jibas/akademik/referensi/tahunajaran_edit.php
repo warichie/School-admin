@@ -52,7 +52,7 @@ if (isset($_REQUEST['Simpan'])) {
 	
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-			$ERROR_MSG = "Tahun Ajaran $_REQUEST[tahunajaran] sudah digunakan!";
+			$ERROR_MSG = "Year of Teaching $_REQUEST[tahunajaran] has been used";
 	} else {
 		
 		$sql = "UPDATE tahunajaran SET tahunajaran = '$_REQUEST[tahunajaran]', tglmulai = '$tglmulai', tglakhir = '$tglakhir', keterangan = '$_REQUEST[keterangan]' WHERE replid = $replid";
@@ -68,7 +68,7 @@ if (isset($_REQUEST['Simpan'])) {
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="../style/calendar-system.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Tahun Ajaran]</title>
+<title>JIBAS SIMAKA [Edit Year of Teaching]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -97,18 +97,18 @@ function validate(){
 	var th1 = "";
 	
 	if (ajaran.length == 0) {
-		alert("Anda harus mengisikan data untuk tahun ajaran");
+		alert("You must enter a data for Year of Teaching");
 		document.getElementById("tahunajaran").focus();
 		return false;
 	}
 	
 	if (tglmulai.length == 0) {	
-		alert("Anda harus mengisikan data untuk tanggal mulai");
+		alert("You must enter a data for Start Date");
 		return false;
 	}
 	
 	if (tglakhir.length == 0) {	
-		alert("Anda harus mengisikan data untuk tanggal akhir");
+		alert("You must enter a data for End Date");
 		return false;
 	}
 	
@@ -149,17 +149,17 @@ function validate(){
 		th1 = parseInt(th1);
 		
 		if (th > th1) {
-			alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+			alert ('End Year should not less than Start Year');
 			return false;
 		} 
 	
 		if (th == th1 && bln > bln1 ) {
-			alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+			alert ('End Month should not less than Start Month');
 			return false; 
 		}	
 	
 		if (th == th1 && bln == bln1 && tgl > tgl1 ) { 
-			alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');			
+			alert ('End Date should not less than Start Date');			
 			return false;
 		} 
 	}
@@ -187,7 +187,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Tahun Ajaran :.
+    .: Edit Year :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -201,37 +201,37 @@ function focusNext(elemName, evt) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="30%"><strong>Departemen</strong></td>
+	<td width="30%"><strong>Department</strong></td>
 	<td colspan="2">
     	<input type="text" class="disabled" name="departemen" id="departemen" size="10" maxlength="50" value="<?=$departemen ?>" readonly="readonly" />    </td>
 </tr>
 <tr>
-    <td><strong>Tahun Ajaran</strong></td>
+    <td><strong>Year</strong></td>
     <td colspan="2">
-    	<input type="text" name="tahunajaran" id="tahunajaran" size="30" maxlength="50" value="<?=$tahunajaran ?>" onFocus="showhint('Nama Tahun Ajaran tidak boleh lebih dari 50 karakter!', this, event, '120px')"   onKeyPress="return focusNext('keterangan', event)"/>
+    	<input type="text" name="tahunajaran" id="tahunajaran" size="30" maxlength="50" value="<?=$tahunajaran ?>" onFocus="showhint('Name Year of Teaching should not exceed 50 characters', this, event, '120px')"   onKeyPress="return focusNext('keterangan', event)"/>
     </td>
 </tr>
 <tr>
-	<td><strong>Tgl Mulai</strong></td>
+	<td><strong>Start Date</strong></td>
 	<td>
     	<input type="text" class="disabled" id="tglmulai" name="tglmulai" size="25" value="<?=$tglmulai ?>"readonly onclick="Calendar.setup()" onKeyPress="return focusNext('keterangan', event)"/></td>
-    <td width="35%"><img src="../images/calendar.jpg" name="tabel" border="0" id="btntglmulai" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/></td>
+    <td width="35%"><img src="../images/calendar.jpg" name="tabel" border="0" id="btntglmulai" onMouseOver="showhint('Open calendar', this, event, '100px')"/></td>
 </tr>
 <tr>
-	<td><strong>Tgl Akhir</strong></td>
+	<td><strong>End Date</strong></td>
 	<td>
     	<input type="text" class="disabled" id="tglakhir" name="tglakhir" size="25" value="<?=$tglakhir ?>" readonly onclick="Calendar.setup()" onKeyPress="return focusNext('keterangan', event)"/></td>
-    <td><img src="../images/calendar.jpg" name="tabel" border="0" id="btntglakhir" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/></td>
+    <td><img src="../images/calendar.jpg" name="tabel" border="0" id="btntglakhir" onMouseOver="showhint('Open calendar', this, event, '100px')"/></td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td colspan="2">
     	<textarea name="keterangan" id="keterangan" rows="3" cols="40"  onKeyPress="return focusNext('Simpan', event)"><?=$keterangan ?></textarea>    </td>
 </tr>
 <tr>
 	<td colspan="3" align="center">
-    <input type="Submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="Submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>

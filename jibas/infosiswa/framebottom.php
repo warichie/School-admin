@@ -46,7 +46,7 @@ function get_fresh(){
 		<td>
 			<img src="<?php echo GetThemeDir()?>InfoSiswa_16.png" width="20" height="27" alt=""></td>
 		<td colspan="2" background="<?php echo GetThemeDir()?>InfoSiswa_17.png" width="100%" height="27">
-            <font color=#FFFFFF face="verdana" size="1"><b>&nbsp;Selamat Datang <?php echo $nama?></b></font></td>
+            <font color=#FFFFFF face="verdana" size="1"><b>&nbsp;Welcome <?php echo $nama?></b></font></td>
 		<td>
 			<img src="<?php echo GetThemeDir()?>InfoSiswa_18.png" width="17" height="27" alt=""></td>
 	</tr>

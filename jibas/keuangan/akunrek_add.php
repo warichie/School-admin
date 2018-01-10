@@ -37,7 +37,7 @@ if (isset($_REQUEST['simpan']))
 	$result = QueryDb($sql);
 	
 	if (mysql_num_rows($result) > 0) {
-		$MYSQL_ERROR_MSG = "Kode $_REQUEST[kode] sudah digunakan!";
+		$MYSQL_ERROR_MSG = "Code $_REQUEST[kode] has been used";
 	} else {
 		$sql = "INSERT INTO rekakun SET kategori='$_REQUEST[kategori]',kode='".CQ($_REQUEST['kode'])."',nama='".CQ($_REQUEST['nama'])."',keterangan='".CQ($_REQUEST['keterangan'])."'";
 		$result = QueryDb($sql);
@@ -58,15 +58,15 @@ if (isset($_REQUEST['simpan']))
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Tambah Rekening]</title>
+<title>JIBAS FINANCE [Add Bank Account]</title>
 <script language="JavaScript" src="script/tooltips.js"></script>
 <script language="javascript" src="script/validasi.js"></script>
 <script language="javascript">
 
 function validasi() {
-	return validateEmptyText('kode', 'Kode Rekening Perkiraan') 
-		&& validateEmptyText('nama', 'Nama Rekening Perkiraan')
-		&& validateMaxText('keterangan', 255, 'Keterangan Rekening Perkiraan');
+	return validateEmptyText('kode', 'Kode Bank Account Perkiraan') 
+		&& validateEmptyText('nama', 'Name Bank Account Perkiraan')
+		&& validateMaxText('keterangan', 255, 'Info Bank Account Perkiraan');
 }
 
 function focusNext(elemName, evt) {
@@ -99,7 +99,7 @@ function panggil(elem){
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Rekening Perkiraan :.
+    .: Add Bank Account Perkiraan :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -112,26 +112,26 @@ function panggil(elem){
     <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td><strong>Kategori</strong></td>
+        <td><strong>Category</strong></td>
         <td><input type="text" name="kategori" id="kategori" maxlength="100" size="20" readonly style="background-color:#CCCC99" value="<?=$_REQUEST['kategori']?>">
         </td>
     </tr>
     <tr>
-        <td><strong>Kode</strong></td>
+        <td><strong>Code</strong></td>
         <td><input type="text" name="kode" id="kode" value="<?=$_REQUEST['kode']?>" maxlength="15" size="20" onKeyPress="return focusNext('nama', event)" onFocus="panggil('kode')"></td>
     </tr>
     <tr>
-        <td><strong>Nama</strong></td>
+        <td><strong>Name</strong></td>
         <td><input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama']?>" maxlength="100" size="30" onKeyPress="return focusNext('keterangan', event)" onFocus="panggil('nama')"></td>
     </tr>
     <tr>
-        <td valign="top">Keterangan</td>
+        <td valign="top">Info</td>
         <td><textarea name="keterangan" id="keterangan" rows="3" cols="40" onKeyPress="return focusNext('simpan', event)" onFocus="panggil('keterangan')"><?=$_REQUEST['keterangan']?></textarea></td>
     </tr>
     <tr>       
         <td colspan="2" align="center">
-        	<input class="but" type="submit" value="Simpan" name="simpan" id="simpan" onFocus="panggil('simpan')">
-            <input class="but" type="button" value="Tutup" onClick="window.close();">
+        	<input class="but" type="submit" value="Save" name="simpan" id="simpan" onFocus="panggil('simpan')">
+            <input class="but" type="button" value="Close" onClick="window.close();">
         </td>
     </tr>
     </table>

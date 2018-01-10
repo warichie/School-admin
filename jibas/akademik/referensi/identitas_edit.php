@@ -29,7 +29,7 @@ require_once('../include/config.php');
 require_once('../include/db_functions.php');
 require_once('../cek.php');
 $departemen=$_REQUEST[departemen];
-$title = "Sekolah";
+$title = "School";
 if ($departemen=='yayasan')
 	$title = "";
 
@@ -97,7 +97,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Identitas <?=$title?>]</title>
+<title>JIBAS SIMAKA [Edit Identity <?=$title?>]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -105,14 +105,14 @@ CloseDb();
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('nama', 'Nama Sekolah') &&
+	return validateEmptyText('nama', 'School Name') &&
 			cekEmail();
 	
 }
 
 function cekEmail() {
 	if (!validateEmail("email") ) { 
-		alert( "Email yang Anda masukkan bukan merupakan alamat email!" );
+		alert( "Email you entered is not an email address");
 		document.getElementById('email')focus();
 		return false;	
 	}	
@@ -149,7 +149,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Identitas Sekolah :.
+    .: School Identity :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -162,59 +162,59 @@ function panggil(elem){
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="20%"><strong>Nama</strong></td>
+	<td width="20%"><strong>Name</strong></td>
     <td><input type="text" name="nama" id="nama" size="80" maxlength="250" value="<?=$nama ?>"onKeyPress="return focusNext('alamat1', event)"  onFocus="panggil('nama')"/></td>
 </tr>
 <tr>
 	<td colspan="2">
     <table border="0" width="100%" align="center">
     <tr><td width="50%">
-	<fieldset><legend><b>Lokasi 1</b></legend>
+	<fieldset><legend><b>Location 1</b></legend>
     <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
     <tr>	
-        <td valign="top">Alamat</td>
+        <td valign="top">Address</td>
         <td>
             <textarea name="alamat1" id="alamat1" rows="3" style="width:190px"  onKeyPress="return focusNext('tlp1', event)" onFocus="panggil('alamat1')"><?=$alamat1 ?></textarea>
         </td>
     </tr>   
     <tr>
-        <td>No Telp1</td>
+        <td>Phone 1</td>
         <td><input type="text" name="tlp1" id="tlp1" size="30" maxlength="50" value="<?=$tlp1 ?>"onKeyPress="return focusNext('tlp2', event)" onFocus="panggil('tlp1')"/>
         </td>
     </tr>
     <tr>
-        <td>No Telp2</td>
+        <td>Phone 2</td>
         <td><input type="text" name="tlp2" id="tlp2" size="30" maxlength="50" value="<?=$tlp2 ?>"onKeyPress="return focusNext('fax1', event)" onFocus="panggil('tlp2')"/>
         </td>
     </tr>
     <tr>
-        <td>No Fax</td>
+        <td>Fax</td>
         <td><input type="text" name="fax1" id="fax1" size="30" maxlength="50" value="<?=$fax1 ?>"onKeyPress="return focusNext('alamat2', event)" onFocus="panggil('fax1')"/>
         </td>
     </tr>
    	</table>
 	</fieldset>
 	</td><td>
-    <fieldset><legend><b>Lokasi 2</b></legend>
+    <fieldset><legend><b>Location 2</b></legend>
     <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
     <tr>	
-        <td valign="top">Alamat</td>
+        <td valign="top">Address</td>
         <td>
             <textarea name="alamat2" id="alamat2" rows="3" style="width:190px" onKeyPress="return focusNext('tlp3', event)" onFocus="panggil('alamat2')"><?=$alamat2 ?></textarea>
         </td>
     </tr>
     <tr>
-        <td>No Telp1</td>
+        <td>Phone 1</td>
         <td><input type="text" name="tlp3" id="tlp3" size="30" maxlength="50" value="<?=$tlp3 ?>" onKeyPress="return focusNext('tlp4', event)" onFocus="panggil('tlp3')"/>
         </td>
     </tr>
     <tr>
-        <td>No Telp2</td>
+        <td>Phone 2</td>
         <td><input type="text" name="tlp4" id="tlp4" size="30" maxlength="50" value="<?=$tlp4 ?>" onKeyPress="return focusNext('fax2', event)" onFocus="panggil('tlp4')"/>
         </td>
     </tr>
      <tr>
-        <td>No Fax</td>
+        <td>Fax</td>
         <td><input type="text" name="fax2" id="fax2" size="30" maxlength="50" value="<?=$fax2 ?>" onKeyPress="return focusNext('situs', event)" onFocus="panggil('fax2')"/>
         </td>
     </tr>
@@ -237,8 +237,8 @@ function panggil(elem){
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" onFocus="panggil('Simpan')" />&nbsp;    
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" onFocus="panggil('Simpan')" />&nbsp;    
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
@@ -261,7 +261,7 @@ function panggil(elem){
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 </body>
 </html>

@@ -67,7 +67,7 @@ if (isset($_REQUEST['hal']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pencarian Siswa[Menu]</title>
+<title>Search Student [Menu]</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -117,20 +117,20 @@ function change_urutan(urutan) {
 		if ($jumlah = mysql_num_rows($result_siswa)>0) {
 			?>
 			<tr>
-    <td class="header">No</td>
-    <td class="headerlink2" onclick="change_urutan('nis')" style="cursor:pointer" onmouseover="showhint('Urutkan berdasarkan NIS', this, event, '120px')">NIS
+    <td class="header">#</td>
+    <td class="headerlink2" onclick="change_urutan('nis')" style="cursor:pointer" onmouseover="showhint('Sort by Student ID', this, event, '120px')">Student ID
 	<? 
 	if ($urutan=="nis")
 	echo "&nbsp;&nbsp;<img src='../images/ico/ascending copy.png' width='13' height='9' />";
 	?>
 	</td>
-    <td class="headerlink2" onclick="change_urutan('nama')" style="cursor:pointer" onmouseover="showhint('Urutkan berdasarkan Nama', this, event, '120px')">Nama
+    <td class="headerlink2" onclick="change_urutan('nama')" style="cursor:pointer" onmouseover="showhint('Sort by Name', this, event, '120px')">Name
 	<? 
 	if ($urutan=="nama")
 	echo "&nbsp;&nbsp;<img src='../images/ico/ascending copy.png' width='13' height='9' />";
 	?>
 	</td>
-    <td class="headerlink2" onclick="change_urutan('idkelas')" style="cursor:pointer;" onmouseover="showhint('Urutkan berdasarkan Kelas', this, event, '120px')"  >Kelas
+    <td class="headerlink2" onclick="change_urutan('idkelas')" style="cursor:pointer;" onmouseover="showhint('Sort by Class', this, event, '120px')"  >Class
 	<? 
 	if ($urutan=="idkelas")
 	echo "&nbsp;&nbsp;<img src='../images/ico/ascending copy.png' width='13' height='9' />";
@@ -138,7 +138,7 @@ function change_urutan(urutan) {
 	</td>
     <td class="header">&nbsp;</td>
   </tr>
-			<? //onmouseover="showhint('Urutkan berdasarkan Kelas', this, event, '120px')"
+			<? //onmouseover="showhint('Sort by Class', this, event, '120px')"
 		while ($row_siswa = @mysql_fetch_array($result_siswa)) {
 		$nis=$row_siswa['nis'];
 		$nama=$row_siswa['nama'];
@@ -154,7 +154,7 @@ function change_urutan(urutan) {
     <td><?=$nis?></td>
     <td><?=$nama?></td>
     <td><?=$kelas?></td>
-    <td><a href="siswa_cari_detail.php?nis=<?=$nis?>&departemen=<?=$departemen?>" target="cari_siswa_content" ><img src="../images/ico/lihat.png" alt="Lihat Detail Siswa" border="0"/></a></td>
+    <td><a href="siswa_cari_detail.php?nis=<?=$nis?>&departemen=<?=$departemen?>" target="cari_siswa_content" ><img src="../images/ico/lihat.png" alt="See Details Student" border="0"/></a></td>
   </tr>
   <?
 			}
@@ -162,7 +162,7 @@ function change_urutan(urutan) {
 		}
 		} else {
 			?>
-<tr><td align="center" class="header">Tidak ada data yang sesuai dengan pencarian</td></tr>
+<tr><td align="center" class="header">No data found</td></tr>
 <?
 		
  }

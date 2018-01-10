@@ -49,11 +49,11 @@ if (isset($_REQUEST['Simpan'])) {
 		
 	if (@mysql_num_rows($result) > 0) {		
 		//CloseDb();
-		$ERROR_MSG = "Satuan Kerja $satker sudah digunakan!";	
+		$ERROR_MSG = "Work Unit $satker has been used";	
 		$cek = 0;	
 	} else if (@mysql_num_rows($result1) > 0) {		
 		//CloseDb();
-		$ERROR_MSG = "Nama Satuan Kerja $nama sudah digunakan!";
+		$ERROR_MSG = "Work Unit Name $nama has been used";
 		$cek = 1;
 	} else {
 		$sql2 = "INSERT INTO satker SET satker='$satker',nama='$nama'";
@@ -83,7 +83,7 @@ switch ($cek) {
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -94,8 +94,8 @@ function tutup() {
 }
 
 function validate() {
-	return validateEmptyText('satker', 'Satuan Kerja') && 
-		   validateEmptyText('nama', 'Nama');
+	return validateEmptyText('satker', 'Work Unit') && 
+		   validateEmptyText('nama', 'Name');
 		   
 }
 
@@ -110,22 +110,22 @@ function validate() {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td class="header" colspan="2"><div align="center">Tambah Satuan Kerja</div></td>
+<td class="header" colspan="2"><div align="center">Add Work Unit</div></td>
 </tr>
 <tr>
-	<td width="84"><strong>Satuan&nbsp;Kerja</strong></td>
+	<td width="84"><strong>Work&nbsp;Unit</strong></td>
 	<td width="1090">
-   	  <input type="text" name="satker" id="satker" size="10" maxlength="50" value="<?= $satker ?>" onFocus="showhint('Satuan Kerja tidak boleh lebih dari 50 karakter!', this, event, '120px');"/></td>
+   	  <input type="text" name="satker" id="satker" size="10" maxlength="50" value="<?= $satker ?>" onFocus="showhint('Work Unit should not exceed 50 characters', this, event, '120px');"/></td>
 </tr>
 <tr>
-	<td><strong>Nama</strong></td>
+	<td><strong>Name</strong></td>
 	<td>
-    	<input type="text" name="nama" id="nama" size="20" value="<?= $nama ?>" onFocus="showhint('Nama Satuan Kerja', this, event, '120px');panggil('urutan')" />    </td>
+    	<input type="text" name="nama" id="nama" size="20" value="<?= $nama ?>" onFocus="showhint('Work Unit Name', this, event, '120px');panggil('urutan')" />    </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>

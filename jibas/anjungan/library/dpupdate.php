@@ -35,10 +35,10 @@ if (mysql_num_rows($res) > 0)
 		$replid = $row['replid'];
 		$dp = $row['dasarpenilaian'];
 		
-		if ($dp == "Pemahaman Konsep")
-			$sql = "UPDATE jbsakad.dasarpenilaian SET dasarpenilaian = 'PKON', keterangan = 'Pemahaman Konsep', issync = 0 WHERE replid = '$replid'";
-		else if ($dp == "Praktik")
-			$sql = "UPDATE jbsakad.dasarpenilaian SET dasarpenilaian = 'PRAK', keterangan = 'Praktik', issync = 0 WHERE replid = '$replid'";
+		if ($dp == "Conceptual Comprehension")
+			$sql = "UPDATE jbsakad.dasarpenilaian SET dasarpenilaian = 'PKON', keterangan = 'Conceptual Comprehension', issync = 0 WHERE replid = '$replid'";
+		else if ($dp == "Practice")
+			$sql = "UPDATE jbsakad.dasarpenilaian SET dasarpenilaian = 'PRAK', keterangan = 'Practice', issync = 0 WHERE replid = '$replid'";
 		QueryDb($sql);
 	}
 }

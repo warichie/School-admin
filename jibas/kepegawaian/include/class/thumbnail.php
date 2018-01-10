@@ -46,7 +46,7 @@ class Thumbnail
 								$this->type="gif";
 								if(!@$this->image=imagecreatefromgif($image))
 									{
-										echo "unknow file type";
+										echo "Unknown file type";
 									}
 	
 							}

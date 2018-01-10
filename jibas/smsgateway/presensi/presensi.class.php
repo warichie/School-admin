@@ -44,7 +44,7 @@ class Presensi{
         <td>
         <div id="TabbedPanelsA" class="TabbedPanels">
           <ul class="TabbedPanelsTabGroup">
-            <li class="TabbedPanelsTab2" tabindex="0"><strong>Kirim Laporan Presensi</strong></li>
+            <li class="TabbedPanelsTab2" tabindex="0"><strong>Send Attendance Report</strong></li>
           </ul>
           <div class="TabbedPanelsContentGroup">
             <div class="TabbedPanelsContent" style="padding-top:5px; overflow:inherit">
@@ -53,7 +53,7 @@ class Presensi{
                     <td colspan="3" height="30" align="center">
                         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
                             <tr>
-                    <td width="1%" align="right" valign="top" class="td" ><span style="color:#666; font-size:12px; font-weight:bold">Kirim Laporan Berdasarkan</span></td>
+                    <td width="1%" align="right" valign="top" class="td" ><span style="color:#666; font-size:12px; font-weight:bold">Send Report based on</span></td>
                     <td style="padding:5px">
                         <table  border="0" cellspacing="0" cellpadding="0">
                           <tr>
@@ -61,12 +61,12 @@ class Presensi{
                                 <table  border="0" cellspacing="0" cellpadding="0">
                                   <tr>
                                     <td><input type="radio" id="type0" checked="checked" name="type" onclick="SetActive('0','NISList','dep','kls')" /></td>
-                                    <td>Siswa</td>
+                                    <td>Student</td>
                                   </tr>
                                 </table>
                             </td>
                             <td class="td">
-                            <textarea class="AreaTxt" id="NISList" cols="50"></textarea><br /><span class="Ket">* dipisahkan koma</span>
+                            <textarea class="AreaTxt" id="NISList" cols="50"></textarea><br /><span class="Ket">* separated by coma</span>
                             <div id="ErrNISList" class="ErrMsg"></div>
                             </td>
                           </tr>
@@ -75,7 +75,7 @@ class Presensi{
                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                   <tr>
                                     <td><input type="radio" id="type1" name="type" onclick="SetActive('1','NISList','dep','kls')" /></td>
-                                    <td>Kelas</td>
+                                    <td>Class</td>
                                   </tr>
                                 </table>
                             </td>
@@ -102,7 +102,7 @@ class Presensi{
                                 <td>
                                 <div id="klsInfo">
                                 <select id="kls" class="Cmb" disabled="disabled">
-                                <option value="-1" <?=StringIsSelected('-1',$kls)?>>- Semua -</option>
+                                <option value="-1" <?=StringIsSelected('-1',$kls)?>>- All -</option>
                                 <?
                                 $sql = "SELECT k.replid, k.kelas FROM $db_name_akad.kelas k,$db_name_akad.tahunajaran ta,$db_name_akad.tingkat ti WHERE k.aktif=1 AND ta.aktif=1 AND ti.aktif=1 AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND ta.departemen='$dep' AND ti.departemen='$dep' ORDER BY ti.urutan, k.kelas";
                                 $res = QueryDb($sql);
@@ -123,20 +123,20 @@ class Presensi{
                     </td>
                   </tr>
                   <tr>
-                    <td width="1%" align="right" valign="top" class="td"><span style="color:#666; font-size:12px; font-weight:bold">Presensi</span></td>
+                    <td width="1%" align="right" valign="top" class="td"><span style="color:#666; font-size:12px; font-weight:bold">Attendance</span></td>
                     <td class="td" style="padding:5px">
                         <table border="0" cellspacing="0" cellpadding="0">
                           <tr>
                             <td><input type="radio" id="harian" name="TypePres" checked="checked" /></td>
-                            <td style="padding-right:10px">Harian</td>
+                            <td style="padding-right:10px">Daily</td>
                             <td><input type="radio" id="pelajaran" name="TypePres" /></td>
-                            <td>Pelajaran</td>
+                            <td>Class Subject</td>
                           </tr>
                         </table>
                     </td>
                   </tr>
                   <tr>
-                    <td width="1%" align="right" valign="top" class="td"><span style="color:#666; font-size:12px; font-weight:bold">Tanggal Presensi</span></td>
+                    <td width="1%" align="right" valign="top" class="td"><span style="color:#666; font-size:12px; font-weight:bold">Attendance Date</span></td>
                     <td class="td" style="padding:5px">
                         <?
                         $sql = "SELECT DATE_FORMAT(now(),'%d-%m-%Y'), DATE_FORMAT(SUBDATE(now(), INTERVAL 1 MONTH),'%d-%m-%Y')";
@@ -191,7 +191,7 @@ class Presensi{
                             </select>
                             </td>
                             <td style="padding-right:2px">
-                            s/d
+                            to
                             </td>
                             <td style="padding-right:2px">
                             <select id="Date1" class="Cmb">
@@ -232,28 +232,28 @@ class Presensi{
                     </td>
                   </tr>
                   <tr>
-                    <td width="1%" align="right" valign="top" class="td"><span style="color:#666; font-size:12px; font-weight:bold">Pengirim</span></td>
+                    <td width="1%" align="right" valign="top" class="td"><span style="color:#666; font-size:12px; font-weight:bold">Sender</span></td>
                     <td class="td" style="padding:5px">
                         <input type="text" id="Sender" class="InputTxt" />
                         <div id="ErrSenderName" class="ErrMsg"></div>
                     </td>
                   </tr>
                   <tr>
-                    <td width="1%" align="right" valign="top" class="td"><span style="color:#666; font-size:12px; font-weight:bold">Dikirim kepada</span></td>
+                    <td width="1%" align="right" valign="top" class="td"><span style="color:#666; font-size:12px; font-weight:bold">Send to</span></td>
                     <td class="td" style="padding:5px">
                         <table border="0" cellspacing="0" cellpadding="0">
                           <tr>
                             <td><input type="checkbox" id="kesiswa" /></td>
-                            <td style="padding-right:10px">Siswa</td>
+                            <td style="padding-right:10px">Student</td>
                             <td><input type="checkbox" id="keortu" /></td>
-                            <td>Orang Tua</td>
+                            <td>Parent</td>
                           </tr>
                         </table>
                         <div id="ErrDestination" class="ErrMsg"></div>
                     </td>
                   </tr>
                   <tr>
-                    <td width="1%" align="right" valign="top" class="td"><span style="color:#666; font-size:12px; font-weight:bold">Tanggal Pengiriman</span></td>
+                    <td width="1%" align="right" valign="top" class="td"><span style="color:#666; font-size:12px; font-weight:bold">Date Send</span></td>
                     <td class="td" style="padding:5px">
                         <table border="0" cellspacing="0" cellpadding="0">
                           <tr>
@@ -315,9 +315,9 @@ class Presensi{
                     <td colspan="3" height="30" align="center">
                     <div id="ErrAll" class="ErrMsg"></div>
                     <? if ($hasformat==0) { ?>
-                    <div class="ErrMsg" style="height:30px"><img src="../images/ico/error.gif" width="14" height="14" />&nbsp;Belum ada format SMS untuk laporan Presensi, <br />Silakan tambah format di bagian Format Pesan SMS Presensi</div>
+                    <div class="ErrMsg" style="height:30px"><img src="../images/ico/error.gif" width="14" height="14" />&nbsp;There is no SMS format yet for Attendance report, <br />Please add format in the Message Format of Attendance SMS</div>
                     <? } ?>
-                    <div class="BtnSilver" align="center" onclick="Send()">Kirim</div>
+                    <div class="BtnSilver" align="center" onclick="Send()">Send</div>
                     </td>
                   </tr>
                   <tr>

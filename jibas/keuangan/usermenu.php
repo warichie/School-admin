@@ -55,7 +55,7 @@ alert ('Belum beres');
 <body leftmargin="0" topmargin="0">
 <table border="0" cellpadding="0" cellspacing="0" width="70%" align="left">
 <tr><td valign="top" align="left">
-<p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="style2"><font face="Verdana" color="Gray">PENGATURAN</font></span></p>
+<p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="style2"><font face="Verdana" color="Gray">SETTINGS</font></span></p>
 <table width="80%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
@@ -63,14 +63,14 @@ alert ('Belum beres');
      	<table border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td><a href="user.php"><img src="images/user_group.png" border="0" height="80" /></a></td>
-            <td><a href="user.php"><strong>Daftar Pengguna</strong></a></td>
+            <td><a href="user.php"><strong>User List</strong></a></td>
           </tr>
         </table>
         <? } else { ?>
         <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td><a href="#" onClick="alert ('Maaf, Anda tidak berhak mengakses halaman ini !');"><img src="images/user_group.png" border="0" height="80" /></a></td>
-            <td><a href="#" onClick="alert ('Maaf, Anda tidak berhak mengakses halaman ini !');"><strong>Daftar Pengguna</strong></a></td>
+            <td><a href="#" onClick="alert ('Sorry, but you are not allowed to access this page');"><img src="images/user_group.png" border="0" height="80" /></a></td>
+            <td><a href="#" onClick="alert ('Sorry, but you are not allowed to access this page');"><strong>User List</strong></a></td>
           </tr>
         </table>
         <? } ?>
@@ -79,7 +79,7 @@ alert ('Belum beres');
     	<table border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td><a href="JavaScript:ganti()"><img src="images/lock.png" border="0" /></a></td>
-            <td><a href="JavaScript:ganti()">Ganti Password</a></td>
+            <td><a href="JavaScript:ganti()">Edit Password</a></td>
           </tr>
         </table>
     </td>
@@ -94,8 +94,8 @@ alert ('Belum beres');
         <? } else { ?>
         <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td><a href="#" onClick="alert ('Maaf, Anda tidak berhak mengakses halaman ini !');"><img src="images/b_warning.png" border="0" height="80" /></a></td>
-            <td><a href="#" onClick="alert ('Maaf, Anda tidak berhak mengakses halaman ini !');"><strong>Query Error Log</strong></a></td>
+            <td><a href="#" onClick="alert ('Sorry, but you are not allowed to access this page');"><img src="images/b_warning.png" border="0" height="80" /></a></td>
+            <td><a href="#" onClick="alert ('Sorry, but you are not allowed to access this page');"><strong>Query Error Log</strong></a></td>
           </tr>
         </table>
         <? } ?>

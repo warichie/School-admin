@@ -119,16 +119,16 @@ function ambil(){
 	}
 	if (jumkirim>0 && jumkirim==1){
 		parent.tujuan_footer.document.getElementById("numsiswakirim").value=jumkirim;
-		if (confirm('Kirimkan pesan kepada siswa ini ?')){
+		if (confirm('Send message to this student?')){
 			parent.pesansiswa_add.validate();
 		}
 	} else if (jumkirim>1){
 		parent.tujuan_footer.document.getElementById("numsiswakirim").value=jumkirim;
-		if (confirm('Kirimkan pesan kepada siswa-siswa ini ?')){
+		if (confirm('Send message to these students?')){
 			parent.pesansiswa_add.validate();
 		}
 	} else if (jumkirim==0) {
-		alert ('Setidaknya harus ada 1 penerima untuk melanjutkan !');
+		alert ('You should have at least one receiver to be able to proceed');
 		return false;
 	}
 }
@@ -141,13 +141,13 @@ function ambil(){
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <th height="30" colspan="4" valign="top" scope="row" ><div align="left">&nbsp;&nbsp;
-  <button title="Kirim pesan !" type="button" class="but" onclick="ambil();" name="kirim" id="kirim" value="Kirim" /><font size="+2"><strong>Kirim</strong></font></button>
+  <button title="Send message" type="button" class="but" onclick="ambil();" name="kirim" id="kirim" value="Send" /><font size="+2"><strong>Send</strong></font></button>
   &nbsp;&nbsp;
-      <input title="Kembali ke Halaman Kotak Pesan !" type="button" class="but" onclick="batal();" name="cancel" id="cancel" value="Batal" />
+      <input title="Back to Inbox" type="button" class="but" onclick="batal();" name="cancel" id="cancel" value="Cancel" />
     </div></th>
     </tr>
   <tr>
-    <td width="100" scope="row" ><div align="left">&nbsp;&nbsp;Departemen </div></td>
+    <td width="100" scope="row" ><div align="left">&nbsp;&nbsp;Department </div></td>
     <td width="853" scope="row" >
       <div align="left">&nbsp;&nbsp;
         <select name="departemen" id="departemen" style="width:125px" onchange="chg_dep()">
@@ -170,7 +170,7 @@ function ambil(){
         </div></td>
     </tr>
   <tr>
-    <td width="100" scope="row" ><div align="left">&nbsp;&nbsp;Tingkat</div></td>
+    <td width="100" scope="row" ><div align="left">&nbsp;&nbsp;Grade</div></td>
     <td scope="row" >
       <div align="left">&nbsp;&nbsp;
         <select name="tingkat" id="tingkat" onchange="chg_semting()" style="width:125px">
@@ -193,7 +193,7 @@ function ambil(){
         </div></td>
     </tr>
   <tr>
-    <td width="100" scope="row" ><div align="left">&nbsp;&nbsp;Tahun&nbsp;Ajaran</div></td>
+    <td width="100" scope="row" ><div align="left">&nbsp;&nbsp;Year&nbsp;</div></td>
     <td scope="row" ><div align="left">&nbsp;&nbsp;
       <select name="tahunajaran" id="tahunajaran" onchange="chg_semting()" style="width:125px">
         <? 
@@ -215,7 +215,7 @@ function ambil(){
     </div></td>
     </tr>
   <tr>
-    <td width="100" scope="row" ><div align="left">&nbsp;&nbsp;Kelas</div></td>
+    <td width="100" scope="row" ><div align="left">&nbsp;&nbsp;Class</div></td>
     <td scope="row" ><div align="left">&nbsp;&nbsp;
       <select name="kelas" id="kelas" onchange="chg_kelas()" style="width:125px">
         <? 

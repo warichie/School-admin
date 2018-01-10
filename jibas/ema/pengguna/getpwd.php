@@ -43,13 +43,13 @@ if ($num==0){
 <td width="1073"><input type="password" size="25" maxlength="100" name="password" <?=$dis ?> id="password" onKeyPress="return focusNext('konfirmasi', event)" onFocus="panggil('password')" value="<?=$_REQUEST['password']?>"></td>
 </tr>
 <tr>
-<td width="158" class="news_content1"><strong>Konfirmasi</strong></td>
+<td width="158" class="news_content1"><strong>Confirm</strong></td>
 <td><input type="password" size="25" maxlength="100" name="konfirmasi" <?=$dis ?> id="konfirmasi" onKeyPress="return focusNext('status_user', event)" onFocus="panggil('konfirmasi')" value="<?=$_REQUEST['konfirmasi']?>" ></td>
 </tr>
 <input type="hidden" id="haspwd" value="0" />
 <? } else { ?>
 <tr>
-<td colspan="2" align="center"><span style="color: #FF9900; font-weight: bold;">Pengguna sudah memiliki password</span></td>
+<td colspan="2" align="center"><span style="color: #FF9900; font-weight: bold;">User already has a password</span></td>
 </tr>
 <input type="hidden" id="haspwd" value="1" />
 <? } ?>

@@ -32,19 +32,19 @@ if ($stat==6 || $stat==7 || $stat==5){
 	require_once("../include/as-diagrams.php");
 }
 switch ($stat){
-	case 1 : $judul="SATUAN KERJA";
+	case 1 : $judul="WORK UNIT";
 	break;
-	case 2 : $judul="PENDIDIKAN SEKOLAH";
+	case 2 : $judul="EDUCATION BACKGROUND";
 	break;
-	case 3 : $judul="GOLONGAN";
+	case 3 : $judul="LEVEL";
 	break;
-	case 4 : $judul="USIA";
+	case 4 : $judul="AGE";
 	break;
-	case 5 : $judul="DIKLAT";
+	case 5 : $judul="EDUCATION AND TRAINING";
 	break;
-	case 6 : $judul="JENIS KELAMIN";
+	case 6 : $judul="GENDER";
 	break;
-	case 7 : $judul="STATUS PERKAWINAN";
+	case 7 : $judul="MARITAL STATUS";
 	break;
 }
 header('Content-Type: application/vnd.ms-word'); //IE and Opera  
@@ -381,7 +381,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <w:LsdException Locked="false" Priority="32" SemiHidden="false"
    UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
   <w:LsdException Locked="false" Priority="33" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+   UnhideWhenUsed="false" QFormat="true" Name="Library Title"/>
   <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
   <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
  </w:LatentStyles>
@@ -494,11 +494,11 @@ table.MsoTableGrid
 </head>
 
 <body lang=EN-GB style='tab-interval:36.0pt'>
-<div class=Section1>
+<div class='Section1'>
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 <table width="1150" border="0" cellspacing="0" align="center">
   <tr>
-    <td colspan="2" align="center"><span class="style19">GRAFIK JUMLAH PEGAWAI BERDASARKAN <?=$judul?></span></td>
+    <td colspan="2" align="center"><span class="style19">AMOUNT OF EMPLOYEE GRAPHIC BASED ON <?=$judul?></span></td>
     </tr>
 </table>
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
@@ -521,9 +521,9 @@ table.MsoTableGrid
 		}
 		CloseDb();
 		
-		$legend_y = array("Pria", "Wanita");
+		$legend_y = array("Male", "Female");
 		
-		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pegawai Berdasarkan Jenis Kelamin</font>"; // title for the diagram
+		$title = "<font face='Arial' size='-1' color='black'>Amount of Employee based on Gender</font>"; // title for the diagram
 		
 		$graph = new CAsBarDiagram;
 		$graph->bwidth = 10; // set one bar width, pixels
@@ -548,9 +548,9 @@ table.MsoTableGrid
 		}
 		CloseDb();
 		
-		$legend_y = array("Nikah", "Belum");
+		$legend_y = array("Married", "Not Married");
 		
-		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pegawai Berdasarkan Status Pernikahan</font>"; 
+		$title = "<font face='Arial' size='-1' color='black'>Amount of Employee based on Marital Status</font>"; 
 		
 		$graph = new CAsBarDiagram;
 		$graph->bwidth = 10; // set one bar width, pixels
@@ -574,9 +574,9 @@ table.MsoTableGrid
 		}
 		CloseDb();
 		
-		$legend_y = array("Sudah", "Belum");
+		$legend_y = array("Ever Been", "Not Yet");
 		
-		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pejabat Struktural Berdasarkan Diklat</font>"; // title for the diagram
+		$title = "<font face='Arial' size='-1' color='black'>Sum Pejabat Struktural based on Diklat</font>"; // title for the diagram
 		
 		$graph = new CAsBarDiagram;
 		$graph->bwidth = 10; // set one bar width, pixels
@@ -604,7 +604,7 @@ clear=all style='mso-special-character:line-break;page-break-before:always'>
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 <table width="1150" border="0" cellspacing="0" align="center">
   <tr>
-    <td colspan="2" align="center"><span class="style19">REKAP JUMLAH PEGAWAI BERDASARKAN <?=$judul?></span></td>
+    <td colspan="2" align="center"><span class="style19">AMOUNT OF EMPLOYEE RECAP BASED ON <?=$judul?></span></td>
     </tr>
 </table>
 <? if ($stat!=5){ ?>
@@ -614,11 +614,11 @@ clear=all style='mso-special-character:line-break;page-break-before:always'>
 <? if ($stat==1){ ?>
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="80%" align="center">
 <tr height="30">
-	<td width="5%" align="center" bgcolor="#666666" class="style2 header"><span class="style68">No</span></td>
-    <td width="40%" align="center" bgcolor="#666666" class="style2 header"><span class="style68">Satuan Kerja</span></td>
-    <td width="15%" align="center" bgcolor="#666666" class="style2 header"><span class="style68">Jumlah<br>
-      Pegawai</span></td>
-    <td width="20%" align="center" bgcolor="#666666" class="style2 header"><span class="style68">Persentase</span></td>
+	<td width="5%" align="center" bgcolor="#666666" class="style2 header"><span class="style68">#</span></td>
+    <td width="40%" align="center" bgcolor="#666666" class="style2 header"><span class="style68">Work Unit</span></td>
+    <td width="15%" align="center" bgcolor="#666666" class="style2 header"><span class="style68">Sum<br>
+      Employee</span></td>
+    <td width="20%" align="center" bgcolor="#666666" class="style2 header"><span class="style68">Percentage</span></td>
 </tr>
 <?
 OpenDb();
@@ -655,7 +655,7 @@ for($i = 0; $i < $cnt; $i++)
 ?>
 <tr height="30">
 	<td style="background-color:#CCCCCC" align="center" valign="middle">&nbsp;</td>
-    <td style="background-color:#CCCCCC" align="center" valign="middle"><strong>JUMLAH</strong></td>
+    <td style="background-color:#CCCCCC" align="center" valign="middle"><strong>SUM</strong></td>
     <td style="background-color:#CCCCCC" align="center" valign="middle"><strong><?=$total?></strong></td>
     <td style="background-color:#CCCCCC" align="center" valign="middle"><strong>100%</strong></td>
 </tr>
@@ -692,14 +692,14 @@ while ($row = mysql_fetch_array($result)) {
 ?>
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="80%" align="center">
 <tr height="25">
-	<td width="5%" align="center" bgcolor="#666666" class="style2 header"><span class="style69">No</span></td>
-    <td width="23%" align="center" bgcolor="#666666" class="style2 header"><span class="style69">Satuan Kerja</span></td>
+	<td width="5%" align="center" bgcolor="#666666" class="style2 header"><span class="style69">#</span></td>
+    <td width="23%" align="center" bgcolor="#666666" class="style2 header"><span class="style69">Work Unit</span></td>
 <? 	for ($i = 0; $i < count($tingkat); $i++) { ?>
 	<td width="<?=$width?>%" align="center" bgcolor="#666666" class="header">	  <span class="style4 style70">
 	  <?=$tingkat[$i]?>
 	</span> </td>
 <? 	} ?>    
-    <td width="10%" align="center" bgcolor="#666666" class="style2 header"><span class="style70"><strong>Jumlah</strong></span></td>
+    <td width="10%" align="center" bgcolor="#666666" class="style2 header"><span class="style70"><strong>Sum</strong></span></td>
 </tr>
 <?
 $cnt = 0;
@@ -729,7 +729,7 @@ for($i = 0; $i < count($satker); $i++) {
 ?>
 <tr height="30">
 	<td style="background-color:#E9E9E9" align="center" valign="top">&nbsp;</td>
-    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>JUMLAH</strong></td>
+    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>SUM</strong></td>
     <? 
 	$total = 0;
 	for($j = 0; $j < count($tingkat); $j++) 
@@ -746,7 +746,7 @@ for($i = 0; $i < count($satker); $i++) {
 <? if ($total > 0) { ?>
 <tr height="30">
 	<td style="background-color:#E9E9E9" align="center" valign="top">&nbsp;</td>
-    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>PERSENTASE</strong></td>
+    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>PERCENTAGE</strong></td>
     <? 
 	for($j = 0; $j < count($tingkat); $j++) 
 	{ 
@@ -793,14 +793,14 @@ CloseDb();
 ?>
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%" align="center">
 <tr height="30">
-	<td width="3%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>No</strong></span></td>
-    <td width="12%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Satuan Kerja</strong></span></td>
+	<td width="3%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>#</strong></span></td>
+    <td width="12%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Work Unit</strong></span></td>
 <? 	for ($i = 0; $i < count($gol); $i++) { ?>
 	<td width="<?=$width?>%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>
 	  <?=$gol[$i]?>
 	</strong></span></td>
 <? 	} ?>    
-    <td width="10%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Jumlah</strong></span></td>
+    <td width="10%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Sum</strong></span></td>
 </tr>
 <?
 $cnt = 0;
@@ -830,7 +830,7 @@ for($i = 0; $i < count($satker); $i++) {
 ?>
 <tr height="30">
 	<td style="background-color:#E9E9E9" align="center" valign="top">&nbsp;</td>
-    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>JUMLAH</strong></td>
+    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>SUM</strong></td>
     <? 
 	$total = 0;
 	for($j = 0; $j < count($gol); $j++) 
@@ -847,7 +847,7 @@ for($i = 0; $i < count($satker); $i++) {
 <? if ($total > 0) { ?>
 <tr height="30">
 	<td style="background-color:#E9E9E9" align="center" valign="top">&nbsp;</td>
-    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>PERSENTASE</strong></td>
+    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>PERCENTAGE</strong></td>
     <? 
 	for($j = 0; $j < count($gol); $j++) 
 	{ 
@@ -869,8 +869,8 @@ for($i = 0; $i < count($satker); $i++) {
 <? if ($stat==4){ ?>
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="80%" align="center">
 <tr height="25">
-	<td width="5%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>No</strong></span></td>
-    <td width="23%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Satuan Kerja</strong></span></td>
+	<td width="5%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>#</strong></span></td>
+    <td width="23%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Work Unit</strong></span></td>
     <td width="7%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong><24</strong></span></td>
     <td width="7%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>24-29</strong></span></td>
     <td width="7%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>30-34</strong></span></td>
@@ -879,7 +879,7 @@ for($i = 0; $i < count($satker); $i++) {
     <td width="7%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>45-49</strong></span></td>
     <td width="7%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>50-55</strong></span></td>
     <td width="7%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>56></strong></span></td>
-    <td width="10%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Jumlah</strong></span></td>
+    <td width="10%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Sum</strong></span></td>
 </tr>
 <?
 OpenDb();
@@ -940,7 +940,7 @@ for($i = 0; $i < count($satker); $i++) {
 ?>
 <tr height="30">
 	<td style="background-color:#E9E9E9" align="center" valign="top">&nbsp;</td>
-    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>JUMLAH</strong></td>
+    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>SUM</strong></td>
     <? 
 	$total = 0;
 	for($j = 0; $j < count($usia); $j++) 
@@ -957,7 +957,7 @@ for($i = 0; $i < count($satker); $i++) {
 <? if ($total > 0) { ?>
 <tr height="30">
 	<td style="background-color:#E9E9E9" align="center" valign="top">&nbsp;</td>
-    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>PERSENTASE</strong></td>
+    <td style="background-color:#E9E9E9" align="center" valign="middle"><strong>PERCENTAGE</strong></td>
     <? 
 	for($j = 0; $j < count($usia); $j++) 
 	{ 
@@ -1042,12 +1042,12 @@ function traversediklatf($idxgroup, $rootid) {
 ?>
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="960" align="center">
 <tr height="25">
-    <td align="center" bgcolor="#F2F2F2" rowspan="2" width="200">Pejabat Struktural /<br />Fungsional</td>
-    <td align="center" bgcolor="#F2F2F2" rowspan="2" width="50">Jumlah</td>
-    <td align="center" bgcolor="#F2F2F2" colspan="4" width="400">Diklat Struktural</td>
-    <td align="center" bgcolor="#F2F2F2" rowspan="2" width="50">Sudah<br />Diklat</td>
-	<td align="center" bgcolor="#F2F2F2" rowspan="2" width="50">Belum<br />Diklat</td>
-    <td align="center" bgcolor="#F2F2F2" colspan="4" width="200">Diklat Fungsional</td>
+    <td align="center" bgcolor="#F2F2F2" rowspan="2" width="200">Structural Officer /<br />Fungsional</td>
+    <td align="center" bgcolor="#F2F2F2" rowspan="2" width="50">Sum</td>
+    <td align="center" bgcolor="#F2F2F2" colspan="4" width="400">Structural Education and Training</td>
+    <td align="center" bgcolor="#F2F2F2" rowspan="2" width="50">Ever Been<br />Education and Training</td>
+	<td align="center" bgcolor="#F2F2F2" rowspan="2" width="50">#<br />Education and Training</td>
+    <td align="center" bgcolor="#F2F2F2" colspan="4" width="200">Functional Education and Training</td>
 </tr>
 <tr height="25">
 <?
@@ -1148,7 +1148,7 @@ for($i = 0; $i < $neselon; $i++) {
 ?>
 
 <tr height="30">
-	<td align="left"  bgcolor="#99CC00" valign="middle"><strong>SUB JUMLAH</strong></td>
+	<td align="left"  bgcolor="#99CC00" valign="middle"><strong>SUB TOTAL</strong></td>
 <?	for($i = 0; $i < $ndiklat + 3; $i++) { 
 		$sum = 0;
 		for($j = 0; $j < $neselon; $j++) 
@@ -1214,7 +1214,7 @@ for($i = 0; $i < $njabf; $i++) {
 ?>
 
 <tr height="30">
-	<td align="left"  bgcolor="#99CC00" valign="middle"><strong>SUB JUMLAH</strong></td>
+	<td align="left"  bgcolor="#99CC00" valign="middle"><strong>SUB TOTAL</strong></td>
     <td align="center"  bgcolor="#99CC00" valign="middle"><strong><?=$totpeg?></strong></td>
 <?	for ($j = 0; $j < $ndiklat + 2; $j++) { ?>
 	<td align="center"  bgcolor="#99CC00" valign="middle">-</td>
@@ -1228,7 +1228,7 @@ for($i = 0; $i < $njabf; $i++) {
 </tr>
 
 <tr height="50">
-	<td align="left" bgcolor="#FFCC00" valign="middle"><strong>JUMLAH</strong></td>
+	<td align="left" bgcolor="#FFCC00" valign="middle"><strong>SUM</strong></td>
 <?	for ($i = 0; $i < $ndiklat + 3 + $ndiklatf; $i++) { 
 		$sum = 0;
 		for ($j = 0; $j < $neselon + $njabf; $j++) 
@@ -1242,13 +1242,13 @@ for($i = 0; $i < $njabf; $i++) {
 <? if ($stat==6){ ?>
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="80%" align="center">
 <tr height="25">
-	<td width="5%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>No</strong></span></td>
-    <td width="40%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Satuan Kerja</strong></span></td>
-    <td width="15%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Jumlah<br>
-      Pegawai</strong></span></td>
-    <td width="10%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Pria</strong></span></td>
+	<td width="5%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>#</strong></span></td>
+    <td width="40%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Work Unit</strong></span></td>
+    <td width="15%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Sum<br>
+      Employee</strong></span></td>
+    <td width="10%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Male</strong></span></td>
     <td width="10%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>%tase</strong></span></td>
-    <td width="10%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Wanita</strong></span></td>
+    <td width="10%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>Female</strong></span></td>
     <td width="10%" align="center" bgcolor="#666666" class="style68"><span class="style2"><strong>%tase</strong></span></td>
 </tr>
 <?
@@ -1294,7 +1294,7 @@ if ($tpeg > 0) {
 ?>
 <tr height="30">
 	<td style="background-color:#CCCCCC" align="center" valign="middle">&nbsp;</td>
-    <td style="background-color:#CCCCCC" align="center" valign="middle"><strong>JUMLAH</strong></td>
+    <td style="background-color:#CCCCCC" align="center" valign="middle"><strong>SUM</strong></td>
     <td style="background-color:#CCCCCC" align="center" valign="middle"><strong><?=$tpeg?></strong></td>
     <td style="background-color:#CCCCCC" align="center" valign="middle"><strong><?=$tp?></strong></td>
     <td style="background-color:#CCCCCC" align="center" valign="middle"><strong><?=$pctp . "%"?></strong></td>
@@ -1306,13 +1306,13 @@ if ($tpeg > 0) {
 <? if ($stat==7){ ?>
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="80%" align="center">
 <tr height="25">
-	<td width="5%" align="center" bgcolor="#666666" class="style68"><strong>No</strong></td>
-    <td width="40%" align="center" bgcolor="#666666" class="style68"><strong>Satuan Kerja</strong></td>
-    <td width="15%" align="center" bgcolor="#666666" class="style68"><strong>Jumlah<br>
-      Pegawai</strong></td>
-    <td width="10%" align="center" bgcolor="#666666" class="style68"><strong>Nikah</strong></td>
+	<td width="5%" align="center" bgcolor="#666666" class="style68"><strong>#</strong></td>
+    <td width="40%" align="center" bgcolor="#666666" class="style68"><strong>Work Unit</strong></td>
+    <td width="15%" align="center" bgcolor="#666666" class="style68"><strong>Sum<br>
+      Employee</strong></td>
+    <td width="10%" align="center" bgcolor="#666666" class="style68"><strong>Marital Status</strong></td>
     <td width="10%" align="center" bgcolor="#666666" class="style68"><strong>%tase</strong></td>
-    <td width="10%" align="center" bgcolor="#666666" class="style68"><strong>Belum</strong></td>
+    <td width="10%" align="center" bgcolor="#666666" class="style68"><strong>#</strong></td>
     <td width="10%" align="center" bgcolor="#666666" class="style68"><strong>%tase</strong></td>
 </tr>
 <?
@@ -1359,7 +1359,7 @@ if ($tpeg > 0) {
 ?>
 <tr height="30">
 	<td style="background-color:#CCCCCC" align="center" valign="middle">&nbsp;</td>
-    <td style="background-color:#CCCCCC" align="center" valign="middle"><strong>JUMLAH</strong></td>
+    <td style="background-color:#CCCCCC" align="center" valign="middle"><strong>SUM</strong></td>
     <td style="background-color:#CCCCCC" align="center" valign="middle"><strong><?=$tpeg?></strong></td>
     <td style="background-color:#CCCCCC" align="center" valign="middle"><strong><?=$tn?></strong></td>
     <td style="background-color:#CCCCCC" align="center" valign="middle"><strong><?=$pctn . "%"?></strong></td>

@@ -82,15 +82,15 @@ class Phonebook {
 		ob_start();
 			if (count($this->data)>0){
 			$cnt = ($this->page==1)?1:((($this->page)-1)*showList)+1;
-			$arrNama = array('Siswa','Orang Tua','Pegawai','Lainnya','Alumni');
+			$arrNama = array('Student','Orang Tua','Pegawai','Lainnya','Alumni');
 			?>
 			<table cellspacing="0" cellpadding="0" border="1" width="100%" class="tab">
 				<tr class="Header">
-					<td>No</td>
-					<td>HP</td>
-					<td>Nama</td>
+					<td>#</td>
+					<td>Mobile</td>
+					<td>Name</td>
 					<td>Status</td>
-					<td>Keterangan</td>
+					<td>Info</td>
 					<td>&nbsp;</td>
 				</tr>
 				<?php
@@ -105,8 +105,8 @@ class Phonebook {
 					<td align='center'>
 						<table border='0' cellpadding='2'>
 							<tr>
-								<td><img src='../images/ico/ubah.png' alt='Ubah' style='cursor:pointer' class='btnEdit' id='<?php echo $data[0] ?>'></td>
-								<td><img src='../images/ico/hapus.png' alt='Hapus' style='cursor:pointer' class='btnDel' id='<?php echo $data[0] ?>'></td>
+								<td><img src='../images/ico/ubah.png' alt='Edit' style='cursor:pointer' class='btnEdit' id='<?php echo $data[0] ?>'></td>
+								<td><img src='../images/ico/hapus.png' alt='Delete' style='cursor:pointer' class='btnDel' id='<?php echo $data[0] ?>'></td>
 							</tr>
 						</table>
 					</td>
@@ -119,7 +119,7 @@ class Phonebook {
 			<?php pagination(showList,pageList,$this->num,"cmd=$this->cmd$this->filterAddr"); ?>
 			<?php
 			} else {
-				echo "<div align='center' style='border:1px solid #d88900; background-color:#dec496;padding:4px;font-weight:bold;color:#4b4b4b'>Tidak ada data</div>";
+				echo "<div align='center' style='border:1px solid #d88900; background-color:#dec496;padding:4px;font-weight:bold;color:#4b4b4b'>Data Not Found</div>";
 			}
 		ob_flush();
 	}
@@ -147,53 +147,53 @@ class Phonebook {
 				$row = @mysql_fetch_row($res);
 				$num = $row[0];
 				if ($num>0)
-					echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>No HP $hp sudah terdaftar sebelumnya.</div>";	
+					echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Mobile phone number $hp has been registered.</div>";	
 				else {
 					$sql = "INSERT INTO phonebook SET nama='$nama',nohp='$hp',`status`='$jenis',keterangan='$ket'";
 					$res = QueryDb($sql);
 					if ($res){
 						echo "<script>parent.opener.afterSave('".$hp."');window.close();</script>";
 					} else 
-						echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Gagal menyimpan Data</div>";	
+						echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Save Data failed</div>";	
 				}
 			}
 			?>
 			<table border="0" cellspacing="0" cellpadding="2" width='350'>
 				<tr height="25">
-					<td class="Header" colspan="3" align="center">Tambah Phonebook</td>
+					<td class="Header" colspan="3" align="center">Add Phonebook</td>
 				</tr>
 			  <tr>
-				<td>No HP</td>
+				<td>Mobile</td>
 				<td>:</td>
 				<td><input type="text" id="nohp" class='InputTxt' style='width:98%' onkeypress="return numbersonly(this, event)" value="<?php echo stripslashes($hp) ?>" /></td>
 			  </tr>
 			  <tr>
-				<td>Nama</td>
+				<td>Name</td>
 				<td>:</td>
 				<td><input type="text" id="nama" class='InputTxt' style='width:98%' value="<?php echo stripslashes($nama) ?>" /></td>
 			  </tr>
 			  <!--
 			  <tr>
-				<td>Jenis</td>
+				<td>Type</td>
 				<td>:</td>
 				<td>
 					<select id="jenis" class="Cmb">
-						<option value="0" <?php echo StringIsSelected('0',$jenis) ?>>Siswa</option>
+						<option value="0" <?php echo StringIsSelected('0',$jenis) ?>>Student</option>
 						<option value="1" <?php echo StringIsSelected('1',$jenis) ?>>Orangtua</option>
-						<option value="2" <?php echo StringIsSelected('2',$jenis) ?>>Pegawai</option>
-						<option value="3" <?php echo StringIsSelected('3',$jenis) ?>>Lainnya</option>
+						<option value="2" <?php echo StringIsSelected('2',$jenis) ?>>Employee</option>
+						<option value="3" <?php echo StringIsSelected('3',$jenis) ?>>Others</option>
 					</select>
 				</td>
 			  </tr>
 			  -->
 			  <tr>
-				<td>Keterangan</td>
+				<td>Info</td>
 				<td>:</td>
 				<td><textarea class="AreaTxt" id="ket" rows='3'  style='width:99%'><?php echo stripslashes($ket) ?></textarea></td>
 			  </tr>
 			  <tr>
 				<td colspan='3' align='center'>
-					<input type='button' value='Simpan' class="BtnSilver90" id='btnSave'>&nbsp;<input onclick='window.close()' type='button' value='Tutup' class="BtnSilver90">	
+					<input type='button' value='Save' class="BtnSilver90" id='btnSave'>&nbsp;<input onclick='window.close()' type='button' value='Close' class="BtnSilver90">	
 				</td>
 			  </tr>
 			</table>
@@ -218,14 +218,14 @@ class Phonebook {
 				$row = @mysql_fetch_row($res);
 				$num = $row[0];
 				if ($num>0)
-					echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>No HP $hp sudah terdaftar sebelumnya.</div>";	
+					echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Mobile phone number $hp has been registered.</div>";	
 				else {
 					$sql = "UPDATE phonebook SET nama='$nama',nohp='$hp',keterangan='$ket' WHERE replid='$id'";
 					$res = QueryDb($sql);
 					if ($res){
 						echo "<script>parent.opener.showData();window.close();</script>";
 					} else 
-						echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Gagal memperbaharui Data</div>";	
+						echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Update Data failed</div>";	
 				}
 			} else {
 				$sql = "SELECT nama,nohp,`status`,keterangan FROM phonebook WHERE replid='$id'";
@@ -240,34 +240,34 @@ class Phonebook {
 			<input type='hidden' id='id' value='<?php echo $id ?>'>
 			<table border="0" cellspacing="0" cellpadding="2" width='350'>
 				<tr height="25">
-					<td class="Header" colspan="3" align="center">Ubah Phonebook</td>
+					<td class="Header" colspan="3" align="center">Edit Phonebook</td>
 				</tr>
 			  <tr>
-				<td>No HP</td>
+				<td>Mobile</td>
 				<td>:</td>
 				<td><input type="text" id="nohp" class='InputTxt' style='width:98%' onkeypress="return numbersonly(this, event)" value="<?php echo stripslashes($hp) ?>" /></td>
 			  </tr>
 			  <tr>
-				<td>Nama</td>
+				<td>Name</td>
 				<td>:</td>
 				<td><input type="text" id="nama" class='InputTxt' style='width:98%' value="<?php echo stripslashes($nama) ?>" /></td>
 			  </tr>
 			  <!--
 			  <tr>
-				<td>Jenis</td>
+				<td>Type</td>
 				<td>:</td>
 				<td>
 					<select id="jenis" class="Cmb">
-						<option value="0" <?php echo StringIsSelected('0',$jenis) ?>>Siswa</option>
+						<option value="0" <?php echo StringIsSelected('0',$jenis) ?>>Student</option>
 						<option value="1" <?php echo StringIsSelected('1',$jenis) ?>>Orangtua</option>
-						<option value="2" <?php echo StringIsSelected('2',$jenis) ?>>Pegawai</option>
-						<option value="3" <?php echo StringIsSelected('3',$jenis) ?>>Lainnya</option>
+						<option value="2" <?php echo StringIsSelected('2',$jenis) ?>>Employee</option>
+						<option value="3" <?php echo StringIsSelected('3',$jenis) ?>>Others</option>
 					</select>
 				</td>
 			  </tr>
 			  -->
 			  <tr>
-				<td>Keterangan</td>
+				<td>Info</td>
 				<td>:</td>
 				<td><textarea class="AreaTxt" id="ket" rows='3'  style='width:99%'><?php echo stripslashes($ket) ?></textarea></td>
 			  </tr>

@@ -23,12 +23,12 @@
 <?
 require_once("sessionchecker.php");
 
-$kriteria = array(1 => 'Agama','Asal Sekolah','Golongan Darah','Jenis Kelamin','Kewarganegaraan','Kode Pos Siswa','Kondisi Siswa','Pekerjaan Ayah','Pekerjaan Ibu','Pendidikan Ayah','Pendidikan Ibu','Total Penghasilan Orang Tua','Status Aktif','Status Siswa','Suku','Tahun Kelahiran','Usia');
-$kriteria_judul = array(1 => 'AGAMA','ASAL SEKOLAH','GOLONGAN DARAH','JENIS KELAMIN','KEWARGANEGARAAN','KODE POS SISWA','KONDISI SISWA','PEKERJAAN AYAH','PEKERJAAN IBU','PENDIDIKAN AYAH','PENDIDIKAN IBU','TOTAL PENGHASILAN ORANG TUA','STATUS AKTIF','STATUS SISWA','SUKU','TAHUN KELAHIRAN','USIA');
+$kriteria = array(1 => 'Religion','Past School','Blood Type','Gender','Citizenship','Student Post Code','Student Conditions','Father Occupation','Mother Occupation','Father Education','Mother Education','Parent Total Income','Status Active','Student Status','Ethnicity','Year of Birth','Age');
+$kriteria_judul = array(1 => 'RELIGION','PAST SCHOOL','BLOOD TYPE','GENDER','CITIZENSHIP','STUDENT POST CODE','STUDENT CONDITIONS','FATHER OCCUPATION','MOTHER OCCUPATION','FATHER EDUCATION','MOTHER EDUCATION','PARENT TOTAL INCOME','STATUS ACTIVE','STUDENT STATUS','ETHNICITY','YEAR OF BIRTH','AGE');
 $kriteria_tabel = array(1 => 'agama','asalsekolah','darah','kelamin','warga','kodepossiswa','kondisi','pekerjaanayah','pekerjaanibu','pendidikanayah','pendidikanibu','penghasilanayah','aktif','status','suku','tgllahir');
 $kriteria_file = array(1 => 'agama','asalsekolah','darah','kelamin','warga','kodepos','kondisi','pekerjaanayah','pekerjaanibu','pendidikanayah','pendidikanibu','penghasilan','aktif','status','suku','tahunlahir','usia');
-$bulan = array(1=>'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agust','Sep','Okt','Nov','Des');
-$bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$bulan = array(1=>'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
+$bulan_pjg = array(1=>'January','February','March','April','May','June','July','August','September','October','November','December');
 
 function StringIsSelected($value, $comparer) 
 {
@@ -86,47 +86,47 @@ function RandStr($length)
 function NamaBulan($bln) 
 {
 	if ($bln == 1)
-		return "Januari";
+		return "January";
 	elseif ($bln == 2)
-		return "Februari";		
+		return "February";		
 	elseif ($bln == 3)
-		return "Maret";		
+		return "March";		
 	elseif ($bln == 4)
 		return "April";		
 	elseif ($bln == 5)
-		return "Mei";
+		return "May";
 	elseif ($bln == 6)
-		return "Juni";		
+		return "June";		
 	elseif ($bln == 7)
-		return "Juli";
+		return "July";
 	elseif ($bln == 8)
-		return "Agustus";		
+		return "August";		
 	elseif ($bln == 9)
 		return "September";
 	elseif ($bln == 10)
-		return "Oktober";		
+		return "October";		
 	elseif ($bln == 11)
 		return "November";
 	elseif ($bln == 12)
-		return "Desember";		
+		return "December";		
 }
 
 function NamaHari($hari) 
 {
 	if ($hari == 1)
-		return "Senin";
+		return "Monday";
 	elseif ($hari == 2)
-		return "Selasa";		
+		return "Tuesday";		
 	elseif ($hari == 3)
-		return "Rabu";		
+		return "Wednesday";		
 	elseif ($hari == 4)
-		return "Kamis";		
+		return "Thursday";		
 	elseif ($hari == 5)
-		return "Jumat";
+		return "Friday";
 	elseif ($hari == 6)
-		return "Sabtu";
+		return "Saturday";
 	elseif ($hari == 7)
-		return "Minggu";
+		return "Sunday";
 }
 
 function rpad($string, $padchar, $length) 
@@ -187,40 +187,40 @@ function TglTextLong($value)
 	switch ($bulan)
 	{
 		case 01:
-			$nama_bulan="Januari";
+			$nama_bulan="January";
 			break;
 		case 02:
-			$nama_bulan="Februari";
+			$nama_bulan="February";
 			break;
 		case 03:
-			$nama_bulan="Maret";
+			$nama_bulan="March";
 			break;
 		case 04:
 			$nama_bulan="April";
 			break;
 		case 05:
-			$nama_bulan="Mei";
+			$nama_bulan="May";
 			break;
 		case 06:
-			$nama_bulan="Juni";
+			$nama_bulan="June";
 			break;
 		case 07:
-			$nama_bulan="Juli";
+			$nama_bulan="July";
 			break;
 		case 08:
-			$nama_bulan="Agustus";
+			$nama_bulan="August";
 			break;
 		case 09:
 			$nama_bulan="September";
 			break;
 		case 10:
-			$nama_bulan="Oktober";
+			$nama_bulan="October";
 			break;
 		case 11:
 			$nama_bulan="November";
 			break;
 		case 12:
-			$nama_bulan="Desember";
+			$nama_bulan="December";
 			break;
 	}
 	
@@ -257,7 +257,7 @@ function TglTextShort($value)
 			$nama_bulan="Apr";
 			break;
 		case 05:
-			$nama_bulan="Mei";
+			$nama_bulan="May";
 			break;
 		case 06:
 			$nama_bulan="Jun";
@@ -266,19 +266,19 @@ function TglTextShort($value)
 			$nama_bulan="Jul";
 			break;
 		case 08:
-			$nama_bulan="Agust";
+			$nama_bulan="Aug";
 			break;
 		case 09:
 			$nama_bulan="Sep";
 			break;
 		case 10:
-			$nama_bulan="Okt";
+			$nama_bulan="Oct";
 			break;
 		case 11:
 			$nama_bulan="Nov";
 			break;
 		case 12:
-			$nama_bulan="Des";
+			$nama_bulan="Dec";
 			break;
 	}
 	if ($tanggal<10)

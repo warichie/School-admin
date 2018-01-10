@@ -59,7 +59,7 @@ parent.daftar_angket;
 	$dir_thn=date(Y);
 	$dir = $updir . $dir_thn . $dir_bln;
 
-	//KAlo dari ubah berita guru================================================================================================================================
+	//KAlo from ubah berita guru================================================================================================================================
 	$judul=$_REQUEST['judul'];
 	$jenis=$_REQUEST['jenis'];
 	$tgl=explode("-",$_REQUEST['tglmulai']);

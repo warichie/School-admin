@@ -27,7 +27,7 @@
 <title>Untitled Document</title>
 </head>
 <body>
-<a href="catatansiswamain.php">Catatan Siswa</a>
-<a href="catatankategori.php">Catatan Kategori</a>
+<a href="catatansiswamain.php">Student Notes</a>
+<a href="catatankategori.php">Category Notes</a>
 </body>
 </html>

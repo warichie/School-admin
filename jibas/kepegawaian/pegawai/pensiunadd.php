@@ -52,17 +52,17 @@ if (isset($_REQUEST['btSubmit'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jadwal Pensiun</title>
+<title>Retirement Schedule</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 function validate()
 {
-	return validateEmptyText('txThnPensiun', 'Tanggal Pensiun Pegawai') && 
-  		   validateInteger('txThnPensiun', 'Bulan Pensiun Pegawai') && 
-		   validateLength('txThnPensiun', 'Tahun Pensiun Pegawai', 4) &&
-		   validateEmptyText('txKeterangan', 'Keterangan Pensiun Pegawai');
+	return validateEmptyText('txThnPensiun', 'Date Pensiun Pegawai') && 
+  		   validateInteger('txThnPensiun', 'Month Pensiun Pegawai') && 
+		   validateLength('txThnPensiun', 'Year Pensiun Pegawai', 4) &&
+		   validateEmptyText('txKeterangan', 'Info Pensiun Pegawai');
 }
 
 function focusNext(elemName, evt)
@@ -84,14 +84,14 @@ function focusNext(elemName, evt)
 <input type="hidden" name="nip" id="nip" value="<?=$nip?>" />
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr height="30">
-	<td width="100%" class="header" align="center">Jadwal Pensiun</td>
+	<td width="100%" class="header" align="center">Retirement Schedule</td>
 </tr>
 <tr>
 	<td width="100%" align="center">
     
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
 	<tr>
-        <td align="right" valign="top"><strong>Pensiun TMT :</strong></td>
+        <td align="right" valign="top"><strong>Retire TMT :</strong></td>
         <td width="*" align="left" valign="top">
         <select id="cbTglPensiun" name="cbTglPensiun" onKeyPress="return focusNext('cbBlnPensiun', event)">
     <?	for ($i = 1; $i <= 31; $i++) { ?>    
@@ -107,7 +107,7 @@ function focusNext(elemName, evt)
         </td>
 	</tr>
     <tr>
-    	<td align="right" valign="top"><strong>Keterangan : </strong></td>
+    	<td align="right" valign="top"><strong>Info : </strong></td>
 	    <td align="left" valign="top">
         <textarea id="txKeterangan" name="txKeterangan" rows="2" cols="40"><?=$keterangan?></textarea>
         </td>
@@ -115,8 +115,8 @@ function focusNext(elemName, evt)
     <tr>
     	<td align="right" valign="top">&nbsp;</td>
 	    <td align="left" valign="top">
-        <input type="submit" value="Simpan" name="btSubmit" class="but" />
-        <input type="button" value="Tutup" onClick="window.close()" class="but" />
+        <input type="submit" value="Save" name="btSubmit" class="but" />
+        <input type="button" value="Close" onClick="window.close()" class="but" />
         </td> 
     </tr>
     </table>

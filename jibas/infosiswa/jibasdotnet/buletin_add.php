@@ -178,17 +178,17 @@ function validate(){
 	var tempat=document.getElementById('tempat').value;
 	var buletin=tinyMCE.get('buletin').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Buletin');
+		alert ('You must enter a data for Bulletin Title');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (tempat.length==0){
-		alert ('Anda harus mengisikan data untuk Tempat Buletin');
+		alert ('You must enter a data for Bulletin Location');
 		document.getElementById('tempat').focus();
 		return false;
 	}
 	if (buletin.length==0){
-		alert ('Anda harus mengisikan data untuk Buletin');
+		alert ('You must enter a data for Bulletin');
 		document.getElementById('buletin').focus();
 		return false;
 	}
@@ -196,7 +196,7 @@ function validate(){
 	var gambar=document.getElementById("gambar").value;
 		if (gambar.length>0){
 			if (ext!='.JPG' && ext!='.jpg' && ext!='.Jpg' && ext!='.JPg' && ext!='.JPEG' && ext!='.jpeg'){
-				alert ('Format Gambar harus ber-extensi jpg atau JPG !');
+				alert ('Image should be jpg or JPG formatted');
 				document.getElementById("gambar").value='';
 				document.getElementById("tr").style.background = "#FF8080" ;
 				return false;
@@ -239,18 +239,18 @@ function show_wait(areaId) {
 </head>
 <body onLoad="document.getElementById('kat').focus();">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/ico/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+<img src="../images/ico/movewait.gif" border="0" />Please wait...
 </div>
 <form name="frmbuletin" id="frmbuletin" action="buletin_add.php" method="post" onSubmit="return validate()" enctype="multipart/form-data">
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td scope="row" align="left"><strong><font size="2" color="#999999">Berita Baru :</font></strong><br /><br /></td>
+    <td scope="row" align="left"><strong><font size="2" color="#999999">Recent News :</font></strong><br /><br /></td>
   </tr>
   <tr>
     <td scope="row" align="left">
     <table width="100%" border="0" cellspacing="0" >
   <tr>
-    <td height="25" scope="row"><div align="left">Kategori</div></td>
+    <td height="25" scope="row"><div align="left">Category</div></td>
     <td height="25" colspan="2">
     <!--<select name="kat" size="1" id="kat" onChange="chg_kat()">
     	<? 
@@ -268,7 +268,7 @@ function show_wait(areaId) {
 		}
 		} else {
 		?>
-        <option value="">Tidak ada kategori</option>
+        <option value="">No category</option>
         <?
 		}
 		CloseDb();
@@ -281,11 +281,11 @@ function show_wait(areaId) {
     <td width="2%" height="12">
     <input type="checkbox" name="dotnet" id="dotnet" /></td>
     
-    <td width="86%">Tampilkan di Jibas[dot]Net </td>
+    <td width="86%">Show in Jibas[dot]Net </td>
   </tr>
   <tr>
     <td height="13"><input type="checkbox" name="situs" id="situs" /></td>
-    <td height="13">Tampilkan di Situs Sekolah</td>
+    <td height="13">Show in School Site</td>
     <td width="0%">&nbsp;</td>
   </tr>
 	<!--  <tr>
@@ -309,7 +309,7 @@ function show_wait(areaId) {
 		//}
 		//} else {
 		?>
-        <option value="">Tidak ada sub kategori</option>
+        <option value="">No subcategory</option>
         <?
 		//}
 		//CloseDb();
@@ -319,31 +319,31 @@ function show_wait(areaId) {
     <? //} ?>    </td>
   </tr>-->
   <tr>
-    <th width="12%" height="25" scope="row"><div align="left">Judul</div></th>
+    <th width="12%" height="25" scope="row"><div align="left">Title</div></th>
     <td colspan="2"><input type="text" name="judul" id="judul" size="50" /></td>
   </tr>
   <tr>
-    <th height="25" scope="row"><div align="left">Tanggal</div></th>
-    <td colspan="2"><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Klik untuk membuka kalender !" src="../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <th height="25" scope="row"><div align="left">Date</div></th>
+    <td colspan="2"><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Click to open the Calendar" src="../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
   <tr>
-    <th height="25" valign="top" scope="row"><div align="left">Tempat</div></th>
+    <th height="25" valign="top" scope="row"><div align="left">Location</div></th>
     <td colspan="2"><input name="tempat" type="text" id="tempat" value="" /></td>
   </tr>
   <tr>
-    <th valign="top" scope="row"><div align="left">Buletin</div></th>
+    <th valign="top" scope="row"><div align="left">Bulletin</div></th>
     <td colspan="2"><textarea name="buletin" id="buletin" rows="20"></textarea></td>
   </tr>
   <tr id="tr" style="visibility:hidden;">
-    <th valign="top" scope="row"><div align="left">Gambar</div></th>
+    <th valign="top" scope="row"><div align="left">Image</div></th>
     <td colspan="2"><label>
       <input type="file" name="gambar" id="gambar" onChange="chg()" /><input type="hidden" name="ext" id="ext" />
     </label></td>
   </tr>
   <tr>
     <th colspan="3" scope="row" align="center" bgcolor="#FFFFFF" height="30">
-      <input class="but" type="submit" name="simpan" id="simpan" value="Simpan" title="Simpan buletin ini !"/>
-    &nbsp;<input style="visibility:hidden;" class="but" type="button" name="batal" id="batal" value="Batal" onClick="window.close();" title="Batalkan Tutup jendela ini"/></th>
+      <input class="but" type="submit" name="simpan" id="simpan" value="Save" title="Save this bulletin!"/>
+    &nbsp;<input style="visibility:hidden;" class="but" type="button" name="batal" id="batal" value="Cancel" onClick="window.close();" title="Cancel and Close this window"/></th>
     </tr>
 </table>
     </td>

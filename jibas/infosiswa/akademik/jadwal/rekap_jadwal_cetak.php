@@ -43,7 +43,7 @@ $row=@mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Rekap Jadwal Guru]</title>
+<title>JIBAS SIMAKA [Print Teacher Schedule Recap]</title>
 </head>
 
 <body>
@@ -54,43 +54,43 @@ $row=@mysql_fetch_array($result);
 <? include("../library/headercetak.php") ?>
 	
 <center>
-  <font size="4"><strong>REKAP JADWAL GURU</strong></font><br />
+  <font size="4"><strong>TEACHER SCHEDULE RECAP</strong></font><br />
  </center><br /><br />
 
 <br />
 <table>
 <tr>
-	<td width="35%"><strong>Departemen</strong></td>
+	<td width="35%"><strong>Department</strong></td>
     <td><strong>: <?=$row['departemen']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 <tr>
-	<td width="10%"><strong>Info Jadwal</strong></td>
+	<td width="10%"><strong>Schedule Info</strong></td>
     <td><strong>: <?=$row['deskripsi']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Periode</strong></td>
-    <td><strong>: <?=TglTextLong($row['tglmulai']).' s/d '. TglTextLong($row['tglakhir'])?></strong></td>
+	<td><strong>Period</strong></td>
+    <td><strong>: <?=TglTextLong($row['tglmulai']).' to '. TglTextLong($row['tglakhir'])?></strong></td>
 </tr>
 </table>
 <br />
 <table border="1" width="100%" id="table" class="tab" align="center" cellpadding="2" style="border-collapse:collapse" cellspacing="2">
 <tr height="15">
-    <td width="4%" rowspan="2 "class="header" align="center">No</td>
-    <td width="10%"rowspan="2" class="header" align="center">NIP</td>
-    <td width="*"rowspan="2" class="header" align="center">Nama</td>
-    <td colspan="6" width="60%" class="header" align="center">Jumlah</td>
+    <td width="4%" rowspan="2 "class="header" align="center">#</td>
+    <td width="10%"rowspan="2" class="header" align="center">Employee ID</td>
+    <td width="*"rowspan="2" class="header" align="center">Name</td>
+    <td colspan="6" width="60%" class="header" align="center">Sum</td>
 </tr>
 <tr height="15">
-    <td width="8%" class="header" align="center">Mengajar</td>
-    <td width="8%" class="header" align="center">Asistensi</td>
-    <td width="8%" class="header" align="center">Tambahan</td>
-    <td width="8%" class="header" align="center">Jam</td>
-    <td width="8%" class="header" align="center">Kelas</td>
-    <td width="8%" class="header" align="center">Hari</td>
+    <td width="8%" class="header" align="center">Teaching</td>
+    <td width="8%" class="header" align="center">Assistance</td>
+    <td width="8%" class="header" align="center">Extra</td>
+    <td width="8%" class="header" align="center">Time</td>
+    <td width="8%" class="header" align="center">Class</td>
+    <td width="8%" class="header" align="center">Day</td>
 </tr>
 <? 	OpenDb();
     

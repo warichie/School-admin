@@ -72,7 +72,7 @@ else if ($op=="xm8r389xemx23xb2378e23")
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jadwal Guru</title>
+<title>Teacher Schedule</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -123,14 +123,14 @@ function tampil(){
 	var tahunajaran = document.getElementById('tahunajaran').value;
 	
 	if (nip==""){
-		alert ('NIP guru tidak boleh kosong!');		
+		alert ('Teacher ID should not leave empty');		
 		return false;
 	} else if (tahunajaran==""){
-		alert ('Tahun Ajaran tidak boleh kosong!');	
+		alert ('Year of Teaching should not leave empty');	
 		document.getElementById('tahunajaran').focus();
 		return false;			
 	} else if (info_jadwal==""){
-		alert ('Info Jadwal tidak boleh kosong!');	
+		alert ('Schedule Info should not leave empty');	
 		document.getElementById('info_jadwal').focus();
 		return false;
 	} else {	
@@ -175,7 +175,7 @@ function focusNext(elemName, evt) {
     <td width="50%">
 	<table width = "100%" border = "0">
     <tr>
-		<td width="22%"><strong>Guru</strong></td>
+		<td width="22%"><strong>Teacher</strong></td>
     	<td width="*">
     	<input type="text" name="nip" id="nip" size="10" class="disabled" value="<?=$_REQUEST['nip'] ?>" readonly onClick="pegawai()"/>
         <input type="hidden" name="nipguru" id="nipguru" value="<?=$_REQUEST['nip'] ?>"/>
@@ -184,7 +184,7 @@ function focusNext(elemName, evt) {
        <a href="JavaScript:pegawai()"><img src="../images/ico/cari.png" border="0" /></a>		</td>
   	</tr>
     <tr>
-    	<td><strong>Tahun Ajaran </strong></td>
+    	<td><strong>Year </strong></td>
     	<td><select name="departemen" id="departemen" onChange="change_departemen()" style="width:80px;" onkeypress="return focusNext('tahunajaran', event)">
           <?	
 		  if (SI_USER_LEVEL()==2) {
@@ -221,7 +221,7 @@ function focusNext(elemName, evt) {
 				if ($tahunajaran == "") 
 					$tahunajaran = $row['replid'];
 				if ($row['aktif']) 
-					$ada = '(Aktif)';
+					$ada = '(Active)';
 				else 
 					$ada = '';			 
 			?>
@@ -233,7 +233,7 @@ function focusNext(elemName, evt) {
     	</select>        </td>
     </tr>
    	<tr>
-        <td><strong>Info Jadwal</strong></td>
+        <td><strong>Schedule Info</strong></td>
         <td colspan="3">
 			<select name="info_jadwal" id="info_jadwal" onChange="change(0)" style="width:285px" onkeypress="return focusNext('tabel', event)">
 <?          $sql_info_jadwal = "SELECT i.replid, i.deskripsi, i.aktif
@@ -247,7 +247,7 @@ function focusNext(elemName, evt) {
                     $info_jadwal = $row_info_jadwal['replid'];
 					
                 if ($row_info_jadwal['aktif']) 
-                    $ada = '(Aktif)';
+                    $ada = '(Active)';
                 else 
                     $ada = '';	?>
 				<option value="<?=$row_info_jadwal['replid']?>" <?=StringIsSelected($row_info_jadwal['replid'],$info_jadwal)?>>
@@ -255,19 +255,19 @@ function focusNext(elemName, evt) {
 		        </option>
 <?  		} ?>
         </select>
-			<img src="../images/ico/tambah.png" onClick="newWindow('info_jadwal.php?departemen=<?=$departemen?>&tahunajaran=<?=$tahunajaran?>','InfoJadwal','600','425','resizable=1,scrollbars=1,status=0,toolbar=0')" onMouseOver="showhint('Tambah Info Jadwal!', this, event, '80px')" />           
+			<img src="../images/ico/tambah.png" onClick="newWindow('info_jadwal.php?departemen=<?=$departemen?>&tahunajaran=<?=$tahunajaran?>','InfoJadwal','600','425','resizable=1,scrollbars=1,status=0,toolbar=0')" onMouseOver="showhint('Add Schedule Info', this, event, '80px')" />           
 		</td>
    	</tr>
     </table>
     </td>
 	<td valign="middle" rowspan="2" width="*" >
-       	<a href="#" onClick="tampil()"><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Klik untuk menampilkan jadwal guru!', this, event, '80px')"/></a>
+       	<a href="#" onClick="tampil()"><img src="../images/view.png" height="48" width="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Click to show Teacher Schedule', this, event, '80px')"/></a>
    	</td>
     <td valign="top" align="right" width="50%">
-		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Jadwal Berdasarkan Guru</font><br />
+		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Teacher Schedule</font><br />
    		<a href="../jadwal.php" target="content">
-        <font size="1" color="#000000"><b>Jadwal</b></font></a>&nbsp>&nbsp 
-		<font size="1" color="#000000"><b>Jadwal Berdasarkan Guru</b></font> 	
+        <font size="1" color="#000000"><b>Schedule</b></font></a>&nbsp;>&nbsp; 
+		<font size="1" color="#000000"><b>Teacher Schedule</b></font> 	
 	</td>
 </tr>
 

@@ -39,7 +39,7 @@ OpenDb();
 
 <html>
 <head>
-<title>Legger Nilai</title>
+<title>Legger Points</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
@@ -55,7 +55,7 @@ OpenDb();
     <td width="64%">
     <table border="0" width="100%">
     <tr>
-        <td width="16%"><strong>Departemen</strong></td>
+        <td width="16%"><strong>Department</strong></td>
         <td width="32%">
             <select name="departemen" id="departemen" style="width:180px;" onChange="change_dept()" onkeypress="return focusNext('tingkat', event)">
             <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -67,7 +67,7 @@ OpenDb();
             <?	} ?>
             </select>
         </td>
-        <td width="18%"><strong>Tahun Ajaran</strong></td>
+        <td width="18%"><strong>Year</strong></td>
         <td>
 				<select name="tahunajaran" id="tahunajaran" style="width:180px;" onchange="change_ta()">
 <?  			$sql = "SELECT replid, tahunajaran, aktif
@@ -100,7 +100,7 @@ OpenDb();
 		  </td> 
 	 </tr>
     <tr>
-        <td><strong>Kelas</strong></td>
+        <td><strong>Class</strong></td>
         <td>
         <select name="tingkat" id="tingkat" onChange="change_tingkat()" style="width:60px;" onkeypress="return focusNext('kelas', event)">
 <?      $sql = "SELECT * FROM tingkat WHERE departemen='$departemen' AND aktif = 1 ORDER BY urutan";
@@ -155,7 +155,7 @@ OpenDb();
 		  </td>
     </tr>
     <tr>
-        <td><strong>Pelajaran</strong></td>
+        <td><strong>Class Subject</strong></td>
         <td colspan="3" align="left">
 		  <select name="pelajaran" id="pelajaran" onchange="change_pel()"	style="width:240px">
 <?      $sql = "SELECT DISTINCT u.idpelajaran, p.nama
@@ -175,14 +175,14 @@ OpenDb();
     
     </td>
     <td align="left" valign="middle" width="*" rowspan="3">
-        <img src="../images/ico/view.png" width="48" height="48" id="tabel" border="0" onClick="show()" style="cursor:pointer;" onMouseOver="showhint('Klik untuk menampilkan penentuan nilai rapor!', this, event, '150px')">            </td>
+        <img src="../images/ico/view.png" width="48" height="48" id="tabel" border="0" onClick="show()" style="cursor:pointer;" onMouseOver="showhint('Click to show Report Card Assessment', this, event, '150px')">            </td>
   	</td>
     <td align="right" valign="top" width="40%" rowspan="3">
         <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;
-        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Legger Nilai</font><br />
+        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Lesson Plans Report</font><br />
 		<a href="../penilaian.php" target="content">
-  		<font size="1" color="#000000"><b>Penilaian</b></font></a>&nbsp>&nbsp
-    	<font size="1" color="#000000"><b>Laporan Legger Nilai</b></font>
+  		<font size="1" color="#000000"><b>Index</b></font></a>&nbsp;>&nbsp;
+    	<font size="1" color="#000000"><b>Lesson Plans Report</b></font>
     </td>
 </tr>
 </table>

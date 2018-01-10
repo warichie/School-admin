@@ -27,26 +27,26 @@ require_once('../include/common.php');
 OpenDb();
 $Source = $_REQUEST['Source'];
 $kls = $_REQUEST['kls'];
-$NIS = $_REQUEST['NIS'];
+$Student ID = $_REQUEST['Student ID'];
 $Nama = $_REQUEST['Nama'];
 ?>
 <link href="style/style.css" rel="stylesheet" type="text/css" />
 
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
   <tr class="Header">
-    <td>No</td>
-    <td>NIS/Nama</td>
-    <td>No. Ponsel Siswa</td>
-    <td>No. Ponsel Ortu</td>
+    <td>##</td>
+    <td>Student ID/Name</td>
+    <td>Student Mobile Number</td>
+    <td>Parent Mobile Number</td>
     <td>&nbsp;</td>
   </tr>
   <?
-    if ($Source=='Pilih'){
+    if ($Source=='Select'){
 		$sql = "SELECT * FROM $db_name_akad.siswa WHERE aktif=1 AND idkelas='$kls'";
 	} else {
 		$sql = "SELECT * FROM $db_name_akad.siswa WHERE replid>0";
-		if ($NIS!="")
-			$sql .= " AND nis LIKE '%$NIS%'";
+		if ($Student ID!="")
+			$sql .= " AND nis LIKE '%$Student ID%'";
 		if ($Nama!="")
 			$sql .= " AND nama LIKE '%$Nama%'";	
 	}
@@ -63,7 +63,7 @@ $Nama = $_REQUEST['Nama'];
     <td class="td"><?=$row['hportu']?></td>
     <td class="td" align="center">
     <? if (strlen($row['hpsiswa'])>0 || strlen($row['hportu'])>0){ ?>
-    <div align="center" class="BtnSilver90" onclick="InsertNewReceipt2('<?=$row['hpsiswa']?>_<?=$row['hportu']?>','<?=$row['nama']?>_<?=$row['namaayah']?>','<?=$row['nis']?>')"  />Pilih</div>
+    <div align="center" class="BtnSilver90" onclick="InsertNewReceipt2('<?=$row['hpsiswa']?>_<?=$row['hportu']?>','<?=$row['nama']?>_<?=$row['namaayah']?>','<?=$row['nis']?>')"  />Select</div>
     <? } ?>
     </td>
   </tr>
@@ -73,7 +73,7 @@ $Nama = $_REQUEST['Nama'];
     } else {
     ?>
   <tr>
-    <td colspan="5" class="Ket" align="center">Tidak ada data</td>
+    <td colspan="5" class="Ket" align="center">Data Not Found.</td>
   </tr>
   <?
     }

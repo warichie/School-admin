@@ -36,7 +36,7 @@ $ref = $_REQUEST['ref'];
 <head>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -55,28 +55,28 @@ function cetak() {
 <?
 if ($stat == 1) 
 {
-	$info = "Satuan Kerja";
+	$info = "Work Unit";
 	$sql = "SELECT p.nip, TRIM(CONCAT(IFNULL(p.gelarawal,''), ' ', p.nama, ' ', IFNULL(p.gelarakhir,''))) AS fnama 
 	        FROM pegawai p, peglastdata pl, pegjab pj, jabatan j
 			WHERE p.aktif = 1 AND p.nip = pl.nip AND pl.idpegjab = pj.replid AND pj.idjabatan = j.replid AND j.satker='$ref' ORDER BY p.nama";	
 } 
 elseif ($stat == 2)
 {
-	$info = "Tingkat Pendidikan";
+	$info = "Educational Level";
 	$sql = "SELECT p.nip, TRIM(CONCAT(IFNULL(p.gelarawal,''), ' ', p.nama, ' ', IFNULL(p.gelarakhir,''))) AS fnama 
 	        FROM pegawai p, peglastdata pl, pegsekolah ps
 			WHERE p.aktif = 1 AND  p.nip = pl.nip AND pl.idpegsekolah = ps.replid AND ps.tingkat = '$ref' ORDER BY p.nama";
 }
 elseif ($stat == 3)
 {
-	$info = "Golongan";
+	$info = "Level";
 	$sql = "SELECT p.nip, TRIM(CONCAT(IFNULL(p.gelarawal,''), ' ', p.nama, ' ', IFNULL(p.gelarakhir,''))) AS fnama 
 	        FROM pegawai p, peglastdata pl, peggol pg
 			WHERE p.aktif = 1 AND  p.nip = pl.nip AND pl.idpeggol = pg.replid AND pg.golongan = '$ref' ORDER BY p.nama";
 }
 elseif ($stat == 4)
 {
-	$info = "Usia";
+	$info = "Age";
 	$sql = "SELECT nip, fnama FROM (
 	          SELECT nip, fnama, IF(usia < 24, '<24',
                           IF(usia >= 24 AND usia <= 29, '24-29',
@@ -94,15 +94,15 @@ elseif ($stat == 4)
 <table width="100%" border="0">
   <tr>
     <td width="84%"><strong><?=$info?> : <?=$ref?></strong></td>
-    <td width="16%" align="right"><a href="#" onclick="cetak()"><img src="../images/ico/print.png" width="16" height="16" border="0" />&nbsp;Cetak</a>&nbsp;</td>
+    <td width="16%" align="right"><a href="#" onclick="cetak()"><img src="../images/ico/print.png" width="16" height="16" border="0" />&nbsp;Print</a>&nbsp;</td>
   </tr>
   <tr>
     <td colspan="2">
 	<table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
 		<tr height="35">
-			<td class="header" align="center" width="7%">No</td>
-			<td class="header" align="center" width="40%">NIP</td>
-			<td class="header" align="center" width="40%">Nama</td>
+			<td class="header" align="center" width="7%">#</td>
+			<td class="header" align="center" width="40%">Employee ID</td>
+			<td class="header" align="center" width="40%">Name</td>
 			<td class="header" align="center" width="10%">&nbsp;</td>
 		</tr>
 		<?
@@ -116,7 +116,7 @@ elseif ($stat == 4)
 			<td align="center" valign="top"><?=$row[0]?></b></td>
 			<td align="left" valign="top"><?=$row[1] ?></td>
 			<td align="center" valign="top">
-				<a href="JavaScript:DetailPegawai('<?=$row[0]?>')" title="Lihat Detail Pegawai"><img src="../images/ico/lihat.png" border="0" /></a>
+				<a href="JavaScript:DetailPegawai('<?=$row[0]?>')" title="See Details Pegawai"><img src="../images/ico/lihat.png" border="0" /></a>
 			</td>
 		</tr>
 		<?

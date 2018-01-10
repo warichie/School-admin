@@ -68,7 +68,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Presensi Pengajar</title>
+<title>Teacher Presence Report</title>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
@@ -99,14 +99,14 @@ function tampil() {
 	var tahunajaran = document.getElementById('tahunajaran').value;	
 	
 	if (tahunajaran.length == 0){
-		alert ('Tahun ajaran tidak boleh kosong !');
+		alert ('Year should not leave empty');
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong !');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong !');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -244,7 +244,7 @@ function cetak(nip){
 	<table width = "100%" border = "0">
 	<tr></tr>
     <tr>
-    	<td width="20%" class="news_content1">Tahun Ajaran </td>
+    	<td width="20%" class="news_content1">Year </td>
     	<td colspan="4">
         <select name="departemen" class="cmbfrm" id="departemen" style="width:188px" onchange="change_dep()">
     	        <? 	$sql = "SELECT departemen FROM departemen WHERE aktif = 1 ORDER BY urutan";
@@ -267,7 +267,7 @@ function cetak(nip){
 				if ($tahunajaran == "") 
 					$tahunajaran = $row['replid'];
 				if ($row['aktif']) 
-					$ada = '(Aktif)';
+					$ada = '(Active)';
 				else 
 					$ada = '';			 
 			?>
@@ -280,7 +280,7 @@ function cetak(nip){
           </select></td>
     </tr>
     <tr>
-    	<td class="news_content1">Tanggal</td>
+    	<td class="news_content1">Date</td>
         <td width="10"> 
 		<? 	if ($tahunajaran <> "") {
 			OpenDb();
@@ -294,7 +294,7 @@ function cetak(nip){
 		 ?> 
         	<div id = "InfoTgl1">
         	  <select name="tgl1" class="cmbfrm" id = "tgl1" onfocus = "panggil('tgl1')" onchange="change_tgl1()" onkeypress="focusNext('bln1',event)">
-                <option value="">[Tgl]</option>
+                <option value="">[Date]</option>
                 <? 	for($i=1;$i<=$n1;$i++){   ?>
                 <option value="<?=$i?>" <?=IntIsSelected($tgl1, $i)?>>
                   <?=$i?>
@@ -313,10 +313,10 @@ function cetak(nip){
 		<?  //for($i=$th1-10;$i<=$th1;$i++){ ?>
           	<option value="<?=$i?>" <?=IntIsSelected($th1, $i)?>><?=$i?></option>	   
        	<?	} ?>	
-        	</select> <span class="news_content1">s/d     	</span></td>
+        	</select> <span class="news_content1">to     	</span></td>
         <td width="10">
     		<select name="tgl2" class="cmbfrm" id = "tgl2" onfocus = "panggil('bln2')" onchange="change_tgl2()" onKeyPress="focusNext('bln2',event)">
-			<option value="">[Tgl]</option>
+			<option value="">[Date]</option>
 		<? 	for($i=1;$i<=$n2;$i++){   ?>      
 		    <option value="<?=$i?>" <?=IntIsSelected($tgl2, $i)?>><?=$i?></option>
 		      <?	} ?>
@@ -336,9 +336,9 @@ function cetak(nip){
     </tr>
 	</table>
     </td>
-    <td width="*" align="left" valign="middle"><a href="#" onclick="tampil()" ><img src="../img/view.png" onmouseover="showhint('Klik untuk menampilkan laporan presensi pengajar!', this, event, '180px')" height="48" width="48" border="0" name="tabel" id="tabel2"/></a></td>
+    <td width="*" align="left" valign="middle"><a href="#" onclick="tampil()" ><img src="../img/view.png" onmouseover="showhint('Click to show Teacher Presence reports', this, event, '180px')" height="48" width="48" border="0" name="tabel" id="tabel2"/></a></td>
     <td width="45%" align="right" valign="top">
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="news_title2">Laporan Presensi Pengajar</span>
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="news_title2">Teacher Presence Report</span>
     </tr>
 	</table>
     </td>
@@ -359,8 +359,8 @@ function cetak(nip){
 		?>
         <table width="100%" border="1" class="tab">
           <tr class="header">
-            <td height="25" align="center">NIP</td>
-            <td height="25" align="center">Nama</td>
+            <td height="25" align="center">Employee ID</td>
+            <td height="25" align="center">Name</td>
             <td height="25">&nbsp;</td>
           </tr>
           <? if ($num>0){ ?>
@@ -378,7 +378,7 @@ function cetak(nip){
           <? } ?>
           <? } else { ?>
           <tr>
-            <td colspan="3" align="center" class="nodata">Tidak ada data</td>
+            <td colspan="3" align="center" class="nodata">Data Not Found.</td>
           </tr>
           <? } ?>
         </table>

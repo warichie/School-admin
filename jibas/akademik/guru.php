@@ -30,7 +30,7 @@ if (isset($_REQUEST[page]))
 ?>
 <html>
 <head>
-<title>pelajaran</title>
+<title>Class Subject</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <script type="text/javascript" src="script/tooltips.js"></script>
@@ -83,7 +83,7 @@ function show(id){
 <div id="content">
 <table width="100%" border="0" align="center" id="slice_p" style="display:none">
   <tr>
-    <td width="35%"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>PELAJARAN</strong></font></p></td>
+    <td width="35%"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>LESSON</strong></font></p></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
@@ -100,7 +100,7 @@ function show(id){
 		<td rowspan="8">
 			<img src="images/pelajaran_02.jpg" width="26" height="471" alt=""></td>
 		<td colspan="2" rowspan="2">
-			<a href="guru/pelajaran.php" onMouseOver="showhint('Pendataan Pelajaran Wajib', this, event, '100px')"><img src="images/pelajaran_03.jpg" alt="" width="116" height="126" border="0"></a></td>
+			<a href="guru/pelajaran.php" onMouseOver="showhint('Mandatory Class Subject Data Collection', this, event, '100px')"><img src="images/pelajaran_03.jpg" alt="" width="116" height="126" border="0"></a></td>
 		<td colspan="7">
 			<img src="images/pelajaran_04.jpg" width="358" height="86" alt=""></td>
 		<td>
@@ -110,7 +110,7 @@ function show(id){
 		<td colspan="5" rowspan="2">
 			<img src="images/pelajaran_05.jpg" width="166" height="90" alt=""></td>
 		<td rowspan="2">
-			<a href = "guru/rpp_main.php" onMouseOver="showhint('Pendataan Rencana Program Pembelajaran', this, event, '100px')"><img src="images/pelajaran_06.jpg" alt="" width="99" height="90" border="0"></a></td>
+			<a href = "guru/rpp_main.php" onMouseOver="showhint('Lesson Plans Data Collection', this, event, '100px')"><img src="images/pelajaran_06.jpg" alt="" width="99" height="90" border="0"></a></td>
 		<td rowspan="7">
 			<img src="images/pelajaran_07.jpg" width="93" height="385" alt=""></td>
 		<td>
@@ -125,7 +125,7 @@ function show(id){
 	<tr>
 		<td rowspan="3">
 			<img src="images/pelajaran_09.jpg" width="23" height="150" alt=""></td>
-		<td colspan="3"><a href="guru/jenis_pengujian.php" onMouseOver="showhint('Pendataan Jenis Pengujian', this, event, '100px')"><img src="images/pelajaran_10.jpg" alt="" width="107" height="84" border="0"></a></td>
+		<td colspan="3"><a href="guru/jenis_pengujian.php" onMouseOver="showhint('Exam Type Data', this, event, '100px')"><img src="images/pelajaran_10.jpg" alt="" width="107" height="84" border="0"></a></td>
 		<td colspan="2" rowspan="2">
 			<img src="images/pelajaran_11.jpg" width="135" height="144" alt=""></td>
 		<td>
@@ -141,7 +141,7 @@ function show(id){
 		<td colspan="2">
 			<img src="images/pelajaran_13.jpg" width="99" height="6" alt=""></td>
 		<td colspan="3" rowspan="2">
-			<a href="guru/perhitungan_rapor.php" onMouseOver="showhint('Pendataan Aturan Perhitungan Nilai Rapor', this, event, '100px')"><img src="images/pelajaran_14.jpg" alt="" width="143" height="98" border="0"></a></td>
+			<a href="guru/perhitungan_rapor.php" onMouseOver="showhint('Report Card Calculation Rules Data Collection', this, event, '100px')"><img src="images/pelajaran_14.jpg" alt="" width="143" height="98" border="0"></a></td>
 		<td>
 			<img src="images/spacer.gif" width="1" height="6" alt=""></td>
 	</tr>
@@ -149,7 +149,7 @@ function show(id){
 		<td rowspan="2">
 			<img src="images/pelajaran_15.jpg" width="26" height="145" alt=""></td>
 		<td colspan="3">
-			<a href="guru/aturannilai_main.php" onMouseOver="showhint('Pendataan Aturan Grading Nilai', this, event, '100px')"><img src="images/pelajaran_16.jpg" alt="" width="133" height="92" border="0"></a></td>
+			<a href="guru/aturannilai_main.php" onMouseOver="showhint('Index Grade Rules Data Collection', this, event, '100px')"><img src="images/pelajaran_16.jpg" alt="" width="133" height="92" border="0"></a></td>
 		<td rowspan="2">
 			<img src="images/pelajaran_17.jpg" width="79" height="145" alt=""></td>
 		<td>
@@ -189,9 +189,9 @@ function show(id){
 </table>
     </td>
     <td align="left" valign="top">
-    <a href="guru/aspeknilai.php" style="text-decoration:none;" onMouseOver="showhint('Aspek Penilaian', this, event, '100px')">
+    <a href="guru/aspeknilai.php" style="text-decoration:none;" onMouseOver="showhint('Assessment Aspect', this, event, '100px')">
     <img src="images/ico/settings.png" height="60" alt="" border="0"><br>
-    <font style="font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#000; font-weight:bold">Aspek Penilaian</font>
+    <font style="font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#000; font-weight:bold">Assessment Aspect</font>
     </a>
     </td>
   </tr>
@@ -215,7 +215,7 @@ function show(id){
 		<td rowspan="7">
 			<img src="images/guru_02.jpg" width="61" height="336" alt=""></td>
 		<td colspan="2">
-			<a href="guru/statusguru.php" onMouseOver="showhint('Pendataan Status Guru', this, event, '100px')"><img src="images/guru_03.jpg" alt="" width="67" height="97" border="0"></a></td>
+			<a href="guru/statusguru.php" onMouseOver="showhint('Data Collection Teacher Status', this, event, '100px')"><img src="images/guru_03.jpg" alt="" width="67" height="97" border="0"></a></td>
 		<td colspan="4">
 			<img src="images/guru_04.jpg" width="372" height="97" alt=""></td>
 		<td>
@@ -225,7 +225,7 @@ function show(id){
 		<td colspan="4">
 			<img src="images/guru_05.jpg" width="240" height="51" alt=""></td>
 		<td rowspan="3">
-			<a href="guru/guru_main.php" onMouseOver="showhint('Pendataan Guru', this, event, '100px')"><img src="images/guru_06.jpg" alt="" width="111" height="143" border="0"></a></td>
+			<a href="guru/guru_main.php" onMouseOver="showhint('Teacher Data Collection', this, event, '100px')"><img src="images/guru_06.jpg" alt="" width="111" height="143" border="0"></a></td>
 		<td rowspan="6">
 			<img src="images/guru_07.jpg" width="88" height="239" alt=""></td>
 		<td>
@@ -235,7 +235,7 @@ function show(id){
 		<td rowspan="5">
 			<img src="images/guru_08.jpg" width="11" height="188" alt=""></td>
 		<td>
-			<a href="#" onClick="alert ('Gunakan Pendataan Pelajaran di menu Pelajaran untuk mendata pelajaran');" onMouseOver="showhint('Pendataan Pelajaran', this, event, '100px')"><img src="images/guru_09.jpg" alt="" width="56" height="63" border="0"></a></td>
+			<a href="#" onClick="alert ('Gunakan Data Collection Class Subject di menu Class Subject untuk mendata pelajaran');" onMouseOver="showhint('Data Collection Class Subject', this, event, '100px')"><img src="images/guru_09.jpg" alt="" width="56" height="63" border="0"></a></td>
 		<td colspan="2" rowspan="3">
 			<img src="images/guru_10.jpg" width="173" height="105" alt=""></td>
 		<td>

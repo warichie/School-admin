@@ -43,43 +43,43 @@ OpenDb();
 $i = 0;
 
 if ($iddasar!="12"){
-	if ($dasar == 'Golongan Darah') {
+	if ($dasar == 'Blood Type') {
 		$row = array('','A','AB','B','O');
-		$judul = array(1=>'Tidak ada data','A','AB','B','O');	
+		$judul = array(1=>'No data.','A','AB','B','O');	
 		$jum = count($row);	
-	} elseif ($dasar == 'Jenis Kelamin') {
+	} elseif ($dasar == 'Gender') {
 		$row = array('l','p');
-		$judul = array(1=>'Laki-laki','Perempuan');	
+		$judul = array(1=>'Male','Female');	
 		$jum = count($row);
-	} elseif ($dasar == 'Kewarganegaraan') {
-		$row = array('WNI','WNA');
-		$judul = array(1=>'WNI','WNA');	
+	} elseif ($dasar == 'Citizenship') {
+		$row = array('Indonesian Citizen','Other Citizen');
+		$judul = array(1=>'Indonesian Citizen','Other Citizen');	
 		$jum = count($row);
-	} elseif ($dasar == 'Status Aktif') {
+	} elseif ($dasar == 'Status Active') {
 		$row = array(1,0);
-		$judul = array(1 => 'Aktif','Tidak Aktif');
+		$judul = array(1 => 'Active','Inactive');
 		$jum = count($row);
-	} elseif ($dasar == 'Kondisi Siswa') {	
+	} elseif ($dasar == 'Student Conditions') {	
 		$query = "SELECT $tabel FROM jbsakad.kondisisiswa ORDER BY $tabel ";
 		$result = QueryDb($query);
 		$jum = @mysql_num_rows($result);
-	} elseif ($dasar == 'Status Siswa') {	
+	} elseif ($dasar == 'Student Status') {	
 		$query = "SELECT $tabel FROM jbsakad.statussiswa ORDER BY $tabel ";
 		$result = QueryDb($query);
 		$jum = @mysql_num_rows($result);
-	} elseif ($dasar == 'Pekerjaan Ayah' || $dasar == 'Pekerjaan Ibu') {	
+	} elseif ($dasar == 'Father Occupation' || $dasar == 'Mother Occupation') {	
 		$query = "SELECT pekerjaan FROM jbsumum.jenispekerjaan ORDER BY pekerjaan ";
 		$result = QueryDb($query);
 		$jum = @mysql_num_rows($result)+1;
-	} elseif ($dasar == 'Pendidikan Ayah' || $dasar == 'Pendidikan Ibu') {	
+	} elseif ($dasar == 'Father Education' || $dasar == 'Mother Education') {	
 		$query = "SELECT pendidikan FROM jbsumum.tingkatpendidikan ORDER BY pendidikan ";
 		$result = QueryDb($query);
 		$jum = @mysql_num_rows($result)+1;
-	/*} elseif ($dasar == 'Penghasilan Orang Tua') {		
+	/*} elseif ($dasar == 'Parent Income') {		
 		$batas = array(0,1000000,2500000,5000000);
 		$judul = array(1 => '< Rp 1000000','Rp 1000000 - Rp 2500000','Rp 2500000 - Rp 5000000','> Rp 5000000');
 		$jum = count($judul);*/
-	} elseif ($dasar == 'Agama' || $dasar == 'Suku') {	
+	} elseif ($dasar == 'Religion' || $dasar == 'Ethnicity') {	
 		$str = strtolower($dasar);	
 		$query = "SELECT $tabel FROM jbsumum.$tabel ORDER BY $str";
 		$result = QueryDb($query);
@@ -90,32 +90,32 @@ if ($iddasar!="12"){
 	
 	for ($i=1;$i<=$jum;$i++) {	
 		$field = "";
-		if ($dasar == 'Golongan Darah' || $dasar == 'Jenis Kelamin' || $dasar == 'Kewarganegaraan' ) {		
+		if ($dasar == 'Blood Type' || $dasar == 'Gender' || $dasar == 'Citizenship' ) {		
 			$filter = "1 AND s.$tabel = '".$row[$i-1]."'";
-		} elseif ($dasar == 'Penghasilan Orang Tua' ) {			
+		} elseif ($dasar == 'Parent Income' ) {			
 			$field = ", penghasilanayah+penghasilanibu";
 			$filter = "1 AND ".$batas[$i-1]." < penghasilanayah+penghasilanibu < ".$batas[$i]." GROUP BY penghasilanayah+penghasilanibu";
 			if ($i == $jum) {
 				$filter = "1 AND ".$batas[$i-1]." > penghasilanayah+penghasilanibu GROUP BY penghasilanayah+penghasilanibu";
 			} 
-		} elseif ($dasar == 'Status Aktif') {
+		} elseif ($dasar == 'Status Active') {
 			$filter = $row[$i-1];		
-		} elseif ($dasar=='Agama' || $dasar=='Suku' || $dasar=='Status Siswa' || $dasar=='Kondisi Siswa' || $dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
+		} elseif ($dasar=='Religion' || $dasar=='Ethnicity' || $dasar=='Student Status' || $dasar=='Student Conditions' || $dasar=='Father Occupation' || $dasar=='Mother Occupation' || $dasar=='Father Education' || $dasar=='Mother Education') {
 			$row = @mysql_fetch_row($result);
 			$judul[$i] = $row[0];
 			$filter = "1 AND s.$tabel = '$row[0]'";			
-			if ($dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
+			if ($dasar=='Father Occupation' || $dasar=='Mother Occupation' || $dasar=='Father Education' || $dasar=='Mother Education') {
 				if ($i == $jum) {
-					$judul[$i] = "Tidak ada data";
+					$judul[$i] = "No data.";
 					$filter = "1 AND s.$tabel is NULL";			
 				}
 			}
-		} elseif ($dasar == 'Tahun Kelahiran') {
+		} elseif ($dasar == 'Year of Birth') {
 			$field = ", YEAR(tgllahir)";
 			$filter = "1 GROUP BY YEAR(tgllahir)";	
 			$j = 1;
 			$jum = 0;		
-		} elseif ($dasar == 'Usia') {
+		} elseif ($dasar == 'Age') {
 			$field = ", YEAR(now()) - YEAR(tgllahir)";
 			$filter = "1 GROUP BY YEAR(now()) - YEAR(tgllahir)";	
 			$j = 1;
@@ -143,10 +143,10 @@ if ($iddasar!="12"){
 		$total = mysql_num_rows($res);
 		
 		while ($row1 = @mysql_fetch_row($res)) {			
-			if ($dasar=="Asal Sekolah" || $dasar=="Kode Pos Siswa" || $dasar=="Tahun Kelahiran" || $dasar=="Usia") { 
+			if ($dasar=="Past School" || $dasar=="Student Post Code" || $dasar=="Year of Birth" || $dasar=="Age") { 
 				$jdl = $row1[1];
 				if ($row1[1] == "") {
-					$jdl = "Tidak ada data";
+					$jdl = "No data.";
 				} 
 				$data[$j] = $row1[0];
 				$judul[$j] = $jdl;
@@ -203,7 +203,7 @@ if ($iddasar!="12"){
 	//=====================================================
 	
 	$sum = $j1 + $j2 +$j3 + $j4 + $j5;
-	$dasar="Penghasilan";
+	$dasar="Income";
 	$p[1]=round($j1/$sum*100,2);
 	$p[2]=round($j2/$sum*100,2);
 	$p[3]=round($j3/$sum*100,2);
@@ -218,7 +218,7 @@ if ($iddasar!="12"){
 	$jud[2]="Rp 1.000.000 - Rp 2.500.000";
 	$jud[3]="Rp 2.500.000 - Rp 5.000.000";
 	$jud[4]="> Rp 5.000.000";
-	$jud[5]="Tidak ada data";
+	$jud[5]="No data.";
 
 }
 
@@ -229,7 +229,7 @@ if ($iddasar!="12"){
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tabel Statistik</title>
+<title>Statistic Table</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -242,8 +242,8 @@ if ($iddasar!="12"){
     <!-- TABLE CONTENT -->    
 	<tr height="30" align="center" class="header">
     	<td width="*" ><?=$dasar?> </td>
-    	<td width="20%">Jumlah </td>
-    	<td width="25%">Prosentase</td>
+    	<td width="20%">Sum </td>
+    	<td width="25%">Percentage</td>
     	<? if ($lup==""){ ?>
         <td width="8%">&nbsp;</td>
   		<? } ?>
@@ -263,10 +263,10 @@ if ($iddasar!="12"){
 		<td height="25" align="center">
 	<?		if ($data[$i] != 0) { 
 				$judul1 = $judul[$i];
-				if ($judul[$i] == "Tidak ada data")
+				if ($judul[$i] == "No data.")
 					$judul1 = NULL;
 	?>
-       <a href="statistik_tampil.php?departemen=<?=$departemen?>&idangkatan=<?=$idangkatan?>&dasar=<?=$dasar?>&tabel=<?=$tabel?>&judul=<?=$judul1?>" target="detail_statistik"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('Lihat Detail!', this, event, '80px')"></a>         		
+       <a href="statistik_tampil.php?departemen=<?=$departemen?>&idangkatan=<?=$idangkatan?>&dasar=<?=$dasar?>&tabel=<?=$tabel?>&judul=<?=$judul1?>" target="detail_statistik"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('See Details', this, event, '80px')"></a>         		
 		<? 		}	?>
         </td>
 		<? 	} ?>
@@ -285,7 +285,7 @@ if ($iddasar!="12"){
 		?>
         <td height="25" align="center">
         <?	if ($j[$i] != 0) { ?>
-        <a href="statistik_tampil.php?dasar=<?=$dasar?>&departemen=<?=$departemen?>&idangkatan=<?=$idangkatan?>&iddasar=<?=$iddasar?>&keyword=<?=$i?>&judul=<?=$jud[$i]?>" target="detail_statistik"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('Lihat Detail!', this, event, '80px')">
+        <a href="statistik_tampil.php?dasar=<?=$dasar?>&departemen=<?=$departemen?>&idangkatan=<?=$idangkatan?>&iddasar=<?=$iddasar?>&keyword=<?=$i?>&judul=<?=$jud[$i]?>" target="detail_statistik"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('See Details', this, event, '80px')">
         
         </a>    
         <?	}?>

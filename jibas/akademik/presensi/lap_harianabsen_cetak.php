@@ -56,7 +56,7 @@ $row = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan Harian Data Siswa yang Tidak Hadir]</title>
+<title>JIBAS SIMAKA [Print Absent Student Daily Reports]</title>
 </head>
 
 <body>
@@ -67,15 +67,15 @@ $row = mysql_fetch_array($result);
 <?=getHeader($departemen)?>
 	
 <center>
-  <font size="4"><strong>LAPORAN HARIAN DATA SISWA YANG TIDAK HADIR</strong></font><br />
+  <font size="4"><strong>ABSENT STUDENT DAILY REPORT CARD</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td width="25%"><strong>Departemen</strong></td>
+	<td width="25%"><strong>Department</strong></td>
     <td><strong>: <?=$row['departemen']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 <tr>
@@ -83,16 +83,16 @@ $row = mysql_fetch_array($result);
     <td><strong>: <?=$row['semester']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
-    <td><strong>: <? if ($tingkat == -1) echo "Semua Tingkat"; else echo $row['tingkat']; ?></strong></td>
+	<td><strong>Grade</strong></td>
+    <td><strong>: <? if ($tingkat == -1) echo "All Tingkat"; else echo $row['tingkat']; ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelas</strong></td>
-    <td><strong>: <? if ($kelas == -1) echo "Semua Kelas"; else echo $row['kelas']; ?></strong></td>
+	<td><strong>Class</strong></td>
+    <td><strong>: <? if ($kelas == -1) echo "All Classes"; else echo $row['kelas']; ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Periode Presensi</strong></td>
-    <td><strong>: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></strong></td>
+	<td><strong>Period</strong></td>
+    <td><strong>: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -105,16 +105,16 @@ $row = mysql_fetch_array($result);
 ?>
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left" bordercolor="#000000">
    	<tr height="30" align="center">
-    	<td width="5%" class="header">No</td>
-		<td width="10%" class="header">N I S</td>
-        <td width="10%" class="header">Nama</td>
-   		<td width="5%" class="header">Kelas</td>
-        <td width="*" class="header">Ortu</td>
-   		<td width="5%" class="header">Hadir</td>
-		<td width="5%" class="header">Ijin</td>            
-		<td width="5%" class="header">Sakit</td>
-        <td width="5%" class="header">Alpa</td>
-        <td width="5%" class="header">Cuti</td>
+    	<td width="5%" class="header">#</td>
+		<td width="10%" class="header">Student ID</td>
+        <td width="10%" class="header">Name</td>
+   		<td width="5%" class="header">Class</td>
+        <td width="*" class="header">Parent</td>
+   		<td width="5%" class="header">Attend</td>
+		<td width="5%" class="header">Consent</td>            
+		<td width="5%" class="header">Ill</td>
+        <td width="5%" class="header">Absent</td>
+        <td width="5%" class="header">Leave</td>
         
     </tr>
 <?		
@@ -133,7 +133,7 @@ $row = mysql_fetch_array($result);
          <td>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
-                <td width="27%" >Handphone</td>
+                <td width="27%" >Mobile</td>
                 <td>:</td>
                 <td width="90%" ><?=$row[8]?> </td>  
             </tr>                
@@ -150,22 +150,22 @@ $row = mysql_fetch_array($result);
 				?>	</td>
             </tr>
             <tr>
-                <td valign="top">Alamat</strong></td>
+                <td valign="top">Address</strong></td>
                 <td valign="top">:</td>
               	<td><?=$row[10]?></td>
             </tr>
             <tr>
-                <td>Telepon</strong></td>
+                <td>Phone</strong></td>
               	<td>:</td>  
                 <td><?=$row[11]?></td>
             </tr>
             <tr>
-                <td>HP Siswa</strong></td>
+                <td>Student Mobile</strong></td>
               	<td>:</td>   
                 <td><?=$row[12]?></td>
             </tr>
             <tr>
-                <td>Email Siswa</strong></td>
+                <td>Student Email</strong></td>
               	<td>:</td>  
                 <td><?=$row[13]?></td>
             </tr>
@@ -187,7 +187,7 @@ $row = mysql_fetch_array($result);
 <tr>
 	<td><? 	if ($row[8] == 0) 
 			$tanda = "*";
-			echo "Ket: *Status siswa tidak aktif lagi";
+			echo "PS: *Student Status back to inactive";
     	?>
     </td>
 </tr>      

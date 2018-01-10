@@ -95,7 +95,7 @@ function tambah() {
 
 function del(replid) {
 //var pendidikan=document.getElementById('pendidikan').value;
-	if (confirm("Apakah anda yakin akan menghapus pendidikan ini?"))
+	if (confirm("Are you sure want to delete this Education?"))
 		document.location.href = "siswa_add_pendidikan.php?op=del&replid="+replid+"&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -136,7 +136,7 @@ windowIMA=opener.ref_del_pendidikan();
  
 
 </script>
-<title>JIBAS SIMAKA [Daftar Tingkat Pendidikan]</title>
+<title>JIBAS SIMAKA [Education Level List]</title>
 </head>
 
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#dcdfc4" onUnload="ByeWin()">
@@ -145,7 +145,7 @@ windowIMA=opener.ref_del_pendidikan();
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tingkat Pendidikan :.
+    .: Education Level :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -174,8 +174,8 @@ windowIMA=opener.ref_del_pendidikan();
     
    	<table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td align="right"><a href="#" onClick="refresh();"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')">&nbsp;Refresh</a>&nbsp;&nbsp;
-            <a href="#" onClick="JavaScript:tambah();"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')">&nbsp;Tambah Pendidikan</a></td>
+        <td align="right"><a href="#" onClick="refresh();"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')">&nbsp;Refresh</a>&nbsp;&nbsp;
+            <a href="#" onClick="JavaScript:tambah();"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')">&nbsp;Add Pendidikan</a></td>
     </tr>
 	</table>
  	</td>
@@ -185,8 +185,8 @@ windowIMA=opener.ref_del_pendidikan();
     <br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left">
 	<tr class="header" align="center" height="30">
-        <td width="10%">No</td>
-        <td width="*">Pendidikan</td>
+        <td width="10%">#</td>
+        <td width="*">Education</td>
         <td width="15%">&nbsp;</td>
 	</tr>
     <?
@@ -204,7 +204,7 @@ windowIMA=opener.ref_del_pendidikan();
         <td><?=$row['pendidikan']?></td>
         <td align="center">
         <a href="#" onClick="newWindow('siswa_add_pendidikan_edit.php?replid=<?=$replid?>',
-        'UbahPendidikan','400','240','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Tingkat Pendidikan!', this, event, '80px')"></a>&nbsp;<a href="#" onclick="del('<?=urlencode($replid)?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Tingkat Pendidikan!', this, event, '85px')"></a>        </td>
+        'UbahPendidikan','400','240','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Education Level', this, event, '80px')"></a>&nbsp;<a href="#" onclick="del('<?=urlencode($replid)?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Education Level', this, event, '85px')"></a>        </td>
 	</tr> 
      
     <?
@@ -240,20 +240,20 @@ windowIMA=opener.ref_del_pendidikan();
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="35%" align="left">Hal
+       	<td width="35%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -264,9 +264,9 @@ windowIMA=opener.ref_del_pendidikan();
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="35%" align="right">Jml baris per hal
+        <td width="35%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -284,9 +284,9 @@ windowIMA=opener.ref_del_pendidikan();
    	</tr>
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+    	<font size = "2" color ="red"><b>Data Not Found. 
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
         </b></font>
         </td>
@@ -297,7 +297,7 @@ windowIMA=opener.ref_del_pendidikan();
 </tr>
 <tr height="35">
 	<td colspan="3" align="center">
-    	<input class="but" type="button" value="Tutup" onClick="tutup()">
+    	<input class="but" type="button" value="Close" onClick="tutup()">
         <input type="hidden" name="pendidikan_kiriman" id="pendidikan_kiriman" value="<?=$pendidikan_kiriman?>" />
 	</td>
 </tr>

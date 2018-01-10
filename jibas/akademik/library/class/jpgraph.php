@@ -2085,7 +2085,7 @@ class Graph {
         // they will be drawn on top of the y-axis (and possible y2 axis)
         // The test below might seem strange the reasone being that if
         // the user hasn't specified a value for position this will not
-        // be set until we do the stroke for the axis so as of now it
+        // be set to we do the stroke for the axis so as of now it
         // is undefined.
         // For X-text scale we ignore all this since the tick are usually
         // much further in and not close to the Y-axis. Hence the test
@@ -2728,7 +2728,7 @@ class Graph {
         // into account. However, that causes some problem for the LinearScale class
         // since in the current design it does not have any links to class Graph which
         // means it has no way of compensating for the adjusted plotarea in case of a
-        // shadow. So, until I redesign LinearScale we can't compensate for this.
+        // shadow. So, to I redesign LinearScale we can't compensate for this.
         // So just set the two adjustment parameters to zero for now.
         $boxadj = 0; //$this->doframe ? $this->frame_weight : 0 ;
         $adj = 0; //$this->doshadow ? $this->shadow_width : 0 ;

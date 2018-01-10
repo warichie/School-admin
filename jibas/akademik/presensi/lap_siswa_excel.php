@@ -52,7 +52,7 @@ $row = mysql_fetch_array($result);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan Presensi Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Presence Report]</title>
 <style type="text/css">
 <!--
 .style1 {
@@ -71,22 +71,22 @@ $row = mysql_fetch_array($result);
 
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th scope="row" colspan="8"><span class="style1">Laporan Presensi Siswa</span></th>
+    <th scope="row" colspan="8"><span class="style1">Student Presence Report</span></th>
   </tr>
 </table>
 <br />
 <table width="27%">
 <tr>
-	<td><span class="style4">Siswa</span></td>
+	<td><span class="style4">Student</span></td>
     <td width="57%" colspan="7"><span class="style4">: <?=$nis.' - '.$row['nama']?></span></td>
 </tr>
 <!--<tr>
-	<td><strong>Nama</strong></td>
+	<td><strong>Name</strong></td>
     <td><strong>: <?=$row['nama']?></strong></td>
 </tr>-->
 <tr>
-	<td><span class="style4">Periode Presensi</span></td>
-    <td colspan="7"><span class="style4">: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></span></td>
+	<td><span class="style4">Period</span></td>
+    <td colspan="7"><span class="style4">: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></span></td>
 </tr>
 </table>
 <br />
@@ -103,17 +103,17 @@ $row = mysql_fetch_array($result);
 	if ($jum_hadir > 0) { 
 	?>
 	
-    <strong>Data Kehadiran</strong>
+    <strong>Attendance Data</strong>
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="center">
    	<tr height="30" align="center">		
-    	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>No</strong></td>
-      	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Tanggal</strong></td>            
-      	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Jam</strong></td>
-        <td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Kelas</strong></td>
-      	<td width="25%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Catatan</strong></td>
-      	<td width="15%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Pelajaran</strong></td>
-      	<td width="15%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Guru</strong></td>
-      	<td width="25%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Materi</strong></td>       
+    	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>#</strong></td>
+      	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Date</strong></td>            
+      	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Time</strong></td>
+        <td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Class</strong></td>
+      	<td width="25%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Notes</strong></td>
+      	<td width="15%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Class Subject</strong></td>
+      	<td width="15%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Teacher</strong></td>
+      	<td width="25%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Class Subject</strong></td>       
     </tr>
 	<? 
     $cnt = 1;
@@ -137,18 +137,18 @@ $row = mysql_fetch_array($result);
 <? 	} 
 	if ($jum_absen > 0) { 
 	?>
-   	<br /><strong>Data Ketidakhadiran</strong>
+   	<br /><strong>Absent Data</strong>
     
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="center">
     <tr height="30" align="center">		
-		<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>No</strong></td>
-      	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Kelas</strong></td>
-      	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Tanggal</strong></td>            
-      	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Jam</strong></td>
-      	<td width="25%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Catatan</strong></td>
-      	<td width="15%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Pelajaran</strong></td>
-   	  <td width="15%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Guru</strong></td>
-      	<td width="25%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Materi</strong></td>      	
+		<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>#</strong></td>
+      	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Class</strong></td>
+      	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Date</strong></td>            
+      	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Time</strong></td>
+      	<td width="25%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Notes</strong></td>
+      	<td width="15%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Class Subject</strong></td>
+   	  <td width="15%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Teacher</strong></td>
+      	<td width="25%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Class Subject</strong></td>      	
     </tr>
 	<? 
     $cnt = 1;
@@ -174,20 +174,20 @@ $row = mysql_fetch_array($result);
 	<br />
     <table width="100%" border="0" align="center">
     <tr>
-        <td width="21%" ><span class="style7"><b>Jumlah Kehadiran</b></span></td>
+        <td width="21%" ><span class="style7"><b>Sum Attend</b></span></td>
         <td><span class="style7"><b>: <?=$jum_hadir ?></b></span></td>
     </tr>
     <tr>
-        <td><span class="style7"><b>Jumlah Ketidakhadiran</b></span></td>
+        <td><span class="style7"><b>Sum Absent</b></span></td>
         <td><span class="style7"><b>: <?=$jum_absen ?></b></span></td>
     </tr>
     <tr>
-        <td><span class="style7"><b>Jumlah Seharusnya</b></span></td>
+        <td><span class="style7"><b>Due</b></span></td>
         <td><span class="style7"><b>: <? $total = $jum_hadir+$jum_absen;
                 echo $total ?></b></span></td>
     </tr>
     <tr>
-        <td><span class="style7"><b>Presentase Kehadiran</b></span></td>
+        <td><span class="style7"><b>Attendance Percentage</b></span></td>
         <td><span class="style7"><b>: <? 	if ($total == 0) 
                     $total = 1;
                 $prs = (( $jum_hadir/$total)*100) ;

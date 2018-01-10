@@ -84,7 +84,7 @@ function hapus(idbarang, evt){
 	if(e.nodeName=='DIV') {
 		return false;
 	} else {
-		var msg = "Anda yakin akan menghapus barang ini?";
+		var msg = "Are you sure want delete this item?";
 		if (confirm(msg))
 			document.location.href="Inventory.Right.php?op=EraseBarang&idbarang="+idbarang+"&idkelompok=<?=$_REQUEST[idkelompok]?>";	
 	}
@@ -113,10 +113,10 @@ function Excel(idkelompok)
 
 <body>
 <fieldset style="border:#336699 1px solid; background-color:#FFFFFF" >
-<legend style="background-color:#336699; color:#FFFFFF; font-size:10px; font-weight:bold; padding:5px">&nbsp;Kelompok&nbsp;<?=stripslashes($namakelompok)?>&nbsp;</legend>
+<legend style="background-color:#336699; color:#FFFFFF; font-size:10px; font-weight:bold; padding:5px">&nbsp;Group&nbsp;<?=stripslashes($namakelompok)?>&nbsp;</legend>
 <div align="right">
-  <a href="javascript:TambahBarang('<?=$idkelompok?>')"><img src="../images/ico/tambah.png" border="0" />&nbsp;Tambah Barang</a>&nbsp;&nbsp;|&nbsp;
-  <a href="javascript:Cetak('<?=$idkelompok?>')"><img src="../images/ico/print.png" border="0" />&nbsp;Cetak</a>&nbsp;&nbsp;|&nbsp;
+  <a href="javascript:TambahBarang('<?=$idkelompok?>')"><img src="../images/ico/tambah.png" border="0" />&nbsp;Add Item</a>&nbsp;&nbsp;|&nbsp;
+  <a href="javascript:Cetak('<?=$idkelompok?>')"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>&nbsp;&nbsp;|&nbsp;
   <a href="javascript:Excel('<?=$idkelompok?>')"><img src="../images/ico/excel.png" border="0" />&nbsp;Excel</a>
 </div>
 <?
@@ -148,10 +148,10 @@ while ($row = @mysql_fetch_array($result))
 </div>
 <img src="gambar.php?table=jbsfina.barang&replid=<?=$row[replid]?>"  style="padding:2px" />
 <div align="left">
-Jumlah: <?=$jumlah?>&nbsp;<?=$satuan?>&nbsp;@<?=FormatRupiah($harga)?><br />
+Sum: <?=$jumlah?>&nbsp;<?=$satuan?>&nbsp;@<?=FormatRupiah($harga)?><br />
 Total: <?=FormatRupiah($total)?><br>
-Tanggal: <?=substr($row[tglperolehan],8,2)."-".substr($row[tglperolehan],5,2)."-".substr($row[tglperolehan],0,4)?><br />
-<img src="../images/ico/ubah.png" border="0" onclick="ubah('<?=$row[replid]?>', event)" title="Ubah" style="cursor:pointer; z-index:100" />&nbsp;<img src="../images/ico/hapus.png" border="0" onclick="hapus('<?=$row[replid]?>', event)" title="Hapus" style="cursor:pointer; z-index:100" />
+Date: <?=substr($row[tglperolehan],8,2)."-".substr($row[tglperolehan],5,2)."-".substr($row[tglperolehan],0,4)?><br />
+<img src="../images/ico/ubah.png" border="0" onclick="ubah('<?=$row[replid]?>', event)" title="Edit" style="cursor:pointer; z-index:100" />&nbsp;<img src="../images/ico/hapus.png" border="0" onclick="hapus('<?=$row[replid]?>', event)" title="Delete" style="cursor:pointer; z-index:100" />
 </div>
 </div>
 </td>
@@ -174,7 +174,7 @@ $cnt++;
 ?>
 </table>
 <? } else { ?>
-<div align="center"><span style="font-family:verdana; font-size:12px; font-style:italic; color:#666666">Tidak ada Data Barang Untuk Kelompok <?=stripslashes($namakelompok)?></span></div>
+<div align="center"><span style="font-family:verdana; font-size:12px; font-style:italic; color:#666666">No Item Data For Group <?=stripslashes($namakelompok)?></span></div>
 <? } ?>
 </fieldset>
 </body>

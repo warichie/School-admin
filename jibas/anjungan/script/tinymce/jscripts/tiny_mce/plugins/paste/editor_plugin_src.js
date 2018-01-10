@@ -410,7 +410,7 @@
 				]);
 
 				// Remove bad attributes, with or without quotes, ensuring that attribute text is really inside a tag.
-				// If JavaScript had a RegExp look-behind, we could have integrated this with the last process() array and got rid of the loop. But alas, it does not, so we cannot.
+				// If JavaScript had a RegExp look-behind, we could have integrated this with the last process() array and got rid of the loop. But alas, it does not, so we should not.
 				do {
 					len = h.length;
 					h = h.replace(/(<[a-z][^>]*\s)(?:id|name|language|type|on\w+|\w+:\w+)=(?:"[^"]*"|\w+)\s?/gi, "$1");
@@ -791,7 +791,7 @@
 					[/<\/t[dh]>\s*<t[dh][^>]*>/gi, "\t"],		// Table cells get tabs betweem them
 					/<[a-z!\/?][^>]*>/gi,						// Delete all remaining tags
 					[/&nbsp;/gi, " "],							// Convert non-break spaces to regular spaces (remember, *plain text*)
-					[/(?:(?!\n)\s)*(\n+)(?:(?!\n)\s)*/gi, "$1"] // Cool little RegExp deletes whitespace around linebreak chars.
+					[/(?:(?\n)\s)*(\n+)(?:(?\n)\s)*/gi, "$1"] // Cool little RegExp deletes whitespace around linebreak chars.
 				]);
 
 				var maxLinebreaks = Number(getParam(ed, "paste_max_consecutive_linebreaks"));

@@ -72,7 +72,7 @@ function dotnet(){
 	parent.framecenter.location.href="home.php";
 }
 function logout() {
-    if (confirm("Anda yakin akan menutup Aplikasi Manajemen Akademik ini?"))
+    if (confirm("Are you sure want to close this Academic Management Application?"))
 		document.location.href="logout.php";
 }
 function show_content(x) {
@@ -86,7 +86,7 @@ function ganti() {
 	var login=document.getElementById('login').value;
 	var addr="pengaturan/ganti_password2.php";
 	if (login=="LANDLORD" || login=="landlord"){
-		alert ('Maaf, Administrator tidak dapat mengganti password !');
+		alert ('Sorry, but Administrator should not change the password ');
 		parent.framecenter.location.href="center.php";
 	} else {
 		newWindow(addr,'GantiPasswordUser','419','200','resizeable=0,scrollbars=0,status=0,toolbar=0');
@@ -118,7 +118,7 @@ function hide_info(){
 		<td>
 			<img src="images/Akademik2_01.png" width="25" height="13" alt=""></td>
 		<td width="50%" height="13" valign="bottom" background="images/Akademik2_02.png">
-        <!--a class="style9" style="color:#FFFFFF; cursor:pointer" onClick="show_info()" >Tentang JIBAS</a-->		</td>
+        <!--a class="style9" style="color:#FFFFFF; cursor:pointer" onClick="show_info()" >About JIBAS</a-->		</td>
 		<td width="50%" align="right" valign="bottom" background="images/Akademik2_02.png">
           
         </td>
@@ -135,41 +135,41 @@ function hide_info(){
         <!-- Begin Content ================================================================================================-->
 		<table border="0" cellpadding="0" cellspacing="0" id="menu">
 		  <tr>
-		    <td style="padding-right:5px"  valign="top"> <a style="text-decoration:none" href="referensi.php" target="content" onClick="MM_nbGroup('down','group1','referensioff','images/ico/Icon Header/referensi2.png',1)" onMouseOver="MM_nbGroup('over','referensioff','images/ico/Icon Header/referensi2.png','',1)" onMouseOut="MM_nbGroup('out')"><div align="center"> <img src="images/ico/Icon Header/referensi.png" alt="REFERENSI" name="referensioff" width="60" height="35" border="0" id="referensioff" onload="" /><br />
-		        <span class="style7">Referensi</span></div></a></td>
+		    <td style="padding-right:5px"  valign="top"> <a style="text-decoration:none" href="referensi.php" target="content" onClick="MM_nbGroup('down','group1','referensioff','images/ico/Icon Header/referensi2.png',1)" onMouseOver="MM_nbGroup('over','referensioff','images/ico/Icon Header/referensi2.png','',1)" onMouseOut="MM_nbGroup('out')"><div align="center"> <img src="images/ico/Icon Header/referensi.png" alt="REFERENCE" name="referensioff" width="60" height="35" border="0" id="referensioff" onload="" /><br />
+		        <span class="style7">Reference</span></div></a></td>
 		 
-		    <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="siswa_baru.php" target="content" onClick="MM_nbGroup('down','group1','calonsiswaoff','images/ico/Icon Header/calon2.png',0)" onMouseOver="MM_nbGroup('over','calonsiswaoff','images/ico/Icon Header/calon2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/calon.png" alt="PENERIMAAN SISWA BARU" name="calonsiswaoff" width="60" height="35" border="0" id="calonsiswaoff" onload="" /><br />
-		      <span class="style7">P S B</span></a>		    </div></td>
+		    <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="siswa_baru.php" target="content" onClick="MM_nbGroup('down','group1','calonsiswaoff','images/ico/Icon Header/calon2.png',0)" onMouseOver="MM_nbGroup('over','calonsiswaoff','images/ico/Icon Header/calon2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/calon.png" alt="NEW STUDENT ADMISSION" name="calonsiswaoff" width="60" height="35" border="0" id="calonsiswaoff" onload="" /><br />
+		      <span class="style7">New Student Admission</span></a>		    </div></td>
 		
-		    <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="guru.php" target="content" onClick="MM_nbGroup('down','group1','guruoff','images/ico/Icon Header/guru2.png',0)" onMouseOver="MM_nbGroup('over','guruoff','images/ico/Icon Header/guru2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/guru.png" alt="GURU &amp; PELAJARAN" name="guruoff" width="60" height="35" border="0" id="guruoff" onload="" /><br />
-		        <span class="style7">Guru&nbsp;&amp;<br />Pelajaran</span></a></div></td>
+		    <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="guru.php" target="content" onClick="MM_nbGroup('down','group1','guruoff','images/ico/Icon Header/guru2.png',0)" onMouseOver="MM_nbGroup('over','guruoff','images/ico/Icon Header/guru2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/guru.png" alt="GURU &amp; LESSON" name="guruoff" width="60" height="35" border="0" id="guruoff" onload="" /><br />
+		        <span class="style7">Teacher&nbsp;&amp;<br />Class Subject</span></a></div></td>
 		 
-		    <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="jadwal.php" target="content" onClick="MM_nbGroup('down','group1','jadwaloff','images/ico/Icon Header/jadwal2.png',0)" onMouseOver="MM_nbGroup('over','jadwaloff','images/ico/Icon Header/jadwal2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/jadwal.png" alt="JADWAL" name="jadwaloff" width="60" height="35" border="0" id="jadwaloff" onload="" /><br />
-		        <span class="style7">Jadwal&nbsp;&amp;<br />Kalender</span></a></div></td>
+		    <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="jadwal.php" target="content" onClick="MM_nbGroup('down','group1','jadwaloff','images/ico/Icon Header/jadwal2.png',0)" onMouseOver="MM_nbGroup('over','jadwaloff','images/ico/Icon Header/jadwal2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/jadwal.png" alt="SCHEDULE" name="jadwaloff" width="60" height="35" border="0" id="jadwaloff" onload="" /><br />
+		        <span class="style7">Calendar&nbsp;&amp;<br />Schedule</span></a></div></td>
 		
-		    <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="siswa.php" target="content" onClick="MM_nbGroup('down','group1','siswaoff','images/ico/Icon Header/siswa2.png',0)" onMouseOver="MM_nbGroup('over','siswaoff','images/ico/Icon Header/siswa2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/siswa.png" alt="KESISWAAN" name="siswaoff" width="60" height="35" border="0" id="siswaoff" onload="" /><br />
-		        <span class="style7">Kesiswaan</span></a></div></td>
+		    <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="siswa.php" target="content" onClick="MM_nbGroup('down','group1','siswaoff','images/ico/Icon Header/siswa2.png',0)" onMouseOver="MM_nbGroup('over','siswaoff','images/ico/Icon Header/siswa2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/siswa.png" alt="STUDENT" name="siswaoff" width="60" height="35" border="0" id="siswaoff" onload="" /><br />
+		        <span class="style7">Student</span></a></div></td>
 		
 		    <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="presensi.php" target="content" onClick="MM_nbGroup('down','group1','presensioff','images/ico/Icon Header/presensi2.png',0)" onMouseOver="MM_nbGroup('over','presensioff','images/ico/Icon Header/presensi2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/presensi.png" alt="PRESENSI" name="presensioff" width="60" height="35" border="0" id="presensioff" onload="" /><br />
-		        <span class="style7">Presensi</span></a></div></td>
+		        <span class="style7">Presence</span></a></div></td>
 		
 		    <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="penilaian.php" target="content" onClick="MM_nbGroup('down','group1','penilaianoff','images/ico/Icon Header/penilaian2.png',0)" onMouseOver="MM_nbGroup('over','penilaianoff','images/ico/Icon Header/penilaian2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/penilaian.png" alt="" name="penilaianoff" width="60" height="35" border="0" onLoad="" /><br />
 		      
-		        <span class="style7">Penilaian</span></a></div></td>
+		        <span class="style7">Index</span></a></div></td>
 		    
 		   <td style="padding-right:5px" valign="top">  <div align="center"><a style="text-decoration:none" href="kelulusan.php" target="content" class="style3" onClick="MM_nbGroup('down','group1','kenaikan','images/ico/Icon Header/kenaikan2.png',0)" onMouseOver="MM_nbGroup('over','kenaikan','images/ico/Icon Header/kenaikan2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/kenaikan.png" alt="" name="kenaikan" width="60" height="35" border="0" onLoad="" /><br />
-		     <span class="style7">Kenaikan&nbsp;&amp;<br />Kelulusan</span></a></div></td>
+		     <span class="style7">Promoted to next Grade&nbsp;&amp;<br />Graduation</span></a></div></td>
             
                <td style="padding-right:5px" valign="top"> <div align="center"> 
-				<a style="text-decoration:none" href="mutasi.php" target="content" onClick="MM_nbGroup('down','group1','mutasioff','images/ico/Icon Header/mutasi2.png',0)" onMouseOver="MM_nbGroup('over','mutasioff','images/ico/Icon Header/mutasi2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/mutasi.png" alt="MUTASI" name="mutasioff" width="60" height="35" border="0" id="mutasioff" onload="" /><br />
-                <span class="style7">Mutasi</span></a></div></td>
+				<a style="text-decoration:none" href="mutasi.php" target="content" onClick="MM_nbGroup('down','group1','mutasioff','images/ico/Icon Header/mutasi2.png',0)" onMouseOver="MM_nbGroup('over','mutasioff','images/ico/Icon Header/mutasi2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/mutasi.png" alt="MUTATION" name="mutasioff" width="60" height="35" border="0" id="mutasioff" onload="" /><br />
+                <span class="style7">Mutation</span></a></div></td>
            
             
 		       <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="usermenu.php" target="content"  onClick="MM_nbGroup('down','group1','user','images/ico/Icon Header/pengaturan2.png',0)" onMouseOver="MM_nbGroup('over','user','images/ico/Icon Header/pengaturan2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/pengaturan.png" alt="Manajemen User" name="user" width="60" height="35" border="0" onLoad="" /><br />
-	            <span class="style7">Pengaturan</span></a></div></td>
+	            <span class="style7">Settings</span></a></div></td>
                 
                 <td style="padding-right:5px" valign="top"> <div align="center"> <a style="text-decoration:none" href="javascript:logout();"  onMouseOver="MM_nbGroup('over','logout','images/ico/Icon Header/logout2.png','',0)" onMouseOut="MM_nbGroup('out')"><img src="images/ico/Icon Header/logout.png" alt="Logout" name="logout" width="60" height="35" border="0" onLoad="" /><br />
-	            <span class="style7">Keluar</span></a></div></td>
+	            <span class="style7">Logout</span></a></div></td>
 		  </tr>
 		  </table>		</td>
 		<td>

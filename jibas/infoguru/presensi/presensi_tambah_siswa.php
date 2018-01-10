@@ -68,7 +68,7 @@ if (isset($_REQUEST['simpan'])) {
 }
 
 //$status = 0;
-//$st = array('Hadir', 'Ijin', 'Sakit', 'Alpha', '(tidak ada data)');
+//$st = array('Attend', 'Consent', 'Ill', 'Absent', '(no data)');
 	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -77,7 +77,7 @@ if (isset($_REQUEST['simpan'])) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Tambah Siswa Pada Presensi Pelajaran]</title>
+<title>JIBAS TEACHERS INFO [Add Student in Class Presence]</title>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -88,8 +88,8 @@ function siswa(id) {
 	var tingkat = document.getElementById('tingkat').value;
 	var tahunajaran = document.getElementById('tahunajaran').value;
 	var kelas = document.getElementById('kelas').value;
-	//newWindow('daftarsiswa.php?flag=0&departemen='+departemen+'&tingkat='+tingkat+'&tahunajaran='+tahunajaran+'&kelas='+kelas, 'Siswa','600','500','resizable=1,scrollbars=1,status=0,toolbar=0');
-	newWindow('../library/siswa.php?flag=0&departemen='+departemen+'&tingkat='+tingkat+'&tahunajaran='+tahunajaran+'&id='+id, 'CariSiswa','600','600','resizable=1,scrollbars=1,status=0,toolbar=0');	//newWindow('daftarsiswa.php?flag=0&departemen='+departemen+'&tingkat='+tingkat+'&tahunajaran='+tahunajaran+'&kelas='+kelas, 'Siswa','600','500','resizable=1,scrollbars=1,status=0,toolbar=0');
+	//newWindow('daftarsiswa.php?flag=0&departemen='+departemen+'&tingkat='+tingkat+'&tahunajaran='+tahunajaran+'&kelas='+kelas, 'Student','600','500','resizable=1,scrollbars=1,status=0,toolbar=0');
+	newWindow('../library/siswa.php?flag=0&departemen='+departemen+'&tingkat='+tingkat+'&tahunajaran='+tahunajaran+'&id='+id, 'CariSiswa','600','600','resizable=1,scrollbars=1,status=0,toolbar=0');	//newWindow('daftarsiswa.php?flag=0&departemen='+departemen+'&tingkat='+tingkat+'&tahunajaran='+tahunajaran+'&kelas='+kelas, 'Student','600','500','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
 function acceptSiswa(nis, nama, i) {
@@ -102,7 +102,7 @@ function acceptSiswa(nis, nama, i) {
 }
 
 function tambah() {		
-	alert ('udah kepilih');
+	alert ('Already selected');
 	//var siswa = document.getElementById("siswa").value;
 	//var pilih = document.getElementById("pilih").value;
 	window.close();
@@ -137,19 +137,19 @@ function show(x) {
 <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-	<!--<td class="header" colspan="5" align="center">Tambah Siswa Pada Presensi Pelajaran</td>-->
-    <td align="left" colspan="2"><font size="+2" style="background-color:#FF9900">&nbsp;&nbsp;</font>&nbsp;<span class="style1">Tambah Siswa Pada Presensi Pelajaran</span></td>
+	<!--<td class="header" colspan="5" align="center">Add Student in Class Presence</td>-->
+    <td align="left" colspan="2"><font size="+2" style="background-color:#FF9900">&nbsp;&nbsp;</font>&nbsp;<span class="style1">Add Student in Class Presence</span></td>
 </tr>
-    <!--<input type="button" name="pilih" class="but" id="cari" value="Cari Siswa" onclick="siswa()" /></td></tr>-->
+    <!--<input type="button" name="pilih" class="but" id="cari" value="Search" onclick="siswa()" /></td></tr>-->
 
 <tr>
 	<td colspan="2">
 	<table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0" border="1">
 	<tr height="30">		
         <td class="header" align="center" width="5%"></td>
-        <td class="header" align="center" width="10%">NIS</td>
-        <td class="header" align="center" width="20%">Nama</td>
-        <td class="header" align="center" width="65%">Catatan</td>
+        <td class="header" align="center" width="10%">Student ID</td>
+        <td class="header" align="center" width="20%">Name</td>
+        <td class="header" align="center" width="65%">Notes</td>
     </tr>
 		       
 	<? 
@@ -165,7 +165,7 @@ function show(x) {
         <td align="center">
         
         <a href="JavaScript:siswa(<?=$j?>)">
-        <!--<a href="JavaScript:hapus()" title="Hapus">--><img src="../images/ico/cari.png" border="0"></a>
+        <!--<a href="JavaScript:hapus()" title="Delete">--><img src="../images/ico/cari.png" border="0"></a>
         </td>
         <td align="center">
         <input type="text" name="nis_siswa<?=$j?>" id="nis_siswa<?=$j?>" readonly class="disabled" size="10" onClick="siswa(<?=$j?>)"/>          
@@ -189,9 +189,9 @@ function show(x) {
 	<td align="right" id="tambah" width="50%">
    		
     </td>
-    <!--<input type="submit" name="simpan" value="Simpan" class="but" />-->
+    <!--<input type="submit" name="simpan" value="Save" class="but" />-->
     <td width="50%">
-    <input type="button" class="but" name="tutup" id="tutup" value="Tutup" onClick="window.close()" /></td>
+    <input type="button" class="but" name="tutup" id="tutup" value="Close" onClick="window.close()" /></td>
 </tr>	
 <!-- END OF TABLE UTAMA -->
 </table>

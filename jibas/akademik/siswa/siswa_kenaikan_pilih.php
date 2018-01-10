@@ -107,8 +107,8 @@ if ($op=="x2378e23dkofh73n25ki9234"){
 	$row_jum_kelas_tujuan=mysql_fetch_row($result_jum_kelas_tujuan);
 	
 	if ((int)$kap_kelas_tujuan <= (int)$row_jum_kelas_tujuan[0]){
-		$ERROR_MSG = "Kapasitas kelas tujuan sudah penuh. Silahkan pilih kelas tujuan lain!";
-	} else { // Jika jumlah murid kelas tujuan < dari kapasitasnya 
+		$ERROR_MSG = "Destination class capacity is full. Please choose another class.";
+	} else { // Jika jumlah murid kelas tujuan < from kapasitasnya 
 		$tahunsekarang=date(Y);
 		$bulansekarang=date(m);
 		$tanggalsekarang=date(j);
@@ -149,7 +149,7 @@ if ($op=="x2378e23dkofh73n25ki9234"){
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kenaikan Kelas[Pilih]</title>
+<title>Grade Promotion [Select]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -179,23 +179,23 @@ function pindah_siswa(nis,idkelas, i) {
 	var jenis = document.getElementById("jenis").value;
 	
 	if (kelas == kelastujuan){
-		alert ('Anda tidak dapat memindahkan siswa ke kelas yang sama !');
+		alert ('You should not transfer the student to the same class');
 		return false;
 	}	
 	if (tahunajarantujuan.length==0){
-		alert ('Tidak ada tahunajaran tujuan yang lebih tinggi!');
+		alert ('No Year of Teaching destination higher');
 		return false;
 	}	
 	if (tingkattujuan.length==0){
-		alert ('Tidak ada tingkat tujuan yang lebih tinggi!');
+		alert ('No higher destination grade');
 		return false;
 	}		
 	if (kelastujuan.length==0){
-		alert ('Tidak ada kelas tujuan yang lebih tinggi atau kelas tujuan yang aktif!');
+		alert ('No higher destination class or active destination class');
 		return false;
 	}
 		
-	if (confirm("Apakah anda yakin akan menaikan siswa ini ke tingkat lebih tinggi?")){
+	if (confirm("Are you sure want to send this Student to the higher grade?")){
 		parent.siswa_kenaikan_tujuan.location.href = "siswa_kenaikan_tujuan.php?op=x2378e23dkofh73n25ki9234&departemen=<?=$departemen?>&tingkat="+tingkattujuan+"&tahunajaran="+tahunajarantujuan+"&tahunajaranawal="+tahunajaran+"&tingkatawal="+tingkat+"&kelas="+kelastujuan+"&nis="+nis+"&ket="+ket+"&kelasawal="+kelas;
 		refresh_pilih(i);
 	}
@@ -329,14 +329,14 @@ function refresh_pilih(i) {
 	<td align="left" valign="top">
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 	<tr align="center">
-		<td width="6%" height="30" rowspan="2" class="header">No</td>
-		<td width="15%" height="30" rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nis','<?=$urutan?>')">N I S <?=change_urut('s.nis',$urut,$urutan)?></td>
-		<td width="*" height="30" rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nama','<?=$urutan?>')" >Nama <?=change_urut('s.nama',$urut,$urutan)?></td>
-		<td height="30" width="14%"rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('k.kelas','<?=$urutan?>')">Kelas <?=change_urut('k.kelas',$urut,$urutan)?></td>
-		<td height="15" colspan="2" class="header">Kenaikan</td>
+		<td width="6%" height="30" rowspan="2" class="header">#</td>
+		<td width="15%" height="30" rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nis','<?=$urutan?>')">Student ID <?=change_urut('s.nis',$urut,$urutan)?></td>
+		<td width="*" height="30" rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('s.nama','<?=$urutan?>')" >Name <?=change_urut('s.nama',$urut,$urutan)?></td>
+		<td height="30" width="14%"rowspan="2" class="header" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urutan('k.kelas','<?=$urutan?>')">Class <?=change_urut('k.kelas',$urut,$urutan)?></td>
+		<td height="15" colspan="2" class="header">Grade Promotion</td>
 	</tr>
     <tr>
-      	<td width="26%" class="header" align="center">Keterangan</td>
+      	<td width="26%" class="header" align="center">Info</td>
       	<td width="8%" class="header">&nbsp;</td>
     </tr>
 <?		if ($page==0)
@@ -354,7 +354,7 @@ function refresh_pilih(i) {
         <td><a href="#" onClick="newWindow('../library/detail_siswa.php?replid=<?=$row_siswa[4]?>', 'DetailSiswa','800','650','resizable=1,scrollbars=1,status=0,toolbar=0')"><?=$row_siswa[1]?></a></td>
         <td align="center"><?=$row_siswa[5]." - ".$row_siswa[3]?></td>
         <td align="center"><input type="text" size="15" maxlength="255" id="ket_<?=$cnt?>" name="ket_<?=$row_siswa[0]?>" onKeyPress="return focusNext('ket_<?=$cnt+1?>', event)" value="<? if ($_REQUEST['count'] == $cnt) echo $ket ?>"/></td>
-        <td align="center"><input type="button" class="but" value=" > " onClick="pindah_siswa('<?=$row_siswa[0]?>', '<?=$row_siswa[2]?>',<?=$cnt?>)" onMouseOver="showhint('Klik untuk lulus!', this, event, '80px')"/></td>
+        <td align="center"><input type="button" class="but" value=" > " onClick="pindah_siswa('<?=$row_siswa[0]?>', '<?=$row_siswa[2]?>',<?=$cnt?>)" onMouseOver="showhint('Click to graduate', this, event, '80px')"/></td>
   	</tr>
 <?			$cnt++;
 		}
@@ -387,20 +387,20 @@ function refresh_pilih(i) {
     <td>
     <table border="0"width="100%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Hal
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    	<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    	<input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -411,9 +411,9 @@ function refresh_pilih(i) {
 				 
 	    }*/
 		?>
-	    <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	    <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jml baris per hal
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -429,8 +429,8 @@ function refresh_pilih(i) {
 	<tr>
 		<td align="center" valign="middle" height="200">
 
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
-        <br />Tambah data siswa pada departemen <?=$departemen?> di menu Kesiswaan pada bagian Pendataan Siswa.
+    	<font size = "2" color ="red"><b>Data Not Found. 
+        <br />Add Student data on Department <?=$departemen?> in the Student menu on Student Data Collection section.
        	</b></font>
         
 		</td>
@@ -442,8 +442,8 @@ function refresh_pilih(i) {
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">    	  	
-    	<font size="2" color="#757575"><b>Klik pada tombol &quot;Tampil&quot; atau &quot;Cari&quot; untuk
-      menampilkan daftar siswa yang akan dinaikkelaskan &nbsp;</b></font>
+    	<font size="2" color="#757575"><b>Click on Show or Search to
+      show promoted student list</b></font>
  	</td>
 	</tr>
 	</table>

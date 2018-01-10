@@ -62,7 +62,7 @@ if ($_REQUEST['action'] <> "manual")
 	}
 }
 
-// ambil idjenisujian dan idpelajaran
+// ambil idjenisujian and idpelajaran
 $sql = "SELECT idpelajaran, idjenisujian 
 		FROM jbsakad.aturannhb 
 		WHERE replid = '$idaturan'";
@@ -170,7 +170,7 @@ else
 	RollbackTrans();		
 	CloseDb();?>
 	<script language="javascript">
-		alert ('Data gagal disimpan');
+		alert ('Failed to save data');
 	</script>
 <? 
 }	

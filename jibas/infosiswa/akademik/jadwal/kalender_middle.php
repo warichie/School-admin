@@ -26,14 +26,14 @@ require_once('../require/config.php');
 require_once('../require/db_functions.php');
 openDb();
 	
-		 $query="SELECT * FROM sistoakademik.kalenderakademik WHERE Departemen='".$_GET['departemen']."'";							
+		 $query="SELECT * FROM sistoakademik.kalenderakademik WHERE Department='".$_GET['departemen']."'";							
 			
 		$result=querydb($query);		
 		
 		
 		if(!empty($_GET['kalender']))
 			{
-			$query1="SELECT * FROM sistoakademik.kalenderakademik WHERE Departemen='".$_GET['departemen']."' AND Replid=".$_GET['kalender'];							
+			$query1="SELECT * FROM sistoakademik.kalenderakademik WHERE Department='".$_GET['departemen']."' AND Replid=".$_GET['kalender'];							
 			
 			$result2=querydb($query1);		
 
@@ -79,7 +79,7 @@ function ganti(){
 }
 
 function hapus(){
-	tanya=confirm('Apakah anda yakin untuk menghapus data ini?');
+	tanya=confirm('Are you sure want to delete this data?');
 	if(tanya==true)
 		{
 			a=document.form1.kalender.value;
@@ -90,12 +90,12 @@ function hapus(){
 <form name="form1" method="post" action="">
   <table width="80%"  border="0" align="center">
     <tr>
-      <td width="139">Kalender Akademik</td>
+      <td width="139">Academic Calendar</td>
       <td width="34">:</td>
       <td colspan="2"><table width="80%"  border="0">
           <tr>
             <td width="10">			<select name="kalender" id="kalender" onChange="ganti()">
-							<option value="">--Pilih Kalender--</option>
+							<option value="">--Select Calendar--</option>
             <? 
 					while($fetch=mysql_fetch_array($result))
 						{
@@ -123,12 +123,12 @@ function hapus(){
 	if(!empty($_GET['kalender'])){
 	?>
     <tr>
-      <td>Periode</td>
+      <td>Period</td>
       <td>:</td>
       <td colspan="2"><table  border="0">
         <tr>
           <td width="100"><?=$fetch1['TglMulai'];?></td>
-          <td width="50" align="center">s/d</td>
+          <td width="50" align="center">to</td>
           <td width="100"><?=$fetch1['TglAkhir'];?></td>
         </tr>
       </table></td>
@@ -136,7 +136,7 @@ function hapus(){
     <tr>
       <td>Status</td>
       <td>:</td>
-      <td width="101"  ><a href="proses_kalender.php?kalender=<?=$_GET['kalender'];?>&replid=<?=$fetch1['Replid'];?>&action=statusAktif&status=<?=$fetch1['StatusAktif']; ?>&departemen=<?=$_GET['departemen'];?>"><?  if($fetch1['StatusAktif']==1) echo "<img src=../images/ico/aktif.png border=0> Aktif"; else echo "<img src=../images/ico/nonaktif.png border=0> Tidak Aktif";?></a></td>
+      <td width="101"  ><a href="proses_kalender.php?kalender=<?=$_GET['kalender'];?>&replid=<?=$fetch1['Replid'];?>&action=statusAktif&status=<?=$fetch1['StatusAktif']; ?>&departemen=<?=$_GET['departemen'];?>"><?  if($fetch1['StatusAktif']==1) echo "<img src=../images/ico/aktif.png border=0> Active"; else echo "<img src=../images/ico/nonaktif.png border=0> Inactive";?></a></td>
       <td width="499"> <?
 	  					if ($fetch1['StatusAktif']==1)
 							{
@@ -147,7 +147,7 @@ function hapus(){
 						else
 							{
 						?>		
-								<a href="proses_kalender.php?kalender=<?=$_GET['kalender'];?>&replid=<?=$fetch1['Replid'];?>&action=statusTerlihat&status=<?=$fetch1['StatusTerlihat']; ?>&departemen=<?=$_GET['departemen'];?>"><?  if($fetch1['StatusTerlihat']==1)echo "<img src=../images/ico/visible.png border=0> Terlihat"; else echo "<img src=../images/ico/invisible.png border=0> Tidak Terlihat";?></a></td>
+								<a href="proses_kalender.php?kalender=<?=$_GET['kalender'];?>&replid=<?=$fetch1['Replid'];?>&action=statusTerlihat&status=<?=$fetch1['StatusTerlihat']; ?>&departemen=<?=$_GET['departemen'];?>"><?  if($fetch1['StatusTerlihat']==1)echo "<img src=../images/ico/visible.png border=0> Visible"; else echo "<img src=../images/ico/invisible.png border=0> Hidden";?></a></td>
     					<?
 							}
 						?>

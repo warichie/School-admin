@@ -34,7 +34,7 @@ $departemen='yayasan';
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Status Guru]</title>
+<title>JIBAS SIMAKA [Print Teacher Status]</title>
 </head>
 
 <body>
@@ -44,15 +44,15 @@ $departemen='yayasan';
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DATA STATUS GURU</strong></font><br />
+  <font size="4"><strong>TEACHER STATUS DATA</strong></font><br />
  </center><br /><br />
 
 <br />
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="25s%" class="header" align="center">Status Guru</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="25s%" class="header" align="center">Teacher Status</td>
+        <td width="*" class="header" align="center">Info</td>
     </tr>
 <? 	OpenDb();
 	$sql = "SELECT status,keterangan FROM statusguru ORDER BY status";   

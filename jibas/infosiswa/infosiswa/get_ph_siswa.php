@@ -60,24 +60,24 @@ if (@mysql_num_rows($result)>0){
 ?>
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td align="right"><a href="#" onclick="cetak_ph('<?=$nis?>','<?=$tglawal?>','<?=$tglakhir?>')"><img border="0" src="../images/ico/print.png" />&nbsp;Cetak</a></td>
+    <td align="right"><a href="#" onclick="cetak_ph('<?=$nis?>','<?=$tglawal?>','<?=$tglakhir?>')"><img border="0" src="../images/ico/print.png" />&nbsp;Print</a></td>
   </tr>
 </table>
 <br />
 <? } ?>
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td><fieldset><legend class="style1">Presensi Harian</legend>
+    <td><fieldset><legend class="style1">Daily Presence</legend>
 <table width="100%" border="0" cellspacing="0">
           <tr>
-            <td width="11%"><strong>Siswa</strong></td>
+            <td width="11%"><strong>Student</strong></td>
             <td width="1%"><strong>:</strong></td>
             <td width="88%">[<?=$nis?>]&nbsp;<?=$row_nm_sis[nama]?></td>
           </tr>
           <tr>
-            <td><strong>Periode</strong></td>
+            <td><strong>Period</strong></td>
             <td><strong>:</strong></td>
-            <td><?=$_REQUEST['tglawal']?> s.d. <?=$_REQUEST['tglakhir']?></td>
+            <td><?=$_REQUEST['tglawal']?> to <?=$_REQUEST['tglakhir']?></td>
           </tr>
         </table>	
     </fieldset></td>
@@ -86,9 +86,9 @@ if (@mysql_num_rows($result)>0){
     <td>
     <table width="100%" border="1" cellspacing="0" class="tab">
   <tr class="header" height="30">
-    <td width="3%" align="center">No.</td>
-    <td width="42%" >Periode</td>
-    <td width="55%" >Keterangan</td>
+    <td width="3%" align="center">#</td>
+    <td width="42%" >Period</td>
+    <td width="55%" >Info</td>
   </tr>
   <?
   if (@mysql_num_rows($result)>0){
@@ -100,7 +100,7 @@ if (@mysql_num_rows($result)>0){
   ?>
   <tr height="25" <?=$a?>>
     <td align="center"><?=$cnt?></td>
-    <td><?=ShortDateFormat($row[tanggal1])?> s.d. <?=ShortDateFormat($row[tanggal2])?></td>
+    <td><?=ShortDateFormat($row[tanggal1])?> to <?=ShortDateFormat($row[tanggal2])?></td>
     <td><?=$row[keterangan]?></td>
   </tr>
   <?
@@ -109,7 +109,7 @@ if (@mysql_num_rows($result)>0){
   } else {
   ?>
    <tr height="25">
-    <td align="center" colspan="3">Tidak ada keterangan presensi untuk periode tsb.</td>
+    <td align="center" colspan="3">No presence notes for that particular period.</td>
   </tr>
   <? } ?>
 </table>

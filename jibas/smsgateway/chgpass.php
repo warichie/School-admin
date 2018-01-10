@@ -38,12 +38,12 @@ if (isset($_REQUEST['simpan'])) {
 		$result = QueryDb($sql);
 		if (mysql_num_rows($result) == 0) {
 			CloseDb(); 
-			$MYSQL_ERROR_MSG = "Password lama Anda tidak cocok!";
+			$MYSQL_ERROR_MSG = "Your old Password does not match";
 		} else {
 			$sql = "UPDATE jbsuser.landlord SET password=md5('$_REQUEST[pass1]')";
 			$result = QueryDb($sql);
 			CloseDb();
-			$MYSQL_ERROR_MSG = "Password Administrator telah berubah!";	
+			$MYSQL_ERROR_MSG = "Password Administrator changed";	
 			$exit = 1;
 		}	
 	} else {
@@ -52,12 +52,12 @@ if (isset($_REQUEST['simpan'])) {
 		$result = QueryDb($sql);
 		if (mysql_num_rows($result) == 0) {
 			CloseDb(); 
-			$MYSQL_ERROR_MSG = "Password lama Anda tidak cocok!";
+			$MYSQL_ERROR_MSG = "Your old Password does not match";
 		} else {
 			$sql = "UPDATE jbsuser.login SET password=md5('$_REQUEST[pass1]') WHERE login='$nip'";
 			$result = QueryDb($sql);
 			CloseDb();
-			$MYSQL_ERROR_MSG = "Password Anda telah berubah!";	
+			$MYSQL_ERROR_MSG = "Your Password changed";	
 			$exit = 1;
 		}
 	}
@@ -75,7 +75,7 @@ if ($login=='landlord' || $login=='LANDLORD'){
 	$row = mysql_fetch_row($result);
 	$nip = $row[0];
 	$nama = $row[1];
-	$title = "Pengguna";
+	$title = "User";
 }
 
 CloseDb();
@@ -86,7 +86,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SMS GATEWAY [Ganti Password <?=$title?>]</title>
+<title>JIBAS SMS GATEWAY [Edit Password <?=$title?>]</title>
 <script language="javascript" src="script/validasi.js"></script>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
@@ -97,25 +97,25 @@ function validasi() {
 	var pass2 = document.getElementById('pass2').value;
 	
 	if (passlama.length == 0) {
-		alert("Password Lama tidak boleh kosong");
+		alert("Old Password should not leave empty");
 		document.getElementById('passlama').focus();
 		return false;
 	}
 	
 	if (pass1.length == 0) {
-		alert("Password tidak boleh kosong");
+		alert("Old Password should not leave empty");
 		document.getElementById('pass1').focus();
 		return false;
 	}
 	
 	if (pass2.length == 0) {
-		alert("Konfirmasi tidak boleh kosong");
+		alert("Confirmation should not leave empty");
 		document.getElementById('pass2').focus();
 		return false;
 	}
 	
 	if (pass1 != pass2) {
-		alert('Password yang anda masukkan tidak sama!');
+		alert('Password you entered does not match');
 		document.getElementById('pass1').focus();
 		return false;
 	}
@@ -150,10 +150,10 @@ function panggil(elem){
     <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
     <!-- TABLE CONTENT -->
     <tr height="25">
-    	<td class="Header" colspan="2" align="center">Ubah Password <?=$title?></td>
+    	<td class="Header" colspan="2" align="center">Edit Password <?=$title?></td>
     </tr>
     <tr>
-        <td width="110"><strong>Nama</strong></td>
+        <td width="110"><strong>Name</strong></td>
         <td>
         	<? if ($login!='landlord' && $login!='LANDLORD'){ ?>
             	<input type="text" name="nip" id="nip" size="10" readonly="readonly" value="<?=$nip ?>" class="InputTxt" />
@@ -162,7 +162,7 @@ function panggil(elem){
         </td>
     </tr>
     <tr>
-    	<td><strong>Password Lama</strong></td>
+    	<td><strong>Old Password</strong></td>
         <td><input name="passlama" type="password" class="InputTxt" id="passlama" onFocus="panggil('passlama')" onKeyPress="return focusNext('pass1', event)" size="20"/></td>
     </tr>
     <tr>
@@ -170,14 +170,14 @@ function panggil(elem){
         <td><input name="pass1" type="password" class="InputTxt" id="pass1" onFocus="panggil('pass1')" onKeyPress="return focusNext('pass2', event)" size="20"/></td>
     </tr>
     <tr>
-    	<td><strong>Konfirmasi</strong></td>
+    	<td><strong>Confirm</strong></td>
         <td><input name="pass2" type="password" class="InputTxt" id="pass2" onFocus="panggil('pass2')" onKeyPress="return focusNext('simpan', event)" size="20"/></td>
     </tr>
     <tr>
         <td colspan="2" align="center">
-       		<input class="Btn" type="submit" value="Simpan" name="simpan" id="simpan">
+       		<input class="Btn" type="submit" value="Save" name="simpan" id="simpan">
       &nbsp;
-        	<input class="Btn" type="button" value="Tutup" onClick="window.close();">        
+        	<input class="Btn" type="button" value="Close" onClick="window.close();">        
       	<td>
     </tr>
     </table>

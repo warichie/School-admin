@@ -217,11 +217,11 @@ function simpanUbah(x,replid)
 <body>
 <table width="100%" border="0" cellspacing="5">
   <tr>
-    <td height="50" align="left"><font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Galeri Foto</font><br />
-<a href="../../home.php"  target="framecenter">Home</a> > <strong>Galeri Foto</strong><br /><br /></td>
+    <td height="50" align="left"><font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Photo Gallery</font><br />
+<a href="../../home.php"  target="framecenter">Home</a> > <strong>Photo Gallery</strong><br /><br /></td>
     <td align="right" valign="bottom">
 	<a href="galerifoto_ss.php"><img src="../../images/ico/filmstrip.gif" border="0">&nbsp;Slideshow</a>&nbsp;&nbsp;
-	<a href="#" onClick="newWindow('tambahfoto.php?pagesource=tt','TambahFoto','550','207','resizable=1,scrollbars=0,status=0,toolbar=0');"><img src="../../images/ico/tambah.png" border="0" />&nbsp;Tambah Foto</a><br>
+	<a href="#" onClick="newWindow('tambahfoto.php?pagesource=tt','TambahFoto','550','207','resizable=1,scrollbars=0,status=0,toolbar=0');"><img src="../../images/ico/tambah.png" border="0" />&nbsp;Add Photo</a><br>
 	</td>
   </tr>
   <tr>
@@ -237,7 +237,7 @@ function simpanUbah(x,replid)
 			  <?		} ?>
 						<td height="125" align="center">
 							<a title="<?=$ket[$i]?>" href="<?=$fphoto?>" rel="lytebox[vacation]" >
-							<img title="Klik untuk melihat ukuran sebenarnya"
+							<img title="Click to show the original size"
 								 src="<?=$fthumb?>" width="80" style="cursor:pointer;">
 							</a>
                             <br>
@@ -248,11 +248,11 @@ function simpanUbah(x,replid)
 							<span id="spanKet<?=$i?>" class="style5"><?=$ket[$i]?>
 							</span>
 							<br>
-							<img id="delIcon<?=$i?>" src="../../images/ico/hapus.png" onClick="if (confirm('Anda yakin akan menghapus gambar ini?')) document.location.href='galerifoto.php?op=14075BUSYCODACALLDIFF&replid=<?=$rep[$i]?>&page=t'" title="Hapus gambar ini" style="cursor:pointer;" />
-							<img src="../../images/ico/arrow_undo.png" name="cancelIcon<?=$i?>" id="cancelIcon<?=$i?>" style="cursor:pointer; display:none" title="Batal ubah" onClick="batalUbah('<?=$i?>')" />
+							<img id="delIcon<?=$i?>" src="../../images/ico/hapus.png" onClick="if (confirm('Are you sure want to delete this image?')) document.location.href='galerifoto.php?op=14075BUSYCODACALLDIFF&replid=<?=$rep[$i]?>&page=t'" title="Delete this image" style="cursor:pointer;" />
+							<img src="../../images/ico/arrow_undo.png" name="cancelIcon<?=$i?>" id="cancelIcon<?=$i?>" style="cursor:pointer; display:none" title="Cancel" onClick="batalUbah('<?=$i?>')" />
                             &nbsp;
-							<img title="Ubah Nama&Keterangan" id="editIcon<?=$i?>" src="../../images/ico/ubah.png" style="cursor:pointer;" onClick="ubah('<?=$i?>','<?=$num?>')">
-							<img title="Simpan" id="saveIcon<?=$i?>" src="../../images/ico/disk.png" style="cursor:pointer; display:none" onClick="simpanUbah('<?=$i?>','<?=$rep[$i]?>')">							</td>
+							<img title="Edit Name & Info" id="editIcon<?=$i?>" src="../../images/ico/ubah.png" style="cursor:pointer;" onClick="ubah('<?=$i?>','<?=$num?>')">
+							<img title="Save" id="saveIcon<?=$i?>" src="../../images/ico/disk.png" style="cursor:pointer; display:none" onClick="simpanUbah('<?=$i?>','<?=$rep[$i]?>')">							</td>
 			  <?		if ($i % 5==0) { ?>
 							</tr>
 			  <?		} ?>
@@ -260,7 +260,7 @@ function simpanUbah(x,replid)
 			  <? } else {?>
 				<tr>
 					<td>
-						<div align="center"><em>Tidak ada foto</em></div>					</td>
+						<div align="center"><em>No photo.</em></div>					</td>
 				</tr>
 			  <? } ?>
            </table>

@@ -47,8 +47,8 @@ $DK->OnStart();
 <body>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Daftar Pengembalian Pustaka</font><br />
-        <a href="pengembalian.php" class="welc">Pengembalian</a><span class="welc"> > Daftar Pengembalian Pustaka</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Library Return List</font><br />
+        <a href="pengembalian.php" class="welc">Return</a><span class="welc"> > Library Return List</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$DK->Content()?>

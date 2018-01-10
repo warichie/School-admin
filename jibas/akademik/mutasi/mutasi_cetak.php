@@ -50,7 +50,7 @@ OpenDb();
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Daftar Siswa</title>
+<title>Student List</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <SCRIPT type="text/javascript" language="JavaScript" src="../script/tables.js"></SCRIPT>
 	<SCRIPT type="text/javascript" language="javascript" src="../script/common.js"></script>
@@ -75,19 +75,19 @@ OpenDb();
           <div align="center">
             <input name="action" type="hidden" id="action2" value="<? if(!empty($_GET['action'])) echo $_GET['action'] ; else echo "tambahJenisMutasi" ;?>">
             <input name="state" type="hidden" id="state2" value="jenis">
-             <strong>DAFTAR SISWA YANG BELUM DIMUTASI</strong><br>
+             <strong>STUDENT UNMUTATED LIST</strong><br>
             <br>
           </div></td>
         </tr>
       <tr>
         <td><table width="100%" border="1" align="center" cellpadding="0" cellspacing="2" bordercolor="#000000">
-          <tr >
-            <td width="46" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">No</span></div></td>
-            <td width="214" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">NIS</span></div></td>
-            <td width="214" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">Nama</span></div></td>
-            <td width="214" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">Angkatan</span></div></td>
-            <td width="214" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">Kelas</span></div></td>
-            <td width="40" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">Status&nbsp;Mutasi</span></div></td>
+          <tr>
+            <td width="46" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">#</span></div></td>
+            <td width="214" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">Student ID</span></div></td>
+            <td width="214" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">Name</span></div></td>
+            <td width="214" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">Graduates</span></div></td>
+            <td width="214" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">Class</span></div></td>
+            <td width="40" height="30" bordercolor="#000000" bgcolor="#CCCCCC" class="header"><div align="center"><span class="style4">Mutation Status</span></div></td>
           </tr>
 		  <tr><td colspan="6">&nbsp;</td></tr>
 		  <? 
@@ -117,7 +117,7 @@ OpenDb();
 		  	{
 		?>
 		<tr>
-			<td colspan="6" align="center" bordercolor="#000000"> "Data Belum Ada"</td>
+			<td colspan="6" align="center" bordercolor="#000000">Data Not Found.</td>
 		</tr>	
 		<?	
 			}

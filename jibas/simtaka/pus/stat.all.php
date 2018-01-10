@@ -46,7 +46,7 @@ $S->OnStart();
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="32"><img src="../img/loading.gif" width="32" height="32" border="0" /></td>
-            <td>&nbsp;<span class="news_title1">Please&nbsp;wait...</span></td>
+            <td>&nbsp;<span class="news_title1">Please wait...</span></td>
           </tr>
         </table>
     </div>

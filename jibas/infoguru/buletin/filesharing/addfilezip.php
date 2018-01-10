@@ -36,7 +36,7 @@ require_once('addfilezip.function.php');
 <link rel="stylesheet" type="text/css" href="../../style/style.css">
 <link rel="stylesheet" type="text/css" href="../../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Tambah File]</title>
+<title>JIBAS TEACHERS INFO [Add File]</title>
 <script language="JavaScript" src="../../script/tooltips.js"></script>
 <script language="javascript" src="../../script/tables.js"></script>
 <script language="javascript" src="../../script/tools.js"></script>
@@ -47,7 +47,7 @@ function validate()
 	var value = document.getElementById("filezip").value;
 	if (value.length == 0)
 	{
-		alert ("Anda harus mengisikan file yang hendak di Upload!");
+		alert ("You should select a file to upload");
 		return false;	
 	}
 	return true;
@@ -68,20 +68,20 @@ function validate()
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td colspan="2" align="center" class="header">Unggah &amp; Ekstrak ZIP</td>
+<td colspan="2" align="center" class="header">Upload &amp; Exctract zip</td>
 </tr>
 <tr>
-  <td width="12%" align="left" bgcolor="#CCCCCC"><strong>Folder&nbsp;Tujuan&nbsp;:&nbsp;</strong></td>
+  <td width="12%" align="left" bgcolor="#CCCCCC"><strong>Folder&nbsp;Destination&nbsp;:&nbsp;</strong></td>
   <td width="88%" align="center" bgcolor="#CCCCCC">&nbsp;<strong>(root)/<?=$fullpath?></strong></td>
 </tr>
 <tr>
-  <td align="right"><strong>File ZIP&nbsp;:&nbsp;</strong></td>
+  <td align="right"><strong>Zip file&nbsp;:&nbsp;</strong></td>
   <td align="left"><input name="filezip" id="filezip" size="60" type="file" /></td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Unggah dan Ekstrak ZIP" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Upload and Extract zip" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -93,7 +93,7 @@ function validate()
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 <? if ($cek == 1) { ?>
 <script language="javascript">

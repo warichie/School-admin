@@ -28,6 +28,6 @@
 -->
 </style>
 <body><a  class="aWhite" href="pesanmasuk/inbox.php" target="bottom">Inbox</a> | 
-<a class="aWhite" href="presensi/presensi.main.php" target="bottom">Presensi</a> | 
-<a class="aWhite" href="penilaian/penilaian.main.php" target="bottom">Penilaian</a> | 
-<a class="aWhite" href="pengumuman_OLD/pengumuman.main.php" target="bottom">Pengumuman</a>
+<a class="aWhite" href="presensi/presensi.main.php" target="bottom">Attendance</a> | 
+<a class="aWhite" href="penilaian/penilaian.main.php" target="bottom">Report Card</a> | 
+<a class="aWhite" href="pengumuman_OLD/pengumuman.main.php" target="bottom">Announcement</a>

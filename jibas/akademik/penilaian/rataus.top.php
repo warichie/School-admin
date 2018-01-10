@@ -26,7 +26,7 @@
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Penilaian Pelajaran</title>
+<title>Class Index Report</title>
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -47,7 +47,7 @@ function acceptSiswa(nis, nama, flag) {
 }
 
 function validate() {
-	return validateEmptyText('nip', 'NIP Guru');
+	return validateEmptyText('nip', 'Teacher ID');
 }
 </script>
 <style type="text/css">
@@ -68,21 +68,21 @@ function validate() {
     <td width="70%">
         <table border="0" >
         <tr>
-            <td><strong>Nama</strong></td>
+            <td><strong>Name</strong></td>
             <td><strong>
               <input type="text" name="nis" id="nis" size="15"  readonly class="disabled" value="<?=$nis ?>" onclick="carisiswa()" />
             </strong></td>
             <td><strong>
               <input type="text" name="nama" id="nama" size="25"  readonly value="<?=$nama ?>" class="disabled"  onclick="carisiswa()"/>
             </strong></td>
-            <td><a href="JavaScript:carisiswa()" onmouseover="showhint('Cari Siswa!', this, event, '50px')"><img src="../images/ico/lihat.png" border="0"/></a></td>
+            <td><a href="JavaScript:carisiswa()" onmouseover="showhint('Search Student', this, event, '50px')"><img src="../images/ico/lihat.png" border="0"/></a></td>
         </tr>
         </table>  
     </td>
     <td width="30%">
         <div align="right">
-        <font style="background-color: rgb(255, 204, 102);" face="Verdana, Arial, Helvetica, sans-serif" size="4">&nbsp;</font>&nbsp;<font color="Gray" face="Verdana, Arial, Helvetica, sans-serif" size="4">Rata-rata Nilai Setiap Siswa</font><br>
-        <a href="../penilaian.php" target="content"> <font color="#000000" size="1"><b>Penilaian</b></font></a>&nbsp;&gt;&nbsp;<font color="#000000" size="1"><b>Rata-rata Nilai Setiap Siswa</b></font>
+        <font style="background-color: rgb(255, 204, 102);" face="Verdana, Arial, Helvetica, sans-serif" size="4">&nbsp;</font>&nbsp;<font color="Gray" face="Verdana, Arial, Helvetica, sans-serif" size="4">Index Point for each Students</font><br>
+        <a href="../penilaian.php" target="content"> <font color="#000000" size="1"><b>Index</b></font></a>&nbsp;&gt;&nbsp;<font color="#000000" size="1"><b>Index Point for each Students</b></font>
         </div>
     </td>
   </tr>

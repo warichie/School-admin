@@ -122,7 +122,7 @@ function show_pembayaran()
 	
 	if (idangkatan.length == 0) 
 	{	
-		alert ('Pastikan angkatan sudah ada!');	
+		alert ('Make sure that year is existed');	
 		document.getElementById('idangkatan').focus();
 		return false;		
 	} 
@@ -156,7 +156,7 @@ function focusNext(elemName, evt)
     
     <table width = "100%" border = "0">
 	<tr>
-        <td width="18%"><strong>Departemen </strong></td>
+        <td width="18%"><strong>Department </strong></td>
         <td>
     	<select id="departemen" name="departemen" style="width:188px" onchange="change_dep()" onKeyPress="return focusNext('idangkatan', event)">
    <?   OpenDb();
@@ -167,7 +167,7 @@ function focusNext(elemName, evt)
             <option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?>><?=$value ?></option>
         <? } ?>  
     	</select>
-        <strong>Angkatan </strong>
+        <strong>Graduates </strong>
         </td>
         <td>
         <select id="idangkatan" name="idangkatan" style="width:140px" onchange="change_ang()" onKeyPress="return focusNext('idtingkat', event)">
@@ -182,10 +182,10 @@ function focusNext(elemName, evt)
         </td>
     </tr>
      <tr>
-    	<td><strong>Kelas </strong></td>
+    	<td><strong>Class </strong></td>
         <td>
         <select name="idtingkat" id="idtingkat" onChange="change_ang()" style="width:80px;" onkeypress="return focusNext('lunas', event)" >
-        <option value="-1" <?=IntIsSelected(-1, $idtingkat)?>>(Semua)</option>
+        <option value="-1" <?=IntIsSelected(-1, $idtingkat)?>>(All)</option>
         <?	$sql="SELECT * FROM jbsakad.tingkat WHERE departemen='$departemen' AND aktif = 1 ORDER BY urutan";
             $result=QueryDb($sql);
 			
@@ -196,7 +196,7 @@ function focusNext(elemName, evt)
         </select>
        
         <select id="idkelas" name="idkelas" style="width:103px" onchange="change_kelas()" <?=$dis?> onkeypress="return focusNext('lunas', event)">
-        <option value="-1">(Semua)</option>
+        <option value="-1">(All)</option>
 		<?  $sql = "SELECT DISTINCT k.replid, k.kelas FROM jbsakad.tahunajaran t, jbsakad.kelas k WHERE t.replid = k.idtahunajaran AND k.aktif = 1 AND k.idtingkat = '$idtingkat' AND t.aktif = 1 ORDER BY k.kelas";
             $result = QueryDb($sql);
             while($row = mysql_fetch_row($result)) 
@@ -205,7 +205,7 @@ function focusNext(elemName, evt)
         <? 	} ?>
   
         </select>
-        <strong>Tahun Buku </strong>
+        <strong>Fiscal Year </strong>
         </td>
         <td>
         <select name="idtahunbuku" id="idtahunbuku" onchange="change_tahunbuku()" style="width:140px">        
@@ -237,14 +237,14 @@ function focusNext(elemName, evt)
     
 	</td>
  	<td width="*" valign="middle">
-    	<a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Klik untuk menampilkan data laporan pembayaran per kelas!', this, event, '180px')"/></a>
+    	<a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Click to show data laporan pembayaran per kelas', this, event, '180px')"/></a>
     </td>
 	<td width="45%" align="right" valign="top">
 		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">
-        Rekapitulasi Tunggakan Siswa</font><br />
+        Rekapitulasi Tunggakan Student</font><br />
 	    <a href="penerimaan.php" target="_parent">
-     	<font size="1" color="#000000"><b>Penerimaan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Rekapitulasi Tunggakan Siswa</b></font>
+     	<font size="1" color="#000000"><b>Admission</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Rekapitulasi Tunggakan Student</b></font>
 	</td>
 </tr>
 </table>

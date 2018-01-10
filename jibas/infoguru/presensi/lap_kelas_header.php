@@ -77,7 +77,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Presensi Siswa Per Kelas</title>
+<title>Student Presence Report by Classes</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -115,27 +115,27 @@ function tampil() {
 	var semester = document.getElementById('semester').value;
 	
 	if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong !');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong !');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	} else if (tahunajaran.length == 0) {	
-		alert ('Pastikan tahun ajaran sudah ada!');
+		alert ('Make sure that Year of Teaching is existed');
 		document.getElementById('tahunajaran').focus();
 		return false;
 	} else if (semester.length == 0) {	
-		alert ('Pastikan semester sudah ada!');
+		alert ('Make sure that Semester is existed');
 		document.getElementById('semester').focus();
 		return false;
 	} else if (tingkat.length == 0) {	
-		alert ('Pastikan tingkat sudah ada!');
+		alert ('Make sure that Grade is existed');
 		document.getElementById('tingkat').focus();
 		return false;
 	} else if (kelas.length == 0) {	
-		alert ('Pastikan kelas sudah ada!');
+		alert ('Make sure that Class is existed');
 		document.getElementById('kelas').focus();
 		return false;
 	}
@@ -271,7 +271,7 @@ function panggil(elem){
 	<td rowspan="3" width="63%">
 	<table width = "100%" border = "0" height="100%">
     <tr>
-		<td width="17%"><strong>Departemen </strong></td>
+		<td width="17%"><strong>Department </strong></td>
     	<td width="20%"> 
     	<select name="departemen" id="departemen" onChange="change_dep()" style="width:165px" onKeyPress="focusNext('tahunajaran',event)" onfocus="panggil('departemen')">
 		<?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -281,7 +281,7 @@ function panggil(elem){
 		<option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?> > <?=$value ?> </option>
 	<?	} ?>
 		</select></td>
-        <td width="12%"><strong>Tingkat </strong></td>
+        <td width="12%"><strong>Grade </strong></td>
     	<td>
 		<select name="tingkat" style="width:200px" onKeyPress="focusNext('kelas',event)" id="tingkat" onchange="change()" onfocus="panggil('tingkat')">
           <?	OpenDb();
@@ -302,7 +302,7 @@ function panggil(elem){
         </select></td>
     </tr>
 	<tr>
-    	<td><strong>Tahun Ajaran </strong></td>
+    	<td><strong>Year </strong></td>
       	<td>
         	<select name="tahunajaran" id="tahunajaran" onchange="change_ajaran()"  style="width:165px" onKeyPress="focusNext('semester',event)" onfocus="panggil('tahunajaran')">
    		 	<?
@@ -315,7 +315,7 @@ function panggil(elem){
 				$tahunajaran = $row['replid'];			
 			$ada = "";
 			if ($row['aktif'])
-				$ada = "(Aktif)";					
+				$ada = "(Active)";					
 			?>
             
     		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tahunajaran)?> ><?=$row['tahunajaran'].' '.$ada?></option>
@@ -324,7 +324,7 @@ function panggil(elem){
 			}
     		?>
     		</select>            </td> 
-        <td><strong>Kelas </strong></td>
+        <td><strong>Class </strong></td>
     	<td>
         	<select name="kelas" id="kelas" onchange="change()" style="width:200px" onKeyPress="focusNext('pelajaran',event)" onfocus="panggil('kelas')">
 			<?	OpenDb();
@@ -357,7 +357,7 @@ function panggil(elem){
 				$semester = $row['replid'];
 			$ada = "";
 			if ($row['aktif'])
-				$ada = "(Aktif)";
+				$ada = "(Active)";
 			?>
           <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $semester)?> >
             <?=$row['semester'].' '.$ada?>
@@ -366,10 +366,10 @@ function panggil(elem){
 			}
     		?>
         </select></td>
-   		<td align="left" width="10%"><strong>Pelajaran</strong></td>
+   		<td align="left" width="10%"><strong>Class Subject</strong></td>
       	<td width="30%">
         	<select name="pelajaran" style="width:200px" onKeyPress="focusNext('tgl1',event)" id="pelajaran" onchange="change()" onfocus="panggil('pelajaran')">
-            <option value="-1">(Semua pelajaran)</option> 
+            <option value="-1">(All pelajaran)</option> 
    		<?
 			OpenDb();
 			$sql = "SELECT p.replid,p.nama FROM pelajaran p, guru g WHERE p.departemen = '$departemen' AND g.idpelajaran=p.replid AND g.nip='".SI_USER_ID()."' AND p.aktif=1 ORDER BY p.nama";
@@ -386,7 +386,7 @@ function panggil(elem){
     		</select></td>
     </tr>
     <tr>
-    	<td><strong>Tanggal </strong></td>
+    	<td><strong>Date </strong></td>
         <td colspan="3">
         <? 	if ($tahunajaran <> "") {
 			OpenDb();
@@ -403,7 +403,7 @@ function panggil(elem){
             	<td width="10">
                 <div id = "InfoTgl1" > 
                 <select name="tgl1" id = "tgl1" onchange="change_tgl1()" onfocus = "panggil('tgl1')" onKeyPress="focusNext('bln1',event)">
-                    <option value="">[Tgl]</option>
+                    <option value="">[Date]</option>
                 <? 	for($i=1;$i<=$n1;$i++){   ?>      
                     <option value="<?=$i?>" <?=IntIsSelected($tgl1, $i)?>><?=$i?></option>
                 <?	} ?>
@@ -421,12 +421,12 @@ function panggil(elem){
                     <option value="<?=$i?>" <?=IntIsSelected($th1, $i)?>><?=$i?></option>	   
                 <?	} ?>	
                     </select> 
-                    s/d
+                    to
                	</td>
                 <td width="10">
                	<div id="InfoTgl2">
                     <select name="tgl2" id = "tgl2" onchange="change_tgl2()" onfocus = "panggil('tgl2')"  onKeyPress="focusNext('bln2',event)">
-                    <option value="">[Tgl]</option>
+                    <option value="">[Date]</option>
                 <? 	for($i=1;$i<=$n2;$i++){   ?>      
                     <option value="<?=$i?>" <?=IntIsSelected($tgl2, $i)?>><?=$i?></option>
                       <?	} ?>
@@ -453,12 +453,12 @@ function panggil(elem){
 	</table>
     </td>
 	<td align="left" valign="middle" width="6%"><a href="#" onclick="tampil()" >
-    <img src="../images/ico/view.png" onmouseover="showhint('Klik untuk menampilkan laporan presensi per kelas!', this, event, '100px')" height="48" width="48" border="0" name="tabel" id="tabel2"/></a></td>    
+    <img src="../images/ico/view.png" onmouseover="showhint('Click to show presence reports by classes', this, event, '100px')" height="48" width="48" border="0" name="tabel" id="tabel2"/></a></td>    
     <td width="31%" align="right" valign="top">
-     <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Presensi Pelajaran per Kelas</font><br />
+     <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Class Presence Reports by Classes</font><br />
     <a href="../presensi.php?page=pp" target="framecenter">
-      	<font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Presensi Pelajaran per kelas</b></font>
+      	<font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Class Presence Reports by Classes</b></font>
         </td>     
     </tr>
 	</table>

@@ -42,7 +42,7 @@ if (isset($_REQUEST['Simpan'])){
 	if (@mysql_num_rows(QueryDb($sql))>0){
 		?>
         <script language="javascript">
-			alert ('Kelompok <?=$_REQUEST[kelompokname]?> sudah digunakan!');
+			alert ('Group <?=$_REQUEST[kelompokname]?> has been used');
         </script>
         <?
 	} else {
@@ -61,12 +61,12 @@ if (isset($_REQUEST['Simpan'])){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../style/style.css" />
-<title>Tambah Group Barang</title>
+<title>Add Item Group</title>
 <script language="javascript">
 function validate(){
 	var namakelompok = document.getElementById('kelompokname').value;
 	if (namakelompok.length==0){
-		alert ('Anda harus mengisikan Nama Kelompok!'); 
+		alert ('You must enter the Group Name'); 
 		document.getElementById('kelompokname').focus();
 		return false;
 	}
@@ -76,21 +76,21 @@ function validate(){
 </head>
 <body onLoad="document.getElementById('kelompokname').focus()">
 <fieldset style="border:#336699 1px solid; background-color:#eaf4ff" >
-<legend style="background-color:#336699; color:#FFFFFF; font-size:12px; font-weight:bold; padding:5px; ">&nbsp;Ubah&nbsp;Kelompok&nbsp;</legend>
+<legend style="background-color:#336699; color:#FFFFFF; font-size:12px; font-weight:bold; padding:5px; ">&nbsp;Change&nbsp;Group&nbsp;</legend>
 <form action="EditKelompok.php" onSubmit="return validate()" method="post">
 <input type="hidden" name="idkelompok" id="idkelompok" value="<?=$_REQUEST[idkelompok]?>" />
 <input type="hidden" name="idgroup" id="idgroup" value="<?=$idgroup?>" />
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr>
-    <td>Nama Kelompok</td>
+    <td>Group Name</td>
     <td><input name="kelompokname" id="kelompokname" type="text" maxlength="45" style="width:100%" value="<?=$kelompokname?>" /></td>
   </tr>
   <tr>
-    <td>Keterangan</td>
+    <td>Info</td>
     <td><textarea name="keterangan" id="keterangan" style="width:100%" rows="5"><?=$keterangan?></textarea></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><input class="but" type="submit" name="Simpan" value="Simpan" />&nbsp;&nbsp;<input type="button" value="Batal" onClick="window.close()" class="but" /></td>
+    <td colspan="2" align="center"><input class="but" type="submit" name="Simpan" value="Save" />&nbsp;&nbsp;<input type="button" value="Cancel" onClick="window.close()" class="but" /></td>
   </tr>
 </table>
 </form>

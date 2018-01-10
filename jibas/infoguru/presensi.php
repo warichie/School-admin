@@ -86,14 +86,14 @@ function show(id){
 <div id="content" align="left">
 		<table cellpadding="0" cellspacing="0" id="slice_pp">
             <tr>
-            <td id="mid"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>PRESENSI PELAJARAN</strong></font></p></td>
+            <td id="mid"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>LESSON PRESENCE</strong></font></p></td>
           </tr>
           <tr>
             <td>
             <table id="Table_01" width="568" height="448" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td rowspan="2">
-                    <a href="presensi/formpresensi_pelajaran.php" onMouseOver="showhint('Cetak Form Presensi Pelajaran', this, event, '100px')"><img src="images/pres_pelajaran_01.jpg" alt="" width="112" height="116" border="0"></a></td>
+                    <a href="presensi/formpresensi_pelajaran.php" onMouseOver="showhint('Print Class Presence Form', this, event, '100px')"><img src="images/pres_pelajaran_01.jpg" alt="" width="112" height="116" border="0"></a></td>
           <td>
                     <img src="images/pres_pelajaran_02.jpg" width="30" height="87" alt=""></td>
                 <td>
@@ -111,7 +111,7 @@ function show(id){
                 <td rowspan="3">
                     <img src="images/pres_pelajaran_07.jpg" width="30" height="126" alt=""></td>
                 <td rowspan="3">
-                    <a href="presensi/presensi_main.php" onMouseOver="showhint('Pengisian Data Presensi Setiap Pelajaran', this, event, '100px')"><img src="images/pres_pelajaran_08.jpg" alt="" width="130" height="126" border="0"></a></td>
+                    <a href="presensi/presensi_main.php" onMouseOver="showhint('Presence Data for each Class Subject', this, event, '100px')"><img src="images/pres_pelajaran_08.jpg" alt="" width="130" height="126" border="0"></a></td>
           <td rowspan="3">
                     <img src="images/pres_pelajaran_09.jpg" width="53" height="126" alt=""></td>
                 <td rowspan="2">
@@ -131,11 +131,11 @@ function show(id){
                 <td rowspan="2" valign="top">
                     <img src="images/pres_pelajaran_13.jpg" width="79" height="72" alt=""></td>
                 <td rowspan="2">
-                <a href="presensi/lap_siswa_main.php" onMouseOver="showhint('Laporan Presensi Setiap Siswa', this, event, '100px')">Laporan Presensi Siswa</a><br>
-                     <a href="presensi/lap_kelas_main.php" onMouseOver="showhint('Laporan Presensi Siswa Setiap Kelas', this, event, '100px')">Laporan Presensi Siswa per Kelas</a><br>
-                     <a href="presensi/lap_pengajar_main.php" onMouseOver="showhint('Laporan Presensi Pengajar', this, event, '100px')">Laporan Presensi Pengajar</a><br>
-                     <a href="presensi/lap_absen_main.php" onMouseOver="showhint('Laporan Presensi Siswa Yang Tidak Hadir', this, event, '100px')" >Laporan Data Siswa yang Tidak Hadir</a><br>
-                     <a href="presensi/lap_refleksi_main.php" onMouseOver="showhint('Laporan Refleksi Mengajar', this, event, '100px')">Laporan Refleksi Mengajar</a></td>
+                <a href="presensi/lap_siswa_main.php" onMouseOver="showhint('Presence Report for each Students', this, event, '100px')">Student Presence Report</a><br>
+                     <a href="presensi/lap_kelas_main.php" onMouseOver="showhint('Presence Report for each Classes', this, event, '100px')">Student Presence Report by Classes</a><br>
+                     <a href="presensi/lap_pengajar_main.php" onMouseOver="showhint('Teacher Presence Report', this, event, '100px')">Teacher Presence Report</a><br>
+                     <a href="presensi/lap_absen_main.php" onMouseOver="showhint('Presence Report for Absent Student', this, event, '100px')" >Absent Student Data Report Card</a><br>
+                     <a href="presensi/lap_refleksi_main.php" onMouseOver="showhint('Teaching Reflection Report', this, event, '100px')">Teaching Reflection Report</a></td>
           <td>
                     <img src="images/spacer.gif" width="1" height="39" alt=""></td>
             </tr>
@@ -156,8 +156,8 @@ function show(id){
                 <td valign="top">
                     <img src="images/pres_pelajaran_18.jpg" width="79" height="83" alt=""></td>
                 <td valign="middle">
-                 <a href="presensi/statistik_siswa_main.php" onMouseOver="showhint('Statistik Kehadiran Setiap Siswa', this, event, '100px')">Statistik Kehadiran Siswa</a><br>
-                     <a href="presensi/statistik_kelas_main.php" onMouseOver="showhint('Statistik Kehadiran Setiap Kelas', this, event, '100px')">Statistik Kehadiran Setiap Kelas</a>        </td>
+                 <a href="presensi/statistik_siswa_main.php" onMouseOver="showhint('Presence Statistic for each Students', this, event, '100px')">Student Presence Statistic</a><br>
+                     <a href="presensi/statistik_kelas_main.php" onMouseOver="showhint('Presence Statistic for each Classes', this, event, '100px')">Presence Statistic for each Classes</a>        </td>
           <td>
                     <img src="images/spacer.gif" width="1" height="83" alt=""></td>
             </tr>
@@ -174,13 +174,13 @@ function show(id){
         
         <table width="100%" border="0" id="slice_ph" style="display:none">
           <tr>
-            <td id="up"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>PRESENSI HARIAN</strong></font></p></td>
+            <td id="up"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>DAILY PRESENCE</strong></font></p></td>
           </tr>
           <tr>
             <td>
             <table id="Table_01" width="563" height="364" border="0" cellpadding="0" cellspacing="0">
             <tr>
-                <td rowspan="2"><a href="presensi/formpresensi_harian.php" onMouseOver="showhint('Cetak Form Presensi Harian', this, event, '100px')">
+                <td rowspan="2"><a href="presensi/formpresensi_harian.php" onMouseOver="showhint('Print Daily Presence Form', this, event, '100px')">
                     <img src="images/harian_01.jpg" alt="" width="80" height="106" border="0"></a></td>
           <td colspan="2">
                     <img src="images/harian_02.jpg" width="68" height="83" alt=""></td>
@@ -201,7 +201,7 @@ function show(id){
                 <td rowspan="3">
                     <img src="images/harian_08.jpg" width="54" height="129" alt=""></td>
                 <td colspan="3" rowspan="3">
-                    <a href="presensi/input_presensi_main.php" onMouseOver="showhint('Pengisian Presensi Harian Setiap Pelajaran', this, event, '100px')"><img src="images/harian_09.jpg" alt="" width="101" height="129" border="0"></a></td>
+                    <a href="presensi/input_presensi_main.php" onMouseOver="showhint('Daily Presence for each Class Subject', this, event, '100px')"><img src="images/harian_09.jpg" alt="" width="101" height="129" border="0"></a></td>
           <td rowspan="3">
                     <img src="images/harian_10.jpg" width="60" height="129" alt=""></td>
                 <td rowspan="2">
@@ -220,12 +220,9 @@ function show(id){
             <tr>
                 <td rowspan="2" valign="top">
                     <img src="images/harian_14.jpg" width="78" height="88" alt=""></td>
-                <td rowspan="2" valign="middle"><a href="presensi/lap_hariansiswa_main.php" onMouseOver="showhint('Pengisian Presensi Harian Setiap Siswa', this, event, '100px')">Laporan
-                    Presensi Harian Siswa</a><br>
-                  <a href="presensi/lap_hariankelas_main.php" onMouseOver="showhint('Laporan Presensi Harian Setiap Kelas', this, event, '100px')">Laporan
-                  Presensi Harian per Kelas</a><br>
-                  <a href="presensi/lap_harianabsen_main.php" onMouseOver="showhint('Laporan Presensi Harian Siswa Yang Tidak Hadir', this, event, '100px')">Laporan
-                  Harian Data Siswa yang Tidak Hadir</a></td>
+                <td rowspan="2" valign="middle"><a href="presensi/lap_hariansiswa_main.php" onMouseOver="showhint('Daily Presence for each Students', this, event, '100px')">Student Daily Presence Report</a><br>
+                  <a href="presensi/lap_hariankelas_main.php" onMouseOver="showhint('Daily Presence Report for each Classes', this, event, '100px')">Daily Presence Report by Classes</a><br>
+                  <a href="presensi/lap_harianabsen_main.php" onMouseOver="showhint('Student Daily Presence Reports Yang Absent', this, event, '100px')">Absent Student Daily Report Card</a></td>
           <td>
                     <img src="images/spacer.gif" width="1" height="50" alt=""></td>
             </tr>
@@ -246,9 +243,8 @@ function show(id){
                     <img src="images/harian_18.jpg" width="295" height="85" alt=""></td>
                 <td valign="top">
                     <img src="images/harian_19.jpg" width="78" height="85" alt=""></td>
-                <td valign="middle"><a href="presensi/statistik_hariansiswa_main.php" onMouseOver="showhint('Statistik Kehadiran Siswa', this, event, '100px')">Statistik Kehadiran Siswa</a><br>
-                  <a href="presensi/statistik_hariankelas_main.php" onMouseOver="showhint('Statistik Kehadiran Siswa Setiap Kelas', this, event, '100px')">Statistik
-                  Kehadiran per Kelas</a></td>
+                <td valign="middle"><a href="presensi/statistik_hariansiswa_main.php" onMouseOver="showhint('Student Presence Statistic', this, event, '100px')">Student Presence Statistic</a><br>
+                  <a href="presensi/statistik_hariankelas_main.php" onMouseOver="showhint('Student Presence Statistic for each Classes', this, event, '100px')">Presence Statistic by Classes</a></td>
           <td>
                     <img src="images/spacer.gif" width="1" height="85" alt=""></td>
             </tr>

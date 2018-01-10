@@ -94,7 +94,7 @@ class CPustaka{
 		<select name="perpustakaan" id="perpustakaan" class="cmbfrm"  onchange="chg_perpus()">
 		<?
 		if (SI_USER_LEVEL()!=2){
-			echo "<option value='-1' ".IntIsSelected('-1',$this->perpustakaan).">(Semua)</option>";
+			echo "<option value='-1' ".IntIsSelected('-1',$this->perpustakaan).">(All)</option>";
 		}
 		while ($row = @mysql_fetch_row($result)){
 		if ($this->perpustakaan=="")
@@ -115,8 +115,8 @@ class CPustaka{
         <div align="left">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="59%">Perpustakaan <?=$this->GetPerpus()?></td>
-            <td width="41%" align="right"><a href="javascript:chg_perpus()"><img src="../img/ico/refresh.png" width="16" height="16" border="0" />&nbsp;Refresh</a>&nbsp;&nbsp;<a href="javascript:cetak('XX')"><img src="../img/ico/print1.png" border="0" />&nbsp;Cetak</a></td>
+            <td width="59%">Library <?=$this->GetPerpus()?></td>
+            <td width="41%" align="right"><a href="javascript:chg_perpus()"><img src="../img/ico/refresh.png" width="16" height="16" border="0" />&nbsp;Refresh</a>&nbsp;&nbsp;<a href="javascript:cetak('XX')"><img src="../img/ico/print1.png" border="0" />&nbsp;Print</a></td>
           </tr>
         </table>
 
@@ -124,10 +124,10 @@ class CPustaka{
         </div><br />
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr class="header" height="30">
-            <td height="30" align="center">No</td>
-            <td height="30" align="center">Judul</td>
-            <td height="30" align="center">Jumlah Tersedia</td>
-            <td height="30" align="center">Jumlah Dipinjam</td>
+            <td height="30" align="center">#</td>
+            <td height="30" align="center">Title</td>
+            <td height="30" align="center">Available</td>
+            <td height="30" align="center">Borrowed</td>
             <td align="center">&nbsp;</td>
             <td height="30" align="center">&nbsp;</td>
           </tr>
@@ -159,7 +159,7 @@ class CPustaka{
 				<td height="25" align="center"><?=$rtersedia?></td>
 				<td height="25" align="center"><?=$rdipinjam?></td>
 				<td align="center" bgcolor="#FFFFFF">
-					<a title="Lihat Detail" href="javascript:lihat(<?=$row[0]?>)"><img src="../img/ico/lihat.png" width="16" height="16" border="0" /></a>&nbsp;
+					<a title="See Details" href="javascript:lihat(<?=$row[0]?>)"><img src="../img/ico/lihat.png" width="16" height="16" border="0" /></a>&nbsp;
 					<a title="Cetak Label" href="javascript:cetak_nomor('<?=$row[0]?>','<?=$this->perpustakaan?>')"><img src="../img/ico/print1.png" width="16" height="16" border="0" /></a>
 				</td>
 				<td height="25" align="center" bgcolor="#FFFFFF">
@@ -195,7 +195,7 @@ class CPustaka{
 		  } else {
 		  ?>
           <tr>
-            <td height="20" colspan="6" align="center" class="nodata">Tidak ada data</td>
+            <td height="20" colspan="6" align="center" class="nodata">Data Not Found.</td>
           </tr>
           <? 
 		  }
@@ -205,18 +205,18 @@ class CPustaka{
 		<? if ($num>0){ ?>
 		<table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
 			<tr>
-				<td width="30%" align="left" class="news_content1" colspan="2">Halaman
-				<input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$this->page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+				<td width="30%" align="left" class="news_content1" colspan="2">Page
+				<input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$this->page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
                 <select name="page" class="cmbfrm" id="page" onChange="change_page('XX')">
 				<?	for ($m=0; $m<$pagenum; $m++) {?>
 					 <option value="<?=$m ?>" <?=IntIsSelected($this->page,$m) ?>><?=$m+1 ?></option>
 				<? } ?>
 				</select>
-                <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$this->page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
-				dari <?=$pagenum?> halaman
+                <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$this->page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
+				from <?=$pagenum?> pages
 				
 				<? 
-			 // Navigasi halaman berikutnya dan sebelumnya
+			 // Navigasi halaman berikutnya and sebelumnya
 				?>       
 					
 					<?

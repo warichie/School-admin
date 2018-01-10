@@ -2,7 +2,7 @@ function getfresh(){
 	document.location.href = "pengguna.php";
 }
 function hapus(login){
-	if (confirm('Anda yakin akan menghapus pengguna ini dari SIMTAKA?'))
+	if (confirm('Are you sure want to delete this user from SIMTAKA?'))
 		document.location.href = "pengguna.php?op=del&login="+login;
 }
 function tambah(){
@@ -25,21 +25,21 @@ function validate(){
 	var password1 = document.getElementById('password1').value;
 	var password2 = document.getElementById('password2').value;
 	if (nip.length==0){
-		alert ('Anda harus mengisikan nilai untuk nip dan nama pegawai!\nKlik field NIP untuk membuka daftar pegawai');
+		alert ('You should enter a value for Employee ID and Name!\nClick on the field to open the employee list');
 		return false;
 	}
 	if (password1.length==0){
-		alert ('Anda harus mengisikan nilai untuk password!');
+		alert ('You must enter a value for password');
 		document.getElementById('password1').focus();
 		return false;
 	}
 	if (password2.length==0){
-		alert ('Anda harus mengisikan nilai untuk konfirmasi password!');
+		alert ('You must enter a value for password confirmation');
 		document.getElementById('password2').focus();
 		return false;
 	}
 	if (password1!=password2){
-		alert ('Password dan konfirmasi password harus sama!');
+		alert ('Password and confirmation should match');
 		document.getElementById('password2').value="";
 		document.getElementById('password2').focus();
 		return false;
@@ -53,9 +53,9 @@ function setaktif(login,newaktif){
 	var msg;
 	if (newaktif==1)
 	{
-		msg='Apakah Anda yakin akan mengaktifkan pengguna ini di SIMTAKA?';
+		msg='Are you sure want to activate this user in SIMTAKA?';
 	} else {
-		msg='Apakah Anda yakin akan menonaktifkan pengguna ini dari SIMTAKA?';
+		msg='Are you sure want to inactivated this user from SIMTAKA?';
 	}
 	if (confirm(msg))
 	{

@@ -32,7 +32,7 @@ OpenDb();
     <td style="padding:5px">
         <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td style="padding-right:4px">Kelas</td>
+            <td style="padding-right:4px">Class</td>
             <td class="td">
               <select id="CmbDepSis" name="CmbDepSis" class="Cmb" onchange="ChgCmbDepSis()">
                 	<?
@@ -68,17 +68,17 @@ OpenDb();
 				</div>
             </td>
 			<td class="td">
-			<div class="Btn" onclick="ChgCmbKlsSis()" align="center" />Lihat</div>
+			<div class="Btn" onclick="ChgCmbKlsSis()" align="center" />View</div>
 			</td>
-			<td style="padding-right:4px" valign="top" class="tdTop">&nbsp;&nbsp;&nbsp;Cari&nbsp;</td>
+			<td style="padding-right:4px" valign="top" class="tdTop">&nbsp;&nbsp;&nbsp;Search&nbsp;</td>
             <td class="td">
-            	<input type="text" name="InpNISSis" id="InpNISSis" class="InputTxt" value="NIS Siswa" onfocus="InputHover('NIS Siswa','InpNISSis','1')" onblur="InputHover('NIS Siswa','InpNISSis','0')" style="color:#636363" size='10' />
+            	<input type="text" name="InpNISSis" id="InpNISSis" class="InputTxt" value="Student Registraion Number" onfocus="InputHover('Student Registraion Number','InpNISSis','1')" onblur="InputHover('Student Registraion Number','InpNISSis','0')" style="color:#636363" size='10' />
             </td>
             <td class="td">
-            	<input type="text" name="InpNamaSis" id="InpNamaSis" class="InputTxt" value="Nama Siswa" onfocus="InputHover('Nama Siswa','InpNamaSis','1')" onblur="InputHover('Nama Siswa','InpNamaSis','0')" style="color:#636363"  size='15' />  
+            	<input type="text" name="InpNamaSis" id="InpNamaSis" class="InputTxt" value="Student Name" onfocus="InputHover('Student Name','InpNamaSis','1')" onblur="InputHover('Student Name','InpNamaSis','0')" style="color:#636363"  size='15' />  
             </td>
 			<td align="center" valign="middle" class="td">
-			<div class="Btn" onclick="SearchSis()" align="center" />Cari</div>
+			<div class="Btn" onclick="SearchSis()" align="center" />Search</div>
 			</td>
           </tr>
 		  <tr>
@@ -100,10 +100,10 @@ OpenDb();
     <div id="TableSiswa">
     <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="TableSis">
       <tr class="Header">
-        <td width='50'>No</td>
-        <td width='100'>NIS</td>
-		<td>Nama</td>
-        <td>No. HP Siswa</td>
+        <td width='50'>#</td>
+        <td width='100'>Student ID</td>
+		<td>Name</td>
+        <td>Mobile</td>
         <td><input type="checkbox" id="CheckAllSiswa"></td>
       </tr>
       <?
@@ -121,7 +121,7 @@ OpenDb();
         <td class="td"><?=$row['hpsiswa']?></td>
         <td class="td" align="center">
         <? if (strlen($row['hpsiswa'])>0){ ?>
-        <!--<span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hpsiswa']?>','<?=$row['nama']?>','<?=$row['nis']?>')"  />Pilih</span>-->
+        <!--<span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hpsiswa']?>','<?=$row['nama']?>','<?=$row['nis']?>')"  />Select</span>-->
 		<input type="checkbox" class="checkboxsiswa" hp="<?=$row['hpsiswa']?>" nama="<?=$row['nama']?>" nip="<?=$row['nis']?>"  pin="<?=$row['pinsiswa']?>">
         <? } ?>
         </td>
@@ -132,7 +132,7 @@ OpenDb();
 		} else {
 		?>
       <tr>
-        <td colspan="5" class="Ket" align="center">Tidak ada data</td>
+        <td colspan="5" class="Ket" align="center">Data Not Found.</td>
       </tr>
       <?
 		}

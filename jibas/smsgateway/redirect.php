@@ -67,7 +67,7 @@ else
 	if ($jum < 1){
 		?>
 		<script language="JavaScript">
-			alert("Username tidak terdaftar!");
+			alert("Unknown username");
 			document.location.href = "../smsgateway";
 		</script>
 		<? 
@@ -78,7 +78,7 @@ else
 		if ($row[0]!=md5($password)){
 			?>
 			<script language="JavaScript">
-				alert("Password Anda salah!");
+				alert("You have wrong password");
 				document.location.href = "../smsgateway";
 			</script>
 			<? 
@@ -90,7 +90,7 @@ else
 			if ($row[0]=='0'){
 				?>
 				<script language="JavaScript">
-					alert("Pengguna sedang tidak aktif!");
+					alert("User is inactive");
 					document.location.href = "../smsgateway";
 				</script>
 				<? 
@@ -109,7 +109,7 @@ if(!$user_exists)
 {
 	?>
     <script language="JavaScript">
-        alert("Username atau password tidak cocok!");
+        alert("Username or password does not match");
         document.location.href = "../smsgateway";
     </script>
     <?

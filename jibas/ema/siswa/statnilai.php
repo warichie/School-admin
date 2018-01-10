@@ -107,11 +107,11 @@ function cetak(){
 </head>
 <body>
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-	<img src="../img/loading2.gif" border="0" />&nbsp;<span class="tab2">Please&nbsp;wait...</span>
+	<img src="../img/loading2.gif" border="0" />&nbsp;<span class="tab2">Please wait...</span>
 </div>
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr>
-    <td width="6%" class="news_content1">Departemen</td>
+    <td width="6%" class="news_content1">Department</td>
     <td width="7%">
     <select name="departemen" class="cmbfrm" id="departemen" onchange="chg_dep()">
 	<?
@@ -126,7 +126,7 @@ function cetak(){
 	}
 	?>
     </select>    </td>
-    <td width="6%"><span class="news_content1">Tahunajaran</span></td>
+    <td width="6%"><span class="news_content1">Year of Teaching</span></td>
     <td width="7%"><select name="tahunajaran" class="cmbfrm" id="tahunajaran" onchange="chg()">
       <?
 	$sql = "SELECT replid,tahunajaran FROM tahunajaran WHERE aktif=1 AND departemen='$departemen' ORDER BY tahunajaran";
@@ -142,7 +142,7 @@ function cetak(){
 	}
 	?>
     </select></td>
-    <td width="4%" class="news_content1">Pelajaran</td>
+    <td width="4%" class="news_content1">Class Subject</td>
     <td width="70%"><select name="pelajaran" class="cmbfrm" id="pelajaran" onchange="chg()">
       <?
 	$sql = "SELECT replid,nama FROM pelajaran WHERE aktif=1 AND departemen='$departemen' ORDER BY nama";
@@ -160,7 +160,7 @@ function cetak(){
     </select></td>
   </tr>
   <tr>
-    <td class="news_content1">Tingkat</td>
+    <td class="news_content1">Grade</td>
     <td><select name="tingkat" class="cmbfrm" id="tingkat" onchange="chg()">
       <?
 	$sql = "SELECT replid,tingkat FROM tingkat WHERE aktif=1 AND departemen='$departemen' ORDER BY tingkat";
@@ -192,7 +192,7 @@ function cetak(){
 	}
 	?>
     </select></td>
-    <td class="news_content1">Nilai</td>
+    <td class="news_content1">Point</td>
     <td><select name="dasarpenilaian" class="cmbfrm" id="dasarpenilaian" onchange="chg()">
       <?
 	$sql = "SELECT dasarpenilaian,keterangan FROM dasarpenilaian ORDER BY keterangan";
@@ -210,7 +210,7 @@ function cetak(){
     </select></td>
   </tr>
   <tr>
-    <td colspan="6" align="center"><a href="javascript:cetak()"><img src="../img/print.png" width="16" height="16" border="0" />&nbsp;Cetak</a></td>
+    <td colspan="6" align="center"><a href="javascript:cetak()"><img src="../img/print.png" width="16" height="16" border="0" />&nbsp;Print</a></td>
   </tr>
   <tr>
     <td colspan="6" align="center"><img src="<?="statimagenilai.php?departemen=$departemen&tahunajaran=$tahunajaran&tingkat=$tingkat&semester=$semester&pelajaran=$pelajaran&dasarpenilaian=$dasarpenilaian" ?>" />    </td>
@@ -283,9 +283,9 @@ function cetak(){
                     ?>
 <table width="80%" border="1" class="tab" align="center">
                       <tr>
-                        <td height="25" align="center" class="header">No.</td>
-                        <td height="25" align="center" class="header">Rentang</td>
-                        <td height="25" align="center" class="header">Jumlah Siswa</td>
+                        <td height="25" align="center" class="header">#</td>
+                        <td height="25" align="center" class="header">Range</td>
+                        <td height="25" align="center" class="header">Total Student</td>
                         <td height="25" align="center" class="header">&nbsp;</td>
                       </tr>
                       <?
@@ -296,9 +296,9 @@ function cetak(){
                         <td height="20">&nbsp;&nbsp;<?=$lab[$i]?></td>
                         <td height="20">
                         <? if ($data[$i]>0){ ?>
-                        <strong>&nbsp;&nbsp;<?=$data[$i]?> siswa</strong>
+                        <strong>&nbsp;&nbsp;<?=$data[$i]?> student</strong>
                         <? } else { ?>
-                        &nbsp;&nbsp;<?=$data[$i]?> siswa
+                        &nbsp;&nbsp;<?=$data[$i]?> student
                         <? } ?>            </td>
                         <td height="20" align="center">
                         <? if ($data[$i]>0){ ?>

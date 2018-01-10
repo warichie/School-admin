@@ -58,7 +58,7 @@ $row = mysql_fetch_array($result);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan Presensi Pelajaran Per Kelas]</title>
+<title>JIBAS SIMAKA [Print Class Presence Reports by Classes]</title>
 <style type="text/css">
 <!--
 .style1 {
@@ -77,37 +77,37 @@ $row = mysql_fetch_array($result);
 
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th scope="row" colspan="12"><span class="style1">Laporan Presensi Pelajaran Per Kelas</span></th>
+    <th scope="row" colspan="12"><span class="style1">Class Presence Reports by Classes</span></th>
   </tr>
 </table>
 <br />
 <table width="27%">
 <tr>
-	<td width="43%"><span class="style4">Departemen</span></td>
+	<td width="43%"><span class="style4">Department</span></td>
     <td width="57%" colspan="12"><span class="style4">: <?=$row['departemen']?></span></td>
 </tr>
 <tr>
-	<td><span class="style4">Tahun Ajaran</span></td>
+	<td><span class="style4">Year</span></td>
     <td colspan="12"><span class="style4">: <?=$row['tahunajaran']?></span></td>
 </tr>
 <tr>
-	<td><span class="style4">Kelas</span></td>
+	<td><span class="style4">Class</span></td>
     <td colspan="12"><span class="style4">: <?=$row['kelas']?></span></td>
 </tr>
 <tr>
-	<td><span class="style4">Pelajaran</span></td>
+	<td><span class="style4">Class Subject</span></td>
     <td colspan="12"><span class="style4">: <?=$row['nama']?></span></td>
 </tr>
 <tr>
-	<td><span class="style4">Periode Presensi</span></td>
-    <td colspan="12"><span class="style4">: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></span></td>
+	<td><span class="style4">Period</span></td>
+    <td colspan="12"><span class="style4">: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></span></td>
 </tr>
 </table>
 <br />
 <? 		
 	OpenDb();
 	if ($pelajaran == -1) {		
-		$pel = "Semua Pelajaran";
+		$pel = "All Class Subject";
 		$sql = "SELECT DISTINCT s.nis, s.nama, s.telponsiswa, s.hpsiswa, s.namaayah, s.telponortu, s.hportu, s.aktif FROM siswa s, presensipelajaran p, ppsiswa pp, kelas k WHERE pp.idpp = p.replid AND pp.nis = s.nis AND s.idkelas = '$kelas' AND p.idsemester = '$semester' AND p.tanggal BETWEEN '$tglawal' AND '$tglakhir' ORDER BY $urut $urutan";
 		
 	} else {
@@ -122,18 +122,18 @@ $row = mysql_fetch_array($result);
 
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
    	<tr height="30" align="center">
-    	<td bgcolor="#CCCCCC" class="style6 style5 header">No</td>
-		<td bgcolor="#CCCCCC" class="style6 style5 header">N I S</td>
-		<td bgcolor="#CCCCCC" class="style6 style5 header">Nama</td>            
-		<td bgcolor="#CCCCCC" class="style6 style5 header">Jml Hadir</td>
-        <td bgcolor="#CCCCCC" class="style6 style5 header">Jml Tak Hadir</td>
-        <td bgcolor="#CCCCCC" class="style6 style5 header">Jml Total</td>
+    	<td bgcolor="#CCCCCC" class="style6 style5 header">#</td>
+		<td bgcolor="#CCCCCC" class="style6 style5 header">Student ID</td>
+		<td bgcolor="#CCCCCC" class="style6 style5 header">Name</td>            
+		<td bgcolor="#CCCCCC" class="style6 style5 header">Sum Attend</td>
+        <td bgcolor="#CCCCCC" class="style6 style5 header">Sum Absent</td>
+        <td bgcolor="#CCCCCC" class="style6 style5 header">Total</td>
         <td bgcolor="#CCCCCC" class="style6 style5 header">%</td>            
-        <td bgcolor="#CCCCCC" class="style6 style5 header">Tlp Siswa</td>
-        <td bgcolor="#CCCCCC" class="style6 style5 header">HP Siswa</td>
-        <td bgcolor="#CCCCCC" class="style6 style5 header">Orang Tua</td>
-        <td bgcolor="#CCCCCC" class="style6 style5 header">Tlp Ortu</td>
-        <td bgcolor="#CCCCCC" class="style6 style5 header">HP Ortu</td>       
+        <td bgcolor="#CCCCCC" class="style6 style5 header">Student Phone</td>
+        <td bgcolor="#CCCCCC" class="style6 style5 header">Student Mobile</td>
+        <td bgcolor="#CCCCCC" class="style6 style5 header">Parent</td>
+        <td bgcolor="#CCCCCC" class="style6 style5 header">Parent Phone</td>
+        <td bgcolor="#CCCCCC" class="style6 style5 header">Parent Mobile</td>       
     </tr>
 <?		
 	$cnt = 0;
@@ -193,7 +193,7 @@ $row = mysql_fetch_array($result);
 <tr>
 	<td><? 	if ($row[7] == 0) 
 			$tanda = "*";
-			echo "Ket: *Status siswa tidak aktif lagi";
+			echo "PS: *Student Status back to inactive";
     	?>
     </td>
 </tr> 

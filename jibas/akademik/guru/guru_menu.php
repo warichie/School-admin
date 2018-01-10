@@ -39,7 +39,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Status Guru</title>
+<title>Teacher Status</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -79,7 +79,7 @@ function semua() {
 <table border="0" width="100%" align="center">
 <!-- TABLE CENTER -->
 <tr>
-	<td align="center"><p><strong>Departemen &nbsp;</strong>
+	<td align="center"><p><strong>Department &nbsp;</strong>
     	<select name="departemen" id="departemen" onchange="departemen()" style="width:50%;">
        <?	$dep = getDepartemen(SI_USER_ACCESS());    
 			foreach($dep as $value) {
@@ -88,7 +88,7 @@ function semua() {
               	<option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?> ><?=$value ?> </option>
                 <?	} ?>
             </select>  <p>
-           	<input type="button" name="tampil" value="Tampilkan Semua Guru" class="but" onclick="semua()" style="width:180px;"/>
+           	<input type="button" name="tampil" value="Show All Teachers" class="but" onclick="semua()" style="width:180px;"/>
 	</td>
 </tr>
 </table>
@@ -102,7 +102,7 @@ function semua() {
 ?>
 <table border="0" width="100%" align="center">
 <tr>
-	<td><strong>Berdasarkan:</strong></td>
+	<td><strong>Sort by:</strong></td>
 </tr>
 <tr>
 	<td>
@@ -111,8 +111,8 @@ function semua() {
     <!-- TABLE CONTENT -->
     
     <tr height="30">    	
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="*" class="header" align="center">Pelajaran</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="*" class="header" align="center">Class Subject</td>
         <td width="10%" class="header" align="center">Status</td>
     </tr>
     
@@ -128,9 +128,9 @@ function semua() {
         <u><b><?=$row['nama']?></b></u>
         <!--<a href="guru_content.php?id=<?=$row['replid']?>&departemen=<?=$departemen?>&aktif=<?=$aktif?>" target = "isi" ><?=$row['nama']?></a>--></td>
         <td align="center"><? if ($row['aktif'] == 1) 
-					echo 'Aktif';
+					echo 'Active';
 				else
-					echo 'Tidak Aktif';
+					echo 'Inactive';
 			?></td>        
     </tr>
 <?	} 
@@ -151,10 +151,10 @@ function semua() {
 	<tr>
 		<td align="center" valign="middle" height="200">
         <? if ($departemen <> "") {	?>
-    		<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />Tambah data pelajaran pada departemen <?=$departemen?> di menu Pendataan Pelajaran pada bagian Guru & Pelajaran. </b></font>
+    		<font size = "2" color ="red"><b>Data Not Found. <br /><br />Add lesson data in Department <?=$departemen?> on the Class Subject Data in Teacher and Class Subject section. </b></font>
        	 <? } else { ?> 
-              <font size = "2" color ="red"><b>Belum ada data Departemen.
-              <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+              <font size = "2" color ="red"><b>No Department yet.
+              <br />Please make a new one in Department menu on Reference section.
               </b></font>
 		<? } ?>
 		</td>

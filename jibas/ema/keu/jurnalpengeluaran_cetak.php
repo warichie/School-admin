@@ -42,14 +42,14 @@ if (isset($_REQUEST['tanggal1']))
 
 if (isset($_REQUEST['tanggal2']))
 	$tanggal2 = $_REQUEST['tanggal2'];
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Jurnal Pengeluaran]</title>
+<title>JIBAS EMA [Print Expenditure Journal]</title>
 </head>
 
 <body>
@@ -60,21 +60,21 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>JURNAL PENGELUARAN</strong></font><br />
+  <font size="4"><strong>EXPENDITURE JOURNAL</strong></font><br />
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="7%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="7%" class="news_content1"><strong>Department</strong></td>
     <td width="93%" class="news_content1">: 
       <?=$departemen ?></td>
     </tr>
 <tr>
-  <td class="news_content1"><strong>Tahun Buku</strong></td>
+  <td class="news_content1"><strong>Fiscal Year</strong></td>
   <td class="news_content1">: 
       <?=$ntahunbuku ?></td>
   </tr>
 <tr>
-  <td class="news_content1"><strong>Periode</strong></td>
+  <td class="news_content1"><strong>Period</strong></td>
   <td class="news_content1">:
     <?=$nperiode ?></td>
   </tr>
@@ -92,10 +92,10 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
     <input type="hidden" name="total" id="total" value="<?=$total?>"/>
     <table border="1" style="border-collapse:collapse" cellpadding="5" width="100%" class="tab" bordercolor="#000000" cellspacing="0">
     <tr height="30">
-        <td width="4%" align="center" class="header">No</td>
-        <td width="15%" align="center" class="header">No. Jurnal/Tanggal</td>
-        <td width="35%" align="center" class="header">Transaksi</td>
-        <td align="center" class="header">Detail Jurnal</td>  
+        <td width="4%" align="center" class="header">#</td>
+        <td width="15%" align="center" class="header">Journal/Date</td>
+        <td width="35%" align="center" class="header">Transaction</td>
+        <td align="center" class="header">Journal Details</td>  
         <?	//if ((getLevel() != 2)) { ?>
         <? // } ?>
     </tr>
@@ -117,7 +117,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
         <td align="center" bgcolor="<?=$bgcolor ?>"><strong><?=$row['nokas']?></strong><br /><em><?=LongDateFormat($row['tanggal'])?></em></td>
         <td valign="top" bgcolor="<?=$bgcolor ?>"><?=$row['transaksi'] ?>
     <?	if (strlen($row['keterangan']) > 0 )  { ?>
-            <br /><strong>Keterangan:</strong><?=$row['keterangan'] ?> 
+            <br /><strong>Info:</strong><?=$row['keterangan'] ?> 
     <?	} ?>        </td>
         <td rowspan="2" valign="top" bgcolor="#E8FFE8">
             <table border="1" style="border-collapse:collapse" width="100%" height="100%" cellpadding="2" bgcolor="#FFFFFF" bordercolor="#000000">    
@@ -133,14 +133,14 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             </tr>
         <?	} ?>    
             </table>
-            <!--<a href="JavaScript:edit(<?=$idjurnal ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Jurnal Pengeluaran!', this, event, '80px')"/></a>-->        </td>
+            <!--<a href="JavaScript:edit(<?=$idjurnal ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Expenditure Journal', this, event, '80px')"/></a>-->        </td>
 	<?	//if ((getLevel() != 2)) { ?>
         <?	//} ?>
     </tr>
     <tr>    
-        <td valign="top"><strong>Petugas: </strong><?=$row['petugas'] ?></td>
+        <td valign="top"><strong>Officer: </strong><?=$row['petugas'] ?></td>
         <td valign="top">
-        <strong>Sumber: Pengeluaran</strong>    	</td>
+        <strong>Source: Expenditure</strong>    	</td>
     </tr>
     <tr style="height:2px">
         <td colspan="4" bgcolor="#EFEFDE"></td>

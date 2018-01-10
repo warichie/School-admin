@@ -53,7 +53,7 @@ if ($_REQUEST['aktif']) {
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Data Guru]</title>
+<title>JIBAS SIMAKA [Print Teacher Data]</title>
 </head>
 
 <body>
@@ -63,25 +63,25 @@ if ($_REQUEST['aktif']) {
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DATA GURU</strong></font><br />
+  <font size="4"><strong>TEACHER DATA</strong></font><br />
  </center>
 <br />
     <br />
-    <strong>Guru <?=$guru?></strong>
+    <strong>Teacher <?=$guru?></strong>
     <br /><br />
     
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <!-- TABLE CONTENT -->
     
     <tr height="30">
-        <td width="4%" class="header" align="center">No</td>
-        <td width="10%" class="header" align="center">NIP</td>
-        <td width="15%" class="header" align="center">Guru</td>
+        <td width="4%" class="header" align="center">#</td>
+        <td width="10%" class="header" align="center">Employee ID</td>
+        <td width="15%" class="header" align="center">Teacher</td>
         <? if (!$aktif) { ?>
-        	<td width="15%" class="header" align="center">Pelajaran</td>
+        	<td width="15%" class="header" align="center">Class Subject</td>
         <? } ?>
-        <td width="15%" class="header" align="center">Status Guru</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+        <td width="15%" class="header" align="center">Teacher Status</td>
+        <td width="*" class="header" align="center">Info</td>
     </tr>
    		 <?
 		OpenDb();

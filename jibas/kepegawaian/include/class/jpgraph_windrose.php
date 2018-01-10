@@ -73,7 +73,7 @@ class WindrosePlotScale {
         }
         if( round($totlegsum) > 100 ) {
             JpGraphError::RaiseL(22001,$legsum);
-            //("Total percentage for all windrose legs in a windrose plot can not exceed  100% !\n(Current max is: ".$legsum.')');
+            //("Total percentage for all windrose legs in a windrose plot can not exceed  100% \n(Current max is: ".$legsum.')');
         }
         $this->iMax = $max ;
         $this->iMaxNum = $maxnum;

@@ -89,16 +89,16 @@ function ambil(){
 	}
 	if (jumkirim>0 && jumkirim==1){
 		parent.tujuan_footer.document.getElementById("numpegawaikirim").value=jumkirim;
-		if (confirm('Kirimkan pesan kepada pegawai ini ?')){
+		if (confirm('Send message to this employee?')){
 			parent.pesanguru_add.validate();
 		}
 	} else if (jumkirim>1){
 		parent.tujuan_footer.document.getElementById("numpegawaikirim").value=jumkirim;
-		if (confirm('Kirimkan pesan kepada pegawai-pegawai ini ?')){
+		if (confirm('Send message to these employees?')){
 			parent.pesanguru_add.validate();
 		}
 	} else if (jumkirim==0) {
-		alert ('Setidaknya harus ada 1 penerima untuk melanjutkan !');
+		alert ('You should have at least one receiver to be able to proceed');
 		return false;
 	}
 }
@@ -122,7 +122,7 @@ function cek_all() {
 <table width="100%" border="0" cellspacing="0">
    <tr bgcolor="#FFFFFF">
     <th scope="row" align="right" valign="bottom"><select name="bagian" id="bagian" onchange="chg_bag()">
-        	<option value="-1" <?=StringIsSelected("-1",$bagian)?>>Semua Bagian</option>
+        	<option value="-1" <?=StringIsSelected("-1",$bagian)?>>All Sections</option>
         	<? 
 			OpenDb();
 			$sql="SELECT * FROM jbssdm.bagianpegawai ORDER BY bagian";
@@ -135,11 +135,11 @@ function cek_all() {
 			CloseDb();
 			?>
         </select></th>
-    <th rowspan="2" align="left" valign="bottom" scope="row"><button title="Kirim pesan !" type="button" class="but" onclick="ambil();" name="kirim" id="kirim" value="Kirim" /><strong><font size="+3">Kirim</font></strong></button></th>
+    <th rowspan="2" align="left" valign="bottom" scope="row"><button title="Send message" type="button" class="but" onclick="ambil();" name="kirim" id="kirim" value="Send" /><strong><font size="+3">Send</font></strong></button></th>
   </tr>
    <tr align="right" bgcolor="#FFFFFF">
      <th scope="row" valign="bottom">&nbsp;&nbsp;
-     <input title="Kembali ke Halaman Kotak Pesan !" type="button" class="but" onclick="batal();" name="cancel" id="cancel" value="Batal" /></th>
+     <input title="Back to Inbox" type="button" class="but" onclick="batal();" name="cancel" id="cancel" value="Cancel" /></th>
    </tr>
 </table>
 

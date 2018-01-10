@@ -196,7 +196,7 @@ if (isset($_REQUEST['keterangan']))
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Ubah Jurnal <?=$jurnal?>]</title>
+<title>JIBAS FINANCE [Edit Jurnal <?=$jurnal?>]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 <script language="javascript" src="script/string.js"></script>
@@ -237,14 +237,14 @@ function hapusrek(no) {
 }
 
 function validate() {
-	return validateEmptyText('tcicilan', 'Tanggal Transaksi Jurnal') &&
-		   validateEmptyText('keperluan', 'Keperluan') &&
-		   validateMaxText('keperluan', 255, 'Keperluan') &&
+	return validateEmptyText('tcicilan', 'Date Transaction Jurnal') &&
+		   validateEmptyText('keperluan', 'Necessities') &&
+		   validateMaxText('keperluan', 255, 'Necessities') &&
 		   validateEmptyText('alasan', 'Alasan Perubahan') &&
 		   validateMaxText('alasan', 500, 'Alasan Perubahan') &&
-		   validateMaxText('keterangan', 255, 'Keterangan') &&
+		   validateMaxText('keterangan', 255, 'Info') &&
 		   validate_jumlah() &&
-		   confirm('Data sudah benar?');
+		   confirm('The data is correct?');
 }
 
 function validate_jumlah() {
@@ -283,7 +283,7 @@ function validate_jumlah() {
 			totalkredit = parseInt(totalkredit) + parseInt(jkredit);
 			
 			if (debet == 0 && kredit == 0) {
-				alert ("Anda harus mengisikan data di kolom debet atau kredit!");
+				alert ("Anda harus mengisikan data di kolom debet or kredit");
 				document.getElementById('debet'+i).focus();
 				return false;
 			}
@@ -291,7 +291,7 @@ function validate_jumlah() {
 		
 		if ((debet.length > 0 && debet != 0) || (kredit.length > 0 && kredit != 0)) {
 			if (koderek.length == 0) {
-				alert ("Anda harus mengisikan data untuk kode rekening!");
+				alert ("You must enter a data for kode rekening");
 				pilihrek(i);				
 				return false;
 			}
@@ -301,13 +301,13 @@ function validate_jumlah() {
 	}
 	
 	if (isi == 0) {
-		alert ("Anda harus mengisi setidaknya satu data untuk transaksi!");
+		alert ("Anda harus mengisi setidaknya satu data untuk transaksi");
 		document.getElementById('debet1').focus;
 		return false; 
 	}
 	
 	if (totalkredit != totaldebet) {
-		alert("Transaksi tidak bisa disimpan! Total debet tidak sama dengan total kredit!");
+		alert("Transaction tidak bisa disimpan! Total debet tidak sama dengan total kredit");
 		ok = false;
 	}
 	
@@ -381,7 +381,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Jurnal <?=$jurnal?> :.
+    .: Edit Jurnal <?=$jurnal?> :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -400,13 +400,13 @@ function focusNext(elemName, evt) {
     <table border="0" cellpadding="2" cellspacing="2" align="center" >
 	<!-- TABLE CONTENT -->
     <tr>
-    	<td><strong>Departemen</strong></td>
+    	<td><strong>Department</strong></td>
         <td colspan="4">
         	<input type="text" name="departemen" id="departemen" style="background-color:#dfdec9" size="27" value="<?=$departemen ?>" />
         </td>
     </tr>
     <tr>
-    	<td><strong>Tahun Buku</strong></td>
+    	<td><strong>Fiscal Year</strong></td>
         <td colspan="4">
         <? $sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
            $result = QueryDb($sql);
@@ -418,41 +418,41 @@ function focusNext(elemName, evt) {
         </td>
     </tr>
     <tr>
-    	<td><strong>Tanggal </strong></td>
+    	<td><strong>Date </strong></td>
         <td colspan="4">
         <input type="text" name="tcicilan" id="tcicilan" readonly size="15" value="<?=$tanggal ?>" onKeyPress="return focusNext('keperluan', event)" onClick="Calendar.setup()" style="background-color:#CCCC99">
         <!--</td>
 		<td width="60%" colspan="3">-->
-        <img src="images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/>
+        <img src="images/calendar.jpg" name="tabel" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '100px')"/>
         </td>
         <!--<td width="*" colspan="2">&nbsp;
         </td>-->
         
     </tr>
     <tr>
-    	<td valign="top"><strong>Keperluan </strong></td>
+    	<td valign="top"><strong>Necessities </strong></td>
         <td colspan="2"><textarea rows="3" cols="30" name="keperluan" id="keperluan" onKeyPress="return focusNext('alasan',event);"><?=$transaksi ?></textarea>
         </td>
-        <td valign="top" width="50"><strong>Alasan Perubahan</strong></td>
+        <td valign="top" width="50"><strong>Reason Perubahan</strong></td>
         <td>
         <textarea rows="3" cols="30" name="alasan" id="alasan" onKeyPress="return focusNext('keterangan',event);"><?=$_REQUEST['alasan'] ?></textarea>
         </td>
     </tr>
     <tr>
-    	<td valign="top">Keterangan</td>
+    	<td valign="top">Info</td>
         <td colspan="4"><textarea rows="2" cols="80" name="keterangan" id="keterangan" onKeyPress="return focusNext('debet1',event);"><?=$keterangan ?></textarea>
         </td>
     </tr>
     <tr>
     	<td colspan="5">
-        <fieldset><legend><b>Rekening</b></legend>
+        <fieldset><legend><b>Bank Account</b></legend>
 		<br />
 		<table id="table" class="tab" border="0" align="center">
 		<tr height="30">		
-        	<td class="header" align="center">No</td>
-            <td class="header" align="center">Rekening</td>
-            <td class="header" align="center">Debet</td>
-            <td class="header" align="center">Kredit</td>
+        	<td class="header" align="center">#</td>
+            <td class="header" align="center">Bank Account</td>
+            <td class="header" align="center">Debit</td>
+            <td class="header" align="center">Credit</td>
         </tr>
 <?		$sql = "SELECT jd.koderek, ra.nama, jd.debet, jd.kredit FROM jurnaldetail jd, rekakun ra WHERE jd.koderek = ra.kode AND jd.idjurnal='$idjurnal' ORDER BY jd.replid"; 
 		$result = QueryDb($sql);
@@ -477,8 +477,8 @@ function focusNext(elemName, evt) {
         	<td align="center"><?=$cnt ?></td>
             <td><input type="text" name="koderek<?=$cnt ?>" id="koderek<?=$cnt ?>" value="<?=$koderek[$cnt] ?>" size="10" readonly="readonly" style="background-color:#CCCCCC" onClick="pilihrek(<?=$cnt?>)"/>
             	<input type="text" name="namarek<?=$cnt ?>" id="namarek<?=$cnt ?>"  value="<?=$namarek[$cnt] ?>" size="30" readonly="readonly" style="background-color:#CCCCCC" onClick="pilihrek(<?=$cnt?>)" />
-            <a href="JavaScript:pilihrek(<?=$cnt ?>)"><img src="images/ico/lihat.png" border="0" onMouseOver="showhint('Pilih Rekening!', this, event, '100px')"/></a>&nbsp;
-            <a href="JavaScript:hapusrek(<?=$cnt ?>)"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Rekening!', this, event, '100px')"/></a>
+            <a href="JavaScript:pilihrek(<?=$cnt ?>)"><img src="images/ico/lihat.png" border="0" onMouseOver="showhint('Select Bank Account', this, event, '100px')"/></a>&nbsp;
+            <a href="JavaScript:hapusrek(<?=$cnt ?>)"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Bank Account', this, event, '100px')"/></a>
             </td>
             <td align="center">
             	<input type="text" name="debet<?=$cnt ?>" id="debet<?=$cnt ?>"  value="<?=FormatRupiah($debet[$cnt]) ?>" size="15" maxlength="15" onBlur="formatRupiah('debet<?=$cnt?>');jumlah('debet', <?=$cnt?>);" onKeyPress="if (document.getElementById('debet<?=$cnt?>').value != 0) return focusNext('debet<?=(int)$cnt+1?>',event); else return focusNext('kredit<?=$cnt?>', event);" onFocus="unformatRupiah('debet<?=$cnt ?>')" style="text-align:right"/> </td>               
@@ -489,7 +489,7 @@ function focusNext(elemName, evt) {
 		
     	<tr height="30">
         	<td colspan="2" align="center" bgcolor="#999900">
-            	<font color="#FFFFFF"><strong>T O T A L</strong></font>
+            	<font color="#FFFFFF"><strong>Total</strong></font>
         	</td>
         	<td align="right" bgcolor="#999900">
             	<input type="text" name="totaldebet" id="totaldebet" readonly="readonly" size="15" style="background-color:#999900; border:none; text-align:right; color:#FFFFFF; font-weight:bold" value="<?=FormatRupiah($jumdeb)?>" onFocus="formatRupiah('totaldebet')"/></td>
@@ -507,8 +507,8 @@ function focusNext(elemName, evt) {
    
     <tr height="30">
     	<td colspan="5" align="center">
-        <input type="submit" class="but" name="Simpan" id="Simpan" value="Simpan" />&nbsp;
-        <input type="button" class="but" name="Tutup" id="Tutup" value="Tutup" onClick="window.close()" />
+        <input type="submit" class="but" name="Simpan" id="Simpan" value="Save" />&nbsp;
+        <input type="button" class="but" name="Tutup" id="Tutup" value="Close" onClick="window.close()" />
         </td>
     </tr>
     </table>

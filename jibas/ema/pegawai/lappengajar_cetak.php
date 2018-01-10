@@ -63,7 +63,7 @@ if (isset($_REQUEST['tglakhir']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Rapor]</title>
+<title>JIBAS EMA [Print Report Card]</title>
 </head>
 
 <body>
@@ -74,26 +74,26 @@ if (isset($_REQUEST['tglakhir']))
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>STATISTIK PRESENSI PEGAWAI</strong></font><br />
+  <font size="4"><strong>EMPLOYEE PRESENCE STATISTIC</strong></font><br />
  </center><br /><br />
 <table width="59%">
 <tr>
-	<td width="25%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="25%" class="news_content1"><strong>Department</strong></td>
     <td class="news_content1">: 
       <?=$departemen?></td>
 </tr>
 <tr>
-	<td class="news_content1"><strong>Tahun&nbsp;Ajaran</strong></td>
+	<td class="news_content1"><strong>Year&nbsp;</strong></td>
     <td class="news_content1">:      
       <?=getname('tahunajaran','tahunajaran',$tahunajaran)?></td>
 </tr>
 <tr>
-	<td class="news_content1"><strong>Periode</strong></td>
+	<td class="news_content1"><strong>Period</strong></td>
     <td class="news_content1">: 
-      <?=LongDateFormat($tglawal)?> s.d. <?=LongDateFormat($tglakhir)?></td>
+      <?=LongDateFormat($tglawal)?> to <?=LongDateFormat($tglakhir)?></td>
 </tr>
 <tr>
-  <td class="news_content1"><strong>Pegawai</strong></td>
+  <td class="news_content1"><strong>Employee</strong></td>
   <td class="news_content1">:      
       <?=$nip?> - <?=getname2('nama',$db_name_sdm.'.pegawai','nip',$nip)?></td>
 </tr>
@@ -113,16 +113,16 @@ if (isset($_REQUEST['tglakhir']))
 	?>  
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
     <tr class="header" align="center" height="30">		
-		<td width="5%">No</td>
-      	<td width="8%">Tgl</td>
-      	<td width="5%">Pkl</td>            
-      	<td width="7%">Kelas</td>
-      	<td width="15%">Pelajaran</td>
+		<td width="5%">#</td>
+      	<td width="8%">Date</td>
+      	<td width="5%">Time</td>            
+      	<td width="7%">Class</td>
+      	<td width="15%">Class Subject</td>
       	<td width="14%">Status</td>
-      	<td width="7%">Telat</td>
-      	<td width="6%">Jam</td>
-      	<td width="17%" height="30" align="center" class="header">Materi</td>
-      	<td width="*" height="30" align="center" class="header">Keterangan</td>
+      	<td width="7%">Late</td>
+      	<td width="6%">Time</td>
+      	<td width="17%" height="30" align="center" class="header">Class Subject</td>
+      	<td width="*" height="30" align="center" class="header">Info</td>
 		<?	//if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>      	
         <!--<td width="3%" height="30" align="center" class="header"></td>-->
 		<? //} ?>
@@ -138,13 +138,13 @@ if (isset($_REQUEST['tglakhir']))
         <td height="25" align="center"><?=$row[4]?></td>
         <td height="25"><?=$row[5]?></td>
         <td height="25"><?=$row[6]?></td>
-        <td height="25" align="center"><?=$row[7]?> menit</td>
+        <td height="25" align="center"><?=$row[7]?> minutes</td>
         <td height="25" align="center"><?=$row[8]?></td>
         <td height="25"><?=$row[9]?></td>
         <td height="25"><?=$row[10]?></td>
 	<?	//if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>            
         <!--<td height="25" align="center"> 
-        <a title="Hapus" href="JavaScript:hapus(<?=$row[11] ?>)"><img src="../images/ico/hapus.png" border="0" /></a>
+        <a title="Delete" href="JavaScript:hapus(<?=$row[11] ?>)"><img src="../images/ico/hapus.png" border="0" /></a>
    		</td>--> 
 	<?	//} ?>    
     </tr>
@@ -159,8 +159,8 @@ if (isset($_REQUEST['tglakhir']))
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="400" bordercolor="#000000">
     <tr>
 		<td width="200" height="30" class="header">&nbsp;</td>
-		<td width="100" height="30" align="center" class="header">Pertemuan</td>
-		<td width="100" height="30" align="center" class="header">Jumlah Jam</td>
+		<td width="100" height="30" align="center" class="header">Meeting</td>
+		<td width="100" height="30" align="center" class="header">Hour</td>
 	</tr>
 <? 	OpenDb();	
 	$sql = "SELECT replid, status FROM statusguru ORDER BY status" ;
@@ -187,7 +187,7 @@ if (isset($_REQUEST['tglakhir']))
 	 <table width="100%" border="0" align="center">         
 	<tr>
 		<td align="center" valign="middle" height="250">
-    	<span class="err">Tidak ditemukan adanya data. </span></td>
+    	<span class="err">No Data Found. </span></td>
 	</tr>
 	</table>
 <?	} ?>

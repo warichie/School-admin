@@ -136,7 +136,7 @@ if (isset($_REQUEST['simpan']))
 	$num_cek = @mysql_num_rows($result_cek);
 	if($num_cek > 0) 
 	{
-		$ERROR_MSG = "NIP ".$nip." sudah digunakan!";
+		$ERROR_MSG = "Employee ID ".$nip." has been used";
 	} 
 	else 
 	{
@@ -158,7 +158,7 @@ if (isset($_REQUEST['simpan']))
    		else 
 		{          ?>
             <script language="JavaScript">
-            	alert("Gagal menyimpan data!");
+            	alert("Failed to save data");
            </script>
 <?  	}
 	}
@@ -170,7 +170,7 @@ $n = JmlHari($blnlahir, $thnlahir);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Pegawai]</title>
+<title>JIBAS SIMAKA [Edit Employee]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="JavaScript" src="../script/ajax.js"></script>
@@ -263,18 +263,18 @@ function change_tgl() {
 	var tgl = parseInt(document.form1.tgllahir.value);
 	
 	if(thn.length == 0) {
-       	alert("Anda harus mengisikan data untuk Tahun Lahir!");
+       	alert("You must enter a data for Year of Birth");
 		document.form1.blnlahir.value = "";
 		document.form1.thnlahir.focus();
         return false;
 	} else {	
 		if(isNaN(thn)) {
-    		alert("Tahun lahir harus berupa angka!"); 
+    		alert("Year of Birth should be numeric"); 
 			document.form1.thnlahir.focus();
         	return false;
 		} else {	
 			if (thn.length > 4 || thn.length < 4) {
-            	alert("Tahun lahir tidak boleh lebih atau kurang dari 4 karakter!"); 
+            	alert("Year of Birth should not more or less than 4 characters"); 
 				document.form1.thnlahir.focus();
             	return false;
 			}
@@ -325,82 +325,82 @@ function cek_form() {
 	var email = document.form1.email.value;
 		
 	if (nip.length == 0) {
-      	alert("Anda harus mengisikan data untuk NIP!");
+      	alert("You must enter a data for Employee ID");
 		document.form1.nip.focus();
         return false;
    	}
     
 	if (nip.length > 20) {
-        alert("NIP tidak boleh lebih dari 20 karakter"); 
+        alert("Employee ID should not exceed 20 characters"); 
 		document.form1.nip.focus();
         return false;
    	}
     
 	if (nama.length == 0) {
-       	alert("Anda harus mengisikan data untuk Nama pegawai!");
+       	alert("You must enter a data for Employee Name");
 		document.form1.nama.focus();
         return false;
    	}
     
 	if (nama.length > 100) {
-    	alert("Nama tidak boleh lebih dari 100 karakter"); 
+    	alert("Name should not exceed 100 characters"); 
 		document.form1.nama.focus();
         return false;
    	}
 	
 	if (tempatlahir.length == 0) {
-       	alert("Anda harus mengisikan data untuk Tempat Lahir!");
+       	alert("You must enter a data for Birth Place");
 		document.form1.tempatlahir.focus();
         return false;
    	}
 	
 	if(tanggal.length == 0) {
-       	alert("Anda harus mengisikan data untuk Tanggal Lahir!");
+       	alert("You must enter a data for Date of Birth");
 		document.form1.tgllahir.focus();
         return false;
    	}
 	
 	if(bulan.length == 0) {
-       	alert("Anda harus mengisikan data untuk Bulan Lahir!");
+       	alert("You must enter a data for Month of Birth");
 		document.form1.blnlahir.focus();
         return false;
    	}
 	
 	if(tahun.length == 0) {
-       	alert("Anda harus mengisikan data untuk Tahun Lahir!");
+       	alert("You must enter a data for Year of Birth");
 		document.form1.thnlahir.focus();
         return false;
    	} 
 	
 	if (tahun.length > 0){	
 		if(isNaN(tahun)) {
-    		alert ('Data tahun lahir harus berupa bilangan!');
+    		alert ('Year of Birth data must be numeric');
 			document.form1.thnlahir.value="";
 			document.form1.thnlahir.focus();
         	return false;
 		}
 		if (tahun.length > 4 || tahun.length < 4) {
-        	alert("Tahun lahir tidak boleh lebih atau kurang dari 4 karakter!"); 
+        	alert("Year of Birth should not more or less than 4 characters"); 
 			document.form1.thnlahir.focus();
         	return false;
     	}
     }
 	
 	if(agama.length == 0) {
-       	alert("Anda harus mengisikan data untuk Agama pegawai!");
+       	alert("You must enter a data for Employee Religion");
 		document.form1.agama.focus();
         return false;
    	}
 	
 	if(suku.length == 0) {
-       	alert("Anda harus mengisikan data untuk Suku pegawai!");
+       	alert("You must enter a data for Employee Ethnicity");
 		document.form1.suku.focus();
         return false;
    	}
 	
 	if (email.length > 0) {
 		if (!validateEmail("email") ) { 
-			alert( "Email yang Anda masukkan bukan merupakan alamat email!" );
+			alert( "Email you entered is not an email address");
 			document.form1.email.focus();
 			return false;	
 		}	
@@ -413,7 +413,7 @@ function cek_form() {
 		if (tahun % 4 == 0){
 			 if (bulan == 2){
 				  if (tanggal>29){
-					   alert ('Maaf, silakan masukan ulang tanggal lahir!');
+					   alert ('Sorry, please re-enter Date of Birth');
 					   sendRequestText("../library/gettanggal.php", show1, "tahun="+tahun+"&bulan="+bulan+"&tgl="+tanggal+"&namatgl="+namatgl+"&namabln="+namabln);	
 					   document.getElementById("tgllahir").focus();
 					   return false;
@@ -421,7 +421,7 @@ function cek_form() {
 			 }
 			 if (bulan == 4 || bulan == 6 || bulan == 9 || bulan == 11){
 				  if (tanggal>30){
-					   alert ('Maaf, silakan masukan ulang tanggal lahir!');
+					   alert ('Sorry, please re-enter Date of Birth');
 					   sendRequestText("../library/gettanggal.php", show1, "tahun="+tahun+"&bulan="+bulan+"&tgl="+tanggal+"&namatgl="+namatgl+"&namabln="+namabln);	
 					   document.getElementById("tgllahir").focus();
 					   return false;
@@ -431,7 +431,7 @@ function cek_form() {
 		if (tahun % 4 != 0){
 			 if (bulan == 2){
 				 if (tanggal>28){
-					   alert ('Maaf, silakan masukan ulang tanggal lahir!');
+					   alert ('Sorry, please re-enter Date of Birth');
 					   sendRequestText("../library/gettanggal.php", show1, "tahun="+thnlahir+"&bulan="+bulan+"&tgl="+tanggal+"&namatgl="+namatgl+"&namabln="+namabln);	
 					   document.getElementById("tgllahir").focus();
 					   return false;
@@ -440,7 +440,7 @@ function cek_form() {
 			 }
 			 if (bulan == 4 || bulan == 6 || bulan == 9 || bulan == 11){
 				  if (tanggal>30){
-					   alert ('Maaf, silakan masukan ulang tanggal lahir!');
+					   alert ('Sorry, please re-enter Date of Birth');
 					   sendRequestText("../library/gettanggal.php", show1, "tahun="+thnlahir+"&bulan="+bulan+"&tgl="+tanggal+"&namatgl="+namatgl+"&namabln="+namabln);	
 					   document.getElementById("tgllahir").focus();
 					   return false;
@@ -456,7 +456,7 @@ function cek_form() {
 		var x = file.split('.');
 		ext = x[(x.length-1)];
 		if (ext!='JPG' && ext!='jpg' && ext!='Jpg' && ext!='JPg' && ext!='JPEG' && ext!='jpeg'){
-			alert ('Format Gambar harus ber-extensi jpg atau JPG !');
+			alert ('Image should be jpg or JPG formatted');
 			document.getElementById("foto").value='';
 			document.form1.foto.focus();
     		document.form1.foto.select();
@@ -474,12 +474,12 @@ function change_bln() {
 	var namatgl = "blnlahir";
 	if(thn.length != 0) {
     	if(isNaN(thn)) {
-    		alert("Tahun lahir harus berupa angka!"); 
+    		alert("Year of Birth should be numeric"); 
 			document.form1.thnlahir.focus();
         	return false;
 		} else {	
 			if (thn.length > 4 || thn.length < 4) {
-            	alert("Tahun lahir tidak boleh lebih atau kurang dari 4 karakter!"); 
+            	alert("Year of Birth should not more or less than 4 characters"); 
 				document.form1.thnlahir.focus();
             	return false;
 			}
@@ -495,14 +495,14 @@ function change_bln() {
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#dcdfc4" onLoad="document.getElementById('nip').focus();">
 
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="58">
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
     <div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Pegawai :.
+    .: Edit Employee :.
     </div>
     </td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -515,7 +515,7 @@ function change_bln() {
   	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
     <!-- TABLE CONTENT -->
     <tr>
-      	<td width="25%"><strong>Bagian</strong></td>
+      	<td width="25%"><strong>Section</strong></td>
       	<td>
         <select name="bagian" id="bagian" onKeyPress="return focusNext('nip', event)" style="width:135px" onFocus="panggil('bagian')">
       	<?
@@ -539,45 +539,45 @@ function change_bln() {
         </td>
     </tr>
     <tr>
-      	<td><strong>NIP</strong></td>
+      	<td><strong>Employee ID</strong></td>
       	<td>
-        <input type="text" name="nip" id="nip" value="<?=$nip?>"  onKeyPress="return focusNext('nama', event)" onFocus="showhint('NIP tidak boleh kosong!', this, event, '100px');panggil('nip')" maxlength="20"/>
+        <input type="text" name="nip" id="nip" value="<?=$nip?>"  onKeyPress="return focusNext('nama', event)" onFocus="showhint('Employee ID should not leave empty', this, event, '100px');panggil('nip')" maxlength="20"/>
         <input type="hidden" name="replid" id="replid" value="<?=$replid?>"/>
         </td>
     </tr>
     <tr>
-      	<td><strong>Nama</strong></td>
-      	<td><input name="nama" type="text" id="nama" size="30" value="<?=$nama?>"  onKeyPress="return focusNext('gelarawal', event)" onFocus="showhint('Nama tidak boleh kosong!', this, event, '100px');panggil('nama')"/>            </td>
+      	<td><strong>Name</strong></td>
+      	<td><input name="nama" type="text" id="nama" size="30" value="<?=$nama?>"  onKeyPress="return focusNext('gelarawal', event)" onFocus="showhint('Name should not leave empty', this, event, '100px');panggil('nama')"/>            </td>
 	</tr>
     <tr>
-      	<td>Gelar Awal</td>
+      	<td>First Academic Title</td>
       	<td><input type="text" name="gelarawal" id="gelarawal" size="30" value="<?=$gelarawal?>"  onKeyPress="return focusNext('gelarakhir', event)" onFocus="panggil('gelar')"/></td>
     </tr>
     <tr>
-      	<td>Gelar Akhir</td>
+      	<td>Last Academic Title</td>
       	<td><input type="text" name="gelarakhir" id="gelarakhir" size="30" value="<?=$gelarakhir?>"  onKeyPress="return focusNext('panggilan', event)" onFocus="panggil('gelar')"/></td>
     </tr>
     <tr>
-      	<td>Panggilan</td>
+      	<td>Nickname</td>
       	<td><input type="text" name="panggilan" id="panggilan" size="30" value="<?=$panggilan?>"  onKeyPress="return focusNext('kelamin', event)" onFocus="panggil('panggilan')"/></td>
   	</tr>
     <tr>
-       	<td><strong>Jenis Kelamin</strong></td>
+       	<td><strong>Gender</strong></td>
         <td><input type="radio" name="kelamin"  id="kelamin" value="l" 
     	<? 	if ($kelamin=="l") 
     			echo "checked='checked'";
-    	?> onKeyPress="return focusNext('gelar', event)"/>&nbsp;Laki-laki&nbsp;&nbsp;
+    	?> onKeyPress="return focusNext('gelar', event)"/>&nbsp;Male&nbsp;&nbsp;
         	<input type="radio" name="kelamin" value="p"
     	<? 	if ($kelamin=="p") 
     			echo "checked='checked'";
-    	?> onKeyPress="return focusNext('tempatlahir', event)"/>&nbsp;Perempuan</td>
+    	?> onKeyPress="return focusNext('tempatlahir', event)"/>&nbsp;Female</td>
    	</tr>
     <tr>
-    	<td><strong>Tempat Lahir</strong></td>
-        <td><input type="text" name="tempatlahir" id="tempatlahir" size="30" value="<?=$tempatlahir?>" onKeyPress="return focusNext('tgllahir', event)" onFocus="showhint('Tempat Lahir tidak boleh kosong!', this, event, '100px');panggil('tempatlahir')"/></td>
+    	<td><strong>Birth Place</strong></td>
+        <td><input type="text" name="tempatlahir" id="tempatlahir" size="30" value="<?=$tempatlahir?>" onKeyPress="return focusNext('tgllahir', event)" onFocus="showhint('Birth Place should not leave empty', this, event, '100px');panggil('tempatlahir')"/></td>
 	</tr>
     <tr>
-      	<td><strong>Tanggal Lahir</strong></td>
+      	<td><strong>Date of Birth</strong></td>
       	<td colspan="2">
         <select name="tgllahir" id="tgllahir"  onKeyPress="return focusNext('blnlahir', event)" onFocus="panggil('tgllahir')"> 
     <? 	for($i=1;$i<=$n;$i++){   ?>      
@@ -589,14 +589,14 @@ function change_bln() {
         <option value="<?=$i?>" <?=IntIsSelected($blnlahir, $i)?>><?=$bulan_pjg[$i]?></option>	
     <?	}	?>
         </select>
-        <input type="text" name="thnlahir" id="thnlahir" size="5" maxlength="4" onFocus="showhint('Tahun Lahir tidak boleh kosong!', this, event, '100px');panggil('thnlahir')"  value="<?=$thnlahir?>"  onKeyPress="return focusNext('agama', event)"/></td>
+        <input type="text" name="thnlahir" id="thnlahir" size="5" maxlength="4" onFocus="showhint('Year of Birth should not leave empty', this, event, '100px');panggil('thnlahir')"  value="<?=$thnlahir?>"  onKeyPress="return focusNext('agama', event)"/></td>
     </tr>
     <tr>
-        <td><strong>Agama</strong></td>
+        <td><strong>Religion</strong></td>
         <td colspan="2">
         <div id="agama_info">
         <select name="agama" id="agama" class="ukuran"  onKeyPress="return focusNext('suku', event)"onFocus="panggil('agama')">
-        <option value="">[Pilih Agama]</option>
+        <option value="">[Select Religion]</option>
         <?
         $query_a="select agama from jbsumum.agama order by urutan asc " ;
         $result_a=QueryDb($query_a) or (mysql_error()) ;
@@ -607,14 +607,14 @@ function change_bln() {
         <? } ?>
         </select>
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <img src="../images/ico/tambah.png" border="0" onClick="tambah_agama();" onMouseOver="showhint('Tambah Agama!', this, event, '50px')">   
+        <img src="../images/ico/tambah.png" border="0" onClick="tambah_agama();" onMouseOver="showhint('Add Religion', this, event, '50px')">   
         <? } ?>	 </div>     </td>
     </tr>
     <tr>
-        <td><strong>Suku</strong></td>
+        <td><strong>Ethnicity</strong></td>
         <td colspan="2"><div id="suku_info">
         <select name="suku" id="suku" class="ukuran"  onKeyPress="return focusNext('menikah', event)" onFocus="panggil('suku')">
-        <option value="">[Pilih Suku]</option>
+        <option value="">[Select Ethnicity]</option>
         <?
         $query_s="select suku from jbsumum.suku order by urutan asc " ;
         $result_s=QueryDb($query_s) or (mysql_error()) ;
@@ -624,34 +624,34 @@ function change_bln() {
         <? } ?>
         </select>
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <img src="../images/ico/tambah.png" border="0" onClick="tambah_suku();" onMouseOver="showhint('Tambah Suku!', this, event, '50px')">
+        <img src="../images/ico/tambah.png" border="0" onClick="tambah_suku();" onMouseOver="showhint('Add Ethnicity', this, event, '50px')">
         <? } ?>
         </div>     </td>
     </tr>
     <tr>
-        <td>Menikah</td>
+        <td>Marital Status</td>
         <td colspan="2">
-        <input type="radio" name="menikah" id="menikah" value="menikah" <? if ($menikah== 'menikah') echo 'checked';?>  onKeyPress="return focusNext('identitas', event)"/>&nbsp;Sudah&nbsp;
-        <input type="radio" name="menikah"  id="menikah" value="belum" <? if ($menikah == 'belum') echo 'checked';?>  onKeyPress="return focusNext('identitas', event)"/>&nbsp;Belum&nbsp;
-        <input name="menikah" type="radio" id="menikah" value="tak_ada" 
-        <? if ($menikah == 'tak_ada' || $menikah =="") echo 'checked';?> onKeyPress="return focusNext('identitas', event)"/>&nbsp;(Tidak ada data) 
+        <input type="radio" name="menikah" id="menikah" value="Married" <? if ($menikah== 'Married') echo 'checked';?>  onKeyPress="return focusNext('identitas', event)"/>&nbsp;Sudah&nbsp;
+        <input type="radio" name="menikah"  id="menikah" value="Not Married" <? if ($menikah == 'Not Married') echo 'checked';?>  onKeyPress="return focusNext('identitas', event)"/>&nbsp;Belum&nbsp;
+        <input name="menikah" type="radio" id="menikah" value="None" 
+        <? if ($menikah == 'None' || $menikah =="") echo 'checked';?> onKeyPress="return focusNext('identitas', event)"/>&nbsp;(No data) 
         </td>
     </tr>
     <tr>
-        <td>No. Identitas</td>
+        <td>Employee ID</td>
         <td colspan="2"><input type="text" name="identitas" id="identitas" size="30" value="<?=$identitas?>" onKeyPress="return focusNext('alamat', event)" onFocus="panggil('identitas')"/></td>
     </tr>
     <tr>
-        <td valign="top">Alamat</td>
+        <td valign="top">Address</td>
         <td colspan="2"><textarea name="alamat" cols="40" rows="2" id="alamat" onKeyPress="return focusNext('telpon', event)" onFocus="panggil('alamat')"><?=$alamat?>
         </textarea></td>
     </tr>
     <tr>
-        <td>Telepon</td>
+        <td>Phone</td>
         <td colspan="2"><input type="text" name="telpon" id="telpon" size="30" value="<?=$telpon?>" onKeyPress="return focusNext('handphone', event)"  onFocus="panggil('telpon')"/></td>
     </tr>
     <tr>
-        <td>Handphone</td>
+        <td>Mobile</td>
         <td colspan="2"><input type="text" name="handphone" id="handphone" size="30" value="<?=$handphone?>" onKeyPress="return focusNext('email', event)"  onFocus="panggil('handphone')"/>
         </td>
     </tr>
@@ -660,19 +660,19 @@ function change_bln() {
         <td colspan="2"><input type="text" name="email" id="email" size="30" value="<?=$email?>" onKeyPress="return focusNext('keterangan', event)" onFocus="panggil('email')"/></td>
     </tr>
     <tr>
-        <td>Foto</td>
+        <td>Photo</td>
         <td colspan="2"><input type="file" name="foto" id="foto" style="width:260px" size="38"/></td>
     </tr>
     <tr>
-        <td valign="top">Keterangan</td>
+        <td valign="top">Info</td>
         <td colspan="2" valign="top">
             <textarea name="keterangan" id="keterangan" cols="40" rows="2" onKeyPress="return focusNext('simpan', event)" onFocus="panggil('keterangan')"><?=$keterangan?></textarea>
         </td>
     </tr>
     <tr>
  		<td align="center" colspan="3">
-    	<input type="submit" name="simpan" id="simpan" value="Simpan" class="but" onFocus="panggil('simpan')"/>
-        <input type="button" name="tutup" id="tutup" value="Tutup" class="but" onClick="window.close();" />
+    	<input type="submit" name="simpan" id="simpan" value="Save" class="but" onFocus="panggil('simpan')"/>
+        <input type="button" name="tutup" id="tutup" value="Close" class="but" onClick="window.close();" />
     	</td>
 	</tr>
   	</table>

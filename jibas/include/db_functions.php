@@ -28,8 +28,8 @@ function OpenDb()
 {
 	global $db_host, $db_user, $db_pass, $db_name, $mysqlconnection;
 
-	$mysqlconnection = @mysql_connect($db_host, $db_user, $db_pass) or trigger_error("Can not connect to database server", E_USER_ERROR);
-	$select = @mysql_select_db($db_name, $mysqlconnection) or trigger_error("Can not open the database", E_USER_ERROR);
+	$mysqlconnection = @mysql_connect($db_host, $db_user, $db_pass) or trigger_error("Cannot connect to database server", E_USER_ERROR);
+	$select = @mysql_select_db($db_name, $mysqlconnection) or trigger_error("Cannot open database", E_USER_ERROR);
 	
 	return $mysqlconnection;
 }	
@@ -38,8 +38,8 @@ function OpenDbi()
 {
 	global $db_host, $db_user, $db_pass, $db_name, $conni;
 
-	$conni = @mysqli_connect($db_host, $db_user, $db_pass) or trigger_error("Can not connect to database server", E_USER_ERROR);
-	$select = @mysqli_select_db($conni, $db_name) or trigger_error("Can not open the database", E_USER_ERROR);
+	$conni = @mysqli_connect($db_host, $db_user, $db_pass) or trigger_error("Cannot connect to database server", E_USER_ERROR);
+	$select = @mysqli_select_db($conni, $db_name) or trigger_error("Cannot open database", E_USER_ERROR);
 	
 	return $conni;
 }

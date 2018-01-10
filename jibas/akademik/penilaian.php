@@ -32,7 +32,7 @@ if (isset($_REQUEST['flag'])){
 ?>
 <html>
 <head>
-<title>Penilaian</title>
+<title>Index</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="style/style.css">
@@ -81,7 +81,7 @@ function scrollMiddle() {
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" <? if ($middle=="1") { ?>onload="scrollMiddle()" <? } else { ?> onLoad="scrollTop()"  <? } ?>>
 <table width="100%" border="0">
   <tr>
-    <td><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>PENILAIAN</strong></font></p></td>
+    <td><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>ASSESSMENT</strong></font></p></td>
   </tr>
   <tr>
     <td>
@@ -96,7 +96,7 @@ function scrollMiddle() {
 		<td rowspan="16">
 			<img src="images/penilaian_02.jpg" width="29" height="561" alt=""></td>
 		<td rowspan="6">
-			<a href="penilaian/formpenilaian.php" onMouseOver="showhint('Cetak Form-form Penilaian', this, event, '100px')"><img src="images/penilaian_03.jpg" alt="" width="66" height="99" border="0"></a></td>
+			<a href="penilaian/formpenilaian.php" onMouseOver="showhint('Print Assessment Forms', this, event, '100px')"><img src="images/penilaian_03.jpg" alt="" width="66" height="99" border="0"></a></td>
   <td colspan="10">
 			<img src="images/penilaian_04.jpg" width="505" height="6" alt=""></td>
 		<td>
@@ -106,7 +106,7 @@ function scrollMiddle() {
 		<td colspan="4" rowspan="6">
 			<img src="images/penilaian_05.jpg" width="249" height="102" alt=""></td>
 		<td colspan="5">
-			<a href="penilaian/ujian_rpp_kelas.php" onMouseOver="showhint('Daftar Nilai RPP Setiap Kelas', this, event, '100px')"><img src="images/penilaian_06.jpg" alt="" width="110" height="39" border="0"></a></td>
+			<a href="penilaian/ujian_rpp_kelas.php" onMouseOver="showhint('Lesson Plans Report List for each Classes', this, event, '100px')"><img src="images/penilaian_06.jpg" alt="" width="110" height="39" border="0"></a></td>
 		<td rowspan="15" valign="top" align="right">
 			<table border="0" cellpadding="0" width="95%">
 			<tr>
@@ -114,7 +114,7 @@ function scrollMiddle() {
 				<img src="images/table_small.png" border="0" width="40">	
 				</td>
 				<td>
-				<a href="penilaian/lap_legger.php">Laporan Legger Nilai</a>
+				<a href="penilaian/lap_legger.php">Lesson Plans Report</a>
 				</td>
 			</tr>	
 			</table>
@@ -130,7 +130,7 @@ function scrollMiddle() {
 	</tr>
 	<tr>
 		<td colspan="5">
-			<a href="penilaian/ujian_rpp_siswa.php" onMouseOver="showhint('Daftar Nilai RPP Setiap Siswa', this, event, '100px')"><img src="images/penilaian_09.jpg" alt="" width="110" height="39" border="0"></a></td>
+			<a href="penilaian/ujian_rpp_siswa.php" onMouseOver="showhint('Lesson Plans List for each Students', this, event, '100px')"><img src="images/penilaian_09.jpg" alt="" width="110" height="39" border="0"></a></td>
   <td>
 			<img src="images/spacer.gif" width="1" height="39" alt=""></td>
 	</tr>
@@ -142,7 +142,7 @@ function scrollMiddle() {
 	</tr>
 	<tr>
 		<td colspan="4" rowspan="3">
-			<a href="penilaian/lap_pelajaran_main.php" onMouseOver="showhint('Laporan Nilai Pelajaran Setiap Siswa', this, event, '100px')"><img src="images/penilaian_11.jpg" alt="" width="107" height="38" border="0"></a></td>
+			<a href="penilaian/lap_pelajaran_main.php" onMouseOver="showhint('Class Index Report foe each Student', this, event, '100px')"><img src="images/penilaian_11.jpg" alt="" width="107" height="38" border="0"></a></td>
   <td rowspan="6">
 			<img src="images/penilaian_12.jpg" width="3" height="145" alt=""></td>
 		<td>
@@ -158,7 +158,7 @@ function scrollMiddle() {
 		<td rowspan="9">
 			<img src="images/penilaian_14.jpg" width="7" height="453" alt=""></td>
 		<td rowspan="3">
-			<a href="penilaian/lihat_nilai_pelajaran.php" onMouseOver="showhint('Pendataan Nilai Pelajaran Setiap Siswa', this, event, '100px')"><img src="images/penilaian_15.jpg" alt="" width="113" height="107" border="0"></a></td>
+			<a href="penilaian/lihat_nilai_pelajaran.php" onMouseOver="showhint('Class Subject Report for each Students', this, event, '100px')"><img src="images/penilaian_15.jpg" alt="" width="113" height="107" border="0"></a></td>
   <td colspan="2" rowspan="2">
 			<img src="images/penilaian_16.jpg" width="129" height="84" alt=""></td>
 		<td>
@@ -174,7 +174,7 @@ function scrollMiddle() {
 		<td rowspan="7">
 			<img src="images/penilaian_18.jpg" width="13" height="369" alt=""></td>
 		<td colspan="2" rowspan="3">
-			<a href="penilaian/lihat_penentuan.php" onMouseOver="showhint('Pendataan Nilai Rapor Setiap Siswa', this, event, '100px')"><img src="images/penilaian_19.jpg" alt="" width="117" height="90" border="0"></a></td>
+			<a href="penilaian/lihat_penentuan.php" onMouseOver="showhint('Report Data for each Students', this, event, '100px')"><img src="images/penilaian_19.jpg" alt="" width="117" height="90" border="0"></a></td>
   <td colspan="3" rowspan="2">
 			<img src="images/penilaian_20.jpg" width="106" height="51" alt=""></td>
 		<td>
@@ -190,7 +190,7 @@ function scrollMiddle() {
 		<td rowspan="5">
 			<img src="images/penilaian_22.jpg" width="17" height="318" alt=""></td>
 		<td colspan="3" rowspan="2">
-			<a href="penilaian/komentar_main.php" onMouseOver="showhint('Pendataan Komentar Rapor Setiap Siswa', this, event, '100px')"><img src="images/penilaian_23.jpg" alt="" width="92" height="99" border="0"></a></td>
+			<a href="penilaian/komentar_main.php" onMouseOver="showhint('Report Comments Data for each Students', this, event, '100px')"><img src="images/penilaian_23.jpg" alt="" width="92" height="99" border="0"></a></td>
   <td>
 			<img src="images/spacer.gif" width="1" height="39" alt=""></td>
 	</tr>
@@ -210,7 +210,7 @@ function scrollMiddle() {
 		<td rowspan="2">
 			<img src="images/penilaian_26.jpg" width="22" height="187" alt=""></td>
 		<td>
-			<a href="penilaian/lap_rapor_main.php" onMouseOver="showhint('Laporan Akhir Hasil Belajar Setiap Siswa', this, event, '100px')"><img src="images/penilaian_27.jpg" alt="" width="67" height="116" border="0"></a></td>
+			<a href="penilaian/lap_rapor_main.php" onMouseOver="showhint('Cumulative Index Report for each Students', this, event, '100px')"><img src="images/penilaian_27.jpg" alt="" width="67" height="116" border="0"></a></td>
   <td rowspan="2">
 			<img src="images/penilaian_28.jpg" width="3" height="187" alt=""></td>
 		<td>

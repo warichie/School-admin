@@ -71,24 +71,24 @@ function go(content) {
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" ><!--onload="MM_preloadImages('inbox_on.png','compose_on.png','sent_on.png','draft_on.png','inbox_off.png')">-->
 <table width="150" border="0" cellpadding="0" cellspacing="0">
   <tr>
-	<td colspan="2"><span class="style7">.: Pesan</span><br />
+	<td colspan="2"><span class="style7">.: Message</span><br />
     <br /></td>
   </tr>
   <tr>
-	<td width="31"><a style="text-decoration:none; color:#666666" href="#" onclick="go('pesan_inbox');" title="Kotak Masuk Anda" ><img src="../../images/ico/inbox.png" border="0" /></a></td>
-    <td width="119" class="style8"><a style="text-decoration:none; color:#666666" href="#" title="Kotak Masuk Anda" onclick="go('pesan_inbox');" >Kotak Masuk</a></td>
+	<td width="31"><a style="text-decoration:none; color:#666666" href="#" onclick="go('pesan_inbox');" title="Your Inbox" ><img src="../../images/ico/inbox.png" border="0" /></a></td>
+    <td width="119" class="style8"><a style="text-decoration:none; color:#666666" href="#" title="Your Inbox" onclick="go('pesan_inbox');" >Inbox</a></td>
   </tr>
   <tr>
-    <td><a style="text-decoration:none; color:#666666" href="#" onclick="go('pesanguru_add_main');" title="Tulis Pesan ke Guru" ><img src="../../images/ico/compose.png" width="31" height="25" border="0" /></a></td>
-    <td class="style9"><a style="text-decoration:none; color:#666666" href="#" title="Tulis Pesan Baru" class="style10" onclick="go('pesanguru_add_main');" >Tulis Pesan Guru</a></td>
+    <td><a style="text-decoration:none; color:#666666" href="#" onclick="go('pesanguru_add_main');" title="Write Message to Teacher" ><img src="../../images/ico/compose.png" width="31" height="25" border="0" /></a></td>
+    <td class="style9"><a style="text-decoration:none; color:#666666" href="#" title="New Message" class="style10" onclick="go('pesanguru_add_main');" >Write Message to Teacher</a></td>
   </tr>
   <tr>
-    <td><a style="text-decoration:none; color:#666666" href="#" onclick="go('pesansiswa_add_main');" title="Tulis Pesan ke Siswa" ><img src="../../images/ico/compose.png" width="31" height="25" border="0" /></a></td>
-    <td class="style8"><a style="text-decoration:none; color:#666666" href="#" title="Tulis Pesan Baru" class="style10" onclick="go('pesansiswa_add_main');" >Tulis Pesan Siswa</a></td>
+    <td><a style="text-decoration:none; color:#666666" href="#" onclick="go('pesansiswa_add_main');" title="Write Message to Student" ><img src="../../images/ico/compose.png" width="31" height="25" border="0" /></a></td>
+    <td class="style8"><a style="text-decoration:none; color:#666666" href="#" title="New Message" class="style10" onclick="go('pesansiswa_add_main');" >Write Message to Student</a></td>
   </tr>
   <tr>
-    <td><a style="text-decoration:none; color:#666666" href="#" onclick="go('pesan_terkirim');" title="Daftar Pesan Terkirim" ><img src="../../images/ico/sent.png" width="31" height="25" border="0" /></a></td>
-    <td class="style8"><a style="text-decoration:none; color:#666666" href="#" title="Daftar Pesan Terkirim" onclick="go('pesan_terkirim');" >Pesan Terkirim</a></td>
+    <td><a style="text-decoration:none; color:#666666" href="#" onclick="go('pesan_terkirim');" title="Sent Message List" ><img src="../../images/ico/sent.png" width="31" height="25" border="0" /></a></td>
+    <td class="style8"><a style="text-decoration:none; color:#666666" href="#" title="Sent Message List" onclick="go('pesan_terkirim');" >Sent Message List</a></td>
   </tr>
 </table>
 <?
@@ -106,7 +106,7 @@ if (@mysql_num_rows($result)>0 || @mysql_num_rows($result2)>0){
     <th  scope="row">&nbsp;</th>
   </tr>
   <tr>
-    <td><span class="style3">Ulang&nbsp;Tahun&nbsp;Hari&nbsp;ini</span></td>
+    <td><span class="style3">Birthday&nbsp;Today</span></td>
   </tr>
   <tr>
     <th valign="top" scope="row">

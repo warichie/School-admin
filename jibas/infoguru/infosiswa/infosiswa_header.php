@@ -32,7 +32,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td align="right">
-   <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font><font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Info Siswa</font><br />
+   <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font><font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Info</font><br />
     </td>
   </tr>
 </table>

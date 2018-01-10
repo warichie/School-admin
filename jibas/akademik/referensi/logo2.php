@@ -101,7 +101,7 @@ if ($gbrbaru==1){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Input Logo Sekolah]</title>
+<title>JIBAS SIMAKA [Submit School Logo]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
@@ -129,7 +129,7 @@ function ganti() {
 		ext = z[z.length-1];
 		
 		if (ext!='JPG' && ext!='jpg' && ext!='Jpg' && ext!='JPg' && ext!='JPEG' && ext!='jpeg'){
-			alert ('Format Gambar harus ber-extensi jpg atau JPG !');
+			alert ('Image should be jpg or JPG formatted');
 			document.getElementById("foto").value='';
 			document.form1.foto.focus();
     		document.form1.foto.select();
@@ -164,14 +164,14 @@ function wait_foto() {
 </head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#dcdfc4" onLoad="<?=$ol?>">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="58">
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-		.: Logo Sekolah :.
+		.: School Logo :.
 		</div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -198,8 +198,8 @@ function wait_foto() {
 			  </tr>
 			  <tr>
 				<td align="center" >
-					<input name="Simpan" type="button" class="but" onClick="simpanlogo()" value="Simpan" />&nbsp;
-					<input name="tutup" type="button" class="but" onClick="window.close()" value="Tutup" /></td>
+					<input name="Simpan" type="button" class="but" onClick="simpanlogo()" value="Save" />&nbsp;
+					<input name="tutup" type="button" class="but" onClick="window.close()" value="Close" /></td>
 			  </tr>
 			</table>
 		</form>

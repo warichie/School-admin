@@ -37,7 +37,7 @@ $kelas = $_REQUEST['kelas'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cetak Departemen</title>
+<title>Print Department</title>
 </head>
 
 <body>
@@ -47,24 +47,24 @@ $kelas = $_REQUEST['kelas'];
 <? include("../library/headercetak.php") ?>
 
 <center>
-<font size="3"><strong>DATA SISWA</strong></font><br />
+<font size="3"><strong>STUDENT DATA</strong></font><br />
 </center><br /><br />
 <br />
-<font size="3"><strong>Departemen : <?=$departemen?></strong></font>
+<font size="3"><strong>Department : <?=$departemen?></strong></font>
 <br />
-<font size="3"><strong>Tahun Ajaran : <?=$tahunajaran?></strong></font>
+<font size="3"><strong>Year of Teaching : <?=$tahunajaran?></strong></font>
 <br />
-<font size="3"><strong>Kelas : <?=$kelas?></strong></font>
+<font size="3"><strong>Class : <?=$kelas?></strong></font>
 <br />
 <br />
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="20%" class="header">NIS</td>
-        <td width="70%" class="header">Nama</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="20%" class="header">Student ID</td>
+        <td width="70%" class="header">Name</td>
     </tr>
 <? 	OpenDb();
-	//$sql = "SELECT NIS,nama FROM siswa WHERE departemen='$departemen' ORDER BY NIS";   
+	//$sql = "SELECT Student ID,nama FROM siswa WHERE departemen='$departemen' ORDER BY Student ID";   
 	$result = QueryDB($sql);
 	$cnt = 0;
 	while ($row = mysql_fetch_array($result)) { ?>

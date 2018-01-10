@@ -27,8 +27,8 @@
 <font style="font-weight:11px; font-family:Tahoma">	
 	versi <?=$G_VERSION." - ".$G_BUILDDATE?><br />
 	<a href="http://www.jibas.net" target="_blank" style="color:#ddd; text-decoration:none; font-family:Tahoma; font-size:11px; font-weight:normal;">
-	&nbsp;&nbsp;&nbsp;&nbsp;<strong>JIBAS</strong>: Jaringan Informasi Bersama Antar Sekolah</a><br />
-	&nbsp;&nbsp;Hak cipta &copy; 2009 <a href="http://www.indonesiamembaca.net" target="_blank" style="color:#00f6f3; font-weight:normal; font-family:Tahoma; font-size:11px; text-decoration:underline;">Yayasan Indonesia Membaca</a><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;<strong>JIBAS</strong>: Inter School Information Network</a><br />
+	&nbsp;&nbsp;Copyright &copy; 2009 <a href="http://www.indonesiamembaca.net" target="_blank" style="color:#00f6f3; font-weight:normal; font-family:Tahoma; font-size:11px; text-decoration:underline;">Indonesia Read Foundation</a><br>
 </font>	
 </td>
 <td>

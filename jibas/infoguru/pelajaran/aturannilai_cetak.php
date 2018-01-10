@@ -47,7 +47,7 @@ $guru = $row[2].' - '.$row[3];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cetak Aturan Penentuan Grading Nilai</title>
+<title>Print Grade Point Rules</title>
 </head>
 
 <body>
@@ -58,21 +58,21 @@ $guru = $row[2].' - '.$row[3];
    <td align="left" valign="top">
 	<?=getHeader($departemen)?>
 	<center>
-  	<font size="4"><strong>ATURAN PENENTUAN GRADING NILAI</strong></font><br />
+  	<font size="4"><strong>GRADE POINT RULES</strong></font><br />
 	</center>
    <br /><br /><br />
 
     <table>
     <tr>
-		<td><strong>Departemen</strong>	</td>
+		<td><strong>Department</strong>	</td>
     	<td><strong>: <?=$departemen ?></strong></td>
     </tr>
     <tr>
-        <td><strong>Pelajaran</strong></td>
+        <td><strong>Class Subject</strong></td>
     	<td><strong>: <?=$pelajaran ?></strong></td>
    	</tr>
     <tr>
-        <td><strong>Guru</strong></td>  	
+        <td><strong>Teacher</strong></td>  	
         <td><strong>: <?=$guru ?></strong></td>       
 	</tr>
     </table>
@@ -91,12 +91,12 @@ $guru = $row[2].' - '.$row[3];
 			if (@mysql_num_rows($result1)>0)
 			{ 	?>
     <br />
-    <b>Tingkat <?=$row['tingkat']?> </b><br /><br />
+    <b>Grade <?=$row['tingkat']?> </b><br /><br />
 	<table border="1" width="100%" id="table" class="tab" bordercolor="#000000">
     <tr>		
-			<td height="30" align="center" class="header">No</td>
-		  <td height="30" align="center" class="header">Aspek Penilaian</td>
-		  <td height="30" align="center" class="header">Grading</td>            
+			<td height="30" align="center" class="header">#</td>
+		  <td height="30" align="center" class="header">Assessment Aspect</td>
+		  <td height="30" align="center" class="header">Grade Rules</td>            
 		</tr>
 		<? 
 		$cnt= 0;
@@ -116,7 +116,7 @@ $guru = $row[2].' - '.$row[3];
 			$result2 = QueryDb($sql2);			
 			
 			while ($row2 = @mysql_fetch_row($result2)) {
-				echo $row2[1].' : '.$row2[2].' s/d '.$row2[3]. '<br>'; 
+				echo $row2[1].' : '.$row2[2].' to '.$row2[3]. '<br>'; 
 			} ?>			</td>
             
 		</tr>

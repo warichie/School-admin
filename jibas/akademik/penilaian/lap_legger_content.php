@@ -137,7 +137,7 @@ for($i = 0; $i < $njenis; $i++)
 }
 ?>
 <a href="#" onclick="cetak_excel()">
-    <img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Cetak dalam format Excel!', this, event, '80px')"/>&nbsp;Cetak Excel
+    <img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Excel', this, event, '80px')"/>&nbsp;Excel
 </a><br><br>
 <input type="hidden" id="departemen" value="<?=$departemen?>">
 <input type="hidden" id="tahunajaran" value="<?=$tahunajaran?>">
@@ -147,9 +147,9 @@ for($i = 0; $i < $njenis; $i++)
 <input type="hidden" id="pelajaran" value="<?=$pelajaran?>">
 <table border="1" id="table" cellpadding="2" cellspacing="0" width="<?=$allwidth?>" style="border-width: 1px; border-collapse:collapse;">
 <tr>
-    <td width="30" class="header" rowspan="2">No</td>
-    <td width="100" class="header" rowspan="2">NIS</td>
-    <td width="240" class="header" rowspan="2">Nama</td>
+    <td width="30" class="header" rowspan="2">#</td>
+    <td width="100" class="header" rowspan="2">Student ID</td>
+    <td width="240" class="header" rowspan="2">Name</td>
 <?  for($i = 0; $i < $njenis; $i++)
     {
         $namajenis = $info[$i][1];

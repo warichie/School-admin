@@ -60,29 +60,29 @@ CloseDb();
 <body>
  <table width="75%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>
-    <th height="39" colspan="3" scope="row"><input name="button" type="submit" class="but" id="button" value="Kembali" onclick="window.self.history.back();" /></th>
+    <th height="39" colspan="3" scope="row"><input name="button" type="submit" class="but" id="button" value="Back" onclick="window.self.history.back();" /></th>
    </tr>
   <tr>
     <th height="39" style="background-image:url(../../images_slice/buat_berita_01.jpg); background-repeat:no-repeat;" scope="row">&nbsp;</th>
-    <td style="background-image:url(../../images_slice/buat_berita_03.jpg); background-repeat:repeat-x;"><div align="center" class="style4">Pesan Guru</div></td>
+    <td style="background-image:url(../../images_slice/buat_berita_03.jpg); background-repeat:repeat-x;"><div align="center" class="style4">Teacher Message</div></td>
     <td width="21" style="background-image:url(../../images_slice/buat_berita_05.jpg); background-repeat:no-repeat;">&nbsp;</td>
   </tr>
   <tr>
     <th width="23" scope="row" style="background-image:url(../../images_slice/buat_berita_06.jpg); background-repeat:repeat-y;">&nbsp;</th>
     <td bgcolor="#F1F1F1"><span class="style1">
-      <span class="style5">Dari :</span> 
+      <span class="style5">From :</span> 
       <?=$row2[nama]?><br /><br /><hr style="color:#006633" />
-      <span class="style6">Judul :</span> 
+      <span class="style6">Title :</span> 
       <?=$row2[judul]?><br />
       <hr style="color:#006633" />
-      <span class="style5">Pesan :</span> 
+      <span class="style5">Message :</span> 
       <?=$row2[pesan]?><br />
       <hr style="color:#006633" />
       <? if (@mysql_num_rows($result3)>0) { ?>
-      <span class="style5">Lampiran :</span> <br />
+      <span class="style5">Attachment :</span> <br />
 	  <?
 	  while ($row3=@mysql_fetch_array($result3)){
-	 echo "<a title='Buka lampiran ini!' href=\"#\" onclick=newWindow('".$WEB_UPLOAD_DIR."pesan/".$row3[direktori].$row3[namafile]."','View',640,480,'resizable=1'); ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row3['namafile']."</a><br>";
+	 echo "<a title='Open this attachment' href=\"#\" onclick=newWindow('".$WEB_UPLOAD_DIR."pesan/".$row3[direktori].$row3[namafile]."','View',640,480,'resizable=1'); ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row3['namafile']."</a><br>";
 	  }
 	  }
 	  ?>

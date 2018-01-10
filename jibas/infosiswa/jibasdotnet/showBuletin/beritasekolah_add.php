@@ -74,22 +74,22 @@ function validate(){
 	var abstrak=tinyMCE.get('abstrak').getContent();
 	var isi=tinyMCE.get('isi').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Berita');
+		alert ('News Title is required');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (judul.length>=255){
-		alert ('Karakter maksimal untuk Judul Berita adalah 255 karakter !');
+		alert ('Max characters for News Title is 255 characters');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (abstrak.length==0){
-		alert ('Anda harus mengisikan data untuk Abstraksi Berita');
+		alert ('News Abstraction is required');
 		document.getElementById('abstrak').focus();
 		return false;
 	}
 	if (isi.length==0){
-		alert ('Anda harus mengisikan data untuk Isi Berita');
+		alert ('News Content is required');
 		document.getElementById('isi').focus();
 		return false;
 	}
@@ -112,44 +112,44 @@ function hapusfile(field){
 <input type="hidden" name="sender" id="sender" value="tambah" />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td scope="row" align="left"><strong><font size="2" color="#999999">Rubrik Baru :</font></strong><br />
+    <td scope="row" align="left"><strong><font size="2" color="#999999">New :</font></strong><br />
       <br /></td>
   </tr>
   <tr>
     <td scope="row" align="left">
     <table width="100%" border="0" cellspacing="5" cellpadding="2" >
   <tr>
-    <th width="8%" scope="row">Judul</th>
+    <th width="8%" scope="row">Title</th>
     <td colspan="2"><input type="text" name="judul" id="judul" maxlength="254" size="50" /></td>
   </tr>
   <tr>
-    <th scope="row">Tanggal</th>
-    <td colspan="2"><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <th scope="row">Date</th>
+    <td colspan="2"><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
     <tr>
-    <th width="8%" scope="row">Jenis Berita</th>
+    <th width="8%" scope="row">News Type</th>
     <td colspan="2">
     	<div style="vertical-align:middle">
-    	  <input type="radio" value="2" checked="checked" name="jenisberita" id="jenisberita" />&nbsp;<strong>Umum&nbsp;&nbsp;&nbsp;&nbsp;
+    	  <input type="radio" value="2" checked="checked" name="jenisberita" id="jenisberita" />&nbsp;<strong>General&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="radio" value="1" name="jenisberita" id="jenisberita" />
-&nbsp;Darurat&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="radio" value="3" name="jenisberita" id="jenisberita" />&nbsp;Sekolah&nbsp;
-        </strong>&nbsp; &nbsp;&nbsp; [ <span class="style1"><em>Dipilih sesuai kondisi yang terjadi</em></span> ]         </div>
+&nbsp;Important&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="radio" value="3" name="jenisberita" id="jenisberita" />&nbsp;School&nbsp;
+        </strong>&nbsp; &nbsp;&nbsp; [ <span class="style1"><em>Select according to what happens</em></span> ]         </div>
     </td>
   </tr>
   <tr>
-    <th valign="top" scope="row">Abstrak</th>
+    <th valign="top" scope="row">Abstract</th>
     <td colspan="2"><textarea name="abstrak" id="abstrak"></textarea></td>
   </tr>
   <tr>
-    <th valign="top" scope="row">Isi</th>
+    <th valign="top" scope="row">Content</th>
     <td colspan="2"><textarea name="isi" id="isi" rows="30"></textarea></td>
   </tr>
 
   <tr>
     <th colspan="3" scope="row" align="center" bgcolor="#FFFFFF" height="30">
-      <input class="but" type="submit" name="simpan" id="simpan" value="Simpan" title="Simpan berita ini !"/>
-    &nbsp;<input class="but" type="button" name="batal" id="batal" value="Batal" onclick="window.self.history.back();" title="Batalkan dan kembali ke Halaman Berita"/></th>
+      <input class="but" type="submit" name="simpan" id="simpan" value="Save" title="Save this News"/>
+    &nbsp;<input class="but" type="button" name="batal" id="batal" value="Cancel" onclick="window.self.history.back();" title="Cancel and back to News Page"/></th>
     </tr>
 </table>
     </td>

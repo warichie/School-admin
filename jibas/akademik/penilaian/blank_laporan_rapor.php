@@ -33,8 +33,8 @@
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_penentuan.png"
     style="background-repeat:no-repeat;">
-        <font size="2" color="#757575"><b>Click pada icon <img src="../images/view.png" border="0"> di
-        atas untuk menampilkan Laporan Nilai Rapor</b></font></td>
+        <font size="2" color="#757575"><b>Click on <img src="../images/view.png" border="0"> 
+        above to show Index Report Report Card.</b></font></td>
 </tr>
 </table>
 </body>

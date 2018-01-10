@@ -24,7 +24,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Guru Main</title>
+<title>Teacher Main</title>
 </head>
 	<frameset cols = "28%, *" border ="1">
     <frame src = "guru_menu.php" style="border:1; border-right:1; border-right-color:#000000; border-right-style:solid" />

@@ -67,7 +67,7 @@ function change_dep() {
 	<!-- TABLE LINK -->
 	<tr>
     <td align="left" width="100%">
-    <p><strong>Departemen&nbsp;</strong> 
+    <p><strong>Department&nbsp;</strong> 
     <select name="departemen" id="departemen" onchange="change_dep()" style="width:150px;">
 <?	$dep = getDepartemen(getAccess());
     foreach($dep as $value) {
@@ -87,8 +87,8 @@ function change_dep() {
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <!-- TABLE CONTENT -->
     <tr height="30">
-        <td class="header" width="4%" align="center">No</td>
-        <td class="header" width="*" align="center">Pengeluaran</td>
+        <td class="header" width="4%" align="center">#</td>
+        <td class="header" width="*" align="center">Expenditure</td>
     </tr>
 <?
 	$cnt = 0;
@@ -108,7 +108,7 @@ function change_dep() {
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="300">
-    		<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />Tambah data pengeluaran pada departemen <?=$departemen?> di menu Jenis Pengeluaran pada bagian Pengeluaran. </b></font>        
+    		<font size = "2" color ="red"><b>Data Not Found. <br /><br />Add data pengeluaran on Department <?=$departemen?> in theJenis Expenditure on bagian Expenditure. </b></font>        
 		</td>
 	</tr>
 	</table>  

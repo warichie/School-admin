@@ -27,7 +27,7 @@ require_once("../include/sessionchecker.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jenis Pengujian</title>
+<title>Exam Type</title>
 	 
 </head>
 <frameset cols = "25%, *" border="1">

@@ -75,7 +75,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Presensi Siswa</title>
+<title>Student Presence Report</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -96,14 +96,14 @@ function tampil() {
 	var nama = document.getElementById('nama1').value;
 	
 	if (nis.length == 0){
-		alert ('Nis dan atau Nama tidak boleh kosong !');
+		alert ('Student ID or Name should not leave empty');
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong !');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong !');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}	
@@ -187,15 +187,15 @@ function validate() {
 	var tgl2 = document.main.tgl2.focus();
 	
 	if (nis.length == 0) {	
-		alert ('NIS siswa tidak boleh kosong !');	
+		alert ('Student ID should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong !');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong !');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}	
@@ -239,7 +239,7 @@ function panggil(elem){
 	<table border="0" width="100%">
     <!-- TABLE TITLE -->
     <tr>
-    	<td width="52"><strong>Siswa</strong></td>
+    	<td width="52"><strong>Student</strong></td>
         <td><input type="text" name="nis" id="nis" size="12" readonly class="disabled" value="<?=$_REQUEST['nis']?>" onclick="carisiswa()"/>
         	<input type="hidden" name="nis1" id="nis1" value="<?=$_REQUEST['nis']?>" >
         	<input type="text" name="nama" id="nama" size="45" readonly class="disabled" value="<?=$_REQUEST['nama']?>"  onclick="carisiswa()"/>
@@ -248,13 +248,13 @@ function panggil(elem){
            	<a href="JavaScript:carisiswa()"><img src="../images/ico/cari.png" border="0" /></a></td>
     </tr>	
     <tr>
-    	<td rowspan="2"><strong>Tanggal</strong></td>
+    	<td rowspan="2"><strong>Date</strong></td>
         <td>
             <table border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td><div id="InfoTgl1">
                   <select name="tgl1" id = "tgl1" onchange="change_tgl1()" onfocus = "panggil('tgl1')" onkeypress="focusNext('bln1',event)">
-                    <option value="">[Tgl]</option>
+                    <option value="">[Date]</option>
                     <? 	for($i=1;$i<=$n1;$i++){   ?>
                     <option value="<?=$i?>" <?=IntIsSelected($tgl1, $i)?>>
                       <?=$i?>
@@ -277,10 +277,10 @@ function panggil(elem){
                     </option>
                   <?	} ?>
                 </select></td>
-                <td width="20"> s/d </td>
+                <td width="20"> to </td>
                 <td><div id="InfoTgl2">
                   <select name="tgl2" id = "tgl2" onchange="change_tgl2()" onfocus = "panggil('tgl2')" onkeypress="focusNext('bln2',event)">
-                    <option value="">[Tgl]</option>
+                    <option value="">[Date]</option>
                     <? 	for($i=1;$i<=$n2;$i++){   ?>
                     <option value="<?=$i?>" <?=IntIsSelected($tgl2, $i)?>>
                       <?=$i?>
@@ -311,12 +311,12 @@ function panggil(elem){
       </tr>
 	</table>
     </td>
-    <td rowspan="2" align="left" valign="middle" width="*"><a href="#" onclick="tampil()"><img src="../images/ico/view.png" onmouseover="showhint('Klik untuk menampilkan laporan presensi siswa!', this, event, '150px')" height="48" border="0" name="tabel" id="tabel2"/></a></td>
+    <td rowspan="2" align="left" valign="middle" width="*"><a href="#" onclick="tampil()"><img src="../images/ico/view.png" onmouseover="showhint('Click to show this student presence report', this, event, '150px')" height="48" border="0" name="tabel" id="tabel2"/></a></td>
     <td width="40%" rowspan="2" align="right" valign="top">
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Presensi Siswa</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Presence Report</font><br />
 <a href="../presensi.php?page=pp" target="framecenter">
-  <font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-    <font size="1" color="#000000"><b>Laporan Presensi Siswa</b></font></td>
+  <font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+    <font size="1" color="#000000"><b>Student Presence Report</b></font></td>
     </td>
 </tr>
 

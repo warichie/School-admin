@@ -43,7 +43,7 @@ if (isset($_REQUEST['Simpan']))
 	if (mysql_num_rows($result) > 0) 
 	{
 		CloseDb();
-		$ERROR_MSG = "Kode $_REQUEST[kode] sudah digunakan!";
+		$ERROR_MSG = "Code $_REQUEST[kode] has been used";
 		$cek = 0;	
 	} 
 	else 
@@ -81,7 +81,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Aspek Penilaian]</title>
+<title>JIBAS SIMAKA [Edit Assessment Aspect]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -94,8 +94,8 @@ function tutup()
 
 function validate() 
 {
-	return validateEmptyText('kode', 'Kode Aspek Penilaian') && 
-		   validateEmptyText('nama', 'Nama Aspek Penilaian');
+	return validateEmptyText('kode', 'Assessment Aspect Code') && 
+		   validateEmptyText('nama', 'Assessment Aspect Name');
 }
 
 function focusNext(elemName, evt)
@@ -134,7 +134,7 @@ function panggil(elem)
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
     <div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Aspek Penilaian :.
+    .: Edit Assessment Aspect :.
     </div>
     </td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -148,26 +148,26 @@ function panggil(elem)
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="60"><strong>Kode</strong></td>
+	<td width="60"><strong>Code</strong></td>
 	<td>
-    	<input type="text" name="kode" id="kode" size="10" maxlength="10" value="<?=$kode?>" onFocus="showhint('Kode aspek penilaian tidak boleh lebih dari 10 karakter!', this, event, '120px'); panggil('kode')" onKeyPress="return focusNext('nama', event)"/></td>
+    	<input type="text" name="kode" id="kode" size="10" maxlength="10" value="<?=$kode?>" onFocus="showhint('Assessment Aspect Code should not exceed 10 characters', this, event, '120px'); panggil('kode')" onKeyPress="return focusNext('nama', event)"/></td>
 </tr>
 <tr>
-	<td><strong>Aspek</strong></td>
+	<td><strong>Aspect</strong></td>
 	<td>
-    	<input type="text" name="nama" id="nama" size="50" maxlength="50" value="<?=$nama?>" onFocus="showhint('Nama aspek penilaian tidak boleh lebih dari 50 karakter!', this, event, '120px'); panggil('nama')" onKeyPress="return focusNext('Simpan', event)"/></td>
+    	<input type="text" name="nama" id="nama" size="50" maxlength="50" value="<?=$nama?>" onFocus="showhint('Assessment Aspect Name should not exceed 50 characters', this, event, '120px'); panggil('nama')" onKeyPress="return focusNext('Simpan', event)"/></td>
 </tr>
 <tr>
 	<td colspan="2" height="25" width="100%" align="left" valign="top" style="border-width:1px; border-style:dashed; border-color:#03F; background-color:#CFF">
-    	<strong>Anda hanya perlu mengisikan kode dan aspek secara umum tanpa harus menambahkan pelajaran, tahun ajaran atau semester.<br/>
-				<font color="#FF0000">Contoh yang salah : PRAK-IGG (Praktek Bahasa Inggris), PKON-MAT (Pemahaman Konsep Matematika) </font><br />
-				<font color="Blue">Contoh yang benar : PRAK (Praktek), PKON (Pemahaman Konsep)</font></strong></font>
+    	<strong>You only have to fill Code and Assessment Aspect in general without need to add Class Subject, Year of Teaching, or Semester.<br/>
+				<font color="#FF0000">Wrong : PRACTICE-EP (English Practice), PCON-MAT (Math Conceptual Comprehension) </font><br />
+				<font color="Blue">Correct : PRAC (Practice), PCON (Conceptual Comprehension)</font></strong></font>
 	</td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" onFocus="panggil('Simpan')"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" onFocus="panggil('Simpan')"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->

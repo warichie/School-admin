@@ -33,7 +33,7 @@ $departemen=$_REQUEST[departemen];
 <form name="frmPilih">
 <table width="100%" border="0" cellspacing="2" cellpadding="1">
   <tr>
-    <td width="4%" class="tab2">Proses&nbsp;Penerimaan</td>
+    <td width="4%" class="tab2">Enrollment Process</td>
     <td width="96%">
     <div id="prsInfo">
     <select name="proses" class="cmbfrm" id="proses" onchange="chg_prs()">
@@ -53,7 +53,7 @@ $departemen=$_REQUEST[departemen];
     </td>
   </tr>
   <tr>
-    <td class="tab2">Kelompok</td>
+    <td class="tab2">Group</td>
     <td>
     <div id="klpInfo">
 	<? $sql = "SELECT replid,kelompok FROM kelompokcalonsiswa WHERE idproses='$proses'"; 
@@ -82,8 +82,8 @@ $departemen=$_REQUEST[departemen];
     <? if ($kelompok!=""){ ?>
 	<table width="100%" border="1" class="tab">
       <tr>
-        <td height="25" align="center" class="header">No Pendaftaran</td>
-        <td height="25" align="center" class="header">Nama</td>
+        <td height="25" align="center" class="header">Registration Number</td>
+        <td height="25" align="center" class="header">Name</td>
         <td height="25" align="center" class="header">&nbsp;</td>
       </tr>
       <?
@@ -101,7 +101,7 @@ $departemen=$_REQUEST[departemen];
       <? } ?>
       <? } else { ?>
       <tr>
-        <td height="20" colspan="3" align="center" class="nodata">Tidak ada data</td>
+        <td height="20" colspan="3" align="center" class="nodata">Data Not Found.</td>
       </tr>
 	  <? } ?>
     </table>

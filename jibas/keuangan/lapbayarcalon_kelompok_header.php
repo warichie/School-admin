@@ -104,20 +104,20 @@ function show_pembayaran() {
 	var departemen = document.getElementById('departemen').value;
 	
 	if (kelompok.length == 0) {	
-		alert ('Pastikan kelompok sudah ada!');	
+		alert ('Make sure that group is existed');	
 		document.getElementById('kelompok').focus();
 		return false;		
 	} else if (idkategori.length == 0) {
-		alert ('Pastikan kategori pembayaran sudah ada!');
+		alert ('Make sure that payment category is existed');
 		document.getElementById('idkategori').focus();
 		return false;	
 	} else if (idpenerimaan.length == 0) {
-		alert ('Pastikan penerimaan pembayaran sudah ada!');
+		alert ('Make sure that admission is existed');
 		document.getElementById('idpenerimaan').focus();
 		return false;	
 	}
 	if (idtahunbuku.length == 0) {	
-		alert ('Belum ada Tahun buku yang Aktif di departemen ybs.\nSilakan isi/aktifkan Tahun Buku di menu Referensi!');
+		alert ('No Fiscal Year yang Aktif di departemen ybs.\nSilakan isi/aktifkan Fiscal Year di menu Reference');
 		return false;
 	}	
 	if (idkategori == 'CSWJB')
@@ -150,7 +150,7 @@ function focusNext(elemName, evt) {
     <td rowspan="3" width="55%">
     <table width = "100%" border = "0">
 	<tr>
-        <td width="18%"><strong>Departemen </strong></td>
+        <td width="18%"><strong>Department </strong></td>
         <td>
     	<select id="departemen" name="departemen" style="width:188px" onchange="change_dep()" onKeyPress="return focusNext('kelompok', event)">
    <?   OpenDb();
@@ -171,10 +171,10 @@ function focusNext(elemName, evt) {
         </td>
     </tr>
      <tr>
-    	<td><strong>Kelompok </strong></td>
+    	<td><strong>Group </strong></td>
         <td>
         <select name="kelompok" id="kelompok" onChange="change()" style="width:188px;" onkeypress="return focusNext('lunas', event)" >
-        <option value="-1">(Semua Kelompok)</option>
+        <option value="-1">(All Group)</option>
         <?
            $sql = "SELECT k.replid,kelompok FROM jbsakad.kelompokcalonsiswa k, jbsakad.prosespenerimaansiswa p  WHERE k.idproses = p.replid AND p.aktif = 1 AND p.departemen = '$departemen' ORDER BY kelompok";
 			
@@ -187,16 +187,16 @@ function focusNext(elemName, evt) {
         </select>
         <strong>Status </strong>
         <select id="lunas" name="lunas" style="width:130px" onchange="change_status()" onkeypress="return focusNext('idkategori', event)">
-            <option value="-1" <?=IntIsSelected(-1, $lunas) ?> >(Semua)</option>
-            <option value="0" <?=IntIsSelected(0, $lunas) ?> >Belum Lunas</option>
-            <option value="1" <?=IntIsSelected(1, $lunas) ?> >Lunas</option>
-            <option value="2" <?=IntIsSelected(2, $lunas) ?> >Gratis</option>
+            <option value="-1" <?=IntIsSelected(-1, $lunas) ?> >(All)</option>
+            <option value="0" <?=IntIsSelected(0, $lunas) ?> >No Paid Off Yet</option>
+            <option value="1" <?=IntIsSelected(1, $lunas) ?> >Paid Off</option>
+            <option value="2" <?=IntIsSelected(2, $lunas) ?> >Free</option>
         </select>
         
     	</td>
     </tr>
     <tr>
-        <td><strong>Pembayaran </strong></td>
+        <td><strong>Payment </strong></td>
         <td> 
         <select name="idkategori" id="idkategori" style="width:188px;" onchange="change_kate()" onkeypress="return focusNext('idpenerimaan', event)">
         <?  $sql = "SELECT kode, kategori FROM kategoripenerimaan WHERE kode IN ('CSWJB','CSSKR') ORDER BY urutan";
@@ -223,13 +223,13 @@ function focusNext(elemName, evt) {
     </table>
 	</td>
  	<td width="*" rowspan="2" valign="middle">
-    	<a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Klik untuk menampilkan data laporan pembayaran per kelas!', this, event, '180px')"/></a>
+    	<a href="#" onclick="show_pembayaran()"><img src="images/view.png" border="0" height="48" width="48" onmouseover="showhint('Click to show data laporan pembayaran per kelas', this, event, '180px')"/></a>
     </td>
 	<td width="45%" colspan="3" align="right" valign="top">
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Pembayaran Per Kelompok Calon Siswa</font><br />
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Payment Reports by Student Candidate Group</font><br />
     <a href="penerimaan.php" target="_parent">
-      <font size="1" color="#000000"><b>Penerimaan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Pembayaran Per Kelompok Calon Siswa</b></font>
+      <font size="1" color="#000000"><b>Admission</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Payment Reports by Student Candidate Group</b></font>
 	</td>
 </tr>
 <tr>	

@@ -45,7 +45,7 @@ if ($kriteria!='all' && $kriteria!='tersedia')
 <table border="0" cellspacing="2" cellpadding="2">
   <tr>
     <td width="52%" valign="middle" style="padding-right:10px">
-        <input id="search" type="text" class="txtLoginPage" style="width:185px; color:#999999" value="Cari" onfocus="FocusText('1')" onblur="FocusText('0')">
+        <input id="search" type="text" class="txtLoginPage" style="width:185px; color:#999999" value="Search" onfocus="FocusText('1')" onblur="FocusText('0')">
     </td>
     <td width="48%" valign="middle"><img src="../images/ico/lihat.png" onclick="ViewData('<?=$IdKatalog?>')" style="cursor:pointer" /></td>
   </tr>
@@ -54,12 +54,12 @@ if ($kriteria!='all' && $kriteria!='tersedia')
 <div id="BookList" style="padding-left:7px">
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
   <tr>
-    <td height="25" align="center" class="header">No</td>
-    <td height="25" align="center" class="header">Judul</td>
-    <td height="25" align="center" class="header">Penulis</td>
-    <td height="25" align="center" class="header">Penerbit</td>
-    <td height="25" align="center" class="header">Jumlah</td>
-    <td height="25" align="center" class="header">Tersedia</td>
+    <td height="25" align="center" class="header">#</td>
+    <td height="25" align="center" class="header">Title</td>
+    <td height="25" align="center" class="header">Author</td>
+    <td height="25" align="center" class="header">Publisher</td>
+    <td height="25" align="center" class="header">Sum</td>
+    <td height="25" align="center" class="header">Available</td>
     <td align="center" class="header">&nbsp;</td>
   </tr>
 <?
@@ -98,7 +98,7 @@ $cnt++;
 } else {
 ?>
   <tr>
-    <td height="20" colspan="7" align="center" class="nodata">Tidak ada data</td>
+    <td height="20" colspan="7" align="center" class="nodata">Data Not Found.</td>
   </tr>
 <? } ?>
 </table>

@@ -110,33 +110,33 @@ var pilih;
 //	t_max = document.tampil_nilai_pelajaran.t_max.value;
 
 	if(pilih.length == 0){
-		alert("Anda harus menentukan jenis perhitungan untuk menghitung nilai akhir");
+		alert("You have to choose Calculation Type for Final Point");
 		return false;
 	}
 	else if(pilih == 1){
 		if(cek.length == 0){
-			alert("Anda harus menentukan jenis penilaian untuk menghitung rata-rata nilai");
+			alert("You have to choose Calculation Type for Index or Cumulative Point");
 		return false;
 		}
 		eval("bobot = document.tampil_nilai_pelajaran.bobot" + cek + ".value;");
 		if(bobot.length == 0){
-			alert("Anda harus mengisi bobot jenis penilaian untuk menghitung rata-rata nilai");
+			alert("You have to enter Quality of Calculation Type for Index or Cumulative Point");
 		return false;
 		}
 	}
 	return true;
 }
 function hapus() {
-    return window.confirm("Anda yakin akan menghapus data ini?");
+    return window.confirm("Are you sure want to delete this data?");
 }
 </script>
 </head>
 <body bgcolor="#FFFFFF"><!--
-Departemen=<?=$departemen?><br>
+Department=<?=$departemen?><br>
 Tingkat=<?=$tingkat?><br>
 TA=<?=$tahun?><br>
 Kls=<?=$kelas?><br>
-Pelajaran=<?=$pelajaran?><br>
+Class Subject=<?=$pelajaran?><br>
 Semester=<?=$semester?><br>
 -->
 <table border="0" width="100%" height="100%">
@@ -153,15 +153,15 @@ OpenDb();
 <input type="hidden" name="tahun" value="<?=$tahun ?>">
 <input type="hidden" name="semester" value="<?=$semester ?>">
 <input type="hidden" name="dasar_penilaian" value="<?=$dasar_penilaian ?>">
-    <fieldset><legend><b>Jenis Penilaian
+    <fieldset><legend><b>Assessment Type
 	<?
 	$sql_jenisujian="SELECT * FROM jbsakad.jenisujian WHERE replid='$jenis_penilaian'";
 	$result_jenisujian=QueryDb($sql_jenisujian);
 	$row_jenisujian=@mysql_fetch_array($result_jenisujian);
 	echo $row_jenisujian['jenisujian'];
 	?><br>
-	Dasar Penilaian : <?=$dasar_penilaian?><br>
-	Pelajaran : <?
+	Basic Assessment : <?=$dasar_penilaian?><br>
+	Class Subject : <?
 	$sql_pelajaran="SELECT nama FROM jbsakad.pelajaran WHERE replid='$pelajaran'";
 	$result_pelajaran=QueryDb($sql_pelajaran);
 	$row_pelajaran=@mysql_fetch_array($result_pelajaran);
@@ -171,11 +171,11 @@ OpenDb();
 	<table width="100%">
 		<tr>
 			<td align="right">
-			<a href="#" onClick="newWindow('tambah_nilai_pelajaran2.php?departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>','Tambah Nilai Pelajaran',584,532,'resizable=1,scrollbars=1,status=0,toolbar=0')">
-            <img src="../images/ico/tambah.png" border="0">Tambah Penilaian Pelajaran</a>
+			<a href="#" onClick="newWindow('tambah_nilai_pelajaran2.php?departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>','Add Class Subject Point',584,532,'resizable=1,scrollbars=1,status=0,toolbar=0')">
+            <img src="../images/ico/tambah.png" border="0">Add Class Subject Assessment.</a>
 			<a href="#null" onClick="newWindow('cetak_nilai_pelajaran.php?departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>',
-            'Penilaian Pelajaran','800','600','resizable=1,scrollbars=1,status=0,toolbar=0')">
-            <img src="../images/ico/print.png" border="0">Cetak</a>
+            'Class Subject Assessment','800','600','resizable=1,scrollbars=1,status=0,toolbar=0')">
+            <img src="../images/ico/print.png" border="0">Print</a>
 			</td>
 		</tr>
 	</table>
@@ -207,10 +207,10 @@ OpenDb();
 	}
 	?>
 	<table width="100%" id="table" class="tab" border="1">
-		<tr >
-			<td class="headerlong" align="center" height="30" valign="middle">No</td>
-			<td class="headerlong" height="30" valign="middle">NIS</td>
-			<td class="headerlong" height="30" valign="middle">Nama</td>
+		<tr>
+			<td class="headerlong" align="center" height="30" valign="middle">#</td>
+			<td class="headerlong" height="30" valign="middle">Student ID</td>
+			<td class="headerlong" height="30" valign="middle">Name</td>
 			<?			
 				$query_qz = "SELECT ujian.replid, ujian.tanggal, jenisujian.jenisujian ".
 							"FROM jbsakad.ujian, jbsakad.jenisujian ".
@@ -233,14 +233,14 @@ OpenDb();
 			<? 
 				$tgl = format_tgl($row_qz[tanggal]);
 				echo  "$row_qz[jenisujian]-$z"; ?>
-				<a href="#" onClick="newWindow('ubah_nilai_pelajaran.php?id=<?=$row_qz[replid]; ?>&departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>','Ubah Nilai Pelajaran',555,366,'resizable=1,scrollbars=0,status=0,toolbar=0')">
+				<a href="#" onClick="newWindow('ubah_nilai_pelajaran.php?id=<?=$row_qz[replid]; ?>&departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>','Edit Class Subject Point',555,366,'resizable=1,scrollbars=0,status=0,toolbar=0')">
 				<img src="../images/ico/ubah.png" border="0"></a>
 				<a href="hapus_ujian.php?id=<?=$row_qz[replid]; ?>&departemen=<?=$departemen ?>&tahun=<?=$tahun ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&jenis_penilaian=<?=$jenis_penilaian ?>"
 				onClick="return hapus();"><img src="../images/ico/hapus.png" border="0"></a>
 				
 			<?="<br>($tgl)"; 
 				if ($ndup > 0) 
-					echo "<br><font color='cyan'><strong>*DUPLIKASI*</strong></font>";
+					echo "<br><font color='cyan'><strong>*DUPLICATION*</strong></font>";
 			?>
 			</td>								
 					<?
@@ -250,14 +250,14 @@ OpenDb();
 					}
 					?>
 					<input type="hidden" name="jum_jns" value="<?=$z ?>">
-			<td class="headerlong" align="center" height="30">Rata-Rata Siswa</td>
+			<td class="headerlong" align="center" height="30">Student Index</td>
 					<?
 					 $query_ju = "SELECT * FROM jbsakad.jenisujian ".
 								 "WHERE jenisujian.replid = '$jenis_penilaian'";
 					 $result_ju = QueryDb($query_ju);
 					 $row_ju = @mysql_fetch_array($result_ju);
 					?>
-			<td class="headerlong" align="center" height="30">Nilai Akhir <?=$row_ju[jenisujian] ?>
+			<td class="headerlong" align="center" height="30">Grade Point <?=$row_ju[jenisujian] ?>
 			<a href="hapus_na.php?id=<?=$row_ju[replid]; ?>&departemen=<?=$departemen ?>&tahun=<?=$tahun ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&jenis_penilaian=<?=$jenis_penilaian ?>"
        	    onClick="return hapus();"><img src="../images/ico/hapus.png" border="0"></a>
 			</td>
@@ -267,7 +267,7 @@ OpenDb();
 		if($my_data == 0){
 			?>
 			<tr>
-				<td colspan="7" align="center">Data Tidak ada</td>
+				<td colspan="7" align="center">Data Not Found.</td>
 			</tr>
 			<?					
         }elseif($my_data != "") {
@@ -298,7 +298,7 @@ OpenDb();
                     				$nkolpinted++;
                     				?>
 									<td align='center' height='25'><a href="#null" onClick="newWindow('tambah_nilai_ujian.php?id=<?=$v[id] ?>&idujian=<?=$kol_idujian[$ujcnt] ?>&jenis_penilaian=<?=$jenis_penilaian ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&departemen=<?=$departemen ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>',
-					            	'Data Nilai Ujian','500','250','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/tambah.png" width="16" height="16" border="0"  onMouseOver="showhint('Tambah Nilai Siswa!', this, event, '120px')"/></a>
+					            	'Exam Point Data','500','250','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/tambah.png" width="16" height="16" border="0"  onMouseOver="showhint('Add Nilai Student', this, event, '120px')"/></a>
 									<? if ($v[lenket] > 0){
 										$keter=1;
 										echo " <font color='Blue'><b>)*</b></font>";
@@ -329,7 +329,7 @@ OpenDb();
                     		?>          
 	                        <td align='center' height='25'>
 									<a href="#null" onClick="newWindow('ubah_nilai_ujian.php?id=<?=$v[id] ?>&jenis_penilaian=<?=$jenis_penilaian ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&departemen=<?=$departemen ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>',
-					            	'Data Nilai Ujian','487','275','resizable=1,scrollbars=1,status=0,toolbar=0')">
+					            	'Exam Point Data','487','275','resizable=1,scrollbars=1,status=0,toolbar=0')">
 										<?="$v[nilai]"; ?></a>
 										<? if ($v[lenket] > 0)
 										echo " <font color='Blue'><b>)*</b></font>";
@@ -343,7 +343,7 @@ OpenDb();
                   		
                   		?>
 						<td align='center' height='25'><a href="#null" onClick="newWindow('tambah_nilai_ujian.php?id=<?=$v[id] ?>&idujian=<?=$kol_idujian[$nkolpinted] ?>&jenis_penilaian=<?=$jenis_penilaian ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&departemen=<?=$departemen ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>',
-					            	'Data Nilai Ujian','500','250','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/tambah.png" width="16" height="16" border="0"  onMouseOver="showhint('Tambah Nilai Ujian!', this, event, '120px')"/></a></td>
+					            	'Exam Point Data','500','250','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/tambah.png" width="16" height="16" border="0"  onMouseOver="showhint('Add Exam Point', this, event, '120px')"/></a></td>
 				<?
 					$nkolpinted++;
                   	}                  	
@@ -364,7 +364,7 @@ OpenDb();
 					$row_nau = mysql_fetch_array($result_nau);
 					?>
 					<a href="#null" onClick="newWindow('ubah_nilai_au.php?id=<?=$row_nau[replid] ?>&jenis_penilaian=<?=$jenis_penilaian ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&departemen=<?=$departemen ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>',
-					            	'Data Nilai Ujian Akhir','500','250','resizable=1,scrollbars=1,status=0,toolbar=0')"><?=$row_nau[nilaiAU] ?></a>
+					            	'Final Exam Point Data','500','250','resizable=1,scrollbars=1,status=0,toolbar=0')"><?=$row_nau[nilaiAU] ?></a>
 									
 				    </td>
 				</tr>
@@ -372,11 +372,11 @@ OpenDb();
             }
 			?>
 			<tr>
-				<td colspan="3" align="center" height='25' class='header'><b>Rata-rata Kelas</b></td>
+				<td colspan="3" align="center" height='25' class='header'><b>Class Index Cumulative</b></td>
 				<?
 				foreach($totCol as $key => $val){
 				?>
-					<td align="center" height='25' bgcolor='#FFFFFF'  onMouseOver="showhint('Rata-rata Kelas!', this, event, '120px')"><b><?=round(($val * 1.0)/$i, 2); ?></b></td>
+					<td align="center" height='25' bgcolor='#FFFFFF'  onMouseOver="showhint('Class Index Cumulative', this, event, '120px')"><b><?=round(($val * 1.0)/$i, 2); ?></b></td>
 				<?
 				}
 				?>
@@ -391,7 +391,7 @@ OpenDb();
     </script>
 	<br>
 
-	<div align="center"> <font color="Blue"><b>)* : Ada keterangan nilai untuk siswa ybs.</b></font></div>
+	<div align="center"> <font color="Blue"><b>)* : No point info for the student.</b></font></div>
 	<input type="hidden" name="jum_data" value="<?=$i ?>">
 	
 	<!--
@@ -399,8 +399,8 @@ OpenDb();
 	if(!mysql_num_rows($result_qz) == 0){
 		?>
 	<p align="left">
-	<input type="button" value="Tambah Siswa" class="but" onClick="newWindow('tambah_siswa_pp.php?departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>',
-            'Penilaian Pelajaran','550','400','resizable=1,scrollbars=0,status=0,toolbar=0')">
+	<input type="button" value="Add Student" class="but" onClick="newWindow('tambah_siswa_pp.php?departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>',
+            'Class Subject Assessment','550','400','resizable=1,scrollbars=0,status=0,toolbar=0')">
 	</p>
 	<? }
 			?>
@@ -410,13 +410,13 @@ OpenDb();
 	<?
 	if($my_data != 0){
 	?>	
-	<fieldset><legend><b>Hitung Nilai Akhir <?=$row_ju[jenisujian] ?> Berdasarkan </b></legend>
+	<fieldset><legend><b>Calculate Final Point <?=$row_ju[jenisujian] ?> based on </b></legend>
 	<input type="hidden" name="pilih" value="1">
 	<input type="hidden" name="rtn" value="1">
 	<table width="100%">
 		<tr>
 			<td colspan="3">
-				<font size="2" color="Navy"><b>A. Perhitungan Otomatis</b></font>
+				<font size="2" color="Navy"><b>A. Auto Calculation</b></font>
 			</td>
 		</tr>
 		<tr>
@@ -428,15 +428,15 @@ OpenDb();
 			*/
 			?>
 			</td>
-			<td>Rata-rata Nilai
+			<td>Index Point
 			<? if($perubahan==1)
-			 echo "<font color='#d0a41e'><b>)* : Ada perubahan nilai, silakan hitung ulang nilai akhir</b></font>";
+			 echo "<font color='#d0a41e'><b>)* : No Point changes, please re-calculate Final Index Point</b></font>";
 			?>
 			<br><br>
 				<table id="table" class="tab" width="50%" border="1">
 				<tr>
 					<td width="85%" class="header" height="30"><?=$row_ju[jenisujian] ?></td>
-					<td width="15%" class="header" align="center" height="30">Bobot</td>
+					<td width="15%" class="header" align="center" height="30">Quality</td>
 				</tr>
 				<?
 				$query_qz = "SELECT ujian.replid, ujian.tanggal, jenisujian.jenisujian ".
@@ -490,16 +490,16 @@ OpenDb();
 		<tr>
 			<td>&nbsp;</td>
 			<td colspan="2">
-			<input type="submit" name="hitung" value="Hitung dan Simpan Nilai Akhir <?=$row_ju[jenisujian] ?>" class="but"></td>
+			<input type="submit" name="hitung" value="Calculate and Save Final Point <?=$row_ju[jenisujian] ?>" class="but"></td>
 		</tr>
 		<tr>
 			<td colspan="3">
-				<font size="2" color="Navy"><b>B. Input Manual</b></font>
+				<font size="2" color="Navy"><b>B. Manually</b></font>
 			</td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td colspan="2"><a href="hitung_nilai_akhir.php?departemen=<?=$departemen ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>"><b>Input Nilai Akhir <?=$row_ju[jenisujian] ?></b></a></td>
+			<td colspan="2"><a href="hitung_nilai_akhir.php?departemen=<?=$departemen ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>"><b>Final Point <?=$row_ju[jenisujian] ?></b></a></td>
 		</tr>		
 	</table>
 	</fieldset>
@@ -536,7 +536,7 @@ if(isset($_POST[hitung])){
 				
 				while($row_iduj = mysql_fetch_array($result_iduj)){
 					
-					$nakhr = $_POST[$b]*$row_iduj[nilaiujian];	//perkalian antara bobot dengan nilaiujian
+					$nakhr = $_POST[$b]*$row_iduj[nilaiujian];	//perkalian between bobot dengan nilaiujian
 					$data_uj[$row_iduj[nis]] += $nakhr; 	//array siswa nis pemjumlahan hasil perkalian
 					
 				}							
@@ -592,7 +592,7 @@ if(isset($_POST[hitung])){
 	   }else{
         	?>
         	<script language="javascript">
-        		alert("Data gagal");
+        		alert("Corrupt data");
         		change_sel();
         	</script>
         	<?
@@ -605,7 +605,7 @@ elseif($_POST[rtn] == "2"){			//jika checklist kedua yg dipilih
 	if($_POST[jum_jns] < $_POST[t_max]){
 		?>
 		<script language="javascript">
-			alert("Perhitungan tidak dapat dilakukan. Jenis penilaian hanya ada " + <?=$_POST[jum_jns] ?> + "!"); 
+			alert("Failed to perform calculation, Calculation Type is only " + <?=$_POST[jum_jns] ?> + ""); 
 		</script>
 		<?
 		}elseif(($_POST[jum_data] == $_POST[t_max]) || ($_POST[jum_data] > $_POST[t_max] )){
@@ -669,7 +669,7 @@ elseif($_POST[rtn] == "2"){			//jika checklist kedua yg dipilih
 				}else{
 				?>
 				<script language="javascript">
-					alert("Data gagal");
+					alert("Corrupt data");
 					change_sel();
 				</script>
 				<?

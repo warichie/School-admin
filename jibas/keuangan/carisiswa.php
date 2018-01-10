@@ -41,7 +41,7 @@ if (isset($_REQUEST['flag']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cari Siswa</title>
+<title>Search Student</title>
 <script language="javascript" src="script/string.js"></script>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript">
@@ -81,9 +81,9 @@ function change_dep() {
 <form name="main" onsubmit="return validate()">
 <input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
 <div align="right">
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Cari Siswa</font><br />
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Search Student</font><br />
 </div>
-<!--Departemen:--> 
+<!--Department:--> 
 <select name="departemen" id="departemen" onchange="change_dep()" style="visibility:hidden;">
 <?
 OpenDb();
@@ -96,10 +96,10 @@ foreach($dep as $value) {
 CloseDb();
 ?>
 </select><br />
-Nama: <input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama'] ?>" size="15" />&nbsp;&nbsp;
-NIS: <input type="text" name="nis" id="nis" value="<?=$_REQUEST['nis'] ?>" size="15" />&nbsp;
-<input type="submit" class="but" name="Submit" id="Submit" value="Cari" />&nbsp;
-<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" />
+Name: <input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama'] ?>" size="15" />&nbsp;&nbsp;
+Student ID: <input type="text" name="nis" id="nis" value="<?=$_REQUEST['nis'] ?>" size="15" />&nbsp;
+<input type="submit" class="but" name="Submit" id="Submit" value="Search" />&nbsp;
+<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" />
 </form>
 </td></tr>
 
@@ -107,9 +107,9 @@ NIS: <input type="text" name="nis" id="nis" value="<?=$_REQUEST['nis'] ?>" size=
 <br />
 <table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0">
 <tr height="30">
-	<td class="header" width="7%" align="center">No</td>
-    <td class="header" width="15%" align="center">N I S</td>
-    <td class="header" >Nama</td>
+	<td class="header" width="7%" align="center">#</td>
+    <td class="header" width="15%" align="center">Student ID</td>
+    <td class="header" >Name</td>
     <td class="header" width="10%">&nbsp;</td>
 </tr>
 <? if (isset($_REQUEST['Submit'])) { 
@@ -131,7 +131,7 @@ while($row = mysql_fetch_row($result)) { ?>
     <td align="center"><?=$row[0] ?></td>
     <td><?=$row[1] ?></td>
     <td align="center">
-    <input type="button" name="pilih" class="but" id="pilih" value="Pilih" onclick="pilih('<?=$row[0]?>')" />
+    <input type="button" name="pilih" class="but" id="pilih" value="Select" onclick="pilih('<?=$row[0]?>')" />
     </td>
 </tr>
 <?
@@ -139,10 +139,10 @@ while($row = mysql_fetch_row($result)) { ?>
 CloseDb();
 ?>
 <? if ($cnt == 0) { ?>
-<tr height="26"><td colspan="4" align="center"><em>Tidak ditemukan data</em></td></tr>
+<tr height="26"><td colspan="4" align="center"><em>Data Not Found.</em></td></tr>
 <? } ?>
 <tr height="26">
-	<td colspan="4" align="center" bgcolor="#999900"><input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" /></td>
+	<td colspan="4" align="center" bgcolor="#999900"><input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" /></td>
 </tr>
 </table>
 </td></tr>

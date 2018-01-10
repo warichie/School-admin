@@ -78,7 +78,7 @@ if (!mysql_num_rows($result_aturan)==0){ ?>
 <!-- TABLE CONTENT -->
     
 <tr height="30">    	
-    <td width="100%" class="header" align="center">Pelajaran</td>
+    <td width="100%" class="header" align="center">Class Subject</td>
 </tr>	
 <?  $cnt = 0;
 	while ($row_aturan=@mysql_fetch_array($result_aturan)) 
@@ -116,7 +116,7 @@ else
 <table width="100%" border="0" align="center">          
 <tr>
     <td align="center" valign="middle" height="300">
-    <font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />Tambah aturan perhitungan grading nilai pelajaran yang akan diajar oleh guru <?=$_REQUEST['nama']?> di menu Aturan Perhitungan Grading Nilai pada bagian Guru & Pelajaran. </b></font>
+    <font size = "2" color ="red"><b>Data Not Found. <br /><br />Add Grade Subject Assessment Calculation which to be taught by Teacher <?=$_REQUEST['nama']?> in the Report Card Calculation Rules on Teacher and Class Subject section. </b></font>
     </td>
 </tr>
 </table> 

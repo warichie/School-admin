@@ -292,7 +292,7 @@ class PiePlot {
 
         // Bail out with error if the sum is 0
         if( $sum==0 )
-        JpGraphError::RaiseL(15009);//("Illegal pie plot. Sum of all data is zero for Pie!");
+        JpGraphError::RaiseL(15009);//("Illegal pie plot. Sum of all data is zero for Pie");
 
         // Make sure we don't plot more values than data points
         // (in case the user added more legends than data points)

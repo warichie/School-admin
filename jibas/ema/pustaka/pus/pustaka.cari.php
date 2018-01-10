@@ -43,8 +43,8 @@ $P->OnStart();
 <body>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Pencarian Pustaka</font><br />
-        <a href="pustaka.php" class="welc">Pustaka</a><span class="welc"> > Cari Pustaka</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Search Library</font><br />
+        <a href="pustaka.php" class="welc">Library</a><span class="welc"> > Search LIbrary</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$P->Content()?>

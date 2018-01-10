@@ -66,16 +66,16 @@ function cetak(){
     	<td colspan="2">
         <table width="100%" border="0">
         <tr>
-            <td width="10%"><strong>Pelajaran</strong></td>
+            <td width="10%"><strong>Class Subject</strong></td>
             <td><strong>: <?=$namapel ?> </strong></td>
             <td rowspan="2"></td>
         </tr>
         <tr>
-            <td><strong>RPP</strong></td>
+            <td><strong>Lesson Plans</strong></td>
             <td><strong>: <?=$materi?></strong></td>            
         </tr>
         <tr>
-        	<td><strong>Ujian</strong></td>
+        	<td><strong>Exam</strong></td>
             <td>           	
     			<select name="ujian" id="ujian" onchange="change()">
 			<?
@@ -99,8 +99,8 @@ $result_ujian=QueryDb($sql_ujian);
 		
 		?>
              <td align="right">
-            <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onmouseover="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    		<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
+            <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onmouseover="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    		<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
             </td>
 		</tr>
         </table> 
@@ -114,8 +114,8 @@ $result_ujian=QueryDb($sql_ujian);
         <?	
 			
 			
-		//echo $ujian.' dan '.$sql1;
-		$data_title = "<font size='4'>Statistik Rata-rata Nilai Ujian Kelas per RPP</font>"; // title for the diagram
+		//echo $ujian.' and '.$sql1;
+		$data_title = "<font size='4'>Class Exam Index Statistic by Lesson Plans</font>"; // title for the diagram
 
         // sample data array
         //$data = array();
@@ -126,8 +126,8 @@ $result_ujian=QueryDb($sql_ujian);
 			$data[] = array($row1[1]);
 			//$data[] = $row1[1];
         }
-		$legend_y = array('Rata');
-		//$legend_y = 'Rata';
+		$legend_y = array('Average');
+		//$legend_y = 'Average';
 				
         $graph = new CAsBarDiagram;
         $graph->bwidth = 10; // set one bar width, pixels
@@ -145,9 +145,9 @@ $result_ujian=QueryDb($sql_ujian);
         <!--<td>
         <table width="100%" border="1" class="tab" id="table">
       	<tr>
-        	<td height="30" class="header"><div align="center">No</div></td>
-        	<td height="30" class="header"><div align="center">Kelas</div></td>
-        	<td height="30" class="header"><div align="center">Rata-rata RPP</div></td>
+        	<td height="30" class="header"><div align="center">#</div></td>
+        	<td height="30" class="header"><div align="center">Class</div></td>
+        	<td height="30" class="header"><div align="center">Lesson Plans Index</div></td>
       	</tr>-->
 	<?		
       	/*$sql_kls="SELECT k.kelas, k.replid FROM kelas k, tahunajaran a WHERE k.idtingkat=$tingkat AND k.aktif = 1 AND k.idtahunajaran = a.replid AND a.aktif = 1 ORDER BY kelas";
@@ -186,7 +186,7 @@ $result_ujian=QueryDb($sql_ujian);
     <tr>
         <td align="center" valign="middle" height="200">
         
-            <font color ="red"><b>Tidak ditemukan adanya data. <br /><br />Tambah data nilai untuk tingkat <?=$namatingkat?> dan pelajaran <?=$namapelajaran?> di menu Penilaian Pelajaran pada bagian Penilaian.<br />Atau<br /> Jika RPP sudah ada, isi nilai RPP tersebut pada menu penilaian pelajaran di penilaian.
+            <font color ="red"><b>Data Not Found. <br /><br />Add points data for Grade <?=$namatingkat?> and Subject <?=$namapelajaran?> in the Class Subject Assessment on Assessment section.<br />Or<br /> If Lesson Plans is existed, fill the Lesson Plans value on Lesson Assessment menu in the Assessment section.
     		</b></font> 
     	</td>
     </tr>

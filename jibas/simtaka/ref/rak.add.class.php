@@ -40,7 +40,7 @@ class CRakAdd{
 	function exist(){
 		?>
         <script language="javascript">
-			alert('Rak sudah digunakan!');
+			alert('Shelf has been used');
 			document.location.href="rak.add.php";
 		</script>
         <?
@@ -60,18 +60,18 @@ class CRakAdd{
           <tr>
             <td colspan="2" align="left">
             	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        		<font style="font-size:18px; color:#999999">Tambah Rak Pustaka</font>            </td>
+        		<font style="font-size:18px; color:#999999">Add Library Shelf</font>            </td>
   		  </tr>
           <tr>
-            <td width="6%">&nbsp;<strong>Rak</strong></td>
+            <td width="6%">&nbsp;<strong>Shelf</strong></td>
             <td width="94%"><input name="rak" type="text" class="inputtxt" id="rak"></td>
           </tr>
           <tr>
-            <td>&nbsp;Keterangan</td>
+            <td>&nbsp;Info</td>
             <td><textarea name="keterangan" cols="45" rows="5" class="areatxt" id="keterangan"></textarea></td>
           </tr>
           <tr>
-            <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Simpan" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Batal" onClick="window.close()" ></td>
+            <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Save" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Cancel" onClick="window.close()" ></td>
           </tr>
         </table>
 		</form>

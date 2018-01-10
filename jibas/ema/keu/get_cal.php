@@ -32,8 +32,8 @@ $kelompok=$_REQUEST[kelompok];
 <link href="../style/style.css" rel="stylesheet" type="text/css" />
 <table width="100%" border="1" class="tab">
   <tr>
-    <td height="25" align="center" class="header">No.&nbsp;Pendaftaran</td>
-    <td height="25" align="center" class="header">Nama</td>
+    <td height="25" align="center" class="header">Registation Number</td>
+    <td height="25" align="center" class="header">Name</td>
     <td height="25" align="center" class="header">&nbsp;</td>
   </tr>
   <?
@@ -51,7 +51,7 @@ $kelompok=$_REQUEST[kelompok];
   <? } ?>
   <? } else { ?>
   <tr>
-    <td height="20" colspan="3" align="center" class="nodata">Tidak ada data</td>
+    <td height="20" colspan="3" align="center" class="nodata">Data Not Found.</td>
   </tr>
   <? } ?>
 </table>

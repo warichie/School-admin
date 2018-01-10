@@ -26,7 +26,7 @@ require_once('include/sessioninfo.php');
 ?>
 <html>
 <head>
-<title>Kelulusan</title>
+<title>Graduation</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <script type="text/javascript" src="script/tooltips.js"></script>
@@ -61,7 +61,7 @@ function change_theme(theme){
 
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th scope="row"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>KENAIKAN & KELULUSAN</strong></font></p></th>
+    <th scope="row"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>GRADE PROMOTION & GRADUATION</strong></font></p></th>
   </tr>
   <tr>
     <th scope="row">
@@ -69,7 +69,7 @@ function change_theme(theme){
     </th>
   </tr>
 </table>
-<!-- ImageReady Slices (Kelulusan.psd) -->
+<!-- ImageReady Slices (Graduation.psd) -->
 <!--
 <table id="Table_01" width="453" height="319" border="0" cellpadding="0" cellspacing="0" align="left" >
 	<tr>
@@ -82,7 +82,7 @@ function change_theme(theme){
 		<td colspan="2">
 			<img src="images/kelulusan_02.gif" width="134" height="117" alt=""></td>
 		<td colspan="3">
-			<img src="images/kelulusan_03.gif" alt="" width="70" height="117" border="0" onClick="alert ('Untuk mendata Departemen Baru, Tahun Ajaran Baru, Angkatan Baru, dan Kelas Baru \nSilakan lakukan di Bagian Referensi');" style="cursor:pointer"></td>
+			<img src="images/kelulusan_03.gif" alt="" width="70" height="117" border="0" onClick="alert ('To collect data about New Department, New Year of Teaching, New Graduates, and New Class \nPlease go to Reference section');" style="cursor:pointer"></td>
 		<td colspan="3">
 			<img src="images/kelulusan_04.gif" width="122" height="117" alt=""></td>
 		<td colspan="3">
@@ -94,13 +94,13 @@ function change_theme(theme){
 		<td rowspan="2">
 			<img src="images/kelulusan_06.gif" width="25" height="84" alt=""></td>
 		<td colspan="2" rowspan="2">
-           	<a href="siswa/siswa_kenaikan_main.php"  onMouseOver="showhint('Pendataan Siswa yang Naik Kelas', this, event, '100px')">
+           	<a href="siswa/siswa_kenaikan_main.php"  onMouseOver="showhint('Student Promoted to next Grade Data Collection', this, event, '100px')">
             <img src="images/kelulusan_07.gif" alt="" width="139" height="84" border="0" >			</a>        </td>
 		<td colspan="3" rowspan="2">
 			<img src="images/kelulusan_08.gif" width="95" height="84" alt=""></td>
 		<td rowspan="2">
 			<img src="images/kelulusan_09.gif" width="1" height="84" alt=""></td>
-		<td colspan="3" valign="bottom"><a href="siswa/siswa_lulus_main.php"  onMouseOver="showhint('Pendataan Kelulusan Siswa', this, event, '100px')"><img src="images/kelulusan_10.gif" alt="" width="172" height="81" border="0"></a></td>
+		<td colspan="3" valign="bottom"><a href="siswa/siswa_lulus_main.php"  onMouseOver="showhint('Student Graduation Data Collection', this, event, '100px')"><img src="images/kelulusan_10.gif" alt="" width="172" height="81" border="0"></a></td>
 		<td>
 			<img src="images/kelulusan_11.gif" width="20" height="81" alt=""></td>
 		<td>
@@ -112,9 +112,9 @@ function change_theme(theme){
 		<td rowspan="2">
 			<img src="images/kelulusan_13.gif" width="1" height="102" alt=""></td>
 		<td colspan="2" rowspan="2">
-			<a href="siswa/alumni_main.php" class="style3" onMouseOver="showhint('Pendataan (Tambah, Ubah, Hapus) data Alumni!', this, event, '100px')">Pendataan Alumni</a><br>
-        <a href="siswa/alumni.php" class="style3" onMouseOver="showhint('Daftar Alumni !', this, event, '100px')">Daftar Alumni</a><br>
-        <a href="siswa/alumni_cari.php" onMouseOver="showhint('Pencarian alumni !', this, event, '100px')" class="style3">Pencarian Alumni</a>      </td>
+			<a href="siswa/alumni_main.php" class="style3" onMouseOver="showhint('Alumni data (Add, Change, Delete) Data Collection', this, event, '100px')">Alumni Data Collection</a><br>
+        <a href="siswa/alumni.php" class="style3" onMouseOver="showhint('Alumni List ', this, event, '100px')">Alumni List</a><br>
+        <a href="siswa/alumni_cari.php" onMouseOver="showhint('Search Alumni ', this, event, '100px')" class="style3">Search Alumni</a>      </td>
 <td>
 			<img src="images/spacer.gif" width="1" height="3" alt=""></td>
 	</tr>
@@ -122,7 +122,7 @@ function change_theme(theme){
 		<td>
 			<img src="images/kelulusan_15.gif" width="25" height="99" alt=""></td>
 		<td colspan="3">
-			<a href="siswa/siswa_tidak_naik_main.php"  onMouseOver="showhint('Pendataan Siswa Yang Tidak Naik Kelas', this, event, '100px')">
+			<a href="siswa/siswa_tidak_naik_main.php"  onMouseOver="showhint('Student Who Fail a Grade Data Collection', this, event, '100px')">
 			<img src="images/kelulusan_16.gif" alt="" width="146" height="99" border="0" >			</a>        </td>
 		<td colspan="3">
 			<img src="images/kelulusan_17.gif" width="89" height="99" alt=""></td>
@@ -164,7 +164,7 @@ function change_theme(theme){
 		<td>
 			<img src="images/kelulusan2_01.gif" width="115" height="144" alt=""></td>
 		<td colspan="3">
-			<img onClick="alert ('Untuk mendata Departemen Baru, Tahun Ajaran Baru, Angkatan Baru, dan Kelas Baru \nSilakan lakukan di Bagian Referensi');" style="cursor:pointer" src="images/kelulusan2_02.gif" alt="" width="79" height="144" border="0"></td>
+			<img onClick="alert ('To collect data about New Department, New Year of Teaching, New Graduates, and New Class \nPlease go to Reference section');" style="cursor:pointer" src="images/kelulusan2_02.gif" alt="" width="79" height="144" border="0"></td>
 		<td colspan="3">
 			<img src="images/kelulusan2_03.gif" width="231" height="144" alt=""></td>
 	</tr>
@@ -176,11 +176,11 @@ function change_theme(theme){
 		<td rowspan="2">
 			<img src="images/kelulusan2_06.gif" width="42" height="69" alt=""></td>
 		<td colspan="2" rowspan="3">
-			<a href="siswa/siswa_lulus_main.php"  onMouseOver="showhint('Pendataan Kelulusan Siswa', this, event, '100px')"><img src="images/kelulusan2_07.gif" alt="" width="189" height="81" border="0"></a></td>
+			<a href="siswa/siswa_lulus_main.php"  onMouseOver="showhint('Student Graduation Data Collection', this, event, '100px')"><img src="images/kelulusan2_07.gif" alt="" width="189" height="81" border="0"></a></td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<a href="siswa/siswa_kenaikan_main.php"  onMouseOver="showhint('Pendataan Siswa yang Naik Kelas', this, event, '100px')"><img src="images/kelulusan2_08.gif" alt="" width="149" height="60" border="0"></a></td>
+			<a href="siswa/siswa_kenaikan_main.php"  onMouseOver="showhint('Student Promoted to next Grade Data Collection', this, event, '100px')"><img src="images/kelulusan2_08.gif" alt="" width="149" height="60" border="0"></a></td>
 		<td colspan="2">
 			<img src="images/kelulusan2_09.gif" width="45" height="60" alt=""></td>
 	</tr>
@@ -190,13 +190,13 @@ function change_theme(theme){
 	</tr>
 	<tr>
 		<td colspan="3">
-			<a href="siswa/siswa_tidak_naik_main.php"  onMouseOver="showhint('Pendataan Siswa Yang Tidak Naik Kelas', this, event, '100px')"><img src="images/kelulusan2_11.gif" alt="" width="159" height="68" border="0"></a></td>
+			<a href="siswa/siswa_tidak_naik_main.php"  onMouseOver="showhint('Student Who Fail a Grade Data Collection', this, event, '100px')"><img src="images/kelulusan2_11.gif" alt="" width="159" height="68" border="0"></a></td>
 		<td colspan="3" rowspan="2">
 			<img src="images/kelulusan2_12.gif" width="146" height="90" alt=""></td>
 		<td rowspan="2" valign="middle" style="background-color:#FFFFFF">
-        <a href="siswa/alumni_main.php" class="style3" onMouseOver="showhint('Pendataan (Tambah, Ubah, Hapus) data Alumni!', this, event, '100px')">Pendataan Alumni</a><br>
-        <a href="siswa/alumni.php" class="style3" onMouseOver="showhint('Daftar Alumni !', this, event, '100px')">Daftar Alumni</a><br>
-        <a href="siswa/alumni_cari.php" onMouseOver="showhint('Pencarian alumni !', this, event, '100px')" class="style3">Pencarian Alumni</a>
+        <a href="siswa/alumni_main.php" class="style3" onMouseOver="showhint('Alumni data (Add, Change, Delete) Data Collection', this, event, '100px')">Alumni Data Collection</a><br>
+        <a href="siswa/alumni.php" class="style3" onMouseOver="showhint('Alumni List ', this, event, '100px')">Alumni List</a><br>
+        <a href="siswa/alumni_cari.php" onMouseOver="showhint('Search Alumni ', this, event, '100px')" class="style3">Search Alumni</a>
         </td>
 	</tr>
 	<tr>

@@ -96,7 +96,7 @@ if ($op == "jfd84rkj843h834jjduw3")
 	{ 
 		RollbackTrans(); ?>
 		<script language="javascript">
-			alert ('Data gagal dihapus');
+			alert ('Corrupt data has been deleted');
 		</script>
 <? 	}	
 } 
@@ -107,7 +107,7 @@ else if ($op == "osdiui4903i03j490dj")
 }
 elseif ($op == "bwe24sssd2p24237lwi0234")
 {
-	// Hitung ulang Rata-rata Kelas & Siswa
+	// Hitung ulang Class Index Cumulative & Student
 	
 	$success = true;
 	BeginTrans();
@@ -143,7 +143,7 @@ elseif ($op == "bwe24sssd2p24237lwi0234")
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<title>Penilaian [Content]</title>
+<title>Index [Subject Matter]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/tooltips.js"></script>
@@ -191,14 +191,14 @@ function validate()
 			{
 				if (isNaN(bobot))
 				{
-					alert("Bobot nilai harus berupa bilangan!");
+					alert("Point Quality must be numeric");
 					document.getElementById('bobot'+i).focus();				
 					return false;									
 				} 
 			} 
 			else 
 			{
-				alert ("Anda harus mengisikan data untuk bobot nilai!"); 
+				alert ("You must enter a data for Point Quality"); 
 				document.getElementById('bobot'+i).focus();				
 				return false;
 			} 
@@ -214,7 +214,7 @@ function validate()
 		{
 			if (!cek) 
 			{
-				alert ("Anda harus memberi centang terlebih dahulu!"); 
+				alert ("You must select at least one item from the list"); 
 				document.getElementById('jenisujian'+i).focus();				
 				return false;
 			}
@@ -223,7 +223,7 @@ function validate()
 	
 	if (isi == 0) 
 	{
-		alert ("Anda harus mengisi setidaknya satu data bobot untuk menghitung otomatis!");
+		alert ("You must enter at least one Quality data to perform Auto Calculation");
 		return false; 
 	}
 	
@@ -234,14 +234,14 @@ function manual(){
 	document.location.href="input_manual_nau.php?kelas=<?=$kelas?>&semester=<?=$semester?>&idaturan=<?=$idaturan?>";
 }
 function hapus(replid,i,nama) {
-	if (confirm('Anda yakin akan menghapus nilai '+nama+'-'+i+' ini ?')){
+	if (confirm('Are you sure want to delete this point '+nama+'-'+i+'?')){
 	document.location.href="nilai_pelajaran_content.php?op=jfd84rkj843h834jjduw3&kelas=<?=$kelas?>&semester=<?=$semester?>&idaturan=<?=$idaturan?>&replid="+replid;
 	}
 }
 
 function hitungUlangRata() 
 {
-	if (confirm('Apakah anda akan menghitung ulang rata-rata kelas dan siswa?'))
+	if (confirm('Do you want to re-calculate Class and Student Index?'))
 		document.location.href="nilai_pelajaran_content.php?op=bwe24sssd2p24237lwi0234&kelas=<?=$kelas?>&semester=<?=$semester?>&idaturan=<?=$idaturan?>";
 }
 
@@ -250,7 +250,7 @@ function ubah_nau(replid){
 }
 
 function hapus_nau(){
-	if (confirm('Anda yakin akan menghapus data nilai akhir ini?')){
+	if (confirm('Are you sure want to delete this Final Point data?')){
 	document.location.href="nilai_pelajaran_content.php?op=osdiui4903i03j490dj&kelas=<?=$kelas?>&semester=<?=$semester?>&idaturan=<?=$idaturan?>";
 	}
 }
@@ -287,16 +287,16 @@ function focusNext(elemName, evt) {
     	<td>
         <table width="100%" border="0">
         <tr>
-            <td width="17%"><strong>Pelajaran</strong></td>
+            <td width="17%"><strong>Class Subject</strong></td>
             <td><strong>: <?=$namapel ?> </strong></td>
             <td rowspan="2"></td>
         </tr>
         <tr>
-            <td><strong>Aspek Penilaian</strong></td>
+            <td><strong>Assessment Aspect</strong></td>
             <td><strong>: <?=$aspekket?></strong></td>            
         </tr>
     	<tr>
-            <td><strong>Jenis Pengujian</strong></td>
+            <td><strong>Exam Type</strong></td>
             <td><strong>: <?=$namajenis?></strong></td>            
 <? 	$sql_cek_ujian = "SELECT u.replid, u.tanggal, u.deskripsi, u.idrpp 
 						FROM jbsakad.ujian u 
@@ -308,9 +308,9 @@ function focusNext(elemName, evt) {
             
             <td align="right">
                     
-            <a href="#" style="cursor:pointer" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-            <a href="JavaScript:cetak_excel()"><img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Cetak dalam format Excel!', this, event, '80px')"/>&nbsp;Cetak Excel</a>&nbsp;&nbsp;   
-	  		<a href="#" style="cursor:pointer" onClick="tambah();" ><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Penilaian!', this, event, '60px')"/>&nbsp;Tambah Penilaian</a>
+            <a href="#" style="cursor:pointer" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+            <a href="JavaScript:cetak_excel()"><img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Excel', this, event, '80px')"/>&nbsp;Excel</a>&nbsp;&nbsp;   
+	  		<a href="#" style="cursor:pointer" onClick="tambah();" ><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add Assessment', this, event, '60px')"/>&nbsp;Add Assessment.</a>
       		</td>
   		</tr>
         </table>
@@ -318,9 +318,9 @@ function focusNext(elemName, evt) {
   		
         <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
        	<tr>
-            <td height="30" class="headerlong" align="center" width="4%">No</td>
-            <td height="30" class="headerlong" align="center" width="10%">N I S</td>
-            <td height="30" class="headerlong" align="center" width="*">Nama</td>
+            <td height="30" class="headerlong" align="center" width="4%">#</td>
+            <td height="30" class="headerlong" align="center" width="10%">Student ID</td>
+            <td height="30" class="headerlong" align="center" width="*">Name</td>
 		<?
        
         $i=1;
@@ -331,25 +331,25 @@ function focusNext(elemName, evt) {
 				$rpp = @mysql_fetch_array($res_get_rpp_name);
 				$namarpp = $rpp[rpp];
 			} else {
-				$namarpp = "Tanpa RPP";
+				$namarpp = "No Lesson Plans";
 			}
 			$nilaiujian[$i] = 0;
 			$idujian[$i] = $row_cek_ujian['replid'];			
             $tgl = explode("-",$row_cek_ujian['tanggal']);
 			
         ?>
-           <td height="30" width="50" class="headerlong" align="center" onMouseOver="showhint('RPP: <?=$namarpp .'<br>'?> Materi: <?=$row_cek_ujian['deskripsi']?>', this, event, '120px')"><?=$namajenis."-".$i?>&nbsp;
+           <td height="30" width="50" class="headerlong" align="center" onMouseOver="showhint('Lesson Plans: <?=$namarpp .'<br>'?> Subject Matter: <?=$row_cek_ujian['deskripsi']?>', this, event, '120px')"><?=$namajenis."-".$i?>&nbsp;
 			<br /><?=$tgl[2]."/".$tgl[1]."/".substr($tgl[0],2)?><br />
-      		<a href="JavaScript:edit(<?=$row_cek_ujian['replid']?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Ujian!', this, event, '50px')" /></a>&nbsp;
+      		<a href="JavaScript:edit(<?=$row_cek_ujian['replid']?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Exam', this, event, '50px')" /></a>&nbsp;
 		<? if (SI_USER_LEVEL() != $SI_USER_STAFF) {	?>            
-            <a href="JavaScript:hapus(<?=$row_cek_ujian['replid']?>, <?=$i?>, '<?=$namajenis?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Ujian!', this, event, '50px')" /></a>
+            <a href="JavaScript:hapus(<?=$row_cek_ujian['replid']?>, <?=$i?>, '<?=$namajenis?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Exam', this, event, '50px')" /></a>
 		<? } ?>
     		</td>
 		<?
         	$i++;
         }
         ?>
-            <td height="30" class="headerlong" align="center" width="50">Rata- rata Siswa</td>
+            <td height="30" class="headerlong" align="center" width="50">Student Index</td>
             <td height="30" class="headerlong" align="center" width="55">NA <?=$namajenis?>
 	<? $sql_get_nau_per_kelas="SELECT nilaiAU,keterangan FROM jbsakad.nau WHERE idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan'";
         	//echo $sql_get_nau_per_kelas;
@@ -358,7 +358,7 @@ function focusNext(elemName, evt) {
 			$manual=@mysql_num_rows($result_get_ket_nau_per_kelas);
 			if (SI_USER_LEVEL() != $SI_USER_STAFF) 
 			{	?>	
-            	<br /><a href="JavaScript:hapus_nau()"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Nilai Akhir Ujian!', this, event, '100px')" /></a>&nbsp;
+            	<br /><a href="JavaScript:hapus_nau()"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Exam Final Point', this, event, '100px')" /></a>&nbsp;
 <? 			}
         }	 ?>
     		</td>
@@ -374,7 +374,7 @@ function focusNext(elemName, evt) {
   		<tr height="25">
             <td align="center"><?=$cnt?></td>
             <td align="center"><?=$row_siswa['nis']?></td>
-            <td><a href="#" onMouseOver="showhint('Lihat Detail Siswa!', this, event, '80px')"  onClick="newWindow('../library/detail_siswa.php?replid=<?=$row_siswa[replid]?>', 'DetailSiswa','660','657','resizable=1,scrollbars=1,status=0,toolbar=0')"><?=$row_siswa['nama']?></a></td>
+            <td><a href="#" onMouseOver="showhint('See Student Details', this, event, '80px')"  onClick="newWindow('../library/detail_siswa.php?replid=<?=$row_siswa[replid]?>', 'DetailSiswa','660','657','resizable=1,scrollbars=1,status=0,toolbar=0')"><?=$row_siswa['nama']?></a></td>
           
 		<? 	for ($j=1;$j<=count($idujian);$j++) { ?>
             <td align="center">							
@@ -384,11 +384,11 @@ function focusNext(elemName, evt) {
                     $row_cek_nilai_ujian=@mysql_fetch_array($result_cek_nilai_ujian);
                 	$nilaiujian[$j] = $nilaiujian[$j]+$row_cek_nilai_ujian['nilaiujian'];					
                 	$nilai = $nilai+$row_cek_nilai_ujian['nilaiujian'];  ?>
-					<a href="JavaScript:ubah_nilai(<?=$row_cek_nilai_ujian['replid']?>)" onMouseOver="showhint('Ubah Nilai Ujian!', this, event, '80px')"><?=$row_cek_nilai_ujian['nilaiujian']?></a>          
+					<a href="JavaScript:ubah_nilai(<?=$row_cek_nilai_ujian['replid']?>)" onMouseOver="showhint('Edit Exam Point', this, event, '80px')"><?=$row_cek_nilai_ujian['nilaiujian']?></a>          
             <?		if ($row_cek_nilai_ujian[keterangan]<>"")
                         echo "<strong><font color='blue'>)*</font></strong>";
                 	} else {   ?>         	
-                    	<a href="JavaScript:tambah_nilai(<?=$idujian[$j]?>,'<?=$row_siswa['nis']?>')"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Nilai Ujian!', this, event, '80px')" /></a>
+                    	<a href="JavaScript:tambah_nilai(<?=$idujian[$j]?>,'<?=$row_siswa['nis']?>')"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add Exam Point', this, event, '80px')" /></a>
 			<?		} ?>
             </td>
 		<?  } ?>
@@ -408,11 +408,11 @@ function focusNext(elemName, evt) {
 				$row_get_nau_per_nis=@mysql_fetch_array($result_get_nau_per_nis);
 				if ($row_get_nau_per_nis['nilaiAU'] <> 0) 
 				{ 	?>
-            		<a href="Javascript:ubah_nau('<?=$row_get_nau_per_nis['replid']?>')" onMouseOver="showhint('Ubah Nilai Akhir Ujian!', this, event, '80px')" ><?=$row_get_nau_per_nis['nilaiAU']?></a>            
+            		<a href="Javascript:ubah_nau('<?=$row_get_nau_per_nis['replid']?>')" onMouseOver="showhint('Edit Exam Final Point', this, event, '80px')" ><?=$row_get_nau_per_nis['nilaiAU']?></a>            
 <?				} 
 				else 
 				{		?>
-					<a href="JavaScript:tambah_nau(<?=$row_get_nau_per_nis['replid']?>)"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Nilai Akhir Ujian!', this, event, '80px')" /></a>    
+					<a href="JavaScript:tambah_nau(<?=$row_get_nau_per_nis['replid']?>)"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add Exam Final Point', this, event, '80px')" /></a>    
 			<? 	}
 				if ($row_get_nau_per_nis[keterangan]<>"")
 					echo "<font color='#067900'><strong>)*</strong></font>";
@@ -423,7 +423,7 @@ function focusNext(elemName, evt) {
   		$cnt++;
   		} ?>
 		<tr>
-        	<td height="25" class="header" align="center" colspan="3">Rata-rata Kelas</td>
+        	<td height="25" class="header" align="center" colspan="3">Class Index Cumulative</td>
             
 	<? 	$rata = 0;
         for ($j=1;$j<=count($idujian);$j++) { 
@@ -451,33 +451,33 @@ function focusNext(elemName, evt) {
 		</td>
     </tr>
     <tr>
-    	<td align="right"><strong><font color="blue">)*</font> ada keterangan &nbsp;&nbsp; 
-		<strong><font color="#067900">)*</font> Nilai Akhir Siswa dihitung manual </strong>&nbsp;&nbsp;
-        <input type="button" class="but" value="Hitung Ulang Rata-rata Kelas & Siswa" name="recountrk" id="recountrk" onClick="hitungUlangRata()" />
+    	<td align="right"><strong><font color="blue">)*</font> No info &nbsp;&nbsp; 
+		<strong><font color="#067900">)*</font> Student Final Point counted manually </strong>&nbsp;&nbsp;
+        <input type="button" class="but" value="Re-calculate Class and Student Index Cumulative" name="recountrk" id="recountrk" onClick="hitungUlangRata()" />
         </td>
    	</tr>
   	<tr>
   		<td>
         <br />
-        <fieldset style="background-color:#FFFFC6"><legend><strong>Hitung Nilai Akhir <?=$namajenis?> Berdasarkan </strong></legend>    
+        <fieldset style="background-color:#FFFFC6"><legend><strong>Calculate Final Point <?=$namajenis?> based on </strong></legend>    
         <table width="100%" border="0">
       
         <tr>
-            <td><strong>A. Perhitungan Otomatis</strong></td>
-            <td><strong>B. Perhitungan Manual</strong></td>
+            <td><strong>A. Auto Calculation</strong></td>
+            <td><strong>B. Manual Calculation</strong></td>
         </tr>
         
         <tr>
     		<td width="55%">  
                 <input <?=$dis_btn?> type="button" name="hitung" id="hitung" 
-                 value="Hitung dan Simpan Nilai Akhir <?=$namajenis?>" class="but" 
+                 value="Calculate and Save Final Point <?=$namajenis?>" class="but" 
                  onClick="return validate(); document.getElementById('tampil_nilai_pelajaran').submit();" />
                 <hr width="350" align="left"/>
                 <input type="hidden" name="pilih" value="1"> 
                 <table class="tab" id="table" border="1" style="border-collapse:collapse" width="350" bordercolor="#000000">    		
                 <tr height="30" class="header" align="center">
                     <td width="85%" colspan="2"><?=$namajenis?></td>
-                    <td width="15%">Bobot</td>
+                    <td width="15%">Quality</td>
                 </tr>
 <? 			$sql_cek_ujian = "SELECT *, u.replid as replid 
 							  FROM jbsakad.ujian u 
@@ -497,7 +497,7 @@ function focusNext(elemName, evt) {
 				} 
 				else 
 				{
-					$namarpp = "Tanpa RPP";
+					$namarpp = "No Lesson Plans";
 				}
 				
 				$sql_get_bobotnya = "SELECT b.replid, b.bobot FROM jbsakad.bobotnau b WHERE b.idujian='$row_cek_ujian[replid]'";								
@@ -519,7 +519,7 @@ function focusNext(elemName, evt) {
 	               	</td>
     	            <td> 
 					<?=$namajenis."-".$ibobot." (".format_tgl($row_cek_ujian['tanggal']).")"; ?>
-                	<br>RPP: <?=$namarpp?>
+                	<br>Lesson Plans: <?=$namarpp?>
                     <input type="hidden" name="<?='ujian'.$ibobot?>" id = "<?='ujian'.$ibobot?>" value="<?=$row_cek_ujian['replid']?>"</td>
 	                <td align="center">
     	            <input type="text" maxlength="3" name="<?='bobot'.$ibobot ?>" id="<?='bobot'.$ibobot ?>" size="2" value ="<?=$nilai_bobotnya['bobot']?>"  <? if ($ibobot!=$jumujian) { ?> onKeyPress="return focusNext('jenisujian<?=(int)$ibobot+1?>',event)" <? } else { ?> onkeypress="return focusNext('hitung',event)" <? } ?> >
@@ -537,7 +537,7 @@ function focusNext(elemName, evt) {
         	<hr width="350" align="left"/><br />
 			</td>
     		<td valign="top">
-				<input type="button" name="hitungmanual" value="Hitung Manual Nilai Akhir <?=$namajenis?>" class="but" onClick="manual()">
+				<input type="button" name="hitungmanual" value="Calculate Final Point Manually <?=$namajenis?>" class="but" onClick="manual()">
             </td>
   		</tr>
 		</table>
@@ -552,8 +552,8 @@ function focusNext(elemName, evt) {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200"> 
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data nilai ujian. 
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+    	<font size = "2" color ="red"><b>No Exam Point data found. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         </b></font>
      
 	</td>

@@ -111,7 +111,7 @@
 				r.setEnd(endContainer, end >= 1 ? end - 1 : 0);
 				end -= 1;
 
-				// Loop until one of the following is found: a blank space, &nbsp;, delimeter, (end-2) >= 0
+				// Loop to one of the following is found: a blank space, &nbsp;, delimeter, (end-2) >= 0
 			} while (r.toString() != ' ' && r.toString() != '' && r.toString().charCodeAt(0) != 160 && (end -2) >= 0 && r.toString() != delimiter);
 
 			if (r.toString() == delimiter || r.toString().charCodeAt(0) == 160) {

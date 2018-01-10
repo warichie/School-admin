@@ -28,7 +28,7 @@ require_once('../inc/db_functions.php');
 require_once('../inc/common.php');
 require_once('../inc/rupiah.php');
 
-$urut = "NIS";
+$urut = "National Student ID";
 $urutan = "ASC";
 $varbaris = $_REQUEST['varbaris'];	
 $page = $_REQUEST['page'];
@@ -59,7 +59,7 @@ $departemen = $row[0];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pembayaran Iuran Sukarela Siswa Per Kelas]</title>
+<title>JIBAS FINANCE [Student Contribution Payment Reports by Classes]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 </head>
@@ -109,20 +109,20 @@ $namapenerimaan = $row[0];
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>LAPORAN PEMBAYARAN IURAN SUKARELA SISWA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>STUDENT CONTRIBUTION PAYMENT REPORTS</strong></font><br /> </center><br /><br />
 
 
 <table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width ?>" align="left" bordercolor="#000000">
 <tr height="30" align="center">
-	<td class="header" width="30" align="center">No</td>
-    <td class="header" width="90" align="center">N I S</td>
-    <td class="header" width="160">Nama</td>
-    <td class="header" width="50" align="center">Kelas</td>
+	<td class="header" width="30" align="center">#</td>
+    <td class="header" width="90" align="center">Student ID</td>
+    <td class="header" width="160">Name</td>
+    <td class="header" width="50" align="center">Class</td>
 <?	for($i = 0; $i < $max_n_bayar; $i++) { ?>
-	<td class="header" width="100" align="center">Bayaran-<?=$i + 1 ?></td>
+	<td class="header" width="100" align="center"><?=$i + 1 ?>-Payment</td>
 <?  } ?>
-    <td class="header" width="100" align="center">Total Pembayaran</td>
-    <!--<td class="header" width="200" align="center">Keterangan</td>-->
+    <td class="header" width="100" align="center">Total Payment</td>
+    <!--<td class="header" width="200" align="center">Info</td>-->
 </tr>
 <?
 
@@ -220,7 +220,7 @@ while ($row = mysql_fetch_array($result)) {
     </tr>
 <? } //end for ?>
 	<tr height="30">
-    	<td bgcolor="#999900" align="center" colspan="<?=4 + $max_n_bayar ?>"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+    	<td bgcolor="#999900" align="center" colspan="<?=4 + $max_n_bayar ?>"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td bgcolor="#999900" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($totalall) ?></strong></font></td>
         <!--<td bgcolor="#999900">&nbsp;</td>-->
     </tr>

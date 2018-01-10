@@ -48,16 +48,16 @@ class CAnggota{
 		<link href="../sty/style.css" rel="stylesheet" type="text/css">
         <div class="funct">
         	<a href="javascript:getfresh()"><img src="../img/ico/refresh.png" border="0">&nbsp;Refresh</a>&nbsp;&nbsp;
-			<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Cetak</a>&nbsp;&nbsp; 
-			<a href="javascript:tambah()"><img src="../img/ico/tambah.png" border="0">&nbsp;Tambah&nbsp;Anggota</a>&nbsp;        
+			<a href="javascript:cetak()"><img src="../img/ico/print1.png" border="0">&nbsp;Print</a>&nbsp;&nbsp; 
+			<a href="javascript:tambah()"><img src="../img/ico/tambah.png" border="0">&nbsp;Add&nbsp;Member</a>&nbsp;        
 		</div>
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td height="30" align="center" class="header">No. Registrasi</td>
-            <td height="30" align="center" class="header">Nama</td>
+            <td height="30" align="center" class="header">Reg Number</td>
+            <td height="30" align="center" class="header">Name</td>
             <td height="30" align="center" class="header">Email</td>
-            <td height="30" align="center" class="header">Telepon</td>
-            <td height="30" align="center" class="header">Keterangan</td>
+            <td height="30" align="center" class="header">Phone</td>
+            <td height="30" align="center" class="header">Info</td>
   			   <td align="center" class="header">&nbsp;</td>
             <td height="30" align="center" class="header">&nbsp;</td>
 		  </tr>
@@ -85,7 +85,7 @@ class CAnggota{
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="7" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="7" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

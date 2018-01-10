@@ -56,10 +56,10 @@ OpenDb();
   </tr>
   <tr>
     <td>
-    <p align="center"><strong>STATISTIK MUTASI SISWA</strong><br>
+    <p align="center"><strong>STUDENT MUTATION STATISTIC</strong><br>
   <strong>TAHUN : 
   <?=$tahunawal?> 
-  s/d 
+  to 
   <?=$tahunakhir?>  
   </strong><br>
   <br>
@@ -68,9 +68,9 @@ OpenDb();
 
 	<table width="100%"  border="1" align="center" cellpadding="3" cellspacing="0" class="tab" bordercolor="#000000">
 	 <tr class="header">
-        <td width="5" height="30" align="center">No</td>
-		<td width="54%" height="30" align="center">Jenis Mutasi</td>
-        <td width="31%" height="30">Jumlah </td>
+        <td width="5" height="30" align="center">#</td>
+		<td width="54%" height="30" align="center">Mutation Type</td>
+        <td width="31%" height="30">Sum </td>
         </tr>
  <?
 $sql1="SELECT * FROM jbsakad.jenismutasi ORDER BY replid";
@@ -82,13 +82,13 @@ $cnt=1;
 	$row2=@mysql_fetch_row($result2);
 
 ?>
-<tr><td><?=$cnt?></td><td><?=$row1[jenismutasi]?></td><td><?=$row2[0]?>&nbsp;siswa</td></tr>
+<tr><td><?=$cnt?></td><td><?=$row1[jenismutasi]?></td><td><?=$row2[0]?>&nbsp;the student</td></tr>
 <?
 $sql3="SELECT COUNT(*),YEAR(m.tglmutasi) FROM mutasisiswa m,siswa s,kelas k,tingkat ti,tahunajaran ta WHERE m.jenismutasi='$row1[replid]' AND YEAR(m.tglmutasi)<='$tahunakhir' AND YEAR(m.tglmutasi)>='$tahunawal' AND m.nis=s.nis AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND s.idkelas=k.replid AND ta.departemen='$departemen' AND ti.departemen='$departemen' GROUP BY YEAR(m.tglmutasi)";
 $result3=QueryDb($sql3);
 while ($row3=@mysql_fetch_row($result3)){
 ?>
-<tr><td>&nbsp;</td><td>-&nbsp;<?=$row3[1]?></td><td><?=$row3[0]?>&nbsp;siswa</td></tr>
+<tr><td>&nbsp;</td><td>-&nbsp;<?=$row3[1]?></td><td><?=$row3[0]?>&nbsp;the student</td></tr>
 <?
 }
 $cnt++;

@@ -69,7 +69,7 @@ if (isset($_REQUEST['urutan']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Pembayaran Siswa Per Kelas</title>
+<title>Student Payment Reports by Classes</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -135,7 +135,7 @@ $row = @mysql_fetch_row($res);
 $idtahunbuku = $row[0];
 if ($idtahunbuku==""){
 	echo "<script>";
-	echo "alert ('Belum ada Tahun buku yang Aktif di departemen ".$departemen.". Silakan isi/aktifkan Tahun Buku di menu Referensi!');";
+	echo "alert ('No Active Fiscal Year on department ".$departemen.". Please fill/activated Fiscal Year in Reference menu');";
 	echo "</script>";
 	exit;
 }
@@ -184,22 +184,22 @@ $namapenerimaan = $row[0];
     <table width="100%" border="0" align="center">
     <tr>
     	<td>
-    	<a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
+    	<a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
     	</td>
 	</tr>
 	</table>
 	<br />
 	<table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width ?>" align="left" bordercolor="#000000">
     <tr height="30" align="center" class="header">
-        <td width="30" >No</td>
-        <td width="90" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nis','<?=$urutan?>')">N I S <?=change_urut('nis',$urut,$urutan)?></td>
-        <td width="160" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Nama <?=change_urut('nama',$urut,$urutan)?></td>
-        <td width="50">Kelas</td>
+        <td width="30" >#</td>
+        <td width="90" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nis','<?=$urutan?>')">Student ID <?=change_urut('nis',$urut,$urutan)?></td>
+        <td width="160" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Name <?=change_urut('nama',$urut,$urutan)?></td>
+        <td width="50">Class</td>
     <?	for($i = 0; $i < $max_n_bayar; $i++) { ?>
-        <td width="100">Bayaran-<?=$i + 1 ?></td>
+        <td width="100"><?=$i + 1 ?>-Payment</td>
     <?  } ?>
-        <td width="100">Total Pembayaran</td>
-        <!--<td width="200">Keterangan</td>-->
+        <td width="100">Total Payment</td>
+        <!--<td width="200">Info</td>-->
     </tr>
 <?
 
@@ -323,7 +323,7 @@ while ($row = mysql_fetch_array($result))
 	<input type="hidden" name="tes" id="tes" value="<?=$total?>"/>
 	<? if ($page==$total-1){ ?>
 	<tr height="30">
-    	<td bgcolor="#999900" align="center" colspan="<?=4 + $max_n_bayar ?>"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+    	<td bgcolor="#999900" align="center" colspan="<?=4 + $max_n_bayar ?>"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td bgcolor="#999900" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($totalall2) ?></strong></font></td>
         <!--<td bgcolor="#999900">&nbsp;</td>-->
     </tr>
@@ -361,8 +361,8 @@ while ($row = mysql_fetch_array($result))
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="250">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
-        <br />Tambah data pembayaran pada departemen <?=$departemen?> <? if ($namakelas) echo  ", kelas ".$namakelas ?> dan kategori <?=$namapenerimaan?> di menu Penerimaan Pembayaran pada bagian Penerimaan.
+    	<font size = "2" color ="red"><b>Data Not Found.
+        <br />Add payment data on Department <?=$departemen?> <? if ($namakelas) echo  ", kelas ".$namakelas ?> and category <?=$namapenerimaan?> in the Admission Payment on Admission section.
         
         </b></font>
 	</td>

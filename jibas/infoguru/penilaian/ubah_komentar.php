@@ -36,9 +36,9 @@ $status='tambah';
 if (isset($_REQUEST['status']))
 	$status = $_REQUEST['status'];
 if ($status=='tambah')
-	$title = 'Tambah';
+	$title = 'Add';
 else
-	$title = 'Ubah';
+	$title = 'Edit';
 //echo $komentar;
 if (isset($_REQUEST['Simpan']))
 {
@@ -62,7 +62,7 @@ window.close();
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>JIBAS INFOGURU [<?=$title?> Komentar]</TITLE>
+<TITLE>JIBAS TEACHERS INFO [<?=$title?> Comment]</TITLE>
 <META NAME="Generator" CONTENT="EditPlus">
 <META NAME="Author" CONTENT="">
 <META NAME="Keywords" CONTENT="">
@@ -111,17 +111,17 @@ $ada_get_comment=@mysql_num_rows($result_get_comment);
     <td valign="bottom">
     <table width="100%" border="1" height="100%">
   <tr>
-    <td colspan="3" class="header"><div align="center"><?=$title?> Komentar</div></td>
+    <td colspan="3" class="header"><div align="center"><?=$title?> Comment</div></td>
     </tr>
   <tr>
-    <td width="7%"><strong>NIS</strong></td>
+    <td width="7%"><strong>Student ID</strong></td>
     <td width="1%"><strong>:</strong></td>
     <td width="92%"><strong>
       <?=$row_get_comment[2]?>
     </strong></td>
     </tr>
   <tr>
-    <td><strong>Nama</strong></td>
+    <td><strong>Name</strong></td>
     <td><strong>:</strong></td>
     <td><strong>
       <?=$row_get_comment[1]?>
@@ -140,9 +140,9 @@ $ada_get_comment=@mysql_num_rows($result_get_comment);
   </tr>
    <tr valign="top">
     <td><div align="center">
-      <input name="Simpan" type="submit" class="but" id="Simpan" value="Simpan" style="width:100px">
+      <input name="Simpan" type="submit" class="but" id="Simpan" value="Save" style="width:100px">
       &nbsp;
-      <input name="Tutup" type="button" class="but" id="Tutup" onClick="window.close()" value="Tutup" style="width:100px">
+      <input name="Tutup" type="button" class="but" id="Tutup" onClick="window.close()" value="Close" style="width:100px">
     </div></td>
   </tr>
 </table>

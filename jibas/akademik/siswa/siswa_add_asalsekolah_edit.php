@@ -43,7 +43,7 @@ if (isset($_POST['simpan'])) {
 	$hasil=QueryDb($sql_cek);
 	if (mysql_num_rows($hasil)>0) {
 		CloseDb();
-		$ERROR_MSG = "Nama Sekolah $sekolah sudah digunakan!";
+		$ERROR_MSG = "School Name $sekolah has been used";
 	} else {
 		$sql = "UPDATE jbsakad.asalsekolah SET sekolah='$sekolah',departemen='$departemen' WHERE replid='$replid'";
 		$result = QueryDb($sql);
@@ -85,27 +85,27 @@ CloseDb();
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="JavaScript" src="../script/tooltips.js"></script>
-<title>JIBAS SIMAKA [Ubah Nama Sekolah]</title>
+<title>JIBAS SIMAKA [Edit School Name]</title>
 <script language="javascript">
 function cek() {
 	var departemen = document.main.departemen.value;
 	var sekolah = document.main.sekolah.value;
 	if (sekolah.length == 0) {
-		alert('Anda belum memasukkan Nama Sekolah');
+		alert('You have not enter School Name yet');
 		document.main.sekolah.focus();
 		return false;
 	}
 	if (sekolah.length > 100) {
-		alert('Nama sekolah tidak boleh lebih dari 100 karakter');
+		alert('School Name should not exceed 100 characters');
 		return false;
 	}
 	if (departemen.length == 0) {
-		alert('Anda belum memasukkan Departemen');
+		alert('You have not enter Department yet');
 		document.main.sekolah.focus();
 		return false;
 	}
 	if (departemen.length > 100) {
-		alert('Departemen tidak boleh lebih dari 100 karakter');
+		alert('Department should not exceed 100 characters');
 		return false;
 	}
 	return true;
@@ -130,7 +130,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Asal Sekolah :.
+    .: Edit Past School :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -145,21 +145,21 @@ function focusNext(elemName, evt) {
    	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td width="35%"><strong>Departemen</strong></td>
+        <td width="35%"><strong>Department</strong></td>
         <td><input name="departemen" id="departemen" size="10" value="<?=$departemen?>"  >
 			
 			
 		</td>
     </tr>
     <tr>
-        <td><strong>Sekolah </strong> </td>
-        <td><input name="sekolah" id="sekolah" maxlength="100" size="30" onFocus="showhint('Nama Sekolah tidak boleh kosong!', this, event, '120px')" value="<?=$sekolah?>" onKeyPress="return focusNext('Simpan', event)" />
+        <td><strong>School </strong> </td>
+        <td><input name="sekolah" id="sekolah" maxlength="100" size="30" onFocus="showhint('School Name should not leave empty', this, event, '120px')" value="<?=$sekolah?>" onKeyPress="return focusNext('Simpan', event)" />
 		</td>
     </tr>
     <tr>       
         <td align="center" colspan="2"> 
-        	<input class="but" type="submit" value="Simpan" name="simpan" id="Simpan">
-            <input class="but" type="button" value="Tutup" onClick="window.close();">
+        	<input class="but" type="submit" value="Save" name="simpan" id="Simpan">
+            <input class="but" type="button" value="Close" onClick="window.close();">
         </td>
     </tr>
     </table>

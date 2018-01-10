@@ -27,7 +27,7 @@ require_once('include/sessioninfo.php');
 
 if (getLevel() == 2) { ?>
 	<script language="javascript">
-        alert('Maaf, anda tidak berhak mengakses halaman ini!');
+        alert('Maaf, anda tidak berhak mengakses halaman ini');
         document.location.href = "lapkeuangan.php";
     </script>
 <?  exit();

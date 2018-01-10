@@ -31,7 +31,7 @@
 <tr>
     <td align="center" valign="middle" background="images/ico/b_statistik.png"
     style="background-repeat:no-repeat;">
-       <br /><br /><br /><br /><br /><font size="2" color="#757575"><b>Klik pada icon <img src="images/ico/view_x.png" border="0"> di atas untuk melihat Statistik Mutasi Siswa</b></font>    </td>
+       <br /><br /><br /><br /><br /><font size="2" color="#757575"><b>Click on <img src="images/ico/view_x.png" border="0"> above to show Student Mutation Statistic.</b></font>    </td>
 </tr>
 </table>
 </body>

@@ -75,8 +75,8 @@ if (isset($_REQUEST['nis']))
   <tr>
     <td><table width="100%" border="0" bordercolor="#666666">
   <tr>
-    <td width="6%" height="50" bgcolor="#666666"><span class="style5">NIS </span><span class="style4"><br>
-        <span class="style1">Nama </span></span></td>
+    <td width="6%" height="50" bgcolor="#666666"><span class="style5">Student ID </span><span class="style4"><br>
+        <span class="style1">Name </span></span></td>
     <td width="93%" height="50" bgcolor="#666666"><span class="style5">
       : <?=$nis?>
     </span><span class="style4"><br>
@@ -94,21 +94,21 @@ if (isset($_REQUEST['nis']))
 </td>
   </tr>
   <tr>
-    <td><fieldset><legend><strong>Laporan Hasil Belajar</strong></legend>
-	<!-- Content Laporan disini -->
+    <td><fieldset><legend><strong>Report Card</strong></legend>
+	<!-- Content Reports disini -->
 	<table width="100%" border="1" class="tab" id="table">
   <tr>
-    <td width="27%" rowspan="2" class="headerlong"><div align="center">Pelajaran</div></td>
-    <td width="14%" rowspan="2" class="headerlong"><div align="center">Standar Kelulusan</div></td>
-    <td width="18%" colspan="2" class="headerlong"><div align="center">Nilai Pemahaman Konsep</div></td>
-    <td width="19%" colspan="2" class="headerlong"><div align="center">Nilai Praktik</div></td>
-    <td width="23%" rowspan="2" class="headerlong"><div align="center">Predikat</div></td>
+    <td width="27%" rowspan="2" class="headerlong"><div align="center">Class Subject</div></td>
+    <td width="14%" rowspan="2" class="headerlong"><div align="center">Graduation Standard</div></td>
+    <td width="18%" colspan="2" class="headerlong"><div align="center">Concept Comprehension Point</div></td>
+    <td width="19%" colspan="2" class="headerlong"><div align="center">Practice Point</div></td>
+    <td width="23%" rowspan="2" class="headerlong"><div align="center">Predicate</div></td>
   </tr>
   <tr>
-    <td class="header"><div align="center">Angka</div></td>
-    <td class="header"><div align="center">Huruf</div></td>
-    <td class="header"><div align="center">Angka</div></td>
-    <td class="header"><div align="center">Huruf</div></td>
+    <td class="header"><div align="center">Number</div></td>
+    <td class="header"><div align="center">Letter</div></td>
+    <td class="header"><div align="center">Number</div></td>
+    <td class="header"><div align="center">Letter</div></td>
     </tr>
 	<?
 	$sql_get_pelajaran_laporan="SELECT * FROM jbsakad.pelajaran WHERE departemen='$departemen' ORDER BY nama ASC";
@@ -121,15 +121,15 @@ if (isset($_REQUEST['nis']))
 		switch ($row_get_pred[predikat]){
 			case "":$predikat="";
 			break;
-			case "0":$predikat="Buruk";
+			case "0":$predikat="Bad";
 			break;
-			case "1":$predikat="Kurang";
+			case "1":$predikat="Not Good";
 			break;
-			case "2":$predikat="Cukup";
+			case "2":$predikat="Average";
 			break;
-			case "3":$predikat="Baik";
+			case "3":$predikat="Good";
 			break;
-			case "4":$predikat="Istimewa";
+			case "4":$predikat="Excellent";
 			break;
 		}
 		//Get infonap id and min value
@@ -137,11 +137,11 @@ if (isset($_REQUEST['nis']))
 		$result_get_infonap=QueryDb($sql_get_infonap);
 		$row_get_infonap=@mysql_fetch_array($result_get_infonap);
 		//get value from nap pemahaman konsep
-		$sql_get_nap_PK="SELECT n.nilaiangka as nilaiangka,n.nilaihuruf as nilaihuruf FROM jbsakad.nap n, jbsakad.aturannhb a WHERE n.idinfo='$row_get_infonap[replid]' AND n.idaturan=a.replid AND n.nis='$nis' AND a.dasarpenilaian='Pemahaman Konsep'";
+		$sql_get_nap_PK="SELECT n.nilaiangka as nilaiangka,n.nilaihuruf as nilaihuruf FROM jbsakad.nap n, jbsakad.aturannhb a WHERE n.idinfo='$row_get_infonap[replid]' AND n.idaturan=a.replid AND n.nis='$nis' AND a.dasarpenilaian='Conceptual Comprehension'";
 		$result_get_nap_PK=QueryDb($sql_get_nap_PK);
 		$row_get_nap_PK=@mysql_fetch_array($result_get_nap_PK);
 		//get value from nap praktik
-		$sql_get_nap_P="SELECT n.nilaiangka as nilaiangka,n.nilaihuruf as nilaihuruf FROM jbsakad.nap n, jbsakad.aturannhb a WHERE n.idinfo='$row_get_infonap[replid]' AND n.idaturan=a.replid AND n.nis='$nis' AND a.dasarpenilaian='Praktik'";
+		$sql_get_nap_P="SELECT n.nilaiangka as nilaiangka,n.nilaihuruf as nilaihuruf FROM jbsakad.nap n, jbsakad.aturannhb a WHERE n.idinfo='$row_get_infonap[replid]' AND n.idaturan=a.replid AND n.nis='$nis' AND a.dasarpenilaian='Practice'";
 		$result_get_nap_P=QueryDb($sql_get_nap_P);
 		$row_get_nap_P=@mysql_fetch_array($result_get_nap_P);
 	?>
@@ -189,12 +189,12 @@ if (isset($_REQUEST['nis']))
 	</fieldset></td>
   </tr>
   <tr>
-    <td><fieldset><legend><strong>Komentar Hasil Belajar</strong></legend>
-	<!-- Content Komentar disini -->
+    <td><fieldset><legend><strong>Comments</strong></legend>
+	<!-- Konten Komentar disini -->
 	<table border="1" id="table" class="tab" width="100%">
 	<tr>
-	<td width="27%" height="30" align="center" class="header">Pelajaran</td>
-	<td width="73%" height="30" align="center" class="header">Komentar</td>
+	<td width="27%" height="30" align="center" class="header">Class Subject</td>
+	<td width="73%" height="30" align="center" class="header">Comments</td>
 	</tr>
 	<!-- Ambil pelajaran per departemen-->
 	<?
@@ -221,24 +221,24 @@ if (isset($_REQUEST['nis']))
 	</fieldset></td>
   </tr>
   <tr>
-    <td><fieldset><legend><strong>Presensi</strong></legend>
+    <td><fieldset><legend><strong>Presence</strong></legend>
 	<!-- Content Presensi disini -->
 	<table width="100%" border="1" class="tab" id="table">
   <tr>
-    <td width="27%" rowspan="2" class="headerlong"><div align="center">Pelajaran</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Hadir</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Sakit</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Ijin</div></td>
-    <td height="25" colspan="2" class="headerlong"><div align="center">Alpa</div></td>
+    <td width="27%" rowspan="2" class="headerlong"><div align="center">Class Subject</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Attend</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Ill</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Consent</div></td>
+    <td height="25" colspan="2" class="headerlong"><div align="center">Absent</div></td>
     </tr>
   <tr>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
-    <td width="6" class="headerlong"><div align="center">Jumlah</div></td>
+    <td width="6" class="headerlong"><div align="center">Sum</div></td>
     <td width="6" class="headerlong"><div align="center">%</div></td>
   </tr>
   <!-- Ambil pelajaran per departemen-->

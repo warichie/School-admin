@@ -46,7 +46,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Input Presensi Harian</title>
+<title>Daily Presence</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -103,14 +103,14 @@ function tampil(){
 	var semester = document.getElementById('semester').value;
 	
 	if (semester==""){
-		alert ('Semester tidak boleh kosong!');
+		alert ('Semester should not leave empty');
 		return false;
 	} else if (tingkat==""){
-		alert ('Tingkat tidak boleh kosong!');
+		alert ('Grade should not leave empty');
 		document.getElemetnById('tingkat').focus();
 		return false;
 	} else if (kelas==""){
-		alert ('Kelas tidak boleh kosong!');
+		alert ('Class should not leave empty');
 		document.getElemetnById('kelas').focus();
 		return false;
 	} else {	
@@ -141,7 +141,7 @@ function focusNext(elemName, evt) {
     <td width="57%">
 	<table width = "100%" border = "0" height="100%" cellpadding="1" cellspacing="1" >
     <tr>
-        <td width="18%"><strong>Departemen</strong></td>
+        <td width="18%"><strong>Department</strong></td>
         <td width="32%">
             <select name="departemen" id="departemen" onChange="change_departemen()" style="width:150px;" onkeypress="return focusNext('tingkat', event)">
         <?	
@@ -152,7 +152,7 @@ function focusNext(elemName, evt) {
             <option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?> > <?=$value ?> </option>
         <?	}	?>
             </select></td>
-      	<td width="20%"><strong>Tahun Ajaran</strong></td>
+      	<td width="20%"><strong>Year</strong></td>
         <td>
         <?  OpenDb();
             $sql = "SELECT replid,tahunajaran FROM tahunajaran WHERE departemen='$departemen' AND aktif=1 ORDER BY replid DESC";
@@ -164,7 +164,7 @@ function focusNext(elemName, evt) {
         <input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$row['replid']?>">        <input type="text" name="tahun" id="tahun" readonly class="disabled" style="width:140px" value="<?=$row['tahunajaran']?>" /></td> 
    	</tr>
     <tr>
-        <td><strong>Tingkat</strong></td>
+        <td><strong>Grade</strong></td>
         <td>
             <select name="tingkat" id="tingkat" onChange="change()" style="width:150px;" onkeypress="return focusNext('kelas', event)">
         <?
@@ -190,7 +190,7 @@ function focusNext(elemName, evt) {
             <input type="hidden" name="semester" id="semester" value="<?=$row['replid']?>">      	</td>
     </tr>
     <tr>	
-        <td><strong>Kelas</strong></td>
+        <td><strong>Class</strong></td>
         <td><select name="kelas" id="kelas" onChange="change()" style="width:150px;" onkeypress="return focusNext('tabel', event)">
         <?
             OpenDb();
@@ -210,12 +210,12 @@ function focusNext(elemName, evt) {
     </table>
     </td>
     <td valign="middle" rowspan="3" width="5%" align="left">
-    	<a href="#" onClick="tampil()"><img src="../images/ico/view.png" height="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Klik untuk menampilkan presensi harian!', this, event, '100px')"/>        </a></td>
+    	<a href="#" onClick="tampil()"><img src="../images/ico/view.png" height="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Click to show presensi harian', this, event, '100px')"/>        </a></td>
     <td valign="top" align="right" width="38%">
-     	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Presensi Harian</font><br />
+     	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Daily Presence</font><br />
     	<a href="../presensi.php" target="framecenter">
-      	<font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Presensi Harian</b></font>		
+      	<font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Daily Presence</b></font>		
   	</td>
 </tr>	
 </table>

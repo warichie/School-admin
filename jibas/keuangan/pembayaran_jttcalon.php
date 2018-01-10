@@ -69,7 +69,7 @@ if ($op == "348328947234923")
 	if ($idbesarjtt > 0) 
 	{
 		// -------------------------------------------
-		// Besar pembayaran calon siswa telah terdata 
+		// Besar pembayaran student candidate telah terdata 
 		// -------------------------------------------
 		
 		// cari tahu total pembayaran yang telah dilakukan
@@ -81,8 +81,8 @@ if ($op == "348328947234923")
 		$continue = true;
 		if ($totalbayaran > $besar) 
 		{
-			// total pembayaran yang dilakukan lebih besar dari besar pembayaran yang diinput
-			$errmsg = urlencode("Maaf, besar pembayaran yang harus dilunasi lebih kecil dari jumlah pembayaran cicilan yang telah dilakukan!");
+			// total pembayaran yang dilakukan lebih besar from besar pembayaran yang diinput
+			$errmsg = urlencode("Maaf, besar pembayaran yang harus dilunasi lebih kecil from jumlah pembayaran cicilan yang telah dilakukan");
 			$besar = 0;
 			$continue = false;
 		}
@@ -93,7 +93,7 @@ if ($op == "348328947234923")
 		$selisih = 0;
 		if ($continue)
 		{
-			// ambil idjurnal dan idtahunbuku pada saat input besar pembayaran
+			// ambil idjurnal and idtahunbuku on saat input besar pembayaran
 			//   jika diinput menggunakan JIBAS keuangan versi <= 2.0 maka keduanya bernilai nol
 			$sql = "SELECT info1, info2, besar FROM besarjttcalon WHERE replid='$idbesarjtt'";
 			$row = FetchSingleRow($sql);
@@ -137,10 +137,10 @@ if ($op == "348328947234923")
 		
 		if ($success && $continue)
 		{
-			// jika data dari JIBAS keuangan <= 2.0 maka idtahunbuku_jtt == 0
+			// jika data from JIBAS keuangan <= 2.0 maka idtahunbuku_jtt == 0
 			//   pastinya tidak akan sama dengan idtahunbuku 
 			//   jadi create_adjustment = true;
-			// jika data dari JIBAS keuangan >= 2.1 maka idtahunbuku_jtt != 0
+			// jika data from JIBAS keuangan >= 2.1 maka idtahunbuku_jtt != 0
 			//   penyesuaian dilakukan jika idtahunbuku != idtahunbuku_jtt
 			
 			$create_adjustment = false;
@@ -153,12 +153,12 @@ if ($op == "348328947234923")
 			{
 				// Bikin jurnal penyesuaian
 			
-				// Ambil nama calon siswa	
+				// Ambil nama student candidate	
 				$sql = "SELECT nama FROM jbsakad.calonsiswa WHERE replid = '$replid'";
 				$row = FetchSingleRow($sql);
 				$namasiswa = $row[0];
 				
-				// Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+				// Ambil awalan and cacah tahunbuku untuk bikin nokas;
 				$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
 				$row = FetchSingleRow($sql);
 				$awalan = $row[0];
@@ -170,7 +170,7 @@ if ($op == "348328947234923")
 				// tanggal & petugas pendata & keterangan
 				$tcicilan = date("Y-m-d");	
 				$petugas = getUserName();
-				$kjurnal = "Jurnal penyesuaian perubahan besar pembayaran $namapenerimaan calon siswa $namasiswa ($nis)";
+				$kjurnal = "Jurnal penyesuaian perubahan besar pembayaran $namapenerimaan student candidate $namasiswa ($nis)";
 				
 				// simpan ke table jurnal
 				$idjurnal = 0;
@@ -201,8 +201,8 @@ if ($op == "348328947234923")
 			}
 			elseif ($idjurnal_jtt > 0)
 			{
-				// hanya terjadi untuk JIBAS Keuangan versi >= 2.1
-				//   update jurnaldetail pada saat pendataan besar pembayaran
+				// hanya terjadi untuk JIBAS Finance versi >= 2.1
+				//   update jurnaldetail on saat pendataan besar pembayaran
 				
 				if ($success)
 				{
@@ -229,7 +229,7 @@ if ($op == "348328947234923")
 	else 
 	{
 		// ----------------------------------------
-		// Pendataan Pembayaran Oleh Calon Siswa   
+		// Data Collection Payment Oleh Student Candidate   
 		// ----------------------------------------
 		
 		//Ambil nama siswa
@@ -238,7 +238,7 @@ if ($op == "348328947234923")
 		$namasiswa = $row[0];
 		$nopendaftaran = $row[1];
 		
-		//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+		//Ambil awalan and cacah tahunbuku untuk bikin nokas;
 		$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
 		$row = FetchSingleRow($sql);
 		$awalan = $row[0];
@@ -250,7 +250,7 @@ if ($op == "348328947234923")
 		// tanggal & petugas pendata & keterangan
 		$tcicilan = date("Y-m-d");	
 		$petugas = getUserName();
-		$keterangan = "Pendataan besar pembayaran $namapenerimaan calon siswa $namasiswa ($nopendaftaran)";
+		$keterangan = "Data Collection besar pembayaran $namapenerimaan student candidate $namasiswa ($nopendaftaran)";
 		
 		// status lunas
 		$lunas = 0; // belum lunas
@@ -302,7 +302,7 @@ if ($op == "348328947234923")
 
 OpenDb();
 
-// Informasi Siswa
+// Informasi Student
 $sql = "SELECT c.nopendaftaran, c.nama, c.telponsiswa as telpon, c.hpsiswa as hp, k.kelompok, 
 					c.alamatsiswa as alamattinggal, p.proses 
 			 FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsakad.prosespenerimaansiswa p 
@@ -339,9 +339,9 @@ $besar = "";
 $lunas = 0;
 $idbesarjtt = 0;
 
-// FIXED: 24 Agustus 2010
+// FIXED: 24 August 2010
 
-// periksa apakah berasal dari input JIBAS versi < 2.1
+// periksa apakah berasal from input JIBAS versi < 2.1
 $sql = "SELECT b.replid AS id, b.besar, b.keterangan, b.lunas, b.info1 AS idjurnal, cicilan 
 			  FROM besarjttcalon b 
 			  WHERE b.idcalon = $replid AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '$idtahunbuku'";	
@@ -383,7 +383,7 @@ if (mysql_num_rows($result) > 0)
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pembayaran</title>
+<title>Payment</title>
 <script src="script/rupiah.js" language="javascript"></script>
 <script src="script/validasi.js" language="javascript"></script>
 <script src="script/tables.js" language="javascript"></script>
@@ -393,12 +393,12 @@ if (mysql_num_rows($result) > 0)
 function validasi_besar() 
 {
 	var idbesarjtt = document.getElementById('idbesarjtt').value;
-	var isok = validateEmptyText('besar', 'Besarnya Pembayaran') &&
+	var isok = validateEmptyText('besar', 'Besarnya Payment') &&
 		       validasiAngka() &&
-		       validateMaxText('keterangan', 255, 'Keterangan Besarnya Pembayaran');
+		       validateMaxText('keterangan', 255, 'Info Besarnya Payment');
 				  
 	if (isok && idbesarjtt > 0)				  
-		isok = isok && validateEmptyText('alasan','Alasan Perubahan Data');
+		isok = isok && validateEmptyText('alasan','Alasan Data Changing');
 		
 	return isok;				  
 }
@@ -420,14 +420,14 @@ function validasiAngka()
 	var angka = document.getElementById("angkabesar").value;
 	if(isNaN(angka)) 
 	{
-		alert ('Besarnya pembayaran harus berupa bilangan!');
+		alert ('Besarnya pembayaran must be numeric');
 		document.getElementById('besar').value = "";
 		document.getElementById('besar').focus();
 		return false;
 	}
 	else if (angka < 0)
 	{
-		alert ('Besarnya pembayaran harus positif!');
+		alert ('Besarnya pembayaran harus positif');
 		document.getElementById('besar').focus();
 		return false;
 	}
@@ -435,14 +435,14 @@ function validasiAngka()
 	angka = document.getElementById("angkacicilan").value;
 	if(isNaN(angka)) 
 	{
-		alert ('Besarnya cicilan harus berupa bilangan!');
+		alert ('Besarnya cicilan must be numeric');
 		document.getElementById('cicilan').value = "";
 		document.getElementById('cicilan').focus();
 		return false;
 	}
 	else if (angka < 0)
 	{
-		alert ('Besarnya cicilan harus positif!');
+		alert ('Besarnya cicilan harus positif');
 		document.getElementById('cicilan').focus();
 		return false;
 	}
@@ -576,14 +576,14 @@ function panggil(elem)
             <table border="0" cellpadding="2" cellspacing="2" align="center">
               
             <tr height="25">
-                <td colspan="2" class="header" align="center">Pembayaran yang Harus Dilunasi</td>
+                <td colspan="2" class="header" align="center">Payment yang Harus Dilunasi</td>
             </tr>
             <tr>
-                <td width="25%"><strong>Pembayaran</strong></td>                
+                <td width="25%"><strong>Payment</strong></td>                
                 <td><input type="text"  readonly="readonly" size="20" value="<?=$namapenerimaan?>" style="background-color:#CCCC99" /></td>
             </tr>
             <tr>
-                <td><strong>Jumlah Pembayaran</strong></td>
+                <td><strong>Payment Amount</strong></td>
             	<td><input type="text" name="besar" id="besar" size="20" value="<?=FormatRupiah($besar) ?>" onblur="formatRupiah('besar')" onfocus="unformatRupiah('besar');panggil('besar')" onKeyPress="return focusNext('cicilan', event)" <? //$dis?> onkeyup="salinangka()"/>
                 	<input type="hidden" name="angkabesar" id="angkabesar" value="<?=$besar ?>" />
                 </td>
@@ -595,23 +595,23 @@ function panggil(elem)
                 </td>
             </tr>
             <tr>
-                <td>Tgl.Jurnal</td>                
+                <td>Date.Jurnal</td>                
                 <td><input type="text" readonly="readonly" size="20" value="<?=$tgl_jurnal?>" style="background-color:#CCCC99"  /></td>
             </tr>
             <tr>
 			    <td>Status</td>
                 <td>
 				 <? if ($lunas == 1)
-                    $info = "<font color=blue><strong>Lunas</strong></font>";
+                    $info = "<font color=blue><strong>Paid Off</strong></font>";
 					 elseif ($lunas == 2)
-						  $info = "<font color=brown><strong>Gratis</strong></font>";
+						  $info = "<font color=brown><strong>Free</strong></font>";
 					 else 
-						  $info = "<font color=red><strong>Belum Lunas</strong></font>";
+						  $info = "<font color=red><strong>No Paid Off Yet</strong></font>";
                 echo  $info; ?>
                 </td>
             </tr>
             <tr>
-                <td valign="top" align="left" colspan="2">Keterangan</td>
+                <td valign="top" align="left" colspan="2">Info</td>
             </tr>
             <tr>
             	<td colspan="2"><textarea id="keterangan" name="keterangan" rows="3" cols="35" onKeyPress="return focusNext('simpan', event)" <? //$dis?> onfocus="panggil('keterangan')" style="width:225px; height:30px"><?=$keterangan ?></textarea>
@@ -619,7 +619,7 @@ function panggil(elem)
             </tr>
 <?			   if ($idbesarjtt > 0) { ?>
 				<tr>
-                <td valign="top" colspan="2" align="left"><strong>Alasan perubahan data</strong></td>
+                <td valign="top" colspan="2" align="left"><strong>Reason perubahan data</strong></td>
             </tr>
             <tr>
             	<td colspan="2"><textarea id="alasan" name="alasan" rows="2" cols="35" onKeyPress="return focusNext('simpan', event)" <? //$dis?> onfocus="panggil('simpan')" style="width:225px; height:30px"><?=$alasan ?></textarea>
@@ -628,7 +628,7 @@ function panggil(elem)
 <?			   } ?>               
            	<tr>
             	<td colspan="2" align="center">
-            	<input type="button" name="simpan" id="simpan" class="but" value="Simpan" onclick="this.disabled = true; ValidateSubmit();" style="width:100px" onfocus="panggil('simpan')"/>
+            	<input type="button" name="simpan" id="simpan" class="but" value="Save" onclick="this.disabled = true; ValidateSubmit();" style="width:100px" onfocus="panggil('simpan')"/>
             	</td>
         	</tr>
             </table>
@@ -640,42 +640,42 @@ function panggil(elem)
             <legend></legend>
             <table border="0" width="100%" cellpadding="2" cellspacing="2">
             <tr height="25">
-                <td colspan="4" class="header" align="center">Data Calon Siswa</td>
+                <td colspan="4" class="header" align="center">Student Candidate Data</td>
             </tr>
             <tr valign="top">                    
-                <td width="5%"><strong>Pendaftaran</strong></td>
+                <td width="5%"><strong>Registration</strong></td>
                 <td><strong>:</strong></td>
                	<td><strong><?=$no ?></strong> </td><td rowspan="5" width="25%">
                 <img src='<?="library/gambar.php?replid=".$replid."&table=jbsakad.calonsiswa";?>' width='100' height='100'></td>
             </tr>
             <tr>
-                <td valign="top"><strong>Nama</strong></td>
+                <td valign="top"><strong>Name</strong></td>
                 <td valign="top"><strong>:</strong></td> 
 				<td><strong><?=$nama ?></strong></td>
             </tr>
             <tr>
-                <td valign="top"><strong>Proses</strong></td>
+                <td valign="top"><strong>Process</strong></td>
                 <td valign="top"><strong>:</strong></td>
                 <td><strong><?=$namaproses ?></strong></td>
             </tr>
             <tr>
-                <td valign="top"><strong>Kelompok</strong></td>
+                <td valign="top"><strong>Group</strong></td>
                 <td valign="top"><strong>:</strong></td>
                 <td><strong><?=$namakelompok ?></strong></td>
             </tr>
             <tr>
-                <td><strong>HP</strong></td>
+                <td><strong>Mobile</strong></td>
                  <td><strong>:</strong></td>
                 <td><strong><?=$hp ?></strong></td>
             </tr>
             <tr>
-                <td><strong>Telepon</strong></td>
+                <td><strong>Phone</strong></td>
                  <td><strong>:</strong></td>
                 <td><strong><?=$telpon ?></strong></td>
             </tr>
             
             <tr>
-                <td valign="top"><strong>Alamat</strong></td>
+                <td valign="top"><strong>Address</strong></td>
                 <td valign="top"><strong>:</strong></td>
                	<td colspan="2" rowspan="2" valign="top" height="58"><strong>
                   <?=$alamattinggal ?>
@@ -698,7 +698,7 @@ function panggil(elem)
       $row = mysql_fetch_row($result);
       $nbayar = $row[0];
         
-      $info = "Pembayaran Pertama";
+      $info = "Payment Pertama";
       if ($nbayar > 0) 
 		{
 			$sql = "SELECT p.replid AS id, j.nokas, date_format(p.tanggal, '%d-%b-%Y') as tanggal, p.keterangan, p.jumlah, p.petugas, p.info1 AS diskon 
@@ -707,18 +707,18 @@ function panggil(elem)
 					   AND b.replid = '$idbesarjtt' ORDER BY p.tanggal, p.replid ASC";
 			$result = QueryDb($sql);
 			if (mysql_num_rows($result) > 1) 
-				$info = "Pembayaran Cicilan";
+				$info = "Payment Cicilan";
     ?> 
         <fieldset>
         <legend><font size="2" color="#003300"><strong><?=$info?></strong></font></legend>
         <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
         <tr>
             <td align="right">
-            <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-            <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;        
+            <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+            <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;        
         	<? if ($lunas == 0) { ?>		
 				<a href="#" onClick="JavaScript:tambah()">
-	            <img src="images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')">&nbsp;Tambah Cicilan</a>&nbsp;
+	            <img src="images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')">&nbsp;Add Cicilan</a>&nbsp;
             <? } ?>
             </td>
         </tr>
@@ -726,12 +726,12 @@ function panggil(elem)
         <br />
         <table class="tab" id="table" border="0" style="border-collapse:collapse" width="100%" align="center">
         <tr height="30" align="center">
-            <td class="header" width="5%">No</td>
-            <td class="header" width="20%">No. Jurnal/Tgl</td>
+            <td class="header" width="5%">#</td>
+            <td class="header" width="20%">Journal/Date</td>
             <td class="header" width="16%">Besar</td>
 			<td class="header" width="16%">Diskon</td>
-            <td class="header" width="*">Keterangan</td>
-            <td class="header" width="12%">Petugas</td>
+            <td class="header" width="*">Info</td>
+            <td class="header" width="12%">Officer</td>
             <td class="header">&nbsp;</td>
         </tr>
         <? 
@@ -749,9 +749,9 @@ function panggil(elem)
             <td align="left"><?=$row['keterangan'] ?></td>
             <td align="center"><?=$row['petugas'] ?></td>
             <td align="center">
-            	<a href="#" onclick="cetakkuitansi(<?=$row['id'] ?>)"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak Kuitansi Pembayaran!', this, event, '100px')"/></a>&nbsp;
+            	<a href="#" onclick="cetakkuitansi(<?=$row['id'] ?>)"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print Kuitansi Payment', this, event, '100px')"/></a>&nbsp;
         	<?  if (getLevel() != 2) { ?>
-                <a href="#" onclick="editpembayaran(<?=$row['id'] ?>)"><img src="images/ico/ubah.png" border="0"onMouseOver="showhint('Ubah Pembayaran Cicilan!', this, event, '120px')" /></a>
+                <a href="#" onclick="editpembayaran(<?=$row['id'] ?>)"><img src="images/ico/ubah.png" border="0"onMouseOver="showhint('Edit Payment Cicilan', this, event, '120px')" /></a>
         	<?	} ?>
             </td>
         </tr>
@@ -759,7 +759,7 @@ function panggil(elem)
         	}
         	$sisa = $besar - $total - $total_diskon;?>
         <tr height="35">
-            <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+            <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
             <td bgcolor="#996600" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font></td>
 			<td bgcolor="#996600" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($total_diskon) ?></strong></font></td>
             <td bgcolor="#996600" align="right"><font color="#FFFFFF">Sisa <strong><?=FormatRupiah($sisa) ?></strong></font></td>
@@ -772,12 +772,12 @@ function panggil(elem)
         </fieldset>
    <?	} else { ?>
    		<fieldset>
-        <legend><font size="2" color="#003300"><strong>Pembayaran Pertama</strong></font></legend>
+        <legend><font size="2" color="#003300"><strong>Payment Pertama</strong></font></legend>
         <table width="100%" border="0" align="center">          
         <tr>
             <td align="center" valign="middle" height="100">    
-                <font size = "2" color ="red"><b>Tidak ditemukan adanya data.                 
-                <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk melakukan pembayaran pertama.                
+                <font size = "2" color ="red"><b>Data Not Found.                 
+                <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a>&nbsp;untuk melakukan pembayaran pertama.                
                 </b></font>
             </td>
         </tr>

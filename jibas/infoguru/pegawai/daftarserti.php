@@ -36,7 +36,7 @@ $DS = new DaftarSertifikat();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -49,8 +49,8 @@ $DS = new DaftarSertifikat();
 <input type="hidden" name="nip" id="nip" value="<?=$DS->nip?>">
 <p align="center">
 <font class="subtitle"><?=$DS->nama?> - <?=$DS->nip?></font><br />
-<a href="JavaScript:Refresh()"><img src="../images/ico/refresh.png" border="0" />&nbsp;refresh</a>&nbsp;
-<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;cetak</a>&nbsp;
+<a href="JavaScript:Refresh()"><img src="../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>&nbsp;
+<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>&nbsp;
 <br />
 </p>
 
@@ -58,24 +58,24 @@ $DS = new DaftarSertifikat();
 <tr>
 	<td width="100%" align="left" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Riwayat Sertifikasi</font><br />
+        <font class="subtitle">Certificate History</font><br />
     </td>
 </tr>
 <tr><td>
 
 <table border="0" cellpadding="3" cellspacing="0" width="100%">
 <tr><td align="right">
-<a href="JavaScript:TambahS()"><img src="../images/ico/tambah.png" border="0" />&nbsp;tambah</a>
+<a href="JavaScript:TambahS()"><img src="../images/ico/tambah.png" border="0" />&nbsp;add</a>
 </td></tr>
 </table>
 <table border="1" id="table" style="border-collapse:collapse" cellpadding="0" cellspacing="0" width="100%" class="tab">
 <tr height="30">
-	<td width="5%" align="center" class="header">No</td>
-    <td width="22%" align="center" class="header">Sertifikasi</td>
-    <td width="22%" align="center" class="header">Lembaga</td>
-    <td width="7%" align="center" class="header">Tahun</td>
-    <td width="7%" align="center" class="header">Aktif</td>
-    <td width="*" align="center" class="header">Keterangan</td>
+	<td width="5%" align="center" class="header">#</td>
+    <td width="22%" align="center" class="header">Certification</td>
+    <td width="22%" align="center" class="header">Institution</td>
+    <td width="7%" align="center" class="header">Year</td>
+    <td width="7%" align="center" class="header">Active</td>
+    <td width="*" align="center" class="header">Info</td>
     <td width="8%" align="center" class="header">&nbsp;</td>
 </tr>
 <?
@@ -94,14 +94,14 @@ while ($row = mysql_fetch_array($result)) {
     <td align="center"><?=$row['tahun']?></td>
     <td align="center">
 	<?	if ($row['terakhir'] == 1) { ?>
-    	<img src="../images/ico/aktif.png" border="0" title="sertifikasi terakhir" />
+    	<img src="../images/ico/aktif.png" border="0" title="Last certification" />
     <?	} else { ?>
     	<a title="klik untuk menjadi sertifikasi terakhir" href="JavaScript:ChangeLast(<?=$row['replid']?>)"><img src="../images/ico/nonaktif.png" border="0" /></a>
     <?	} ?>
     </td>
     <td align="left"><?=$row['keterangan']?></td>
     <td align="center">
-	    <a title="edit" href="JavaScript:Ubah(<?=$row['replid']?>)"><img src="../images/ico/ubah.png" border="0" /></a>&nbsp;
+	    <a title="edit" href="JavaScript:Change(<?=$row['replid']?>)"><img src="../images/ico/ubah.png" border="0" /></a>&nbsp;
 	    <a title="hapus" href="JavaScript:Hapus(<?=$row['replid']?>)"><img src="../images/ico/hapus.png" border="0" /></a>
     </td>
 </tr>

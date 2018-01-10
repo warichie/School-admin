@@ -34,7 +34,7 @@ require_once('../cek.php');
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aturan Perhitungan Grading Nilai-Menu</title>
+<title>Report Card Calculation Rules [Menu]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -56,7 +56,7 @@ function tampil(id,nip) {
 	
 	$result = QueryDb($sql);
 	if (@mysql_num_rows($result)>0){
-		echo "<div align='center'><strong>Pelajaran yang diajar oleh guru ".$_REQUEST['nama']."</strong><br></div>";
+		echo "<div align='center'><strong>Class Subject that Teachers teach ".$_REQUEST['nama']."</strong><br></div>";
 		$count = 0;
 		while ($row = @mysql_fetch_row($result)) {				
 		$count++;
@@ -99,7 +99,7 @@ function tampil(id,nip) {
 <table width="100%" border="0" align="center">          
 <tr>
     <td align="center" valign="middle" height="200">
-    <font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />Tambah data pelajaran yang akan diajar oleh guru <?=$_REQUEST['nama']?> di menu Pendataan Guru pada bagian Guru & Pelajaran. </b></font>
+    <font size = "2" color ="red"><b>Data Not Found. <br /><br />Add Teaching data by Teacher <?=$_REQUEST['nama']?> in the Teacher Data menu on Teacher and Class Subject section. </b></font>
     </td>
 </tr>
 </table> 

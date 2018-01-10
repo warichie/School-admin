@@ -49,7 +49,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Daftar Pegawai</title>
+<title>Employee List</title>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="script/string.js"></script>
 <script language="javascript" src="script/tables.js"></script>
@@ -100,7 +100,7 @@ function tampil() {
 	var flag = document.getElementById("flag").value;
 	
 	if (kelas.length == 0) {	
-		alert ('Pastikan kelas sudah ada!');
+		alert ('Make sure that Class is existed');
 		return false();		
 	}
 	
@@ -118,10 +118,10 @@ function tampil() {
 <table border="0" cellpadding="5" cellspacing="5" width="100%" align="center">
 <tr><td align="left">
 <!-- BOF CONTENT -->
-<font size="2"><strong>Daftar Siswa</strong></font><br />
+<font size="2"><strong>Student List</strong></font><br />
 <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center" background="">
 <tr>
-	<td width="10%"><strong>Departemen:</strong></td>
+	<td width="10%"><strong>Department:</strong></td>
     <td width="15%">
     <select name="departemen" id="departemen" onChange="change_dep()">
 	<?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -132,7 +132,7 @@ function tampil() {
 <?		} ?>
 	</select>
 	</td>
-	<td align="left" width="20%"><strong>Tahun Ajaran</strong></td>
+	<td align="left" width="20%"><strong>Year</strong></td>
    	<td colspan="2">
         <?  OpenDb();			
 			$sql = "SELECT replid,tahunajaran FROM tahunajaran WHERE departemen = '$departemen' AND aktif=1 ORDER BY replid DESC";
@@ -147,7 +147,7 @@ function tampil() {
      </td>      
 </tr>
 <tr>
-	<td><strong>Tingkat </strong></td>
+	<td><strong>Grade </strong></td>
     <td>
     	<select name="tingkat" id="tingkat" onchange="change_tingkat()">
      	<? 	OpenDb();
@@ -167,7 +167,7 @@ function tampil() {
 			?>
         </select>
 	</td>
-    <td><strong>Kelas </strong></td>
+    <td><strong>Class </strong></td>
     <td width="20%">
         <select name="kelas" id="kelas" onchange="change()">
 			<?	OpenDb();
@@ -185,8 +185,8 @@ function tampil() {
 			} //while
 			?>
     	</select>        </td>
-  	<td><input type="submit" name="cari" value="Cari" class="but" onClick="tampil()"/>
-    	<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="parent.tutup()" />
+  	<td><input type="submit" name="cari" value="Search" class="but" onClick="tampil()"/>
+    	<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="parent.tutup()" />
     </td>
 </tr>
 </table>

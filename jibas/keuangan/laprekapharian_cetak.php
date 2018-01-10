@@ -37,13 +37,13 @@ $tanggal2 = $_REQUEST['tanggal2'];
 function NamaJenis($id)
 {
 	if ($id == "JTT")
-		return "Iuran Wajib Siswa";
+		return "Student Mandatory Contribution";
 	elseif ($id == "SKR")
-		return "Iuran Sukarela Siswa";
+		return "Student Contribution";
 	elseif ($id == "CSWJB")
-		return "Iuran Wajib Calon Siswa";
+		return "Mandatory Contribution Student Candidate";
 	elseif ($id == "CSSKR")
-		return "Iuran Sukarela Calon Siswa";
+		return "Contribution Student Candidate";
 	elseif ($id == "LNN")
 		return "Penerimaan Lainnya";
 }
@@ -53,7 +53,7 @@ function NamaJenis($id)
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pembayaran Per Siswa]</title>
+<title>JIBAS FINANCE [Student Payment Report]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -68,16 +68,16 @@ function NamaJenis($id)
 
 <table border="0">
 <tr>
-	<td><strong>Departemen </strong></td>
+	<td><strong>Department </strong></td>
     <td><strong>: <?=$dept ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Jenis </strong></td>
+	<td><strong>Type of </strong></td>
     <td><strong>: <?=NamaJenis($idkategori) ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) . " s/d " . LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) . " to " . LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -113,7 +113,7 @@ for($k = 0; $k < count($darray); $k++)
 	$sql = "SELECT replid FROM tahunbuku WHERE departemen='$dept' AND aktif=1";
 	$idtahunbuku = FetchSingle($sql);
 	
-	// Ambil tanggal-tanggal transaksi yang terjadi pada rentang terpilih
+	// Ambil tanggal-tanggal transaksi yang terjadi on rentang selected
 	if ($idkategori == "JTT")
 	{
 		$sql = "SELECT DISTINCT p.tanggal 
@@ -170,7 +170,7 @@ for($k = 0; $k < count($darray); $k++)
 	
 	if ($n > 0)
 	{
-		// ambil nama-nama penerimaan pada departemen terpilih
+		// ambil nama-nama penerimaan on departemen selected
 		// parray -> penerimaan array
 		// m -> counter parray
 		$parray = array();
@@ -246,8 +246,8 @@ for($k = 0; $k < count($darray); $k++)
             </td>
         </tr>
         <tr>
-        	<td bgcolor="#FFECFF" width="25" align="center" valign="middle"><strong>No</strong></td>
-            <td bgcolor="#FFECFF" width="80" align="center" valign="middle"><strong>Tanggal</strong></td>
+        	<td bgcolor="#FFECFF" width="25" align="center" valign="middle"><strong>#</strong></td>
+            <td bgcolor="#FFECFF" width="80" align="center" valign="middle"><strong>Date</strong></td>
 <?			for($i = 0; $i < $m; $i++) 
 			{ 
 				$pen = $parray[$i][1] ?>
@@ -277,7 +277,7 @@ for($k = 0; $k < count($darray); $k++)
 		} 
 		
 		echo  "<tr height='40'>";
-		echo  "<td colspan='2' align='right' valign='middle' bgcolor='#333333'><font color='#ffffff'><strong>T O T A L</strong></font></td>";
+		echo  "<td colspan='2' align='right' valign='middle' bgcolor='#333333'><font color='#ffffff'><strong>Total</strong></font></td>";
 		$total = 0;
 		for($i = 0; $i < $m; $i++)
 		{

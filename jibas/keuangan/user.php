@@ -32,7 +32,7 @@ require_once('library/departemen.php');
 
 if (getLevel() == 2 || getLevel() == 3) { ?>
 	<script language="javascript">
-        alert('Maaf, anda tidak berhak mengakses halaman ini!');
+        alert('Maaf, anda tidak berhak mengakses halaman ini');
         document.location.href = "usermenu.php";
     </script>
 <?  exit();
@@ -90,7 +90,7 @@ function refresh() {
 }
 
 function hapus(replid) {
-	if (confirm("Apakah anda yakin akan menghapus pengguna ini?")) 
+	if (confirm("Are you sure want to delete this user?")) 
 		document.location.href = "user.php?op=12134892y428442323x423&replid="+replid+"&urut=<?=$urut?>&urutan=<?=$urutan?>&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -152,11 +152,11 @@ function change_baris() {
 	<table border="0" width="95%" align="center">
     <tr>
         <td align="right">
-    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Daftar Pengguna</font></td>
+    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">User List</font></td>
     </tr>
     <tr>
         <td align="right">
-    	<a href="usermenu.php"><font size="1" color="#000000"><b>Pengaturan</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Daftar Pengguna</b></font>
+    	<a href="usermenu.php"><font size="1" color="#000000"><b>Settings</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>User List</b></font>
 		</td>
     </tr>
 	<tr>
@@ -166,14 +166,14 @@ function change_baris() {
 	<br /><br />
 <?  
 	OpenDb();
-	//$sql="SELECT p.nama,p.nip,h.tingkat,h.departemen,date_format(l.lastlogin, '%d-%b-%Y %h:%i:%s') AS lastlogin,h.keterangan,l.replid as replid FROM jbsuser.hakakses h, jbsuser.login l, jbssdm.pegawai p WHERE h.modul='KEUANGAN' AND h.login=p.nip AND p.nip=l.login AND l.login=h.login ORDER BY lastlogin";
+	//$sql="SELECT p.nama,p.nip,h.tingkat,h.departemen,date_format(l.lastlogin, '%d-%b-%Y %h:%i:%s') AS lastlogin,h.keterangan,l.replid as replid FROM jbsuser.hakakses h, jbsuser.login l, jbssdm.pegawai p WHERE h.modul='FINANCE' AND h.login=p.nip AND p.nip=l.login AND l.login=h.login ORDER BY lastlogin";
 //$sql = "SELECT p.id, p.nip, pw.nama, p.tingkat, p.keterangan, p.departemen, date_format(p.lastlogin, '%d-%b-%Y %h:%i:%s') AS lastlogin FROM pengguna p, sistosdm.pegawai pw WHERE p.nip = pw.nip ORDER BY nama";    
-	$sql_tot = "SELECT h.login, h.replid,  h.tingkat, h.departemen, h.keterangan, p.nama, p.aktif,  DATE_FORMAT(h.lastlogin,'%Y-%m-%d') AS tanggal, TIME(h.lastlogin) as jam FROM jbsuser.hakakses h, jbssdm.pegawai p, jbsuser.login l WHERE h.modul='KEUANGAN' AND h.login = l.login AND l.login = p.nip ";
+	$sql_tot = "SELECT h.login, h.replid,  h.tingkat, h.departemen, h.keterangan, p.nama, p.aktif,  DATE_FORMAT(h.lastlogin,'%Y-%m-%d') AS tanggal, TIME(h.lastlogin) as jam FROM jbsuser.hakakses h, jbssdm.pegawai p, jbsuser.login l WHERE h.modul='FINANCE' AND h.login = l.login AND l.login = p.nip ";
 	$result_tot = QueryDb($sql_tot);
 	$total = ceil(mysql_num_rows($result_tot)/(int)$varbaris);
 	$jumlah = mysql_num_rows($result_tot);
 					
-	$sql="SELECT h.login, h.replid,  h.tingkat, h.departemen, h.keterangan, p.nama, p.aktif,  DATE_FORMAT(h.lastlogin,'%Y-%m-%d') AS tanggal, TIME(h.lastlogin) as jam FROM jbsuser.hakakses h, jbssdm.pegawai p, jbsuser.login l WHERE h.modul='KEUANGAN' AND h.login = l.login AND l.login = p.nip ORDER BY $urut $urutan LIMIT ".(int)$page*(int)$varbaris.",$varbaris";
+	$sql="SELECT h.login, h.replid,  h.tingkat, h.departemen, h.keterangan, p.nama, p.aktif,  DATE_FORMAT(h.lastlogin,'%Y-%m-%d') AS tanggal, TIME(h.lastlogin) as jam FROM jbsuser.hakakses h, jbssdm.pegawai p, jbsuser.login l WHERE h.modul='FINANCE' AND h.login = l.login AND l.login = p.nip ORDER BY $urut $urutan LIMIT ".(int)$page*(int)$varbaris.",$varbaris";
 	
 	$result = QueryDB($sql);
 	$akhir = ceil($jumlah/5)*5;
@@ -185,22 +185,22 @@ function change_baris() {
     <!-- TABLE CONTENT -->
     <tr>
         <td align="right">
-        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-        <a href="JavaScript:tambah()"><img src="images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')">&nbsp;Tambah Pengguna</a>
+        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
+        <a href="JavaScript:tambah()"><img src="images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')">&nbsp;Add User</a>
         </td>
     </tr>
 	</table><br />
     <table id="table" class="tab" border="1" style="border-collapse:collapse" width="95%" bordercolor="#000000" align="center">
 	<tr height="30" class="header" align="center">
-        <td width="4%">No</td>
+        <td width="4%">#</td>
         <td width="10%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('login','<?=$urutan?>')" style="cursor:pointer;">Login <?=change_urut('login',$urut,$urutan)?></td>
-        <td width="20%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('nama','<?=$urutan?>')" style="cursor:pointer;">Nama <?=change_urut('nama',$urut,$urutan)?></td>
-        <td width="12%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('departemen','<?=$urutan?>')" style="cursor:pointer;">Departemen <?=change_urut('departemen',$urut,$urutan)?></td>
-        <td width="10%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('tingkat','<?=$urutan?>')" style="cursor:pointer;">Tingkat <?=change_urut('tingkat',$urut,$urutan)?></td>
+        <td width="20%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('nama','<?=$urutan?>')" style="cursor:pointer;">Name <?=change_urut('nama',$urut,$urutan)?></td>
+        <td width="12%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('departemen','<?=$urutan?>')" style="cursor:pointer;">Department <?=change_urut('departemen',$urut,$urutan)?></td>
+        <td width="10%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('tingkat','<?=$urutan?>')" style="cursor:pointer;">Grade <?=change_urut('tingkat',$urut,$urutan)?></td>
         <td width="10%" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('aktif','<?=$urutan?>')" style="cursor:pointer;">Status <?=change_urut('aktif',$urut,$urutan)?></td>	
-        <td width="*">Keterangan</td>
-        <td width="15%"  onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('tanggal','<?=$urutan?>')" style="cursor:pointer;">Login Terakhir <?=change_urut('tanggal',$urut,$urutan)?></td>
+        <td width="*">Info</td>
+        <td width="15%"  onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" onClick="change_urut('tanggal','<?=$urutan?>')" style="cursor:pointer;">Last Login <?=change_urut('tanggal',$urut,$urutan)?></td>
         
 <?	if (getLevel() == 0) { ?>
         <td width="8%">&nbsp;</td>
@@ -218,7 +218,7 @@ function change_baris() {
         <td align="center"><?=$row['login'] ?></td>
         <td><?=$row['nama'] ?></td>
          <td align="center"><?	if ($row['tingkat']==1){
-					echo  "Semua Departemen";
+					echo  "All Department";
 				} else {
 					echo  $row['departemen'];
 				}
@@ -228,9 +228,9 @@ function change_baris() {
 			<?	switch ($row['tingkat']){
 					case 0: echo  "Landlord";
 						break;
-					case 1: echo  "Manajer Keuangan";
+					case 1: echo  "Manajer Finance";
 						break;
-					case 2: echo  "Staf Keuangan";
+					case 2: echo  "Finance Staff";
 						break;
 				}
         	?>
@@ -238,18 +238,18 @@ function change_baris() {
         
         <!--<td align="center">
 			<? if ($row['tingkat'] == 1)
-					echo  "Manajer Keuangan";
+					echo  "Manajer Finance";
 				else
-					echo  "Staf Keuangan"; ?>  </td>-->
-        <td align="center"><? if ($row['aktif'] == 1) echo  'Aktif'; else echo  'Tidak Aktif'; ?></td>
+					echo  "Finance Staff"; ?>  </td>-->
+        <td align="center"><? if ($row['aktif'] == 1) echo  'Active'; else echo  'Inactive'; ?></td>
         <td><?=$row['keterangan'] ?></td>
         <td align="center"><?=LongDateFormat($row['tanggal'])?> <?=$row['jam']?></td>
         <!--<td><?=$row['lastlogin'] ?></td>-->
 	<?	if (getLevel() == 0) { ?>
         <td align="center">
-		<a href="JavaScript:edit('<?=$row['replid'] ?>')"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Pengguna!', this, event, '75px')" /></a>&nbsp;
+		<a href="JavaScript:edit('<?=$row['replid'] ?>')"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit User', this, event, '75px')" /></a>&nbsp;
         <!--<a href="JavaScript:ganti('<?=$row['replid'] ?>')" title="ganti password"><img src="images/ico/ujian.png" border="0"/></a>&nbsp;&nbsp;-->
-        <a href="JavaScript:hapus('<?=$row['replid'] ?>')"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Pengguna!', this, event, '75px')"/></a>
+        <a href="JavaScript:hapus('<?=$row['replid'] ?>')"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Delete User', this, event, '75px')"/></a>
         </td>
 	<?	} ?>
     </tr>
@@ -283,20 +283,20 @@ function change_baris() {
     <td>
     <table border="0"width="95%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<td align="center">
-    <!--input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <!--input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -307,9 +307,9 @@ function change_baris() {
 				 
 	    }
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')"-->
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')"-->
  		</td>
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -325,9 +325,9 @@ function change_baris() {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">
-       	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+       	<font size = "2" color ="red"><b>Data Not Found. 
         <? //if (SI_USER_LEVEL() != $SI_USER_STAFF && SI_USER_LEVEL() != $SI_USER_MANAGER) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? //} ?>
 	</td>
 </tr>

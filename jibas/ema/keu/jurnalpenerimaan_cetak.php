@@ -42,7 +42,7 @@ if (isset($_REQUEST['idkategori']))
 	$idkategori = $_REQUEST['idkategori'];
 	
 if ($idkategori=='-1')
-	$nkategori = "Semua Kategori";
+	$nkategori = "All Category";
 else	
 	$nkategori = getname2('kategori',$db_name_fina.'.kategoripenerimaan','replid',$idkategori);	
 
@@ -51,7 +51,7 @@ if (isset($_REQUEST['tanggal1']))
 
 if (isset($_REQUEST['tanggal2']))
 	$tanggal2 = $_REQUEST['tanggal2'];
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 
 switch($idkategori) {
 	case "JTT"	: $sumber = "AND sumber = 'penerimaanjtt'";
@@ -80,7 +80,7 @@ switch($idkategori) {
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Jurnal Penerimaan]</title>
+<title>JIBAS EMA [Print Admission Journal]</title>
 </head>
 
 <body>
@@ -91,22 +91,22 @@ switch($idkategori) {
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>JURNAL PENERIMAAN</strong></font><br />
+  <font size="4"><strong>ADMISSION JOURNAL</strong></font><br />
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="8%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="8%" class="news_content1"><strong>Department</strong></td>
     <td width="35%" class="news_content1">: 
       <?=$departemen ?></td>
-    <td width="7%" class="news_content1"><strong>Kategori</strong></td>
+    <td width="7%" class="news_content1"><strong>Category</strong></td>
     <td width="50%" class="news_content1">: 
       <?=$nkategori ?></td>
 </tr>
 <tr>
-  <td class="news_content1"><strong>Tahun Buku</strong></td>
+  <td class="news_content1"><strong>Fiscal Year</strong></td>
   <td class="news_content1">: 
       <?=$ntahunbuku ?></td>
-  <td class="news_content1"><strong>Periode</strong></td>
+  <td class="news_content1"><strong>Period</strong></td>
   <td class="news_content1">: 
       <?=$nperiode ?></td>
 </tr>
@@ -121,10 +121,10 @@ $sql = "SELECT * FROM $db_name_fina.jurnal WHERE idtahunbuku = '$idtahunbuku' $s
 	<input type="hidden" name="total" id="total" value="<?=$total?>"/>  
     <table border="1" style="border-collapse:collapse;" cellpadding="5" cellspacing="0" width="100%" class="tab" bordercolor="#000000">
     <tr height="30">
-        <td width="4%" align="center" class="header">No</td>
-        <td width="15%" align="center" class="header">No. Jurnal/Tanggal</td>
-        <td width="35%" align="center" class="header">Transaksi</td>
-        <td align="center" class="header">Detail Jurnal</td>  
+        <td width="4%" align="center" class="header">#</td>
+        <td width="15%" align="center" class="header">Journal/Date</td>
+        <td width="35%" align="center" class="header">Transaction</td>
+        <td align="center" class="header">Journal Details</td>  
         <?	//if ((getLevel() != 2)) { ?>
         <!--<td width="3%" align="center" class="header">&nbsp;</td>--> 
         <? //} ?>
@@ -147,7 +147,7 @@ $sql = "SELECT * FROM $db_name_fina.jurnal WHERE idtahunbuku = '$idtahunbuku' $s
         <td align="center" bgcolor="<?=$bgcolor ?>"><strong><?=$row['nokas']?></strong><br /><em><?=LongDateFormat($row['tanggal'])?></em></td>
         <td valign="top" bgcolor="<?=$bgcolor ?>"><?=$row['transaksi'] ?>
     <?	if (strlen($row['keterangan']) > 0 )  { ?>
-            <br /><strong>Keterangan:</strong><?=$row['keterangan'] ?> 
+            <br /><strong>Info:</strong><?=$row['keterangan'] ?> 
     <?	} ?>    
         </td>
         <td rowspan="2" valign="top" bgcolor="#E8FFE8">
@@ -167,26 +167,26 @@ $sql = "SELECT * FROM $db_name_fina.jurnal WHERE idtahunbuku = '$idtahunbuku' $s
         </td>
 	<?	//if ((getLevel() != 2)) { ?>
         <!--<td rowspan="2" align="center">
-            <a href="JavaScript:edit(<?=$idjurnal ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Jurnal Penerimaan!', this, event, '80px')"/></a>
+            <a href="JavaScript:edit(<?=$idjurnal ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Admission Journal', this, event, '80px')"/></a>
     
         </td>-->
 	<?	//} ?>
     </tr>
     <tr>    
-        <td valign="top"><strong>Petugas: </strong><?=$row['petugas'] ?></td>
+        <td valign="top"><strong>Officer: </strong><?=$row['petugas'] ?></td>
         <td valign="top">
-        <strong>Sumber: </strong>
+        <strong>Source: </strong>
     <? 	switch($row['sumber']) {	
             case 'penerimaanjtt':
-                echo "Penerimaan Iuran Wajib Siswa"; break;
+                echo "Student Mandatory Contribution Admission"; break;
             case 'penerimaaniuran':
-                echo "Penerimaan Iuran Sukarela Siswa"; break;
+                echo "Student Contribution Admission"; break;
             case 'penerimaanlain':
-                echo "Penerimaan Lain-Lain"; break;
+                echo "Other Admission"; break;
 			case 'penerimaanjttcalon':
-                echo "Penerimaan Iuran Wajib Calon Siswa"; break;
+                echo "Student Candidate Mandatory Contribution Admission"; break;
 			case 'penerimaaniurancalon':
-                echo "Penerimaan Iuran Sukarela Calon Siswa"; break;
+                echo "Student Candidate Contribution Admission"; break;
         } ?>        </td>
     </tr>
     <tr style="height:2px">

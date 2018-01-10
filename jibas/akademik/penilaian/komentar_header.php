@@ -69,7 +69,7 @@ if (@mysql_num_rows($result1)>0){
 <script language="javascript">
 	parent.header.location.href = "komentar_header.php?departemen=<?=$departemen?>&tahunajaran=<?=$tahunajaran?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&error=1";
 	parent.footer.location.href = "blank_komentar.php";
-	//alert ('Belum ada data rapor untuk kriteria-kriteria ini  \nSilakan hitung terlebih dahulu nilai rapor untuk kriteria-kriteria tersebut!');
+	//alert ('No Report data for these criteria \nPlease calculate them first.');
 </script>
 <?
 		
@@ -88,7 +88,7 @@ if ($op=="show"){
 <script language="javascript">
 	parent.header.location.href = "komentar_header.php?departemen=<?=$departemen?>&tahunajaran=<?=$tahunajaran?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&error=1";
 	parent.footer.location.href = "blank_komentar.php";
-	//alert ('Belum ada data rapor untuk kriteria-kriteria ini  \nSilakan hitung terlebih dahulu nilai rapor untuk kriteria-kriteria tersebut!');
+	//alert ('No Report data for these criteria \nPlease calculate them first.');
 </script>
 <?
 	
@@ -102,7 +102,7 @@ if ($op=="show"){
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Komentar Nilai Rapor</title>
+<title>Report Card Comments</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/cal2.js"></script>
@@ -152,11 +152,11 @@ function show() {
 	var kelas = document.getElementById("kelas").value;
 	
 	if (kelas.length == 0) {	
-		alert ('Pastikan kelas sudah ada!');
+		alert ('Make sure that Class is existed');
 	} else if (semester.length == 0){
-		alert ('Pastikan semester sudah ada!');
+		alert ('Make sure that Semester is existed');
 	} else if (pelajaran.length == 0){
-		alert ('Pastikan pelajaran sudah ada!');			
+		alert ('Make sure that Class Subject is existed');			
 	} else {		
 		document.location.href = "komentar_header.php?departemen="+departemen+"&tahunajaran="+tahunajaran+"&semester="+semester+"&tingkat="+tingkat+"&pelajaran="+pelajaran+"&kelas="+kelas+"&op=show";
 		//parent.footer.location.href = "komentar_footer.php?departemen="+departemen+"&tahunajaran="+tahunajaran+"&semester="+semester+"&tingkat="+tingkat+"&pelajaran="+pelajaran+"&kelas="+kelas;
@@ -171,11 +171,11 @@ function lihat() {
 	var kelas = document.getElementById("kelas").value;
 	
 	if (kelas.length == 0) {	
-		alert ('Pastikan kelas sudah ada!');
+		alert ('Make sure that Class is existed');
 	} else if (semester.length == 0){
-		alert ('Pastikan semester sudah ada!');
+		alert ('Make sure that Semester is existed');
 	} else if (pelajaran.length == 0){
-		alert ('Pastikan pelajaran sudah ada!');			
+		alert ('Make sure that Class Subject is existed');			
 	} else {		
 		document.location.href = "komentar_header.php?departemen="+departemen+"&tahunajaran="+tahunajaran+"&semester="+semester+"&tingkat="+tingkat+"&pelajaran="+pelajaran+"&kelas="+kelas+"&op=lihat";
 		//parent.footer.location.href = "komentar_lihat.php?departemen="+departemen+"&tahunajaran="+tahunajaran+"&semester="+semester+"&tingkat="+tingkat+"&pelajaran="+pelajaran+"&kelas="+kelas;
@@ -194,7 +194,7 @@ function lihat() {
 	<td align="left" valign="top"><table border="0" width="100%" cellpadding="0" cellspacing="0">
       <!-- TABLE TITLE -->
       <tr>
-        <td align="left" width="12%"><strong>Departemen </strong></td>
+        <td align="left" width="12%"><strong>Department </strong></td>
         <td width="20%"><select name="departemen" id="departemen" onChange="change_dep()" style="width:180px;">
             <?	$dep = getDepartemen(SI_USER_ACCESS());    
 			foreach($dep as $value) {
@@ -205,7 +205,7 @@ function lihat() {
             </option>
             <?	} ?>
           </select>        </td>
-        <td align="left" width="10%"><strong>Tingkat </strong></td>
+        <td align="left" width="10%"><strong>Grade </strong></td>
         <td width="20%"><select name="tingkat" id="tingkat" onChange="change_tingkat()" style="width:180px;">
             <?
 			$sql2 = "SELECT replid,tingkat FROM tingkat WHERE aktif=1 AND departemen='$departemen' ORDER BY urutan";	
@@ -223,11 +223,11 @@ function lihat() {
 			} //while
 			?>
         </select></td>
-        <td width="37%" rowspan="2" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Komentar Nilai Rapor</font><br />
-            <a href="../penilaian.php" target="content"> <font size="1" color="#000000"><b>Penilaian</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Komentar Nilai Rapor</b></font></td>
+        <td width="37%" rowspan="2" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Report Card Comments</font><br />
+            <a href="../penilaian.php" target="content"> <font size="1" color="#000000"><b>Index</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Report Card Comments</b></font></td>
       </tr>
       <tr>
-        <td align="left"><strong>Tahun Ajaran</strong></td>
+        <td align="left"><strong>Year</strong></td>
         <td><?  
 			$sql3 = "SELECT replid,tahunajaran FROM tahunajaran WHERE departemen = '$departemen' AND aktif=1 ORDER BY replid DESC";
 			$result3 = QueryDb($sql3);
@@ -238,7 +238,7 @@ function lihat() {
             <input type="text" name="tahun" id="tahun" size="20" readonly class="disabled" value="<?=$row3['tahunajaran']?>"  style="width:170px;"/>
             <input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$row3['replid']?>" />
             <!--<input type="hidden" name="ajaran" id="ajaran" value="<?=$row['tahunajaran']?>">-->        </td>
-        <td><strong>Kelas </strong></td>
+        <td><strong>Class </strong></td>
         <td><select name="kelas" id="kelas" onChange="change()" style="width:180px;">
             <?	
 			$sql4 = "SELECT replid,kelas FROM kelas WHERE aktif=1 AND idtahunajaran = '$tahunajaran' AND idtingkat = '$tingkat' ORDER BY kelas";	
@@ -258,7 +258,7 @@ function lihat() {
         </select></td>
       </tr>
       <tr>
-        <td align="left"><strong>Pelajaran</strong></td>
+        <td align="left"><strong>Class Subject</strong></td>
         <td><select name="pelajaran" id="pelajaran" onChange="change()" style="width:180px;">
             <?
 			
@@ -277,7 +277,7 @@ function lihat() {
     		?>
           </select>        </td>
         <td colspan="2"><div align="center">
-            <input type="button" name="tampil" value="Lihat Komentar" class="but" style="width:200px" title="Lihat Komentar per Kelas per Pelajaran" onClick="lihat()" />
+            <input type="button" name="tampil" value="See Comments" class="but" style="width:200px" title="See Comments by Class Subject" onClick="lihat()" />
         </div></td>
       </tr>
       <tr>
@@ -301,7 +301,7 @@ function lihat() {
     		?>
         </select></td>
         <td colspan="2"><div align="center">
-            <input type="button" name="input" value="Input Komentar" class="but" style="width:200px"  title="Input Komentar" onClick="show()" />
+            <input type="button" name="input" value="Submit Comments" class="but" style="width:200px"  title="Submit Comments" onClick="show()" />
         </div></td>
       </tr>
     </table></td>
@@ -314,7 +314,7 @@ function lihat() {
 if ($error>0){
 	?>
 	<script language="javascript">
-			alert ('Belum ada data rapor untuk kriteria-kriteria ini  \nSilakan hitung terlebih dahulu nilai rapor untuk kriteria-kriteria tersebut!');
+			alert ('No Report data for these criteria \nPlease calculate them first.');
 	</script>
 	<?
 }

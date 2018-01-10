@@ -33,7 +33,7 @@ require_once('../include/getheader.php');
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Jenis-Jenis Mutasi Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Mutation Type]</title>
 </head>
 
 <body>
@@ -42,15 +42,15 @@ require_once('../include/getheader.php');
 
 <?=getHeader('yayasan')?>
 
-<center><font size="4"><strong>DATA JENIS MUTASI SISWA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>STUDENT MUTATION TYPE DATA</strong></font><br /> </center><br /><br />
 
 <br />
 
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="25%" class="header" align="center">Jenis Mutasi</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="25%" class="header" align="center">Mutation Type</td>
+        <td width="*" class="header" align="center">Info</td>
     </tr>
 <? 	OpenDb();
 	$sql = "SELECT * FROM jbsakad.jenismutasi ORDER BY jenismutasi";

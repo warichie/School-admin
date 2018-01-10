@@ -36,7 +36,7 @@ if (isset($_REQUEST['simpan'])) {
 	$result = QueryDb($sql);
 	
 	if (mysql_num_rows($result) > 0) {
-		$MYSQL_ERROR_MSG = "Nama $_REQUEST[nama] sudah digunakan!";
+		$MYSQL_ERROR_MSG = "Name $_REQUEST[nama] has been used";
 	} else {
 		$sql = "INSERT INTO pemohonlain SET nama='".CQ($_REQUEST['nama'])."', keterangan='".CQ($_REQUEST['keterangan'])."'";
 		$result = QueryDb($sql);
@@ -57,7 +57,7 @@ if (isset($_REQUEST['simpan'])) {
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Tambah Data Pemohon]</title>
+<title>JIBAS FINANCE [Add Data Applicant]</title>
 <script src="script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="script/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -66,8 +66,8 @@ if (isset($_REQUEST['simpan'])) {
 <script language="javascript" src="script/validasi.js"></script>
 <script language="javascript">
 function validasi() {
-	return validateEmptyText('nama', 'Nama Rekening Perkiraan') && 
-		   validateMaxText('keterangan', 255, 'Keterangan Rekening Perkiraan');
+	return validateEmptyText('nama', 'Name Bank Account Perkiraan') && 
+		   validateMaxText('keterangan', 255, 'Info Bank Account Perkiraan');
 }
 
 function focusNext(elemName, evt) {
@@ -89,7 +89,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Data Pemohon :.
+    .: Add Data Applicant :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -102,17 +102,17 @@ function focusNext(elemName, evt) {
     <table border="0" cellpadding="2" cellspacing="2" align="center" background="">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td align="left"><strong>Nama</strong></td>
+        <td align="left"><strong>Name</strong></td>
         <td align="left"><input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama']?>" maxlength="100" size="30" onKeyPress="return focusNext('keterangan', event);"></td>
     </tr>
     <tr>
-        <td align="left" valign="top">Keterangan</td>
+        <td align="left" valign="top">Info</td>
         <td align="left"><textarea name="keterangan" id="keterangan" rows="3" cols="30" onKeyPress="return focusNext('simpan', event)"><?=$_REQUEST['keterangan']?></textarea></td>
     </tr>
     <tr>
         <td colspan="2" align="center">
-        	<input class="but" type="submit" value="Simpan" name="simpan">
-            <input class="but" type="button" value="Tutup" onClick="window.close();">
+        	<input class="but" type="submit" value="Save" name="simpan">
+            <input class="but" type="button" value="Close" onClick="window.close();">
         </td>
     </tr>
     </table>

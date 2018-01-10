@@ -33,7 +33,7 @@ class FormatPresensi{
             <td width="293">
                 <div id="TabbedPanelsA" class="TabbedPanels">
                   <ul class="TabbedPanelsTabGroup">
-                    <li class="TabbedPanelsTab" tabindex="0"><strong>Format Pesan</strong></li>
+                    <li class="TabbedPanelsTab" tabindex="0"><strong>Message Format</strong></li>
                   </ul>
                   <div class="TabbedPanelsContentGroup">
                     <div class="TabbedPanelsContent" style="padding-top:5px; overflow:inherit">
@@ -48,8 +48,8 @@ class FormatPresensi{
                             <?php
 							if ($_SESSION['tingkat']!='2'){
 							?>
-							<div class="BtnSilver" align="center" id="BtnEdit" onclick="Ubah()">Ubah</div>
-                            <div class="BtnSilver" align="center" id="BtnSave" style="display:none" onclick="Simpan()">Simpan</div>
+							<div class="BtnSilver" align="center" id="BtnEdit" onclick="Change()">Edit</div>
+                            <div class="BtnSilver" align="center" id="BtnSave" style="display:none" onclick="Simpan()">Save</div>
                             <?php 
 							}
 							?>
@@ -63,42 +63,42 @@ class FormatPresensi{
             <td width="358" valign="top">
                 <div id="TabbedPanelsA" class="TabbedPanels">
                   <ul class="TabbedPanelsTabGroup">
-                    <li class="TabbedPanelsTab" tabindex="0"><strong>Ket.</strong></li>
+                    <li class="TabbedPanelsTab" tabindex="0"><strong>Info.</strong></li>
                   </ul>
                   <div class="TabbedPanelsContentGroup">
                     <div class="TabbedPanelsContent" style="padding-top:5px; overflow:inherit">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tr>
                             <td class="td">[SISWA]</td>
-                            <td class="td">Nama Siswa</td>
+                            <td class="td">Student Name</td>
                           </tr>
                           <tr>
                             <td class="td">[TANGGAL1]</td>
-                            <td class="td">Tanggal Awal</td>
+                            <td class="td">Start Date</td>
                           </tr>
                           <tr>
                             <td class="td">[BULAN1]</td>
-                            <td class="td">Bulan Awal</td>
+                            <td class="td">Start Month</td>
                           </tr>
                           <tr>
                             <td class="td">[TANGGAL2]</td>
-                            <td class="td">Tanggal Akhir</td>
+                            <td class="td">End Date</td>
                           </tr>
                           <tr>
                             <td class="td">[BULAN2]</td>
-                            <td class="td">Bulan Akhir</td>
+                            <td class="td">End Month</td>
                           </tr>
                           <tr>
                             <td class="td">[PENGIRIM]</td>
-                            <td class="td">Pengirim</td>
+                            <td class="td">Sender</td>
                           </tr>
                           <tr>
                             <td class="td">[HADIR]</td>
-                            <td class="td">Jumlah Data Kehadiran Siswa</td>
+                            <td class="td">Student Attendance Data</td>
                           </tr>
                           <tr>
                             <td class="td">[ABSEN]</td>
-                            <td class="td">Jumlah Data Absensi Siswa</td>
+                            <td class="td">Student Absent Data</td>
                           </tr>
                       </table>
                     </div>
@@ -109,13 +109,13 @@ class FormatPresensi{
             <tr><td colspan="2">&nbsp;</td></tr>
             <tr>
             <td colspan="2">
-        		<b>KETERANGAN FORMAT PESAN LAPORAN PRESENSI</b><br /><br/>
+        		<b>ATTENDANCE FORMAT MESSAGE INFORMATION</b><br /><br/>
                 <span class="Ket">    
-                    jika mengirimkan informasi dengan format di bawah ini: <br />
-                    <b>Informasi presensi [SISWA] antara tanggal [TANGGAL1]/[BULAN1] s/d [TANGGAL2]/[BULAN2].<br />
-                    Kehadiran [HADIR]. Absen [ABSEN]. Pengirim [PENGIRIM]</b><br /><br />
-                    maka informasi yang diterima oleh siswa: <br />
-                    <b>Informasi presensi Jafar Ashiddiq antara tanggal 1/2 s/d 28/2. Kehadiran 22. Absen 2. Pengirim Bag.Akademik</b>
+                    if an information was sent within a format below: <br />
+                    <b>Attendance information of [SISWA] date [TANGGAL1]/[BULAN1] to [TANGGAL2]/[BULAN2].<br />
+                    Attendance [HADIR]. Absent [ABSEN]. Sender [PENGIRIM]</b><br /><br />
+                    the student will receive an information: <br />
+                    <b>Attendance information of Jafar Ashiddiq date 1/2 to 28/2. Attendance 22. Absent 2. Sender Bag.Akademik</b>
                 </span>
             </td>
           </tr>

@@ -34,7 +34,7 @@ require_once('library/jurnal.php');
 if (getLevel() == 2) 
 { ?>
 <script language="javascript">
-	alert('Maaf, anda tidak berhak mengakses halaman ini!');
+	alert('Maaf, anda tidak berhak mengakses halaman ini');
 	window.history.go(-1);
 </script>
 <? 	exit();
@@ -66,7 +66,7 @@ if (isset($_REQUEST['lanjut']))
 	$continue = true;
 	if ($n > 0)
 	{
-		$errmsg = "Nama tahun buku '$tahunbuku' sudah dipakai sebelumnya di departemen $dept! Gunakan nama tahun buku lainnya";
+		$errmsg = "Name tahun buku '$tahunbuku' sudah dipakai sebelumnya di departemen $dept! Gunakan nama tahun buku lainnya";
 		$continue = false;
 	}
 	
@@ -77,7 +77,7 @@ if (isset($_REQUEST['lanjut']))
 		
 		if ($n > 0)
 		{
-			$errmsg = "Kode awalan '$awalan' sudah dipakai sebelumnya di departemen $dept! Gunakan kode awalan lainnya";
+			$errmsg = "Prefix Code '$awalan' sudah dipakai sebelumnya di departemen $dept! Gunakan kode awalan lainnya";
 			$continue = false;
 		}
 	}
@@ -90,7 +90,7 @@ if (isset($_REQUEST['lanjut']))
 		$sql = "SELECT jd.koderek, SUM(jd.debet - jd.kredit) 
 				FROM jurnal j, jurnaldetail jd, rekakun ra 
 				WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' 
-					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('HARTA', 'PIUTANG', 'INVENTARIS') 
+					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('WEALTH', 'DEBT', 'INVESTMENT') 
 				GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
 		//echo  "$sql<br>";				
 		$result = QueryDb($sql); 
@@ -118,14 +118,14 @@ if (isset($_REQUEST['lanjut']))
 		$sql = "SELECT SUM(jd.kredit - jd.debet) 
 				FROM rekakun ra, jurnal j, jurnaldetail jd 
 				WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' 
-					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('PENDAPATAN', 'MODAL')";
+					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('INCOME', 'CAPITAL')";
 		//echo  "$sql<br>";					
 		$income = (float)FetchSingle($sql);
 				
 		$sql = "SELECT SUM(jd.debet - jd.kredit) 
 				FROM rekakun ra, jurnal j, jurnaldetail jd 
 				WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' 
-					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori='BIAYA'";
+					AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori='COST'";
 		//echo  "$sql<br>";					
 		$outcome = (float)FetchSingle($sql);
 		
@@ -143,11 +143,11 @@ if (isset($_REQUEST['lanjut']))
 		$success = true;
 		BeginTrans();
 		
-		// Ubah tahun buku lainnya menjadi tidak aktif
+		// Change tahun buku lainnya menjadi tidak aktif
 		$sql = "UPDATE tahunbuku SET aktif=0 WHERE departemen='$dept'";
 		QueryDbTrans($sql, $success);
 		
-		// Bikin Tahun Buku Baru
+		// Bikin Fiscal Year Baru
 		$tawal = MySqlDateFormat($tawal);
 		if ($success)
 		{
@@ -157,7 +157,7 @@ if (isset($_REQUEST['lanjut']))
 			QueryDbTrans($sql, $success);				
 		}
 
-		// Ambil Id Tahun Buku Baru
+		// Ambil Id Fiscal Year Baru
 		$idtahunbaru = 0;
 		$nokas = "";
 		if ($success)
@@ -173,7 +173,7 @@ if (isset($_REQUEST['lanjut']))
 		// Simpan ke jurnal
 		$idjurnal = 0;
 		if ($success)
-			$success = SimpanJurnal($idtahunbaru, $tawal, "Saldo Awal Tahun Buku $tahunbuku Dept $dept", $nokas, "", $petugas, "saldoawal", $idjurnal);
+			$success = SimpanJurnal($idtahunbaru, $tawal, "Saldo Awal Fiscal Year $tahunbuku Dept $dept", $nokas, "", $petugas, "saldoawal", $idjurnal);
 		
 		// Save Aktiva
 		for($i = 0; $success && $i < count($aktiva); $i++)
@@ -232,7 +232,7 @@ if (isset($_REQUEST['lanjut']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kode Perkiraan</title>
+<title>Code Perkiraan</title>
 <script src="script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="style/calendar-green.css">
@@ -257,7 +257,7 @@ function refresh() {
 
 function del(kode) {
 	
- 	if (confirm("Apakah anda yakin akan menghapus data ini?")) {
+ 	if (confirm("Are you sure want to delete this data?")) {
 		var kate = document.getElementById('kategori').value;
 		document.location.href = "akunrek.php?op=12134892y428442323x423&kategori="+kate+"&kode="+kode+"&from=<?=$from?>&sourcefrom=<?=$sourcefrom?>";
 	}
@@ -307,14 +307,14 @@ function panggil(elem)
 
 function validasi() 
 {
-	return validateEmptyText('dept', 'Departemen') && 
-	       validateEmptyText('ttutup', 'Tanggal Tutup Buku') && 
-		   validateEmptyText('tahunbuku', 'Tahun Buku') && 
-		   validateEmptyText('tawal', 'Tanggal Mulai Tahun Buku Baru') && 
+	return validateEmptyText('dept', 'Department') && 
+	       validateEmptyText('ttutup', 'Date Tutup Buku') && 
+		   validateEmptyText('tahunbuku', 'Fiscal Year') && 
+		   validateEmptyText('tawal', 'Start Date Fiscal Year Baru') && 
 		   validateEmptyText('awalan', 'Awalan Kuitansi') && 
-		   validateEmptyText('rekre', 'Kode Rekening Laba Ditahan') && 
-		   validateMaxText('keterangan', 255, 'Keterangan Tahun Buku') &&
-		   confirm("Data sudah lengkap dan benar?\r\nPERINGATAN: Tahun buku yang sudah ditutup tidak dapat diakses lagi!");
+		   validateEmptyText('rekre', 'Kode Bank Account Profit Ditahan') && 
+		   validateMaxText('keterangan', 255, 'Info Fiscal Year') &&
+		   confirm("Data sudah lengkap and benar?\r\nPERINGATAN: Fiscal Year yang sudah ditutup tidak dapat diakses lagi");
 }
 </script>
 </head>
@@ -340,7 +340,7 @@ OpenDb();
   	</tr>
     <tr>
     	<td align="right"><a href="referensi.php">
-      	<font size="1" color="#000000"><b>Referensi</b></font></a>&nbsp>&nbsp
+      	<font size="1" color="#000000"><b>Reference</b></font></a>&nbsp;>&nbsp;
         <font size="1" color="#000000"><b>Tutup Buku</b></font>
         </td>
    	</tr>
@@ -352,11 +352,11 @@ OpenDb();
     <table width="70%" align="center" border="1" cellpadding="7" cellspacing="0" style="border-color:#306">
     <tr>
     	<td align="left" width="27%" style="background-color:#306">
-        <font style="font-size:20px; color:#FFF">Langkah 2 dari 3</font>
+        <font style="font-size:20px; color:#FFF">Langkah 2 from 3</font>
         </td>
         <td align="left" valign="middle" style="background-color:#306">
         <font style="font-size:11px; color:#FFF">Menentukan tahun buku baru, membuat saldo awal untuk tahun buku baru<br>
-        <font color="#FF0000"><strong>PERINGATAN:</strong> Tahun buku lama tidak dapat diakses lagi setelah tahun buku baru dibuat</font>
+        <font color="#FF0000"><strong>PERINGATAN:</strong> Fiscal Year lama tidak dapat diakses lagi setelah tahun buku baru dibuat</font>
         </font>
         </td>
     </tr>
@@ -367,26 +367,26 @@ OpenDb();
         <table border="0" cellpadding="2" cellspacing="2" width="70%" align="left" background="">
         <!-- TABLE CONTENT -->
         <tr>
-            <td align="left" width="35%"><strong>Departemen:</strong></td>
+            <td align="left" width="35%"><strong>Department:</strong></td>
             <td align="left">
             <input type="text" name="dept" id="dept" width="10" readonly="readonly" style="background-color:#CCC" value="<?=$dept?>" />
             </td>
 	    </tr>
         <tr>
-            <td align="left"><strong>Tanggal Tutup Buku:</strong></td>
+            <td align="left"><strong>Date Tutup Buku:</strong></td>
             <td align="left">
             <input type="text" name="ttutup" id="ttutup" width="20" readonly="readonly" style="background-color:#CCC" value="<?=$ttutup?>" />
             </td>
         </tr>
         <tr>
-            <td align="left"><strong>Tahun Buku Baru</strong></td>
+            <td align="left"><strong>Fiscal Year Baru</strong></td>
             <td align="left"><input type="text" name="tahunbuku" id="tahunbuku" value="<?=$tahunbuku?>" maxlength="100" size="25" onKeyPress="return focusNext('tawal', event)" onFocus="panggil('tahunbuku')"></td>
         </tr>
         <tr>
-            <td align="left"><strong>Tanggal Mulai</strong></td>
+            <td align="left"><strong>Start Date</strong></td>
             <td align="left">
             <input type="text" name="tawal" id="tawal" readonly size="15" value="<?=$tawal?>" onKeyPress="return focusNext('awalan', event);" onFocus="panggil('tawal')" onClick="Calendar.setup()" style="background-color:#CCCC99" value="<?=date("d-m-Y")?>">&nbsp;
-            <img src="images/calendar.jpg" name="tabel" border="0" id="btawal" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/>
+            <img src="images/calendar.jpg" name="tabel" border="0" id="btawal" onMouseOver="showhint('Open calendar', this, event, '100px')"/>
             </td>
         </tr>
         <tr>
@@ -394,11 +394,11 @@ OpenDb();
             <td align="left"><input type="text" name="awalan" id="awalan" value="<?=$awalan?>" maxlength="5" size="7" onKeyPress="return focusNext('rekre', event)" onFocus="panggil('awalan')"></td>
         </tr>
         <tr>
-            <td align="left" valign="top"><strong>Kode Akun Laba Ditahan (Retained Earning)</strong></td>
+            <td align="left" valign="top"><strong>Code Akun Profit Ditahan (Retained Earning)</strong></td>
             <td align="left">
             <select name="rekre" id="rekre"  style="width:220px" onKeyPress="return focusNext('keterangan', event)">
             <?
-            $sql = "SELECT kode, nama FROM rekakun WHERE kategori='MODAL' ORDER BY kode";
+            $sql = "SELECT kode, nama FROM rekakun WHERE kategori='CAPITAL' ORDER BY kode";
             $result = QueryDb($sql);
             while ($row = mysql_fetch_row($result)) {
             ?>
@@ -408,12 +408,12 @@ OpenDb();
             ?>
             </select><br />
             <font style="font-family:Arial, Helvetica, sans-serif; font-size:10px;"><em>
-            Kode akun untuk menampung laba/rugi yang diperoleh tahun berjalan dan menjadi akun Retained Earning (Laba ditahan) untuk tahun buku baru
+            Kode akun untuk menampung laba/rugi yang diperoleh tahun berjalan and menjadi akun Retained Earning (Profit ditahan) untuk tahun buku baru
             </em></font>
             </td>
         </tr>
         <tr>
-            <td align="left" valign="top">Keterangan</td>
+            <td align="left" valign="top">Info</td>
             <td align="left"><textarea name="keterangan" id="keterangan" rows="3" cols="40" onKeyPress="return focusNext('lanjut', event)" onFocus="panggil('keterangan')"><?=$_REQUEST['keterangan']?></textarea></td>
         </tr>
         <tr>

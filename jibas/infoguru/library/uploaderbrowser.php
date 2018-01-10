@@ -37,7 +37,7 @@ $bulan = "";
 if (isset($_REQUEST['bulan']))
 	$bulan = $_REQUEST['bulan'];
 	
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");
 
 OpenDb();
 
@@ -79,7 +79,7 @@ if ($op == "09vn4230984cn2048723n98423")
     }
     
     function DelGambar(replid) {
-        if (confirm("Apakah anda yakin akan menghapus gambar ini?")) {
+        if (confirm("Are you sure want to delete this image?")) {
             document.location.href = "uploaderbrowser.php?op=09vn4230984cn2048723n98423&replid="+replid;
         }
     }
@@ -98,7 +98,7 @@ if ($op == "09vn4230984cn2048723n98423")
 <body>
     <form id="form1" runat="server">
     <div>
-    Bulan: 
+    Month: 
     <select name="bulan" id="bulan" onchange="chg()">
     	<?
 		for ($bi=0;$bi<=$b-1;$bi++){
@@ -139,7 +139,7 @@ if ($op == "09vn4230984cn2048723n98423")
 				<td align="center">
 					<img onclick="PilihGambar('<?=$imgAddr?>')"
 						  src="<?=$imgAddr?>" width="80" height="80"/><br /><br />
-					<input class="but" type="button" name="pilih" id="pilih" value="Pilih"
+					<input class="but" type="button" name="pilih" id="pilih" value="Select"
 							 onclick="PilihGambar('<?=$imgAddr?>')" />
 					<img style="cursor:pointer;" src="../images/ico/lihat.png"
 						  onclick="OpenGambar('<?=$imgAddr?>')" title="Lihat Gambar Ini" />&nbsp;
@@ -148,7 +148,7 @@ if ($op == "09vn4230984cn2048723n98423")
 				</td>  
 			</tr>
 			<tr>
-				<td>Nama Gambar : <?=$row[namagambar]?><br />Keterangan Gambar : <?=$row[keterangan]?></td>  
+				<td>Image Name : <?=$row[namagambar]?><br />Image Info : <?=$row[keterangan]?></td>  
 			</tr>
 			<tr>
 				<td><hr /></td>  

@@ -50,7 +50,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Lihat Daftar Siswa]</title>
+<title>JIBAS SIMAKA [See Student List]</title>
 </head>
 
 <body>
@@ -60,30 +60,30 @@ CloseDb();
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DAFTAR SISWA	</strong></font><br />
+  <font size="4"><strong>STUDENT LIST	</strong></font><br />
  </center><br /><br />
 
 <table>
 <tr>
-	<td><strong>Departemen</strong> </td> 
+	<td><strong>Department</strong> </td> 
 	<td><strong>:&nbsp;<?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
 	<td><strong>:&nbsp;<?=$namatahunajaran?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelas</strong></td>
+	<td><strong>Class</strong></td>
 	<td><strong>:&nbsp;<?=$tingkat." - ".$kelas?></strong></td>
 </tr>
 </table>
 <br />
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">NIS</td>
-        <td width="*" class="header" align="center">Nama</td>        
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Student ID</td>
+        <td width="*" class="header" align="center">Name</td>        
+        <td width="*" class="header" align="center">Info</td>
         <!--<td width="10%" class="header" align="center">Status</td>-->
     </tr>
 <? 	OpenDb();
@@ -98,9 +98,9 @@ CloseDb();
         <td><?=$row['keterangan'] ?></td>
         <!--<td align="center">
 			<? if ($row['aktif'] == 1) 
-					echo 'Aktif';
+					echo 'Active';
 				else
-					echo 'Tidak Aktif';
+					echo 'Inactive';
 			?>		
         </td>-->
     </tr>
@@ -110,6 +110,6 @@ CloseDb();
     </table>
 
 </td></tr></table>
-<p align="center">&nbsp;<input type="button" class="but" value="Tutup" onclick="Javascript:window.close()" /></p>
+<p align="center">&nbsp;<input type="button" class="but" value="Close" onclick="Javascript:window.close()" /></p>
 </body>
 </html>

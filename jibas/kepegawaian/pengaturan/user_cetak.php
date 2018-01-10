@@ -41,7 +41,7 @@ $urutan = $_REQUEST['urutan'];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian [Cetak Pengguna]</title>
+<title>JIBAS Employee Affair [Print User]</title>
 </head>
 <body>
 
@@ -50,18 +50,18 @@ $urutan = $_REQUEST['urutan'];
 
 <?=getHeader('yayasan')?>
 
-<center><font size="4"><strong>DAFTAR PENGGUNA<br />SISTEM MANAJEMEN AKADEMIK</strong></font><br /> </center><br />
+<center><font size="4"><strong>USER LIST<br />ACADEMIC MANAGEMENT SYSTEM</strong></font><br /> </center><br />
 <br />
 	
 	 <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="0" width="100%" align="center" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
+    	<td width="4%" class="header" align="center">#</td>
         <td width="10%" class="header" align="center">Login</td>
-        <td width="20%" class="header" align="center">Nama</td>
-        <td width="15%" class="header" align="center">Tingkat</td>
+        <td width="20%" class="header" align="center">Name</td>
+        <td width="15%" class="header" align="center">Grade</td>
         <td width="10%" class="header" align="center">Status</td>
-        <td width="*" class="header" align="center">Keterangan</td>
-        <td width="16%" class="header" align="center">Login Terakhir</td>
+        <td width="*" class="header" align="center">Info</td>
+        <td width="16%" class="header" align="center">Last Login</td>
     </tr>
 <? 	OpenDb();
 	$sql = "SELECT h.login, h.replid,  h.tingkat, h.departemen, h.keterangan, p.nama, p.aktif,
@@ -86,15 +86,15 @@ $urutan = $_REQUEST['urutan'];
 			<?	switch ($row['tingkat']){
 					case 0: echo "Landlord";
 						break;
-					case 1: echo "Manajer Akademik";
+					case 1: echo "Academic Manager";
 						break;
-					case 2: echo "Staf Akademik";
+					case 2: echo "Academic Staff";
 						break;
 				}
         	?>
         </td>
         
-        <td align="center"><? if ($row['aktif'] == 1) echo 'Aktif'; else echo 'Tidak Aktif'; ?></td>
+        <td align="center"><? if ($row['aktif'] == 1) echo 'Active'; else echo 'Inactive'; ?></td>
         <td><?=$row['keterangan'] ?></td>
         <td align="center"><?=format_tgl($row['tanggal'])?> <?=$row['jam']?></td>
     </tr>

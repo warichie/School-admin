@@ -36,7 +36,7 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<title>JIBAS SIMAKA [Data Pegawai]</title>
+<title>JIBAS SIMAKA [Employee Data]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 </head>
@@ -50,64 +50,64 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
     <table border="0" cellpadding="0" style="border-collapse:collapse" cellspacing="0" width="100%">
     <tr height="30">
     	<td colspan="6" align="left" bgcolor="#FFFFFF">
-        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Data Pribadi Pegawai</strong></font>
+        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Employee Personal Data</strong></font>
         <hr width="300" style="line-height:1px; border-style:solid; border-color:#000000" align="left" />        </td>
     	</tr>
   	<tr height="20">
     	<td width="5%" rowspan="12" bgcolor="#FFFFFF">&nbsp;</td>
     	<td width="5%">1.</td>
-    	<td width="15%">NIP</td>
+    	<td width="15%">Employee ID</td>
     	<td height="25">:&nbsp;<?=$row_pegawai['nip']?></td>
     	<td width="200" rowspan="11" align="center" bgcolor="#FFFFFF">
     	<img src="../library/gambar.php?replid=<?=$row_pegawai['replid']?>&table=jbssdm.pegawai" width="113" height="170" border="0"/>        </td>
   	</tr>
   	<tr height="20">
     	<td>2.</td>
-    	<td colspan="2">Nama Pegawai</td>
+    	<td colspan="2">Employee Name</td>
  	</tr>
   	<tr height="20" >    
     	<td bgcolor="#FFFFFF" >&nbsp;</td>    
-    	<td >a. Lengkap </td>
+    	<td>a. Full Name </td>
     	<td>:&nbsp;<?=$row_pegawai['nama']?>, <?=$row_pegawai['gelar']?></td>
     </tr>
   	<tr height="20">
 	    <td bgcolor="#FFFFFF">&nbsp;</td>
-    	<td>b. Panggilan </td>
+    	<td>b. Nickname </td>
     	<td>:&nbsp;<?=$row_pegawai['panggilan']?></td>
     </tr>
     <tr height="20">
         <td>3.</td>
-        <td>Jenis Kelamin</td>
-        <td >:
+        <td>Gender</td>
+        <td>:
           <? 	if ($row_pegawai['kelamin']=="l")
-                    echo "Laki-laki"; 
+                    echo "Male"; 
                 if ($row_pegawai['kelamin']=="p")
-                    echo "Perempuan"; 
+                    echo "Female"; 
             ?></td>
    	</tr>
   	<tr height="20">    	
     	<td>4.</td>
-    	<td>Tempat Lahir</td>
+    	<td>Birth Place</td>
     	<td>:&nbsp;<?=$row_pegawai['tmplahir']?></td>
     </tr>
   	<tr height="20">    	
     	<td>5.</td>
-    	<td>Tanggal Lahir</td>
+    	<td>Date of Birth</td>
     	<td>:&nbsp;<?=format_tgl($row_pegawai['tgllahir'])?></td>
   	</tr>
   	<tr height="20">    	
 	    <td>6.</td>
-    	<td>Agama</td>
+    	<td>Religion</td>
     	<td height="25" >:&nbsp;<?=$row_pegawai['agama']?></td>
     </tr>
   	<tr height="20" >    	
     	<td>7.</td>
-    	<td>Suku</td>
+    	<td>Ethnicity</td>
     	<td>:&nbsp;<?=$row_pegawai['suku']?></td>
   	</tr>
   	<tr height="20" >    	
 	    <td>8.</td>
-    	<td>Nomor Identitas</td>
+    	<td>Employee ID</td>
     	<td>:&nbsp;<?=$row_pegawai['noid']?></td>
   	</tr>
   	<tr height="20">
@@ -115,9 +115,9 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
     	<td>Status</td>
     	<td>:&nbsp;
 			<? 	if($row_pegawai['nikah']=="menikah")
-					echo "Menikah";
+					echo "Married";
 				if($row_pegawai['nikah']=="belum")
-					echo "Belum Menikah";
+					echo "Not Married";
 				if($row_pegawai['nikah']=="tak_ada")
 					echo "";?></td>
   	</tr>
@@ -126,23 +126,23 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
   	</tr>
   	<tr height="30" >
     	<td colspan="5" align="left" bgcolor="#FFFFFF">
-        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Tempat Tinggal</strong></font>
+        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Residency Info</strong></font>
         <hr width="300" style="line-height:1px; border-style:solid; border-color:#000000" align="left" />        </td>
     	</tr>
   	<tr height="20">
     	<td rowspan="5" bgcolor="#FFFFFF">&nbsp;</td>    	
     	<td>10.</td>
-    	<td>Alamat</td>
+    	<td>Address</td>
     	<td colspan="2">:&nbsp;<?=$row_pegawai['alamat']?></td>
  	</tr>
  	<tr height="20" >    	
     	<td>11.</td>
-    	<td>Telepon</td>
+    	<td>Phone</td>
     	<td colspan="2">:&nbsp;<?=$row_pegawai['telpon']?></td>
   	</tr>
   	<tr height="20" >    	
 	    <td>12.</td>
-    	<td>HP</td>
+    	<td>Mobile</td>
     	<td colspan="2">:&nbsp;<?=$row_pegawai['handphone']?></td>
   	</tr>
   	<tr height="20">    	
@@ -150,19 +150,19 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
     	<td>Email</td>
    	 	<td colspan="2">:&nbsp;<?=$row_pegawai['email']?></td>
   	</tr>
-  	<tr >
+  	<tr>
     	<td  colspan="2" bgcolor="#FFFFFF">&nbsp;</td><td bgcolor="#FFFFFF" colspan="2">&nbsp;</td>
   	</tr>
   	<tr height="30">
     	<td colspan="5" align="left" bgcolor="#FFFFFF">
-        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Lainnya</strong></font>
+        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Others</strong></font>
         <hr width="300" style="line-height:1px; border-style:solid; border-color:#000000" align="left" />
         </td>
     	</tr>
    	<tr height="20">
     	<td bgcolor="#FFFFFF">&nbsp;</td>
     	<td>14.</td>
-    	<td>Keterangan</td>
+    	<td>Info</td>
     	<td colspan="2" rowspan="2">:&nbsp;<?=$row_pegawai['keterangan']?></td>
   	</tr>
     <tr>

@@ -25,7 +25,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pendataan Pengujian</title>
+<title>Exam Data</title>
 
 </head>
 	
@@ -40,12 +40,12 @@
 	<table border="0"width="100%">
     <!-- TABLE TITLE -->
     <tr>
-      <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pendataan Jenis Pengujian</font></td>
+      <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Exam Type Data</font></td>
       <td width="8%" rowspan="3" align="left"><img src="../images/ico/b_ujianpenerimaan.png" width="63" height="63" /></td>
     </tr>
     <tr>
-      <td width="92%" align="right"><a href="../guru.php" target="content"><font size="1" color="#000000"><b>Guru & Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Jenis
-        Pengujian</b></font></td>
+      <td width="92%" align="right"><a href="../guru.php" target="content"><font size="1" color="#000000"><b>Teacher and Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Type of
+        Exam</b></font></td>
       </tr>
     <tr>
       <td align="left">&nbsp;</td>

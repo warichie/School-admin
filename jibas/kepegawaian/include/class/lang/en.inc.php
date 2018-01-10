@@ -379,7 +379,7 @@ HTTP headers have already been sent.<br>Caused by output from file <b>%s</b> at 
 25090 => array('Unknown direction specified in call to StrokeBoxedText() [%s]',1),
 25091 => array('Internal font does not support drawing text at arbitrary angle. Use TTF fonts instead.',0),
 25092 => array('There is either a configuration problem with TrueType or a problem reading font file "%s" Make sure file exists and is in a readable place for the HTTP process. (If \'basedir\' restriction is enabled in PHP then the font file must be located in the document root.). It might also be a wrongly installed FreeType library. Try upgrading to at least FreeType 2.1.13 and recompile GD with the correct setup so it can find the new FT library.',1),
-25093 => array('Can not read font file "%s" in call to Image::GetBBoxTTF. Please make sure that you have set a font before calling this method and that the font is installed in the TTF directory.',1),
+25093 => array('Cannot read font file "%s" in call to Image::GetBBoxTTF. Please make sure that you have set a font before calling this method and that the font is installed in the TTF directory.',1),
 25094 => array('Direction for text most be given as an angle between 0 and 90.',0),
 25095 => array('Unknown font font family specification. ',0),
 25096 => array('Can\'t allocate any more colors in palette image. Image has already allocated maximum of %d colors and the palette  is now full. Change to a truecolor image instead',0),
@@ -393,7 +393,7 @@ HTTP headers have already been sent.<br>Caused by output from file <b>%s</b> at 
 25103 => array('Illegal argument to SetLineStyle %s',1),
 25104 => array('Unknown line style: %s',1),
 25105 => array('NULL data specified for a filled polygon. Check that your data is not NULL.',0),
-25106 => array('Image::FillToBorder : Can not allocate more colors',0),
+25106 => array('Image::FillToBorder : Cannot allocate more colors',0),
 25107 => array('Can\'t write to file "%s". Check that the process running PHP has enough permission.',1),
 25108 => array('Can\'t stream image. This is most likely due to a faulty PHP/GD setup. Try to recompile PHP and use the built-in GD library that comes with PHP.',0),
 25109 => array('Your PHP (and GD-lib) installation does not appear to support any known graphic formats. You need to first make sure GD is compiled as a module to PHP. If you also want to use JPEG images you must get the JPEG library. Please see the PHP docs for details.',0),
@@ -447,7 +447,7 @@ HTTP headers have already been sent.<br>Caused by output from file <b>%s</b> at 
 **  jpgraph_windrose
 */
 
-22001 => array('Total percentage for all windrose legs in a windrose plot can not exceed 100% !\n(Current max is: %d)',1),
+22001 => array('Total percentage for all windrose legs in a windrose plot can not exceed 100% \n(Current max is: %d)',1),
 22002 => array('Graph is too small to have a scale. Please make the graph larger.',0),
 22004 => array('Label specification for windrose directions must have 16 values (one for each compass direction).',0),
 22005 => array('Line style for radial lines must be on of ("solid","dotted","dashed","longdashed") ',0),

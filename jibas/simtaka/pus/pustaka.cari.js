@@ -22,7 +22,7 @@ function cari(){
 	{
 		if (isNaN(keywords))
 		{
-			alert ('Tahun terbit harus berupa bilangan!');
+			alert ('Year Published must be numeric');
 			document.getElementById('keywords').value="";
 			document.getElementById('keywords').focus();
 			return false();

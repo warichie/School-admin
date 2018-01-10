@@ -51,7 +51,7 @@ function hapus(id){
 	var Y	= document.getElementById('Year').value;
 	var M	= document.getElementById('Month').value;
 	var T	= document.getElementById('Type').value; 
-	if (confirm('Anda yakin akan menghapus kritik/saran ini?'))
+	if (confirm('Are you sure want to delete this critics and feedbacks?'))
 		document.location.href = "kritik.php?ac=nd7bw6g25gdf&id="+id+"&Year="+Y+"&Month="+M+"&Type="+T;
 }
 function ChgCmb(){
@@ -66,12 +66,12 @@ function ChgCmb(){
 <body>
 <div align="right">
 <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;
-    <span class="news_title2">Daftar Kritik & Saran </span>
+    <span class="news_title2">Critics and Feedbacks List </span>
 </div><br />
 <div align="left" style="padding-bottom:10px">
     <table border="0" cellspacing="4" cellpadding="4">
       <tr>
-        <td style="padding-right:4px">Bulan</td>
+        <td style="padding-right:4px">Month</td>
         <td style="padding-right:4px">
         <select id="Month" class="cmbfrm" onchange="ChgCmb()">
             <?
@@ -98,16 +98,16 @@ function ChgCmb(){
         </select>        </td>
       </tr>
       <tr>
-        <td style="padding-right:4px">Jenis</td>
+        <td style="padding-right:4px">Type</td>
         <td colspan="2" style="padding-right:4px"><span style="padding-right:2px">
           <select name="Type" class="cmbfrm" id="Type" onchange="ChgCmb()">
             <?
         if ($Type=="")
             $Type="kritik";
         ?>
-            <option value="kritik" <?=StringIsSelected($Type,'kritik')?>>Kritik</option>
-            <option value="saran" <?=StringIsSelected($Type,'saran')?>>Saran</option>
-            <option value="pesan" <?=StringIsSelected($Type,'pesan')?>>Pesan</option>
+            <option value="kritik" <?=StringIsSelected($Type,'kritik')?>>Critics</option>
+            <option value="saran" <?=StringIsSelected($Type,'saran')?>>Feedbacks</option>
+            <option value="pesan" <?=StringIsSelected($Type,'pesan')?>>Message</option>
           </select>
         </span></td>
       </tr>
@@ -115,9 +115,9 @@ function ChgCmb(){
 </div>
 <table width="100%" border="1" class="tab">
   <tr>
-    <td width="7%" height="25" align="center" class="header">No.</td>
-    <td width="12%" height="25" align="center" class="header">No Pengirim</td>
-    <td width="14%" align="center" class="header">Tanggal</td>
+    <td width="7%" height="25" align="center" class="header">#</td>
+    <td width="12%" height="25" align="center" class="header">No sender</td>
+    <td width="14%" align="center" class="header">Date</td>
     <td width="44%" align="center" class="header"><?=ucfirst($Type) ?></td>
     <!--td height="25" align="center" class="header">Status</td-->
     <td width="8%" height="25" align="center" class="header">&nbsp;</td>
@@ -163,7 +163,7 @@ function ChgCmb(){
   } else { 
   ?>
   <tr>
-    <td colspan="7" align="center" class="nodata">Tidak ada data</td>
+    <td colspan="7" align="center" class="nodata">Data Not Found.</td>
   </tr>
   <?
   }

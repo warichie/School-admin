@@ -110,19 +110,19 @@ function show_pembayaran()
 	
 	if (kelompok.length == 0) 
 	{	
-		alert ('Pastikan kelompok sudah ada!');	
+		alert ('Make sure that group is existed');	
 		document.getElementById('kelompok').focus();
 		return false;		
 	} 
 	else if (idkategori.length == 0) 
 	{
-		alert ('Pastikan kategori pembayaran sudah ada!');
+		alert ('Make sure that payment category is existed');
 		document.getElementById('idkategori').focus();
 		return false;	
 	} 
 	else if (idpenerimaan.length == 0) 
 	{
-		alert ('Pastikan penerimaan pembayaran sudah ada!');
+		alert ('Make sure that admission is existed');
 		document.getElementById('idpenerimaan').focus();
 		return false;	
 	}
@@ -200,7 +200,7 @@ function focusNext(elemName, evt)
     <td rowspan="3" width="55%">
     <table width = "100%" border = "0">
 	<tr>
-        <td width="11%" class="news_content1">Departemen </td>
+        <td width="11%" class="news_content1">Department </td>
         <td width="89%">
     	<select name="departemen" class="cmbfrm" id="departemen" style="width:188px" onchange="change_dep()">
     	        <? 	$sql = "SELECT departemen FROM departemen WHERE aktif = 1 ORDER BY urutan";
@@ -215,10 +215,10 @@ function focusNext(elemName, evt)
           </select>        </td>
     </tr>
      <tr>
-    	<td class="news_content1">Kelompok </td>
+    	<td class="news_content1">Group </td>
         <td>
         <select name="kelompok" class="cmbfrm" id="kelompok" style="width:188px;" onChange="change()"  >
-        <option value="-1">(Semua Kelompok)</option>
+        <option value="-1">(All Group)</option>
         <?
            $sql = "SELECT k.replid,kelompok FROM kelompokcalonsiswa k, prosespenerimaansiswa p  WHERE k.idproses = p.replid AND p.aktif = 1 AND p.departemen = '$departemen' ORDER BY kelompok";
 			
@@ -231,14 +231,14 @@ function focusNext(elemName, evt)
         </select>
         <span class="news_content1">Status </span>
         <select name="lunas" class="cmbfrm" id="lunas" style="width:130px" onchange="change_status()" >
-            <option value="-1" <?=IntIsSelected(-1, $statuslunas) ?> >(Semua)</option>
-            <option value="0" <?=IntIsSelected(0, $statuslunas) ?> >Belum Lunas</option>
-            <option value="1" <?=IntIsSelected(1, $statuslunas) ?> >Lunas</option>
-            <option value="2" <?=IntIsSelected(2, $statuslunas) ?> >Gratis</option>
+            <option value="-1" <?=IntIsSelected(-1, $statuslunas) ?> >(All)</option>
+            <option value="0" <?=IntIsSelected(0, $statuslunas) ?> >No Paid Off Yet</option>
+            <option value="1" <?=IntIsSelected(1, $statuslunas) ?> >Paid Off</option>
+            <option value="2" <?=IntIsSelected(2, $statuslunas) ?> >Free</option>
         </select>    	</td>
     </tr>
     <tr>
-        <td class="news_content1">Pembayaran </td>
+        <td class="news_content1">Payment </td>
         <td> 
         <select name="idkategori" class="cmbfrm" id="idkategori" style="width:188px;" onchange="change_kate()" >
         <?  $sql = "SELECT kode, kategori FROM $db_name_fina.kategoripenerimaan WHERE kode IN ('CSWJB','CSSKR') ORDER BY urutan";
@@ -262,9 +262,9 @@ function focusNext(elemName, evt)
     </table>
 	</td>
  	<td width="*" rowspan="2" valign="middle">
-    	<a href="#" onclick="show_pembayaran()"><img src="../img/view.png" border="0" height="48" width="48" onmouseover="showhint('Klik untuk menampilkan data laporan pembayaran per kelas!', this, event, '180px')"/></a>    </td>
+    	<a href="#" onclick="show_pembayaran()"><img src="../img/view.png" border="0" height="48" width="48" onmouseover="showhint('Click to show data laporan pembayaran per kelas', this, event, '180px')"/></a>    </td>
 	<td width="45%" colspan="3" align="right" valign="top">
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Laporan Pembayaran Per Kelompok Calon Siswa</font>    </td>
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Payment Reports by Student Candidate Group</font>    </td>
 </tr>
 <tr>	
     <td align="right" valign="top">

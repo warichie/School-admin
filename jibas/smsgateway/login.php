@@ -53,21 +53,21 @@ function Validate()
 	var x = document.getElementById('username').value;
 	var y = document.getElementById('password').value;
 	if (x.length==0 || x=='Username'){
-		alert ('Silakan masukan Username!');
+		alert ('Please enter your Username');
 		//ShowError2('ErrUsername','Silakan masukan Username!','username');
 		return false;
 	}
 	if (y.length==0){
-		alert ('Silakan masukan Password!');
+		alert ('Please enter your Password');
 		//ShowError2('ErrPassword','Silakan masukan Password!','password');
 		return false;
 	}
 }
 function ErrStatus(ErrCode){
 	if (ErrCode=='1')
-		ShowError2('ErrUsername','Pengguna sedang tidak aktif!','username');
+		ShowError2('ErrUsername','User is inactive!','username');
 	if (ErrCode=='2')
-		ShowError2('ErrUsername','Username/Password salah!','username');
+		ShowError2('ErrUsername','Username/Password does not match!','username');
 	if (ErrCode=='3')
 		document.location.href = "index.php";
 }
@@ -188,7 +188,7 @@ $(document).ready(function () {
                     <td style="padding-right:4px"><input class="InputTxt" name="passwordfake" id="passwordsfake" style="color:#636363; display:block;width:80px; border:1px #666666 solid" value="Password" onfocus="ChgInputPass('passwordsfake','passwords','1')" type="text"    />
                 <input name="password" class="InputTxt" id="passwords" style="color:#000000; display:none;width:80px; border:1px #666666 solid" value="" onblur="ChgInputPass('passwordsfake','passwords','0')"  type="password"    /></td>
                     <td style="padding-right:4px"><input class="Btn" type="submit" style=" background-color:#c9c9c9;font-weight:bold; border:#666666 1px solid;" value="Login" /></td>
-                    <td><a title="Kembali ke Menu Utama" href="../index.php" style="color:#2fcced; font-weight:bold; font-family:Arial;  font-size:12px; text-decoration:underline">Menu Utama</a></td>
+                    <td><a title="Back to Main Menu" href="../index.php" style="color:#2fcced; font-weight:bold; font-family:Arial;  font-size:12px; text-decoration:underline">Main Menu</a></td>
                   </tr>
                 </table>                
                 </td>
@@ -223,10 +223,10 @@ $(document).ready(function () {
 <? if($err>0){ ?>
 <script language='javascript'>
 	<? if($err=='1'){ ?>
-	ShowError2('ErrUsername','Username atau password tidak cocok!','username');
+	ShowError2('ErrUsername','Username or password does not match!','username');
 	<? } ?>
 	<? if($err=='2'){ ?>
-	ShowError2('ErrUsername','Status pengguna sedang tidak aktif!','username');
+	ShowError2('ErrUsername','User status is inactive!','username');
 	<? } ?>
 </script>
 <? } ?>

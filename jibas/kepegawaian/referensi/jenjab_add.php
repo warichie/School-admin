@@ -60,11 +60,11 @@ if (isset($_REQUEST['Simpan'])) {
 		
 	if (@mysql_num_rows($result) > 0) {		
 		//CloseDb();
-		$ERROR_MSG = "Jenis Jabatan $jenis sudah digunakan!";	
+		$ERROR_MSG = "Position Type $jenis has been used";	
 		$cek = 0;	
 	} else if (@mysql_num_rows($result1) > 0) {		
 		//CloseDb();
-		$ERROR_MSG = "Urutan $urutan sudah digunakan!";
+		$ERROR_MSG = "Sort $urutan has been used";
 		$cek = 1;
 	} else {
 		$sql2 = "INSERT INTO jenisjabatan SET jenis='$jenis',urutan=$urutan,keterangan='$keterangan',jabatan='$jabatan'";
@@ -94,7 +94,7 @@ switch ($cek) {
 <link rel="stylesheet" type="text/css" href="../style/style<?=GetThemeDir2()?>.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -105,10 +105,10 @@ function tutup() {
 }
 
 function validate() {
-	return validateEmptyText('jenis', 'Jenis Jabatan') && 
-		   validateEmptyText('urutan', 'Urutan Jabatan') && 
-		   validateNumber('urutan', 'Urutan Jabatan') &&
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('jenis', 'Position Type') && 
+		   validateEmptyText('urutan', 'Position Order') && 
+		   validateNumber('urutan', 'Position Order') &&
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 
@@ -122,27 +122,27 @@ function validate() {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td class="header" colspan="2"><div align="center">Tambah Jenis Jabatan</div></td>
+<td class="header" colspan="2"><div align="center">Add Position Type</div></td>
 </tr>
 <tr>
-	<td width="120"><strong>Jenis Jabatan</strong></td>
+	<td width="120"><strong>Position Type</strong></td>
 	<td>
-    	<input type="text" name="jenis" id="jenis" size="10" maxlength="50" value="<?= $jenis ?>" onFocus="showhint('Jenis jabatan tidak boleh lebih dari 50 karakter!', this, event, '120px');panggil('departemen')"/></td>
+    	<input type="text" name="jenis" id="jenis" size="10" maxlength="50" value="<?= $jenis ?>" onFocus="showhint('Position type should not exceed 50 characters', this, event, '120px');panggil('departemen')"/></td>
 </tr>
 <tr>
-	<td><strong>Urutan</strong></td>
+	<td><strong>Sort</strong></td>
 	<td>
-    	<input type="text" name="urutan" id="urutan" size="3" maxlength="5" value="<?= $urutan ?>" onFocus="showhint('Urutan penampilan jenis jabatan', this, event, '120px');panggil('urutan')" />    </td>
+    	<input type="text" name="urutan" id="urutan" size="3" maxlength="5" value="<?= $urutan ?>" onFocus="showhint('Position type display order', this, event, '120px');panggil('urutan')" />    </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="40"><?= $keterangan ?></textarea>    </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>

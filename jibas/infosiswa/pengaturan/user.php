@@ -31,7 +31,7 @@ require_once('../sessionchecker.php');
 if (SI_USER_ID()!="landlord" && SI_USER_ID()!="LANDLORD"){
 ?>
 <script language="javascript">
-alert ('Maaf Anda Tidak berhak mengakses halaman ini!');
+alert ('Sorry you are not allowed to access this page');
 parent.framecenter.location.href="../center.php";
 </script>
 	<?
@@ -85,10 +85,10 @@ function setaktif(replid, aktif) {
 	var newaktif;
 	
 	if (aktif == 1) {
-		msg = "Apakah anda yakin akan mengubah departemen ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this department to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin akan mengubah departemen ini menjadi AKTIF?";
+		msg = "Are you sure want to change this department to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -101,7 +101,7 @@ function edit(replid) {
 }
 
 function hapus(nip) {
-	if (confirm("Apakah anda yakin akan menghapus departemen ini?"))
+	if (confirm("Are you sure want to delete this department?"))
 		document.location.href = "user.php?op=xm8r389xemx23xb2378e23&nip="+nip;
 }
 
@@ -125,8 +125,8 @@ function cetak() {
 	<table border="0"width="1010%" align="center">
     <tr>
         <td align="right">
-         <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Manajemen Pengguna</font><br />
-            <a href="../usermenu.php"><font size="1" color="#000000"><b>Pengguna</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Manajemen Pengguna</b></font>
+         <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">User Management</font><br />
+            <a href="../usermenu.php"><font size="1" color="#000000"><b>User</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>User Management</b></font>
         </td>
     </tr>
 	</table>
@@ -140,13 +140,13 @@ function cetak() {
     <tr>
       <td align="right">
     
-    <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
     <? if (@mysql_num_rows($result)>0){
 	?>
-    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;
     <? } ?>
 <?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')" />&nbsp;Tambah
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')" />&nbsp;Add
 	    User</a>
 <?	} ?>    
     </td>
@@ -154,10 +154,10 @@ function cetak() {
     </table><br />
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="95%" align="center">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
+    	<td width="4%" class="header" align="center">#</td>
         <td width="15%" class="header" align="center">Login</td>
-        <td width="20%" class="header" align="center">Nama</td>
-       <td width="*" class="header" align="center">Keterangan</td>
+        <td width="20%" class="header" align="center">Name</td>
+       <td width="*" class="header" align="center">Info</td>
         <td width="10%" class="header" align="center">Last Login</td>
         <td width="*" class="header">&nbsp;</td>
     </tr>
@@ -184,12 +184,12 @@ function cetak() {
         
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?> 
             
-            <a href="JavaScript:hapus('<?=$row['login'] ?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Pengguna!', this, event, '75px')"/></a>
+            <a href="JavaScript:hapus('<?=$row['login'] ?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete User', this, event, '75px')"/></a>
 <?		} ?>        </td>
     </tr>
 <?	} } else {
 	 ?>
-     <tr><td colspan="6" align="center">Tidak ada data User</td></tr>	
+     <tr><td colspan="6" align="center">No User data</td></tr>	
 	<?
 	}
 	?>

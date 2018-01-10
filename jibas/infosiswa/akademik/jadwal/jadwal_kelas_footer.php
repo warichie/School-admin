@@ -52,11 +52,11 @@ $row_get_info=@mysql_fetch_array($res_get_info);
 $info=$row_get_info[replid];
 
 if (@mysql_num_rows($res_get_info)==0){
-echo "<center><font face='Arial' size=4 color='red'>Tidak ada data Jadwal Pelajaran</font></center>";
+echo "<center><font face='Arial' size=4 color='red'>No data Jadwal Class Subject</font></center>";
 	exit;
 }
 
-//echo "Dep=$departemen,Kelas=$kelas,TA=$tahunajaran,Infojadwal=$info";
+//echo "Dep=$departemen,Class=$kelas,TA=$tahunajaran,Infojadwal=$info";
 $op = $_REQUEST['op'];
 if ($op == "xm8r389xemx23xb2378e23") {
 	if ($_REQUEST['field']) 
@@ -128,7 +128,7 @@ function getCell($r, $c) {
 		} else {
 			$s = "<td class='jadwal' width='110px'>";			
 			//$s.= "<img src='../images/ico/tambah.png' style='cursor:pointer' onclick='tambah($r, $c)'>";
-			$s.= "[Kosong]";
+			$s.= "[Empty]";
 			$s.= "</td>";
 
 			return $s;
@@ -151,7 +151,7 @@ loadJadwal($departemen,$kelas,$info);
 
 <html>
 <head>
-<title>Jadwal Kelas</title>
+<title>Class Schedule</title>
 <link rel="stylesheet" type="text/css" href="../../style/style.css">
 <style>
 	.jadwal {
@@ -192,7 +192,7 @@ function hapus(replid, field) {
 	var kelas = document.getElementById('kelas').value;
 	var info = document.getElementById('info').value;
 	
-	if (confirm("Apakah anda yakin akan menghapus jadwal kelas ini?"))
+	if (confirm("Are you sure want to delete this Class Schedule?"))
 		document.location.href = "jadwal_kelas_footer.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&field="+field+"&departemen="+departemen+"&kelas="+kelas+"&info="+info;
 }
 
@@ -227,7 +227,7 @@ function refresh() {
 
 </form>
 <div align="center" class="style1">
-Jadwal Pelajaran Kelas <?=$namakelas?>
+Class Subject Schedule <?=$namakelas?>
 </div>
 <table border="0" width="100%" align="center" style="background-repeat:no-repeat; background-attachment:fixed">
 <tr>
@@ -242,24 +242,24 @@ Jadwal Pelajaran Kelas <?=$namakelas?>
     <table width="95%" border="0" align="center">
   	<tr>
 		<td align="right">
-        <a href="#" onClick="document.location.reload()"><img src="../../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="#" onClick="document.location.reload()"><img src="../../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
    	 
     	<a href="JavaScript:cetak()">
-        <img src="../../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
+        <img src="../../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
     	</td>
     </tr>
     </table>
     <br>
    <table border="1" width="95%" id="table" class="tab" align="center" cellpadding="2" style="border-collapse:collapse" cellspacing="2">
     <tr>		
-        <td height="30" width="110px" class="header" align="center">Jam</td>
-        <td height="30" width="110px" class="header" align="center">Senin</td>
-        <td height="30" width="110px" class="header" align="center">Selasa</td>
-        <td height="30" width="110px" class="header" align="center">Rabu</td>
-        <td height="30" width="110px" class="header" align="center">Kamis</td>
-        <td height="30" width="110px" class="header" align="center">Jumat</td>
-        <td height="30" width="110px" class="header" align="center">Sabtu</td>
-        <td height="30" width="110px" class="header" align="center">Minggu</td>
+        <td height="30" width="110px" class="header" align="center">Time</td>
+        <td height="30" width="110px" class="header" align="center">Monday</td>
+        <td height="30" width="110px" class="header" align="center">Tuesday</td>
+        <td height="30" width="110px" class="header" align="center">Wednesday</td>
+        <td height="30" width="110px" class="header" align="center">Thursday</td>
+        <td height="30" width="110px" class="header" align="center">Friday</td>
+        <td height="30" width="110px" class="header" align="center">Saturday</td>
+        <td height="30" width="110px" class="header" align="center">Sunday</td>
     </tr>
 	<?
 	
@@ -281,8 +281,8 @@ Jadwal Pelajaran Kelas <?=$namakelas?>
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Belum ada data Jam Belajar untuk Departemen <?=$departemen?>. 
-        <br> Silahkan isi terlebih dahulu di menu Jam Belajar pada bagian Jadwal & Pelajaran.</font>
+    	<font size = "2" color ="red"><b>No session data for department <?=$departemen?>. 
+        <br> Please make a new one in the Session on Schedule and Class Subject section.</font>
 		</td>
 	</tr>
 	</table> 
@@ -294,7 +294,7 @@ Jadwal Pelajaran Kelas <?=$namakelas?>
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data jadwal mengajar. <br /><br />Tambah data pelajaran pada departemen <?=$departemen?> dan guru yang akan mengajar<br> di menu Pendataan Guru pada bagian Guru & Pelajaran.</b></font>
+    	<font size = "2" color ="red"><b>No Data Found. <br /><br />Add lesson data in Department <?=$departemen?> alongside with the Teacher<br> in the Teacher Data menu on Teacher and Class Subject section.</b></font>
 		</td>
 	</tr>
 	</table>

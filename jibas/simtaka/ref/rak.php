@@ -43,8 +43,8 @@ $R->OnStart();
 <body>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Daftar Rak Pustaka</font><br />
-        <a href="referensi.php" class="welc">Referensi</a><span class="welc"> > Daftar Rak Pustaka</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Library Shelf List</font><br />
+        <a href="referensi.php" class="welc">Reference</a><span class="welc"> > Library Shelf List</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$R->Content()?>

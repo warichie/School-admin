@@ -54,16 +54,16 @@ openDb();
 <table width="100%"  border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><fieldset>
-		<legend><span class="style1">Daftar Mutasi Siswa Tahun <?=$tahun?> <br>Karena <?=$_REQUEST['jenismutasi']?></span></legend>
+		<legend><span class="style1">Student Mutation List Year <?=$tahun?> <br>Because of <?=$_REQUEST['jenismutasi']?></span></legend>
 		<table width="100%"  border="0" cellpadding="0" cellspacing="0" bordercolor="#666666">
   <tr>
     <td><table width="100%"  border="1" class="tab" cellspacing="0" cellpadding="0">
       <tr align="center" class="header">
-        <td width="25" height="30">No</td>
-        <td width="80" height="30">NIS </td>
-        <td width="100" height="30">Nama </td>
-        <td width="100" height="30">Tanggal Mutasi </td>
-        <td height="30">Keterangan</td>
+        <td width="25" height="30">#</td>
+        <td width="80" height="30">Student ID </td>
+        <td width="100" height="30">Name </td>
+        <td width="100" height="30">Mutation Date</td>
+        <td height="30">Info</td>
       </tr>
 	  <?
 	  $a=0;

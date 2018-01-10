@@ -38,7 +38,7 @@ if (isset($_REQUEST['Simpan'])) {
 	
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Semester $_REQUEST[semester] sudah digunakan!";
+		$ERROR_MSG = "Semester $_REQUEST[semester] has been used";
 	} else {
 		$sql = "UPDATE semester SET semester='".CQ($_REQUEST['semester'])."',keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid='$replid'";
 		$result = QueryDb($sql);
@@ -78,7 +78,7 @@ if (isset($_REQUEST['keterangan']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Semester]</title>
+<title>JIBAS SIMAKA [Edit Semester]</title>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -90,8 +90,8 @@ if (isset($_REQUEST['keterangan']))
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('semester', 'Nama Semester') && 
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('semester', 'Semester Name') && 
+		   validateMaxText('keterangan', 255, 'Info');
 }
 function focusNext(elemName, evt) {
     evt = (evt) ? evt : event;
@@ -112,7 +112,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Semester :.
+    .: Edit Semester :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -127,26 +127,26 @@ function focusNext(elemName, evt) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
 	<td><input type="text" size="5" value="<?=$departemen ?>" readonly class="disabled"/></strong><input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />
     </td>
 </tr>
 <tr>
     <td><strong>Semester</strong></td>
     <td>
-    	<input type="text" name="semester" id="semester" size="30" maxlength="50" value="<?=$semester ?>" onFocus="showhint('Nama semester tidak boleh lebih dari 50 karakter!', this, event, '120px')"  onKeyPress="return focusNext('keterangan', event)" />
+    	<input type="text" name="semester" id="semester" size="30" maxlength="50" value="<?=$semester ?>" onFocus="showhint('Semester Name should not exceed 50 characters', this, event, '120px')"  onKeyPress="return focusNext('keterangan', event)" />
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45"  onKeyPress="return focusNext('Simpan', event)"><?=$keterangan ?></textarea>
     </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->

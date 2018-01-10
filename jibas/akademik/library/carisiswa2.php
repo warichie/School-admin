@@ -36,7 +36,7 @@ if(isset($_GET[departemen])){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Cari Siswa</title>
+<title>Search Student</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" href="../style/style.css" type="text/css">
 
@@ -47,12 +47,12 @@ var test;
 	test2 = document.main.cr_nama.value;
 	
 	if(test.length == 0 && test2.length == 0){
-		alert("NIS atau nama harus dimasukkan");
+		alert("Student ID or Name is required");
 		document.main.cr_nis.focus();
 		return false;
 		}
 	if(test.length < 3 && test2.length < 3){
-		alert("NIS atau nama harus minimal 3 karakter");
+		alert("Student ID or Name should be minimum 3 characters");
 		document.main.cr_nis.focus();
 		return false;
 		}
@@ -65,7 +65,7 @@ function tekan() {
 	var rno = document.main.selected.value;
 	//alert(rno);
 	if (rno.length == 0) {
-			alert('Anda belum menentukan Siswa!');
+			alert('You have not specified the Student yet');
 			return false;
 		}
 	eval("nis = document.main.nis" + rno + ".value;");
@@ -104,15 +104,15 @@ openDB();
 <input type="hidden" name="selected">
 <table>
   <tr>
-		<td height="30" background="../style/formbg2agreen.gif" onMouseOver="background='../style/formbg2agreen.gif'" onMouseOut="background='../style/formbg2agreen.gif'"><span class="style1">Cari Siswa</span></td>
-	  <td height="30" background="../style/formbg2.gif" onMouseOver="background='../style/formbg2agreen.gif'" onMouseOut="background='../style/formbg2.gif'"><a href="pilihsiswa2.php" class="style2">Pilih Siswa</a></td>
+		<td height="30" background="../style/formbg2agreen.gif" onMouseOver="background='../style/formbg2agreen.gif'" onMouseOut="background='../style/formbg2agreen.gif'"><span class="style1">Search Student</span></td>
+	  <td height="30" background="../style/formbg2.gif" onMouseOver="background='../style/formbg2agreen.gif'" onMouseOut="background='../style/formbg2.gif'"><a href="pilihsiswa2.php" class="style2">Select Student</a></td>
 	</tr>
 </table>
-  <fieldset><legend><b>Cari Siswa Berdasarkan</b></legend>
+  <fieldset><legend><b>Search Student based on</b></legend>
 			<!--  BEGIN TABLE FORM -->
 			<table width="100%" border="0" cellpadding="0" cellspacing="0">
 			  <tr>
-				<td width="150">Departemen</td>	
+				<td width="150">Department</td>	
 				<td colspan="2">
 				<select name="departemen">
 				<?
@@ -135,15 +135,15 @@ openDB();
 				?>
 				</select></td>
 			  </tr>			  
-			  <tr >
-				<td valign="middle">NIS</td>		
+			  <tr>
+				<td valign="middle">Student ID</td>		
 				<td width="153"><input type="text" name="cr_nis" value="<?=$_POST[cr_nis] ?>"></td>
-				<td width="33">Nama</td>
+				<td width="33">Name</td>
 				<td width="154"><input type="text" name="cr_nama" value="<?=$_POST[cr_nama] ?>"></td>
 				<td width="10">&nbsp;</td>
-				<td width="57"><input type="submit" name="cari" value="Cari" class="but"></td>
+				<td width="57"><input type="submit" name="cari" value="Search" class="but"></td>
 			  </tr>
-			   <tr >
+			   <tr>
 				 <td colspan="10" class="titlemenu">&nbsp;</td>
 			   </tr>
 			</table>
@@ -182,16 +182,16 @@ if ((isset($_POST["cari"]))){
 			  <td>
 			 	<table border='1' width='100%' id="table" class="tab">
 					<tr>
-						<td class='header' align='center'>NIS</td>
-						<td class='header'>Nama</td>
-						<td class='header'>Kelas</td>	
+						<td class='header' align='center'>Student ID</td>
+						<td class='header'>Name</td>
+						<td class='header'>Class</td>	
 	<?
 	$jml_data = @mysql_num_rows($result_sis);
 	
 	if($jml_data=="0"){
 		?>
 		<tr>
-				<td colspan='3' align='center'>Data Siswa Tidak Ada</td>
+				<td colspan='3' align='center'>Data Not Found.</td>
 			 </tr>
 		<? 
 	}else{
@@ -212,7 +212,7 @@ if ((isset($_POST["cari"]))){
 	?>
 	<tr>
 		<td colspan='3' align="right">
-		<input type='button' class='but' value='Pilih >>' name='pilih' onclick='tekan()'></td>
+		<input type='button' class='but' value='Select >>' name='pilih' onclick='tekan()'></td>
 		</form>
 		</tr>
 	</table>

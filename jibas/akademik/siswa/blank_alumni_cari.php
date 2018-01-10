@@ -37,7 +37,7 @@
 </tr>
 <tr>
     <td align="center" valign="middle">
-        <font size="2" color="#757575"><b>Pilih Departemen, Angkatan, Kriteria dan Kata Kunci untuk menampilkan daftar Alumni</b></font> </td>
+        <font size="2" color="#757575"><b>Select Department, Graduates, Criteria and Keyword to show Alumni list</b></font> </td>
 </tr>
 
 </table>

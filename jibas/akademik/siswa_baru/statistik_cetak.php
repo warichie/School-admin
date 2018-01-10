@@ -38,43 +38,43 @@ $iddasar=$_REQUEST['iddasar'];
 OpenDb();
 $i = 0;
 
-if ($dasar == 'Golongan Darah') {
+if ($dasar == 'Blood Type') {
 	$row = array('A','0','B','AB','');
-	$judul = array(1=>'A','0','B','AB','Tidak ada data');	
+	$judul = array(1=>'A','0','B','AB','No data.');	
 	$jum = count($row);	
-} elseif ($dasar == 'Jenis Kelamin') {
+} elseif ($dasar == 'Gender') {
 	$row = array('l','p');
-	$judul = array(1=>'Laki-laki','Perempuan');	
+	$judul = array(1=>'Male','Female');	
 	$jum = count($row);
-} elseif ($dasar == 'Kewarganegaraan') {
-	$row = array('WNI','WNA');
-	$judul = array(1=>'WNI','WNA');	
+} elseif ($dasar == 'Citizenship') {
+	$row = array('Indonesian Citizen','Other Citizen');
+	$judul = array(1=>'Indonesian Citizen','Other Citizen');	
 	$jum = count($row);
-} elseif ($dasar == 'Status Aktif') {
+} elseif ($dasar == 'Status Active') {
 	$row = array(1,0);
-	$judul = array(1 => 'Aktif','Tidak Aktif');
+	$judul = array(1 => 'Active','Inactive');
 	$jum = count($row);
-} elseif ($dasar == 'Kondisi Siswa') {	
+} elseif ($dasar == 'Student Conditions') {	
 	$query = "SELECT $tabel FROM jbsakad.kondisisiswa ORDER BY $tabel ";
 	$result = QueryDb($query);
 	$jum = @mysql_num_rows($result);
-} elseif ($dasar == 'Status Siswa') {	
+} elseif ($dasar == 'Student Status') {	
 	$query = "SELECT $tabel FROM jbsakad.statussiswa ORDER BY $tabel ";
 	$result = QueryDb($query);
 	$jum = @mysql_num_rows($result);
-} elseif ($dasar == 'Pekerjaan Ayah' || $dasar == 'Pekerjaan Ibu') {	
+} elseif ($dasar == 'Father Occupation' || $dasar == 'Mother Occupation') {	
 	$query = "SELECT pekerjaan FROM jbsumum.jenispekerjaan ORDER BY pekerjaan ";
 	$result = QueryDb($query);
 	$jum = @mysql_num_rows($result);
-} elseif ($dasar == 'Pendidikan Ayah' || $dasar == 'Pendidikan Ibu') {	
+} elseif ($dasar == 'Father Education' || $dasar == 'Mother Education') {	
 	$query = "SELECT pendidikan FROM jbsumum.tingkatpendidikan ORDER BY pendidikan ";
 	$result = QueryDb($query);
 	$jum = @mysql_num_rows($result);
-} elseif ($dasar == 'Penghasilan Orang Tua') {		
+} elseif ($dasar == 'Parent Income') {		
 	$batas = array(0,1000000,2500000,5000000);
-	$judul = array(1 => '< Rp 1000000','Rp 1000000 s/d Rp 2500000','Rp 2500000 s/d Rp 5000000','> Rp 5000000');
+	$judul = array(1 => '< Rp 1000000','Rp 1000000 to Rp 2500000','Rp 2500000 to Rp 5000000','> Rp 5000000');
 	$jum = count($judul);
-} elseif ($dasar == 'Agama' || $dasar == 'Suku') {		
+} elseif ($dasar == 'Religion' || $dasar == 'Ethnicity') {		
 	$query = "SELECT $tabel FROM jbsumum.$tabel";
 	$result = QueryDb($query);
 	$jum = @mysql_num_rows($result);	
@@ -84,32 +84,32 @@ if ($dasar == 'Golongan Darah') {
 
 for ($i=1;$i<=$jum;$i++) {	
 	$field = "";
-	if ($dasar == 'Golongan Darah' || $dasar == 'Jenis Kelamin' || $dasar == 'Kewarganegaraan' ) {		
+	if ($dasar == 'Blood Type' || $dasar == 'Gender' || $dasar == 'Citizenship' ) {		
 		$filter = "1 AND s.$tabel = '".$row[$i-1]."'";
-	} elseif ($dasar == 'Penghasilan Orang Tua' ) {			
+	} elseif ($dasar == 'Parent Income' ) {			
 		$field = ", penghasilanayah+penghasilanibu";
 		$filter = "1 AND ".$batas[$i-1]." < penghasilanayah+penghasilanibu < ".$batas[$i]." GROUP BY penghasilanayah+penghasilanibu";
 		if ($i == $jum) {
 			$filter = "1 AND ".$batas[$i-1]." > penghasilanayah+penghasilanibu GROUP BY penghasilanayah+penghasilanibu";
 		} 
-	} elseif ($dasar == 'Status Aktif') {
+	} elseif ($dasar == 'Status Active') {
 		$filter = $row[$i-1];		
-	} elseif ($dasar=='Agama' || $dasar=='Suku' || $dasar=='Status Siswa' || $dasar=='Kondisi Siswa' || $dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
+	} elseif ($dasar=='Religion' || $dasar=='Ethnicity' || $dasar=='Student Status' || $dasar=='Student Conditions' || $dasar=='Father Occupation' || $dasar=='Mother Occupation' || $dasar=='Father Education' || $dasar=='Mother Education') {
 		$row = @mysql_fetch_row($result);
 		$judul[$i] = $row[0];		
 		$filter = "1 AND s.$tabel = '$row[0]'";
-		if ($dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
+		if ($dasar=='Father Occupation' || $dasar=='Mother Occupation' || $dasar=='Father Education' || $dasar=='Mother Education') {
 			if ($i == $jum) {
-				$judul[$i] = "Tidak ada data";
+				$judul[$i] = "No data.";
 				$filter = "1 AND s.$tabel is NULL";			
 			}
 		}	
-	} elseif ($dasar == 'Tahun Kelahiran') {
+	} elseif ($dasar == 'Year of Birth') {
 		$field = ", YEAR(tgllahir)";
 		$filter = "1 GROUP BY YEAR(tgllahir)";	
 		$j = 1;
 		$jum = 0;		
-	} elseif ($dasar == 'Usia') {
+	} elseif ($dasar == 'Age') {
 		$field = ", YEAR(now()) - YEAR(tgllahir)";
 		$filter = "1 GROUP BY YEAR(now()) - YEAR(tgllahir)";	
 		$j = 1;
@@ -137,11 +137,11 @@ for ($i=1;$i<=$jum;$i++) {
 	
 	while ($row1 = @mysql_fetch_row($result1)) {
    		$data[$i] = $row1[0];
-		if ($dasar=="Asal Sekolah" || $dasar=="Kode Pos Siswa" || $dasar=="Tahun Kelahiran" || $dasar=="Usia") { 
+		if ($dasar=="Past School" || $dasar=="Student Post Code" || $dasar=="Year of Birth" || $dasar=="Age") { 
 			//echo "judul ".$row1[1];
 			$jdl = $row1[1];
 			if ($row1[1] == "") {
-				$jdl = "Tidak ada data";
+				$jdl = "No data.";
 			} 
 			$data[$j] = $row1[0];
 			$judul[$j] = $jdl;
@@ -163,7 +163,7 @@ for ($i=1;$i<=$jum;$i++) {
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Cetak Statistik Penerimaan Siswa Baru]</title>
+<title>JIBAS SIMAKA [Print New Student Admission Statistic]</title>
 <script language="javascript" src="../script/tables.js"></script>
 </head>
 
@@ -173,25 +173,25 @@ for ($i=1;$i<=$jum;$i++) {
 								
 	<? include("../library/headercetak.php") ?>
 	<center>
-  	<font size="4"><strong>STATISTIK PENERIMAN SISWA BARU<BR />BERDASARKAN <?=$nama_judul?></strong></font><br />
+  	<font size="4"><strong>NEW STUDENT ADMISSION STATISTIC<BR />BASED ON <?=$nama_judul?></strong></font><br />
  	</center>
 	<br /><br />    
 	<table>
 	<tr>
-		<td><strong>Departemen</strong> </td> 
+		<td><strong>Department</strong> </td> 
 		<td><strong>:&nbsp;
 	<? 	if ($departemen=="-1") {
-			echo "Semua Departemen"; 
+			echo "All Department"; 
 		} else { 
 			echo $departemen; 
 		}
 	?></strong></td>	
 	</tr>
 	<tr>
-		<td><strong>Penerimaan</strong></td>
+		<td><strong>Admission</strong></td>
 		<td><strong>:&nbsp;
 	<? 	if ($idproses=="-1") { 
-			echo "Semua Penerimaan"; 
+			echo "All Penerimaan"; 
 		} else {
  			OpenDb();
 			$sql="SELECT proses FROM prosespenerimaansiswa WHERE replid='$idproses'";
@@ -223,8 +223,8 @@ for ($i=1;$i<=$jum;$i++) {
 	<table class="tab" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="0" width="100%" align="left" bordercolor="#000000">
 	<tr>
     	<td height="30" align="center" class="header" width="*"><?=$dasar?></td>
-    	<td height="30" align="center" class="header" width="20%">Jumlah</td>
-    	<td height="30" align="center" class="header" width="20%">Prosentase</td>
+    	<td height="30" align="center" class="header" width="20%">Sum</td>
+    	<td height="30" align="center" class="header" width="20%">Percentage</td>
     </tr>
 <?
 for ($i=1;$i<=$jum;$i++) {    

@@ -33,7 +33,7 @@ require_once('../inc/sessionchecker.php');
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_komentar.png"
     style="background-repeat:no-repeat;">
-        <p><font size="2" color="#757575"><b>Pilih siswa untuk melihat nilai rata-rata ujian.</b></font></p>
+        <p><font size="2" color="#757575"><b>Select student to see exam index point.</b></font></p>
     </td>
 </tr>
 </table>

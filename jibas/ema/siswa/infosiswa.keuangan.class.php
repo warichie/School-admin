@@ -44,7 +44,7 @@ class CK
 	
 	public function ShowDepartemenComboBox()
 	{
-		// Dapatkan nis, jenjang dan replid sekarang dan terdahuku
+		// Dapatkan nis, jenjang and replid sekarang and terdahuku
 		$check_nis = $_SESSION["infosiswa.nis"];
 		do
 		{
@@ -61,7 +61,7 @@ class CK
 		}
 		while($nrow > 0);
 		
-		echo "Departemen: <select name='departemen' class='cmbfrm' id='departemen' style='width:150px' onChange=\"ChangeKeuOption('departemen')\">";
+		echo "Department: <select name='departemen' class='cmbfrm' id='departemen' style='width:150px' onChange=\"ChangeKeuOption('departemen')\">";
  		for ($i = 0; $i < count($this->arrdept); $i++)
 		{         	
 			echo "<option value='$i' " . IntIsSelected($i, $this->departemen) . " > " . $this->arrdept[$i][0] . "</option>";
@@ -92,7 +92,7 @@ class CK
 				ORDER BY idtahunbuku DESC";		
 		$result = QueryDb($sql);
 		
-		echo "Tahun Buku: <select name='idtahunbuku' class='cmbfrm' id='idtahunbuku' style='width:150px' onChange=\"ChangeKeuOption('tahunbuku')\">";
+		echo "Fiscal Year: <select name='idtahunbuku' class='cmbfrm' id='idtahunbuku' style='width:150px' onChange=\"ChangeKeuOption('tahunbuku')\">";
 		while($row = mysql_fetch_row($result))
 		{
 			if ($this->idtahunbuku == 0)
@@ -125,7 +125,7 @@ class CK
 		<tr>
 			<td valign="top" background="" style="background-repeat:no-repeat; background-attachment:fixed">
 
-            <div align="right"><a href="javascript:CetakKeuangan()"><img src="../img/print.png" border="0" />&nbsp;Cetak</a></div>			
+            <div align="right"><a href="javascript:CetakKeuangan()"><img src="../img/print.png" border="0" />&nbsp;Print</a></div>			
 			<table class="tab" id="table" border="1"  width="100%" align="center">
 <?
 			$sql =	"SELECT DISTINCT b.replid, b.besar, b.lunas, b.keterangan, d.nama
@@ -175,23 +175,23 @@ class CK
 					<td colspan="4" bgcolor="#99CC00" class="header"><font size="2"><strong><em><?=$namapenerimaan?></em></strong></font></td>
 				</tr>    
 				<tr height="25">
-					<td width="20%" bgcolor="#CCFF66"><strong>Total Bayaran</strong> </td>
+					<td width="20%" bgcolor="#CCFF66"><strong>Total Payment</strong> </td>
 					<td width="15%" bgcolor="#FFFFFF" align="right"><?=FormatRupiah($besar) ?></td>
-					<td width="22%" bgcolor="#CCFF66" align="center"><strong>Pembayaran Terakhir</strong></td>
-					<td width="43%" bgcolor="#CCFF66" align="center"><strong>Keterangan</strong></td>
+					<td width="22%" bgcolor="#CCFF66" align="center"><strong>Last Payment</strong></td>
+					<td width="43%" bgcolor="#CCFF66" align="center"><strong>Info</strong></td>
 				</tr>
 				<tr height="25">
-					<td bgcolor="#CCFF66"><strong>Jumlah Besar Pembayaran</strong> </td>
+					<td bgcolor="#CCFF66"><strong>Payment Amount</strong> </td>
 					<td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($pembayaran) ?></td>
 					<td bgcolor="#FFFFFF" align="center" valign="top" rowspan="2"><?=FormatRupiah($byrakhir) . "<br><i>" . $tglakhir . "</i>" ?> </td>
 					<td bgcolor="#FFFFFF" align="left" valign="top" rowspan="2"><?=$keterangan ?></td>
 				</tr>
 				<tr height="25">
-					<td bgcolor="#CCFF66"><strong>Jumlah Diskon</strong> </td>
+					<td bgcolor="#CCFF66"><strong>Discount</strong> </td>
 					<td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($diskon) ?></td>
 				</tr>
 				<tr height="25">
-					<td bgcolor="#CCFF66"><strong>Sisa Bayaran</strong> </td>
+					<td bgcolor="#CCFF66"><strong>Remaining Payment</strong> </td>
 					<td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($sisa) ?></td>
 				</tr>
 				<tr height="3">
@@ -244,9 +244,9 @@ class CK
 					<td colspan="4" bgcolor="#99CC00" class="header"><font size="2"><strong><em><?=$namapenerimaan?></em></strong></font></td>
 				</tr>  
 				<tr height="25">
-					<td width="22%" bgcolor="#CCFF66" align="center"><strong>Total Pembayaran</strong> </td>
-					<td width="22%" bgcolor="#CCFF66" align="center"><strong>Pembayaran Terakhir</strong></td>
-					<td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><strong>Keterangan</strong></td>
+					<td width="22%" bgcolor="#CCFF66" align="center"><strong>Total Payment</strong> </td>
+					<td width="22%" bgcolor="#CCFF66" align="center"><strong>Last Payment</strong></td>
+					<td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><strong>Info</strong></td>
 				</tr>
 				<tr height="25">
 					<td bgcolor="#FFFFFF" align="center"><?=FormatRupiah($pembayaran) ?></td>

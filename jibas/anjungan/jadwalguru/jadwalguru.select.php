@@ -34,7 +34,7 @@ OpenDb();
 <table border="0" cellpadding="2" cellspacing="0">
 <tr>
 <td align="right">
-<strong>Jadwal:</strong>
+<strong>Schedule:</strong>
 </td>
 <td align="left" width="300">
     
@@ -87,7 +87,7 @@ OpenDb();
 </tr>
 <tr>
     <td align="right">
-    <strong>Guru:</strong>     
+    <strong>Teacher:</strong>     
     </td>
     <td align="left">
 

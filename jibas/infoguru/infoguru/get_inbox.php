@@ -33,18 +33,18 @@ echo $sql;
 ?>
 <table width="200" border="1">
   <tr class="header">
-    <td height="30">No</td>
+    <td height="30">#</td>
     <td height="30">&nbsp;</td>
-    <td height="30">Pengirim</td>
+    <td height="30">Sender</td>
     <td height="30">&nbsp;</td>
-    <td height="30">Judul</td>
-    <td height="30">Tanggal</td>
+    <td height="30">Title</td>
+    <td height="30">Date</td>
   </tr>
   <?
   if (@mysql_num_rows($result)==0){
   ?>
   <tr>
-    <td height="25" colspan="6" align="center">Tidak ada pesan di Kotak Masuk</td>    
+    <td height="25" colspan="6" align="center">No message in the Inbox</td>    
   </tr>
   <? 
   } else{

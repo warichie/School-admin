@@ -59,11 +59,11 @@ function fresh(){
 	document.location.href = "pengguna.php";
 }
 function hapus(id){
-	if (confirm('Anda yakin akan menghapus pengguna ini?'))
+	if (confirm('Are you sure want to delete this user?'))
 		document.location.href = "pengguna.php?ac=nd7bw6g25gdf&id="+id;
 }
 function setaktif(login,newaktif){
-	if (confirm('Anda yakin akan mengubah status aktif pengguna ini?'))
+	if (confirm('Are you sure want to change this user status active?'))
 		document.location.href = "pengguna.php?ac=g25gdfnd7bw6&login="+login+"&newaktif="+newaktif;
 }
 </script>
@@ -72,18 +72,18 @@ function setaktif(login,newaktif){
 <body>
 <div align="right">
 <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;
-    <span class="news_title2">Daftar Pengguna </span>
+    <span class="news_title2">User List </span>
 </div><br />
 <div align="right">
-<a href="javascript:cetak()"><img src="../img/print.png" border="0" />&nbsp;Cetak</a>&nbsp;&nbsp;
-<? if (is_admin()){ ?><a href="javascript:tambah()"><img src="../img/tambah.png" border="0" />&nbsp;Tambah</a><? } ?></div>
+<a href="javascript:cetak()"><img src="../img/print.png" border="0" />&nbsp;Print</a>&nbsp;&nbsp;
+<? if (is_admin()){ ?><a href="javascript:tambah()"><img src="../img/tambah.png" border="0" />&nbsp;Add</a><? } ?></div>
 <br />
 <table width="100%" border="1" class="tab">
   <tr>
-    <td height="25" align="center" class="header">No.</td>
-    <td height="25" align="center" class="header">NIP</td>
-    <td height="25" align="center" class="header">Nama</td>
-    <td align="center" class="header">Last&nbsp;Login</td>
+    <td height="25" align="center" class="header">#</td>
+    <td height="25" align="center" class="header">Employee ID</td>
+    <td height="25" align="center" class="header">Name</td>
+    <td align="center" class="header">Last Login</td>
     <!--td height="25" align="center" class="header">Status</td-->
     <td height="25" align="center" class="header">&nbsp;</td>
   </tr>
@@ -123,7 +123,7 @@ function setaktif(login,newaktif){
   } else { 
   ?>
   <tr>
-    <td colspan="6" align="center" class="nodata">Tidak ada data</td>
+    <td colspan="6" align="center" class="nodata">Data Not Found.</td>
   </tr>
   <?
   }

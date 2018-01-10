@@ -30,7 +30,7 @@ require_once('include/db_functions.php');
 if (getUserName()=="landlord" || getUserName()=="LANDLORD"){
 ?>
 <script language="javascript" >
-	alert ('Maaf, Administrator tidak berhak mengganti tema');
+	alert ('Sorry, but Administrator should not change the theme');
 	document.location.href="../blank.php";
 </script>
 <?
@@ -38,7 +38,7 @@ if (getUserName()=="landlord" || getUserName()=="LANDLORD"){
 OpenDb();
 $theme="";
 $replid="";
-$res=QueryDb("SELECT replid,theme FROM jbsuser.hakakses WHERE modul='KEUANGAN' AND login='".getIdUser()."'");
+$res=QueryDb("SELECT replid,theme FROM jbsuser.hakakses WHERE modul='FINANCE' AND login='".getIdUser()."'");
 $row=@mysql_fetch_array($res);
 $theme=$row[theme];
 $replid=$row[replid];
@@ -59,7 +59,7 @@ if ($op=='dfuh8347hw87ddu293'){
 		$_SESSION['theme']=$thm;
 		?>
 		<script language="javascript" >
-		//	alert ('Tema Anda sudah berubah\nPerubahan akan terlihat setelah Anda tekan F5');
+		//	alert ('Theme Anda sudah berubah\nPerubahan akan terlihat setelah Anda tekan F5');
 			//top.location.reload();
 			//document.location.href="theme_list.php";
 			//document.location.reload();
@@ -83,7 +83,7 @@ if (isset($_REQUEST['5623bu9nfd98932jhkd'])){
 		//$_SESSION['theme']=$thm;
 		?>
         <script language="javascript" >
-			//alert ('Tema Anda sudah berubah\nPerubahan akan terlihat setelah Anda tekan F5');
+			//alert ('Theme Anda sudah berubah\nPerubahan akan terlihat setelah Anda tekan F5');
 			//top.location.reload();
 			//document.location.href="theme_list.php";
 			
@@ -172,19 +172,19 @@ function thm_fresh() {
 </head>
 <body>
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/ico/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+<img src="../images/ico/movewait.gif" border="0" />Please wait...
 </div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Tema</font><br />
-            <a href="usermenu.php"><font size="1" color="#000000"><b>Pengaturan</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Tema</b></font></td>
+    <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Theme</font><br />
+            <a href="usermenu.php"><font size="1" color="#000000"><b>Settings</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Theme</b></font></td>
   </tr>
 </table>
 
 <form action="theme_list.php" method="Get">
 <table width="100%" border="0" cellspacing="0">
   <tr>
-  	<td colspan="3"><span class="style4"><strong>Tema Yang Aktif Saat Ini :</strong></span></td>
+  	<td colspan="3"><span class="style4"><strong>Current active theme :</strong></span></td>
   </tr>
   <tr>
   <tr>
@@ -192,7 +192,7 @@ function thm_fresh() {
   </tr>
   <tr>
     <td colspan="2" align="left" valign="bottom"><div id="active_theme" style="width:176px; height:132;"><img src="<?=GetThemeImage($theme)?>" width="176" height="132" align="left"/></div></td>
-    <td width="78%" colspan="2" align="left" valign="middle"><span class="style2">Nama Tema : 
+    <td width="78%" colspan="2" align="left" valign="middle"><span class="style2">Theme name : 
 	<? 
 	switch($theme){
 		case 1 :
@@ -225,11 +225,11 @@ function thm_fresh() {
 		}
 	?>
     </span><br />
-        <span class="style3">Untuk mengganti tema, silakan klik gambar-gambar
-      di bawah</span><!--
-    , lalu klik Ganti Tema</span>
+        <span class="style3">To change the theme, please click on any images
+      below</span><!--
+    , and then click on Edit Theme</span>
         <label>
-      <input name="ganti" type="submit" class="but" id="ganti" value="Ganti Tema" />
+      <input name="ganti" type="submit" class="but" id="ganti" value="Edit Theme" />
       </label>    --></td>
   </tr>
   <tr>
@@ -239,24 +239,24 @@ function thm_fresh() {
  <br />
  <table width="70%" border="0" cellspacing="0" cellpadding="0">
  <tr>
- 	<td colspan="5"><span class="style4"><strong>Pilihan Tema Yang Tersedia :</strong></span></td>
+ 	<td colspan="5"><span class="style4"><strong>Available theme :</strong></span></td>
  </tr>
  <tr>
  	<td colspan="5">&nbsp;</td>
  </tr>
  <tr>
-    <td width="20%"><div align="center"><img src="images/tumb/green.png" width="78" height="66" onClick="chg_theme(1,'<?=GetThemeImage(1)?>')" style="cursor:pointer;" title="Klik untuk ganti tema"/><br />
+    <td width="20%"><div align="center"><img src="images/tumb/green.png" width="78" height="66" onClick="chg_theme(1,'<?=GetThemeImage(1)?>')" style="cursor:pointer;" title="Click to change the theme"/><br />
     <!--<input name="tema" id="tema" type="radio" value="1" <? if ($theme==1) echo  "checked"; ?>/>-->
     Green</div></td>
-    <td width="20%"><div align="center"><img src="images/tumb/ungu.png" width="78" height="66" onClick="chg_theme(2,'<?=GetThemeImage(2)?>')" style="cursor:pointer;" title="Klik untuk ganti tema"/><br />
+    <td width="20%"><div align="center"><img src="images/tumb/ungu.png" width="78" height="66" onClick="chg_theme(2,'<?=GetThemeImage(2)?>')" style="cursor:pointer;" title="Click to change the theme"/><br />
     <!--<input name="tema" id="tema" type="radio" value="2" <? if ($theme==2) echo  "checked"; ?>/>-->Purple</div></td>
-    <td width="20%"><div align="center"><img src="images/tumb/casual.png" width="78" height="66" onClick="chg_theme(3,'<?=GetThemeImage(3)?>')" style="cursor:pointer;" title="Klik untuk ganti tema"/><br />
+    <td width="20%"><div align="center"><img src="images/tumb/casual.png" width="78" height="66" onClick="chg_theme(3,'<?=GetThemeImage(3)?>')" style="cursor:pointer;" title="Click to change the theme"/><br />
     <!--<input name="tema" id="tema" type="radio" value="3" <? if ($theme==3) echo  "checked"; ?>/>-->
     Casual</div></td>
-    <td width="20%"><div align="center"><img src="images/tumb/black.png" width="78" height="66" onClick="chg_theme(4,'<?=GetThemeImage(4)?>')" style="cursor:pointer;" title="Klik untuk ganti tema"/><br />
+    <td width="20%"><div align="center"><img src="images/tumb/black.png" width="78" height="66" onClick="chg_theme(4,'<?=GetThemeImage(4)?>')" style="cursor:pointer;" title="Click to change the theme"/><br />
     <!--<input name="tema" id="tema" type="radio" value="4" <? if ($theme==4) echo  "checked"; ?>/>-->
     Black</div></td>
-    <td width="20%"><div align="center"><img src="images/tumb/vista.png" width="78" height="66" onClick="chg_theme(5,'<?=GetThemeImage(5)?>')" style="cursor:pointer;" title="Klik untuk ganti tema"/><br />
+    <td width="20%"><div align="center"><img src="images/tumb/vista.png" width="78" height="66" onClick="chg_theme(5,'<?=GetThemeImage(5)?>')" style="cursor:pointer;" title="Click to change the theme"/><br />
     <!--<input name="tema" id="tema" type="radio" value="5" <? if ($theme==5) echo  "checked"; ?>/>-->
     Vista</div></td>
   </tr>
@@ -264,19 +264,19 @@ function thm_fresh() {
   	<td colspan="5">&nbsp;</td>
   </tr>
   <tr>
-    <td><div align="center"><img src="images/tumb/coffee.png" width="78" height="66" onClick="chg_theme(6,'<?=GetThemeImage(6)?>')" style="cursor:pointer;" title="Klik untuk ganti tema"/><br />
+    <td><div align="center"><img src="images/tumb/coffee.png" width="78" height="66" onClick="chg_theme(6,'<?=GetThemeImage(6)?>')" style="cursor:pointer;" title="Click to change the theme"/><br />
     <!--<input name="tema" id="tema" type="radio" value="6" <? if ($theme==6) echo  "checked"; ?>/>-->
     Coffee</div></td>
-    <td><div align="center"><img src="images/tumb/wood.png" width="78" height="66" onClick="chg_theme(7,'<?=GetThemeImage(7)?>')" style="cursor:pointer;" title="Klik untuk ganti tema"/><br />
+    <td><div align="center"><img src="images/tumb/wood.png" width="78" height="66" onClick="chg_theme(7,'<?=GetThemeImage(7)?>')" style="cursor:pointer;" title="Click to change the theme"/><br />
     <!--<input name="tema" id="tema" type="radio" value="7" <? if ($theme==7) echo  "checked"; ?>/>-->
     Wood</div></td>
-    <td><div align="center"><img src="images/tumb/chocolate.png" width="78" height="66" onClick="chg_theme(8,'<?=GetThemeImage(8)?>')" style="cursor:pointer;" title="Klik untuk ganti tema"/><br />
+    <td><div align="center"><img src="images/tumb/chocolate.png" width="78" height="66" onClick="chg_theme(8,'<?=GetThemeImage(8)?>')" style="cursor:pointer;" title="Click to change the theme"/><br />
     <!--<input name="tema" id="tema" type="radio" value="8" <? if ($theme==8) echo  "checked"; ?>/>-->
     Chocolate</div></td>
-    <td><div align="center"><img src="images/tumb/granite.png" width="78" height="66" onClick="chg_theme(9,'<?=GetThemeImage(9)?>')" style="cursor:pointer;" title="Klik untuk ganti tema"/><br />
+    <td><div align="center"><img src="images/tumb/granite.png" width="78" height="66" onClick="chg_theme(9,'<?=GetThemeImage(9)?>')" style="cursor:pointer;" title="Click to change the theme"/><br />
     <!--<input name="tema" id="tema" type="radio" value="9" <? if ($theme==9) echo  "checked"; ?>/>-->
     Granite</div></td>
-    <td>&nbsp;<!---<div align="center"><img src="../design/InfoGuru4_ORANGE.jpg" width="176" height="132" onClick="chg_theme(10,'<?=GetThemeImage(10)?>')" style="cursor:pointer;" title="Klik untuk ganti tema"/><br />
+    <td>&nbsp;<!---<div align="center"><img src="../design/InfoGuru4_ORANGE.jpg" width="176" height="132" onClick="chg_theme(10,'<?=GetThemeImage(10)?>')" style="cursor:pointer;" title="Click to change the theme"/><br />
   <input name="tema" id="tema" type="radio" value="10" <? if ($theme==10) echo  "checked"; ?>/>
     ???</div>--></td>
   </tr>

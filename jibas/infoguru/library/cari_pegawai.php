@@ -56,13 +56,13 @@ OpenDb();
 	<input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
     <input type="hidden" name="urut1" id="urut1" value="<?=$urut1 ?>" />
     <input type="hidden" name="urutan1" id="urutan1" value="<?=$urutan1 ?>" />
-	<!--<font size="2" color="#000000"><strong>Cari Pegawai</strong></font>-->
+	<!--<font size="2" color="#000000"><strong>Search Employee</strong></font>-->
  	</td>
 </tr>
 <tr>
-	<td width="10%"><font color="#000000"><strong>Bagian  </strong></font></td>
+	<td width="10%"><font color="#000000"><strong>Section  </strong></font></td>
     <td><select name="bag" id="bag" onChange="change_bagian('cari')" style="width:135px" onKeyPress="return focusNext('nip', event)">
-    	<option value="-1" <? if ($bagian=="-1") echo "selected"; ?>>(Semua Bagian)</option>
+    	<option value="-1" <? if ($bagian=="-1") echo "selected"; ?>>(All Sections)</option>
 	<?  $sql_bagian="SELECT bagian FROM jbssdm.bagianpegawai ORDER BY urutan ASC";
         $result_bagian=QueryDb($sql_bagian);
         while ($row_bagian=@mysql_fetch_array($result_bagian)){
@@ -76,13 +76,13 @@ OpenDb();
     
    </td>
    <td rowspan="2" width="15%" align="center">
-   <input type="button" class="but" name="submit" id="submit" value="Cari" onclick="carilah();"  style="width:70px;height:40px"/>
+   <input type="button" class="but" name="submit" id="submit" value="Search" onclick="carilah();"  style="width:70px;height:40px"/>
    </td>
 </tr>
 <tr>
-	<td width="10%"><font color="#000000"><b>N I P </b></font></td>
+	<td width="10%"><font color="#000000"><b>Employee ID </b></font></td>
     <td><input type="text" name="nip" id="nip" value="<?=$_REQUEST['nip'] ?>" size="20" onKeyPress="return focusNext('submit', event);" />&nbsp;
-		<font color="#000000"><b>Nama &nbsp;&nbsp;</b></font>
+		<font color="#000000"><b>Name &nbsp;&nbsp;</b></font>
     	<input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama'] ?>" size="20" onKeyPress="return focusNext('submit', event);" /></td>
 </tr>
 
@@ -121,11 +121,11 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 
     <table width="100%" class="tab" cellpadding="2" cellspacing="0" id="table1" border="1" align="center" bordercolor="#000000">
     <tr height="30" class="header" align="center">
-        <td width="7%">No</td>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nip','<?=$urutan1?>','cari')">N I P <?=change_urut('nip',$urut1,$urutan1)?></td>
-        <td onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan1?>','cari')">Nama <?=change_urut('nama',$urut1,$urutan1)?></td>
+        <td width="7%">#</td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nip','<?=$urutan1?>','cari')">Employee ID <?=change_urut('nip',$urut1,$urutan1)?></td>
+        <td onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan1?>','cari')">Name <?=change_urut('nama',$urut1,$urutan1)?></td>
         <? if ($sql_tambahbag == "") { ?>
-        <td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('bagian','<?=$urutan1?>','cari')">Bagian <?=change_urut('bagian',$urut1,$urutan1)?></td>
+        <td width="25%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('bagian','<?=$urutan1?>','cari')">Section <?=change_urut('bagian',$urut1,$urutan1)?></td>
         <? } ?>       
         <td width="10%">&nbsp;</td>
     </tr>
@@ -143,7 +143,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
         <td align="center"><?=$row[2] ?></td>
         <? } ?>
         <td align="center">
-        <input type="button" name="pilih" class="but" id="pilih" value="Pilih" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
+        <input type="button" name="pilih" class="but" id="pilih" value="Select" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
         </td>
     </tr>
 <? } CloseDb(); ?>
@@ -168,16 +168,16 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
    
     <table border="0"width="100%" align="center"cellpadding="2" cellspacing="2">
     <tr>
-       	<td width="30%" align="left"><font color="#000000">Hal
+       	<td width="30%" align="left"><font color="#000000">Page
         <select name="hal1" id="hal1" onChange="change_hal('cari')">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal1,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     	// Navigasi halaman berikutnya dan sebelumnya
+     	// Navigasi halaman berikutnya and sebelumnya
         ?>
         </font></td>
     	<!--td align="center">
@@ -194,7 +194,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 		?>
 	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page1+1?>','cari')" >
  		</td-->
-        <td width="30%" align="right"><font color="#000000">Jml baris per hal
+        <td width="30%" align="right"><font color="#000000">Row per page
       	<select name="varbaris1" id="varbaris1" onChange="change_baris('cari')">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris1,$m) ?>><?=$m ?></option>
@@ -209,8 +209,8 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />          
-		Tambah data pegawai di menu Kepegawaian pada bagian Referensi. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br />          
+		Add this employee data in the Employee Affair Menu on Reference section. </b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -223,7 +223,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
     <td>   
 
 <br /><br />	
-<font size="2" color="#757575"><b>Klik pada tombol "Cari" di atas untuk melihat data pegawai <br />sesuai dengan NIP atau Nama Pegawai berdasarkan <i>keyword</i> yang dimasukkan</b></font>	
+<font size="2" color="#757575"><b>Click on the Search button above to show employee data <br />according to Employee ID or Employee Name based on <i>keyword</i> entered.</b></font>	
 <br /><br />
     </td>
 </tr>
@@ -236,7 +236,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 </tr>
 <tr>
 	<td align="center" colspan="3" height="30">
-	<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close();opener.tutup();" style="width:80px;"/>
+	<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close();opener.tutup();" style="width:80px;"/>
 	</td>
 </tr>
 </table></table>

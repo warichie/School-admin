@@ -52,16 +52,16 @@ require_once('../../include/sessionchecker.php');
 
 <body>
 <div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif">File Sharing</font><br />
-  <a href="../../home.php" target="framecenter"> <font size="1" color="#000000"><b>Home</b></font></a>&nbsp>&nbsp;<strong><font color="#000000" size="1">File Sharing</font></strong>
+  <a href="../../home.php" target="framecenter"> <font size="1" color="#000000"><b>Home</b></font></a>&nbsp;>&nbsp;;<strong><font color="#000000" size="1">File Sharing</font></strong>
 </div>
 <table width="100%" height="150" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td align="center" valign="middle"><br /><br /><br /><br />
     <? if (SI_USER_ID()!="landlord"){ ?>
-	<span class="style1">Folder milik Anda adalah folder </span><span class="style2">'
+	<span class="style1">Your folder is </span><span class="style2">'
 	<?=trim(SI_USER_ID())?>
-    '</span><span class="style1"> yang berada di bawah folder </span><span class="style2">'(root)'</span><br />
-    <span class="style1">Anda dapat mengelola file atau folder yang berada di dalam folder</span> <span class="style2">'
+    '</span><span class="style1"> located in </span><span class="style2">'(root)'</span><br />
+    <span class="style1">You can manage file or folder in</span> <span class="style2">'
     <?=trim(SI_USER_ID())?>
     '</span><span class="style1">.</span>
     <? } ?>

@@ -81,7 +81,7 @@ if(isset($_REQUEST["ubah"]))
 		if (mysql_num_rows($res) > 0)
 		{
 			$row = mysql_fetch_array($res);
-			$info = "Nilai Ujian ".$row['jenisujian']." ".$row['pelajaran']." tanggal ".$row['tanggal']." siswa ".$row['nis']." ".$row['nama'];
+			$info = "Point for Exam ".$row['jenisujian']." ".$row['pelajaran']." tanggal ".$row['tanggal']." siswa ".$row['nis']." ".$row['nama'];
 		}						 
 		
 		$query = "INSERT INTO jbsakad.auditnilai SET jenisnilai='nilaiujian', idnilai='$idnilai', nasli='$nasli', nubah='$nilai', alasan='$alasan', pengguna='$pengguna', informasi='$info'";
@@ -114,7 +114,7 @@ if(isset($_REQUEST["ubah"]))
 		RollbackTrans();
 		CloseDb(); ?>
 		<script language="javascript">
-			alert ('Data gagal disimpan');
+			alert ('Failed to save data');
 		</script>
 <?  }	
 }
@@ -122,7 +122,7 @@ if(isset($_REQUEST["ubah"]))
 
 <html>
 <head>
-<title>JIBAS SIMAKA [Ubah Data Nilai Ujian]</title>
+<title>JIBAS SIMAKA [Edit Exam Data]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/validasi.js"></script>
@@ -133,23 +133,23 @@ if(isset($_REQUEST["ubah"]))
 function cek_form() {
   	var nilai = document.getElementById("nilai").value;
 	if(nilai.length == 0) {
-		alert("Nilai tidak boleh kosong!");		
+		alert("Point For should not leave empty");		
 		document.getElementById("nilai").focus();
 		return false;
 	} else {
 		if (isNaN(nilai)){
-			alert ('Nilai Akhir harus berupa bilangan!');			
+			alert ('Final Point must be numeric');			
 			document.getElementById("nilai").focus();
 			return false;
 		}
 		if (parseInt(nilai)>100){
-			alert ('Rentang Nilai Akhir antara 0 - 100!');
+			alert ('Final Point range is between 0 - 100');
 			document.getElementById("nilai").focus();
 			return false;
 		}
 	}
 
-	return validateEmptyText('alasan', 'Alasan Perubahan Nilai');
+	return validateEmptyText('alasan', 'Reason for Point Changes');
 }
 
 function focusNext(elemName, evt) {
@@ -170,7 +170,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Nilai Ujian :.
+    .: Edit Exam Point :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -185,36 +185,35 @@ function focusNext(elemName, evt) {
 	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
    	<!-- TABLE CONTENT -->
     <tr>
-        <td><strong>NIS</strong></td>
+        <td><strong>Student ID</strong></td>
         <td><input class="disabled" type="text" size="15" name="nis" value="<?=$nis ?>" readonly></td>
     </tr>
     <tr>
-        <td><strong>Nama</strong></td>
+        <td><strong>Name</strong></td>
         <td><input class="disabled" type="text" size="50" name="nama" value="<?=$nama?>" readonly></td>
     </tr>
     <tr>
-        <td><strong>Nilai</strong></td>
+        <td><strong>Point</strong></td>
         <td>
         <input type="hidden" name="nasli" id="nasli" value="<?=$nilai?>">
         <input type="text" name="nilai" id="nilai" size="5" value="<?=$nilai?>" maxlength="7" onKeyPress="return focusNext('alasan',event)">
         </td>
     </tr>
     <tr>
-        <td><strong>Alasan Perubahan Nilai</strong></td>
+        <td><strong>Reason for Point Changes</strong></td>
         <td><input type="text" name="alasan" id="alasan" size="50" value="<?=$alasan ?>" onKeyPress="return focusNext('ubah',event)"></td>
     </tr>
     <tr>
-        <td>Keterangan</td>
+        <td>Info</td>
         <td><input type="text" name="keterangan" id="keterangan" size="50" value="<?=$keterangan ?>" onKeyPress="return focusNext('ubah',event)"></td>
     </tr>
     <tr>
-      	<td colspan="2" align="center"><font color="red"><strong>Setelah merubah nilai ujian, disarankan untuk menghitung
-        ulang nilai nilai akhir siswa.</strong></font></td>
+      	<td colspan="2" align="center"><font color="red"><strong>Post-Exam Point changed, it is recommended to re-calculate the student Final Point.</strong></font></td>
     </tr>
     <tr>
         <td align="center" colspan="2">
-            <input type="submit" value="Simpan" name="ubah" id="ubah" class="but">
-            <input type="button" value="Tutup" name="batal" class="but" onClick="window.close();">
+            <input type="submit" value="Save" name="ubah" id="ubah" class="but">
+            <input type="button" value="Close" name="batal" class="but" onClick="window.close();">
          </td>
     </tr>
     </table>

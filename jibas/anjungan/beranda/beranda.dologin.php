@@ -43,7 +43,7 @@ $ndata = (int)FetchSingle($sql);
 
 if ($ndata == 0)
 {
-    $ERRMSG = "Password salah!";
+    $ERRMSG = "Wrong password";
     include("beranda.login.php");
     exit();
 }

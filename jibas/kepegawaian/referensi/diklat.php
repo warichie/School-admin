@@ -56,7 +56,7 @@ if ($op == "1cn3897nx387123n089x7103971") {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style.css" />
 <link rel="stylesheet" href="../script/mktree.css" />
 <script language="javascript" src="../script/mktree.js"></script>
@@ -76,7 +76,7 @@ function UbahDiklat(id)
 
 function HapusDiklat(idroot, id)
 {
-	if (confirm("Apakah anda yakin akan menghapus data ini?"))
+	if (confirm("Are you sure want to delete this data?"))
 		document.location.href = "diklat.php?op=1cn3897nx387123n089x7103971&id=" + id + "&idanchor=" + idroot;
 }
 
@@ -142,9 +142,9 @@ function traverse($idroot, $jenis, $count)
 			echo "$space<li class='liBullet'>$anchorflag&nbsp;$diklat&nbsp;";
 			if (SI_USER_LEVEL() != $SI_USER_STAFF)
 			{
-				echo "<a href=\"JavaScript:TambahDiklat($id, '$jenis', $count)\" title='Tambah Sub Diklat'><img src='../images/ico/tambah.png' height='14' border='0'></a>";
-				echo "<a href='JavaScript:UbahDiklat($id)' title='Ubah Diklat'><img src='../images/ico/ubah.png' height='14' border='0'></a>";
-				echo "<a href='JavaScript:HapusDiklat($idroot, $id)' title='Hapus Diklat'><img src='../images/ico/hapus.png' height='14' border='0'></a>";
+				echo "<a href=\"JavaScript:TambahDiklat($id, '$jenis', $count)\" title='Add Sub Education and Training'><img src='../images/ico/tambah.png' height='14' border='0'></a>";
+				echo "<a href='JavaScript:UbahDiklat($id)' title='Edit Education and Training'><img src='../images/ico/ubah.png' height='14' border='0'></a>";
+				echo "<a href='JavaScript:HapusDiklat($idroot, $id)' title='Delete Education and Training'><img src='../images/ico/hapus.png' height='14' border='0'></a>";
 			}
 			echo "</li>\r\n";
 		}
@@ -153,9 +153,9 @@ function traverse($idroot, $jenis, $count)
 			echo "$space<li class='liClosed'>$anchorflag&nbsp;$diklat&nbsp;";
 			if (SI_USER_LEVEL() != $SI_USER_STAFF)
 			{
-				echo "<a href=\"JavaScript:TambahDiklat($id, '$jenis', $count)\" title='Tambah Sub Diklat'><img src='../images/ico/tambah.png' height='14' border='0'></a>";
-				echo "<a href='JavaScript:UbahDiklat($id)' title='Ubah Diklat'><img src='../images/ico/ubah.png' height='14' border='0'></a>";
-				echo "<a href='JavaScript:HapusDiklat($idroot, $id)' title='Hapus Diklat'><img src='../images/ico/hapus.png' height='14' border='0'></a>\r\n";
+				echo "<a href=\"JavaScript:TambahDiklat($id, '$jenis', $count)\" title='Add Sub Education and Training'><img src='../images/ico/tambah.png' height='14' border='0'></a>";
+				echo "<a href='JavaScript:UbahDiklat($id)' title='Edit Education and Training'><img src='../images/ico/ubah.png' height='14' border='0'></a>";
+				echo "<a href='JavaScript:HapusDiklat($idroot, $id)' title='Delete Education and Training'><img src='../images/ico/hapus.png' height='14' border='0'></a>\r\n";
 			}
 			echo "$space<ul>\r\n";
 			traverse($id, $jenis, ++$count);
@@ -169,8 +169,8 @@ function traverse($idroot, $jenis, $count)
 <tr>
 	<td width="100%" align="right" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:24px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Diklat</font><br />
-        <a href="referensi.php">Referensi</a> &gt; Diklat<br />
+        <font class="subtitle">Education and Training</font><br />
+        <a href="referensi.php">Reference</a> &gt; Education and Training<br />
     </td>
 </tr>
 <tr><td>
@@ -181,12 +181,12 @@ $sql = "SELECT replid, diklat, jenis FROM diklat WHERE rootid = 0 ORDER BY jenis
 $result = QueryDb($sql);
 if (mysql_num_rows($result) == 0) 
 {
-	echo "Belum ada data";
+	echo "No data yet";
 } 
 else 
 {
 	echo "<ul class='mktree' id='tree1'>\r\n";
-	echo "<li class='liClosed'>&nbsp;DIKLAT&nbsp;\r\n";
+	echo "<li class='liClosed'>&nbsp;EDUCATION and TRAINING&nbsp;\r\n";
 	
 	while ($row = mysql_fetch_row($result)) 
 	{
@@ -203,14 +203,14 @@ else
 		{
 			echo "  <li class='liBullet'>$anchorflag&nbsp;$diklat&nbsp;";
 			if (SI_USER_LEVEL() != $SI_USER_STAFF)
-				echo "  <a href=\"JavaScript:TambahDiklat($id, '$jenis', 2)\" title='Tambah Sub Diklat'><img src='../images/ico/tambah.png' height='14' border='0'></a>";
+				echo "  <a href=\"JavaScript:TambahDiklat($id, '$jenis', 2)\" title='Add Sub Education and Training'><img src='../images/ico/tambah.png' height='14' border='0'></a>";
 			echo "  </li>\r\n";
 		} 
 		else 
 		{
 			echo "  <li class='liClosed'>$anchorflag&nbsp;$diklat&nbsp;";
 			if (SI_USER_LEVEL() != $SI_USER_STAFF)
-				echo "  <a href=\"JavaScript:TambahDiklat($id, '$jenis', 2)\" title='Tambah Sub Diklat'><img src='../images/ico/tambah.png' height='14' border='0'></a>\r\n";
+				echo "  <a href=\"JavaScript:TambahDiklat($id, '$jenis', 2)\" title='Add Sub Education and Training'><img src='../images/ico/tambah.png' height='14' border='0'></a>\r\n";
 			echo "  <ul>\r\n";
 			traverse($id, $jenis, 3);
 			echo "  </ul></li>\r\n";

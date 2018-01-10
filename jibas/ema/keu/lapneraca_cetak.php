@@ -42,7 +42,7 @@ if (isset($_REQUEST['tanggal1']))
 
 if (isset($_REQUEST['tanggal2']))
 	$tanggal2 = $_REQUEST['tanggal2'];
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -50,7 +50,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Laporan Neraca]</title>
+<title>JIBAS EMA [Print Balance Sheet Reports]</title>
 <style type="text/css">
 <!--
 .style1 {color: #000000}
@@ -66,21 +66,21 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>LAPORAN NERACA</strong></font><br />
+  <font size="4"><strong>BALANCE SHEET REPORTS</strong></font><br />
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="7%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="7%" class="news_content1"><strong>Department</strong></td>
     <td width="93%" class="news_content1">: 
       <?=$departemen ?></td>
     </tr>
 <tr>
-  <td class="news_content1"><strong>Tahun Buku</strong></td>
+  <td class="news_content1"><strong>Fiscal Year</strong></td>
   <td class="news_content1">: 
       <?=$ntahunbuku ?></td>
   </tr>
 <tr>
-  <td class="news_content1"><strong>Periode</strong></td>
+  <td class="news_content1"><strong>Period</strong></td>
   <td class="news_content1">:
     <?=$nperiode ?></td>
   </tr>
@@ -88,18 +88,18 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <br />
 <?
 	OpenDb();
-	$sql = "SELECT jd.koderek, ra.nama, sum(jd.debet - jd.kredit) FROM $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd, $db_name_fina.rekakun ra WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('HARTA', 'PIUTANG') GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
+	$sql = "SELECT jd.koderek, ra.nama, sum(jd.debet - jd.kredit) FROM $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd, $db_name_fina.rekakun ra WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('WEALTH', 'DEBT') GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
 	$result = QueryDb($sql);   
 	//if (mysql_num_rows($result) > 0) {
 ?>    
     <table border="0" width="100%" cellpadding="10" cellspacing="5" align="center" background="../img/bttablelong.png">
     <tr>
         <td width="50%" valign="top">
-        	<font size="2"><strong>HARTA</strong></font><br />
+        	<font size="2"><strong>WEALTH</strong></font><br />
             <table border="0" style="border-collapse:collapse" cellpadding="2" width="100%" align="center">
             <tr height="28">
                 <td width="2%">&nbsp;</td>
-                <td colspan="6"><strong>AKTIVA LANCAR</strong><br /></td>
+                <td colspan="6"><strong>CURRENT ASSETS</strong><br /></td>
             </tr>
             <?
             
@@ -122,7 +122,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             <tr height="23">
                 <td width="2%">&nbsp;</td>
                 <td width="2%">&nbsp;</td>
-                <td colspan="3" align="left"><strong><em>Sub Total Aktiva Lancar:</em></strong><br /></td>
+                <td colspan="3" align="left"><strong><em>Current Assets Subtotal:</em></strong><br /></td>
                 <td align="right"><span class="news_title2 style1"><?=FormatRupiah($totalaktivalancar) ?></span></td>
                 <td>&nbsp;</td>
             </tr>
@@ -132,10 +132,10 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             <table border="0" style="border-collapse:collapse" cellpadding="2" width="100%" align="center">
             <tr height="28">
                 <td width="2%">&nbsp;</td>
-                <td colspan="6"><strong>AKTIVA TETAP</strong><br /></td>
+                <td colspan="6"><strong>FIXED ASSETS</strong><br /></td>
             </tr>
             <?
-            $sql = "SELECT jd.koderek, ra.nama, sum(jd.debet - jd.kredit) FROM $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd, $db_name_fina.rekakun ra WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'INVENTARIS' GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
+            $sql = "SELECT jd.koderek, ra.nama, sum(jd.debet - jd.kredit) FROM $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd, $db_name_fina.rekakun ra WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'INVESTMENT' GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
             $result = QueryDb($sql);
             $totalaktivatetap = 0;
             while ($row = mysql_fetch_row($result)) {
@@ -157,7 +157,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             <tr height="23">
                 <td width="2%">&nbsp;</td>
                 <td width="2%">&nbsp;</td>
-                <td colspan="3" align="left"><strong><em>Sub Total Aktiva Tetap:</em></strong><br /></td>
+                <td colspan="3" align="left"><strong><em>Fixed Assets Subtotal:</em></strong><br /></td>
                 <td align="right"><span class="news_title2 style1"><?=FormatRupiah($totalaktivatetap) ?></strong></td>
                 <td>&nbsp;</td>
             </tr>
@@ -166,18 +166,18 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
                 <td align="right">+</td>
             </tr>
             <tr height="28">
-                <td colspan="5" align="left"><font size="2"><strong>TOTAL HARTA</strong></font><br /></td>
+                <td colspan="5" align="left"><font size="2"><strong>TOTAL WEALTH</strong></font><br /></td>
                 <td align="right"><font size="2"><span class="news_title2 style1"><?=FormatRupiah($totalaktivatetap + $totalaktivalancar) ?></strong></font></td>
-                <td >&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             </table>
         </td>
         <td width="50%" valign="top">
-        	<font size="2"><strong>KEWAJIBAN</strong></font><br />
+        	<font size="2"><strong>OBLIGATIONS</strong></font><br />
             <table border="0" style="border-collapse:collapse" cellpadding="2" width="100%" align="center">
             <tr height="28">
                 <td width="2%">&nbsp;</td>
-                <td colspan="6"><strong>HUTANG</strong><br /></td>
+                <td colspan="6"><strong>DEBT</strong><br /></td>
             </tr>
             <?
             $sql = "SELECT jd.koderek, ra.nama, sum(jd.kredit - jd.debet) FROM $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd, $db_name_fina.rekakun ra WHERE j.replid = jd.idjurnal AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'UTANG' GROUP BY jd.koderek, ra.nama ORDER BY jd.koderek";
@@ -201,7 +201,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             <tr height="23">
                 <td width="2%">&nbsp;</td>
                 <td width="2%">&nbsp;</td>
-                <td colspan="3" align="left"><strong><em>Sub Total Hutang:</em></strong><br /></td>
+                <td colspan="3" align="left"><strong><em>Debt Subtotal:</em></strong><br /></td>
                 <td align="right"><span class="news_title2 style1"><?=FormatRupiah($totalhutang) ?></span></td>
                 <td>&nbsp;</td>
             </tr>
@@ -210,7 +210,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             <table  border="0" style="border-collapse:collapse" cellpadding="2" width="100%" align="center">
             <tr height="28">
                 <td width="2%">&nbsp;</td>
-                <td colspan="6"><strong>MODAL</strong><br /></td>
+                <td colspan="6"><strong>CAPITAL</strong><br /></td>
             </tr>
             <?
             $sql = "SELECT tanggalmulai FROM $db_name_fina.tahunbuku WHERE replid = '$idtahunbuku'";
@@ -219,14 +219,14 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             $tanggal1 = $row[0];
             
             $sql = "SELECT SUM(jd.kredit - jd.debet) FROM $db_name_fina.rekakun ra,
-            $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('PENDAPATAN', 'MODAL')";
+            $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori IN ('INCOME', 'CAPITAL')";
             //echo "$sql<br>";
             $result = QueryDb($sql);
             $row = mysql_fetch_row($result);
             $totalpendapatan = (float)$row[0];
             //echo "$totalpendapatan<br>";
             
-            $sql = "SELECT SUM(jd.debet - jd.kredit) FROM $db_name_fina.rekakun ra, $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'BIAYA'";
+            $sql = "SELECT SUM(jd.debet - jd.kredit) FROM $db_name_fina.rekakun ra, $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'COST'";
             //echo "$sql<br>";
             $result = QueryDb($sql);
             $row = mysql_fetch_row($result);
@@ -238,7 +238,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
                 <td width="2%">&nbsp;</td>
                 <td width="2%">&nbsp;</td>
                 <td width="5%" align="left">&nbsp;</td>
-                <td width="*" align="left">Modal Usaha</td>
+                <td width="*" align="left">Venture Capital</td>
                 <td width="28%" align="right"><?=FormatRupiah($modalusaha) ?></td>
                 <td width="30%"  align="right">&nbsp;</td>
                 <td width="13">&nbsp;</td>
@@ -246,7 +246,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             <tr height="23">
                 <td width="2%">&nbsp;</td>
                 <td width="2%">&nbsp;</td>
-                <td colspan="3" align="left"><strong><em>Sub Total Modal Usaha:</em></strong><br /></td>
+                <td colspan="3" align="left"><strong><em>Venture Capital Subtotal:</em></strong><br /></td>
                 <td align="right"><span class="news_title2 style1"><?=FormatRupiah($modalusaha) ?></span></td>
                 <td>&nbsp;</td>
             </tr>
@@ -255,7 +255,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
                 <td align="right">+</td>
             </tr>
             <tr height="28">
-                <td colspan="5" align="left"><font size="2"><strong>TOTAL KEWAJIBAN DAN MODAL</strong></font><br /></td>
+                <td colspan="5" align="left"><font size="2"><strong>TOTAL OBLIGATIONS AND CAPITAL</strong></font><br /></td>
                 <td align="right"><font size="2"><span class="news_title2 style1"><?=FormatRupiah($modalusaha + $totalhutang) ?></span></font></td>
                 <td>&nbsp;</td>
             </tr>

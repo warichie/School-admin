@@ -55,7 +55,7 @@ OpenDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Lihat Data Presensi Pelajaran]</title>
+<title>JIBAS SIMAKA [See Class Presence Data]</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -138,10 +138,10 @@ function focusNext(elemName, evt) {
 <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-	<td class="header" colspan="5" align="center">Presensi Pelajaran</td>
+	<td class="header" colspan="5" align="center">Class Presence</td>
 </tr>
 <tr>
-    <td width="14%"><strong>Departemen </strong></td>
+    <td width="14%"><strong>Department </strong></td>
     <td> 
     <select name="departemen" id="departemen" onChange="change_dep()" style="width:240px;" onKeyPress="return focusNext('tingkat', event)">
     <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -151,7 +151,7 @@ function focusNext(elemName, evt) {
     <option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?> > <?=$value ?> </option>
 <?	} ?>
     </select>        </td>
-    <td><strong>Tahun Ajaran</strong></td>
+    <td><strong>Year</strong></td>
     <td>
     <?  OpenDb();
         $sql = "SELECT replid,tahunajaran, YEAR(tglmulai) AS tahun1, YEAR(tglakhir) AS tahun2 FROM tahunajaran WHERE departemen = '$departemen' AND aktif=1 ORDER BY replid DESC";
@@ -170,7 +170,7 @@ function focusNext(elemName, evt) {
    
 </tr>
 <tr>
-    <td><strong>Tingkat </strong></td>
+    <td><strong>Grade </strong></td>
     <td>
     <select name="tingkat" id="tingkat" onchange="change_tingkat()" style="width:240px;" onKeyPress="return focusNext('kelas', event)">
       <?	OpenDb();
@@ -202,7 +202,7 @@ function focusNext(elemName, evt) {
         <input type="hidden" name="semester" id="semester" value="<?=$row['replid']?>">      	</td>
 </tr>
 <tr>
-	<td><strong>Kelas</strong></td>
+	<td><strong>Class</strong></td>
     <td>
        	<select name="kelas" id="kelas" onChange="change()" style="width:240px;" onKeyPress="return focusNext('pelajaran', event)">
 		<?	OpenDb();
@@ -220,7 +220,7 @@ function focusNext(elemName, evt) {
 			} //while
 		?>
     	</select></td>
-    <td><strong>Bulan</strong></td>
+    <td><strong>Month</strong></td>
 	<td>
     	<select name="bln" id ="bln" onchange="change()" onKeyPress="return focusNext('thn', event)" style="width:60px">
       	<? for ($i=1;$i<=12;$i++) { ?>
@@ -239,9 +239,9 @@ function focusNext(elemName, evt) {
  	</td> 
 </tr>
 <tr>
-	<td><strong>Pelajaran</strong></td>
+	<td><strong>Class Subject</strong></td>
     <td><select name="pelajaran" id="pelajaran" onChange="change()" style="width:240px;" onKeyPress="return focusNext('bln', event)">
-    	<option value="-1">(Semua pelajaran)</option>
+    	<option value="-1">(All pelajaran)</option>
       <?
 			OpenDb();
 			$sql = "SELECT replid,nama FROM pelajaran WHERE departemen = '$departemen' AND aktif=1 ORDER BY nama";
@@ -267,7 +267,7 @@ function focusNext(elemName, evt) {
     
     </td>
 	<!--<td colspan="2">
-    	<input type="submit" name="Simpan" value="Lihat" id="lihat" class="but" onClick="tampil()" style="width:150px;"/> </td>-->
+    	<input type="submit" name="Simpan" value="See" id="lihat" class="but" onClick="tampil()" style="width:150px;"/> </td>-->
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -289,12 +289,12 @@ if ($kelas <> "" && $semester <> "" && $tingkat <> "") {
    		<br />
         <table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0" border="1">
 		<tr height="30">		
-			<td class="header" align="center" width="4%">No</td>
-			<td class="header" align="center" width="5%">Tgl</td>
-			<td class="header" align="center" width="9%">Jam</td>
-            <td class="header" align="center" width="20%">Pelajaran</td>
-            <td class="header" align="center" width="20%">Guru</td>
-            <td class="header" align="center" width="*">Materi</td>
+			<td class="header" align="center" width="4%">#</td>
+			<td class="header" align="center" width="5%">Date</td>
+			<td class="header" align="center" width="9%">Time</td>
+            <td class="header" align="center" width="20%">Class Subject</td>
+            <td class="header" align="center" width="20%">Teacher</td>
+            <td class="header" align="center" width="*">Class Subject</td>
             <td class="header" align="center" width="8%"></td>
 		</tr>
 		<? 
@@ -308,7 +308,7 @@ if ($kelas <> "" && $semester <> "" && $tingkat <> "") {
            	<td><?=$row[3]?></td>
             <td><?=$row[4]?></td>
             <td><?=$row[5] ?></td>            
-            <td align="center"><input type="button" name="pilih" class="but" id="pilih" value="Pilih" onClick="pilih('<?=$row[6]?>')" /></td>
+            <td align="center"><input type="button" name="pilih" class="but" id="pilih" value="Select" onClick="pilih('<?=$row[6]?>')" /></td>
     	</tr>
  	<?		$cnt++;
 		} 
@@ -325,8 +325,8 @@ if ($kelas <> "" && $semester <> "" && $tingkat <> "") {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />           
-		Tambah data presensi di menu Presensi Harian atau <br />Presensi Pelajaran pada bagian Presensi </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br />           
+		Add presence data in the Daily Presence menu or <br />Class Presence on Presence section </b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -338,8 +338,8 @@ if ($kelas <> "" && $semester <> "" && $tingkat <> "") {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />          
-		Tambah data Tahun Ajaran, Tingkat atau Kelas pada bagian Referensi. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br />          
+		Add Year, Grade or Class data on Reference section. </b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -349,8 +349,8 @@ if ($kelas <> "" && $semester <> "" && $tingkat <> "") {
 <tr>
 	<td align="center">
     <br />
-    <!--<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onClick="parent.tutup()" style="width:80px;" />-->
-    <input type="button" class="but" name="tutup" id="tutup" value="Tutup" onClick="window.close()" style="width:80px;" />
+    <!--<input type="button" class="but" name="tutup" id="tutup" value="Close" onClick="parent.tutup()" style="width:80px;" />-->
+    <input type="button" class="but" name="tutup" id="tutup" value="Close" onClick="window.close()" style="width:80px;" />
     </td>
 </tr>	
 <!-- END OF TABLE UTAMA -->

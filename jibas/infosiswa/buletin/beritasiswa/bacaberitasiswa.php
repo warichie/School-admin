@@ -40,14 +40,14 @@ $sql="SELECT YEAR(b.tanggal) as thn, MONTH(b.tanggal) as bln, DAY(b.tanggal) as 
 $result=QueryDb($sql);
 $row=@mysql_fetch_array($result);
 CloseDb();
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");	
 $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Baca Berita Siswa</title>
+<title>Read Student News</title>
 <script language="javascript" src="../../script/tools.js"></script>
 <link href="../../style/style.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
@@ -71,7 +71,7 @@ $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 	</tr>
 	<tr>
 	  <td background="../../images/BGNews_04.png"></td>
-	  <td background="../../images/BGNews_05.png" align="left"><div align="left" style="padding-bottom:10px"><span style="color:#339900; font-size:20px; font-weight:bold">.:</span><span style="color:#FF6600; font-family:Calibri; font-size:16px; font-weight:bold; ">Berita Siswa</span></div></td>
+	  <td background="../../images/BGNews_05.png" align="left"><div align="left" style="padding-bottom:10px"><span style="color:#339900; font-size:20px; font-weight:bold">.:</span><span style="color:#FF6600; font-family:Calibri; font-size:16px; font-weight:bold; ">Student News</span></div></td>
 	  <td align="right" valign="top" background="images/BGNews_05.png"><img src="../../images/ico/hapus.png" width="16" height="16" style="cursor:pointer" onclick="window.close();" /></td>
 	  <td background="../../images/BGNews_06.png"></td>
   </tr>

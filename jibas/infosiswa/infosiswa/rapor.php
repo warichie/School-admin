@@ -99,7 +99,7 @@ if (isset($_REQUEST['semester']))
     <!-- CONTENT GOES HERE //--->	
     <table border="0" cellpadding="2"cellspacing="2" width="100%" style="color:#000000">
      <tr>
-    	<td width="18%"><strong>Departemen</strong></td>
+    	<td width="18%"><strong>Department</strong></td>
       <td width="*"> 
     		<select name="departemen" id="departemen" onChange="change_dep(4)" style="width:150px">
 			<? for ($i=0;$i<sizeof($dep);$i++) { ?>        	
@@ -107,7 +107,7 @@ if (isset($_REQUEST['semester']))
 			<? } ?>
 			</select>
     	</td>
-      <td><strong>Tahun Ajaran</strong></td>
+      <td><strong>Year</strong></td>
       <td>
          <select name="tahunajaran" id="tahunajaran" onChange="change_ta(4)" style="width:150px">
    		<? for($k=0;$k<sizeof($ajaran);$k++) 
@@ -120,7 +120,7 @@ if (isset($_REQUEST['semester']))
 		</td>
   	</tr>
     <tr>
-		<td width="19%"><strong>Riwayat Kelas</strong></td>
+		<td width="19%"><strong>Class History</strong></td>
       <td>
         <select name="kelas" id="kelas" onChange="change(4)" style="width:200px">
    		<? for ($j=0;$j<sizeof($kls);$j++) 
@@ -169,14 +169,14 @@ if (isset($_REQUEST['semester']))
 	{ ?>
     <tr>
     	<td colspan="4">
-      <fieldset><legend><strong>Laporan Hasil Belajar</strong></legend>
+      <fieldset><legend><strong>Report Card</strong></legend>
 <?		ShowRapor() ?>		
 		</fieldset>
     	</td>
 	</tr>
   	<tr>
     	<td colspan="4">
-      <fieldset><legend><strong>Komentar Hasil Belajar</strong></legend>
+      <fieldset><legend><strong>Comments</strong></legend>
 <?		ShowKomentar() ?>
 		</fieldset>
       </td>
@@ -187,7 +187,7 @@ if (isset($_REQUEST['semester']))
 <?	} else { ?>                 
 	<tr>
 		<td align="center" valign="middle" height="120" colspan="4">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br /></font>
+    	<font size = "2" color ="red"><b>Data Not Found<br /></font>
 		<table id="table2"></table><table id="table3"></table>
 		</td>
 	</tr>
@@ -195,7 +195,7 @@ if (isset($_REQUEST['semester']))
 <? } else { ?>                 
 	<tr>
 		<td align="center" valign="middle" height="120" colspan="4">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br /></font>
+    	<font size = "2" color ="red"><b>Data Not Found<br /></font>
 		<table id="table2"></table><table id="table3"></table>
 		</td>
 	</tr>
@@ -216,8 +216,8 @@ function ShowKomentar()
 	?>
 		<table border="1" id="table3" class="tab" width="100%">
 		<tr>
-            <td width="27%" height="30" align="center" class="header">Pelajaran</td>
-            <td width="73%" height="30" align="center" class="header">Komentar</td>
+            <td width="27%" height="30" align="center" class="header">Class Subject</td>
+            <td width="73%" height="30" align="center" class="header">Comments</td>
        	</tr>
 <?			$sql_get_pelajaran_komentar = 
 				"SELECT pel.replid as replid,pel.nama as nama 
@@ -284,17 +284,17 @@ function ShowRaporColumn()
 	} ?>  
 	<table width="100%" border="1" class="tab" id="table" bordercolor="#000000">
 	<tr>
-		<td width="15%" rowspan="2" class="headerlong"><div align="center">Pelajaran</div></td>
-		<td width="10%" rowspan="2" class="headerlong"><div align="center">KKM</div></td>
+		<td width="15%" rowspan="2" class="headerlong"><div align="center">Class Subject</div></td>
+		<td width="10%" rowspan="2" class="headerlong"><div align="center">Minimum Completeness Criteria</div></td>
 <?		for($i = 0; $i < count($aspekarr); $i++)
 			echo "<td class='headerlong' colspan='3' align='center' width='18%'>" . $aspekarr[$i][1] . "</td>"; ?>
-		<td width="15%" rowspan="2" class="headerlong"><div align="center">Predikat</div></td>
+		<td width="15%" rowspan="2" class="headerlong"><div align="center">Predicate</div></td>
   	</tr>
 	<tr>
 <?	for($i = 0; $i < count($aspekarr); $i++)
-		echo "<td class='header' align='center' width='7%'>Angka</td>
-			   <td class='header' align='center' width='7%'>Huruf</td>
-				<td class='header' align='center' width='20%'>Terbilang</td>"; ?>   
+		echo "<td class='header' align='center' width='7%'>Number</td>
+			   <td class='header' align='center' width='7%'>Letter</td>
+				<td class='header' align='center' width='20%'>Spelled Out</td>"; ?>   
    </tr>
 <?	$sql = "SELECT pel.replid, pel.nama
 				 FROM ujian uji, nilaiujian niluji, siswa sis, pelajaran pel 
@@ -367,13 +367,13 @@ function ShowRaporColumn()
 			
 			switch ($tmp)
 			{
-				case 4:	$pred = "Istimewa"; break;
-				case 3:	$pred = "Baik"; break;
-				case 2:	$pred = "Cukup"; break;
-				case 1:	$pred = "Kurang"; break;
-				case 0:	$pred = "Buruk"; break;
+				case 4:	$pred = "Excellent"; break;
+				case 3:	$pred = "Good"; break;
+				case 2:	$pred = "Average"; break;
+				case 1:	$pred = "Not Good"; break;
+				case 0:	$pred = "Bad"; break;
 				default:
-					$pred = "Baik";
+					$pred = "Good";
 			}
 		}			
 		echo "<td align='left'>$pred</td>"; 
@@ -387,16 +387,16 @@ function ShowRaporRow()
 	global 	$semester, $kelas, $nis, $NTT; ?>
     <table width="100%" border="1" class="tab" bordercolor="#000000">
     <tr>
-        <td width="4%" rowspan="2" class="headerlong"><div align="center">No</div></td>
-        <td width="12%" rowspan="2" class="headerlong"><div align="center">Pelajaran</div></td>
-        <td width="7%" rowspan="2" class="headerlong"><div align="center">KKM</div></td>
-        <td width="12%" rowspan="2" class="headerlong"><div align="center">Aspek<br>Penilaian</div></td>
-        <td width="35%" colspan="3" class="headerlong"><div align="center">Nilai</div></td>
+        <td width="4%" rowspan="2" class="headerlong"><div align="center">#</div></td>
+        <td width="12%" rowspan="2" class="headerlong"><div align="center">Class Subject</div></td>
+        <td width="7%" rowspan="2" class="headerlong"><div align="center">Minimum Completeness Criteria</div></td>
+        <td width="12%" rowspan="2" class="headerlong"><div align="center">Evaluation<br>Aspects</div></td>
+        <td width="35%" colspan="3" class="headerlong"><div align="center">Point</div></td>
     </tr>
     <tr>
-        <td width="7%" class="headerlong"><div align="center">Angka</div></td>
-        <td width="7%" class="headerlong"><div align="center">Huruf</div></td>
-        <td width="20%" class="headerlong"><div align="center">Terbilang</div></td>
+        <td width="7%" class="headerlong"><div align="center">Number</div></td>
+        <td width="7%" class="headerlong"><div align="center">Letter</div></td>
+        <td width="20%" class="headerlong"><div align="center">Spelled Out</div></td>
     </tr>
    
 <? 	$sql = "SELECT pel.replid, pel.nama

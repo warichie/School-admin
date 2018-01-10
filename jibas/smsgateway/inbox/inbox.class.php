@@ -52,7 +52,7 @@ class Inbox{
 			echo '</head>';
 			echo '<body>';
 			echo '<div id="SubTitle" align="right">';
-			echo '<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Pesan Masuk</span>';
+			echo '<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Inbox</span>';
 			echo '</div>';
 		}
 		switch($cmd){
@@ -89,7 +89,7 @@ class Inbox{
 			<div align='left' style='border-bottom:1px dashed #919191; padding-bottom:5px; margin-bottom:5px'>
 			<table border="0" cellspacing="0" cellpadding="2">
 			  <tr>
-				<td>Bulan :</td>
+				<td>Month :</td>
 				<td>
 					<select class="Cmb periode" id='month'>
 						<?php
@@ -151,9 +151,9 @@ class Inbox{
 	public function showList(){
 		ob_start();
 			if (count($this->sms)==0){
-				echo "<div class='ui-state-highlight' align='center' id='nodata' style='display:block'>Tidak ada pesan Masuk</div>";
+				echo "<div class='ui-state-highlight' align='center' id='nodata' style='display:block'>No incoming message</div>";
 			} else {
-				echo "<div class='ui-state-highlight' align='center' id='nodata' style='display:none'>Tidak ada pesan Masuk</div>";
+				echo "<div class='ui-state-highlight' align='center' id='nodata' style='display:none'>No incoming message</div>";
 				?>
 				<table cellspacing="0" cellpadding="0" border="1" width="100%" class="tab" id='tableInbox'>
 				<?php
@@ -184,9 +184,9 @@ class Inbox{
 	
 	public function getRowHeader(){
 		return "<tr height='20' class='Header'>
-			<td width='250'>Pengirim</td>
-					<td width='150'>Tanggal</td>
-                    <td width='*'>Pesan</td>
+			<td width='250'>Sender</td>
+					<td width='150'>Date</td>
+                    <td width='*'>Message</td>
                     <td width='50'>&nbsp;</td>
 			</tr>";
 
@@ -198,9 +198,9 @@ class Inbox{
 				<td style='padding: 2px;'>_DATE_</td>
 				<td style='padding: 2px;'>_MSG_</td>
 				<td align='center'>
-				<img src='../images/ico/lihat.png' alt='Lihat' style='cursor:pointer' class='btnView' id='_ID_'>";
+				<img src='../images/ico/lihat.png' alt='View' style='cursor:pointer' class='btnView' id='_ID_'>";
 		if ($_SESSION['tingkat']!='2')
-		$tmp .= "<img src='../images/ico/hapus.png' alt='Hapus' style='cursor:pointer' class='btnDel' id='_ID_'>";
+		$tmp .= "<img src='../images/ico/hapus.png' alt='Delete' style='cursor:pointer' class='btnDel' id='_ID_'>";
 
 		$tmp .= "</td>
 				</tr>";
@@ -256,7 +256,7 @@ class Inbox{
 			$nama  = $rowph[0];
 			?>
 			<div style="font-family:Arial; color:#666666; font-weight:bold">
-				Tanggal : 	
+				Date : 	
 			</div>
 			<div style="padding-left:10px">
 				<?php echo $data[3] ?>
@@ -268,7 +268,7 @@ class Inbox{
 				<?php echo $data[1] ?> &lt;<?php echo $nama ?>&gt;
 			</div>
 			<div style="font-family:Arial; color:#666666; font-weight:bold; border-top:1px dashed #999999; margin-top:5px">
-				Pesan : 	
+				Message : 	
 			</div>
 			<div style="padding-left:10px">
 				<?php echo $data[2] ?>

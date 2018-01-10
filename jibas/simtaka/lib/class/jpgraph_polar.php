@@ -255,7 +255,7 @@ class PolarAxis extends Axis {
             // First determine how many minor step on
             // every major step. We have recorded the minor radius
             // in pmin and use these values. This is done in order
-            // to avoid rounding errors if we were to recalculate the
+            // to avoid rounding errors if we were to re-calculate the
             // different major radius.
             $pmaj = $this->scale->ticks->maj_ticks_pos;
             $p = $this->scale->ticks->ticks_pos;

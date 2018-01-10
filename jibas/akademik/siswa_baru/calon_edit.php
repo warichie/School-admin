@@ -88,7 +88,7 @@ else
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Calon Siswa]</title>
+<title>JIBAS SIMAKA [Edit Student Candidate]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/rupiah.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -127,7 +127,7 @@ function validate() {
 	var file=document.getElementById("file").value;
 	
 	if (kelompok.length == 0) {
-		alert("Kelompok Calon Siswa tidak boleh kosong!");
+		alert("Student Candidate Group should not leave empty");
 		document.getElementById('departemen').focus();
 		return false;
 	} 
@@ -136,51 +136,51 @@ function validate() {
 		var kapasitas = parseInt(document.main.kapasitas.value);
 		var isi = parseInt(document.main.isi.value);
 		if (kapasitas <= isi) {
-			alert("Kapasitas kelompok tidak mencukupi untuk menambah data calon baru!");
+			alert("Group Capacity is not enought to add new candidate data");
 			document.getElementById('kelompok').focus();
 			return false;	
 		}
 	}
 	
 	if (nama.length == 0) {
-		alert("Anda harus mengisikan data untuk Nama!");
+		alert("You must enter a data for Name");
 		document.getElementById('nama').focus();
 		return false;
 	}
 	
 	if (tmplahir.length == 0) {
-		alert("Anda harus mengisikan data untuk Tempat Lahir!");
+		alert("You must enter a data for Birth Place");
 		document.getElementById('tmplahir').focus();
 		return false;
 	}
 	
 	if (tgllahir == "") {
-       	alert("Anda harus mengisikan data untuk Tanggal Lahir!");
+       	alert("You must enter a data for Date of Birth");
 		document.main.tgllahir.focus();
         return false;
    	}
 	
 	if (blnlahir == "") {
-       	alert("Anda harus mengisikan data untuk Bulan Lahir!");
+       	alert("You must enter a data for Month of Birth");
 		document.main.blnlahir.focus();
         return false;
    	}
 	
 	if (thnlahir == "") {
-       	alert("Anda harus mengisikan data untuk Tahun Lahir!");
+       	alert("You must enter a data for Year of Birth");
 		document.main.thnlahir.focus();
         return false;
    	}
 	
 	if (thnlahir.length > 0){	
 		if(isNaN(thnlahir)) {
-    		alert ('Data tahun lahir harus berupa bilangan!');
+    		alert ('Year of Birth data must be numeric');
 			//document.main.thnlahir.value="";
 			document.main.thnlahir.focus();
         	return false;
 		}
 		if (thnlahir.length > 4 || thnlahir.length < 4) {
-        	alert("Tahun lahir tidak boleh lebih atau kurang dari 4 karakter!"); 
+        	alert("Year of Birth should not more or less than 4 characters"); 
 			document.main.thnlahir.focus();
         return false;
     	}
@@ -188,48 +188,48 @@ function validate() {
 	
 	
 	if(agama.length == 0) {
-       	alert("Anda harus mengisikan data untuk Agama calon siswa!");
+       	alert("You must enter a data for student candidate Religion");
 		document.main.agama.focus();
         return false;
    	}
 	
 	if(suku.length == 0) {
-       	alert("Anda harus mengisikan data untuk Suku calon siswa!");
+       	alert("You must enter a data for student candidate Ethnicity");
 		document.main.suku.focus();
         return false;
    	}
 	
 	if(status.length == 0) {
-       	alert("Anda harus mengisikan data untuk Status calon siswa!");
+       	alert("You must enter a data for student candidate Status");
 		document.main.status.focus();
         return false;
    	}
 	
 	if(kondisi.length == 0) {
-       	alert("Anda harus mengisikan data untuk Kondisi calon siswa!");
+       	alert("You must enter a data for student candidate Conditions");
 		document.main.kondisi.focus();
         return false;
    	}
 		
 	if (urutananak.length > 0){
 		if(isNaN(urutananak)) {
-			alert ('Data isian anak ke harus berupa bilangan!');
+			alert ('Child # must be numeric');
 			document.main.urutananak.value="";
 			document.main.urutananak.focus();
 			return false;
 		}
 		if (urutananak == 0) {
-			alert("Urutan Anak harus lebih besar dari 0!");
+			alert("Child # should more than 0");
 			document.getElementById('urutananak').focus();
 			return false;
 		}
 		if (jumlahanak.length == 0) {
-			alert("Jumlah saudara tidak boleh kosong!");
+			alert("Siblings should not leave empty");
 			document.getElementById('jumlahanak').focus();
 			return false;
 		}
 	} else {
-		alert("Urutan Anak tidak boleh kosong!");
+		alert("Child # should not leave empty");
 		document.getElementById('urutananak').focus();
 		return false;
 	}
@@ -237,7 +237,7 @@ function validate() {
 
 	if (jumlahanak.length > 0){
 		if(isNaN(jumlahanak)) {
-			alert ('Jumlah saudara harus berupa bilangan!');
+			alert ('Siblings must be numeric');
 			//document.getElementById('jumlahanak').value="";
 			document.getElementById('jumlahanak').focus();
 			return false;
@@ -245,14 +245,14 @@ function validate() {
 	}
 
 	if (parseInt(urutananak) > parseInt(jumlahanak)) {
-		alert ('Urutan anak tidak boleh lebih dari jumlah saudara yang ada!');
+		alert ('Child # should not exceed the existing siblings data');
 		document.getElementById ('urutananak').focus();
 		return false;
 	}
 		
 	if (kodepos.length > 0){
 		if(isNaN(kodepos)) {
-			alert ('Data kodepos harus berupa bilangan!');
+			alert ('Post Code data must be numeric');
 			//document.getElementById('kodepos').value="";
 			document.getElementById('kodepos').focus();
 			return false;
@@ -261,7 +261,7 @@ function validate() {
 
 	if (telponsiswa.length > 0){
 		if(isNaN(telponsiswa)) {
-			alert ('Data nomor telepon harus berupa bilangan!');
+			alert ('Phone data must be numeric');
 			//document.getElementById('telponsiswa').value="";
 			document.getElementById('telponsiswa').focus();
 			return false;
@@ -270,7 +270,7 @@ function validate() {
 		
 	if (hpsiswa.length > 0){
 		if(isNaN(hpsiswa)) {
-			alert ('Data nomor HP harus berupa bilangan!\nTidak boleh menggunakan spasi.');
+			alert ('Mobile phone data must be numeric\nDo not use space');
 			//document.getElementById('hpsiswa').value="";
 			document.getElementById('hpsiswa').focus();
 			return false;
@@ -279,7 +279,7 @@ function validate() {
 	
 	if (berat.length > 0){
 		if(isNaN(berat)) {
-			alert ('Data berat harus berupa bilangan');
+			alert ('Body Weight data must be numeric');
 			//document.getElementById('berat').value=0;
 			document.getElementById('berat').focus();
 			return false;
@@ -288,7 +288,7 @@ function validate() {
 
 	if (tinggi.length > 0){
 		if(isNaN(tinggi)) {
-			alert ('Data tinggi harus berupa bilangan!');
+			alert ('Body Height data must be numeric');
 			//document.getElementById('tinggi').value="";
 			document.getElementById('tinggi').focus();
 			return false;
@@ -297,7 +297,7 @@ function validate() {
 	
 	if (penghasilanayah.length > 0){
 		if(isNaN(penghasilanayah)) {
-			alert ('Data penghasilan Ayah harus berupa bilangan!');
+			alert ('Father income data must be numeric');
 			//document.getElementById('penghasilanayah').value="";
 			document.getElementById('penghasilanayah1').focus();
 			return false;
@@ -306,7 +306,7 @@ function validate() {
 		
 	if (penghasilanibu.length > 0){
 		if(isNaN(penghasilanibu)) {
-			alert ('Data penghasilan Ibu harus berupa bilangan!');
+			alert ('Mother income data must be numeric');
 			//document.getElementById('penghasilanibu').value="";
 			document.getElementById('penghasilanibu1').focus();
 			return false;
@@ -315,7 +315,7 @@ function validate() {
 
 	if (telponortu.length > 0){
 		if(isNaN(telponortu)) {
-			alert ('Data telepon orang tua harus berupa bilangan!');
+			alert ('Parent phone data must be numeric');
 			//document.getElementById('telponortu').value="";
 			document.getElementById('telponortu').focus();
 			return false;
@@ -324,7 +324,7 @@ function validate() {
 	
 	if (hportu.length > 0){
 		if(isNaN(hportu)) {
-			alert ('Data nomor HP orang tua harus berupa bilangan!\nTidak boleh menggunakan spasi.');
+			alert ('Parent mobile phone data must be numeric\nDo not use space');
 			//document.getElementById('hportu').value="";
 			document.getElementById('hportu').focus();
 			return false;
@@ -333,7 +333,7 @@ function validate() {
 	
 	if (emailsiswa.length > 0) {
 		if (!validateEmail("emailsiswa") ) { 
-			alert( "Email yang Anda masukkan bukan merupakan alamat email!" );
+			alert( "Email you entered is not an email address");
 			document.main.emailsiswa.focus();
 			return false;	
 		}	
@@ -341,7 +341,7 @@ function validate() {
 	
 	if (emailayah.length > 0) {
 		if (!validateEmail("emailayah") ) { 
-			alert( "Email yang Anda masukkan bukan merupakan alamat email!" );
+			alert( "Email you entered is not an email address");
 			document.main.emailayah.focus();
 			return false;	
 		}	
@@ -349,7 +349,7 @@ function validate() {
 	
 	if (emailibu.length > 0) {
 		if (!validateEmail("emailibu") ) { 
-			alert( "Email yang Anda masukkan bukan merupakan alamat email!" );
+			alert( "Email you entered is not an email address");
 			document.main.emailibu.focus();
 			return false;	
 		}	
@@ -362,7 +362,7 @@ function validate() {
 		if (thnlahir % 4 == 0){
 			 if (blnlahir == 2){
 				  if (tgllahir>29){
-					   alert ('Maaf, silahkan masukan ulang tanggal lahir!');
+					   alert ('Sorry, please re-enter the Date of Birth data');
 					   sendRequestText("../library/gettanggal.php", show1, "tahun="+thnlahir+"&bulan="+blnlahir+"&tgl="+tgllahir+"&namatgl="+namatgl+"&namabln="+namabln);	
 					   document.getElementById("tgllahir").focus();
 					   return false;
@@ -370,7 +370,7 @@ function validate() {
 			 }
 			 if (blnlahir == 4 || blnlahir == 6 || blnlahir == 9 || blnlahir == 11){
 				  if (tgllahir>30){
-					   alert ('Maaf, silahkan masukan ulang tanggal lahir!');
+					   alert ('Sorry, please re-enter the Date of Birth data');
 					   sendRequestText("../library/gettanggal.php", show1, "tahun="+thnlahir+"&bulan="+blnlahir+"&tgl="+tgllahir+"&namatgl="+namatgl+"&namabln="+namabln);	
 					   document.getElementById("tgllahir").focus();
 					   return false;
@@ -380,7 +380,7 @@ function validate() {
 		if (thnlahir % 4 != 0){
 			 if (blnlahir == 2){
 				 if (tgllahir>28){
-					   alert ('Maaf, silahkan masukan ulang tanggal lahir!');
+					   alert ('Sorry, please re-enter the Date of Birth data');
 					   sendRequestText("../library/gettanggal.php", show1, "tahun="+thnlahir+"&bulan="+blnlahir+"&tgl="+tgllahir+"&namatgl="+namatgl+"&namabln="+namabln);	
 					   document.getElementById("tgllahir").focus();
 					   return false;
@@ -389,7 +389,7 @@ function validate() {
 			 }
 			 if (blnlahir == 4 || blnlahir == 6 || blnlahir == 9 || blnlahir == 11){
 				  if (tgllahir>30){
-					   alert ('Maaf, silahkan masukan ulang tanggal lahir!');
+					   alert ('Sorry, please re-enter the Date of Birth data');
 					   sendRequestText("../library/gettanggal.php", show1, "tahun="+thnlahir+"&bulan="+blnlahir+"&tgl="+tgllahir+"&namatgl="+namatgl+"&namabln="+namabln);	
 					   document.getElementById("tgllahir").focus();
 					   return false;
@@ -417,7 +417,7 @@ function validate() {
 		var x = file.split('.');
 		ext = x[(x.length-1)];
 		if (ext!='JPG' && ext!='jpg' && ext!='Jpg' && ext!='JPg' && ext!='JPEG' && ext!='jpeg'){
-			alert ('Format Gambar harus ber-extensi jpg atau JPG !');
+			alert ('Image should be jpg or JPG formatted');
 			document.getElementById("foto").value='';
 			document.main.file.focus();
     		document.main.file.select();
@@ -580,7 +580,7 @@ function ref_del_status(){
 }
 // End of Ajax Status===================================================
 
-//====== Ajax Kondisi ==================================================
+//====== Ajax Conditions ==================================================
 function kondisi_kiriman(kondisi){	
 	refresh_kondisi(kondisi);
 	//setTimeout("refresh_kondisi(kon)",1);
@@ -602,7 +602,7 @@ function show_kondisi(x) {
 function ref_del_kondisi(){
 	setTimeout("refresh_kondisi(0)",1);
 }
-//======End of Ajax Kondisi==============================================
+//======End of Ajax Conditions==============================================
 
 //====Ajax pendidikan====================================================
 function pendidikan_kiriman(pendidikan){
@@ -638,7 +638,7 @@ function ref_del_pendidikan() {
 }
 //=======End Of ajax pendidikan==========================================
 
-//========Ajax Pekerjaan ================================================
+//========Ajax Occupation ================================================
 function pekerjaan_kiriman(kerja){
 	setTimeout("refresh_pekerjaan(pekerjaan)",1);
 }
@@ -671,7 +671,7 @@ function show_pekerjaan1(x) {
 function ref_del_pekerjaan(){
 	setTimeout("refresh_pekerjaan(0)",1);
 }
-//======== End Of Ajax Pekerjaan ========================================
+//======== End Of Ajax Occupation ========================================
 
 function change_alamat(){	
 	var alamatsiswa = document.getElementById("alamatsiswa").value;
@@ -697,12 +697,12 @@ function change_bln() {
 	
 	if(thn.length != 0) {
     	if(isNaN(thn)) {
-    		alert("Tahun lahir harus berupa angka"); 
+    		alert("Year of Birth should be numeric"); 
 			document.getElementById('thnlahir').focus();
         	return false;
 		} else {	
 			if (thn.length > 4 || thn.length < 4) {
-            	alert("Tahun lahir tidak boleh lebih atau kurang dari 4 karakter!"); 
+            	alert("Year of Birth should not more or less than 4 characters"); 
 				document.getElementById('thnlahir').focus();
             	return false;
 			}
@@ -813,7 +813,7 @@ function unfokus(elem){
 </head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#dcdfc4" onLoad="document.getElementById('nisn').focus()">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -821,7 +821,7 @@ function unfokus(elem){
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Data Calon Siswa :.
+    .: Edit Student Candidate Data :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -832,13 +832,13 @@ function unfokus(elem){
     <!-- CONTENT GOES HERE //--->
 	<form name="main" method="post" action="calon_simpan.php" onsubmit="return validate()" enctype="multipart/form-data">
 	<input type="hidden" name="replid" id="replid" value="<?=$replid?>">
-	<input type="hidden" name="action" id="action" value="ubah">
+	<input type="hidden" name="action" id="action" value="edit">
     <input type="hidden" name="kel_lama" id="kel_lama" value="<?=$kelompok_lama?>">
 
 <table border="0" width="100%" align="center">
 <!-- TABLE CENTER -->
 <!--tr height="25">
-	<td class="header" colspan="2" align="center">Ubah Data Calon Siswa</td>
+	<td class="header" colspan="2" align="center">Edit Student Candidate Data</td>
 </tr-->
 <tr>
 	<td align="left" valign="top">
@@ -847,7 +847,7 @@ function unfokus(elem){
     	<td>
        	<table width="96%" border="0" >
  		<tr>
-    		<td width="27%"><strong>Departemen</strong></td>
+    		<td width="27%"><strong>Department</strong></td>
     		<td width="*"><div id="InfoDepartemen">
             <select name="departemen" id="departemen" onchange="change_dep()" style="width:280px" onKeyPress="return focusNext('kelompok',event)" onFocus="panggil('departemen')">
               <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -864,7 +864,7 @@ function unfokus(elem){
   		</tr>
   		
         <tr>
-        	<td><strong>Proses Penerimaan</strong></td>
+        	<td><strong>Admission Process</strong></td>
     		<td><div id="InfoProses">
             <?	$sql = "SELECT replid,proses FROM prosespenerimaansiswa WHERE aktif=1 AND departemen='$departemen'";				
 				$result = QueryDb($sql);				
@@ -876,7 +876,7 @@ function unfokus(elem){
             	</div>            </td>
   		</tr>
   		<tr>
-    		<td><strong>Kelompok Calon Siswa</strong></td>
+    		<td><strong>Student Candidate Group</strong></td>
     		<td>
             	<div id = "InfoKelompok">
             	<select name="kelompok" id="kelompok" onchange="change_kel()" style="width:280px" onKeyPress="return focusNext('nama',event)" onFocus="panggil('kelompok')">
@@ -901,13 +901,13 @@ function unfokus(elem){
 				//$cnt++; 
 				}	
     		?>
-    			</select>&nbsp;<img src="../images/ico/tambah.png" onclick="tampil_kelompok();" onMouseOver="showhint('Tambah Kelompok!', this, event, '60px')" />            	
+    			</select>&nbsp;<img src="../images/ico/tambah.png" onclick="tampil_kelompok();" onMouseOver="showhint('Add Group', this, event, '60px')" />            	
                 	
                 </div>  
            	</td>
   		</tr>
   		<tr>
-    		<td valign="top"><strong>Keterangan</strong></td>
+    		<td valign="top"><strong>Info</strong></td>
     		<td>
             	<div id = "InfoKeterangan">
 			<?	
@@ -945,63 +945,63 @@ function unfokus(elem){
     	<td width="45%" valign="top"><!--Kolom Kiri-->      
 		<table width="100%" border="0" cellspacing="0" id="table">
   		<tr>
-    		<td height="30" colspan="3"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Data Pribadi Calon Siswa</strong></font>
+    		<td height="30" colspan="3"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Student Candidate Personal Data</strong></font>
              <!--hr width="300" style="line-height:1px; border-style:dashed" align="left" color="#000000" /--> 
              <div style="border-bottom:1px dashed #666666; border-width:thinl; margin-bottom:5px; margin-top:3px;"></div></td>
     	</tr>
   		<tr>
-    		<td width="22%"><strong>Pendaftaran</strong></td>
+    		<td width="22%"><strong>Registration</strong></td>
     		<td colspan="2">
             	<input type="text" name="kode" id="kode" size="20" class="disabled" value="<?=$no ?>" readonly />
                 <input type="hidden" name="no" id="no" value="<?=$no?>" />           	</td>
   		</tr>
   		<tr>
-    		<td><strong>Tahun Masuk</strong></td>
+    		<td><strong>Year Joining</strong></td>
     		<td colspan="2">
             	<input type="text" name="masuk" id="masuk" size="5" maxlength="4" value="<?=$tahunmasuk?>" readonly="readonly" class="disabled"/> 
             	<input type="hidden" name="tahunmasuk" id="tahunmasuk" value="<?=$tahunmasuk?>" /></td>
   		</tr>
   		<tr>
-  		  <td>N I S N</td>
-  		  <td colspan="2"><input type="text" name="nisn" id="nisn" size="30" maxlength="100"  value="<?=$row_siswa['nisn']?>" onfocus="showhint('NISN tidak boleh lebih dari 50 karakter!', this, event, '120px');panggil('nisn');" onKeyPress="return focusNext('nama', event);" onblur="unfokus('nisn')"/></td>
+  		  <td>National Student ID</td>
+  		  <td colspan="2"><input type="text" name="nisn" id="nisn" size="30" maxlength="100"  value="<?=$row_siswa['nisn']?>" onfocus="showhint('National Student ID should not exceed 50 characters', this, event, '120px');panggil('nisn');" onKeyPress="return focusNext('nama', event);" onblur="unfokus('nisn')"/></td>
 		  </tr>
   		<tr>
-    		<td><strong>Nama</strong></td>
+    		<td><strong>Name</strong></td>
     		<td colspan="2">
-            <input type="text" name="nama" id="nama" size="30" maxlength="100"  value="<?=$row_siswa['nama']?>" onfocus="showhint('Nama Lengkap Siswa tidak boleh kosong!', this, event, '120px');panggil('nama');" onKeyPress="return focusNext('panggilan', event);" onblur="unfokus('nama')"/>            </td>
+            <input type="text" name="nama" id="nama" size="30" maxlength="100"  value="<?=$row_siswa['nama']?>" onfocus="showhint('Student Full Name should not leave empty', this, event, '120px');panggil('nama');" onKeyPress="return focusNext('panggilan', event);" onblur="unfokus('nama')"/>            </td>
   		</tr>
   		<tr>
-    		<td>Panggilan</td>
+    		<td>Nickname</td>
     		<td colspan="2">
-            <input type="text" name="panggilan" id="panggilan" size="30" maxlength="30" onFocus="showhint('Nama Panggilan tidak boleh lebih dari 30 karakter!', this, event, '120px');panggil('panggilan');" value="<?=$row_siswa['panggilan']?>" onKeyPress="return focusNext('kelamin', event)" onblur="unfokus('panggilan')"/>            </td>
+            <input type="text" name="panggilan" id="panggilan" size="30" maxlength="30" onFocus="showhint('Nickname should not exceed 30 characters', this, event, '120px');panggil('panggilan');" value="<?=$row_siswa['panggilan']?>" onKeyPress="return focusNext('kelamin', event)" onblur="unfokus('panggilan')"/>            </td>
   		</tr>
   		<tr>
-    		<td><strong>Jenis Kelamin</strong></td>
+    		<td><strong>Gender</strong></td>
     		<td colspan="3">
     		<input type="radio" id="kelamin" name="kelamin" value="l"
 			<? if ($row_siswa['kelamin']=="l") 
 				echo "checked='checked'";
 			?>
-			 onKeyPress="return focusNext('tmplahir', event)" />&nbsp;Laki-laki&nbsp;&nbsp;
+			 onKeyPress="return focusNext('tmplahir', event)" />&nbsp;Male&nbsp;&nbsp;
         	<input type="radio" id="kelamin" name="kelamin" value="p" 
         	<? if ($row_siswa['kelamin']=="p") 
 				echo "checked ='checked'";
 			?>
-			 onKeyPress="return focusNext('tmplahir', event)" />&nbsp;Perempuan			</td>
+			 onKeyPress="return focusNext('tmplahir', event)" />&nbsp;Female			</td>
 		</tr>
   		<tr>
-  		  <td><strong>Tempat Lahir</strong></td>
-		  <td colspan="2"><input type="text" name="tmplahir" id="tmplahir" size="30" maxlength="50" onFocus="showhint('Tempat Lahir tidak boleh kosong!', this, event, '120px');panggil('tmplahir')" value="<?=$row_siswa['tmplahir']?>"  onKeyPress="return focusNext('tgllahir', event)" onblur="unfokus('tmplahir')" /></td>
+  		  <td><strong>Birth Place</strong></td>
+		  <td colspan="2"><input type="text" name="tmplahir" id="tmplahir" size="30" maxlength="50" onFocus="showhint('Birth Place should not leave empty', this, event, '120px');panggil('tmplahir')" value="<?=$row_siswa['tmplahir']?>"  onKeyPress="return focusNext('tgllahir', event)" onblur="unfokus('tmplahir')" /></td>
   		</tr>
   		<tr>
-    		<td><strong>Tanggal Lahir</strong></td>
+    		<td><strong>Date of Birth</strong></td>
     		<td colspan="2">
             	<table cellpadding="0" cellspacing="0" border="0">
                 <tr>
                 	<td>
                     <div id="tgl_info">
                     <select name="tgllahir" id="tgllahir" onKeyPress="return focusNext('blnlahir', event)" onfocus="panggil('tgllahir')" onblur="unfokus('tgllahir')" >                              
-                    <option value="">[Tgl]</option>
+                    <option value="">[Date]</option>
                     <? 	for ($tgl=1;$tgl<=$n;$tgl++){ ?>
                         <option value="<?=$tgl?>" <?=IntIsSelected($tgl, $row_siswa['tanggal'])?>><?=$tgl?></option>
                     <?	}	?>
@@ -1014,16 +1014,16 @@ function unfokus(elem){
                         <option value="<?=$i?>" <?=IntIsSelected($i, $row_siswa['bulan'] )?>><?=NamaBulan($i)?></option>	
                     <?	} ?>
                     </select>
-                    <input type="text" name="thnlahir" id="thnlahir" size="5" maxlength="4" onFocus="showhint('Tahun Lahir tidak boleh kosong!', this, event, '120px');panggil('thnlahir')" value="<?=$row_siswa['tahun']?>" onKeyPress="return focusNext('agama', event)" onblur="unfokus('thnlahir')"/>                    </td>
+                    <input type="text" name="thnlahir" id="thnlahir" size="5" maxlength="4" onFocus="showhint('Year of Birth should not leave empty', this, event, '120px');panggil('thnlahir')" value="<?=$row_siswa['tahun']?>" onKeyPress="return focusNext('agama', event)" onblur="unfokus('thnlahir')"/>                    </td>
              	</tr>
                 </table>          	</td>
   		</tr>
         <tr>
-    		<td><strong>Agama</strong></td>
+    		<td><strong>Religion</strong></td>
     		<td colspan="2">
     		<div id="InfoAgama">
     		<select name="agama" id="agama" class="ukuran"  onKeyPress="return focusNext('suku', event)" onfocus="panggil('agama')" onblur="unfokus('agama')">
-    		<option value="">[Pilih Agama]</option>
+    		<option value="">[Select Religion]</option>
 			<? // Olah untuk combo agama
 			$sql_agama="SELECT replid,agama,urutan FROM jbsumum.agama ORDER BY urutan";
 			$result_agama=QueryDB($sql_agama);
@@ -1036,16 +1036,16 @@ function unfokus(elem){
 			?>
     		</select>
             <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-            <img src="../images/ico/tambah.png" onclick="tambah_agama();"  onMouseOver="showhint('Tambah Agama!', this, event, '50px')"/>
+            <img src="../images/ico/tambah.png" onclick="tambah_agama();"  onMouseOver="showhint('Add Religion', this, event, '50px')"/>
             <? } ?>
             </div>            </td>
   		</tr>
   		<tr>
-    		<td><strong>Suku</strong></td>
+    		<td><strong>Ethnicity</strong></td>
     		<td colspan="2">
     		<div id="InfoSuku">
     		<select name="suku" id="suku" class="ukuran" onKeyPress="return focusNext('status', event)" onfocus="panggil('suku')" onblur="unfokus('suku')">            
-    		<option value="">[Pilih Suku]</option>
+    		<option value="">[Select Ethnicity]</option>
 			<? // Olah untuk combo suku
 			$sql_suku="SELECT suku,urutan,replid FROM jbsumum.suku ORDER BY urutan";
 			$result_suku=QueryDB($sql_suku);
@@ -1058,7 +1058,7 @@ function unfokus(elem){
 			?>
     		</select>
             <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-            <img src="../images/ico/tambah.png" onclick="tambah_suku();"  onMouseOver="showhint('Tambah Suku!', this, event, '50px')"/>
+            <img src="../images/ico/tambah.png" onclick="tambah_suku();"  onMouseOver="showhint('Add Ethnicity', this, event, '50px')"/>
             <? } ?></div></td>
   		</tr>
   		
@@ -1067,7 +1067,7 @@ function unfokus(elem){
     		<td colspan="2">
     		<div id="InfoStatus">
     		<select name="status" id="status" class="ukuran"  onKeyPress="return focusNext('kondisi', event)" onfocus="panggil('status')" onblur="unfokus('status')">
-    		<option value="">[Pilih Status]</option>
+    		<option value="">[Select Status]</option>
 			<? // Olah untuk combo status
 			$sql_status="SELECT replid,status,urutan FROM jbsakad.statussiswa ORDER BY urutan";
 			$result_status=QueryDB($sql_status);
@@ -1080,16 +1080,16 @@ function unfokus(elem){
 			?>
     		</select>
             <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-            <img src="../images/ico/tambah.png" onclick="tambah_status();"  onMouseOver="showhint('Tambah Status!', this, event, '50px')"/>
+            <img src="../images/ico/tambah.png" onclick="tambah_status();"  onMouseOver="showhint('Add Status', this, event, '50px')"/>
             <? } ?>
             </div>  </td>
  		</tr>
   		<tr>
-    		<td><strong>Kondisi</strong></td>
+    		<td><strong>Conditions</strong></td>
     		<td colspan="2">
     		<div id="InfoKondisi">
     		<select name="kondisi" id="kondisi" class="ukuran"  onKeyPress="return focusNext('warga', event)" onfocus="panggil('kondisi')" onblur="unfokus('kondisi')">
-            <option value="">[Pilih Kondisi]</option>
+            <option value="">[Select Conditions]</option>
                 <? // Olah untuk combo kondisi
 			$sql_kondisi="SELECT kondisi,urutan FROM jbsakad.kondisisiswa ORDER BY urutan";
 			$result_kondisi=QueryDB($sql_kondisi);
@@ -1104,63 +1104,63 @@ function unfokus(elem){
 			?>
             </select>
             <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-    		<img src="../images/ico/tambah.png" onclick="tambah_kondisi();" onMouseOver="showhint('Tambah Kondisi!', this, event, '50px')"/>
+    		<img src="../images/ico/tambah.png" onclick="tambah_kondisi();" onMouseOver="showhint('Add Conditions', this, event, '50px')"/>
             <? } ?>
             </div></td>
   		</tr>
   		<tr>
-    		<td>Kewarganegaraan</td>
+    		<td>Citizenship</td>
     		<td colspan="2">
-    		<input type="radio" name="warga" id="warga" value="WNI"
-			<? if ($row_siswa['warga']=="WNI") 
+    		<input type="radio" name="warga" id="warga" value="Indonesian Citizen"
+			<? if ($row_siswa['warga']=="Indonesian Citizen") 
 				echo "checked='checked'";
 			?>
-			 onKeyPress="return focusNext('urutananak', event)" />&nbsp;WNI&nbsp;&nbsp;
-    		<input type="radio" name="warga" id="warga" value="WNA" 
-			<? if ($row_siswa['warga']=="WNA") 
+			 onKeyPress="return focusNext('urutananak', event)" />&nbsp;Indonesian Citizen&nbsp;&nbsp;
+    		<input type="radio" name="warga" id="warga" value="Other Citizen" 
+			<? if ($row_siswa['warga']=="Other Citizen") 
 				echo "checked='checked'";
 			?>
-			 onKeyPress="return focusNext('urutananak', event)" />&nbsp;WNA</td>
+			 onKeyPress="return focusNext('urutananak', event)" />&nbsp;Other Citizen</td>
   		</tr>
   		<tr>
-    		<td>Anak ke</td>
-    		<td colspan="2"><input type="text" name="urutananak" id="urutananak" size="3" maxlength="3" onFocus="showhint('Urutan anak tidak boleh lebih dari 3 angka!', this, event, '120px');panggil('urutananak')" value="<?=$row_siswa['anakke']?>" onKeyPress="return focusNext('jumlahanak', event)" onblur="unfokus('urutananak')" />
-			&nbsp;dari&nbsp;<input type="text" name="jumlahanak" id="jumlahanak" size="3" maxlength="3" onFocus="showhint('Jumlah saudara tidak boleh lebih dari 3 angka!', this, event, '120px');panggil('jumlahanak')" value="<?=$row_siswa['jsaudara'];?>" onKeyPress="return focusNext('bahasa', event)" onblur="unfokus('jumlahanak')" />&nbsp;bersaudara</td>
+    		<td>Child #</td>
+    		<td colspan="2"><input type="text" name="urutananak" id="urutananak" size="3" maxlength="3" onFocus="showhint('Child # should not exceed 3 digits', this, event, '120px');panggil('urutananak')" value="<?=$row_siswa['anakke']?>" onKeyPress="return focusNext('jumlahanak', event)" onblur="unfokus('urutananak')" />
+			&nbsp;from&nbsp;<input type="text" name="jumlahanak" id="jumlahanak" size="3" maxlength="3" onFocus="showhint('Siblings should not exceed 3 digits', this, event, '120px');panggil('jumlahanak')" value="<?=$row_siswa['jsaudara'];?>" onKeyPress="return focusNext('bahasa', event)" onblur="unfokus('jumlahanak')" />&nbsp;siblings</td>
   		</tr>
   		<tr>
-    		<td>Bahasa</td>
-    		<td colspan="2"><input type="text" name="bahasa" id="bahasa" size="30" maxlength="60" onFocus="showhint('Bahasa anak tidak boleh lebih dari 60 karakter!', this, event, '120px');panggil('bahasa')" value="<?=$row_siswa['bahasa']?>" class="ukuran"  onKeyPress="return focusNext('alamatsiswa', event)" onblur="unfokus('bahasa')" /></td>
+    		<td>Language</td>
+    		<td colspan="2"><input type="text" name="bahasa" id="bahasa" size="30" maxlength="60" onFocus="showhint('Language should not exceed 60 characters', this, event, '120px');panggil('bahasa')" value="<?=$row_siswa['bahasa']?>" class="ukuran"  onKeyPress="return focusNext('alamatsiswa', event)" onblur="unfokus('bahasa')" /></td>
   		</tr>
   		<tr>
-    		<td>Foto</td>
+    		<td>Photo</td>
     		<td colspan="2"><input type="file" name="nama_foto" id="file" size="25" /></td>
   		</tr>
   		<tr>
-    		<td>Alamat</td>
-    		<td colspan="2"><textarea name="alamatsiswa" id="alamatsiswa" rows="2" cols="30" onFocus="showhint('Alamat siswa tidak boleh lebih dari 255 karakter!', this, event, '120px');panggil('alamatsiswa')" class="Ukuranketerangan" onKeyUp="change_alamat()"  onKeyPress="return focusNext('kodepos', event)" onblur="unfokus('alamatsiswa')" ><?=$row_siswa['alamatsiswa']?></textarea></td>
+    		<td>Address</td>
+    		<td colspan="2"><textarea name="alamatsiswa" id="alamatsiswa" rows="2" cols="30" onFocus="showhint('Student Address should not exceed 255 characters', this, event, '120px');panggil('alamatsiswa')" class="Ukuranketerangan" onKeyUp="change_alamat()"  onKeyPress="return focusNext('kodepos', event)" onblur="unfokus('alamatsiswa')" ><?=$row_siswa['alamatsiswa']?></textarea></td>
   		</tr>
   		<tr>
-    		<td>Kode Pos</td>
-    		<td colspan="2"><input type="text" name="kodepos" id="kodepos" size="5" maxlength="8" onFocus="showhint('Kodepos tidak boleh lebih dari 8 angka!', this, event, '120px');panggil('kodepos')" value="<?=$row_siswa['kodepossiswa'];?>"  onKeyPress="return focusNext('telponsiswa', event)"  onblur="unfokus('kodepos')"/></td>
+    		<td>Post Code</td>
+    		<td colspan="2"><input type="text" name="kodepos" id="kodepos" size="5" maxlength="8" onFocus="showhint('Post Code should not exceed 8 digits', this, event, '120px');panggil('kodepos')" value="<?=$row_siswa['kodepossiswa'];?>"  onKeyPress="return focusNext('telponsiswa', event)"  onblur="unfokus('kodepos')"/></td>
   		</tr>
   		<tr>
-    		<td>Telepon</td>
-    		<td colspan="2"><input type="text" name="telponsiswa" id="telponsiswa" size="20" maxlength="25" onFocus="showhint('Nomor Telepon tidak boleh lebih dari 20 angka!', this, event, '120px');panggil('telponsiswa')" value="<?=$row_siswa['telponsiswa'];?>" class="ukuran"  onKeyPress="return focusNext('hpsiswa', event)" onblur="unfokus('telponsiswa')" /></td>
+    		<td>Phone</td>
+    		<td colspan="2"><input type="text" name="telponsiswa" id="telponsiswa" size="20" maxlength="25" onFocus="showhint('Phone should not exceed 20 digits', this, event, '120px');panggil('telponsiswa')" value="<?=$row_siswa['telponsiswa'];?>" class="ukuran"  onKeyPress="return focusNext('hpsiswa', event)" onblur="unfokus('telponsiswa')" /></td>
   		</tr>
   		<tr>
-    		<td>Handphone</td>
-    		<td colspan="2"><input type="text" name="hpsiswa" id="hpsiswa" size="20" maxlength="25" onFocus="showhint('Nomor ponsel tidak boleh lebih dari 20 angka!', this, event, '120px');panggil('hpsiswa');" value="<?=$row_siswa['hpsiswa'];?>" class="ukuran"  onKeyPress="return focusNext('emailsiswa', event)" onblur="unfokus('hpsiswa')" />      	</td>
+    		<td>Mobile</td>
+    		<td colspan="2"><input type="text" name="hpsiswa" id="hpsiswa" size="20" maxlength="25" onFocus="showhint('Mobile should not exceed 20 digits', this, event, '120px');panggil('hpsiswa');" value="<?=$row_siswa['hpsiswa'];?>" class="ukuran"  onKeyPress="return focusNext('emailsiswa', event)" onblur="unfokus('hpsiswa')" />      	</td>
   		</tr>
   		<tr>
     		<td>Email</td>
-    		<td colspan="2"><input type="text" name="emailsiswa" id="emailsiswa" size="30" maxlength="100" onFocus="showhint('Alamat email tidak boleh lebih dari 100 karakter!', this, event, '120px');panggil('emailsiswa')" value="<?=$row_siswa['emailsiswa']?>"  onKeyPress="return focusNext('dep_asal', event)" onblur="unfokus('emailsiswa')" /></td>
+    		<td colspan="2"><input type="text" name="emailsiswa" id="emailsiswa" size="30" maxlength="100" onFocus="showhint('Email should not exceed 100 characters', this, event, '120px');panggil('emailsiswa')" value="<?=$row_siswa['emailsiswa']?>"  onKeyPress="return focusNext('dep_asal', event)" onblur="unfokus('emailsiswa')" /></td>
   		</tr>
   		<tr>
-    		<td rowspan="2" valign="top">Asal Sekolah</td>
+    		<td rowspan="2" valign="top">Past School</td>
     		<td><!--<div id = "InfoSekolah">-->
 			<div id="depInfo">
     		<select name="dep_asal" id="dep_asal" onchange="change_departemen(0)" onKeyPress="return focusNext('sekolah', event)"  style="width:150px;" onfocus="panggil('dep_asal')" onblur="unfokus('dep_asal')">
-    		<option value="">[Pilih Departemen]</option>	
+    		<option value="">[Select Department]</option>	
 			<? // Olah untuk combo departemen
 			$sql_departemen="SELECT DISTINCT departemen FROM jbsakad.asalsekolah ORDER BY departemen";   			
 			$result_departemen=QueryDB($sql_departemen);
@@ -1185,7 +1185,7 @@ function unfokus(elem){
                 <td>
                 <div id="sekolahInfo">
                 <select name="sekolah" id="sekolah"  onKeyPress="return focusNext('ketsekolah', event)"  style="width:150px;" onfocus="panggil('sekolah')" onblur="unfokus('sekolah')">
-                <option value="">[Pilih Asal Sekolah]</option>	
+                <option value="">[Select Past School]</option>	
                 <? // Olah untuk combo sekolah
                 $sql_sekolah="SELECT sekolah FROM jbsakad.asalsekolah WHERE departemen='$dep_asal' ORDER BY sekolah";
                 $result_sekolah=QueryDB($sql_sekolah);
@@ -1201,13 +1201,13 @@ function unfokus(elem){
                 ?>
                 </select> </div>                </td>
                 <td valign="middle">
-                <img src="../images/ico/tambah.png" onclick="tambah_asal_sekolah();" onMouseOver="showhint('Tambah Asal Sekolah!', this, event, '80px')"/>                </td>
+                <img src="../images/ico/tambah.png" onclick="tambah_asal_sekolah();" onMouseOver="showhint('Add Past School', this, event, '80px')"/>                </td>
             </tr>
             </table>            </td>
 		</tr>
  		<tr>
-    		<td valign="top">Keterangan Asal <br />Sekolah      </td>
-    		<td colspan="2"><textarea name="ketsekolah" id="ketsekolah" onFocus="showhint('Keterangan sekolah asal tidak boleh lebih dari 255 karakter!', this, event, '120px');panggil('ketsekolah')" class="Ukuranketerangan"  onKeyPress="return focusNext('gol', event)" onblur="unfokus('ketsekolah')" ><?=$row_siswa['ketsekolah']?></textarea></td>
+    		<td valign="top">Past School <br />Info      </td>
+    		<td colspan="2"><textarea name="ketsekolah" id="ketsekolah" onFocus="showhint('Past School info should not exceed 255 characters', this, event, '120px');panggil('ketsekolah')" class="Ukuranketerangan"  onKeyPress="return focusNext('gol', event)" onblur="unfokus('ketsekolah')" ><?=$row_siswa['ketsekolah']?></textarea></td>
   		</tr>
 		</table>    
 		<script language='JavaScript'>
@@ -1218,13 +1218,13 @@ function unfokus(elem){
     	<td width="*" valign="top"><!-- Kolom Kanan-->
     	<table width="100%" border="0" cellspacing="0" id="table">
   		<tr>
-    		<td height="30" colspan="3" valign="top"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Riwayat Kesehatan</strong></font>
+    		<td height="30" colspan="3" valign="top"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Health History</strong></font>
         	<!--hr width="375" style="line-height:1px; border-style:dashed" align="left" color="#000000"/--> 
             <div style="border-bottom:1px dashed #666666; border-width:thinl; margin-bottom:5px; margin-top:3px;"></div>
             </td>
     	</tr>
   		<tr>
-    		<td width="20%" valign="top">Gol. Darah</td>
+    		<td width="20%" valign="top">Blood Type</td>
     		<td colspan="2">
                 <input type="radio" name="gol" id="gol" value="A" <? 
                 if ($row_siswa['darah']=="A")
@@ -1245,53 +1245,53 @@ function unfokus(elem){
                 <input type="radio" name="gol" id="gol" value="" <? 
                 if ($row_siswa['darah']=="")
                 echo "checked='checked'";
-                ?> onKeyPress="return focusNext('berat', event)" />&nbsp;<em>(belum ada data)</em>&nbsp;         	
+                ?> onKeyPress="return focusNext('berat', event)" />&nbsp;<em>(don't have any data)</em>&nbsp;         	
            	</td>
  		</tr>
   		<tr>
-    		<td>Berat</td>
+    		<td>Body Weight</td>
     		<td colspan="2">
-            <input name="berat" id="berat" type="text" size="6" maxlength="6" onFocus="showhint('Berat badan tidak boleh lebih dari 6 angka!', this, event, '120px');panggil('berat')" value="<?=$row_siswa['berat']?>" onKeyPress="return focusNext('tinggi', event)" onblur="unfokus('berat')" />&nbsp;kg</td>
+            <input name="berat" id="berat" type="text" size="6" maxlength="6" onFocus="showhint('Body Weight should not exceed 6 digits', this, event, '120px');panggil('berat')" value="<?=$row_siswa['berat']?>" onKeyPress="return focusNext('tinggi', event)" onblur="unfokus('berat')" />&nbsp;kg</td>
   		</tr>
         <tr>
-        	<td>Tinggi</td>
-          	<td colspan="2"><input name="tinggi" id="tinggi" type="text" size="6" maxlength="6" onFocus="showhint('Tinggi badan tidak boleh lebih dari 6 angka!', this, event, '120px');panggil('tinggi')" value="<?=$row_siswa['tinggi']?>"  onKeyPress="return focusNext('kesehatan', event)" onblur="unfokus('tinggi')"/>
+        	<td>Body Height</td>
+          	<td colspan="2"><input name="tinggi" id="tinggi" type="text" size="6" maxlength="6" onFocus="showhint('Body Height should not exceed 6 digits', this, event, '120px');panggil('tinggi')" value="<?=$row_siswa['tinggi']?>"  onKeyPress="return focusNext('kesehatan', event)" onblur="unfokus('tinggi')"/>
             &nbsp;cm</td>
         </tr>
         <tr>
-            <td valign="top">Riwayat Penyakit</td>
-            <td colspan="2"><textarea name="kesehatan" id="kesehatan" rows="2" cols="30" class="Ukuranketerangan" onFocus="showhint('Riwayat penyakit tidak boleh lebih dari 255 karakter!', this, event, '120px');panggil('kesehatan')"  onKeyPress="return focusNext('namaayah', event)" onblur="unfokus('kesehatan')"><?=$row_siswa['kesehatan']?></textarea></td>
+            <td valign="top">Illness History</td>
+            <td colspan="2"><textarea name="kesehatan" id="kesehatan" rows="2" cols="30" class="Ukuranketerangan" onFocus="showhint('Illness History should not exceed 255 characters', this, event, '120px');panggil('kesehatan')"  onKeyPress="return focusNext('namaayah', event)" onblur="unfokus('kesehatan')"><?=$row_siswa['kesehatan']?></textarea></td>
         </tr>
   		<tr>
-    		<td height="30" colspan="3"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Data Orang Tua</strong></font>
+    		<td height="30" colspan="3"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Parent Data</strong></font>
             <!--hr width="375" style="line-height:1px; border-style:dashed" align="left" color="#000000" /-->
             <div style="border-bottom:1px dashed #666666; border-width:thinl; margin-bottom:5px; margin-top:3px;"></div>
             </td>
     	</tr>
   		<tr>
     		<td>&nbsp;</td>
-    		<td align="center" valign="middle" bgcolor="#DBD8F3"><strong>Ayah</strong></td>
-    		<td align="center" valign="middle" bgcolor="#E9AFCF"><strong>Ibu</strong></td>
+    		<td align="center" valign="middle" bgcolor="#DBD8F3"><strong>Father</strong></td>
+    		<td align="center" valign="middle" bgcolor="#E9AFCF"><strong>Mother</strong></td>
   		</tr>
   		<tr>
-            <td valign="top">Nama</td>
-            <td bgcolor="#DBD8F3"><input name="namaayah" type="text" size="15" maxlength="100" id="namaayah" onFocus="showhint('Nama Ayah tidak boleh lebih dari 100 karakter!', this, event, '120px');panggil('namaayah')"  value="<?=$row_siswa['namaayah']?>" class="ukuran"  onKeyPress="return focusNext('namaibu', event)" onblur="unfokus('namaayah')" />
+            <td valign="top">Name</td>
+            <td bgcolor="#DBD8F3"><input name="namaayah" type="text" size="15" maxlength="100" id="namaayah" onFocus="showhint('Father name should not exceed 100 characters', this, event, '120px');panggil('namaayah')"  value="<?=$row_siswa['namaayah']?>" class="ukuran"  onKeyPress="return focusNext('namaibu', event)" onblur="unfokus('namaayah')" />
             	<br />
-                <input type="checkbox" name="almayah" id="almayah" value="1" title="Klik disini jika Ayah Almarhum"  
+                <input type="checkbox" name="almayah" id="almayah" value="1" title="Click here if Father has been passed away"  
         		<? if ($row_siswa['almayah']=="1") echo "checked";?> />
-                &nbsp;&nbsp;<font color="#990000" size="1">(Almarhum)</font> </td>
-          	<td colspan="2" bgcolor="#E9AFCF"><input name="namaibu" type="text" size="15" maxlength="100" id="namaibu" onFocus="showhint('Nama Ibu tidak boleh lebih dari 100 karakter!', this, event, '120px');panggil('namaibu')" value="<?=$row_siswa['namaibu']?>" class="ukuran"  onKeyPress="return focusNext('Infopendidikanayah', event)" onblur="unfokus('namaibu')" />
+                &nbsp;&nbsp;<font color="#990000" size="1">(Late)</font> </td>
+          	<td colspan="2" bgcolor="#E9AFCF"><input name="namaibu" type="text" size="15" maxlength="100" id="namaibu" onFocus="showhint('Mother name should not exceed 100 characters', this, event, '120px');panggil('namaibu')" value="<?=$row_siswa['namaibu']?>" class="ukuran"  onKeyPress="return focusNext('Infopendidikanayah', event)" onblur="unfokus('namaibu')" />
             	<br />
-                <input type="checkbox" name="almibu" id="almibu" value="1" title="Klik disini jika Ibu Almarhumah"
+                <input type="checkbox" name="almibu" id="almibu" value="1" title="Click here if Mother has been passed away"
         		<? if ($row_siswa['almibu']=="1") echo "checked";?>/>
-                &nbsp;&nbsp;<font color="#990000" size="1">(Almarhumah)</font> </td>
+                &nbsp;&nbsp;<font color="#990000" size="1">(Late)</font> </td>
         </tr>
   		<tr>
-    		<td>Pendidikan</td>
+    		<td>Education</td>
     		<td bgcolor="#DBD8F3">
             <div id = "pendidikanayahInfo">			
 			<select name="pendidikanayah" id="Infopendidikanayah" class="ukuran"  onKeyPress="return focusNext('Infopendidikanibu', event)" onfocus="panggil('Infopendidikanayah')" style="width:140px" onblur="unfokus('Infopendidikanayah')">
-      		<option value="">[Pilih Pendidikan]</option>
+      		<option value="">[Select Education]</option>
 			<? // Olah untuk combo pendidikan ayah
 			$sql_pend_ayah="SELECT pendidikan FROM jbsumum.tingkatpendidikan ORDER BY pendidikan";
 			$result_pend_ayah=QueryDB($sql_pend_ayah);
@@ -1311,7 +1311,7 @@ function unfokus(elem){
                 	<td>
                     <div id = "pendidikanibuInfo">		
                     <select name="pendidikanibu" id="Infopendidikanibu" class="ukuran"  onKeyPress="return focusNext('Infopekerjaanayah', event)" onfocus="panggil('Infopendidikanibu')" style="width:140px" onblur="unfokus('Infopendidikanibu')">
-                    <option value="">[Pilih Pendidikan]</option>
+                    <option value="">[Select Education]</option>
                     <? // Olah untuk combo sekolah
                     $sql_pend_ibu="SELECT pendidikan FROM jbsumum.tingkatpendidikan ORDER BY pendidikan";
                     $result_pend_ibu=QueryDB($sql_pend_ibu);
@@ -1327,7 +1327,7 @@ function unfokus(elem){
                     </td>
                     <td>
 					<? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-                    <img src="../images/ico/tambah.png" onclick="tambah_pendidikan();" onMouseOver="showhint('Tambah Tingkat Pendidikan!', this, event, '80px')" />
+                    <img src="../images/ico/tambah.png" onclick="tambah_pendidikan();" onMouseOver="showhint('Add Education Level', this, event, '80px')" />
                     <? } ?>
                     </td>
              	</tr>
@@ -1335,11 +1335,11 @@ function unfokus(elem){
             </td>
   		</tr>
   		<tr>
-    		<td>Pekerjaan</td>
+    		<td>Occupation</td>
     		<td bgcolor="#DBD8F3">
 			<div id = "pekerjaanayahInfo">
 			<select name="pekerjaanayah" id="Infopekerjaanayah" class="ukuran"  onKeyPress="return focusNext('Infopekerjaanibu', event)" onfocus="panggil('Infopekerjaanayah')" style="width:140px" onblur="unfokus('Infopekerjaanayah')">
-      		<option value="">[Pilih Pekerjaan]</option>
+      		<option value="">[Select Occupation]</option>
 			<? // Olah untuk combo sekolah
 			$sql_kerja_ayah="SELECT pekerjaan FROM jbsumum.jenispekerjaan ORDER BY pekerjaan";
 			$result_kerja_ayah=QueryDB($sql_kerja_ayah);
@@ -1359,7 +1359,7 @@ function unfokus(elem){
                 	<td>
                     <div id = "pekerjaanibuInfo">			
                     <select name="pekerjaanibu" id="Infopekerjaanibu" class="ukuran"  onKeyPress="return focusNext('penghasilanayah1', event)" onfocus="panggil('Infopekerjaanibu')" style="width:140px" onblur="unfokus('Infopekerjaanibu')">
-                    <option value="">[Pilih Pekerjaan]</option>
+                    <option value="">[Select Occupation]</option>
                     <? // Olah untuk combo sekolah
                     $sql_kerja_ibu="SELECT pekerjaan FROM jbsumum.jenispekerjaan ORDER BY pekerjaan";
                     $result_kerja_ibu=QueryDB($sql_kerja_ibu);
@@ -1375,7 +1375,7 @@ function unfokus(elem){
                     </td>
                     <td>
 					 <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-                    <img src="../images/ico/tambah.png" onclick="tambah_pekerjaan();" onMouseOver="showhint('Tambah Jenis Pekerjaan!', this, event, '80px')" />
+                    <img src="../images/ico/tambah.png" onclick="tambah_pekerjaan();" onMouseOver="showhint('Add Occupation Type', this, event, '80px')" />
                     <? } ?>
                     </td>
               	</tr>
@@ -1383,7 +1383,7 @@ function unfokus(elem){
             </td>
   		</tr>
   		<tr>
-    		<td>Penghasilan</td>
+    		<td>Income</td>
     		<td bgcolor="#DBD8F3">
 			<input type="text" name="penghasilanayah1" id="penghasilanayah1" size="15" maxlength="20" value="<?=FormatRupiah($row_siswa['penghasilanayah'])?>" onblur="formatRupiah('penghasilanayah1');unfokus('penghasilanayah1')" onfocus="unformatRupiah('penghasilanayah1');panggil('penghasilanayah1')" class="ukuran"  onKeyPress="return focusNext('penghasilanibu1', event)" onKeyUp="penghasilan_ayah()">
 			<input type="hidden" name="penghasilanayah" id="penghasilanayah" value = "<?=$row_siswa['penghasilanayah'] ?>">
@@ -1394,42 +1394,42 @@ function unfokus(elem){
 			</td>
   		</tr>
         <tr>
-          <td>Email Ortu</td>
-          <td bgcolor="#DBD8F3"><input name="emailayah" type="text" size="15" maxlength="100" id="emailayah" onFocus="showhint('Alamat email Ayah tidak boleh lebih dari 100 karakter!', this, event, '120px');panggil('emailayah')" value="<?=$row_siswa['emailayah']?>" class="ukuran" onKeyPress="return focusNext('emailibu', event)" onblur="unfokus('emailayah')" /></td>
-          <td colspan="2" bgcolor="#E9AFCF"><input name="emailibu" type="text" size="15" maxlength="100" id="emailibu" onFocus="showhint('Alamat email Ibu tidak boleh lebih dari 100 karakter!', this, event, '120px');panggil('emailibu')" value="<?=$row_siswa['emailibu']?>" class="ukuran" onKeyPress="return focusNext('namawali', event)" onblur="unfokus('emailibu')" /></td>
+          <td>Parent Email</td>
+          <td bgcolor="#DBD8F3"><input name="emailayah" type="text" size="15" maxlength="100" id="emailayah" onFocus="showhint('Father Email should not exceed 100 characters', this, event, '120px');panggil('emailayah')" value="<?=$row_siswa['emailayah']?>" class="ukuran" onKeyPress="return focusNext('emailibu', event)" onblur="unfokus('emailayah')" /></td>
+          <td colspan="2" bgcolor="#E9AFCF"><input name="emailibu" type="text" size="15" maxlength="100" id="emailibu" onFocus="showhint('Mother Email should not exceed 100 characters', this, event, '120px');panggil('emailibu')" value="<?=$row_siswa['emailibu']?>" class="ukuran" onKeyPress="return focusNext('namawali', event)" onblur="unfokus('emailibu')" /></td>
         </tr>
   		<tr>
-    		<td>Nama Wali</td>
+    		<td>Guardian Name</td>
     		<td colspan="2">
             <input type="text" name="namawali" id="namawali" size="30" maxlength="100" value="<?=$row_siswa['wali']?>"  onKeyPress="return focusNext('alamatortu', event)" onfocus="panggil('namawali')" onblur="unfokus('namawali')" ></td>
   		</tr>
   		<tr>
-    		<td valign="top">Alamat Ortu</td>
+    		<td valign="top">Parent Address</td>
     		<td colspan="2">
             <textarea name="alamatortu" id="alamatortu" size="25" maxlength="100" class="Ukuranketerangan"  onKeyPress="return focusNext('telponortu', event)" onfocus="panggil('alamatortu')" onblur="unfokus('alamatortu')" ><?=$row_siswa['alamatortu']?></textarea><br /></td>
   		</tr>
   		<tr>
-    		<td>Telepon Ortu</td>
+    		<td>Parent Phone</td>
     		<td colspan="2">
             <input type="text" name="telponortu" id="telponortu" class="ukuran" maxlength="20" value="<?=$row_siswa['telponortu']?>"  onKeyPress="return focusNext('hportu', event)" onfocus="panggil('telponortu')" onblur="unfokus('telponortu')"/>
             </td>
   		</tr>
   		<tr>
-    		<td>HP Ortu</td>
+    		<td>Parent Mobile</td>
     		<td colspan="2"><input type="text" name="hportu" id="hportu" class="ukuran" maxlength="20" value="<?=$row_siswa['hportu']?>"  onKeyPress="return focusNext('alamatsurat', event)" onfocus="panggil('hportu')" onblur="unfokus('hportu')" />
             </td>
   		</tr>
   		<tr>
-    		<td height="30" colspan="3"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Data Lainnya</strong></font>
+    		<td height="30" colspan="3"><font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Others</strong></font>
              <!--hr width="375" style="line-height:1px; border-style:dashed" align="left" color="#000000" /-->
              <div style="border-bottom:1px dashed #666666; border-width:thinl; margin-bottom:5px; margin-top:3px;"></div>
              </td>
     	</tr>
   		<tr>
-    		<td valign="top">Alamat Surat</td>
+    		<td valign="top">Mailing Address</td>
     		<td colspan="2"><textarea name="alamatsurat" id="alamatsurat" size="35" maxlength="100" class="Ukuranketerangan"  onKeyPress="return focusNext('keterangan', event)" onfocus="panggil('alamatsurat')" onblur="unfokus('alamatsurat')"><?=$row_siswa['alamatsurat']?></textarea></td>
   		<tr>
-    		<td valign="top">Keterangan</td>
+    		<td valign="top">Info</td>
     		<td colspan="2"><textarea name="keterangan" id="keterangan" rows="2" cols="30" class="Ukuranketerangan" onKeyPress="return focusNext('sum1', event)" onfocus="panggil('keterangan')" onblur="unfokus('keterangan')"><?=$row_siswa['keterangan']?></textarea></td>
   		</tr>
 		</table>    
@@ -1466,11 +1466,11 @@ function unfokus(elem){
     <br />
     <table border="0" cellpadding="2" cellspacing="0" style="background-color:#FFFFF2">
     <tr>
-    	<td width="170" align="left">Sumbangan #1 (<?=$kdsum1?>):</td>
+    	<td width="170" align="left">Contribution #1 (<?=$kdsum1?>):</td>
         <td width="40" align="left">
         <input type="text" name="sum1" id="sum1" size="10" maxlength="15"
 	        value="<?= FormatRupiah($sum1) ?>" onblur="formatRupiah('sum1')" onKeyPress="return focusNext('sum2', event)" onfocus="unformatRupiah('sum1')" /> </td>
-        <td width="170" align="left">Sumbangan #2 (<?=$kdsum2?>):</td>
+        <td width="170" align="left">Contribution #2 (<?=$kdsum2?>):</td>
         <td width="40" align="left"><input type="text" name="sum2" id="sum2" onKeyPress="return focusNext('ujian1', event)" size="10" maxlength="15"
 	        value="<?= FormatRupiah($sum2) ?>" onblur="formatRupiah('sum2')" onfocus="unformatRupiah('sum2')" /> </td>
     </tr>
@@ -1478,17 +1478,17 @@ function unfokus(elem){
     <br />
     <table border="0" cellpadding="2" cellspacing="0" style="background-color:#FFFFF2">
     <tr>
-        <td width="120" align="left">Ujian #1 (<?=$kdujian1?>):</td>
+        <td width="120" align="left">Exam #1 (<?=$kdujian1?>):</td>
         <td width="30" align="left"><input type="text" name="ujian1" id="ujian1" onKeyPress="return focusNext('ujian2', event)" value="<?=$ujian1?>" size="5" maxlength="5" /> </td>
-        <td width="120" align="left">Ujian #2 (<?=$kdujian2?>):</td>
+        <td width="120" align="left">Exam #2 (<?=$kdujian2?>):</td>
         <td width="30" align="left"><input type="text" name="ujian2" id="ujian2" onKeyPress="return focusNext('ujian3', event)" value="<?=$ujian2?>" size="5" maxlength="5" /> </td>   
-        <td width="120" align="left">Ujian #3 (<?=$kdujian3?>):</td>
+        <td width="120" align="left">Exam #3 (<?=$kdujian3?>):</td>
         <td width="30" align="left"><input type="text" name="ujian3" id="ujian3" onKeyPress="return focusNext('ujian4', event)" value="<?=$ujian3?>" size="5" maxlength="5" /> </td>   
     </tr>
     <tr>    
-        <td width="120" align="left">Ujian #4 (<?=$kdujian4?>):</td>
+        <td width="120" align="left">Exam #4 (<?=$kdujian4?>):</td>
         <td width="30" align="left"><input type="text" name="ujian4" id="ujian4" onKeyPress="return focusNext('ujian5', event)" value="<?=$ujian4?>" size="5" maxlength="5" /> </td>
-        <td width="120" align="left">Ujian #5 (<?=$kdujian5?>):</td>
+        <td width="120" align="left">Exam #5 (<?=$kdujian5?>):</td>
         <td width="30" align="left"><input type="text" name="ujian5" id="ujian5" onKeyPress="return focusNext('Simpan', event)" value="<?=$ujian5?>" size="5" maxlength="5" /> </td>
         <td width="120" align="left">&nbsp;</td>
         <td width="30" align="left">&nbsp;</td>
@@ -1499,11 +1499,11 @@ function unfokus(elem){
     </tr>
 	<tr height="50">	
 		<td valign="middle" align="right">     
-        <input type="Submit" value="Simpan" name="Simpan" class="but" onfocus="panggil('Simpan')" onblur="unfokus('Simpan')" />
-       <!-- <input type="button" value="Simpan" name="Simpan" class="but" onfocus="panggil('Simpan')" />-->
+        <input type="Submit" value="Save" name="Simpan" class="but" onfocus="panggil('Simpan')" onblur="unfokus('Simpan')" />
+       <!-- <input type="button" value="Save" name="Simpan" class="but" onfocus="panggil('Simpan')" />-->
         </td>
   		<td align="center" valign="middle"></td>
-  		<td valign="middle"><input class="but" type="button" value="Tutup" name="Tutup"  onClick="tutup()" />
+  		<td valign="middle"><input class="but" type="button" value="Close" name="Tutup"  onClick="tutup()" />
   		</td>           
 	</tr>
 	</table>

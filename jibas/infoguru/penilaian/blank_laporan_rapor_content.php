@@ -33,8 +33,7 @@
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_penentuan.png"
     style="background-repeat:no-repeat;">
-        <font size="2" color="#757575"><b>Click Nama atau NIS di panel kiri untuk
-        menampilkan Laporan Akhir Rapor setiap siswa  </b></font> </td>
+        <font size="2" color="#757575"><b>Click on Name or Student ID on the left panel to show Final Report Card for each Students.</b></font> </td>
 </tr>
 </table>
 </body>

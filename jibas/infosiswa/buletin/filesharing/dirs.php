@@ -119,7 +119,7 @@ function traverse($iddir, $count)
 			$num_pel = @mysql_num_rows($res_get_id);
 			if ($num_pel > 0)
 			{
-				$ajar="<b><u>Mengajar : </u></b>";
+				$ajar="<b><u>Teaching : </u></b>";
 				$cnt=1;
 				while ($row_pel = @mysql_fetch_array($res_get_id))
 				{
@@ -130,7 +130,7 @@ function traverse($iddir, $count)
 			}
 
 			if ($num_wk > 0)
-				$ajar=$ajar."<b><u> Walikelas ".$kelas." </u></b> <br>";
+				$ajar=$ajar."<b><u> Homeroom Teacher ".$kelas." </u></b> <br>";
 
 			if ($num_wk>0 || $num_pel>0)
 				$msg="onMouseOver=\"showhint('$ajar', this, event, '140px')\"";

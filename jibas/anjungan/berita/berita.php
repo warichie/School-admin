@@ -39,7 +39,7 @@ if ($nberita % $maxitem != 0)
 
 if ($nberita == 0)
 {
-    echo "<br><br><center><i>Belum ada berita sekolah</i><center>";
+    echo "<br><br><center><i>No school news</i><center>";
     CloseDb();
     exit();
 }
@@ -48,7 +48,7 @@ if ($nberita == 0)
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr>
     <td align="left">
-    Halaman:
+    Page:
     <select id="bs_page" name="bs_page" onchange="bs_ChangePage()">
 <?  for($i = 1; $i <= $npage; $i++)
     {
@@ -56,7 +56,7 @@ if ($nberita == 0)
         echo "<option value='$i' $sel>$i</option>";  
     } ?>
     </select>
-    dari <?= $npage ?>&nbsp;&nbsp;&bullet;&nbsp;&nbsp;Jumlah Berita: <?= $nberita ?>
+    from <?= $npage ?>&nbsp;&nbsp;&bullet;&nbsp;&nbsp;Amount of News: <?= $nberita ?>
     </td>    
 </tr>
 <tr>

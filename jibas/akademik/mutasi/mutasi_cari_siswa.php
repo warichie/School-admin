@@ -42,7 +42,7 @@ OpenDb();
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" onLoad="document.getElementById('nis').focus();">
 <table width="100%" border="0">
   <tr>
-    <td width="9%">Departemen</td>
+    <td width="9%">Department</td>
     <td width="11%"><select name="departemen" id="departemen" onChange="departemen()">
             <?	$dep = getDepartemen(SI_USER_ACCESS());    
 				foreach($dep as $value) {
@@ -56,11 +56,11 @@ OpenDb();
     <td width="80%" rowspan="3"><img src="../images/view.png" width="48" height="48" onClick="cari()" style="cursor:pointer"></td>
   </tr>
   <tr>
-    <td>NIS</td>
+    <td>Student ID</td>
     <td><input type="text" name="nis" id="nis" value="<?=$_REQUEST['nis'] ?>" size="17" /></td>
     </tr>
   <tr>
-    <td>Nama</td>
+    <td>Name</td>
     <td><input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama'] ?>" size="17" /></td>
     </tr>
 	<tr>

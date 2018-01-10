@@ -24,15 +24,15 @@
 function KataAngka($num) {
 	switch($num) {
 		case 0:	return "";			break;
-		case 1:	return "Satu";		break;
-		case 2:	return "Dua";		break;
-		case 3:	return "Tiga";		break;
-		case 4:	return "Empat";		break;
-		case 5:	return "Lima";		break;
-		case 6:	return "Enam";		break;
-		case 7:	return "Tujuh";		break;
-		case 8:	return "Delapan";	break;
-		case 9:	return "Sembilan";	break;
+		case 1:	return "One";		break;
+		case 2:	return "Two";		break;
+		case 3:	return "Three";		break;
+		case 4:	return "Four";		break;
+		case 5:	return "Five";		break;
+		case 6:	return "Six";		break;
+		case 7:	return "Seven";		break;
+		case 8:	return "Eight";		break;
+		case 9:	return "Nine";		break;
 	}
 }
 
@@ -166,7 +166,7 @@ function UnformatRupiah($value) {
 
 function KalimatUang($uang) {
 	if ($uang == 0) 
-		return "Nol Rupiah";
+		return "Zero Rupiah";
 	
 	$sUang = (string)$uang;
 	$nAngka = strlen($sUang);
@@ -187,7 +187,7 @@ function KalimatUang($uang) {
 		if ($d == 1) {
 			switch($nSisaDigit) {
 				case 0:
-					$kata = "Satu"; break;
+					$kata = "One"; break;
 				case 1:
 				case 4:
 				case 7:
@@ -196,34 +196,34 @@ function KalimatUang($uang) {
 					$d = (int)$digit[$i];
 					$nSisaDigit--;
 					if ($d == 0) {
-						$kata = "Sepuluh ";
+						$kata = "Ten";
 					} else if ($d == 1) {
-						$kata = "Sebelas ";
+						$kata = "Eleven";
 					} else {
-						$kata = KataAngka($d) . " Belas ";	
+						$kata = KataAngka($d) . " ";	
 					}
 					switch($nSisaDigit) {
 						case 3:
-							$kata = $kata . " Ribu ";
+							$kata = $kata . " Thousand";
 							break;
 						case 6:
-							$kata = $kata . " Juta ";
+							$kata = $kata . " Million";
 							break;
 						case 9:
-							$kata = $kata . " Milyar ";
+							$kata = $kata . " Billion";
 							break;
 					}
 					break;
 				case 2:
 				case 5:
 				case 8:
-					$kata = "Seratus "; break;
+					$kata = "Hundred "; break;
 				case 3:
-					$kata = "Seribu "; break;
+					$kata = "Thousand "; break;
 				case 6:
-					$kata = "Satu Juta "; break;
+					$kata = "One Million "; break;
 				case 9:
-					$kata = "Satu Milyar "; break;
+					$kata = "One Billion "; break;
 			}
 		} else if ($d != 0) {
 			switch($nSisaDigit) {
@@ -234,12 +234,12 @@ function KalimatUang($uang) {
 				case 7:
 				case 10:
 				case 13:
-					$kata = KataAngka($d) . " Puluh ";
+					$kata = KataAngka($d) . " ";
 					if ($digit[$i + 1] == 0) {
 						if ($nSisaDigit - 1 == 3)
-							$kata = $kata . " Ribu ";
+							$kata = $kata . " Thousand";
 						else if ($nSisaDigit - 1 == 6) 
-							$kata = $kata . " Juta ";
+							$kata = $kata . " Million";
 						
 						$i++;
 					}
@@ -249,19 +249,19 @@ function KalimatUang($uang) {
 				case 8:
 				case 11:
 				case 14:
-					$kata = KataAngka($d) . " Ratus ";
+					$kata = KataAngka($d) . " Hundred";
 					break;
 				case 3:
-					$kata = KataAngka($d) . " Ribu ";
+					$kata = KataAngka($d) . " Thousand";
 					break;
 				case 6:
-					$kata = KataAngka($d) . " Juta ";
+					$kata = KataAngka($d) . " Million ";
 					break;
 				case 9:
-					$kata = KataAngka($d) . " Milyar ";
+					$kata = KataAngka($d) . " Billion";
 					break;
 				case 12:
-					$kata = KataAngka($d) . " Trilyun ";
+					$kata = KataAngka($d) . " Trillion";
 					break;
 			}
 		} else {
@@ -269,19 +269,19 @@ function KalimatUang($uang) {
 			switch($nSisaDigit) {
 				case 3:
 					if ($nAwalanNol < 3) {
-						$kata = "Ribu ";
+						$kata = "Thousand";
 						$nAwalanNol = 0;
 					}
 					break;
 				case 6:
 					if ($nAwalanNol < 3) {
-						$kata = "Juta ";
+						$kata = "Million ";
 						$nAwalanNol = 0;
 					}
 					break;
 				case 9:
 					if ($nAwalanNol < 3) {
-						$kata = "Milyar ";
+						$kata = "Billion ";
 						$nAwalanNol = 0;
 					}
 					break;

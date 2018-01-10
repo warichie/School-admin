@@ -54,7 +54,7 @@ if (isset($_REQUEST['idtahunbuku']))
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
-<title>Laporan Buku Besar Pilih</title>
+<title>Ledger Reports Select</title>
 <script language="javascript" src="script/tooltips.js"></script>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
@@ -89,18 +89,18 @@ function cetak() {
     <!-- TABLE TITLE -->
     <tr>
         <td align="right">
-        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
+        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
         </td>
     </tr>
     </table>
     <br />
      <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="95%" align="center" bordercolor="#000000" />
     <tr height="30">
-        <td class="header" width="4%" align="center">No</td>
-        <td class="header" width="*" align="center">Rekening</td>
-        <td class="header" width="22%" align="center">Debet</td>
-        <td class="header" width="22%" align="center">Kredit</td>
+        <td class="header" width="4%" align="center">#</td>
+        <td class="header" width="*" align="center">Bank Account</td>
+        <td class="header" width="22%" align="center">Debit</td>
+        <td class="header" width="22%" align="center">Credit</td>
     </tr>
 <?
 	$cnt = 0;
@@ -118,7 +118,7 @@ function cetak() {
     </tr>
 <? } ?>
     <tr height="30">
-        <td colspan="2" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+        <td colspan="2" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>
     </tr>
@@ -131,7 +131,7 @@ function cetak() {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="300">    
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data transaksi <? if ($kategori <> "ALL") echo  "pada kategori ".$kategori; ?> antara tanggal <?=LongDateFormat($tanggal1)." s/d ".LongDateFormat($tanggal2) ?>.
+            <font size = "2" color ="red"><b>No transactions found <? if ($kategori <> "ALL") echo  "on kategori ".$kategori; ?> between <?=LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2) ?>.
             </b></font>
         </td>
     </tr>

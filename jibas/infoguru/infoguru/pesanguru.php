@@ -201,7 +201,7 @@ function show_wait(areaId) {
 
 <body class="twoColHybLt" onload="MM_preloadImages('pesanmasuk_on.png','pesanmasuk.png');inbox();">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/ico/movewait.gif" border="0" />Silahkan&nbsp;tunggu...
+<img src="../images/ico/movewait.gif" border="0" />Please wait...
 </div>
 <div id="container">
   <div id="sidebar1">
@@ -227,7 +227,7 @@ function show_wait(areaId) {
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td height="250" valign="top" style="background-image:url(backultah.png)"><div align="center"><strong>Daftar Guru yang Berulang Tahun Hari Ini
+    <td height="250" valign="top" style="background-image:url(backultah.png)"><div align="center"><strong>Birthday of Teacher List today
       <hr />
     <?
 	if (@mysql_num_rows($result_ultah)>0){
@@ -235,7 +235,7 @@ function show_wait(areaId) {
 		echo $row_ultah[nama]."<br>";
 		}
 	} else {
-		echo "Tidak ada Guru";
+		echo "No teacher.";
 	}
 	?>
     </strong></div></td>

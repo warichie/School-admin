@@ -139,7 +139,7 @@ if ($op == "xm8r389xemx23xb2378e23") {
 	</script>
 <?	} else { ?>
     <script language="JavaScript">
-        alert('Data presensi harian gagal dihapus, periksalah apakah data sudah terpakai');	
+        alert('Cannot delete daily presence data, please check the data whether it has been used');	
 	</script>
 <?	CloseDb();
 	}
@@ -174,7 +174,7 @@ OpenDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Input Presensi Harian</title>
+<title>Daily Presence</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -200,7 +200,7 @@ function hapus(replid) {
 	var bln = parseInt(document.getElementById('bln').value);	 
 	var th = parseInt(document.getElementById('th').value);	 
 	
-	if (confirm("Apakah anda yakin akan menghapus data presensi ini?"))		
+	if (confirm("Are you sure want to delete this presence data?"))		
 		document.location.href = "input_presensi_content.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&semester="+semester+"&kelas="+kelas+"&bln="+bln+"&th="+th+"&tgl1="+tgl1+"&tgl2="+tgl2;
 
 }
@@ -216,7 +216,7 @@ function change_tgl1() {
 	var tgl1 = parseInt(document.main.tgl2.value);	
 	
 	if (tgl > tgl1) {
-		alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');
+		alert ('End Date should not less than Start Date');
 		document.main.tgl1.focus();
 		return false;
 	} 
@@ -235,7 +235,7 @@ function change_tgl2() {
 	var tgl = parseInt(document.main.tgl2.value);
 	
 	if (tgl1 > tgl) {
-		alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');
+		alert ('End Date should not less than Start Date');
 		document.main.tgl2.focus();
 		return false;
 	} 
@@ -273,13 +273,13 @@ function cek(status,jum) {
 			
 	if (aktif) {
 		if (nilai.length == 0) {
-			alert ("Masukkan jumlah kehadiran pada kolom "+status);
+			alert ("Please enter the presence data in column "+status);
 			document.getElementById("def"+status).focus();
 			document.getElementById("ck"+status).checked = false;		
 			return false;			
 		} else {
 			if (isNaN(nilai)) {
-				alert ("Jumlah presensi harus berupa bilangan");
+				alert ("Presence should be numeric");
 				document.getElementById("def"+status).focus();
 				document.getElementById("ck"+status).checked = false;		
 				return false;
@@ -288,8 +288,8 @@ function cek(status,jum) {
 				if (hari > 0) {
 					//if (nilai > hari()) {
 					if (nilai > hari) {
-						//alert ("Jumlah presensi kehadiran tidak boleh lebih dari "+hari()+ " hari ");
-						alert ("Jumlah presensi kehadiran tidak boleh lebih dari "+hari+ " hari ");
+						//alert ("Presence should not exceed "+hari()+ " days ");
+						alert ("Presence should not exceed "+hari+ " days ");
 						document.getElementById("def"+status).focus();
 						document.getElementById("ck"+status).checked = false;		
 						return false;
@@ -299,7 +299,7 @@ function cek(status,jum) {
 						}
 					}
 				} else {
-					alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');
+					alert ('End Date should not less than Start Date');
 					document.main.tgl2.focus();
 					document.getElementById("ck"+status).checked = false;
 					return false;	
@@ -329,7 +329,7 @@ function validate() {
 		if (bulan1 == bln && th == tahun1) {
 			
 			if (tgl1 < tanggal1) {					
-				alert ('Pastikan waktu presensi tidak melebihi batas periode tahun ajaran \nantara '+tanggal1+'-'+bulan1+'-'+tahun1+' s/d '+tanggal2+'-'+bulan2+'-'+tahun2+'!');
+				alert ('Make sure that Presence time not exceed Teaching Period \n within '+tanggal1+'-'+bulan1+'-'+tahun1+' to '+tanggal2+'-'+bulan2+'-'+tahun2+'');
 				document.main.tgl1.focus();
 				return false;
 			}
@@ -338,7 +338,7 @@ function validate() {
 		if (bulan2 == bln && th == tahun2) {
 			if (tgl2>tanggal2) {		
 				//alert ('tgl2='+tgl2+'>tanggal2='+tanggal2);			
-				alert ('Pastikan waktu presensi tidak melebihi batas periode tahun ajaran \n antara'+tanggal1+'-'+bulan1+'-'+tahun1+' s/d '+tanggal2+'-'+bulan2+'-'+tahun2+'!');
+				alert ('Make sure that Presence time not exceed periode Year of Teaching \n within '+tanggal1+'-'+bulan1+'-'+tahun1+' to '+tanggal2+'-'+bulan2+'-'+tahun2+'');
 				document.main.tgl2.focus();
 				return false;
 			} 
@@ -347,7 +347,7 @@ function validate() {
 	}
 
 	/*if (hari() < 0) {	
-		alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');
+		alert ('End Date should not less than Start Date');
 		document.main.tgl2.focus();
 		return false;	
 	}*/
@@ -357,12 +357,12 @@ function validate() {
 		for (j=0;j<5;j++) {			
 			var isi = parseInt(document.getElementById(status[j]+i).value);
 			/*if (isi.length == 0) {
-				alert ("Jumlah presensi tidak boleh kosong");
+				alert ("Presence should not leave empty");
 				document.getElementById(status[j]+i).focus(); 						
 				return false;
 			 } else { 	*/
 			 	if (isNaN(isi)) {
-					alert ("Jumlah presensi harus berupa bilangan");
+					alert ("Presence should be numeric");
 					document.getElementById(status[j]+i).focus(); 						
 					return false;	
 				} 
@@ -377,15 +377,15 @@ function validate() {
 		var aktif = parseInt(document.getElementById("aktif1").value);
 		
 		if (sum != hari && aktif == 1) {
-			//alert ("Jumlah presensi kehadiran untuk tiap siswa tidak boleh lebih dari "+hari()+ " hari!");
-			alert ("Jumlah presensi untuk tiap siswa harus berjumlah "+hari+ " hari!");	
+			//alert ("Presence for each students should not exceed "+hari()+ " days");
+			alert ("Presence for each students should be "+hari+ " days");	
 			document.getElementById(status[0]+i).focus(); 
 								
 			return false;
 		}
 		
 		/*if (sum == 0) {
-			alert ("Jumlah presensi kehadiran untuk tiap siswa tidak boleh kosong!");
+			alert ("Presence for each students should not leave empty");
 			document.getElementById(status[0]+i).focus(); 						
 			return false;
 		}*/
@@ -397,12 +397,12 @@ function validate() {
 		for (i=1;i<=jum;i++) {
 			var isi = document.getElementById(status[j]+i).value;
 			if (isNaN(isi)){
-				alert("Jumlah presensi harus berupa bilangan");
+				alert("Presence should be numeric");
 				document.getElementById(status[j]+i).focus();				
 				return false;
 			} else {
 				if (isi > hari()) {
-					alert ("Jumlah presensi kehadiran tidak boleh lebih dari "+hari()+ " hari ");
+					alert ("Presence should not exceed "+hari()+ " days ");
 					document.getElementById(status[j]+i).focus(); 
 					return false;
 				}
@@ -481,14 +481,14 @@ function focusNext(elemName, evt) {
 <table border="0" width="100%" align="center">
 <!-- TABLE CENTER -->
 <tr>
-	<td width="*"><strong>Tanggal</strong>
+	<td width="*"><strong>Date</strong>
        	<select name="tgl1" id = "tgl1Info" onChange="change_tgl1();" onKeyPress="focusNext('tgl2Info',event)">
 		<? 	for($i=1;$i<=$n;$i++){   ?>      
 		    <option value="<?=$i?>" <?=IntIsSelected($tgl1, $i)?>><?=$i?></option>
 		<?	} ?>
 		</select>
         <?=NamaBulan($bln).' '.$th?>
-       s/d
+       to
         <select name="tgl2" id = "tgl2Info" onChange="change_tgl1()" onKeyPress="focusNext('hariaktif',event)">
 		
 		<? 	for($i=1;$i<=$n;$i++){   ?>      
@@ -499,16 +499,16 @@ function focusNext(elemName, evt) {
         
    	</td>
     <td align="right" width="25%">   
-    	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
     <?
 		if ($id <> ""){
 	?>
-    	<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
+    	<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
 	<?	} ?>	      
     </td>
 </tr>
 <tr>
-	<td colspan="2"><strong>Jumlah hari aktif belajar </strong>
+	<td colspan="2"><strong>Active learning days </strong>
         <select name="hariaktif" id = "hariaktif" onKeyPress="focusNext('defhadir',event)">
 		<? 	for($i=1;$i<=$jumhariaktif;$i++){   ?>      
 		    <option value="<?=$i?>" <?=IntIsSelected($hariaktif, $i)?>><?=$i?></option>
@@ -520,15 +520,15 @@ function focusNext(elemName, evt) {
 	<td colspan="2"> <p>
     <table border="1" width="100%" id="table" class="tab" bordercolor="#000000">
 		<tr height="15">		
-			<td width="3%" align="center" class="header" rowspan="2">No</td>
-			<td width="8%" align="center" class="header" rowspan="2">N I S</td>
-			<td width="*" align="center" class="header" rowspan="2">Nama</td>
-            <td width="9%" align="center" class="header">Hadir</td>
-            <td width="9%" align="center" class="header">Ijin</td>
-            <td width="9%" align="center" class="header">Sakit</td>
-            <td width="9%" align="center" class="header">Alpa</td>
-            <td width="9%" align="center" class="header">Cuti</td>
-            <td width="21%" align="center" class="header" rowspan="2">Keterangan</td>
+			<td width="3%" align="center" class="header" rowspan="2">#</td>
+			<td width="8%" align="center" class="header" rowspan="2">Student ID</td>
+			<td width="*" align="center" class="header" rowspan="2">Name</td>
+            <td width="9%" align="center" class="header">Attend</td>
+            <td width="9%" align="center" class="header">Consent</td>
+            <td width="9%" align="center" class="header">Ill</td>
+            <td width="9%" align="center" class="header">Absent</td>
+            <td width="9%" align="center" class="header">Leave</td>
+            <td width="21%" align="center" class="header" rowspan="2">Info</td>
 		</tr>
         <tr height="15">       	          
         	<td align="center" class="header"> 
@@ -563,10 +563,10 @@ function focusNext(elemName, evt) {
 			$pesan = "";
 			if ($row['idkelas'] <> $kelas) {
 				$color = "red";					
-				$pesan = "Pindah kelas ke ".$row['kelas'];
+				$pesan = "Transfer to class ".$row['kelas'];
 			} else if ($row['aktif'] == 0) {
 				$color = "red";
-				$pesan = "Siswa tidak aktif";
+				$pesan = "Student is inactive";
 			} 	
 			
 			if ($id <> "") {						
@@ -582,12 +582,12 @@ function focusNext(elemName, evt) {
 					$ket = $row1['keterangan'];
 					$aktif = 1;
 					/*if ($row['aktif'] == 1) {
-						if ($row1['keterangan'] == "Siswa baru pindah kelas")
+						if ($row1['keterangan'] == "Student has just transferred to another class")
 							$ket = "";
 					}*/
 				} else {
 					//$cuti = $hariaktif;
-					$ket = "Siswa baru pindah kelas";
+					$ket = "Student has just transferred to another class";
 					$aktif = 0;
 				}
 			}
@@ -595,18 +595,18 @@ function focusNext(elemName, evt) {
         <tr height="25"> 
         	     			
 		<? if ($row['idkelas'] <> $kelas) { ?>
-        	<td align="center" onMouseOver="showhint('Kelas tetap di <?=$row[kelas]?>', this, event, '80px')">
+        	<td align="center" onMouseOver="showhint('Class is still in <?=$row[kelas]?>', this, event, '80px')">
             <font color="#FF0000"><?=$cnt?></font></td>  
-            <td align="center" onMouseOver="showhint('Kelas tetap di <?=$row[kelas]?>', this, event, '80px')">
+            <td align="center" onMouseOver="showhint('Class is still in <?=$row[kelas]?>', this, event, '80px')">
             <font color="#FF0000"><?=$row['nis']?></font></td>
-            <td onMouseOver="showhint('Kelas tetap di <?=$row[kelas]?>', this, event, '80px')">
+            <td onMouseOver="showhint('Class is still in <?=$row[kelas]?>', this, event, '80px')">
             <font color="#FF0000"><?=$row['nama']?></font></td>			
 		<? } else if ($row['aktif'] == 0) { ?>			
-            <td align="center" onMouseOver="showhint('Status siswa tidak aktif lagi!', this, event, '80px')">
+            <td align="center" onMouseOver="showhint('Student status is back to inactive', this, event, '80px')">
             <font color="#FF0000"><?=$cnt?></font></td>
-            <td align="center" onMouseOver="showhint('Status siswa tidak aktif lagi!', this, event, '80px')">
+            <td align="center" onMouseOver="showhint('Student status is back to inactive', this, event, '80px')">
             <font color="#FF0000"><?=$row['nis']?></font></td>
-            <td onMouseOver="showhint('Status siswa tidak aktif lagi!', this, event, '80px')">
+            <td onMouseOver="showhint('Student status is back to inactive', this, event, '80px')">
             <font color="#FF0000"><?=$row['nama']?></font></td>
 		<? } else {	?>
             <td align="center"><?=$cnt?></td>
@@ -650,13 +650,13 @@ function focusNext(elemName, evt) {
 	</tr>
     <tr>    
     	<td align="right" colspan="2">
-       	<input type="button" name="simpan" id="simpan" value="Simpan" class="but" style="width:100px; " onClick="return validate();<? ///jumhari($tanggal1, $tanggal2);?>"/>
+       	<input type="button" name="simpan" id="simpan" value="Save" class="but" style="width:100px; " onClick="return validate();<? ///jumhari($tanggal1, $tanggal2);?>"/>
         <?
 			if($id <> ""){
 				$action = "Update";
 		?>
-			<input type="button" value="Hapus Data" class="but" onClick="hapus(<?=$id ?>)" style="width:100px;">
-			<!--<input type="button" value="(+) Tambah Siswa" class="but" onClick="tambah(<?=$id ?>)">-->
+			<input type="button" value="Delete Data" class="but" onClick="hapus(<?=$id ?>)" style="width:100px;">
+			<!--<input type="button" value="(+) Add Student" class="but" onClick="tambah(<?=$id ?>)">-->
 			<?
 			}else{
 				$action = "Simpan"; 
@@ -673,7 +673,7 @@ function focusNext(elemName, evt) {
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="300">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data siswa di kelas <?=$nama_kelas?>.<br />Tambah data siswa di menu Pendataan Siswa pada bagian Kesiswaan.
+    	<font size = "2" color ="red"><b>Data Not Found. found in class <?=$nama_kelas?>.<br />Add student data in the Student Data menu on Student section.
         </b></font>
 	</td>
 	</tr>

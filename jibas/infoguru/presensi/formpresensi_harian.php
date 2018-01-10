@@ -55,7 +55,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cetak Form Presensi Pelajaran</title>
+<title>Print Class Presence Form</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -104,9 +104,9 @@ function change_ajaran() {
 }
 
 function validate() {
-	return validateEmptyText('tahunajaran', 'Tahun Ajaran') && 
+	return validateEmptyText('tahunajaran', 'Year of Teaching') && 
 		   validateEmptyText('semester', 'Semester') && 	
-		   validateEmptyText('kelas', 'Kelas');
+		   validateEmptyText('kelas', 'Class');
 }
 
 function focusNext(elemName, evt) {
@@ -157,13 +157,13 @@ function cetaklah()
     <!-- TABLE TITLE -->
     <tr>
         <td align="right">
-        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Cetak Form Presensi Harian</font><br />
+        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Print Daily Presence Form</font><br />
         </td>
    	</tr>
     <tr>
       	<td align="right"><a href="../presensi.php" target="framecenter">
-      	<font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Cetak Form Presensi Harian</b></font>
+      	<font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Print Daily Presence Form</b></font>
         </td>
     </tr>
     <tr>
@@ -176,11 +176,11 @@ function cetaklah()
         <form name="main" onSubmit="return validate()">
         <br />
         <fieldset>
-        <legend><strong>Data Form Presensi Harian</strong></legend>
+        <legend><strong>Daily Presence Form Data</strong></legend>
         <table border="0" cellpadding="2" cellspacing="5" width="100%" align="center" >
         <!-- TABLE LINK -->
         <tr>
-            <td align="left" width="50%"><strong>Departemen</strong></td>
+            <td align="left" width="50%"><strong>Department</strong></td>
             <td width="*"> 
             <select name="departemen" id="departemen" onChange="change_dep()" style="width:150px;" onKeyPress="return focusNext('tingkat', event)">
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -193,7 +193,7 @@ function cetaklah()
         </tr>
         
         <tr>
-            <td align="left"><strong>Tahun Ajaran</strong></td>
+            <td align="left"><strong>Year</strong></td>
             <td>
                 <?
                 OpenDb();
@@ -227,7 +227,7 @@ function cetaklah()
           	</td> 
         </tr>
         <tr>
-        	<td><strong>Tingkat</strong></td>
+        	<td><strong>Grade</strong></td>
             <td>
                 <select name="tingkat" id="tingkat" onChange="change_tingkat()" style="width:150px;" onKeyPress="return focusNext('kelas', event)">
                 <?	OpenDb();
@@ -247,7 +247,7 @@ function cetaklah()
             </td>
         </tr>
         <tr>
-         	<td><strong>Kelas</strong></td>
+         	<td><strong>Class</strong></td>
             <td>
                 <select name="kelas" id="kelas" onChange="change()" style="width:150px;" onKeyPress="return focusNext('cetak', event)">
                 <?	OpenDb();
@@ -277,12 +277,12 @@ function cetaklah()
             
             if (mysql_num_rows($result) > 0) {
                 if ($result) { ?>
-                   <div align="center"><br /><input type="button" name="Cetak" id="cetak" value="Cetak" onclick="cetaklah()" class="but" style="width:80px;" /></div>
+                   <div align="center"><br /><input type="button" name="Cetak" id="cetak" value="Print" onclick="cetaklah()" class="but" style="width:80px;" /></div>
         <?		}
             } else {
                 CloseDb();
 			?>
-                <span class="style1">Belum ada data siswa yang terdaftar pada kelas ini!</span>                <?
+                <span class="style1">No registered student data for this class</span>                <?
             }
             ?>            </td>
         </tr>

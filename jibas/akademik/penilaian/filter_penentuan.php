@@ -50,7 +50,7 @@ OpenDb();
 
 <html>
 <head>
-<title>Penentuan Nilai Rapor</title>
+<title>Report Card Assessment.</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
@@ -94,27 +94,27 @@ function show(){
 	var nama = document.filter_penentuan.namaguru.value;	
     
     if(departemen.length == 0) {
-        alert("Departemen tidak boleh kosong!");
+        alert("Department should not leave empty");
         document.filter_penentuan.departemen.focus();
         return false;
     } else if(tingkat.length == 0) {
-        alert("Tingkat tidak boleh kosong!");
+        alert("Grade should not leave empty");
         document.filter_penentuan.tingkat.focus();
         return false;
     } else if(tahun.length == 0) {
-        alert("Tahun Ajaran tidak boleh kosong!");
+        alert("Year of Teaching should not leave empty");
         document.filter_penentuan.tahun.focus();
         return false;
     } else if(semester.length == 0) {
-        alert("Semester tidak boleh kosong!");
+        alert("Semester should not leave empty");
         document.filter_penentuan.semester.focus();
         return false;
     } else if(kelas.length == 0) {
-        alert("Kelas tidak boleh kosong!");
+        alert("Class should not leave empty");
         document.filter_penentuan.kelas.focus();
         return false;
     } else if(nip.length == 0) {
-        alert("NIP Guru tidak boleh kosong!");
+        alert("Teacher ID should not leave empty");
         document.filter_penentuan.nip.focus();
         return false;
     } else {	
@@ -159,7 +159,7 @@ function focusNext(elemName, evt) {
     <td width="64%">
     <table border="0" width="100%">
     <tr>
-        <td width="16%"><strong>Departemen</strong></td>
+        <td width="16%"><strong>Department</strong></td>
         <td width="32%">
             <select name="departemen" id="departemen" style="width:180px;" onChange="change_sel();" onkeypress="return focusNext('tingkat', event)">
             <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -171,7 +171,7 @@ function focusNext(elemName, evt) {
             <?	} ?>
             </select>
         </td>
-        <td width="18%"><strong>Tahun Ajaran</strong></td>
+        <td width="18%"><strong>Year</strong></td>
         <td>
 <?  		$sql = "SELECT replid,tahunajaran FROM tahunajaran WHERE departemen='$departemen' AND aktif=1 ORDER BY replid DESC";
             $result = QueryDb($sql);
@@ -181,7 +181,7 @@ function focusNext(elemName, evt) {
         <input type="text" name="tahun" id="tahun" readonly class="disabled" style="width:150px" value="<?=$row['tahunajaran']?>" /></td> 
 	</tr>
     <tr>
-        <td><strong>Kelas</strong></td>
+        <td><strong>Class</strong></td>
         <td>
         
         <select name="tingkat" id="tingkat" onChange="change_sel2()" style="width:60px;" onkeypress="return focusNext('kelas', event)">
@@ -214,7 +214,7 @@ function focusNext(elemName, evt) {
         <input type="hidden" name="semester" id="semester" value="<?=$row['replid']?>">      	</td>
     </tr>
     <tr>
-        <td ><strong>Guru</strong></td>
+        <td><strong>Teacher</strong></td>
         <td colspan="3">
     	<input type="text" name="nip" id="nip" size="15" class="disabled" value="<?=$_REQUEST['nip'] ?>" readonly onClick="pegawai()"/>
         <input type="hidden" name="nipguru" id="nipguru" value="<?=$_REQUEST['nip'] ?>"/>
@@ -225,14 +225,14 @@ function focusNext(elemName, evt) {
     </table>
     </td>
     <td align="left" valign="middle" width="*" rowspan="3">
-        <img src="../images/view.png" width="48" height="48" id="tabel" border="0" onClick="show()" style="cursor:pointer;" onMouseOver="showhint('Klik untuk menampilkan penentuan nilai rapor!', this, event, '150px')">            </td>
+        <img src="../images/view.png" width="48" height="48" id="tabel" border="0" onClick="show()" style="cursor:pointer;" onMouseOver="showhint('Click to show Report Card Assessment', this, event, '150px')">            </td>
   	</td>
     <td align="right" valign="top" width="40%" rowspan="3">
         <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;
-        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Penentuan Nilai Rapor</font><br />
+        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Report Card Assessment.</font><br />
 		<a href="../penilaian.php" target="content">
-  		<font size="1" color="#000000"><b>Penilaian</b></font></a>&nbsp>&nbsp
-    	<font size="1" color="#000000"><b>Penentuan Nilai Rapor</b></font>
+  		<font size="1" color="#000000"><b>Index</b></font></a>&nbsp;>&nbsp;
+    	<font size="1" color="#000000"><b>Report Card Assessment.</b></font>
     </td>
 </tr>
 </table>

@@ -55,7 +55,7 @@ if (isset($_REQUEST['urutan']))
     <input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
     <input type="hidden" name="urut" id="urut" value="<?=$urut ?>" />
     <input type="hidden" name="urutan" id="urutan" value="<?=$urutan ?>" />
-    <!--<font size="2" color="#000000"><strong>Daftar Pegawai</strong></font><br />-->
+    <!--<font size="2" color="#000000"><strong>Employee List</strong></font><br />-->
     </td>
 </tr>
 <tr>
@@ -83,9 +83,9 @@ if (isset($_REQUEST['urutan']))
     <!--<div id="tab_daftar">-->
     <table width="100%" id="table" class="tab" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="#000000">
     <tr height="30" class="header" align="center">
-        <td width="7%">No</td>
-        <td width="15%">No Reg</td>
-        <td>Nama</td>
+        <td width="7%">#</td>
+        <td width="15%">Reg Num</td>
+        <td>Name</td>
         <td width="10%">&nbsp;</td>
     </tr>
     <?
@@ -101,7 +101,7 @@ if (isset($_REQUEST['urutan']))
         <td align="center"><?=$row[0] ?></td>
         <td><?=$row[1] ?></td>
         <td align="center">
-        <input type="button" name="pilih" class="cmbfrm2" id="pilih" value="Pilih" onClick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
+        <input type="button" name="pilih" class="cmbfrm2" id="pilih" value="Select" onClick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
         </td>
     </tr>
     <? 	} ?>
@@ -129,16 +129,16 @@ if (isset($_REQUEST['urutan']))
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left"><font color="#000000" class="news_content1">Hal
+       	<td width="30%" align="left"><font color="#000000" class="news_content1">Page
         <select name="hal" id="hal" onChange="change_hal('daftar')" class="cmbfrm">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     	// Navigasi halaman berikutnya dan sebelumnya
+     	// Navigasi halaman berikutnya and sebelumnya
         ?>
         </font></td>
     	<!--td align="center">
@@ -155,7 +155,7 @@ if (isset($_REQUEST['urutan']))
 		?>
 	     <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>','daftar')" >
  		</td-->
-        <td width="30%" align="right"><span class="news_content1"><font color="#000000">Jml baris per hal
+        <td width="30%" align="right"><span class="news_content1"><font color="#000000">Row per page
       	</font></span>
       	<select name="varbaris" class="cmbfrm" id="varbaris" onChange="change_baris('daftar')">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
@@ -171,7 +171,7 @@ if (isset($_REQUEST['urutan']))
 	<tr height="30" align="center">
 		<td>
 	<br /><br />	
-	<font size = "2" color ="red"><b><span class="err">Tidak ditemukan adanya data. </span><br />
+	<font size = "2" color ="red"><b><span class="err">No Data Found. </span><br />
 	</font>	
 	<br />
 	<br />
@@ -183,8 +183,8 @@ if (isset($_REQUEST['urutan']))
 </tr>
 <tr>
 	<td align="center" height="30">
-	<!--<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close();opener.document.getElementById('urutan').focus();" style="width:80px;"/>-->
-    <input type="button" class="cmbfrm2" name="tutup" id="tutup" value="Tutup" onclick="window.close();" style="width:80px;"/>
+	<!--<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close();opener.document.getElementById('urutan').focus();" style="width:80px;"/>-->
+    <input type="button" class="cmbfrm2" name="tutup" id="tutup" value="Close" onclick="window.close();" style="width:80px;"/>
 	</td>
 </tr>
 </table>

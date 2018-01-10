@@ -46,7 +46,7 @@ if (isset($_REQUEST['iddasar']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pindah Kelas</title>
+<title>Class Transfer</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/ajax.js"></script>
@@ -98,11 +98,11 @@ function focusNext(elemName, evt) {
 	<td rowspan="2" width="45%">
     <table width = "98%" border = "0" cellpadding="0" cellspacing="0">
     <tr>
-    	<td width="25%"><strong>Departemen</strong>
+    	<td width="25%"><strong>Department</strong>
       	<td width="*">
 			<? if (SI_USER_LEVEL() != $SI_USER_STAFF) {	?>
 		   	<select name="departemen" id="departemen" onchange="change_departemen()" style="width:240px;" onKeyPress="return focusNext('iddasar', event)">
-        		<option value="-1" >(Semua Departemen)</option>    
+        		<option value="-1" >(All Department)</option>    
 			<?
 				$sql = "SELECT * FROM jbsakad.departemen where aktif=1 ORDER BY urutan";
 				OpenDb();
@@ -145,10 +145,10 @@ function focusNext(elemName, evt) {
 			?>	  	</td>
     </tr>
     <tr>
-       	<td width = "13%" align="left"><strong>Angkatan</strong></td>      
+       	<td width = "13%" align="left"><strong>Graduates</strong></td>      
       	<td><div id="angkatanInfo">        	
            	<select name="angkatan" id="angkatan" onchange="blank()" <?=$disable?> style="width:240px;" onKeyPress="return focusNext('iddasar', event)">
-        	<option value="-1" >(Semua Angkatan yang Aktif)</option>
+        	<option value="-1" >(All Active)</option>
         	<? 	OpenDb();
 				$sql_angkatan = "SELECT replid,angkatan FROM jbsakad.angkatan where aktif = 1 AND departemen = '$departemen' ORDER BY replid DESC";
 				$result_angkatan = QueryDb($sql_angkatan);
@@ -162,7 +162,7 @@ function focusNext(elemName, evt) {
       		</select></div></td>
  	</tr>
   	<tr>
-   		<td align="left" width = "13%"><strong>Berdasarkan</strong>
+   		<td align="left" width = "13%"><strong>Sort by</strong>
       	<td>
         <!--<div id="dasarInfo">-->
         <select name="iddasar" id="iddasar" onchange="blank()" style="width:240px;" onKeyPress="return focusNext('tabel', event)">
@@ -174,12 +174,12 @@ function focusNext(elemName, evt) {
 	</table>    
     </td>
     <td width="5%" valign="middle">
-    <a href="#" onclick="tampil_statistik()" ><img src="../images/view.png" height="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Klik untuk menampilkan statistik !', this, event, '135px')"/></a></div></td>
+    <a href="#" onclick="tampil_statistik()" ><img src="../images/view.png" height="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Click to show statistik ', this, event, '135px')"/></a></div></td>
     <td width="50%" align="right" valign="top">
-        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Statistik Kesiswaan</font><br />
+        <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Statistic</font><br />
     <a href="../siswa.php" target="content">
-      <font size="1" color="#000000"><b>Kesiswaan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Statistik Kesiswaan</b></font>        </td>     
+      <font size="1" color="#000000"><b>Student</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Student Statistic.</b></font>        </td>     
 </tr>
 </table>
 </td>

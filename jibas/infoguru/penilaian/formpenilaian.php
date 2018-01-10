@@ -60,7 +60,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cetak Form</title>
+<title>Print Form</title>
 
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
@@ -113,27 +113,27 @@ function validate(jenis) {
 	var nip = document.getElementById("nip").value; 	
 
 	if (tahunajaran.length == 0) {	
-		alert ('Pastikan tahun ajaran sudah ada!');
+		alert ('Make sure that Year of Teaching is existed');
 		document.getElementById('tahunajaran').focus();
 		return false;
 	} else if (semester.length == 0) {	
-		alert ('Pastikan semester sudah ada!');
+		alert ('Make sure that Semester is existed');
 		document.getElementById('semester').focus();
 		return false;
 	} else if (tingkat.length == 0) {	
-		alert ('Pastikan tingkat sudah ada!');
+		alert ('Make sure that Grade is existed');
 		document.getElementById('tingkat').focus();
 		return false;
 	} else if (kelas.length == 0) {	
-		alert ('Pastikan kelas sudah ada!');
+		alert ('Make sure that Class is existed');
 		document.getElementById('kelas').focus();
 		return false;
 	} else if (pelajaran.length == 0) {	
-		alert ('Pastikan pelajaran sudah ada!');
+		alert ('Make sure that Class Subject is existed');
 		document.getElementById('pelajaran').focus();
 		return false;
 	} else if (nip.length == 0) {	
-		alert ('Pastikan ada guru yang mengajar!');
+		alert ('Make sure that Teacher is available');
 		document.getElementById('nip').focus();
 		return false;
 	}
@@ -208,14 +208,14 @@ function d(){
     <!-- TABLE TITLE -->
     <tr>
         <td align="right">
-         <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Cetak Form Penilaian</font><br />
+         <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Print Assessment Form</font><br />
         </td>
    	</tr>
     <tr>
       	<td align="right">
         <a href="../penilaian.php" target="framecenter">
-      	<font size="1" color="#000000"><b>Penilaian</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Cetak Form-form Penilaian</b></font>
+      	<font size="1" color="#000000"><b>Index</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Print Assessment Form</b></font>
         </td>
     </tr>
     <tr>
@@ -226,7 +226,7 @@ function d(){
     <table border="0" cellpadding="2" cellspacing="2" width="95%" align="left">
     <!-- TABLE LINK -->
     <tr>
-   		<td width="15%"><strong>Departemen</strong></td>
+   		<td width="15%"><strong>Department</strong></td>
     	<td width="25%"> 
     		<select name="departemen" id="departemen" onChange="change_dep()" style="width:150px" onKeyPress="return focusNext('tingkat', event)">
 		<?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -236,7 +236,7 @@ function d(){
 			<option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?> > <?=$value ?> </option>
 		<?	} ?>
 			</select>    </td>
-       	<td width="10%"><strong>Tingkat </strong></td>
+       	<td width="10%"><strong>Grade </strong></td>
     	<td><select name="tingkat" id="tingkat" onChange="change_tingkat()" style="width:225px" onkeypress="return focusNext('kelas', event)">
           <?	OpenDb();
 			$sql = "SELECT replid,tingkat FROM tingkat WHERE aktif=1 AND departemen='$departemen' ORDER BY urutan";	
@@ -257,7 +257,7 @@ function d(){
         </select></td> 
 	</tr>
     <tr>
-    	<td><strong>Tahun Ajaran</strong></td>
+    	<td><strong>Year</strong></td>
        	<td>
         <?  OpenDb();
 			$sql = "SELECT replid,tahunajaran FROM tahunajaran WHERE departemen = '$departemen' AND aktif=1 ORDER BY replid DESC";
@@ -268,7 +268,7 @@ function d(){
 		?>
         	<input type="text" name="tahun" id="tahun" size="22" readonly value="<?=$row['tahunajaran']?>" class="disabled" />
         	<input type="hidden" name="tahunajaran" id="tahunajaran" value="<?=$row['replid']?>">        </td>
-        <td><strong>Kelas </strong></td>
+        <td><strong>Class </strong></td>
     	<td>
    			<select name="kelas" id="kelas" onChange="change()" style="width:225px" onKeyPress="return focusNext('pelajaran', event)">
 		<?	OpenDb();
@@ -301,7 +301,7 @@ function d(){
        	?>   	
             <input type="text" name="sem" size="22" value="<?=$row['semester'] ?>" readonly class="disabled"/>
             <input type="hidden" name="semester" id="semester" value="<?=$row['replid']?>">            </td>
-        <td align="left"><strong>Pelajaran</strong></td>      	
+        <td align="left"><strong>Class Subject</strong></td>      	
       	<td>
         	<select name="pelajaran" id="pelajaran" onChange="change()" style="width:225px" onKeyPress="return focusNext('nip', event)">
    		 	<?
@@ -325,7 +325,7 @@ function d(){
    	</tr>
     <!--
     <tr>
-      <td><strong>Guru</strong></td>
+      <td><strong>Teacher</strong></td>
       <td colspan="3">
       		<select name="nip" id="nip" onChange="change()" style="width:465px">
    		 	<?
@@ -347,10 +347,10 @@ function d(){
     	
 		<td colspan="3"><br />
         	
-        	<a href="#" onclick="validate(1)" ><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak Form Pengisian Nilai Siswa!', this, event, '50px')"/>&nbsp;Cetak Form Pengisian Nilai Siswa</a>&nbsp;&nbsp;
-            <p><a href="#" onclick="validate(2)"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak Form Pengisian Nilai Akhir Siswa!', this, event, '50px')"/>&nbsp;Cetak Form Pengisian Nilai Akhir Siswa</a>&nbsp;&nbsp;
-            <p><a href="#" onclick="validate(3)"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak Form Pengisian Nilai Rapor Siswa!', this, event, '50px')"/>&nbsp;Cetak Form Pengisian Nilai Rapor Siswa</a>&nbsp;&nbsp;
-            <p><a href="#" onclick="validate(4)"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak Form Komentar Rapor Siswa!', this, event, '50px')"/>&nbsp;Cetak Form Komentar Rapor Siswa</a>&nbsp;&nbsp;    	            
+        	<a href="#" onclick="validate(1)" ><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print Student Assessment Form', this, event, '50px')"/>&nbsp;Print Student Assessment Form</a>&nbsp;&nbsp;
+            <p><a href="#" onclick="validate(2)"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print Student Final Point Assessment Form', this, event, '50px')"/>&nbsp;Print Student Final Point Assessment Form</a>&nbsp;&nbsp;
+            <p><a href="#" onclick="validate(3)"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print Student Assessment Report Form', this, event, '50px')"/>&nbsp;Print Student Assessment Report Form</a>&nbsp;&nbsp;
+            <p><a href="#" onclick="validate(4)"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print Student Comment Report Form', this, event, '50px')"/>&nbsp;Print Student Comment Report Form</a>&nbsp;&nbsp;    	            
             </td>
        	<td></td>
 	</tr>
@@ -390,7 +390,7 @@ if (isset($_REQUEST['jenis'])) {
 				b();											
 			</script>
 <?				} else {					
-					$ERROR_MSG = "Belum ada Jenis Pengujian!";		
+					$ERROR_MSG = "No Exam Type.";		
 				}	
 					break;
 			case 3 :
@@ -412,7 +412,7 @@ if (isset($_REQUEST['jenis'])) {
 		}
 	} else {
 		CloseDb();
-		$ERROR_MSG = "Belum ada data siswa yang terdaftar pada kelas ini!";		
+		$ERROR_MSG = "No Registered Student data for this Class.";		
 		
 	}
 }

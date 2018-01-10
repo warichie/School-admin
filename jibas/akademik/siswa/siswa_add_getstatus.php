@@ -34,7 +34,7 @@ $status_kiriman=$_REQUEST['status'];
 
 
 <select name="status" id="status" class="ukuran" onKeyPress="return focusNext('kondisi', event)">
-	<option value="">[Pilih Status]</option>
+	<option value="">[Select Status]</option>
     <? // Olah untuk combo status
 	OpenDb();
 	$sql_status="SELECT replid,status,urutan FROM jbsakad.statussiswa ORDER BY urutan";

@@ -97,7 +97,7 @@ function createfolder(iddir)
 
 function delfolder(iddir)
 {
-	if (confirm('Anda yakin akan menghapus direktori ini beserta direktori dan file-file yang ada di dalamnya?'))
+	if (confirm('Are you sure want to delete this directory and the files inside?'))
 		document.location.href="dirs.php?op=cx5429zsda53h3cs52q836b&iddir="+iddir+"&afteradd";
 }
 
@@ -180,7 +180,7 @@ function traverse($iddir, $count)
 			$num_pel = @mysql_num_rows($res_get_id);
 			if ($num_pel > 0)
 			{
-				$ajar="<b><u>Mengajar : </u></b>";
+				$ajar="<b><u>Teaching : </u></b>";
 				$cnt=1;
 				while ($row_pel = @mysql_fetch_array($res_get_id))
 				{
@@ -191,7 +191,7 @@ function traverse($iddir, $count)
 			}
 
 			if ($num_wk > 0)
-				$ajar=$ajar."<b><u> Walikelas ".$kelas." </u></b> <br>";
+				$ajar=$ajar."<b><u> Homeroom Teacher ".$kelas." </u></b> <br>";
 
 			if ($num_wk>0 || $num_pel>0)
 				$msg="onMouseOver=\"showhint('$ajar', this, event, '140px')\"";

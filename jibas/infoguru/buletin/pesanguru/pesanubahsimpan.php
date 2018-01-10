@@ -30,7 +30,7 @@ require_once('../../include/db_functions.php');
 //echo $repd1."-".$repd2."-".$repd3;
 //exit;
 
-//Ambil dari pesannya
+//Ambil from pesannya
 $replid=$_REQUEST['replid'];
 $bulan=$_REQUEST['tahun'];
 $tahun=$_REQUEST['tahun'];
@@ -57,7 +57,7 @@ CloseDb();
 //Ambil last id
 $lastid=$replid;
 
-//Hapus dari tabel tujuan
+//Hapus from tabel tujuan
 OpenDb();
 
 $sql="DELETE FROM jbsvcr.tujuanpesanguru WHERE idpesan='$lastid'";

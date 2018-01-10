@@ -49,7 +49,7 @@ else
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Lihat Data Presensi Pelajaran]</title>
+<title>JIBAS SIMAKA [See Class Presence Data]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript">
 
@@ -74,12 +74,12 @@ else
         <table border="0" width="100%" id="table" class="tab">
 		
         <tr>		
-			<td class="header" align="center" width="4%">No</td>
-			<td class="header" align="center" width="4%">Tgl</td>
-			<td class="header" align="center" width="9%">Jam</td>
-            <td class="header" align="center" width="20%">Pelajaran</td>
-            <td class="header" align="center" width="20%">Pengajar</td>
-            <td class="header" align="center" width="32%">Materi</td>
+			<td class="header" align="center" width="4%">#</td>
+			<td class="header" align="center" width="4%">Date</td>
+			<td class="header" align="center" width="9%">Time</td>
+            <td class="header" align="center" width="20%">Class Subject</td>
+            <td class="header" align="center" width="20%">Teacher</td>
+            <td class="header" align="center" width="32%">Class Subject</td>
             <td class="header" align="center" width="8%"></td>
 		</tr>
 		<? 
@@ -93,7 +93,7 @@ else
            	<td><?=$row[3]?></td>
             <td><?=$row[4]?></td>
             <td><textarea name="materi_lanjut" id="materi_lanjut" rows="2" cols="30%"><?=$row[5] ?></textarea></td>            
-            <td align="center"><input type="button" name="pilih" class="but" id="pilih" value="Pilih" onClick="parent.pilih('<?=$row[6]?>')" /></td>
+            <td align="center"><input type="button" name="pilih" class="but" id="pilih" value="Select" onClick="parent.pilih('<?=$row[6]?>')" /></td>
     	</tr>
  	<?		$cnt++;
 		} 
@@ -105,16 +105,16 @@ else
 		</script>
 
 	<? 	} else { 
-			echo "<strong><font color='red'>Tidak ditemukan adanya data</strong>";
+			echo "<strong><font color='red'>Data Not Found.</strong>";
 		}
 	} else { 
-			echo "<strong><font color='red'>Tidak ditemukan adanya data</strong>";
+			echo "<strong><font color='red'>Data Not Found.</strong>";
 	}	
 	?>
 </td></tr>
 <tr height="30">
 	<td align="center">
-    <input type="button" class="but" name="tutup" id="tutup" value="Tutup" onClick="parent.tutup()" /></td>
+    <input type="button" class="but" name="tutup" id="tutup" value="Close" onClick="parent.tutup()" /></td>
 </tr>	
 <!-- END OF TABLE UTAMA -->
 </table>

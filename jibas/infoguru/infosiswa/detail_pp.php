@@ -35,7 +35,7 @@ $result = QueryDb($sql);
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Detail Presensi Pelajaran</title>
+<title>Class Presence Details</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <script language="JavaScript" src="../script/tables.js"></script>
@@ -46,16 +46,16 @@ $result = QueryDb($sql);
 <table width="100%" border="0" cellspacing="0">
   <tr>
     <td><fieldset>
-      <legend>Data Presensi bulan <?=NamaBulan($_REQUEST[bulan])?> <?=$waktu[1]?></legend>
+      <legend>Presence Data month <?=NamaBulan($_REQUEST[bulan])?> <?=$waktu[1]?></legend>
         <table width="100%" border="1" cellspacing="0" class="tab" id="table">
           <tr>
-            <td height="30" class="headerlong"><div align="center">Tgl</div></td>
-            <td height="30" class="headerlong"><div align="center">Jam</div></td>
-            <td height="30" class="headerlong"><div align="center">Kelas</div></td>
-            <td height="30" class="headerlong"><div align="center">Catatan</div></td>
-            <td height="30" class="headerlong"><div align="center">Pelajaran</div></td>
-            <td height="30" class="headerlong"><div align="center">Guru</div></td>
-            <td height="30" class="headerlong"><div align="center">Materi</div></td>
+            <td height="30" class="headerlong"><div align="center">Date</div></td>
+            <td height="30" class="headerlong"><div align="center">Time</div></td>
+            <td height="30" class="headerlong"><div align="center">Class</div></td>
+            <td height="30" class="headerlong"><div align="center">Notes</div></td>
+            <td height="30" class="headerlong"><div align="center">Class Subject</div></td>
+            <td height="30" class="headerlong"><div align="center">Teacher</div></td>
+            <td height="30" class="headerlong"><div align="center">Class Subject</div></td>
           </tr>
           <?
 		  while ($row=@mysql_fetch_row($result)){
@@ -82,7 +82,7 @@ $result = QueryDb($sql);
 		</script>
     </fieldset></td>
   </tr>
-  <tr><td align="center"><br /><input name="kembali" class="but" type="button" value="Tutup" onClick="window.close()" /></td></tr>
+  <tr><td align="center"><br /><input name="kembali" class="but" type="button" value="Close" onClick="window.close()" /></td></tr>
 </table>
 </body>
 </html>

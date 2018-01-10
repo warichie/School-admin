@@ -32,7 +32,7 @@ $status_user = $_REQUEST[tingkat];
 ?>
 <select name="departemen" id="departemen" style="width:165px;" onKeyPress="return focusNext('keterangan', event)" onFocus="panggil('tt')">
 	<?  if ($status_user == 1 || $status_user == ""){	
-		echo "<option value='' selected='selected'>Semua</option>";
+		echo "<option value='' selected='selected'>All</option>";
 	} else {
 		OpenDb();
 		$query_pro = "SELECT departemen FROM departemen WHERE aktif=1 ORDER BY urutan ASC";

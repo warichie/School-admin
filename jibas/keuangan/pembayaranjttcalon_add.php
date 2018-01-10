@@ -46,16 +46,16 @@ $namapenerimaan = FetchSingle($sql);
 $sql = "SELECT COUNT(replid) FROM datapenerimaan WHERE replid=$idpenerimaan AND info1 IS NOT NULL";
 if (0 == (int)FetchSingle($sql))
 {
-	//-- belum ada rekening diskon, warning user ---------
+	//-- not existed rekening diskon, warning user ---------
 	CloseDb();
 	
 	echo "<br><br>";
 	echo "<table border='1' style='font-family:Verdana; font-size:12px; border-width:1px; border-color:#8eb83e; background-color:#e8f4d0;' cellpadding='10' cellspacing='0'><tr height='200'><td align='center' valign='middle'>";
 	echo "<strong>Mohon Maaf</strong>";
 	echo "<br><br>";
-	echo "Kode untuk rekening <strong><font color='red'>diskon</font></strong> untuk penerimaan \"<strong>$namapenerimaan</strong>\" belum ada. Silahkan tentukan dahulu kode rekening <strong><font color='red'>diskon</font></strong> di menu <strong>Penerimaan > Jenis Penerimaan</strong>";
+	echo "Kode untuk rekening <strong><font color='red'>diskon</font></strong> untuk penerimaan \"<strong>$namapenerimaan</strong>\" not existed. Silahkan tentukan dahulu kode rekening <strong><font color='red'>diskon</font></strong>  in the<strong>Penerimaan > Acquisition Type</strong>";
 	echo "<br><br>";
-	echo "Rekening <strong><font color='red'>diskon</font></strong> adalah pasangan rekening <strong><font color='red'>pendapatan</font></strong>. ";
+	echo "Bank Account <strong><font color='red'>diskon</font></strong> adalah pasangan rekening <strong><font color='red'>pendapatan</font></strong>. ";
 	echo "Contohnya, untuk rekening pendapatan <strong>412 Pendapatan DSP</strong> maka rekening diskonnya misalnya <strong>422 Diskon DSP</strong>.";
 	echo "<br><br>";
 	echo "<input type='button' value='Tutup' onclick='window.close()'>";
@@ -64,7 +64,7 @@ if (0 == (int)FetchSingle($sql))
 	exit();
 }
 
-// -- ambil nama calon siswa --------------------------
+// -- ambil nama student candidate --------------------------
 $sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '$replid'";
 $row = FetchSingleRow($sql);
 $namacalon = $row[0];
@@ -91,7 +91,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	$rekdiskon = $row[4];
 	
 	//// Cari tahu besar pembayaran
-	// FIXED: 26 Agustus 2010
+	// FIXED: 26 August 2010
 	$idbesarjtt = 0;
 	$besarjtt = 0;
 	$sql = "SELECT b.replid AS id, b.besar, b.keterangan, b.lunas 
@@ -110,7 +110,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	//// Cek jumlah cicilan dengan besar pembayaran yang mesti dilunasi
 	if ($jmlcicilan + $jmldiskon + $jbayar + $jdiskon > $besarjtt) 
 	{		
-		$errmsg = "Maaf, pembayaran tidak dapat dilakukan! Jumlah bayaran cicilan lebih besar daripada pembayaran yang harus dilunasi!";
+		$errmsg = "Maaf, pembayaran tidak dapat dilakukan! Jumlah bayaran cicilan lebih besar daripada pembayaran yang harus dilunasi";
 	}
 	else
 	{
@@ -118,7 +118,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 		$ketjurnal = "";
 		if ($totalcicilan + $totaldiskon + $jbayar + $jdiskon == $besarjtt)
 		{
-			$ketjurnal = "Pelunasan $namapenerimaan calon siswa $namacalon ($nocalon)";
+			$ketjurnal = "Pelunasan $namapenerimaan student candidate $namacalon ($nocalon)";
 			$lunas = 1; //udah lunas
 		}
 		else
@@ -126,11 +126,11 @@ if (1 == (int)$_REQUEST['issubmit'])
 			$sql = "SELECT COUNT(replid) + 1 FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
 			$cicilan = (int)FetchSingle($sql);
 			
-			$ketjurnal = "Pembayaran cicilan ke-$cicilan $namapenerimaan calon siswa $namacalon ($nocalon)";
+			$ketjurnal = "Payment cicilan ke-$cicilan $namapenerimaan student candidate $namacalon ($nocalon)";
 			$lunas = 0;
 		}
 		
-		//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
+		//Ambil awalan and cacah tahunbuku untuk bikin nokas;
 		$sql = "SELECT awalan, cacah FROM jbsfina.tahunbuku WHERE replid = '$idtahunbuku'";
 		$row = FetchSingleRow($sql);
 		$awalan = $row[0];
@@ -201,7 +201,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 			RollbackTrans();
 			CloseDb();			
 			echo  "<script language='javascript'>";
-			echo  "alert('Gagal menyimpan data!);";
+			echo  "alert('Failed to save data!);";
 			echo  "</script>";
 		}
 	} // if ($jmlcicilan + $jmldiskon + $jbayar > $besarjtt)
@@ -234,7 +234,7 @@ $jbayar = $jcicilan - $jdiskon;
 <link rel="stylesheet" type="text/css" href="style/calendar-green.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Tambah Pembayaran Cicilan]</title>
+<title>JIBAS FINANCE [Add Payment Cicilan]</title>
 <script src="script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="script/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -253,9 +253,9 @@ function ValidateSubmit()
 {
 	var isok = 	validateEmptyText('jcicilan', 'Besarnya Cicilan') &&
 		    	validasiAngka() &&
-		    	validateEmptyText('tcicilan', 'Tanggal Cicilan') &&
-		    	validateMaxText('kcicilan', 255, 'Keterangan Cicilan') &&
-				confirm("Data sudah benar?");
+		    	validateEmptyText('tcicilan', 'Date Cicilan') &&
+		    	validateMaxText('kcicilan', 255, 'Info Cicilan') &&
+				confirm("The data is correct?");
 	
 	document.getElementById('issubmit').value = isok ? 1 : 0;
 	
@@ -270,13 +270,13 @@ function validasiAngka()
 	angka = document.getElementById('angkacicilan').value;
 	if(isNaN(angka)) 
 	{
-		alert ('Besarnya cicilan harus berupa bilangan!');
+		alert ('Besarnya cicilan must be numeric');
 		document.getElementById('jcicilan').focus();
 		return false;
 	}
 	else if(angka <= 0)
 	{
-		alert ('Besarnya cicilan harus positif!');
+		alert ('Besarnya cicilan harus positif');
 		document.getElementById('jcicilan').focus();
 		return false;
 	}
@@ -284,13 +284,13 @@ function validasiAngka()
 	diskon = document.getElementById('angkadiskon').value;
 	if(isNaN(diskon)) 
 	{
-		alert ('Besar diskon harus berupa bilangan!');
+		alert ('Besar diskon must be numeric');
 		document.getElementById('jdiskon').focus();
 		return false;
 	}
 	else if(diskon < 0)
 	{
-		alert ('Besar diskon harus positif!');
+		alert ('Besar diskon harus positif');
 		document.getElementById('jdiskon').focus();
 		return false;
 	}
@@ -340,7 +340,7 @@ function CalculatePay()
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Pembayaran Cicilan :.
+    .: Add Payment Cicilan :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -359,11 +359,11 @@ function CalculatePay()
    	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td width="50%"><strong>Pembayaran</strong></td>
+        <td width="50%"><strong>Payment</strong></td>
         <td colspan="2"><input type="text" readonly="readonly" size="30" value="<?=$namapenerimaan?>" style="background-color:#CCCC99"/></td>
     </tr>
     <tr>
-        <td><strong>Nama</strong></td>
+        <td><strong>Name</strong></td>
         <td colspan="2"><input type="text" size="30" value="<?=$nocalon . " - " . $namacalon ?>" readonly style="background-color:#CCCC99"/></td>
     </tr>
     <tr>
@@ -385,7 +385,7 @@ function CalculatePay()
         </td>
     </tr>
     <tr>
-        <td><strong>Tanggal</strong></td>
+        <td><strong>Date</strong></td>
         <td>
         <input type="text" name="tcicilan" id="tcicilan" readonly size="15" value="<?=$tanggal ?>" onKeyPress="return focusNext('kcicilan', event)" style="background-color:#CCCC99"> </td>
         <td width="45%">
@@ -393,14 +393,14 @@ function CalculatePay()
 	     </td>        
     </tr>
     <tr>
-        <td valign="top">Keterangan</td>
+        <td valign="top">Info</td>
         <td colspan="2"><textarea id="kcicilan" name="kcicilan" rows="3" cols="30" onKeyPress="return focusNext('Simpan', event)"><?=$kcicilan?></textarea>
         </td>
     </tr>
     <tr>
         <td colspan="3" align="center">
-        <input type="button" name="Simpan" id="Simpan" class="but" value="Simpan" onclick="this.disabled = true; ValidateSubmit();" />
-        <input type="button" name="tutup" id="tutup" class="but" value="Tutup" onclick="window.close()" />
+        <input type="button" name="Simpan" id="Simpan" class="but" value="Save" onclick="this.disabled = true; ValidateSubmit();" />
+        <input type="button" name="tutup" id="tutup" class="but" value="Close" onclick="window.close()" />
         </td>
     </tr>
     </table>

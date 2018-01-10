@@ -55,7 +55,7 @@ $tgl2 = explode(' ',$tanggal2);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Audit Perubahan Data Jurnal Umum]</title>
+<title>JIBAS FINANCE [Data Changing Audit Reports Jurnal Public]</title>
 </head>
 
 <body>
@@ -66,27 +66,27 @@ $tgl2 = explode(' ',$tanggal2);
 
 <table border="0">
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Departemen </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Department </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
       <?=$departemen ?>
     </strong></font></td>
 </tr>
 <tr>
-	<td width="90"><font size="2" face="Arial"><strong>Tanggal </strong></font></td>
+	<td width="90"><font size="2" face="Arial"><strong>Date </strong></font></td>
     <td><font size="2" face="Arial"><strong>: 
-      <?=LongDateFormat($tgl1[0]) . " s/d 	" . LongDateFormat($tgl2[0]) ?>
+      <?=LongDateFormat($tgl1[0]) . " to 	" . LongDateFormat($tgl2[0]) ?>
     </strong></font></td>
 </tr>
 </table>
 <br />
 <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000">
 <tr height="30" align="center">
-	<td class="header" width="4%"><strong><font size="2" face="Arial">No</font></strong></td>
+	<td class="header" width="4%"><strong><font size="2" face="Arial">#</font></strong></td>
     <td class="header" width="10%"><strong><font size="2" face="Arial">Status Data</font></strong></td>
-    <td class="header" width="10%"><strong><font size="2" face="Arial">Tanggal</font></strong></td>
-    <td class="header" width="15%"><strong><font size="2" face="Arial">Keterangan</font></strong></td>
-    <td class="header" width="*"><strong><font size="2" face="Arial">Detail Jurnal</font></strong></td>
-    <td class="header" width="15%"><strong><font size="2" face="Arial">Petugas</font></strong></td>
+    <td class="header" width="10%"><strong><font size="2" face="Arial">Date</font></strong></td>
+    <td class="header" width="15%"><strong><font size="2" face="Arial">Info</font></strong></td>
+    <td class="header" width="*"><strong><font size="2" face="Arial">Journal Details</font></strong></td>
+    <td class="header" width="15%"><strong><font size="2" face="Arial">Officer</font></strong></td>
 </tr>
 <?
 OpenDb();
@@ -97,10 +97,10 @@ $no = 0;
 while ($row = mysql_fetch_array($result)) {
 	$status = $row['status'];
 	$idaudit = $row['idaudit'];
-	$statusdata = "Data Lama";
+	$statusdata = "Old Data";
 	$bgcolor = "#FFFFFF";
 	if ($row['status'] == 1) {
-		$statusdata = "Data Perubahan";
+		$statusdata = "Changed Data";
 		$bgcolor = "#FFFFB7";
 	}       
 		
@@ -109,7 +109,7 @@ while ($row = mysql_fetch_array($result)) {
 		<td rowspan="4" align="center" bgcolor="#CCCC66"><font size="2" face="Arial"><strong>
 	    <?=++$no ?>
 		</strong></font></td>
-        <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2" face="Arial"><em><strong>Perubahan dilakukan oleh 
+        <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2" face="Arial"><em><strong>Changed by 
         <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?>
         </strong></em></font></td>
 	</tr>
@@ -117,15 +117,15 @@ while ($row = mysql_fetch_array($result)) {
     	<td colspan="6" bgcolor="#E5E5E5">
         	<table cellpadding="0" cellspacing="0" style="border-collapse:collapse" width="100%" >
             <tr>
-                <td width="20%"><font size="2" face="Arial"><strong>No. Jurnal : </strong>
+                <td width="20%"><font size="2" face="Arial"><strong>Journal Number : </strong>
                 <?=$row['nokas'] ?>
                 </font>
-                <td valign="top" width="7%"><font size="2" face="Arial"><strong>Alasan : </font></td>
+                <td valign="top" width="7%"><font size="2" face="Arial"><strong>Reasons : </font></td>
                 <td rowspan="2" valign="top"><font size="2" face="Arial"><?=$row['alasan']?>
                 </font></td>
             </tr>
             <tr>
-                <td><font size="2" face="Arial"><strong>Transaksi : </strong>
+                <td><font size="2" face="Arial"><strong>Transaction : </strong>
                 <?=$row['transaksi'] ?>
                 </font></td>
             </tr>

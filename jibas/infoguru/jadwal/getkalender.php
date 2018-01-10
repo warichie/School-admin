@@ -39,7 +39,7 @@ if ($kalender==""){
 <option value="null" <? if($kalender=="null") 
 	echo "selected='selected'";
 	?> >
-        -- Pilih Kalender --
+        -- Select Calendar --
 </option>
 <?	
 	$sql_kalender = "SELECT * FROM jbsakad.kalenderakademik WHERE departemen = '$departemen' ORDER BY tglmulai";

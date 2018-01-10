@@ -83,7 +83,7 @@ if (isset($_REQUEST['nis']))
 <link href="../style/style.css" rel="stylesheet" type="text/css" />
 <div>
 <table>
-<tr><td style="padding-right:5px; padding-bottom:15px"><strong>Tingkat</strong></td><td style="padding-bottom:15px">
+<tr><td style="padding-right:5px; padding-bottom:15px"><strong>Grade</strong></td><td style="padding-bottom:15px">
 <select name="tingkat" onchange="ChgTkt(this.value)">
 	<?
 	$sql = "SELECT DISTINCT(r.idkelas), k.kelas, t.tingkat, r.nis, t.replid FROM riwayatkelassiswa r, kelas k, tingkat t WHERE r.nis IN ($allnis) AND r.idkelas = k.replid AND k.idtingkat = t.replid";
@@ -107,7 +107,7 @@ if (isset($_REQUEST['nis']))
 <div>
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
   <tr>
-    <td height="25" align="center" class="headerlink2" style="cursor:default">Pelajaran</td>
+    <td height="25" align="center" class="headerlink2" style="cursor:default">Class Subject</td>
   </tr>
 <?
 $sql = "SELECT DISTINCT p.replid, n.nis, u.idkelas, p.nama FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kls' AND u.replid = n.idujian AND n.nis='$nis' ORDER BY p.nama";

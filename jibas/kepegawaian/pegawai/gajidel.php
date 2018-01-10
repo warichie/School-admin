@@ -30,7 +30,7 @@ require_once('../include/theme.php');
 $nip = $_REQUEST['nip'];
 $id = $_REQUEST['id'];
 
-if (isset($_REQUEST['Hapus'])) {
+if (isset($_REQUEST['Delete'])) {
 	OpenDb();
 	
 	$user = getUserId();
@@ -54,7 +54,7 @@ if (isset($_REQUEST['Hapus'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Hapus Riwayat Gaji</title>
+<title>Delete Salary History</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/rupiah.js"></script>
@@ -62,7 +62,7 @@ if (isset($_REQUEST['Hapus'])) {
 <script language="javascript">
 function validate() {
 	return validateEmptyText('alasan', 'Alasan Penghapusan Data Gaji Pegawai') && 
-		   confirm("Apakah anda yakin akan menghapus data ini?");
+		   confirm("Are you sure want to delete this data?");
 }
 
 function focusNext(elemName, evt) {
@@ -84,14 +84,14 @@ function focusNext(elemName, evt) {
 <input type="hidden" name="id" id="id" value="<?=$id?>" />
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr height="30">
-	<td width="100%" class="header" align="center">Hapus Riwayat Gaji</td>
+	<td width="100%" class="header" align="center">Delete Salary History</td>
 </tr>
 <tr>
 	<td width="100%" align="center">
     
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
-    	<td align="right" valign="top"><strong>Alasan Penghapusan :</strong></td>
+    	<td align="right" valign="top"><strong>Deletion Reason :</strong></td>
 	    <td align="left" valign="top">
         <textarea id="alasan" name="alasan" rows="2" cols="50"><?=$alasan?></textarea>
         </td>
@@ -99,8 +99,8 @@ function focusNext(elemName, evt) {
     <tr>
     	<td align="right" valign="top">&nbsp;</td>
 	    <td align="left" valign="top">
-        <input type="submit" value="Hapus" name="Hapus" style="color:#FF0000" class="but" />
-        <input type="button" value="Tutup" onClick="window.close()" class="but" />
+        <input type="submit" value="Delete" name="Hapus" style="color:#FF0000" class="but" />
+        <input type="button" value="Close" onClick="window.close()" class="but" />
         </td> 
     </tr>
     </table>

@@ -51,7 +51,7 @@ function change_theme(theme){
 <!-- ImageReady Slices (Untitled-1) -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td>&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>KESISWAAN</strong></font></td>
+    <td>&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Arial" color="Gray"><strong>STUDENT</strong></font></td>
   </tr>
 </table>
 <br>
@@ -66,7 +66,7 @@ function change_theme(theme){
 		<td rowspan="11">
 			<img src="images/siswa_02.jpg" width="24" height="458" alt=""></td>
 		<td colspan="2" rowspan="2">
-			<img src="images/siswa_03.jpg" width="83" height="104" alt="" style="cursor:pointer" onClick="alert ('Gunakan menu Tahun Ajaran di bagian referensi \nuntuk mendata Tahun Ajaran');"></td>
+			<img src="images/siswa_03.jpg" width="83" height="104" alt="" style="cursor:pointer" onClick="alert ('Please use Year of Teaching in the reference \nto collect data about Semester');"></td>
 		<td colspan="8">
 			<img src="images/siswa_04.jpg" width="345" height="77" alt=""></td>
 		<td>
@@ -76,7 +76,7 @@ function change_theme(theme){
 		<td rowspan="3">
 			<img src="images/siswa_05.jpg" width="47" height="156" alt=""></td>
 		<td colspan="4" rowspan="2">
-			<a href="siswa/siswa_main.php" onMouseOver="showhint('Pendataan Siswa', this, event, '100px')"><img src="images/siswa_06.jpg" width="114" height="135" alt="" border="0"></a></td>
+			<a href="siswa/siswa_main.php" onMouseOver="showhint('Student Data Collection', this, event, '100px')"><img src="images/siswa_06.jpg" width="114" height="135" alt="" border="0"></a></td>
 		<td colspan="3" rowspan="3">
 			<img src="images/siswa_07.jpg" width="184" height="156" alt=""></td>
 		<td>
@@ -98,11 +98,11 @@ function change_theme(theme){
 		<td rowspan="7">
 			<img src="images/siswa_10.jpg" width="18" height="225" alt=""></td>
 		<td colspan="3">
-			<a href="siswa/siswa_cari_main.php" onMouseOver="showhint('Pencarian Siswa', this, event, '100px')"><img src="images/siswa_11.jpg" width="146" height="71" alt="" border="0"></a></td>
+			<a href="siswa/siswa_cari_main.php" onMouseOver="showhint('Search Student', this, event, '100px')"><img src="images/siswa_11.jpg" width="146" height="71" alt="" border="0"></a></td>
 		<td colspan="4" rowspan="2">
 			<img src="images/siswa_12.jpg" width="104" height="79" alt=""></td>
 		<td rowspan="3">
-			<a href="siswa/siswa_pindah_main.php" onMouseOver="showhint('Pendataan Siswa Yang Akan Pindah Kelas', this, event, '100px')">
+			<a href="siswa/siswa_pindah_main.php" onMouseOver="showhint('Student data collection who will be moving to another class', this, event, '100px')">
 			<img src="images/siswa_13.jpg" width="101" height="117" alt="" style="cursor:pointer"  border="0" >
 			</a>
         </td>
@@ -119,7 +119,7 @@ function change_theme(theme){
 	</tr>
 	<tr>
 		<td colspan="4" rowspan="2">
-			<!--<a href="siswa/statistik/siswa_statistik_main.php" onMouseOver="showhint('Statistik Kesiswaan', this, event, '100px')">--><a href="siswa/siswa_statistik_main.php" onMouseOver="showhint('Statistik Kesiswaan', this, event, '100px')">
+			<!--<a href="siswa/statistik/siswa_statistik_main.php" onMouseOver="showhint('Student Statistic', this, event, '100px')">--><a href="siswa/siswa_statistik_main.php" onMouseOver="showhint('Student Statistic', this, event, '100px')">
             <img src="images/siswa_16.jpg" width="173" height="67" alt="" border="0"></a></td>
 		<td colspan="3" rowspan="3">
 			<img src="images/siswa_17.jpg" width="77" height="77" alt=""></td>

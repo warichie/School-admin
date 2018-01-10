@@ -73,12 +73,12 @@ function validate(){
 	var judul=document.getElementById('judul').value;
 	var pesan=tinyMCE.get('pesan').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Pesan');
+		alert ('Message Title should not leave empty');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (pesan.length==0){
-		alert ('Anda harus mengisikan data untuk Pesan');
+		alert ('Message should not leave empty');
 		document.getElementById('pesan').focus();
 		return false;
 	}
@@ -125,17 +125,17 @@ function simpan(){
 <input type="hidden" name="tahun" id="tahun" value="<?=$tahun?>" />
 <input type="hidden" name="sender" id="sender" value="tambah" />
 <input type="hidden" name="tanggal" id="tanggal" value="<?=date(d)."-".date(m)."-".date(Y); ?>" />
-<fieldset><legend style="background-color:#FF6600; color:#FFFFFF; font-size:14px; padding:3px 0px 3px 0px">&nbsp;Tulis pesan untuk Guru&nbsp;</legend>
+<fieldset><legend style="background-color:#FF6600; color:#FFFFFF; font-size:14px; padding:3px 0px 3px 0px">&nbsp;Write message for Teacher&nbsp;</legend>
 <table width="100%" border="0" cellspacing="0" align="center">
   <tr>
     <td scope="row" align="left">
     <table width="100%" border="0" cellspacing="2" cellpadding="2"  >
-  <tr >
-    <th width="75" align="left" scope="row">Judul</th>
+  <tr>
+    <th width="75" align="left" scope="row">Title</th>
     <td><input type="text" maxlength="254" name="judul" id="judul" size="50" /></td>
   </tr>
   <tr>
-		<th colspan="2" valign="top" align="left" scope="row"  ><div align="left">Pesan<br />
+		<th colspan="2" valign="top" align="left" scope="row"  ><div align="left">Message<br />
         <textarea name="pesan" rows="25" id="pesan" style="width:100%"></textarea>
     </div></th>
     </tr>

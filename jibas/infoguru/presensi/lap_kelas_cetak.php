@@ -53,7 +53,7 @@ $row = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Cetak Laporan Presensi Pelajaran Per Kelas]</title>
+<title>JIBAS TEACHERS INFO [Print Class Presence Reports by Classes]</title>
 </head>
 
 <body>
@@ -64,35 +64,35 @@ $row = mysql_fetch_array($result);
 <?=getHeader($row[departemen])?>
 	
 <center>
-  <font size="4"><strong>LAPORAN PRESENSI PELAJARAN PER KELAS</strong></font><br />
+  <font size="4"><strong> LESSON PRESENCE REPORT CARD BY CLASSES</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td width="25%"><strong>Departemen</strong></td>
+	<td width="25%"><strong>Department</strong></td>
     <td><strong>: <?=$row['departemen']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelas</strong></td>
+	<td><strong>Class</strong></td>
     <td><strong>: <?=$row['tingkat'].' - '.$row['kelas']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Pelajaran</strong></td>
+	<td><strong>Class Subject</strong></td>
     <td><strong>: <?=$row['nama']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Periode Presensi</strong></td>
-    <td><strong>: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></strong></td>
+	<td><strong>Period</strong></td>
+    <td><strong>: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></strong></td>
 </tr>
 </table>
 <br />
 <? 		
 	OpenDb();
 	if ($pelajaran == -1) {		
-		$pel = "Semua Pelajaran";
+		$pel = "All Class Subject";
 		$sql = "SELECT DISTINCT s.nis, s.nama, s.telponsiswa, s.hpsiswa, s.namaayah, s.telponortu, s.hportu, s.aktif FROM siswa s, presensipelajaran p, ppsiswa pp, kelas k WHERE pp.idpp = p.replid AND pp.nis = s.nis AND s.idkelas = '$kelas' AND p.idsemester = '$semester' AND p.tanggal BETWEEN '$tglawal' AND '$tglakhir' ORDER BY $urut $urutan";
 		
 	} else {
@@ -107,18 +107,18 @@ $row = mysql_fetch_array($result);
 
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
    	<tr height="30">
-    	<td class="header" align="center" width="5%">No</td>
-		<td class="header" align="center" width="8%">N I S</td>
-		<td class="header" align="center" width="15%">Nama</td>            
-		<td class="header" align="center" width="5%">Jml Hadir</td>
-        <td class="header" align="center" width="8%">Jml Tak Hadir</td>
-        <td class="header" align="center" width="5%">Jml Total</td>
+    	<td class="header" align="center" width="5%">#</td>
+		<td class="header" align="center" width="8%">Student ID</td>
+		<td class="header" align="center" width="15%">Name</td>            
+		<td class="header" align="center" width="5%">Sum Attend</td>
+        <td class="header" align="center" width="8%">Sum Absent</td>
+        <td class="header" align="center" width="5%">Total</td>
         <td class="header" align="center" width="7%">%</td>            
-        <td class="header" align="center" width="7%">Tlp Siswa</td>
-        <td class="header" align="center" width="10%">HP Siswa</td>
-        <td class="header" align="center" width="13%">Orang Tua</td>
-        <td class="header" align="center" width="7%">Tlp Ortu</td>
-        <td class="header" align="center" width="10%">HP Ortu</td>       
+        <td class="header" align="center" width="7%">Student Phone</td>
+        <td class="header" align="center" width="10%">Student Mobile</td>
+        <td class="header" align="center" width="13%">Parent</td>
+        <td class="header" align="center" width="7%">Parent Phone</td>
+        <td class="header" align="center" width="10%">Parent Mobile</td>       
     </tr>
 <?		
 	$cnt = 0;
@@ -178,7 +178,7 @@ $row = mysql_fetch_array($result);
 <tr>
 	<td><? 	if ($row[7] == 0) 
 			$tanda = "*";
-			echo "Ket: *Status siswa tidak aktif lagi";
+			echo "PS: *Student Status back to inactive";
     	?>
     </td>
 </tr> 

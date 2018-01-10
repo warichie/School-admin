@@ -49,79 +49,79 @@
     <hide_iframe>0</hide_iframe>
   </global>
   <ul>
-    <li type="text" class="pop_item"><a href="" target="_self">Info Siswa_&amp;nbsp; 4</a></li>
+    <li type="text" class="pop_item"><a href="" target="_self">Student Info_&amp;nbsp; 4</a></li>
     <ul>
-      <li type="text" class="item"><a href="siswa/siswa.php" target="content">Info Siswa</a></li>
-      <li type="text" class="item"><a href="siswa/stat.php" target="content">Statistik Kesiswaan</a></li>
-      <li type="text" class="item"><a href="siswa/statnilai.php" target="content">Statistik Nilai setiap Siswa</a></li>
-      <li type="text" class="item"><a href="siswa/rataus.top.php" target="content">Rata-rata Nilai Setiap Siswa</a></li>
+      <li type="text" class="item"><a href="siswa/siswa.php" target="content">Student Info</a></li>
+      <li type="text" class="item"><a href="siswa/stat.php" target="content">Student Statistic</a></li>
+      <li type="text" class="item"><a href="siswa/statnilai.php" target="content">Points Statistic for each Students</a></li>
+      <li type="text" class="item"><a href="siswa/rataus.top.php" target="content">Index Point for each Students</a></li>
     </ul>
-    <li type="text" class="pop_item"><a href="" target="_self">Kepegawaian_&amp;nbsp; 1</a></li>
+    <li type="text" class="pop_item"><a href="" target="_self">Employee Affair_&amp;nbsp; 1</a></li>
     <ul>
-      <li type="text" class="item"><a href="pegawai/lappengajar.php" target="content">Laporan Presensi Guru</a></li>
-      <li type="text" class="item"><a href="pegawai/statpegawai.php" target="content">Statistik Kepegawaian</a></li>
+      <li type="text" class="item"><a href="pegawai/lappengajar.php" target="content">Teacher Presence Reports</a></li>
+      <li type="text" class="item"><a href="pegawai/statpegawai.php" target="content">Employee Affair Statistic</a></li>
     </ul>
-    <li type="text" class="pop_item"><a href="" target="_self">Keuangan_&amp;nbsp; 5</a></li>
+    <li type="text" class="pop_item"><a href="" target="_self">Finance_&amp;nbsp; 5</a></li>
     <ul>
-      <li type="text" class="pop_item"><a href="" target="_self">Penerimaan</a></li>
+      <li type="text" class="pop_item"><a href="" target="_self">Admission</a></li>
       <ul>
-        <li type="text" class="item"><a href="keu/lapbayarsiswa_kelas.php" target="content">Laporan Pembayaran Setiap Kelas</a></li>
-        <li type="text" class="item"><a href="keu/lapbayarsiswa_all.php" target="content">Laporan Pembayaran Setiap Kelas</a></li>
-        <li type="text" class="item"><a href="keu/lapbayarsiswa_nunggak.php" target="content">Laporan Pembayaran Setiap Siswa Yang Mengunggak</a></li>
+        <li type="text" class="item"><a href="keu/lapbayarsiswa_kelas.php" target="content">Payment Reports for each Classes</a></li>
+        <li type="text" class="item"><a href="keu/lapbayarsiswa_all.php" target="content">Payment Reports for each Classes</a></li>
+        <li type="text" class="item"><a href="keu/lapbayarsiswa_nunggak.php" target="content">Payment Reports for Late-Paying Students</a></li>
         <li type="separator"></li>
-        <li type="text" class="item"><a href="keu/lapbayarcalon_kelompok.php" target="content">Laporan Pembayaran per kelompok Calon Siswa</a></li>
-        <li type="text" class="item"><a href="keu/lapbayarcalon_all.php" target="content">Laporan Pembayaran Setiap Calon Siswa</a></li>
-        <li type="text" class="item"><a href="keu/lapbayarcalon_nunggak.php" target="content">Laporan Pembayaran Setiap Calon Siswa yang Menunggak</a></li>
+        <li type="text" class="item"><a href="keu/lapbayarcalon_kelompok.php" target="content">Payment Reports for each Students Candidate group</a></li>
+        <li type="text" class="item"><a href="keu/lapbayarcalon_all.php" target="content">Payment Reports for each Students Candidate</a></li>
+        <li type="text" class="item"><a href="keu/lapbayarcalon_nunggak.php" target="content">Payment Reports for Late-Paying Students Candidate</a></li>
         <li type="separator"></li>
-        <li type="text" class="item"><a href="keu/lappenerimaanlain.php" target="content">Laporan Penerimaan Lain-lain</a></li>
-        <li type="text" class="item"><a href="keu/jurnalpenerimaan.php" target="content">Jurnal Penerimaan</a></li>
+        <li type="text" class="item"><a href="keu/lappenerimaanlain.php" target="content">Other Admission Reports</a></li>
+        <li type="text" class="item"><a href="keu/jurnalpenerimaan.php" target="content">Admission Journal</a></li>
       </ul>
-      <li type="text" class="pop_item"><a href="" target="_self">Pengeluaran</a></li>
+      <li type="text" class="pop_item"><a href="" target="_self">Expenditure</a></li>
       <ul>
-        <li type="text" class="item"><a href="keu/lappengeluaran.php" target="content">Laporan Pengeluaran</a></li>
-        <li type="text" class="item"><a href="keu/lappengeluaran_cari.php" target="content">Pencarian Data Pengeluaran</a></li>
-        <li type="text" class="item"><a href="keu/jurnalpengeluaran.php" target="content">Jurnal Pengeluaran</a></li>
+        <li type="text" class="item"><a href="keu/lappengeluaran.php" target="content">Expenditure Reports</a></li>
+        <li type="text" class="item"><a href="keu/lappengeluaran_cari.php" target="content">Search Expenditure Data</a></li>
+        <li type="text" class="item"><a href="keu/jurnalpengeluaran.php" target="content">Expenditure Journal</a></li>
       </ul>
-      <li type="text" class="pop_item"><a href="" target="_self">Laporan Keuangan</a></li>
+      <li type="text" class="pop_item"><a href="" target="_self">Finance Reports</a></li>
       <ul>
-        <li type="text" class="item"><a href="keu/laptransaksi.php" target="content">Laporan Transaksi Keuangan</a></li>
-        <li type="text" class="item"><a href="keu/lapaudit.php" target="content">Laporan Audit Perubahan Data Keuangan</a></li>
-        <li type="text" class="item"><a href="keu/lapbukubesar.php" target="content">Laporan Buku Besar</a></li>
-        <li type="text" class="item"><a href="keu/lapneracaper.php" target="content">Laporan Neraca Percobaan</a></li>
-        <li type="text" class="item"><a href="keu/laprugilaba.php" target="content">Laporan Rugi Laba</a></li>
-        <li type="text" class="item"><a href="keu/lapneraca.php" target="content">Laporan Neraca</a></li>
-        <li type="text" class="item"><a href="keu/lapmodal.php" target="content">Laporan Perubahan Modal</a></li>
-        <li type="text" class="item"><a href="keu/lapcashflow.php" target="content">Laporan Arus Kas</a></li>
+        <li type="text" class="item"><a href="keu/laptransaksi.php" target="content">Transaction Reports</a></li>
+        <li type="text" class="item"><a href="keu/lapaudit.php" target="content">Finance Audit Data Reports</a></li>
+        <li type="text" class="item"><a href="keu/lapbukubesar.php" target="content">Ledger Reports</a></li>
+        <li type="text" class="item"><a href="keu/lapneracaper.php" target="content">Trial Balance Sheet Reports</a></li>
+        <li type="text" class="item"><a href="keu/laprugilaba.php" target="content">Profit Loss Reports</a></li>
+        <li type="text" class="item"><a href="keu/lapneraca.php" target="content">Balance Sheet Reports</a></li>
+        <li type="text" class="item"><a href="keu/lapmodal.php" target="content">Change of Capital Reports</a></li>
+        <li type="text" class="item"><a href="keu/lapcashflow.php" target="content">Cash Flow Reports</a></li>
       
       </ul>
     </ul>
-    <li type="text" class="pop_item"><a href="" target="_self">Perpustakaan</a></li>
+    <li type="text" class="pop_item"><a href="" target="_self">Library</a></li>
     <ul>
-      <li type="text" class="pop_item"><a href="" target="_self">Peminjaman</a></li>
+      <li type="text" class="pop_item"><a href="" target="_self">Borrowing</a></li>
       <ul>
-        <li type="text" class="item"><a href="pustaka/pjm/daftar.pinjam.php" target="_self">Daftar Peminjaman</a></li>
-        <li type="text" class="item"><a href="pustaka/pjm/daftar.pinjam.telat.php" target="_self">Daftar Peminjaman Yang Terlambat</a></li>
+        <li type="text" class="item"><a href="pustaka/pjm/daftar.pinjam.php" target="_self">Borrowing List</a></li>
+        <li type="text" class="item"><a href="pustaka/pjm/daftar.pinjam.telat.php" target="_self">Late Borrowing List</a></li>
       </ul>
-      <li type="text" class="pop_item"><a href="" target="_self">Pengembalian</a></li>
+      <li type="text" class="pop_item"><a href="" target="_self">Return</a></li>
       <ul>
-        <li type="text" class="item"><a href="pustaka/kbl/daftar.kembali.php" target="_self">Daftar Pengembalian</a></li>
-        <li type="text" class="item"><a href="pustaka/kbl/daftar.denda.php" target="_self">Daftar Penerimaan Denda</a></li>
+        <li type="text" class="item"><a href="pustaka/kbl/daftar.kembali.php" target="_self">Return List</a></li>
+        <li type="text" class="item"><a href="pustaka/kbl/daftar.denda.php" target="_self">Fine Admission List</a></li>
       </ul>
-      <li type="text" class="pop_item"><a href="" target="_self">Laporan</a></li>
+      <li type="text" class="pop_item"><a href="" target="_self">Reports</a></li>
       <ul>
-        <li type="text" class="item"><a href="pustaka/pus/stat.pinjam.php" target="_self">Statistik Peminjam Terbanyak</a></li>
-        <li type="text" class="item"><a href="pustaka/pus/stat.pustaka.php" target="_self">Statistik Pustaka Yang Paling Banyak Dipinjam</a></li>
-        <li type="text" class="item"><a href="pustaka/pus/stat.all.php" target="_self">Statistik Peminjaman Pustaka</a></li>
+        <li type="text" class="item"><a href="pustaka/pus/stat.pinjam.php" target="_self">Most Borrower Statistic</a></li>
+        <li type="text" class="item"><a href="pustaka/pus/stat.pustaka.php" target="_self">Most Borrowed Book Statistic</a></li>
+        <li type="text" class="item"><a href="pustaka/pus/stat.all.php" target="_self">Borrowing Statistic</a></li>
       
       </ul>
     </ul>
-    <li type="text" class="pop_item"><a href="" target="_self">Pengguna_&amp;nbsp; 5</a></li>
+    <li type="text" class="pop_item"><a href="" target="_self">User_&amp;nbsp; 5</a></li>
     <ul>
-      <li type="text" class="item"><a href="pengguna/pengguna.php" target="content">Daftar Pengguna</a></li>
-      <li type="text" class="item"><a href="pengguna/gantipassword.php" target="content">Ganti Password</a></li>
+      <li type="text" class="item"><a href="pengguna/pengguna.php" target="content">User List</a></li>
+      <li type="text" class="item"><a href="pengguna/gantipassword.php" target="content">Edit Password</a></li>
     
     </ul>
-    <li type="text" class="item"><a href="kritik/kritik.php" target="content">Kritik &amp; Saran_&amp;nbsp; 2</a></li>
+    <li type="text" class="item"><a href="kritik/kritik.php" target="content">Critics &amp; Feedbacks_&amp;nbsp; 2</a></li>
     <li type="text" class="item"><a href="javascript:logout()" target="_self">Logout_&amp;nbsp; 10</a></li>
   </ul>
   <layer>

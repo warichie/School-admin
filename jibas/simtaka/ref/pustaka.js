@@ -2,7 +2,7 @@ function getfresh(){
 	document.location.href = "pustaka.php";
 }
 function hapus(id){
-	if (confirm('Anda yakin akan menghapus perpustakaan ini?'))
+	if (confirm('Are you sure want to delete this library?'))
 		document.location.href = "pustaka.php?op=del&id="+id;
 }
 function cetak(){
@@ -17,7 +17,7 @@ function ubah(id){
 function validate(){
 	var nama = document.getElementById('nama').value;
 	if (rak.length==0){
-		alert ('Anda harus mengisikan nilai untuk nama!');
+		alert ('You should enter a value for name');
 		document.getElementById('nama').focus();
 		return false;
 	}
@@ -29,12 +29,12 @@ function success(){
 
 function ViewByTitle(id){
 	//State:
-	//1.Perpustakaan
+	//1.Library
 	//2.Format
-	//3.Rak
-	//4.Katalog
-	//5.Penerbit
-	//6.Penulis
+	//3.Shelf
+	//4.Catalogue
+	//5.Publisher
+	//6.Author
 	var addr = "../lib/ViewByTitle.php?id="+id+"&state=1";
 	newWindow(addr, 'LihatJudul','687','578','resizable=1,scrollbars=1,status=0,toolbar=0')
 }

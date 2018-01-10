@@ -72,21 +72,21 @@ $namatingkat = $row['tingkat'];
     <td>
     <table width="100%" border="0">
   <tr>
-    <td width="8%">Departemen</td>
+    <td width="8%">Department</td>
     <td width="39%">:&nbsp;<?=$departemen?></td>
-    <td width="4%">Pelajaran</td>
+    <td width="4%">Class Subject</td>
     <td width="49%">:&nbsp;<?=$namapel?></td>
   </tr>
   <tr>
     <td>Semester</td>
     <td>:&nbsp;<?=$namasemester?></td>
-    <td>Ujian</td>
+    <td>Exam</td>
     <td>:&nbsp;<?=$jenisujian?></td>
   </tr>
   <tr>
-    <td>Kelas</td>
+    <td>Class</td>
     <td>:&nbsp;<?=$namatingkat." - ".$namakelas?></td>
-    <td>RPP</td>
+    <td>Lesson Plans</td>
     <td>:&nbsp;<?=$materi?></td>
   </tr>  
   <tr>
@@ -98,7 +98,7 @@ $namatingkat = $row['tingkat'];
 		
 		$result1 = QueryDb($sql1);		
 		//echo $sql1;
-		$data_title = "<font size='4'>Statistik Rata-rata Nilai Ujian Siswa per RPP</font>"; // title for the diagram
+		$data_title = "<font size='4'>Student Exam Index Point Statistic by Lesson Plans</font>"; // title for the diagram
 
         // sample data array
         //$data = array();
@@ -110,8 +110,8 @@ $namatingkat = $row['tingkat'];
 			$data[] = array($row1[1]);
 			//$data[] = $row1[1];
         }
-		$legend_y = array('Rata');
-		//$legend_y = 'Rata';
+		$legend_y = array('Average');
+		//$legend_y = 'Average';
 				
         $graph = new CAsBarDiagram;
         $graph->bwidth = 10; // set one bar width, pixels
@@ -134,10 +134,10 @@ $namatingkat = $row['tingkat'];
     <td colspan="4">
     	<table width="100%" border="1" class="tab" id="table" bordercolor="#000000">
   <tr>
-    <td height="30" class="headerlong"><div align="center">No</div></td>
-    <td height="30" class="headerlong"><div align="center">NIS</div></td>
-    <td height="30" class="headerlong"><div align="center">Nama</div></td>
-    <td height="30" class="headerlong"><div align="center">Rata-rata RPP</div></td>
+    <td height="30" class="headerlong"><div align="center">#</div></td>
+    <td height="30" class="headerlong"><div align="center">Student ID</div></td>
+    <td height="30" class="headerlong"><div align="center">Name</div></td>
+    <td height="30" class="headerlong"><div align="center">Lesson Plans Index</div></td>
   </tr>
   <?
   $sql_siswa="SELECT * FROM jbsakad.siswa WHERE idkelas='$kelas' AND aktif=1 order by nama";

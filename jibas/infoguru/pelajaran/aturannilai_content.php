@@ -61,7 +61,7 @@ if ($op == "xm8r389xemx23xb2378e23")
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aturan Penentuan Grading Nilai</title>
+<title>Grade Point Rules</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -87,7 +87,7 @@ function tambah(tingkat) {
 function hapus(idtingkat,aspek) {
 	var id = document.getElementById('id').value;
 	var nip = document.getElementById('nip').value;	
-	if (confirm("Apakah anda yakin akan menghapus aspek penilaian ini?"))
+	if (confirm("Are you sure want to delete this Assessment Aspect?"))
 		document.location.href = "aturannilai_content.php?op=xm8r389xemx23xb2378e23&id="+id+"&idtingkat="+idtingkat+"&nip="+nip+"&aspek="+aspek;		
 }
 
@@ -99,7 +99,7 @@ function cetak() {
 	if (cetak == '1') 
 		newWindow('aturannilai_cetak.php?id='+id+'&nip='+nip, 'CetakAturanPenentuanGradingNilai','790','650','resizable=1,scrollbars=1,status=0,toolbar=0');
 	else 
-		alert ('Tidak ada data yang dapat dicetak');
+		alert ('No Printable data');
 	
 }
 </script>
@@ -114,11 +114,11 @@ function cetak() {
 	<table width="100%" border="0">
     <!-- TABLE TITLE -->
 	<tr>
-		<td valign="top" align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Aturan Perhitungan Grading Nilai</font></td>
+		<td valign="top" align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Report Card Calculation Rules</font></td>
 	</tr>
     <tr>
         <td valign="top" align="right"><a href="../pelajaran.php" target="framecenter">
-    <font size="1" color="#000000"><b>Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000">Aturan Perhitungan Grading Nilai</font></td>
+    <font size="1" color="#000000"><b>Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000">Report Card Calculation Rules</font></td>
     </tr>
     </table>
     
@@ -126,7 +126,7 @@ function cetak() {
 	<table width="100%" border="0">
     <tr>
     	<td width="20%" rowspan="4"></td>
-        <td width="10%"><strong>Departemen</strong></td>
+        <td width="10%"><strong>Department</strong></td>
     	<td><strong>: <?=$departemen ?>
         <input type="hidden" name="departemen" id="departemen" readonly value="<?=$departemen ?>" />
         <input type="hidden" name="id" id="id" value="<?=$id ?>" />
@@ -134,13 +134,13 @@ function cetak() {
         <td rowspan="2"></td>
   	</tr>
   	<tr>
-    	<td><strong>Pelajaran</strong></td>
+    	<td><strong>Class Subject</strong></td>
     	<td><strong>: <?=$pelajaran ?>
     </strong></td>
     
   	</tr>
   	<tr>
-    	<td><strong>Guru</strong></td>
+    	<td><strong>Teacher</strong></td>
     	<td><strong>: <?=$guru ?>  
         <input type="hidden" name="nip" id="nip" value="<?=$nip ?>" />
          </strong></td>
@@ -152,8 +152,8 @@ function cetak() {
 
 	if (@mysql_num_rows($result) > 0){
 	?>
-	<td valign="top" align="right" colspan="2"> <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-      <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;  
+	<td valign="top" align="right" colspan="2"> <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+      <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;  
     	</td>
   	</tr>
     
@@ -169,19 +169,19 @@ function cetak() {
 		$result1 = QueryDb($sql1);	?>
       <br />
     	<fieldset>
-        <legend><b>Tingkat <?=$row['tingkat']?> &nbsp;&nbsp;&nbsp; 
+        <legend><b>Grade <?=$row['tingkat']?> &nbsp;&nbsp;&nbsp; 
         <input type="hidden" name="idtingkat" id="idtingkat" value="<?=$row['replid'] ?>" />
 <?		if (@mysql_num_rows($result1) > 0)
 		{ 
 			$cetak = 1;	?>	    
-	        <a href="JavaScript:tambah(<?=$row['replid']?>)" ><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')"/>&nbsp;Input Aturan Penentuan Grading Nilai</a>
+	        <a href="JavaScript:tambah(<?=$row['replid']?>)" ><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')"/>&nbsp;Input Grade Point Rules</a>
 			</b>
          </legend><br />
 			<table border="1" width="100%" id="table" class="tab" bordercolor="#000000">
 			<tr>		
-				<td class="header" align="center" height="30" width="10%">No</td>
-				<td class="header" align="center" height="30" width="*">Aspek Penilaian</td>
-				<td class="header" align="center" height="30" width="*">Grading</td>
+				<td class="header" align="center" height="30" width="10%">#</td>
+				<td class="header" align="center" height="30" width="*">Assessment Aspect</td>
+				<td class="header" align="center" height="30" width="*">Grade Rules</td>
             <td class="header" height="30" width="*">&nbsp;</td>
    		</tr>
 <? 		$cnt= 0;
@@ -199,13 +199,13 @@ function cetak() {
 					 ORDER BY grade";
 			$result2 = QueryDb($sql2);			
 			while ($row2 = @mysql_fetch_row($result2)) {
-				echo $row2[1].' : '.$row2[2].' s/d '.$row2[3]. '<br>'; 
+				echo $row2[1].' : '.$row2[2].' to '.$row2[3]. '<br>'; 
 			} ?>			
             </td>
             <td align="center" height="25" width="*">        
-				 	<a href="JavaScript:edit('<?=$row['replid']?>','<?=$row1[0]?>')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah!', this, event, '50px')"/></a>&nbsp; 
+				 	<a href="JavaScript:edit('<?=$row['replid']?>','<?=$row1[0]?>')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit', this, event, '50px')"/></a>&nbsp; 
 				 	<a href="JavaScript:hapus('<?=$row['replid']?>','<?=$row1[0]?>')">
-    <img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus!', this, event, '50px')" /></a>
+    <img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete', this, event, '50px')" /></a>
 	        	</td>
 		</tr>
 <?		} ?>
@@ -217,9 +217,9 @@ function cetak() {
 		<table width="100%" border="0" align="center">          
 		<tr>
 			<td align="center" valign="middle">
-    		<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+    		<font size = "2" color ="red"><b>Data Not Found. 
            <? //if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>	    
-           <br />Klik <a href="JavaScript:tambah(<?=$row['replid']?>)" ><font size = "2" color ="green">di sini</font></a> untuk mengisi data baru pada tingkat <?=$row['tingkat']?>. 
+           <br />Click <a href="JavaScript:tambah(<?=$row['replid']?>)" ><font size = "2" color ="green">here</font></a> to submit a new data on tingkat <?=$row['tingkat']?>. 
             <? //} ?>
             </b></font>
 			</td>
@@ -242,8 +242,8 @@ function cetak() {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
-        <br />Tambah tingkat kelas pada departemen <?=$departemen?> di menu referensi
+    	<font size = "2" color ="red"><b>Data Not Found.
+        <br />Add class Grade on Department <?=$departemen?> in the Reference.
         </b></font>
 	</td>
 </tr>

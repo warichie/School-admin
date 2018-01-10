@@ -89,11 +89,11 @@ if(isset($_POST["idjenis"])){
         deskripsi = document.tambah_nilai_pelajaran.deskripsi.value;
 
         if(tanggal.length == 0) {
-            alert("Tanggal tidak boleh kosong");
+            alert("Date should not leave empty");
             return false;
         }
         if(deskripsi.length == 0) {
-            alert("Deskripsi tidak boleh kosong");
+            alert("Description should not leave empty");
             document.tambah_nilai_pelajaran.deskripsi.value = "";
             document.tambah_nilai_pelajaran.deskripsi.focus();
             return false;
@@ -141,19 +141,19 @@ if (!isset($_POST['simpan'])) {
 			Input Nilai <?=$row_jp[jenisujian] ?>
 			<input type="hidden" name="idjenis" value="<?=$row_jp[replid] ?>">
 			</td>
-			<td class="header" align="right">Langkah 1 dari 2</td>
+			<td class="header" align="right">Step 1 from 2</td>
         </tr>
 		<tr>
 		<td colspan="2">
 		<br>
-		<fieldset><legend><b>Data Nilai Pelajaran</b></legend>
+		<fieldset><legend><b>Class Subject Point Data</b></legend>
 		<table border="0" width="100%">
         <tr>
-            <td>Departemen</td>
+            <td>Department</td>
             <td><input type="text" name="departemen" size="25" value="<?=$departemen;?>" readonly></td>
         </tr>
         <tr>
-            <td>Tahun Ajaran</td>
+            <td>Year</td>
             <td>
 			<?
 			$query_thn = "SELECT * FROM jbsakad.tahunajaran WHERE tahunajaran.replid = '$tahun'";
@@ -176,7 +176,7 @@ if (!isset($_POST['simpan'])) {
 			<input type="text" name="semester" size="25" value="<?=$row_smt[semester] ?>" readonly></td>
         </tr>
         <tr>
-            <td>Tingkat</td>
+            <td>Grade</td>
 			<td>
 			<?
 			$query_tkt = "SELECT * FROM jbsakad.tingkat WHERE tingkat.replid = '$tingkat'";
@@ -186,7 +186,7 @@ if (!isset($_POST['simpan'])) {
 			?>
 			<input type="hidden" name="idtingkat" value="<?=$row_tkt[replid] ?>">
 			<input type="text" size="25" name="tingkat" value="<?=$row_tkt[tingkat]; ?>" readonly></td>
-			<td>Kelas</td>
+			<td>Class</td>
 			<td>
 			<?
 			$query_kls = "SELECT * FROM jbsakad.kelas WHERE kelas.replid = '$kelas'";
@@ -198,7 +198,7 @@ if (!isset($_POST['simpan'])) {
 			<input type="text" name="kelas" size="25" value="<?=$row_kls[kelas] ?>" readonly></td>
         </tr>
         <tr>
-            <td>Pelajaran</td>
+            <td>Class Subject</td>
             <td>
 			<?
 			$query_pel = "SELECT * FROM jbsakad.pelajaran WHERE pelajaran.replid = '$pelajaran'";
@@ -211,16 +211,16 @@ if (!isset($_POST['simpan'])) {
         </tr>
 		<tr>
 			<td colspan="4">
-			<fieldset><legend><b>Jenis Penilaian : <?=$row_jp[jenisujian] ?></b></legend>
+			<fieldset><legend><b>Assessment Type : <?=$row_jp[jenisujian] ?></b></legend>
 			<table>
 				<tr>
-					<td>Tanggal</td>
+					<td>Date</td>
 					<td><input type="text" name="tanggal" id="tanggal" size="25" readonly>
-					<img src="../images/ico/calendar_1.png" alt="Tampilkan Tabel" name="tabel" width="22" height="22" border="0" id="btntanggal" onMouseOver="showhint('Buka kalendar!', this, event, '120px')"/>
+					<img src="../images/ico/calendar_1.png" alt="Show Table" name="tabel" width="22" height="22" border="0" id="btntanggal" onMouseOver="showhint('Open calendar', this, event, '120px')"/>
 					</td>
 				</tr>
 				<tr>
-					<td>Deskripsi</td>
+					<td>Description</td>
 					<td><input type="text" name="deskripsi" size="50"></td>
 				</tr>
 			</table>
@@ -234,8 +234,8 @@ if (!isset($_POST['simpan'])) {
         <tr>
             <td>&nbsp;</td>
             <td align="right">
-            <input type="button" value="<< Batal" name="batal" class="but" onClick="change_page();">
-			<input type="submit" value="Lanjut >>" name="simpan" class="but"></td>
+            <input type="button" value="<< Cancel" name="batal" class="but" onClick="change_page();">
+			<input type="submit" value="Next >>" name="simpan" class="but"></td>
         </tr>
     </table>
     </form>
@@ -256,14 +256,14 @@ else {
 		
             ?>
             <script language="JavaScript">
-              //  alert("Data Daftar Pelajaran berhasil diinput");
+              //  alert("Data Class Subject List have been successfully submitted");
                 document.location.href="tambah_nilai_pelajaran2.php?departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&iduj=<?=$row_id[0] ?>&jenis_penilaian=<?=$jenis_penilaian ?>";
             </script>
             <?
         }else {
           ?>
            <script language="JavaScript">
-               alert("Gagal menambah data");
+               alert("Failed to add more data");
                //document.location.href="tampil_daftarpelajaran.php?departemen=<?=$_POST[departemen] ?>";
            </script>
            <?

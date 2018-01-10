@@ -106,21 +106,21 @@ function change_urut(urut,urutan) {
    	<tr>
     	<td><strong><font size="2" color="#990000"><?=$rekening?></font></strong></td>    	
         <td align="right">
-        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka di Ms Excel!', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
+        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
+        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Open in Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
         </td>
     </tr>
     </table>
     <br />
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="center" bordercolor="#000000">
     <tr height="30">
-        <td class="header" width="3%" align="center">No</td>
-        <td class="header" width="20%" align="center" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('j.nokas','<?=$urutan?>')">No. Jurnal/Tgl <?=change_urut('j.nokas',$urut,$urutan)?></td>
-        <td class="header" width="9%" align="center">Petugas</td>
-        <td class="header" width="*" align="center">Transaksi</td>
-        <td class="header" width="17%" align="center">Debet</td>
-        <td class="header" width="17%" align="center">Kredit</td>
+        <td class="header" width="3%" align="center">#</td>
+        <td class="header" width="20%" align="center" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('j.nokas','<?=$urutan?>')">Journal/Date <?=change_urut('j.nokas',$urut,$urutan)?></td>
+        <td class="header" width="9%" align="center">Officer</td>
+        <td class="header" width="*" align="center">Transaction</td>
+        <td class="header" width="17%" align="center">Debit</td>
+        <td class="header" width="17%" align="center">Credit</td>
     </tr>
     <?
     OpenDb();
@@ -139,7 +139,7 @@ function change_urut(urut,urutan) {
         <td valign="top" align="left"><?=$row['petugas'] ?></td>
         <td valign="top" align="left"><?=$row['transaksi'] ?><br />
         <? if ($row['keterangan'] <> "") { ?>
-        <strong>Keterangan: </strong><?=$row['keterangan'] ?>
+        <strong>Info: </strong><?=$row['keterangan'] ?>
         <? } ?>
         </td>
         <td valign="top" align="right"><?=FormatRupiah($row['debet']) ?></td>
@@ -150,7 +150,7 @@ function change_urut(urut,urutan) {
     CloseDb();
     ?>
     <tr height="30">
-        <td colspan="4" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+        <td colspan="4" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
         <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>
     </tr>

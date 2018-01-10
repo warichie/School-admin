@@ -1,11 +1,11 @@
-function Tambah()
+function Add()
 {
     var nip = document.getElementById('nip').value;
 	var addr = "goladd.php?nip="+nip;
     newWindow(addr, 'TambahGolongan','480','250','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
-function Ubah(id)
+function Change(id)
 {
 	var addr = "goledit.php?id="+id;
     newWindow(addr, 'UbahGolongan','480','285','resizable=1,scrollbars=1,status=0,toolbar=0');
@@ -20,7 +20,7 @@ function Refresh()
 
 function Hapus(id)
 {
-	if (confirm("Apakah anda yakin akan menghapus data ini?"))
+	if (confirm("Are you sure want to delete this data?"))
 	{
 		var nip = document.getElementById('nip').value;
 		document.location.href = "daftargolongan.php?id="+id+"&op=mnrmd2re2dj2mx2x2x3d2s33&nip="+nip;
@@ -29,7 +29,7 @@ function Hapus(id)
 
 function ChangeLast(id)
 {
-	if (confirm('Apakah anda yakin akan mengubah menjadi golongan yang aktif saat ini?'))
+	if (confirm('Are you sure want to change this to the latest active position order?'))
     {
         var nip = document.getElementById('nip').value;
 		document.location.href = "daftargolongan.php?id="+id+"&op=cn0948cm2478923c98237n23&nip="+nip;

@@ -27,7 +27,7 @@ require_once('../inc/getheader.php');
 require_once('../inc/common.php');
 require_once('../inc/db_functions.php');
 
-$krit = array('','Agama','Asal Sekolah','Golongan Darah','Jenis Kelamin','Kewarganegaraan','Kode Pos Siswa','Kondisi Siswa','Pekerjaan Ayah','Pekerjaan Ibu','Pendidikan Ayah','Pendidikan Ibu','Penghasilan Orang Tua','Status Aktif','Status Siswa','Suku','Tahun Kelahiran','Usia');
+$krit = array('','Religion','Past School','Blood Type','Gender','Citizenship','Student Post Code','Student Conditions','Father Occupation','Mother Occupation','Father Education','Mother Education','Parent Income','Status Active','Student Status','Ethnicity','Year of Birth','Age');
 $departemen = '-1';
 if (isset($_REQUEST[departemen]))
 	$departemen = $_REQUEST[departemen];
@@ -84,15 +84,15 @@ function cetak(){
 </head>
 <body>
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-	<img src="../img/loading2.gif" border="0" />&nbsp;<span class="tab2">Please&nbsp;wait...</span>
+	<img src="../img/loading2.gif" border="0" />&nbsp;<span class="tab2">Please wait...</span>
 </div>
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr>
     <td><table width="100%" border="0" cellspacing="2" cellpadding="2">
       <tr>
-        <td align="right" class="tab2">Dep</td>
+        <td align="right" class="tab2">Dept.</td>
     <td><select name="departemen" class="cmbfrm" id="departemen" style="width:240px;" onchange="change_dep()" >
-       		  <option value="-1" >(Semua Departemen)</option>    
+       		  <option value="-1" >(All Department)</option>    
 			<?
 				$sql = "SELECT * FROM departemen WHERE aktif=1 ORDER BY urutan";
 				OpenDb();
@@ -110,9 +110,9 @@ function cetak(){
 				} //while
 			?>
   		  </select></td>
-        <td align="right" class="tab2">Angkatan</td>
+        <td align="right" class="tab2">Graduates</td>
         <td><select name="angkatan" class="cmbfrm" id="angkatan" style="width:240px;" onchange="chg()" <?=$disable?> >
-        	<option value="" >(Semua Angkatan yang Aktif)</option>
+        	<option value="" >(All Active)</option>
         	<? if ($departemen!='-1'){ ?> 
 			<? 	OpenDb();
 				$sql = "SELECT replid,angkatan FROM angkatan where aktif = 1 AND departemen = '$departemen' ORDER BY replid DESC";
@@ -128,7 +128,7 @@ function cetak(){
 			}
 			?>
    		  </select></td>
-        <td align="right" class="tab2">Kriteria</td>
+        <td align="right" class="tab2">Criteria</td>
         <td><select name="kriteria" class="cmbfrm" id="kriteria" style="width:240px;" onchange="chg()" >
         <? for ($i=1;$i<=17;$i++) { 
 			if ($kriteria=="")
@@ -144,7 +144,7 @@ function cetak(){
     <td>
     <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr>
-    <td colspan="2" align="center"><a href="javascript:cetak()"><img src="../img/print.png" width="16" height="16" border="0" />&nbsp;Cetak</a></td>
+    <td colspan="2" align="center"><a href="javascript:cetak()"><img src="../img/print.png" width="16" height="16" border="0" />&nbsp;Print</a></td>
     </tr>
   <tr>
     <td><div align="center">
@@ -174,8 +174,8 @@ function cetak(){
 		
 		if ($kriteria == 1) 
 		{
-			$xtitle = "Agama";
-			$ytitle = "Jumlah";
+			$xtitle = "Religion";
+			$ytitle = "Sum";
 		
 			$sql = "SELECT s.agama, count(s.replid), s.agama AS XX FROM 
 					siswa s, angkatan a 
@@ -184,8 +184,8 @@ function cetak(){
 		
 		elseif ($kriteria == 2) 
 		{
-			$xtitle = "Asal Sekolah";
-			$ytitle = "Jumlah";
+			$xtitle = "Past School";
+			$ytitle = "Sum";
 		
 			$sql = "SELECT s.asalsekolah, count(s.replid), s.asalsekolah AS XX FROM 
 					siswa s, angkatan a 
@@ -195,8 +195,8 @@ function cetak(){
 		
 		elseif ($kriteria == 3) 
 		{
-			$xtitle = "Golongan Darah";
-			$ytitle = "Jumlah";
+			$xtitle = "Blood Type";
+			$ytitle = "Sum";
 		
 			$sql = "SELECT s.darah, count(s.replid), s.darah AS XX FROM 
 					siswa s, angkatan a 
@@ -204,75 +204,75 @@ function cetak(){
 		}
 		elseif ($kriteria == 4)
 		{
-			$xtitle = "Jenis Kelamin";
-			$ytitle = "Jumlah";
-			$sql	=  "SELECT IF(s.kelamin='l','Laki - laki','Perempuan') as X, COUNT(s.nis), s.kelamin AS XX FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
+			$xtitle = "Gender";
+			$ytitle = "Sum";
+			$sql	=  "SELECT IF(s.kelamin='l','Male','Female') as X, COUNT(s.nis), s.kelamin AS XX FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
 		}
 		elseif ($kriteria == 5)
 		{
-			$xtitle = "Warga Negara";
-			$ytitle = "Jumlah";
+			$xtitle = "Citizenship";
+			$ytitle = "Sum";
 			$sql = "SELECT s.warga, count(s.replid), s.warga AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.warga ORDER BY s.warga DESC";
 		}
 		elseif ($kriteria == 6)
 		{
-			$xtitle = "Kodepos";
-			$ytitle = "Jumlah";
+			$xtitle = "Postal Code";
+			$ytitle = "Sum";
 			$sql = "SELECT s.kodepossiswa, count(s.replid), s.kodepossiswa AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.kodepossiswa ";
 		}
 		elseif ($kriteria == 7)
 		{
-			$xtitle = "Kondisi";
-			$ytitle = "Jumlah";
+			$xtitle = "Conditions";
+			$ytitle = "Sum";
 			$sql = "SELECT s.kondisi, count(s.replid), s.kondisi AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.kondisi ";
 		}
 		elseif ($kriteria == 8)
 		{
-			$xtitle = "Pekerjaan Ibu";
-			$ytitle = "Jumlah";
+			$xtitle = "Father Occupation";
+			$ytitle = "Sum";
 			$sql = "SELECT s.pekerjaanayah, count(s.replid), s.pekerjaanayah AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pekerjaanayah ";
 		}
 		elseif ($kriteria == 9)
 		{
-			$xtitle = "Pekerjaan Ibu";
-			$ytitle = "Jumlah";
+			$xtitle = "Mother Occupation";
+			$ytitle = "Sum";
 			$sql = "SELECT s.pekerjaanibu, count(s.replid), s.pekerjaanibu AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pekerjaanibu ";
 		}
 		elseif ($kriteria == 10)
 		{
-			$xtitle = "Pendidikan Ayah";
-			$ytitle = "Jumlah";
+			$xtitle = "Father Education";
+			$ytitle = "Sum";
 			$sql = "SELECT s.pendidikanayah, count(s.replid), s.pendidikanayah AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pendidikanayah ";
 		}
 		elseif ($kriteria == 11)
 		{
-			$xtitle = "Pendidikan Ibu";
-			$ytitle = "Jumlah";
+			$xtitle = "Mother Education";
+			$ytitle = "Sum";
 			$sql = "SELECT s.pendidikanibu, count(s.replid), s.pendidikanibu AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY s.pendidikanibu ";
 		}
 		elseif ($kriteria == 12)
 		{
-			$xtitle = "Penghasilan (rupiah)";
-			$ytitle = "Jumlah";
+			$xtitle = "Income";
+			$ytitle = "Sum";
 			$sql = "SELECT G, COUNT(nis), XX FROM (
 					  SELECT nis, IF(peng < 1000000, '< 1 juta',
 								  IF(peng >= 1000001 AND peng <= 2500000, '1 juta - 2,5 juta',
 								  IF(peng >= 2500001 AND peng <= 5000000, '2,5 juta - 5 juta',
-								  IF(peng >= 5000001 , '> 5 juta', 'Tidak Ada Data')))) AS G,
+								  IF(peng >= 5000001 , '> 5 juta', 'No data.')))) AS G,
 								  IF(peng < 1000000, '1',
 								  IF(peng >= 1000001 AND peng <= 2500000, '2',
 								  IF(peng >= 2500001 AND peng <= 5000000, '3',
@@ -285,38 +285,38 @@ function cetak(){
 		}
 		elseif ($kriteria == 13)
 		{
-			$xtitle = "Status Aktif";
-			$ytitle = "Jumlah";
-			$sql	=  "SELECT IF(s.aktif=1,'Aktif','Tidak Aktif') as X, COUNT(s.nis), s.aktif AS XX FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
+			$xtitle = "Status Active";
+			$ytitle = "Sum";
+			$sql	=  "SELECT IF(s.aktif=1,'Active','Inactive') as X, COUNT(s.nis), s.aktif AS XX FROM siswa s, angkatan a WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X";
 		}
 		elseif ($kriteria == 14)
 		{
-			$xtitle = "Status Siswa";
-			$ytitle = "Jumlah";
+			$xtitle = "Student Status";
+			$ytitle = "Sum";
 			$sql = "SELECT s.status as X, count(s.replid), s.status AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X ";
 		}
 		elseif ($kriteria == 15)
 		{
-			$xtitle = "Suku";
-			$ytitle = "Jumlah";
+			$xtitle = "Ethnicity";
+			$ytitle = "Sum";
 			$sql = "SELECT s.suku as X, count(s.replid), s.suku AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X ";
 		}
 		elseif ($kriteria == 16)
 		{
-			$xtitle = "Tahun Lahir";
-			$ytitle = "Jumlah";
+			$xtitle = "Year of Birth";
+			$ytitle = "Sum";
 			$sql = "SELECT YEAR(s.tgllahir) as X, count(s.replid), YEAR(s.tgllahir) AS XX FROM 
 					siswa s, angkatan a 
 					WHERE a.aktif=1 AND s.aktif=1 $filter GROUP BY X ORDER BY X ";
 		}
 		elseif ($kriteria == 17)
 		{
-			$xtitle = "Usia (tahun)";
-			$ytitle = "Jumlah";
+			$xtitle = "Age";
+			$ytitle = "Sum";
 			$sql = "SELECT G, COUNT(nis), XX FROM (
 					  SELECT nis, IF(usia < 6, '<6',
 								  IF(usia >= 6 AND usia <= 12, '6-12',
@@ -336,7 +336,7 @@ function cetak(){
 		?>
         <table width="100%" border="1" class="tab" align="center">
           <tr>
-            <td height="25" align="center" class="header">No.</td>
+            <td height="25" align="center" class="header">#</td>
             <td height="25" align="center" class="header"><?=$xtitle?></td>
             <td height="25" align="center" class="header"><?=$ytitle?></td>
             <td height="25" align="center" class="header">&nbsp;</td>
@@ -350,7 +350,7 @@ function cetak(){
           <tr>
             <td width="15" height="20" align="center"><?=$cnt?></td>
             <td height="20">&nbsp;&nbsp;<?=$row[0]?></td>
-            <td height="20" align="center"><?=$row[1]?> siswa</td>
+            <td height="20" align="center"><?=$row[1]?> student</td>
             <td height="20" align="center"><a href="javascript:viewdetail('<?=$kriteria?>','<?=$departemen?>','<?=$angkatan?>','<?=$row[2]?>')"><img src="../img/lihat.png" border="0" /></a></td>
           </tr>
           <?

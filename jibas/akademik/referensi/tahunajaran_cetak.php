@@ -40,7 +40,7 @@ $total = $_REQUEST['total'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Tahun Ajaran]</title>
+<title>JIBAS SIMAKA [Print Year of Teaching]</title>
 </head>
 
 <body>
@@ -49,20 +49,20 @@ $total = $_REQUEST['total'];
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>DATA TAHUN AJARAN</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>SEMESTER DATA</strong></font><br /> </center><br /><br />
 
 <br />
-<strong>Departemen : <?=$departemen?></strong><br />
+<strong>Department : <?=$departemen?></strong><br />
 
 <br />
 
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr height="30" align="center">
-    	<td width="4%" class="header">No</td>
-        <td width="18%" class="header">Tahun Ajaran</td>
-        <td width="18%" class="header">Tgl Mulai</td>
-        <td width="18%" class="header">Tgl Akhir</td>
-        <td width="*" class="header">Keterangan</td>
+    	<td width="4%" class="header">#</td>
+        <td width="18%" class="header">Year</td>
+        <td width="18%" class="header">Start Date</td>
+        <td width="18%" class="header">End Date</td>
+        <td width="*" class="header">Info</td>
         <td width="10%" class="header" align="center">Status</td>
     </tr>
 <? 	OpenDb();
@@ -82,9 +82,9 @@ $total = $_REQUEST['total'];
         <td><?=$row['keterangan'] ?></td>
         <td align="center">
 			<? if ($row['aktif'] == 1) 
-					echo 'Aktif';
+					echo 'Active';
 				else
-					echo 'Tidak Aktif';
+					echo 'Inactive';
 			?>		
         </td>
     </tr>

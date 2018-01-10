@@ -35,7 +35,7 @@ if (isset($_REQUEST['flag']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cari Pegawai</title>
+<title>Search Employee</title>
 <script language="javascript" src="script/string.js"></script>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript">
@@ -65,17 +65,17 @@ function pilih(nip, nama) {
 <form name="main" onsubmit="return validate()">
   <div align="right">
     <input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Cari Pegawai</font></div><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Search Employee</font></div><br />
     <br />
-    Nama: 
+    Name: 
   <input type="text" name="nama" id="nama" value="<?=$_REQUEST['nama'] ?>" size="17" />
   &nbsp;&nbsp;
-    NIP:
+    Employee ID:
   <input type="text" name="nip" id="nip" value="<?=$_REQUEST['nip'] ?>" size="17" />
   &nbsp;
-  <input type="submit" class="but" name="Submit" id="Submit" value="Cari" />
+  <input type="submit" class="but" name="Submit" id="Submit" value="Search" />
   &nbsp;
-  <input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" />
+  <input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" />
   
 </form>
 </td></tr>
@@ -84,9 +84,9 @@ function pilih(nip, nama) {
 <br />
 <table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0">
 <tr height="30">
-	<td class="header" width="7%" align="center">No</td>
-    <td class="header" width="15%" align="center">N I P</td>
-    <td class="header" >Nama</td>
+	<td class="header" width="7%" align="center">#</td>
+    <td class="header" width="15%" align="center">Employee ID</td>
+    <td class="header" >Name</td>
     <td class="header" width="10%">&nbsp;</td>
 </tr>
 <? if (isset($_REQUEST['Submit'])) { 
@@ -108,7 +108,7 @@ while($row = mysql_fetch_row($result)) { ?>
     <td align="center"><?=$row[0] ?></td>
     <td><?=$row[1] ?></td>
     <td align="center">
-    <input type="button" name="pilih" class="but" id="pilih" value="Pilih" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
+    <input type="button" name="pilih" class="but" id="pilih" value="Select" onclick="pilih('<?=$row[0]?>', '<?=$row[1]?>')" />
     </td>
 </tr>
 <?
@@ -116,10 +116,10 @@ while($row = mysql_fetch_row($result)) { ?>
 CloseDb();
 ?>
 <? if ($cnt == 0) { ?>
-<tr height="26"><td colspan="4" align="center"><em>Tidak ditemukan data</em></td></tr>
+<tr height="26"><td colspan="4" align="center"><em>Data Not Found.</em></td></tr>
 <? } ?>
 <tr height="26">
-	<td colspan="4" align="center" bgcolor="#999900"><input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" /></td>
+	<td colspan="4" align="center" bgcolor="#999900"><input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" /></td>
 </tr>
 </table>
 </td></tr>

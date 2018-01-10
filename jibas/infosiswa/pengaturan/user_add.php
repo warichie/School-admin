@@ -62,29 +62,29 @@ $flag=0;
         kon = document.tambah_user.konfirmasi.value;
         
         if(nip.length == 0) {
-            alert("User tidak boleh kosong");
+            alert("User should not leave empty");
             document.tambah_user.nip.value = "";
             document.tambah_user.nip.focus();
             return false;
         }
         //if(pass.disabled == false) {
             if(pass.length == 0) {
-                alert("Password tidak boleh kosong");
+                alert("Password should not leave empty");
 				document.tambah_user.password.focus();
                 return false;
             }else if(kon.length == 0) {
-                alert("Konfirmasi tidak boleh kosong");
+                alert("Confirmation should not leave empty");
 				document.tambah_user.konfirmasi.focus();
                 return false;
             }
             if(pass != kon) {
-                alert("Password dan konfirmasi harus sama");
+                alert("Password and confirmation should match");
 				document.tambah_user.konfirmasi.focus();
                 return false;
             }
         //}
         if(ket.length > 255) {
-            alert("Keterangan tidak boleh lebih dari 255 karakter");
+            alert("Info should not exceed 255 characters");
             document.tambah_user.keterangan.value = "";
             document.tambah_user.keterangan.focus();
             return false;
@@ -119,19 +119,19 @@ if (!isset($_POST['simpan'])) {
     <form action="user_add.php" method="post" name="tambah_user" onSubmit="return cek_form()">
     <table border="0">
         <tr>
-            <td colspan="2" class="header"><div align="center">Input User Baru</div></td>
+            <td colspan="2" class="header"><div align="center">Add New User</div></td>
         </tr>
         <tr>
             <td>Login</td><td>
-            <input type="text" size="40" name="nip" readonly value="<?=$_GET[nip] ?>" class="disabled" onClick="caripegawai()">&nbsp
-            <a href="#null" onClick="caripegawai()"><img src="../images/ico/cari.png" border="0" onMouseOver="showhint('Cari pegawai',
+            <input type="text" size="40" name="nip" readonly value="<?=$_GET[nip] ?>" class="disabled" onClick="caripegawai()">&nbsp;
+            <a href="#null" onClick="caripegawai()"><img src="../images/ico/cari.png" border="0" onMouseOver="showhint('Search employee',
             this, event, '100px')"></a>
-            <img src="../images/ico/hapus.png" border="0" onClick="clear_nip();" onMouseOver="showhint('Kosongkan NIP dan Nama',
+            <img src="../images/ico/hapus.png" border="0" onClick="clear_nip();" onMouseOver="showhint('Leave Employee ID and Name blank',
             this, event, '100px')" style="cursor:pointer">
             </td>
         </tr>
         <tr>
-            <td>Nama</td><td>
+            <td>Name</td><td>
             <input type="text" size="50" name="nama" readonly value="<?=$_GET[nama]?>" class="disabled" onClick="caripegawai()">
             </td>
         </tr>
@@ -157,19 +157,19 @@ if (!isset($_POST['simpan'])) {
             <td><input type="password" size="50" name="password" <?=$dis ?> id="password"></td>
         </tr>
         <tr>
-            <td>Konfirmasi</td>
+            <td>Confirm</td>
             <td><input type="password" size="50" name="konfirmasi" <?=$dis ?> id="konfirmasi"></td>
         </tr>
         <tr>
-            <td>Keterangan</td>
+            <td>Info</td>
             <td><textarea wrap="soft" name="keterangan" cols="47" rows="3"
-            onFocus="showhint('Keterangan tidak boleh lebih dari 255 karakter',
+            onFocus="showhint('Info should not exceed 255 characters',
             this, event, '100px')"></textarea></td>
         </tr>
         <tr>
             <td colspan="2"><div align="center">
-              <input type="submit" value="Simpan" name="simpan" class="but">&nbsp;
-                <input type="button" value="Tutup" name="batal" class="but" onClick="window.close();">
+              <input type="submit" value="Save" name="simpan" class="but">&nbsp;
+                <input type="button" value="Close" name="batal" class="but" onClick="window.close();">
             </div></td>
           </tr>
     </table>
@@ -240,7 +240,7 @@ else {
 	} else {
 	?>
 	<script language="javascript">
-		alert ('Gagal menyimpan data');
+		alert ('Failed to save data');
 
 	</script>
 	<?

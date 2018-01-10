@@ -34,7 +34,7 @@ function OpenDb()
 	$mysqlconnection = mysql_connect($db_host, $db_user, $db_pass);
 	if (!$mysqlconnection)
 	{
-		HandleQueryError("Tidak dapat terhubung dengan server database JIBAS di $db_host", 
+		HandleQueryError("Cannot connect to JIBAS database server $db_host", 
 						 mysql_errno(), mysql_error(), false);
 		exit();
 	} 
@@ -43,7 +43,7 @@ function OpenDb()
 		$select = mysql_select_db($db_name, $mysqlconnection);
 		if (!$select)
 		{
-			HandleQueryError("Tidak dapat membuka database $db_name", 
+			HandleQueryError("Cannot open database $db_name", 
 							 mysql_errno(), mysql_error(), false);
 			exit();
 		}
@@ -58,8 +58,8 @@ function OpenDbi()
 {
 	global $db_host, $db_user, $db_pass, $db_name, $conni;
 
-	$conni = mysqli_connect($db_host, $db_user, $db_pass) or trigger_error("Can not connect to database server", E_USER_ERROR);
-	$select = mysqli_select_db($conni, $db_name) or trigger_error("Can not open the database", E_USER_ERROR);
+	$conni = mysqli_connect($db_host, $db_user, $db_pass) or trigger_error("Cannot connect to database server", E_USER_ERROR);
+	$select = mysqli_select_db($conni, $db_name) or trigger_error("Cannot open database", E_USER_ERROR);
 	
 	return $conni;
 }
@@ -209,7 +209,7 @@ function FetchSingleRow($sql)
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) 
 	{
-		HandleQueryError($sql, 3477, "Data cannot be found", true);
+		HandleQueryError($sql, 3477, "Data should not be found", true);
 		exit();
 	} 
 	else 
@@ -224,7 +224,7 @@ function FetchSingleArray($sql)
 	$result = QueryDb($sql);
 	if (mysql_num_rows($result) == 0) 
 	{
-	    HandleQueryError($sql, 3477, "Data cannot be found", true);
+	    HandleQueryError($sql, 3477, "Data should not be found", true);
 		exit();
 	} 
 	else 
@@ -240,7 +240,7 @@ function FetchSingle($sql)
 
 	if (mysql_num_rows($result) == 0) 
 	{
-		HandleQueryError($sql, 3477, "Data cannot be found", true);
+		HandleQueryError($sql, 3477, "Data should not be found", true);
 		exit();
 	} 
 	else 

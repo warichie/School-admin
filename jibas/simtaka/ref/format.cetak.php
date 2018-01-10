@@ -34,7 +34,7 @@ $departemen='yayasan';
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SimTaka [Cetak Format Pustaka]</title>
+<title>JIBAS SimTaka [Library Format Printed]</title>
 </head>
 
 <body>
@@ -43,16 +43,16 @@ $departemen='yayasan';
 
 <?=GetHeader('alls')?>
  
-<center><font size="4"><strong>DATA FORMAT PUSTAKA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>LIBRARY FORMAT DATA</strong></font><br /> </center><br /><br />
 
 <br />
 	<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
 	  <tr>
-		<td height="30" align="center" class="header">Kode</td>
-		<td height="30" align="center" class="header">Nama</td>
-		<td height="30" align="center" class="header">Jumlah Judul</td>
-		<td height="30" align="center" class="header">Jumlah Pustaka</td>
-		<td height="30" align="center" class="header">Keterangan</td>
+		<td height="30" align="center" class="header">Code</td>
+		<td height="30" align="center" class="header">Name</td>
+		<td height="30" align="center" class="header">Title Sum</td>
+		<td height="30" align="center" class="header">Library Sum</td>
+		<td height="30" align="center" class="header">Info</td>
 	  </tr>
 	  <?
 	  $sql = "SELECT * FROM format ORDER BY kode";
@@ -75,7 +75,7 @@ $departemen='yayasan';
 	  } else {
 	  ?>
 	  <tr>
-		<td height="25" colspan="5" align="center" class="nodata">Tidak ada data</td>
+		<td height="25" colspan="5" align="center" class="nodata">Data Not Found.</td>
 	  </tr>
 	  <?
 	  }

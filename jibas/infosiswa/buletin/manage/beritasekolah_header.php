@@ -79,14 +79,14 @@ function prev(){
 <table width="100%" border="0" cellspacing="0">
   <tr>
     <th align="right" scope="row">&nbsp;</th>
-    <th align="right" scope="row"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif">Rubrik Sekolah</font><br />
-      <a href="../../framecenter.php" target="framecenter"> <font size="1" color="#000000"><b>Home</b></font></a>&nbsp>&nbsp<strong><font color="#000000" size="1">Rubrik Sekolah</font></strong></th>
+    <th align="right" scope="row"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif">School News</font><br />
+      <a href="../../framecenter.php" target="framecenter"> <font size="1" color="#000000"><b>Home</b></font></a>&nbsp;>&nbsp;<strong><font color="#000000" size="1">School News</font></strong></th>
   </tr>
   <tr>
-    <td colspan="2" scope="row"><? if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){ ?><input type="button" name="beritabaru" id="beritabaru" value="Berita Baru" class="but" title="Tambah Berita Baru" onclick="parent.beritasekolah_footer.location.href='beritasekolah_add.php';"/><? } ?></th>
+    <td colspan="2" scope="row"><? if (SI_USER_ID()!="LANDLORD" && SI_USER_ID()!="landlord"){ ?><input type="button" name="beritabaru" id="beritabaru" value="Recent News" class="but" title="Add Recent News" onclick="parent.beritasekolah_footer.location.href='beritasekolah_add.php';"/><? } ?></th>
     
-    Berita Bulan : 
-      <input type="button" name="prevmonth" id="prevmonth" value=" < " class="but" title="Bulan Sebelumnya" onclick="prev()"/>
+    Month : 
+      <input type="button" name="prevmonth" id="prevmonth" value=" < " class="but" title="Previous Month" onclick="prev()"/>
       &nbsp;
       <select name="bulan" id="bulan" onchange="chg()">
         <?
@@ -112,9 +112,9 @@ function prev(){
 	?>
         </select>
     &nbsp;
-    <input type="button" name="nextmonth" id="nextmonth" value=" > " class="but" title="Bulan Selanjutnya" onclick="next()"/>
+    <input type="button" name="nextmonth" id="nextmonth" value=" > " class="but" title="Next Month" onclick="next()"/>
     </th>
-    <input type="button" name="berita" id="berita" value="Lihat Berita" class="but" title="Lihat Berita" onclick="lihat()"/>    </tr>
+    <input type="button" name="berita" id="berita" value="See the News" class="but" title="See the News" onclick="lihat()"/>    </tr>
 </table>
 
 </body>

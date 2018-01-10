@@ -44,7 +44,7 @@ CloseDb();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<title>JIBAS SIMAKA [Cetak Data Calon Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Candidate Data]</title>
 </head>
 <body>
 <table border="0" cellpadding="10" cellspacing="5" width="780" align="left">
@@ -54,23 +54,23 @@ CloseDb();
 <?=getHeader($row_siswa['departemen'])?>
 
 <center>
-  <font size="4"><strong>DATA CALON SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT CANDIDATE DATA</strong></font><br />
  </center><br /><br />
  	<table width="100%">    
 	<tr>
-		<td width="20%"><strong>Departemen</strong> </td> 
+		<td width="20%"><strong>Department</strong> </td> 
 		<td width="*"><strong>:&nbsp;<?=$row_siswa['departemen']?></strong></td>
 	</tr>
     <tr>
-		<td width="20%"><strong>Proses Penerimaan</strong> </td> 
+		<td width="20%"><strong>Admission Process</strong> </td> 
 		<td width="*"><strong>:&nbsp;<?=$row_siswa['proses']?></strong></td>        
 	</tr>
 	<tr>
-		<td><strong>Kelompok Calon Siswa</strong></td>
+		<td><strong>Student Candidate Group</strong></td>
 		<td><strong>:&nbsp;<?=$row_siswa['kelompok']?></strong></td>        		
     </tr>
     <tr>
-		<td><strong>No. Pendaftaran</strong></td>
+		<td><strong>Registration Number</strong></td>
 		<td><strong>:&nbsp;<?=$row_siswa['nopendaftaran']?></strong></td>        		
     </tr>
 	</table>
@@ -79,7 +79,7 @@ CloseDb();
     <tr>    	
     	<td align="center" width="150" valign="top">
         <img src="../library/gambar.php?replid=<?=$replid?>&table=calonsiswa" /> 
-        <div align="center"><br /><br /><br />Tanda Tangan<br /><br /><br /><br /><br />
+        <div align="center"><br /><br /><br />Signature<br /><br /><br /><br /><br />
         <strong>(<?=$row_siswa['nama']?>)</strong></div>
         </td>
         <td>
@@ -90,92 +90,92 @@ CloseDb();
         <table border="1" cellpadding="0" style="border-collapse:collapse" cellspacing="0" width="100%">
           <tr  height="30">
             <td align="center" bgcolor="#CCCCCC"><strong>A. </strong></td>
-            <td colspan="4" bgcolor="#CCCCCC"><strong>KETERANGAN PRIBADI</strong></td>
+            <td colspan="4" bgcolor="#CCCCCC"><strong>PERSONAL INFO</strong></td>
           </tr>
           
           <tr height="20">
             <td rowspan="15"></td>
             <td width="5%" >1.</td>
-            <td>NISN</td>
+            <td>National Student ID</td>
             <td colspan="2">:
               <?=$row_siswa['nisn']?></td>
             </tr>
           <tr height="20">
             <td width="5%">2.</td>
-            <td colspan="3">Nama Peserta Didik</td>           
+            <td colspan="3">Student Member Name</td>           
             </tr>
           <tr height="20">
             <td width="5%" rowspan="2" valign="top">&nbsp;</td>
-            <td width="20%">a. Lengkap</td>
+            <td width="20%">a. Full Name</td>
             <td colspan="2">:
               <?=$row_siswa['nama']?></td>
             </tr>
           <tr height="20">
-            <td>b. Panggilan</td>
+            <td>b. Nickname</td>
             <td colspan="2">:
               <?=$row_siswa['panggilan']?></td>
             </tr>
           <tr height="20">
-            <td >3.</td>
-            <td>Jenis Kelamin</td>
+            <td>3.</td>
+            <td>Gender</td>
             <td colspan="2" >:
               <? 	if ($row_siswa['kelamin']=="l")
-				echo "Laki-laki"; 
+				echo "Male"; 
 			if ($row_siswa['kelamin']=="p")
-				echo "Perempuan"; 
+				echo "Female"; 
 		?></td>
             </tr>
           <tr height="20">
             <td>4.</td>
-            <td>Tempat Lahir</td>
+            <td>Birth Place</td>
             <td colspan="2">:
               <?=$row_siswa['tmplahir']?></td>
             </tr>
           <tr height="20">
             <td>5.</td>
-            <td>Tanggal Lahir</td>
+            <td>Date of Birth</td>
             <td colspan="2">:
               <?=format_tgl($row_siswa['tgllahir']) ?></td>
             </tr>
           <tr height="20">
             <td>6.</td>
-            <td >Agama</td>
+            <td>Religion</td>
             <td colspan="2">:
               <?=$row_siswa['agama']?></td>
             </tr>
           <tr height="20">
             <td>7.</td>
-            <td>Kewarganegaraan</td>
+            <td>Citizenship</td>
             <td colspan="2">:
               <?=$row_siswa['warga']?></td>
             </tr>
           <tr height="20">
             <td>8.</td>
-            <td>Anak ke</td>
+            <td>Child #</td>
             <td colspan="2">:
               <?=$row_siswa['anakke']?></td>
             </tr>
           <tr height="20">
             <td>9.</td>
-            <td>Dari</td>
+            <td>From</td>
             <td colspan="2">:
-              <?=$row_siswa['jsaudara']?> bersaudara</td>
+              <?=$row_siswa['jsaudara']?> siblings</td>
             </tr>
           <tr height="20">
             <td>10.</td>
-            <td>Kondisi Siswa</td>
+            <td>Student Conditions</td>
             <td colspan="2">:
               <?=$row_siswa['kondisi']?></td>
             </tr>
           <tr height="20">
             <td>11.</td>
-            <td>Status Siswa</td>
+            <td>Student Status</td>
             <td colspan="2">:
               <?=$row_siswa['status']?></td>
             </tr>
           <tr height="20">
             <td>12.</td>
-            <td>Bahasa Sehari-hari</td>
+            <td>Language</td>
             <td colspan="2">:
               <?=$row_siswa['bahasa']?></td>
             </tr>
@@ -184,24 +184,24 @@ CloseDb();
             </tr>
           <tr  height="30">
             <td width="5%" align="center" bgcolor="#CCCCCC"><strong>B. </strong></td>
-            <td colspan="5" bgcolor="#CCCCCC"><strong>KETERANGAN TEMPAT TINGGAL</strong></td>
+            <td colspan="5" bgcolor="#CCCCCC"><strong>RESIDENCY INFO</strong></td>
           </tr>
           <tr height="20">
             <td rowspan="5"></td>
             <td>13.</td>
-            <td>Alamat</td>
+            <td>Address</td>
             <td colspan="2">:
               <?=$row_siswa['alamatsiswa']?></td>
           </tr>
           <tr height="20">
             <td>14.</td>
-            <td>Telepon</td>
+            <td>Phone</td>
             <td colspan="2">:
               <?=$row_siswa['telponsiswa']?></td>
           </tr>
           <tr height="20">
             <td>15.</td>
-            <td>Handphone</td>
+            <td>Mobile</td>
             <td colspan="2">:
               <?=$row_siswa['hpsiswa']?></td>
           </tr>
@@ -216,130 +216,130 @@ CloseDb();
           </tr>
           <tr  height="30">
             <td width="5%" align="center" bgcolor="#CCCCCC"><strong>C. </strong></td>
-            <td colspan="5" bgcolor="#CCCCCC"><strong>KETERANGAN KESEHATAN</strong></td>
+            <td colspan="5" bgcolor="#CCCCCC"><strong>HEALTH INFO</strong></td>
           </tr>
           <tr height="20">
             <td rowspan="5"></td>
             <td>17.</td>
-            <td >Berat Badan</td>
+            <td>Body Weight</td>
             <td colspan="2">:
               <?=$row_siswa['berat']?></td>
           </tr>
           <tr height="20">
             <td>18.</td>
-            <td>Tinggi Badan</td>
+            <td>Body Height</td>
             <td colspan="2">:
               <?=$row_siswa['tinggi']?></td>
           </tr>
           <tr height="20">
             <td>19.</td>
-            <td >Golongan Darah</td>
+            <td>Blood Type</td>
             <td colspan="2">:
               <?=$row_siswa['darah']?></td>
           </tr>
           <tr height="20">
             <td>20.</td>
-            <td >Riwayat Penyakit</td>
+            <td>Illness History</td>
             <td colspan="2">:
               <?=$row_siswa['kesehatan']?></td>
           </tr>
-          <tr >
+          <tr>
             <td colspan="4">&nbsp;</td>
           </tr>
           <tr  height="30">
             <td width="5%" align="center" bgcolor="#CCCCCC"><strong>D. </strong></td>
-            <td colspan="5" bgcolor="#CCCCCC"><strong>KETERANGAN PENDIDIKAN SEBELUMNYA</strong></td>
+            <td colspan="5" bgcolor="#CCCCCC"><strong>PAST EDUCATION INFO</strong></td>
           </tr>
           <tr height="20">
             <td rowspan="3"></td>
             <td>21.</td>
-            <td >Asal Sekolah</td>
+            <td>Past School</td>
             <td colspan="2">:
               <?=$row_siswa['asalsekolah']?></td>
           </tr>
           <tr height="20">
             <td>22.</td>
-            <td >Keterangan</td>
+            <td>Info</td>
             <td colspan="2">:
               <?=$row_siswa['ketsekolah']?></td>
           </tr>
-          <tr >
+          <tr>
             <td colspan="4">&nbsp;</td>
           </tr>
           <tr  height="30">
             <td width="5%" align="center" bgcolor="#CCCCCC"><strong>E. </strong></td>
-            <td colspan="5" align="left" bgcolor="#CCCCCC"><strong>KETERANGAN ORANG TUA</strong></td>
+            <td colspan="5" align="left" bgcolor="#CCCCCC"><strong>PARENT INFO</strong></td>
           </tr>
           <tr height="20">
             <td rowspan="11"></td>
-            <td colspan="2" align="center"><strong>Orang Tua</strong></td>
-            <td width="30%" align="center"><strong>Ayah</strong></td>
-            <td align="center"><strong>Ibu</strong></td>
+            <td colspan="2" align="center"><strong>Parent</strong></td>
+            <td width="30%" align="center"><strong>Father</strong></td>
+            <td align="center"><strong>Mother</strong></td>
           </tr>
           <tr height="20">
             <td>23.</td>
-            <td >Nama</td>
-            <td >:
+            <td>Name</td>
+            <td>:
               <?=$row_siswa['namaayah']?>
                 <?
 		if ($row_siswa['almayah']==1)
-		echo "&nbsp;(alm)";
+		echo "&nbsp;(late)";
 		?></td>
             <td colspan="2"><?=$row_siswa['namaibu']?>
                 <?
 		if ($row_siswa['almibu']==1)
-		echo "&nbsp;(alm)";
+		echo "&nbsp;(late)";
         ?></td>
           </tr>
           <tr height="20">
             <td>24.</td>
-            <td >Pendidikan</td>
-            <td >:
+            <td>Education</td>
+            <td>:
               <?=$row_siswa['pendidikanayah']?></td>
             <td colspan="2"><?=$row_siswa['pendidikanibu']?></td>
           </tr>
           <tr height="20">
             <td>25.</td>
-            <td >Pekerjaan</td>
-            <td >:
+            <td>Occupation</td>
+            <td>:
               <?=$row_siswa['pekerjaanayah']?></td>
             <td colspan="2"><?=$row_siswa['pekerjaanibu']?></td>
           </tr>
           <tr height="20">
             <td>26.</td>
-            <td >Penghasilan</td>
-            <td >:
+            <td>Income</td>
+            <td>:
               <?=FormatRupiah($row_siswa['penghasilanayah']); ?></td>
             <td colspan="2"><?=FormatRupiah($row_siswa['penghasilanibu']); ?></td>
           </tr>
           <tr height="20">
             <td>27.</td>
-            <td >Email Orang Tua</td>
-            <td >:
+            <td>Parent Email</td>
+            <td>:
               <?=$row_siswa['emailayah']?></td>
             <td colspan="2"><?=$row_siswa['emailibu']?></td>
           </tr>
           <tr height="20">
             <td>28. </td>
-            <td >Nama Wali</td>
+            <td>Guardian Name</td>
             <td colspan="2">:
               <?=$row_siswa['wali']?></td>
           </tr>
-          <tr >
+          <tr>
             <td>29.</td>
-            <td height="20" >Alamat</td>
+            <td height="20" >Address</td>
             <td colspan="2">:
               <?=$row_siswa['alamatortu']?></td>
           </tr>
           <tr height="20">
             <td>30.</td>
-            <td >Telepon</td>
+            <td>Phone</td>
             <td colspan="2">:
               <?=$row_siswa['telponortu']?></td>
           </tr>
           <tr height="20">
             <td>31.</td>
-            <td >Handphone</td>
+            <td>Mobile</td>
             <td colspan="2">:
               <?=$row_siswa['hportu']?></td>
           </tr>
@@ -348,18 +348,18 @@ CloseDb();
             </tr>
           <tr height="30" >
             <td bgcolor="#CCCCCC"><strong>F.</strong></td>
-            <td colspan="6" align="left" bgcolor="#CCCCCC"><strong>KETERANGAN LAINNYA</strong></td>
+            <td colspan="6" align="left" bgcolor="#CCCCCC"><strong>OTHERS</strong></td>
             </tr>
           <tr height="20">
             <td rowspan="2"></td>
             <td>32.</td>
-            <td>Alamat Surat</td>
+            <td>Mailing Address</td>
             <td colspan="2">:
               <?=$row_siswa['alamatsurat']?></td>
           </tr>
           <tr height="20">
             <td>33.</td>
-            <td >Keterangan</td>
+            <td>Info</td>
             <td colspan="2">: <?=$row_siswa['keterangan']?></td>
           </tr>        
         </table></td>

@@ -70,7 +70,7 @@ if (isset($_REQUEST['thn2']))
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
-<title>Laporan Buku Besar</title>
+<title>Ledger Reports</title>
 <script language="javascript" src="script/tooltips.js"></script>
 <script language="javascript" src="script/ajax.js"></script>
 <script language="javascript" src="script/validasi.js"></script>
@@ -132,19 +132,19 @@ function show_laporan()
 	
 	if (idtahunbuku.length == 0) 
 	{	
-		alert ('Tahun Buku tidak boleh kosong!');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('departemen').focus();
 		return false;
 	} 
 	else if (tgl1.length == 0) 
 	{	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} 
 	else if (tgl2.length == 0) 
 	{	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -163,7 +163,7 @@ function show_laporan()
 	<td rowspan="3" width="60%">
     <table border="0" width = "100%">
     <tr>
-        <td width="15%"><strong>Departemen </strong></td>
+        <td width="15%"><strong>Department </strong></td>
         <td colspan="4">
             <select name="departemen" id="departemen" style="width:115px" onchange="change_dep()">
             <?	OpenDb();
@@ -174,7 +174,7 @@ function show_laporan()
                     <option value="<?=$value ?>" <?=StringIsSelected($departemen, $value) ?> > <?=$value ?></option>
             <?  } ?>     
             </select>
-           	<strong>Tahun Buku </strong>
+           	<strong>Fiscal Year </strong>
             <select name="idtahunbuku" id="idtahunbuku" onchange="change_tahunbuku()" style="width:160px">        
 <? 			if ($departemen != "") 
             { 
@@ -213,7 +213,7 @@ function show_laporan()
 					
 		$n1 = JmlHari($bln1, $thn1);
 		$n2 = JmlHari($bln2, $thn2);	?>      
-        <td><strong>Per Tanggal </strong></td>
+        <td><strong>by Date </strong></td>
         <td width="10">
             <div id="InfoTgl1">   
             <select name="tgl1" id="tgl1" disabled>
@@ -233,12 +233,12 @@ function show_laporan()
             <? for($i = $G_START_YEAR; $i <= $thn1+1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
-        	</select>s/d
+        	</select>to
         </td>
         <td width="10">
         	<div id="InfoTgl2">
             <select name="tgl2" id="tgl2" onchange="change_tanggal()" >
-            <option value="">[Tgl]</option>
+            <option value="">[Date]</option>
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -261,13 +261,13 @@ function show_laporan()
     </table>
     </td>
     <td rowspan="2">
-    	<a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Klik untuk menampilkan data laporan arus kas!', this, event, '180px')" /></a>
+    	<a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Click to show cash flow reports', this, event, '180px')" /></a>
     </td>
     <td width="30%" align="right" valign="top">
-    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Arus Kas</font><br />
+    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Cash Flow Reports</font><br />
         <a target="_parent" href="lapkeuangan.php">
-        <font size="1" color="#000000"><b>Laporan Keuangan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Arus Kas</b></font>
+        <font size="1" color="#000000"><b>Finance Reports</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Cash Flow Reports</b></font>
     </td>
 </tr>
 </table>

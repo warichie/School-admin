@@ -92,7 +92,7 @@ function hapus(replid){
 	var page=document.getElementById("page").value;
 	var bulan=parent.beritaguru_header.document.getElementById("bulan").value;
 	var tahun=parent.beritaguru_header.document.getElementById("tahun").value;
-	if (confirm('Anda yakin akan menghapus berita ini dan lampiran-lampirannya ?')){ 
+	if (confirm('Are you sure want to delete this news and the attachments?')){ 
 		document.location.href="beritaguru_footer.php?op=bzux834hx8x7x934983xihxf084&replid="+replid+"&bulan="+bulan+"&tahun="+tahun+"&page="+page;
 	}
 }
@@ -156,14 +156,14 @@ function chg_title_color(id,stat){
 		}
 	
 	?>
-    Halaman : 
-	<input <?=$disback?> type="button" class="but" title="Sebelumnya" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    Page : 
+	<input <?=$disback?> type="button" class="but" title="Previous" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 	<select name="page" id="page" onchange="chg_page()">
 	<? for ($p=1;$p<=$total;$p++){ ?>
 		<option value="<?=$p-1?>" <?=StringIsSelected($page,$p-1)?>><?=$p;?></option>
 	<? } ?>
 	</select>   
-    <input <?=$disnext?> type="button" class="but" name="next" title="Selanjutnya" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">&nbsp;dari&nbsp;<?=$total?> 
+    <input <?=$disnext?> type="button" class="but" name="next" title="Next" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">&nbsp;from&nbsp;<?=$total?> 
 	<? } ?><br><br>
     
     <table width="80%" border="0" cellspacing="5" cellpadding="5" align="left">
@@ -218,7 +218,7 @@ function chg_title_color(id,stat){
               <tr>
               	<td colspan="2" align="right">
               		<? if ($row1[nip]==$idguru){ ?>
-                        <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1[replid]?>','<?=$page?>')" style="cursor:pointer;" title="Ubah Berita ini !" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1[replid]?>')" style="cursor:pointer;" title="Hapus Berita ini !" />
+                        <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1[replid]?>','<?=$page?>')" style="cursor:pointer;" title="Edit this News" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1[replid]?>')" style="cursor:pointer;" title="Delete this News" />
 	                <? } ?>              	</td>
               </tr>
             </table>
@@ -233,7 +233,7 @@ function chg_title_color(id,stat){
 		}
 		} else {
 		?>
-        <div align="center" class="divNotif">Tidak ada berita Guru</div>
+        <div align="center" class="divNotif">No teacher news.</div>
         <?
 		}
 		?>

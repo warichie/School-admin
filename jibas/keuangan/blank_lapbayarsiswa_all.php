@@ -36,7 +36,7 @@
     <table width="100%" border="0" height="100%">
   	<tr>
   		<td align="center">
-<font size="2" color="#757575"><b>Klik pada <i>hyperlink</i> "Tabel Data Siswa" di panel kiri untuk menampilkan Penerimaan Pembayaran</b></font>
+<font size="2" color="#757575"><b>Click on <i>hyperlink</i> "Tabel Student Data" on the left panel to show Penerimaan Payment</b></font>
 </td>
   </tr>
 </table>

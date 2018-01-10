@@ -86,7 +86,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 			RollbackTrans();
 			CloseDb();
 			echo  "<script language='javascript'>";
-			echo  "alert('Gagal menyimpan data!);";
+			echo  "alert('Failed to save data!);";
 			echo  "</script>";
 		}
 		
@@ -122,7 +122,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 			RollbackTrans();
 			CloseDb();
 			echo  "<script language='javascript'>";
-			echo  "alert('Gagal menyimpan data!);";
+			echo  "alert('Failed to save data!);";
 			echo  "</script>";
 		}
 	}
@@ -136,7 +136,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style/calendar-green.css">
-<title>JIBAS SIMKEU [Ubah Pembayaran Iuran]</title>
+<title>JIBAS SIMKEU [Edit Payment Contribution]</title>
 <script src="script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="script/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -153,13 +153,13 @@ CloseDb();
 <script language="javascript">
 function ValidateSubmit() 
 {
-	var isok = 	validateEmptyText('jcicilan', 'Besarnya Pembayaran') &&
+	var isok = 	validateEmptyText('jcicilan', 'Besarnya Payment') &&
 	 	   		validasiAngka() &&
-		   		validateEmptyText('tcicilan', 'Tanggal Pembayaran') &&
+		   		validateEmptyText('tcicilan', 'Date Payment') &&
 		   		validateEmptyText('alasan', 'Alasan Perubahan') &&
 		   		validateMaxText('alasan', 500, 'Alasan Perubahan') &&
-		   		validateMaxText('kcicilan', 255, 'Keterangan Pembayaran') &&
-				confirm("Data sudah benar?");
+		   		validateMaxText('kcicilan', 255, 'Info Payment') &&
+				confirm("The data is correct?");
 				
 	document.getElementById('issubmit').value = isok ? 1 : 0;
 	
@@ -174,14 +174,14 @@ function validasiAngka()
 	var angka = document.getElementById("angkacicilan").value;
 	if(isNaN(angka)) 
 	{
-		alert ('Besarnya pembayaran harus berupa bilangan!');
+		alert ('Besarnya pembayaran must be numeric');
 		document.getElementById('jcicilan').value = "";
 		document.getElementById('jcicilan').focus();
 		return false;
 	}
 	else if(angka < 0)
 	{
-		alert ('Besarnya iuran tidak boleh negatif!');
+		alert ('Besarnya iuran should not be a negative number');
 		document.getElementById('jcicilan').focus();
 		return false;
 	}
@@ -214,7 +214,7 @@ function focusNext(elemName, evt)
 	<td width="28" background="<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Pembayaran :.
+    .: Edit Payment :.
     </div>
 	</td>
     <td width="28" background="<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -229,21 +229,21 @@ function focusNext(elemName, evt)
     <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td width="55%" align="left"><strong>Pembayaran</strong></td>
+        <td width="55%" align="left"><strong>Payment</strong></td>
         <td colspan="2"><input type="text" size="30" value="<?=$namapenerimaan?>" readonly="readonly" style="background-color:#CCCC99"/></td>
     </tr>
     <tr>
-        <td><strong>Nama</strong></td>
+        <td><strong>Name</strong></td>
         <td colspan="2"><input type="text" size="30" value="<?=$nis . " - " . $nama ?>" readonly style="background-color:#CCCC99"/></td>
     </tr>
     <tr>
-        <td><strong>Jumlah</strong></td>
+        <td><strong>Sum</strong></td>
         <td colspan="2"><input type="text" name="jcicilan" id="jcicilan" value="<?=FormatRupiah($jbayar) ?>" onblur="formatRupiah('jcicilan')" onfocus="unformatRupiah('jcicilan')" onKeyPress="return focusNext('alasan', event)" onkeyup="salinangka()"/>
         <input type="hidden" name="angkacicilan" id="angkacicilan" value="<?=$jbayar?>" />
         </td>
     </tr>
     <tr>
-        <td align="left"><strong>Tanggal</strong></td>
+        <td align="left"><strong>Date</strong></td>
         <td>
         <input type="text" name="tcicilan" id="tcicilan" readonly size="15" value="<?=$tanggal ?>" onKeyPress="return focusNext('alasan', event)" style="background-color:#CCCC99"> </td>
         <td width="60%">
@@ -251,19 +251,19 @@ function focusNext(elemName, evt)
 	     </td> 
     </tr>
     <tr>
-        <td valign="top"><strong>Alasan Perubahan</strong></td>
+        <td valign="top"><strong>Reason Perubahan</strong></td>
         <td colspan="2"><textarea id="alasan" name="alasan" rows="3" cols="30" onKeyPress="return focusNext('kcicilan', event)"><?=$alasan ?></textarea>
         </td>
     </tr>
     <tr>
-        <td align="left" valign="top">Keterangan</td>
+        <td align="left" valign="top">Info</td>
         <td colspan="2"><textarea id="kcicilan" name="kcicilan" rows="3" cols="30" onKeyPress="return focusNext('Simpan', event)"><?=$keterangan ?></textarea>
         </td>
     </tr>
     <tr>
         <td colspan="3" align="center">
-        <input type="button" name="Simpan" id="Simpan" class="but" value="Simpan" onclick="this.disabled = true; ValidateSubmit();" />
-        <input type="button" name="tutup" id="tutup" class="but" value="Tutup" onclick="window.close()" />
+        <input type="button" name="Simpan" id="Simpan" class="but" value="Save" onclick="this.disabled = true; ValidateSubmit();" />
+        <input type="button" name="tutup" id="tutup" class="but" value="Close" onclick="window.close()" />
         </td>
     </tr>
     </table>

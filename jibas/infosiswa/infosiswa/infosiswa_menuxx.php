@@ -37,7 +37,7 @@ if (isset($_REQUEST['tahunajaran']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Daftar Siswa]</title>
+<title>JIBAS SIMAKA [Student List]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <link rel="stylesheet" type="text/css" href="../script/tooltips.css" />
 <link href="../script/SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
@@ -67,15 +67,15 @@ function pilih(nis, nama) {
     <td>
     <!-- CONTENT GOES HERE //--->
 	<input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font><font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Info Siswa</font> <br /><br />
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font><font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Info</font> <br /><br />
     <table border="0" cellpadding="0" bgcolor="#FFFFFF" cellspacing="0" width="100%" >
     <tr height="500">
     	<td width="100%" bgcolor="#FFFFFF" valign="top">
         
         <div id="TabbedPanels1" class="TabbedPanels">
             <ul class="TabbedPanelsTabGroup">
-                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Pilih Siswa</font></li>
-                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Cari Siswa</font></li>
+                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Select Student</font></li>
+                <li class="TabbedPanelsTab" tabindex="0"><font size="1">Search Student</font></li>
             </ul>
             <div class="TabbedPanelsContentGroup">
                 <div class="TabbedPanelsContent" id="panel0"></div>
@@ -127,7 +127,7 @@ function carilah(){
 	var departemen = document.getElementById('depart1').value;
 	
 	if (nis == "" && nama == "") {
-		alert ('NIS atau Nama Siswa tidak boleh kosong!');
+		alert ('Student ID or Name should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}	

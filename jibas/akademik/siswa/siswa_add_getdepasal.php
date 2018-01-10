@@ -27,7 +27,7 @@ require_once('../include/db_functions.php');
 $departemen=$_REQUEST['departemen'];
 ?>
 		<select name="dep_asal" id="dep_asal"  onKeyPress="return focusNext('sekolah', event)" onChange="change_departemen()">
-        <option value="">[Departemen]</option>
+        <option value="">[Department]</option>
       	<? // Olah untuk combo sekolah
 		OpenDb();
 		$sql_dep_asal="SELECT DISTINCT departemen FROM asalsekolah ORDER BY departemen";

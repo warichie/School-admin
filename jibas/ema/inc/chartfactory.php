@@ -99,7 +99,7 @@ class ChartFactory {
 		$graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
 		$graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 		
-		//Pengaturan sumbu x dan sumbu y
+		//Settings sumbu x and sumbu y
 		$graph->yaxis->HideZeroLabel();
 		$graph->ygrid->SetFill(true,'#dedede','#FFFFFF');
 		

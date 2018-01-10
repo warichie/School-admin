@@ -54,7 +54,7 @@ if (isset($_REQUEST['idtahunbuku']))
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title>JIBAS KEU [Laporan Rekapitulasi Buku Besar]</title>
+<title>JIBAS FINANCE [Reports Rekapitulasi Ledger]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -69,25 +69,25 @@ if (isset($_REQUEST['idtahunbuku']))
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) ?> s/d <?=LongDateFormat($tanggal2) ?></strong> </td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) ?> to <?=LongDateFormat($tanggal2) ?></strong> </td>
 </tr>
 <tr>
-	<td><strong>Kategori </strong></td>
-    <td><strong>: <? if ($kategori == "ALL") echo  "Semua Kategori"; else echo  $kategori; ?></strong></td>
+	<td><strong>Category </strong></td>
+    <td><strong>: <? if ($kategori == "ALL") echo  "All Category"; else echo  $kategori; ?></strong></td>
 </tr>
 </table>
 <br />
 <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000" />
 <tr height="30">
-	<td class="header" width="5%" align="center">No</td>
-    <td class="header" width="*" align="center">Rekening</td>
-    <td class="header" width="22%" align="center">Debet</td>
-    <td class="header" width="22%" align="center">Kredit</td>
+	<td class="header" width="5%" align="center">#</td>
+    <td class="header" width="*" align="center">Bank Account</td>
+    <td class="header" width="22%" align="center">Debit</td>
+    <td class="header" width="22%" align="center">Credit</td>
 </tr>
 <?
 OpenDb();
@@ -115,7 +115,7 @@ while($row = mysql_fetch_row($result)) {
 CloseDb();
 ?>
 <tr height="30">
-	<td colspan="2" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+	<td colspan="2" align="center" bgcolor="#999900"><font color="#FFFFFF"><strong>Total</strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>
 </tr>

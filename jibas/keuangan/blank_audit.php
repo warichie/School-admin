@@ -35,7 +35,7 @@
     <table width="100%" border="0" height="100%"><br /><br/>
   	<tr>
   		<td align="center">
-        <font size="2" color="#757575"><b>Klik pada <i>hyperlink</i> "Laporan Audit Perubahan Data" di panel kiri untuk menampilkan Laporan Audit Perubahan Data</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on <i>hyperlink</i> "Data Changing Audit Reports" on the left panel to show Data Changing Audit Reports</b></font>    </td>
 </td>
   </tr>
 </table>

@@ -50,7 +50,7 @@ elseif ($stat == 7)
 <head>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -69,8 +69,8 @@ function CetakWord() {
 <?
 if ($stat == 1)
 {
-	$column  = "Satuan Kerja";
-	$column2 = "Jumlah";
+	$column  = "Work Unit";
+	$column2 = "Sum";
 	$sql = "SELECT j.satker, count(pj.replid) FROM 
 	        pegjab pj, peglastdata pl, pegawai p, jabatan j 
 			WHERE pl.idpegjab = pj.replid AND pj.idjabatan = j.replid AND pj.nip = p.nip 
@@ -79,8 +79,8 @@ if ($stat == 1)
 }
 elseif ($stat == 2)
 {
-	$column  = "Pendidikan";
-	$column2 = "Jumlah";
+	$column  = "Education";
+	$column2 = "Sum";
 	$sql = "SELECT ps.tingkat, COUNT(p.nip) FROM
             pegawai p, peglastdata pl, pegsekolah ps, jbsumum.tingkatpendidikan pk
             WHERE p.nip = pl.nip AND pl.idpegsekolah = ps.replid AND ps.tingkat = pk.pendidikan AND p.aktif = 1 
@@ -88,16 +88,16 @@ elseif ($stat == 2)
 }
 elseif ($stat == 3)
 {
-	$column  = "Golongan";
-	$column2 = "Jumlah";
+	$column  = "Level";
+	$column2 = "Sum";
 	$sql = "SELECT pg.golongan, COUNT(p.nip) FROM pegawai p, peglastdata pl, peggol pg, golongan g
             WHERE p.nip = pl.nip AND pl.idpeggol = pg.replid AND pg.golongan = g.golongan AND p.aktif = 1 
 			GROUP BY pg.golongan ORDER BY g.urutan";	
 }
 elseif ($stat == 4)
 {
-	$column  = "Usia";
-	$column2 = "Jumlah";
+	$column  = "Age";
+	$column2 = "Sum";
 	
 	$sql = "SELECT G, COUNT(nip) FROM (
 	          SELECT nip, IF(usia < 24, '<24',
@@ -120,7 +120,7 @@ elseif ($stat == 4)
 ?>
 <table id="table" class="tab" border="1" cellpadding="2" cellspacing="0" width="100%">
 <tr height="25">
-	<td class="header" align="center" width="5%">No</td>
+	<td class="header" align="center" width="5%">#</td>
     <td class="header" align="center" width="60%"><?=$column?></td>
     <td class="header" align="center" width="25%"><?=$column2?></td>
     <td class="header" align="center" width="10%">&nbsp;</td>

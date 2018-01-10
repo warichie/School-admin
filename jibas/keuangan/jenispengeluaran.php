@@ -32,7 +32,7 @@ require_once('include/errorhandler.php');
 
 if (getLevel() == 2) { ?>
 	<script language="javascript">
-        alert('Maaf, anda tidak berhak mengakses halaman ini!');
+        alert('Maaf, anda tidak berhak mengakses halaman ini');
         document.location.href = "penerimaan.php";
     </script>
 <? exit();
@@ -103,10 +103,10 @@ function set_aktif(id, aktif) {
 	
 	if (aktif == 1) {
 		newaktif = 0;	
-		msg = "Apakah anda yakin akan mengganti status data ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to mengganti status data ini to INACTIVE?";
 	} else {
 		newaktif = 1;	
-		msg = "Apakah anda yakin akan mengganti status data ini menjadi AKTIF?";
+		msg = "Are you sure want to mengganti status data ini to ACTIVE?";
 	}
 	
 	if (confirm(msg)) {
@@ -116,7 +116,7 @@ function set_aktif(id, aktif) {
 }
 
 function hapus(id) {
-	if (confirm("Apakah anda yakin akan menghapus data ini?")) {
+	if (confirm("Are you sure want to delete this data?")) {
 		var departemen=document.getElementById('departemen').value;
 		document.location.href = "jenispengeluaran.php?op=12134892y428442323x423&departemen="+departemen+"&id="+id+"&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 	}
@@ -185,14 +185,14 @@ function change_baris() {
     <!-- TABLE TITLE -->
     <tr>
 		<td align="right">
-		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Jenis Pengeluaran</font>
+		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Type of Expenditure</font>
       	</td>
   	</tr>
     <tr>
     	<td align="right">
     	<a href="pengeluaran.php">
-      	<font size="1" color="#000000"><b>Pengeluaran</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Jenis Pengeluaran</b></font>
+      	<font size="1" color="#000000"><b>Expenditure</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Type of Expenditure</b></font>
        	</td>
   	</tr>
 	<tr>
@@ -202,7 +202,7 @@ function change_baris() {
     <table border="0" width="95%" cellpadding="0" cellspacing="0" align="center">
     <tr>
     	<td align="right" width="35%">
-        <strong>Departemen&nbsp;</strong> 
+        <strong>Department&nbsp;</strong> 
         <select name="departemen" id="departemen" onChange="change_dep()">
 <?		OpenDb();
 		$dep = getDepartemen(getAccess());
@@ -228,20 +228,20 @@ function change_baris() {
 ?>   
        <input type="hidden" name="total" id="total" value="<?=$total?>"/>
         <td align="right">
-        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-   	    <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
+        <a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+   	    <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
         <a href="#" onClick="JavaScript:tambah()">
-            <img src="images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')">&nbsp;Tambah Data Pengeluaran</a>
+            <img src="images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')">&nbsp;Add Data Expenditure</a>
         </td>
     </tr>
 	</table>
     <br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
 	<tr height="30" align="center">
-        <td class="header" width="5%">No</td>
-        <td class="header">Nama</td>
-        <td class="header" width="25%">Kode Rekening</td>
-        <td class="header" width="*">Keterangan</td>
+        <td class="header" width="5%">#</td>
+        <td class="header">Name</td>
+        <td class="header" width="25%">Code Bank Account</td>
+        <td class="header" width="*">Info</td>
         <td class="header" width="100">&nbsp;</td>
 	</tr>
 <?	
@@ -270,15 +270,15 @@ function change_baris() {
         <td align="center">
         <?
 		$img = "aktif.png";
-		$pesan = "Status Aktif!"; 
+		$pesan = "Status Active"; 
 		if ($row['aktif'] == 0) {
 			$img = "nonaktif.png";
-			$pesan = "Status Tidak Aktif!";
+			$pesan = "Status Inactive";
 		}
 		?>
         <a href="#" onClick="set_aktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="images/ico/<?=$img ?>" border="0" onMouseOver="showhint('<?=$pesan?>', this, event, '80px')"/></a>&nbsp;|&nbsp;
-        <a href="#" onClick="newWindow('jenispengeluaran_edit.php?id=<?=$row['replid']?>&departemen=<?=$row['departemen']?>', 'UbahJenisPengeluaran','450', '340','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Pengeluaran!', this, event, '80px')"/></a>&nbsp;|&nbsp;
-        <a href="#" onClick="hapus(<?=$row['replid'] ?>)"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Pengeluaran!', this, event, '80px')"/></a>        </td>
+        <a href="#" onClick="newWindow('jenispengeluaran_edit.php?id=<?=$row['replid']?>&departemen=<?=$row['departemen']?>', 'UbahJenisPengeluaran','450', '340','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Expenditure', this, event, '80px')"/></a>&nbsp;|&nbsp;
+        <a href="#" onClick="hapus(<?=$row['replid'] ?>)"><img src="images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Expenditure', this, event, '80px')"/></a>        </td>
     </tr>
     <?
 	}
@@ -311,20 +311,20 @@ function change_baris() {
     <td>
     <table border="0"width="95%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<td align="center">
-    <!--input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <!--input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -335,9 +335,9 @@ function change_baris() {
 				 
 	    }
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')"-->
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')"-->
  		</td>
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -362,8 +362,8 @@ function change_baris() {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">    
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.        
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+    	<font size = "2" color ="red"><b>Data Not Found.        
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         
         </b></font>
 	</td>

@@ -105,7 +105,7 @@ if(isset($_POST[simpan])){
 	}else{
 		?>
 		<script language="javascript">
-			alert("Gagal memasukkan data");
+			alert("Failed to submit data");
 			document.location.href = "tampil_nilai_pelajaran.php?jenis_penilaian=<?=$jenis_penilaian ?>&departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&tahun=<?=$tahun ?>";
 		</script>
 	<?
@@ -148,12 +148,12 @@ while (i<=jumlah){
 			/*
 			var nilai = document.getElementById("nilaiakhir"+i).value;
 			if (nilai.length==0){
-					alert ('Nilai harus diisi !');
+					alert ('Point is required');
 					document.getElementById("nilaiakhir"+i).focus();
 					return false;
 					} else {
 				if (isNaN(nilai)) {
-					alert ('Nilai harus berupa bilangan !');
+					alert ('Point must be numeric');
 					document.getElementById("nilaiakhir"+i).focus();
 					return false;
 				}
@@ -169,27 +169,27 @@ var pilih;
 	cek = document.tampil_nilai_pelajaran.check.value;
 	t_max = document.tampil_nilai_pelajaran.t_max.value;
 	
-	alert ('Jumlah baris'+jumlah);
+	alert ('Rows'+jumlah);
 	/*
 		*/
 	if(pilih.length == 0){
-		alert("Anda harus menentukan jenis untuk menghitung nilai akhir");
+		alert("You must specify Calculation Type of Final Point");
 		return false;
 	}
 	if(pilih == 1){
 		if(cek.length == 0){
-			alert("Anda harus menentukan jenis penilaian untuk menghitung rata-rata nilai");
+			alert("You have to choose Calculation Type for Index or Cumulative Point");
 		return false;
 		}
 		eval("bobot = document.tampil_nilai_pelajaran.bobot" + cek + ".value;");
 		if(bobot.length == 0){
-			alert("Anda harus mengisi bobot jenis penilaian untuk menghitung rata-rata nilai");
+			alert("You have to enter Quality of Calculation Type for Index or Cumulative Point");
 		return false;
 		}
 	}
 	if(pilih == 2){
 		if(t_max.length == 0){
-			alert("Anda harus menentukan jumlah terbesar untuk menentukan rata-rata nilai");
+			alert("You must specify a bigger Sum to get the Index or Cumulative Point");
 		return false;
 		}
 	}
@@ -210,7 +210,7 @@ var pilih;
 <input type="hidden" name="semester" value="<?=$semester ?>">
 <input type="hidden" name="jenis_penilaian" value="<?=$jenis_penilaian ?>">
 
-    <fieldset><legend><b>Input Nilai Akhir Manual <?=$row_jp[jenisujian] ?></b>
+    <fieldset><legend><b>Manual Final Point <?=$row_jp[jenisujian] ?></b>
 		
 	<?
 	$query_uj = "SELECT nilaiujian.replid, nilaiujian.idujian, nilaiujian.nis, siswa.nama, nilaiujian.nilaiujian ".
@@ -235,9 +235,9 @@ var pilih;
 	?>
 	<table width="100%" id="table" class="tab" border="1">
 		<tr>
-			<td class="headerlong" height="30">No</td>
-			<td class="headerlong" height="30">NIS</td>
-			<td class="headerlong" height="30">Nama</td>
+			<td class="headerlong" height="30">#</td>
+			<td class="headerlong" height="30">Student ID</td>
+			<td class="headerlong" height="30">Name</td>
 			<?
 			
 				$query_qz = "SELECT ujian.replid, ujian.tanggal, jenisujian.jenisujian ".
@@ -269,14 +269,14 @@ var pilih;
 			$kolom[$row_qz[replid]] = $row_qz[replid];			
 			}
 			?>
-			<td class="headerlong" align="center" height="30">Rata-Rata Siswa</td>
+			<td class="headerlong" align="center" height="30">Student Index</td>
 			<?
 			 $query_ju = "SELECT * FROM jbsakad.jenisujian ".
 						 "WHERE jenisujian.replid = '$jenis_penilaian'";
 			 $result_ju = QueryDb($query_ju);
 			 $row_ju = @mysql_fetch_array($result_ju);
 			?>
-			<td class="headerlong" align="center" height="30">Nilai Akhir <?=$row_ju[jenisujian] ?></td>
+			<td class="headerlong" align="center" height="30">Grade Point <?=$row_ju[jenisujian] ?></td>
 		</tr>			
 			<?
 			$totCol[] = 0;
@@ -346,11 +346,11 @@ var pilih;
             }
 			?>
 			<tr>
-					<td colspan="3" align="center" class="header" height="25"><b>Rata-rata Kelas</b></td>
+					<td colspan="3" align="center" class="header" height="25"><b>Class Index Cumulative</b></td>
 				<?
 				foreach($totCol as $key => $val){
 				?>
-					<td align="center" bgcolor="#FFFFFF"  onMouseOver="showhint('Rata-rata Kelas!', this, event, '120px')"><b><?=($val * 1.0)/$i; ?></b></td>
+					<td align="center" bgcolor="#FFFFFF"  onMouseOver="showhint('Class Index Cumulative', this, event, '120px')"><b><?=($val * 1.0)/$i; ?></b></td>
 				<?
 				}
 				?>
@@ -370,8 +370,8 @@ var pilih;
 			<td>
 			  <div align="center">
 			    <input type="hidden" name="num_data" id="num_data" value="<?=$i ?>">
-			    <input type="button" name="batal" value="Batal" class="but" onClick="window.history.back();">&nbsp;
-		        <input type="submit" name="simpan" value="Simpan" class="but">
+			    <input type="button" name="batal" value="Cancel" class="but" onClick="window.history.back();">&nbsp;
+		        <input type="submit" name="simpan" value="Save" class="but">
 	      </div></td>
 		</tr>
 	</table>

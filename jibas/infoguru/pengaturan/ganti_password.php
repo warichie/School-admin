@@ -40,12 +40,12 @@ if (isset($_REQUEST['simpan'])) {
 		$result = QueryDb($sql);
 		if (mysql_num_rows($result) == 0) {
 			CloseDb(); 
-			$MYSQL_ERROR_MSG = "Password lama Anda tidak cocok!";
+			$MYSQL_ERROR_MSG = "Your old password does not match";
 		} else {
 			$sql = "UPDATE jbsuser.landlord SET password=md5('$_REQUEST[pass1]')";
 			$result = QueryDb($sql);
 			CloseDb();
-			$MYSQL_ERROR_MSG = "Password Administrator telah berubah!";	
+			$MYSQL_ERROR_MSG = "Administrator Password has been changed";	
 			$exit = 1;
 		}	
 	} else {
@@ -54,12 +54,12 @@ if (isset($_REQUEST['simpan'])) {
 		$result = QueryDb($sql);
 		if (mysql_num_rows($result) == 0) {
 			CloseDb(); 
-			$MYSQL_ERROR_MSG = "Password lama Anda tidak cocok!";
+			$MYSQL_ERROR_MSG = "Your old password does not match";
 		} else {
 			$sql = "UPDATE jbsuser.login SET password=md5('$_REQUEST[pass1]') WHERE login='$nip'";
 			$result = QueryDb($sql);
 			CloseDb();
-			$MYSQL_ERROR_MSG = "Password Anda telah berubah!";	
+			$MYSQL_ERROR_MSG = "Your Password has been changed";	
 			$exit = 1;
 		}
 	}
@@ -77,7 +77,7 @@ if ($login=='landlord' || $login=='LANDLORD'){
 	$row = mysql_fetch_row($result);
 	$nip = $row[0];
 	$nama = $row[1];
-	$title = "Pengguna";
+	$title = "User";
 }
 CloseDb();
 ?>
@@ -86,7 +86,7 @@ CloseDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Ganti Password Pengguna</title>
+<title>Edit User Password</title>
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -98,22 +98,22 @@ function validasi() {
 		var pass1 = document.getElementById('pass1').value;
 		var pass2 = document.getElementById('pass2').value;
 		if (passlama.length==0){
-			alert('Anda harus mengisikan data untuk Password Lama!');
+			alert('You must enter a data for Old Password');
 			document.getElementById('passlama').focus();
 			return false;
 		}
 		if (pass1.length==0){
-			alert('Silakan masukan password baru!');
+			alert('Please enter a new password');
 			document.getElementById('pass1').focus();
 			return false;
 		}
 		if (pass2.length==0){
-			alert('Silakan masukan password baru (ulang)!');
+			alert('Please enter a new password (confirm)');
 			document.getElementById('pass2').focus();
 			return false;
 		}
 		if (pass1 != pass2) {
-			alert('Password yang anda masukkan tidak sama!');
+			alert('Your password does not match');
 			document.getElementById('pass2').focus();
 			return false;
 		} else {
@@ -128,10 +128,10 @@ function validasi() {
     <input type="hidden" name="login" id="login" value="<?=$login ?>" />
     <table border="1" cellpadding="0" cellspacing="0" class="tab" align="center">
     <tr>
-        <td colspan="2" class="header" align="center" height="30">Ubah Password <?=$title?></td>
+        <td colspan="2" class="header" align="center" height="30">Edit Password <?=$title?></td>
     </tr>
     <tr>
-        <td align="left" class="td">Nama:</td>
+        <td align="left" class="td">Name:</td>
         <td align="left" class="td">
         <table border="0" cellspacing="0" cellpadding="0">
           <tr>
@@ -145,7 +145,7 @@ function validasi() {
         </table>
     </tr>
     <tr>
-    	<td align="left" class="td">Password Lama:</td>
+    	<td align="left" class="td">Old Password:</td>
         <td align="left" class="td"><input type="password" name="passlama" id="passlama" size="20" /></td>
     </tr>
     <tr>
@@ -153,14 +153,14 @@ function validasi() {
         <td align="left" class="td"><input type="password" name="pass1" id="pass1" size="20" /></td>
     </tr>
     <tr>
-    	<td align="left" class="td">Ulangi Password:</td>
+    	<td align="left" class="td">Confirm:</td>
         <td align="left" class="td"><input type="password" name="pass2" id="pass2" size="20" /></td>
     </tr>
     <tr>
         <td colspan="2" align="left" class="td">
         	<div align="center">
-        	  <input class="but" type="submit" value="Ganti" name="simpan">&nbsp;
-        	  <input class="but" type="button" value="Tutup" onClick="window.close();">        
+        	  <input class="but" type="submit" value="Edit" name="simpan">&nbsp;
+        	  <input class="but" type="button" value="Close" onClick="window.close();">        
       	  </div></td>
         </tr>
     </table>

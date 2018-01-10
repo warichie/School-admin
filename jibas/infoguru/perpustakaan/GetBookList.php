@@ -33,12 +33,12 @@ $keyword = $_REQUEST[keyword];
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
   <tr>
-    <td height="25" align="center" class="header">No</td>
-    <td height="25" align="center" class="header">Judul</td>
-    <td height="25" align="center" class="header">Penulis</td>
-    <td height="25" align="center" class="header">Penerbit</td>
-    <td height="25" align="center" class="header">Jumlah</td>
-    <td height="25" align="center" class="header">Tersedia</td>
+    <td height="25" align="center" class="header">#</td>
+    <td height="25" align="center" class="header">Title</td>
+    <td height="25" align="center" class="header">Author</td>
+    <td height="25" align="center" class="header">Publisher</td>
+    <td height="25" align="center" class="header">Sum</td>
+    <td height="25" align="center" class="header">Available</td>
     <td align="center" class="header">&nbsp;</td>
   </tr>
 <?
@@ -97,7 +97,7 @@ $cnt++;
 } else {
 ?>
   <tr>
-    <td height="20" colspan="7" align="center" class="nodata">Tidak ada data</td>
+    <td height="20" colspan="7" align="center" class="nodata">Data Not Found.</td>
   </tr>
 <? } ?>
 </table>

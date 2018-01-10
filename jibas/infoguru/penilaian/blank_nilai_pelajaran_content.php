@@ -30,7 +30,7 @@
 <tr>
     <td align="center" valign="middle" background="../images/ico/b_penilaian.png"
     style="background-repeat:no-repeat;">
-        <font size="2" color="#757575"><b>Klik pada <i>hyperlink</i> "Jenis Penilaian" di panel kiri untuk menampilkan Daftar Nilai Pelajaran</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on Assessment Type <i>hyperlink</i> on the left panel to show Class Subject Point List.</b></font>    </td>
 </tr>
 </table>
 </body>

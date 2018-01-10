@@ -25,13 +25,13 @@ require_once('../include/config.php');
 require_once('../include/db_functions.php');
 require_once('../include/common.php');
 OpenDb();
-$bag = $_REQUEST['Bagian'];
+$bag = $_REQUEST['Section'];
 if ($bag=="")
 	$bag='-1';
-$NIP 	= $_REQUEST['NIP'];
+$Employee ID 	= $_REQUEST['Employee ID'];
 $Nama 	= $_REQUEST['Nama'];
 $Source = $_REQUEST['Source'];
-if ($Source=='' || $Source=='Pilih'){
+if ($Source=='' || $Source=='Select'){
 	$DispA = "style='display:block'";
 	$DispB = "style='display:none'";
 } elseif ($Source=='Cari'){
@@ -45,10 +45,10 @@ if ($Source=='' || $Source=='Pilih'){
     <td style="padding:5px">
         <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td style="padding-right:4px">Bagian</td>
+            <td style="padding-right:4px">Section</td>
             <td class="td">
               <select id="CmbBagPeg" name="CmbBagPeg" class="Cmb" onchange="ChgCmbBagPeg(this.value)">
-                <option value="-1" <?=StringIsSelected('-1',$bag)?>>- Semua -</option>
+                <option value="-1" <?=StringIsSelected('-1',$bag)?>>- All -</option>
                 <?
                     $sql = "SELECT bagian FROM $db_name_sdm.bagianpegawai";
                     $res = QueryDb($sql);
@@ -61,17 +61,17 @@ if ($Source=='' || $Source=='Pilih'){
                 </select>
             </td>
 			<td class="td">
-			<div class="Btn" onclick="ChgCmbBagPeg(document.getElementById('CmbBagPeg').value)" align="center" />Lihat</div>
+			<div class="Btn" onclick="ChgCmbBagPeg(document.getElementById('CmbBagPeg').value)" align="center" />View</div>
 			</td>
-			<td style="padding-right:4px" valign="top" class="tdTop">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cari</td>
+			<td style="padding-right:4px" valign="top" class="tdTop">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search</td>
             <td class="td">
-            	<input type="text" name="InpNIPPeg" id="InpNIPPeg" class="InputTxt"  value="NIP Pegawai" onfocus="InputHover('NIP Pegawai','InpNIPPeg','1')" onblur="InputHover('NIP Pegawai','InpNIPPeg','0')" style="color:#636363" size='10' />
+            	<input type="text" name="InpNIPPeg" id="InpNIPPeg" class="InputTxt"  value="Employee ID" onfocus="InputHover('Employee ID','InpNIPPeg','1')" onblur="InputHover('Employee ID','InpNIPPeg','0')" style="color:#636363" size='10' />
             </td>
             <td class="td">
-            	<input type="text" name="InpNamaPeg" id="InpNamaPeg" class="InputTxt" value="Nama Pegawai" onfocus="InputHover('Nama Pegawai','InpNamaPeg','1')" onblur="InputHover('Nama Pegawai','InpNamaPeg','0')" style="color:#636363" size='15' />  
+            	<input type="text" name="InpNamaPeg" id="InpNamaPeg" class="InputTxt" value="Employee Name" onfocus="InputHover('Employee Name','InpNamaPeg','1')" onblur="InputHover('Employee Name','InpNamaPeg','0')" style="color:#636363" size='15' />  
             </td>
 			<td align="center" valign="middle" class="td">
-			<div class="Btn" onclick="SearchPeg()" align="center" />Cari</div>
+			<div class="Btn" onclick="SearchPeg()" align="center" />Search</div>
 			</td>
             
           </tr>
@@ -94,10 +94,10 @@ if ($Source=='' || $Source=='Pilih'){
     <div id="TablePegawai">
     <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="TablePeg">
       <tr class="Header">
-        <td height='20' width='50'>No</td>
-        <td height='20' width='100'>NIP</td>
-		<td height='20'>Nama</td>
-        <td height='20'>No. Ponsel</td>
+        <td height='20' width='50'>#</td>
+        <td height='20' width='100'>Employee ID</td>
+		<td height='20'>Name</td>
+        <td height='20'>Mobile</td>
         <td height='20'><input type="checkbox" id="CheckAllPegawai"></td>
       </tr>
       <?
@@ -118,7 +118,7 @@ if ($Source=='' || $Source=='Pilih'){
         <td class="td"><?=$row['handphone']?></td>
         <td class="td" align="center">
         <? if (strlen($row['handphone'])>0){ ?>
-        <!--<span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center" />Pilih</span>-->
+        <!--<span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center" />Select</span>-->
 		<input type="checkbox" class="checkboxpegawai" hp="<?=$row['handphone']?>" nama="<?=$row['nama']?>" nip="<?=$row['nip']?>" pin="<?=$row['pinpegawai']?>">
         <? } ?>
         </td>
@@ -129,7 +129,7 @@ if ($Source=='' || $Source=='Pilih'){
 		} else {
 		?>
       <tr>
-        <td colspan="4" class="Ket" align="center">Tidak ada data</td>
+        <td colspan="4" class="Ket" align="center">Data Not Found.</td>
       </tr>
 		<?
 		}

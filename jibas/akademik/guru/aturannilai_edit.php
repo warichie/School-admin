@@ -67,7 +67,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Aturan Penentuan Grading Nilai]</title>
+<title>JIBAS SIMAKA [Edit Grade Point Rules]</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -89,41 +89,41 @@ function validate() {
 		if (nmin.length > 0){			
 			isi = 1;
 			if (isNaN(nmin)){
-				alert("Nilai minimum harus berupa bilangan");
+				alert("Minimum Point should be numeric");
 				document.getElementById('nmin'+i).focus();				
 				return false;
 			} else {
 				if (nmin < 0 ) {
-					alert("Nilai minimum tidak boleh negatif");
+					alert("Minimum Point should not be a negative number");
 					document.getElementById('nmin'+i).focus();				
 					return false;
 				}					
 				if (nmax.length > 0){
 					if (isNaN(nmax)){
-						alert("Nilai maksimum harus berupa bilangan");
+						alert("Maximum Point should be numeric");
 						document.getElementById('nmax'+i).focus();				
 						return false;
 					} else {
 						if (parseFloat(nmax) < parseFloat(nmin)) {
-							alert("Nilai maksimum harus lebih besar dari nilai minimum");
+							alert("Maximum Point must bigger than Minimum Point");
 							document.getElementById('nmax'+i).focus();				
 							return false;
 						}
 					}
 					
 				} else {
-					alert ("Anda harus mengisikan data untuk nilai maksimum"); 
+					alert ("You must enter a data for Maximum Point"); 
 					document.getElementById('nmax'+i).focus();				
 					return false;
 				} 				
 				if (grade.length > 0){
 					if (!isNaN(grade)){
-						alert("Nilai maksimum harus berupa huruf");
+						alert("Maximum Point must be letters");
 						document.getElementById('grade'+i).focus();				
 						return false;
 					} 				
 				} else {
-					alert ("Anda harus mengisikan data untuk grade nilai"); 
+					alert ("You must enter a data for Grade Point rules"); 
 					document.getElementById('grade'+i).focus();				
 					return false;
 				} 
@@ -132,24 +132,24 @@ function validate() {
 		
 		if (nmax.length > 0){
 			if (nmax < 0 ) {
-				alert("Nilai maksimum tidak boleh negatif");
+				alert("Maximum Point should not be a negative number");
 				document.getElementById('nmax'+i).focus();				
 				return false;
 			}				
 			if (nmin.length == 0){
-				alert ("Anda harus mengisikan data untuk nilai minimum"); 
+				alert ("You must enter a data for Minimum Point"); 
 				document.getElementById('nmin'+i).focus();				
 				return false;
 			} else {
 				if (parseFloat(nmax) < parseFloat(nmin)) {
-					alert("Nilai maksimum harus lebih besar dari nilai minimum");
+					alert("Maximum Point must bigger than Minimum Point");
 					document.getElementById('nmax'+i).focus();				
 					return false;
 				}				
 			} 				
 			
 			if (grade.length == 0){
-				alert ("Anda harus mengisikan data untuk grade nilai"); 
+				alert ("You must enter a data for Grade Point rules"); 
 				document.getElementById('grade'+i).focus();				
 				return false;				 
 			}
@@ -157,19 +157,19 @@ function validate() {
 		
 		if (grade.length > 0){		
 			if (nmin.length == 0){
-				alert ("Anda harus mengisikan data untuk nilai minimum"); 
+				alert ("You must enter a data for Minimum Point"); 
 				document.getElementById('nmin'+i).focus();				
 				return false;
 			} else {
 				if (parseFloat(nmax) < parseFloat(nmin)) {
-					alert("Nilai maksimum harus lebih besar dari nilai minimum");
+					alert("Maximum Point must bigger than Minimum Point");
 					document.getElementById('nmax'+i).focus();				
 					return false;
 				}				
 			}				
 			
 			if (nmax.length == 0){
-				alert ("Anda harus mengisikan data untuk grade nilai"); 
+				alert ("You must enter a data for Grade Point rules"); 
 				document.getElementById('grade'+i).focus();				
 				return false;
 				 
@@ -177,7 +177,7 @@ function validate() {
 		}
 	}	
 	if (isi == 0) {
-		alert ("Anda harus mengisi setidaknya satu data untuk aturan grading");
+		alert ("You have to add at least one data for Grade rules");
 		document.getElementById('nmin1').focus;
 		return false; 
 	}	
@@ -203,7 +203,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:13px; font-weight:bold">
-    .: Ubah Aturan Penentuan Grading Nilai :.
+    .: Edit Grade Point Rules :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -220,14 +220,14 @@ function focusNext(elemName, evt) {
 <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
 	<td>
     	<input type="text" name="departemen" id="departemen" size="10" maxlength="50" readonly value="<?=$departemen ?>" class="disabled" />
     	<input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />    
 	</td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
 	<td>
     	<input type="text" name="tingkat" id="tingkat" size="10" maxlength="50" readonly value="<?=$tingkat ?>" class="disabled"/>
         <input type="hidden" name="idtingkat" id="idtingkat" value="<?=$idtingkat ?>" /> 
@@ -235,7 +235,7 @@ function focusNext(elemName, evt) {
 	</td>
 </tr>
 <tr>
-	<td><strong>Pelajaran</strong></td>
+	<td><strong>Class Subject</strong></td>
 	<td>
     	<input type="text" name="pelajaran" id="pelajaran" size="30" maxlength="50" readonly value="<?=$pelajaran ?>" class="disabled" />
         <input type="hidden" name="pelajaran" id="pelajaran" value="<?=$pelajaran ?>" /> 
@@ -243,26 +243,26 @@ function focusNext(elemName, evt) {
 	</td>
 </tr>
 <tr>
-    <td><strong>Guru</strong></td>
+    <td><strong>Teacher</strong></td>
     <td>
         <input type="text" name="guru" id="guru" size="30" readonly value="<?=$guru ?>" class="disabled"/> 
         <input type="hidden" name="nip" id="nip" value="<?=$nip ?>" /> 
         </td>
 </tr>
 <tr>
-	<td><strong>Aspek</strong></td>
+	<td><strong>Aspect</strong></td>
 	<td><input type="text" name="aspekket" id="aspekket" size="30" readonly value="<?=$aspekket ?>" class="disabled" /> 
     <input type="hidden" name="aspek" id="aspek" value="<?=$aspek ?>" /></strong> 
     	   </td>
 </tr>
 <tr>
 	<td colspan = "2">
-<fieldset><legend><b>Aturan Grading</b></legend>
+<fieldset><legend><b>Grade Rules</b></legend>
 	<br />
 	<table border="0" width="100%"  id="table" class="tab">
 		<tr height="30">		
-			<td class="header" align="center" width="10%">No</td>
-			<td class="header" align="center" width="70%" colspan="3"> Nilai Min &nbsp;&nbsp;&nbsp; Nilai Maks</td>         
+			<td class="header" align="center" width="10%">#</td>
+			<td class="header" align="center" width="70%" colspan="3"> Min Point &nbsp;&nbsp;&nbsp; Max Point</td>         
             <td class="header" align="center" width="10%">Grade</td>
 		</tr>
 		<?
@@ -298,8 +298,8 @@ function focusNext(elemName, evt) {
 		
 		</table>
 		<div align="left">
-        <font color="red"><p><b>Ket: Nilai desimal harus berupa titik,
-    		<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grade berupa nilai mutu</b></p>
+        <font color="red"><p><b>PS: Decimal after period sign,
+    		<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grade is a Quality Point</b></p>
     	</font>
 		</div>
 		</fieldset>
@@ -310,8 +310,8 @@ function focusNext(elemName, evt) {
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="button" name="Simpan" id="Simpan" value="Simpan" class="but" onClick="return validate();document.getElementById('main').submit();"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="button" name="Simpan" id="Simpan" value="Save" class="but" onClick="return validate();document.getElementById('main').submit();"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -336,7 +336,7 @@ function focusNext(elemName, evt) {
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 </body>
 </html>

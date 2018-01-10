@@ -61,12 +61,12 @@ OpenDb();
 	<input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
     <input type="hidden" name="urut1" id="urut1" value="<?=$urut1 ?>" />
     <input type="hidden" name="urutan1" id="urutan1" value="<?=$urutan1 ?>" />
-	<!--<font size="2" color="#000000"><strong>Cari Siswa</strong></font>--> 	</td>
+	<!--<font size="2" color="#000000"><strong>Search Student</strong></font>--> 	</td>
 </tr>
 <tr>
-    <td width="15%"><font color="#000000"><strong>Departemen</strong></font></td>
+    <td width="15%"><font color="#000000"><strong>Department</strong></font></td>
     <td><select name="depart1" class="cmbfrm" id="depart1" style="width:150px" onChange="change_departemen(1)" onkeypress="return focusNext('nis', event)">
-    	<option value=-1>(Semua Departemen)</option>
+    	<option value=-1>(All Department)</option>
 	<?	$sql = "SELECT departemen FROM  $db_name_akad.departemen ORDER BY urutan";
         $result = QueryDb($sql);
 		while ($row=@mysql_fetch_array($result)) {
@@ -78,13 +78,13 @@ OpenDb();
         <?	} ?>
   	</select>    </td>
    	<td rowspan="2" width="15%" align="center">
-    <input type="button" class="cmbfrm2" name="submit" id="submit" value="Cari" onclick="carilah()" style="width:70px;height:40px"/>    </td>
+    <input type="button" class="cmbfrm2" name="submit" id="submit" value="Search" onclick="carilah()" style="width:70px;height:40px"/>    </td>
 </tr>
 <tr>
-    <td colspan="2"><font color="#000000"><strong>N I S</strong></font>
+    <td colspan="2"><font color="#000000"><strong>Student ID</strong></font>
       <input name="nis" type="text" class="inputtxt" id="nis" onKeyPress="return focusNext('submit', event)" value="<?=$_REQUEST['nis'] ?>" size="22"/>
       &nbsp;
-        <font color="#000000"><strong>Nama </strong></font>	
+        <font color="#000000"><strong>Name </strong></font>	
         <input name="nama" type="text" class="inputtxt" id="nama" onKeyPress="return focusNext('submit', event)" value="<?=$_REQUEST['nama'] ?>" size="20"/>  	</td>
   </tr>
 <tr>
@@ -118,13 +118,13 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 	
    	<table width="100%" id="table1" class="tab" align="center" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
     <tr height="30" class="header" align="center">
-        <td width="7%">No</td>
-        <td width="15%">N I S</td>
-        <td width="*">Nama</td>
+        <td width="7%">#</td>
+        <td width="15%">Student ID</td>
+        <td width="*">Name</td>
         <? if ($departemen == -1)  { ?>
         <td width="15%">Dept. </td>
         <? } ?>
-        <td width="12%" >Kelas </td>
+        <td width="12%" >Class </td>
         <td width="10%">&nbsp;</td>
     </tr>
 <?
@@ -138,7 +138,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
         <td align="center"><?=$row[3] ?></td>
         <? } ?>
         <td align="center"><?=$row[4].' - '.$row[2] ?></td>
-        <td align="center"><input type="button" value="Pilih" onclick="pilih('<?=$row[0]?>','<?=$row[1]?>')" class="cmbfrm2"></td>
+        <td align="center"><input type="button" value="Select" onclick="pilih('<?=$row[0]?>','<?=$row[1]?>')" class="cmbfrm2"></td>
 	</tr>
 <? } CloseDb(); ?>
  	</table>
@@ -162,16 +162,16 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
    
     <table border="0"width="100%" align="center"cellpadding="2" cellspacing="2">
     <tr>
-       	<td width="30%" align="left"><font color="#000000">Hal
+       	<td width="30%" align="left"><font color="#000000">Page
         <select name="hal1" class="cmbfrm" id="hal1" onChange="change_hal('cari')">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal1,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     	// Navigasi halaman berikutnya dan sebelumnya
+     	// Navigasi halaman berikutnya and sebelumnya
         ?>
         </font></td>
     	<!--td align="center">
@@ -187,7 +187,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 	    }
 		?>
 	     <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$page1+1?>','cari')" > 		</td-->
-        <td width="30%" align="right"><font color="#000000">Jml baris per hal
+        <td width="30%" align="right"><font color="#000000">Row per page
       	<select name="varbaris1" class="cmbfrm" id="varbaris1" onChange="change_baris('cari')">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris1,$m) ?>><?=$m ?></option>
@@ -202,8 +202,8 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />            
-		Tambah data siswa di menu Pendataan Siswa pada bagian Kesiswaan. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br /><br />            
+		Add student data in the Student Data menu on Student section. </b></font>	
 	<br /><br />   		</td>
     </tr>
     </table>
@@ -215,7 +215,7 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
     <td>   
 
 <br /><br />	
-<font size="2" color="#757575"><b>Klik pada tombol "Cari" di atas untuk melihat data calon siswa <br />sesuai dengan NIS atau Nama Siswa berdasarkan <i>keyword</i> yang dimasukkan</b></font>	
+<font size="2" color="#757575"><b>Click on the Search button to search Student Candidate data <br />according to Student ID or Name based on <i>keyword</i> entered.</b></font>	
 <br /><br />    </td>
 </tr>
 </table>
@@ -226,6 +226,6 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 </tr>
 <tr>
 	<td align="center" colspan="3">
-	<input type="button" class="cmbfrm2" name="tutup" id="tutup" value="Tutup" onclick="window.close()" style="width:80px;"/>	</td>
+	<input type="button" class="cmbfrm2" name="tutup" id="tutup" value="Close" onclick="window.close()" style="width:80px;"/>	</td>
 </tr>
 </table>

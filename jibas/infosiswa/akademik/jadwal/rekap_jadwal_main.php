@@ -22,7 +22,7 @@
  **[N]**/ ?>
 <html>
 <head>
-<title>Rekap Jadwal Guru</title>
+<title>Teacher Schedule Recap</title>
 </head>
 <frameset rows="21%,*" border="1" frameborder="yes" framespacing="0">
 <frame src="rekap_jadwal_header.php" name="header" id="header">

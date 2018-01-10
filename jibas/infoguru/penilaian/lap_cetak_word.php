@@ -61,7 +61,7 @@ $row_ta=@mysql_fetch_array($result_ta);
 $tglawal=$row_ta['tglmulai'];
 $tglakhir=$row_ta['tglakhir'];
 
-//echo "Dep=".$departemen.", Tkt=".$tingkat.", Kls=".$kelas.", Pelajaran=".$pelajaran.", Semester=".$semester.", Thn AJaran=".$tahun;
+//echo "Dep=".$departemen.", Tkt=".$tingkat.", Kls=".$kelas.", Class Subject=".$pelajaran.", Semester=".$semester.", Thn AJaran=".$tahun;
  	$sql_get_ta="SELECT tahunajaran FROM jbsakad.tahunajaran WHERE replid='$tahunajaran'";
 	$result_get_ta=QueryDb($sql_get_ta);
 	$row_get_ta=@mysql_fetch_array($result_get_ta);
@@ -236,9 +236,9 @@ div.Section4
 <![endif]-->
 </head>
 
-<body lang=EN-US style='tab-interval:36.0pt'>
+<body lang='EN-US' style='tab-interval:36.0pt'>
 
-<div class=Section1>
+<div class='Section1'>
 <!--                      Hal 1             -->
 <?=getHeader($departemen)?><!--<img src="http://192.168.1.234/jibassimaka2/images/ico/blank_statistik.png">-->
 <table width="100%" border="0">
@@ -246,17 +246,16 @@ div.Section4
     <td>
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#666666">
   <tr>
-    <td height="16" colspan="2" bgcolor="#FFFFFF"><div align="center" class="style13 style2"><strong>NILAI HASIL
-          BELAJAR</strong></div></td>
+    <td height="16" colspan="2" bgcolor="#FFFFFF"><div align="center" class="style13 style2"><strong>STUDY REPORT</strong></div></td>
     </tr>
   <tr>
-    <td height="20"><span class="style5">Departemen</span></td>
+    <td height="20"><span class="style5">Department</span></td>
     <td height="20"><span class="style5">:&nbsp;
         <?=$departemen?>
     </span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Tahun Ajaran</span></td>
+    <td height="20"><span class="style5">Year</span></td>
     <?
    
 	
@@ -265,14 +264,14 @@ div.Section4
     </span></td>
   </tr>
   <tr>
-    <td width="6%" height="20"><span class="style5">NIS 
+    <td width="6%" height="20"><span class="style5">Student ID 
     </span></td>
     <td width="93%" height="20"><span class="style5">:&nbsp;
         <?=$nis?>
     </span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Nama</span></td>
+    <td height="20"><span class="style5">Name</span></td>
     <?
 	
 	
@@ -282,7 +281,7 @@ div.Section4
 	</span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Kelas/Semester&nbsp;</span></td>
+    <td height="20"><span class="style5">Class/Semester&nbsp;</span></td>
     
     <?
    
@@ -312,17 +311,17 @@ div.Section4
 	} ?>  
 	<table width="100%" border="1" cellpadding="0" cellspacing="0" class="tab" id="table" style="font-family:Verdana, Geneva, sans-serif; font-size:12px;">
 	<tr>
-		<td width="15%" rowspan="2" bgcolor="#CCCCCC"><div align="center"><strong>Pelajaran</strong></div></td>
-		<td width="10%" rowspan="2" bgcolor="#CCCCCC"><div align="center"><strong>KKM</strong></div></td>
+		<td width="15%" rowspan="2" bgcolor="#CCCCCC"><div align="center"><strong>Class Subject</strong></div></td>
+		<td width="10%" rowspan="2" bgcolor="#CCCCCC"><div align="center"><strong>Minimum Completeness Criteria</strong></div></td>
 <?		for($i = 0; $i < count($aspekarr); $i++)
 			echo "<td bgcolor='#CCCCCC' colspan='3' align='center' width='18%'><strong>" . $aspekarr[$i][1] . "</strong></td>"; ?>
-		<td width="15%" rowspan="2" bgcolor='#CCCCCC'><div align="center"><strong>Predikat</strong></div></td>
+		<td width="15%" rowspan="2" bgcolor='#CCCCCC'><div align="center"><strong>Predicate</strong></div></td>
   	</tr>
 	<tr>
 <?	for($i = 0; $i < count($aspekarr); $i++)
-		echo "<td bgcolor='#CCCCCC' align='center' width='7%'><strong>Angka</strong></td>
-			   <td bgcolor='#CCCCCC' align='center' width='7%'><strong>Huruf</strong></td>
-				<td bgcolor='#CCCCCC' align='center' width='20%'><strong>Terbilang</strong></td>"; ?>   
+		echo "<td bgcolor='#CCCCCC' align='center' width='7%'><strong>Number</strong></td>
+			   <td bgcolor='#CCCCCC' align='center' width='7%'><strong>Letter</strong></td>
+				<td bgcolor='#CCCCCC' align='center' width='20%'><strong>Spelled Out</strong></td>"; ?>   
    </tr>
 <?	$sql = "SELECT pel.replid, pel.nama
 				 FROM ujian uji, nilaiujian niluji, siswa sis, pelajaran pel 
@@ -395,13 +394,13 @@ div.Section4
 			
 			switch ($tmp)
 			{
-				case 4:	$pred = "Istimewa"; break;
-				case 3:	$pred = "Baik"; break;
-				case 2:	$pred = "Cukup"; break;
-				case 1:	$pred = "Kurang"; break;
-				case 0:	$pred = "Buruk"; break;
+				case 4:	$pred = "Excellent"; break;
+				case 3:	$pred = "Good"; break;
+				case 2:	$pred = "Average"; break;
+				case 1:	$pred = "Not Good"; break;
+				case 0:	$pred = "Bad"; break;
 				default:
-					$pred = "Baik";
+					$pred = "Good";
 			}
 		}			
 		echo "<td align='left'>$pred</td>"; 
@@ -415,12 +414,12 @@ div.Section4
     <td>
      <table width="100%" border="0">
   <tr>
-    <td rowspan="2" width="33%"><div align="center">Orang Tua/Wali Siswa</div></td>
-    <td width="33%"><div align="center">Mengetahui,</div></td>
-    <td rowspan="2" width="33%"><div align="center">Wali Kelas</div></td>
+    <td rowspan="2" width="33%"><div align="center">Parent/Student Guardian</div></td>
+    <td width="33%"><div align="center">Sincere,</div></td>
+    <td rowspan="2" width="33%"><div align="center">Homeroom Teacher</div></td>
   </tr>
   <tr>
-    <td width="33%"><div align="center">Kepala Sekolah 
+    <td width="33%"><div align="center">Headmaster 
       <?=$departemen?>
     </div></td>
   </tr>
@@ -440,10 +439,10 @@ div.Section4
   </tr>
   <tr>
     <td><div align="center">
-      NIP : <?=$row_get_kepsek[nipkepsek]?>
+      Employee ID : <?=$row_get_kepsek[nipkepsek]?>
     </div></td>
     <td width="33%"><div align="center">
-      NIP : <?=$row_get_w_kls[nipwalikelas]?>
+      Employee ID : <?=$row_get_w_kls[nipwalikelas]?>
     </div></td>
   </tr>
 </table>
@@ -465,17 +464,16 @@ mso-break-type:section-break'>
     <td>
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#666666">
   <tr>
-    <td height="16" colspan="2" bgcolor="#FFFFFF"><div align="center" class="style13 style2"><strong>KOMENTAR
-        HASIL BELAJAR</strong></div></td>
+    <td height="16" colspan="2" bgcolor="#FFFFFF"><div align="center" class="style13 style2"><strong>STUDY COMMENTS</strong></div></td>
     </tr>
   <tr>
-    <td height="20"><span class="style5">Departemen</span></td>
+    <td height="20"><span class="style5">Department</span></td>
     <td height="20"><span class="style5">:&nbsp;
         <?=$departemen?>
     </span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Tahun Ajaran</span></td>
+    <td height="20"><span class="style5">Year</span></td>
     <?
    
 	
@@ -484,14 +482,14 @@ mso-break-type:section-break'>
     </span></td>
   </tr>
   <tr>
-    <td width="6%" height="20"><span class="style5">NIS 
+    <td width="6%" height="20"><span class="style5">Student ID 
     </span></td>
     <td width="93%" height="20"><span class="style5">:&nbsp;
         <?=$nis?>
     </span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Nama</span></td>
+    <td height="20"><span class="style5">Name</span></td>
     <?
 	
 	
@@ -501,7 +499,7 @@ mso-break-type:section-break'>
 	</span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Kelas/Semester&nbsp;</span></td>
+    <td height="20"><span class="style5">Class/Semester&nbsp;</span></td>
     
     <?
    
@@ -518,8 +516,8 @@ mso-break-type:section-break'>
 
 	<table width="100%" border="1" bordercolor="#b8b8b8" class="tab" id="table" cellpadding="0" cellspacing="0">
 	<tr>
-	<td width="27%" height="30" align="center" bgcolor="#b8b8b8" class="header"><font face="Verdana" size="2" color="#000000" ><strong>Pelajaran</strong></font></td>
-	<td width="73%" height="30" align="center" bgcolor="#b8b8b8" class="header"><font face="Verdana" size="2" color="#000000" ><strong>Komentar</strong></font></td>
+	<td width="27%" height="30" align="center" bgcolor="#b8b8b8" class="header"><font face="Verdana" size="2" color="#000000" ><strong>Class Subject</strong></font></td>
+	<td width="73%" height="30" align="center" bgcolor="#b8b8b8" class="header"><font face="Verdana" size="2" color="#000000" ><strong>Comments</strong></font></td>
 	</tr>
 	<!-- Ambil pelajaran per departemen-->
 	<?
@@ -561,12 +559,12 @@ mso-break-type:section-break'>
 	
 	 <table width="100%" border="0">
   <tr>
-    <td rowspan="2" width="33%"><div align="center">Orang Tua/Wali Siswa</div></td>
-    <td width="33%"><div align="center">Mengetahui,</div></td>
-    <td rowspan="2" width="33%"><div align="center">Wali Kelas</div></td>
+    <td rowspan="2" width="33%"><div align="center">Parent/Student Guardian</div></td>
+    <td width="33%"><div align="center">Sincere,</div></td>
+    <td rowspan="2" width="33%"><div align="center">Homeroom Teacher</div></td>
   </tr>
   <tr>
-    <td width="33%"><div align="center">Kepala Sekolah 
+    <td width="33%"><div align="center">Headmaster 
       <?=$departemen?>
     </div></td>
   </tr>
@@ -586,10 +584,10 @@ mso-break-type:section-break'>
   </tr>
   <tr>
     <td><div align="center">
-      NIP : <?=$row_get_kepsek[nipkepsek]?>
+      Employee ID : <?=$row_get_kepsek[nipkepsek]?>
     </div></td>
     <td width="33%"><div align="center">
-      NIP : <?=$row_get_w_kls[nipwalikelas]?>
+      Employee ID : <?=$row_get_w_kls[nipwalikelas]?>
     </div></td>
   </tr>
 </table>
@@ -613,16 +611,16 @@ mso-break-type:section-break'>
     <td>
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#666666">
   <tr>
-    <td height="16" colspan="2" bgcolor="#FFFFFF"><div align="center" class="style1 style13">PRESENSI PELAJARAN</div></td>
+    <td height="16" colspan="2" bgcolor="#FFFFFF"><div align="center" class="style1 style13">LESSON PRESENCE</div></td>
     </tr>
   <tr>
-    <td height="20"><span class="style5">Departemen</span></td>
+    <td height="20"><span class="style5">Department</span></td>
     <td height="20"><span class="style5">:&nbsp;
         <?=$departemen?>
     </span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Tahun Ajaran</span></td>
+    <td height="20"><span class="style5">Year</span></td>
     <?
    
 	
@@ -631,14 +629,14 @@ mso-break-type:section-break'>
     </span></td>
   </tr>
   <tr>
-    <td width="6%" height="20"><span class="style5">NIS 
+    <td width="6%" height="20"><span class="style5">Student ID 
     </span></td>
     <td width="93%" height="20"><span class="style5">:&nbsp;
         <?=$nis?>
     </span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Nama</span></td>
+    <td height="20"><span class="style5">Name</span></td>
     <?
 	
 	
@@ -648,7 +646,7 @@ mso-break-type:section-break'>
 	</span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Kelas/Semester&nbsp;</span></td>
+    <td height="20"><span class="style5">Class/Semester&nbsp;</span></td>
     
     <?
    
@@ -665,20 +663,20 @@ mso-break-type:section-break'>
 
 	<table width="100%" border="1" bordercolor="#b8b8b8" class="tab" id="table" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="27%" rowspan="2" bgcolor="#b8b8b8" ><div align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Pelajaran</strong></font></div></td>
-    <td height="25" colspan="2" bgcolor="#b8b8b8" ><div align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Hadir</strong></font></div></td>
-    <td height="25" colspan="2" bgcolor="#b8b8b8" ><div align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Sakit</strong></font></div></td>
-    <td height="25" colspan="2" bgcolor="#b8b8b8" ><div align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Ijin</strong></font></div></td>
-    <td height="25" colspan="2" bgcolor="#b8b8b8" ><div align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Alpa</strong></font></div></td>
+    <td width="27%" rowspan="2" bgcolor="#b8b8b8" ><div align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Class Subject</strong></font></div></td>
+    <td height="25" colspan="2" bgcolor="#b8b8b8" ><div align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Attend</strong></font></div></td>
+    <td height="25" colspan="2" bgcolor="#b8b8b8" ><div align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Ill</strong></font></div></td>
+    <td height="25" colspan="2" bgcolor="#b8b8b8" ><div align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Consent</strong></font></div></td>
+    <td height="25" colspan="2" bgcolor="#b8b8b8" ><div align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Absent</strong></font></div></td>
     </tr>
   <tr>
-    <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Jumlah</strong></font></td>
+    <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Sum</strong></font></td>
     <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>%</strong></font></td>
-    <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Jumlah</strong></font></td>
+    <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Sum</strong></font></td>
     <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>%</strong></font></td>
-    <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Jumlah</strong></font></td>
+    <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Sum</strong></font></td>
     <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>%</strong></font></td>
-    <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Jumlah</strong></font></td>
+    <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>Sum</strong></font></td>
     <td width="6" bgcolor="#b8b8b8" align="center" ><font face="Verdana" size="2" color="#000000" ><strong>%</strong></font></td>
   </tr>
   <!-- Ambil pelajaran per departemen-->
@@ -852,12 +850,12 @@ mso-break-type:section-break'>
     <td>
 	 <table width="100%" border="0">
   <tr>
-    <td rowspan="2" width="33%"><div align="center">Orang Tua/Wali Siswa</div></td>
-    <td width="33%"><div align="center">Mengetahui,</div></td>
-    <td rowspan="2" width="33%"><div align="center">Wali Kelas</div></td>
+    <td rowspan="2" width="33%"><div align="center">Parent/Student Guardian</div></td>
+    <td width="33%"><div align="center">Sincere,</div></td>
+    <td rowspan="2" width="33%"><div align="center">Homeroom Teacher</div></td>
   </tr>
   <tr>
-    <td width="33%"><div align="center">Kepala Sekolah 
+    <td width="33%"><div align="center">Headmaster 
       <?=$departemen?>
     </div></td>
   </tr>
@@ -877,10 +875,10 @@ mso-break-type:section-break'>
   </tr>
   <tr>
     <td><div align="center">
-      NIP : <?=$row_get_kepsek[nipkepsek]?>
+      Employee ID : <?=$row_get_kepsek[nipkepsek]?>
     </div></td>
     <td width="33%"><div align="center">
-      NIP : <?=$row_get_w_kls[nipwalikelas]?>
+      Employee ID : <?=$row_get_w_kls[nipwalikelas]?>
     </div></td>
   </tr>
 </table>
@@ -904,16 +902,16 @@ mso-break-type:section-break'>
     <td>
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#666666">
   <tr>
-    <td height="16" colspan="2" bgcolor="#FFFFFF"><div align="center" class="style1 style13">PRESENSI HARIAN</div></td>
+    <td height="16" colspan="2" bgcolor="#FFFFFF"><div align="center" class="style1 style13">DAILY PRESENCE</div></td>
     </tr>
   <tr>
-    <td height="20"><span class="style5">Departemen</span></td>
+    <td height="20"><span class="style5">Department</span></td>
     <td height="20"><span class="style5">:&nbsp;
         <?=$departemen?>
     </span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Tahun Ajaran</span></td>
+    <td height="20"><span class="style5">Year</span></td>
     <?
    
 	
@@ -922,14 +920,14 @@ mso-break-type:section-break'>
     </span></td>
   </tr>
   <tr>
-    <td width="6%" height="20"><span class="style5">NIS 
+    <td width="6%" height="20"><span class="style5">Student ID 
     </span></td>
     <td width="93%" height="20"><span class="style5">:&nbsp;
         <?=$nis?>
     </span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Nama</span></td>
+    <td height="20"><span class="style5">Name</span></td>
     <?
 	
 	
@@ -939,7 +937,7 @@ mso-break-type:section-break'>
 	</span></td>
   </tr>
   <tr>
-    <td height="20"><span class="style5">Kelas/Semester&nbsp;</span></td>
+    <td height="20"><span class="style5">Class/Semester&nbsp;</span></td>
     
     <?
    
@@ -971,22 +969,22 @@ mso-break-type:section-break'>
 	<!-- Content Presensi disini -->
 	<table width="100%" border="1" class="tab" id="table" cellpadding="0" cellspacing="0" bordercolor="#b8b8b8">
   <tr>
-    <td height="25" colspan="2" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Hadir</strong></font></td>
-    <td height="25" colspan="2" bgcolor="#b8b8b8" align="center" class="headerlong"><font face="Verdana" size="2" color="#000000" ><strong>Sakit</strong></font></td>
-    <td height="25" colspan="2" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Ijin</strong></font></td>
-    <td height="25" colspan="2" bgcolor="#b8b8b8" align="center" class="headerlong"><font face="Verdana" size="2" color="#000000" ><strong>Alpa</strong></font></td>
-    <td height="25" colspan="2" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Cuti</strong></font></td>
+    <td height="25" colspan="2" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Attend</strong></font></td>
+    <td height="25" colspan="2" bgcolor="#b8b8b8" align="center" class="headerlong"><font face="Verdana" size="2" color="#000000" ><strong>Ill</strong></font></td>
+    <td height="25" colspan="2" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Consent</strong></font></td>
+    <td height="25" colspan="2" bgcolor="#b8b8b8" align="center" class="headerlong"><font face="Verdana" size="2" color="#000000" ><strong>Absent</strong></font></td>
+    <td height="25" colspan="2" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Leave</strong></font></td>
     </tr>
   <tr>
-    <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Jumlah</strong></font></td>
+    <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Sum</strong></font></td>
     <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>%</strong></font></td>
-    <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Jumlah</strong></font></td>
+    <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Sum</strong></font></td>
     <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>%</strong></font></td>
-    <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Jumlah</strong></font></td>
+    <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Sum</strong></font></td>
     <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>%</strong></font></td>
-    <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Jumlah</strong></font></td>
+    <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Sum</strong></font></td>
     <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>%</strong></font></td>
-    <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Jumlah</strong></font></td>
+    <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>Sum</strong></font></td>
     <td width="6" bgcolor="#b8b8b8" align="center"><font face="Verdana" size="2" color="#000000" ><strong>%</strong></font></td>
   </tr>
   <!-- Ambil pelajaran per departemen-->
@@ -1049,12 +1047,12 @@ mso-break-type:section-break'>
     <td>
 	 <table width="100%" border="0">
   <tr>
-    <td rowspan="2" width="33%"><div align="center">Orang Tua/Wali Siswa</div></td>
-    <td width="33%"><div align="center">Mengetahui,</div></td>
-    <td rowspan="2" width="33%"><div align="center">Wali Kelas</div></td>
+    <td rowspan="2" width="33%"><div align="center">Parent/Student Guardian</div></td>
+    <td width="33%"><div align="center">Sincere,</div></td>
+    <td rowspan="2" width="33%"><div align="center">Homeroom Teacher</div></td>
   </tr>
   <tr>
-    <td width="33%"><div align="center">Kepala Sekolah 
+    <td width="33%"><div align="center">Headmaster 
       <?=$departemen?>
     </div></td>
   </tr>
@@ -1074,10 +1072,10 @@ mso-break-type:section-break'>
   </tr>
   <tr>
     <td><div align="center">
-      NIP : <?=$row_get_kepsek[nipkepsek]?>
+      Employee ID : <?=$row_get_kepsek[nipkepsek]?>
     </div></td>
     <td width="33%"><div align="center">
-      NIP : <?=$row_get_w_kls[nipwalikelas]?>
+      Employee ID : <?=$row_get_w_kls[nipwalikelas]?>
     </div></td>
   </tr>
 </table>

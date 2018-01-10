@@ -31,7 +31,7 @@ require_once("../lib/class/jpgraph_bar.php");
 require_once("../lib/class/jpgraph_line.php");
 
 class ChartFactory {
-	var $bulan = array('Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nop','Des');
+	var $bulan = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
 	var $xdata;
 	var $ydata;
 	var $title;

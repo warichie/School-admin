@@ -53,12 +53,12 @@ function getHeader($dep)
 	$head .="				<font size=\"5\"><strong>".$nama."</strong></font><br />".
 			"				<strong>";
 						if ($alamat2 <> "" && $alamat1 <> "")
-	$head .="				Lokasi 1: ";
+	$head .="				Address 1: ";
 						if ($alamat1 != "") 
 	$head .=				$alamat1;
 									
 						if ($telp1 != "" || $telp2 != "") 
-	$head .="				<br>Telp. ";	
+	$head .="				<br>Phone ";	
 						if ($telp1 != "" ) 
 	$head .=				$telp1;	
 						if ($telp1 != "" && $telp2 != "") 
@@ -69,11 +69,11 @@ function getHeader($dep)
 	$head .="				&nbsp;&nbsp;Fax. ".$fax1."&nbsp;&nbsp;";
 						if ($alamat2 <> "" && $alamat1 <> "") {
 	$head .="				<br>";
-	$head .="				Lokasi 2: ";
+	$head .="				Address 2: ";
 	$head .=				$alamat2;
 											
 						if ($telp3 != "" || $telp4 != "") 
-	$head .="				<br>Telp. ";	
+	$head .="				<br>Phone ";	
 						if ($telp3 != "" ) 					
 	$head .=				$telp3;
 						if ($telp3 != "" && $telp4 != "") 

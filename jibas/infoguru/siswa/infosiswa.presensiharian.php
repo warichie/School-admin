@@ -36,7 +36,7 @@ if (isset($_REQUEST['departemen']))
 
 OpenDb();
 
-// Dapatkan nis, jenjang dan replid sekarang dan terdahuku
+// Dapatkan nis, jenjang and replid sekarang and terdahuku
 $check_nis = $nis_awal;
 do
 {
@@ -95,12 +95,12 @@ if (isset($_REQUEST['kelas']))
 <input type="hidden" name="nis_awal" id="nis_awal" value="<?=$nis_awal?>">
 <input type="hidden" name="current_nis" id="current_nis" value="<?=$nis?>">
 <table width="100%" cellspacing="0" cellpadding="0" align="left">    
-<tr >
+<tr>
 	<td width="0">
     <!-- CONTENT GOES HERE //--->	
     <table border="0" cellpadding="2"cellspacing="2" width="100%" style="color:#000000">
     <tr>
-        <td width="*"><strong class="news_content1">Th. Ajaran</strong>
+        <td width="*"><strong class="news_content1">Year</strong>
         <select name="departemen" class="cmbfrm" id="departemen" style="width:80px" onChange="ChangePresensiHarianOption2('departemen')">
 <? 		for ($i=0; $i<sizeof($dep); $i++) { ?>        	
             <option value="<?=$i ?>" <?=IntIsSelected($i, $departemen) ?> > <?=$dep[$i][0] ?> </option>
@@ -115,7 +115,7 @@ if (isset($_REQUEST['kelas']))
 			<option value="<?=$ajaran[$k][0] ?>" <?=IntIsSelected($ajaran[$k][0], $tahunajaran) ?> > <?=$ajaran[$k][1]?> </option>
 <? 		} ?>
     	</select>    
-		&nbsp;&nbsp;<strong class="news_content1">Riwayat Kelas</strong>
+		&nbsp;&nbsp;<strong class="news_content1">Class History</strong>
         <select name="kelas" class="cmbfrm" id="kelas" style="width:125px" onChange="ChangePresensiHarianOption2('kelas')">
 <? 		for ($j=0; $j<sizeof($kls); $j++)
 		{
@@ -128,7 +128,7 @@ if (isset($_REQUEST['kelas']))
 		} ?>
     	</select>    
 		</td>
-        <td align="right" width="12%"><a href="javascript:CetakPresensiHarian4()"><img src="../images/ico/print.png" border="0" />&nbsp;Cetak</a>    	</td>
+        <td align="right" width="12%"><a href="javascript:CetakPresensiHarian4()"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>    	</td>
   	</tr>
 	
 <? if ($kelas <> "" )
@@ -159,7 +159,7 @@ if (isset($_REQUEST['kelas']))
         <tr>
         	<td align="center">       	<?		
         
-		$data_title = "<span class=\"nav_title\">STATISTIK PRESENSI HARIAN</span>"; // title for the diagram
+		$data_title = "<span class=\"nav_title\">DAILY PRESENCE STATISTIC</span>"; // title for the diagram
 
         // sample data array
         $data = array();
@@ -169,8 +169,8 @@ if (isset($_REQUEST['kelas']))
             $legend_x[] = $row1[0];			
         }
 				
-        //$legend_x = array('Jan','Feb','Maret','April','Mei');
-        $legend_y = array('Hadir','Ijin','Sakit','Alpa', 'Cuti');
+        //$legend_x = array('Jan','Feb','March','April','May');
+        $legend_y = array('Attend','Consent','Ill','Absent', 'Leave');
 
         $graph = new CAsBarDiagram;
         $graph->bwidth = 10; // set one bar width, pixels
@@ -185,12 +185,12 @@ if (isset($_REQUEST['kelas']))
         	<td>
             <table class="tab" id="table" border="1" cellpadding="0" style="border-collapse:collapse" cellspacing="0" width="100%" align="center">		
             <tr height="30" align="center">		
-                <td width="*" class="header">Bulan</td>
-                <td width="15%" class="header">Hadir</td>
-                <td width="15%" class="header">Ijin</td>
-                <td width="15%" class="header">Sakit</td>
-                <td width="15%" class="header">Alpa</td>
-                <td width="15%" class="header">Cuti</td>
+                <td width="*" class="header">Month</td>
+                <td width="15%" class="header">Attend</td>
+                <td width="15%" class="header">Consent</td>
+                <td width="15%" class="header">Ill</td>
+                <td width="15%" class="header">Absent</td>
+                <td width="15%" class="header">Leave</td>
             </tr>
 			<? 
             
@@ -217,7 +217,7 @@ if (isset($_REQUEST['kelas']))
 	<tr>
 		<td align="center" valign="middle" height="120" colspan="3">
 		
-    	<font size = "2" color ="red"><b><span class="err">Tidak ditemukan adanya data 1.</span><br />
+    	<font size = "2" color ="red"><b><span class="err">No Data Found. 1.</span><br />
     	</font>
 		<table id="table"></table>
 		</td>
@@ -226,7 +226,7 @@ if (isset($_REQUEST['kelas']))
 <? } else { ?>                 
 	<tr>
 		<td align="center" valign="middle" height="120" colspan="3">
-    	<font size = "2" color ="red"><b><span class="err">Tidak ditemukan adanya data 2.</span><br />
+    	<font size = "2" color ="red"><b><span class="err">No Data Found. 2.</span><br />
     	</font>
 		<table id="table"></table>
 		</td>

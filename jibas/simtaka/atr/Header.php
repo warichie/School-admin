@@ -62,19 +62,19 @@ function Cetak(){
 <body>
 <div id="title" align="right">
 	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-	<font style="font-size:18px; color:#999999">Header Cetak</font><br />
+	<font style="font-size:18px; color:#999999">Print Header</font><br />
 </div>
 <br>
 <table width="700" align="center" border="0">
   <tr>
-    <td width="567">&nbsp;&nbsp;<strong>Perpustakaan :</strong> 
+    <td width="567">&nbsp;&nbsp;<strong>Library :</strong> 
 	<?
     OpenDb();
     $sql 	= "SELECT * FROM perpustakaan ORDER BY nama";
     $result = QueryDb($sql);
     ?>
     <select name="perpustakaan" class="cmbfrm" id="perpustakaan"  onchange="ChgPerpus()">
-        <option value="alls" <?=StringIsSelected('alls',$perpustakaan) ?> ><i>Semua</i></option>
+        <option value="alls" <?=StringIsSelected('alls',$perpustakaan) ?> ><i>All</i></option>
         <?
         while ($row = @mysql_fetch_array($result)){
         ?>
@@ -83,14 +83,14 @@ function Cetak(){
         }
         ?>
     </select>	</td>
-    <td width="123" align="right"><a href="#" onclick="Cetak()"><img src="../img/ico/print1.png" width="16" height="16" border="0" />&nbsp;Cetak&nbsp;Header</a></td>
+    <td width="123" align="right"><a href="#" onclick="Cetak()"><img src="../img/ico/print1.png" width="16" height="16" border="0" />&nbsp;Print&nbsp;Header</a></td>
   </tr>
   <tr>
     <td colspan="2">
     <table width="100%" border="1" class="tab" align="center">
       <tr>
         <td width="200" height="30" align="center" class="header">Logo</td>
-        <td height="30" align="center" class="header">Keterangan</td>
+        <td height="30" align="center" class="header">Info</td>
       </tr>
       <tr>
         <td width="200" align="center">
@@ -106,32 +106,32 @@ function Cetak(){
 		}
 		if (strlen($row[foto])==0){
 			if (strlen($row[foto])==0 && $perpustakaan=='alls'){
-				echo "<div align='center' style='padding-top:20px'>Belum ada logo untuk semua perpustakaan</div>";
+				echo "<div align='center' style='padding-top:20px'>No logo for all libraries yet</div>";
 			} elseif (strlen($row[foto])==0 && $perpustakaan!='alls'){
 				$sql2 	= "SELECT nama FROM perpustakaan WHERE replid='$perpustakaan'";
 				$result2= QueryDb($sql2);
 				$row2	= @mysql_fetch_array($result2);
-				echo "<div align='center' style='padding-top:20px'>Belum ada logo untuk perpustakaan ".$row2[nama]."</div>";
+				echo "<div align='center' style='padding-top:20px'>No logo for library ".$row2[nama]."</div>";
 			}
-			echo "<div align='center' style='padding-top:20px'><a href=\"javascript:AddLogo('".$perpustakaan."','Add')\"><img src='../img/ico/tambah.png' border='0' />Tambah</a></div>";
+			echo "<div align='center' style='padding-top:20px'><a href=\"javascript:AddLogo('".$perpustakaan."','Add')\"><img src='../img/ico/tambah.png' border='0' />Add</a></div>";
 		} else {
 			?>
             <img src="../lib/gambar.php?replid=<?=$row[replid]?>&table=<?=$db_name_umum.".identitas"?>&field=foto">
-            <?="<br><a href=\"javascript:AddLogo('".$perpustakaan."','Edit')\"><img src='../img/ico/ubah.png' border='0' />Ubah</a>";
+            <?="<br><a href=\"javascript:AddLogo('".$perpustakaan."','Edit')\"><img src='../img/ico/ubah.png' border='0' />Edit</a>";
 		}
         ?>        </td>
         <td>
         <?
 		if (strlen($row[nama])==0){
 			if (strlen($row[nama])==0 && $perpustakaan=='alls'){
-				echo "<div align='center' style='padding-top:20px'>Belum ada logo untuk semua perpustakaan</div>";
+				echo "<div align='center' style='padding-top:20px'>No logo for all libraries yet</div>";
 			} elseif (strlen($row[nama])==0 && $perpustakaan!='alls'){
 				$sql2 	= "SELECT nama FROM perpustakaan WHERE replid='$perpustakaan'";
 				$result2= QueryDb($sql2);
 				$row2	= @mysql_fetch_array($result2);
-				echo "<div align='center' style='padding-top:20px'>Belum ada informasi untuk perpustakaan ".$row2[nama]."</div>";
+				echo "<div align='center' style='padding-top:20px'>No information yet for library ".$row2[nama]."</div>";
 			}
-			echo "<div align='center' style='padding-top:20px'><a href=\"javascript:AddInfo('".$perpustakaan."','Add')\"><img src='../img/ico/tambah.png' border='0' />Tambah</a></div>";
+			echo "<div align='center' style='padding-top:20px'><a href=\"javascript:AddInfo('".$perpustakaan."','Add')\"><img src='../img/ico/tambah.png' border='0' />Add</a></div>";
 		} else {
 			?>
             <span style="font-family:Arial; font-size:22px; font-weight:bold; color:#000000">
@@ -142,7 +142,7 @@ function Cetak(){
 			<?=$row[alamat1]?>
             <?
 			if ($row[telp1]!='' || $row[telp2]!=''){
-				echo " <br>Telp : ";
+				echo " <br>Phone : ";
 				if ($row[telp1]!='' && $row[telp2]=='')
 					echo $row[telp1];
 				elseif ($row[telp2]!='' && $row[telp1]=='')
@@ -170,7 +170,7 @@ function Cetak(){
 					echo "Website : ".$row[situs]." Email : ".$row[email];		
 			}
 			echo "</strong>";
-            echo "<div align='center' style='padding-top:20px'><a href=\"javascript:AddInfo('".$perpustakaan."','Edit')\"><img src='../img/ico/ubah.png' border='0' />Ubah</a></div>";
+            echo "<div align='center' style='padding-top:20px'><a href=\"javascript:AddInfo('".$perpustakaan."','Edit')\"><img src='../img/ico/ubah.png' border='0' />Edit</a></div>";
 		}
         ?>        </td>
       </tr>

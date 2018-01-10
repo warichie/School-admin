@@ -43,7 +43,7 @@ $total = $_REQUEST['total'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Kelas]</title>
+<title>JIBAS SIMAKA [Print Class]</title>
 </head>
 
 <body>
@@ -53,20 +53,20 @@ $total = $_REQUEST['total'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DATA KELAS</strong></font><br />
+  <font size="4"><strong>CLASS DATA</strong></font><br />
  </center><br /><br />
 <br />
 <table>
 <tr>
-	<td><strong>Departemen</strong> </td> 
+	<td><strong>Department</strong> </td> 
 	<td><strong>:&nbsp;<?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
 	<td><strong>:&nbsp;<?=$_REQUEST[namatahunajaran]?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
 	<td><strong>:&nbsp;<?=$_REQUEST[namatingkat]?></strong></td>
 </tr>
 </table>
@@ -74,12 +74,12 @@ $total = $_REQUEST['total'];
 </span>
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="10%" class="header" align="center">Kelas</td>
-        <td width="20%" class="header" align="center">Wali Kelas</td>
-		<td width="10%" class="header" align="center">Kapasitas</td>
-		<td width="10%" class="header" align="center">Terisi</td>
-		<td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="10%" class="header" align="center">Class</td>
+        <td width="20%" class="header" align="center">Homeroom Teacher</td>
+		<td width="10%" class="header" align="center">Capacity</td>
+		<td width="10%" class="header" align="center">Filled</td>
+		<td width="*" class="header" align="center">Info</td>
         <td width="10%" class="header" align="center">Status</td>
     </tr>
 <? OpenDb();
@@ -117,9 +117,9 @@ $total = $_REQUEST['total'];
 		<td><?=$row[6] ?></td>  
         <td align="center">
 			<? if ($row[5] == 1) 
-					echo 'Aktif';
+					echo 'Active';
 				else
-					echo 'Tidak Aktif';
+					echo 'Inactive';
 			?>		
         </td>      
     </tr>

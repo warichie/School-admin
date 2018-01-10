@@ -66,7 +66,7 @@ if (isset($_REQUEST['urutan']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Presensi Harian Siswa Per Kelas</title>
+<title>Student Daily Presence Reports by Classes</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -142,69 +142,69 @@ function change_urut(urut,urutan) {
     <tr>
     	<td align="right">
       	
-		<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:excel()"><img src="../images/ico/excel.png" border="0" onmouseover="showhint('Cetak dalam format Excel!', this, event, '80px')"/>&nbsp;Cetak Excel</a>&nbsp;&nbsp;
-    	<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
+		<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:excel()"><img src="../images/ico/excel.png" border="0" onmouseover="showhint('Excel', this, event, '80px')"/>&nbsp;Excel</a>&nbsp;&nbsp;
+    	<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
         
         </td>
     </table>
     <br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">	
     <tr height="30" align="center" class="header">		
-        <td width="5%">No</td>
-        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>')">N I S <?=change_urut('s.nis',$urut,$urutan)?></td>
-        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>')">Nama <?=change_urut('s.nama',$urut,$urutan)?> </td>
-        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('hadir','<?=$urutan?>')">Hadir <?=change_urut('hadir',$urut,$urutan)?></td>
-        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('ijin','<?=$urutan?>')">Ijin <?=change_urut('ijin',$urut,$urutan)?></td>            
-        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('sakit','<?=$urutan?>')">Sakit <?=change_urut('sakit',$urut,$urutan)?></td>
-        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('alpa','<?=$urutan?>')">Alpa <?=change_urut('alpa',$urut,$urutan)?></td>
-        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('cuti','<?=$urutan?>')">Cuti <?=change_urut('cuti',$urut,$urutan)?></td>        
+        <td width="5%">#</td>
+        <td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nis','<?=$urutan?>')">Student ID <?=change_urut('s.nis',$urut,$urutan)?></td>
+        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('s.nama','<?=$urutan?>')">Name <?=change_urut('s.nama',$urut,$urutan)?> </td>
+        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('hadir','<?=$urutan?>')">Attend <?=change_urut('hadir',$urut,$urutan)?></td>
+        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('ijin','<?=$urutan?>')">Consent <?=change_urut('ijin',$urut,$urutan)?></td>            
+        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('sakit','<?=$urutan?>')">Ill <?=change_urut('sakit',$urut,$urutan)?></td>
+        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('alpa','<?=$urutan?>')">Absent <?=change_urut('alpa',$urut,$urutan)?></td>
+        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('cuti','<?=$urutan?>')">Leave <?=change_urut('cuti',$urut,$urutan)?></td>        
         <td width="5%" class="header"></td>
     </tr>
     <? 
     $cnt = 0;
     while ($row = @mysql_fetch_row($result)) {
     if ($row[8] == 0) { 
-		$pesan = "Status siswa tidak aktif lagi!";
+		$pesan = "Student Status back to inactive";
 	?>
 	<tr height="25" style="color:#FF0000">
 	<? } else { 
-		$pesan = "Lihat!";
+		$pesan = "Show";
 	?>
     <tr height="25">
     <? } ?>        			
         <td align="center" 
-		<? if ($pesan!="Lihat!"){ ?>
+		<? if ($pesan!="Show!"){ ?>
 		onmouseover="showhint('<?=$pesan?>', this, event, '100px')"
 		<? } ?>
 		><?=++$cnt?></td>
         <td align="center" 
-		<? if ($pesan!="Lihat!"){ ?>
+		<? if ($pesan!="Show!"){ ?>
 		onmouseover="showhint('<?=$pesan?>', this, event, '100px')"
 		<? } ?>
 		><?=$row[0]?></td>
         <td 
-		<? if ($pesan!="Lihat!"){ ?>
+		<? if ($pesan!="Show!"){ ?>
 		onmouseover="showhint('<?=$pesan?>', this, event, '100px')"
 		<? } ?>
 		><?=$row[1]?></td>
-        <td align="center" <? if ($pesan!="Lihat!"){ ?>
+        <td align="center" <? if ($pesan!="Show!"){ ?>
 		onmouseover="showhint('<?=$pesan?>', this, event, '100px')"
 		<? } ?>
 		><?=$row[2]?></td>
-        <td align="center" <? if ($pesan!="Lihat!"){ ?>
+        <td align="center" <? if ($pesan!="Show!"){ ?>
 		onmouseover="showhint('<?=$pesan?>', this, event, '100px')"
 		<? } ?>
 		><?=$row[3]?></td>    
-        <td align="center" <? if ($pesan!="Lihat!"){ ?>
+        <td align="center" <? if ($pesan!="Show!"){ ?>
 		onmouseover="showhint('<?=$pesan?>', this, event, '100px')"
 		<? } ?>
 		><?=$row[4]?></td>
-        <td align="center" <? if ($pesan!="Lihat!"){ ?>
+        <td align="center" <? if ($pesan!="Show!"){ ?>
 		onmouseover="showhint('<?=$pesan?>', this, event, '100px')"
 		<? } ?>
 		><?=$row[5]?></td>    
-        <td align="center" <? if ($pesan!="Lihat!"){ ?>
+        <td align="center" <? if ($pesan!="Show!"){ ?>
 		onmouseover="showhint('<?=$pesan?>', this, event, '100px')"
 		<? } ?>
 		><?=$row[6]?></td>
@@ -224,7 +224,7 @@ function change_urut(urut,urutan) {
 	 <table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="250">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />Tambah data presensi kelas di menu Presensi Harian pada bagian Presensi.</b></font>
+    	<font size = "2" color ="red"><b>Data Not Found. <br />Add class presence data in the Daily Presence menu on Presence section.</b></font>
 		</td>
 	</tr>
 	</table>

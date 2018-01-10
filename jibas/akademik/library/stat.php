@@ -22,8 +22,8 @@
  **[N]**/ ?>
 <?
 /*
-Kalo dari kesiswaan, kode=0
-Kalo dari calonsiswa, kode=1
+Kalo from kesiswaan, kode=0
+Kalo from calonsiswa, kode=1
 
 */
 $kode="";

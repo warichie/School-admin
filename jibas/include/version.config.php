@@ -26,7 +26,7 @@
 $G_VERSION="3.0";
 
 /* Build date SISFO JIBAS */
-$G_BUILDDATE='09 Januari 2013';
+$G_BUILDDATE='09 January 2013';
 
 /* Hak Cipta SISFO JIBAS */
 $G_COPYRIGHT='Copyright &copy; 2009 Yayasan Indonesia Membaca';

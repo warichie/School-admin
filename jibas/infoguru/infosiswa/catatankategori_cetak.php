@@ -34,7 +34,7 @@ require_once("../include/sessionchecker.php");
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Cetak Catatan]</title>
+<title>JIBAS TEACHERS INFO [Print Notes]</title>
 </head>
 
 <body>
@@ -43,15 +43,15 @@ require_once("../include/sessionchecker.php");
 
 <? getHeader('yayasan') ?>
 
-<center><font size="4"><strong>DATA KATEGORI CATATAN KEJADIAN SISWA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>STUDENT ATTENDANCE NOTES CATEGORY DATA</strong></font><br /> </center><br /><br />
 
 <br />
 
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">Kategori</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Category</td>
+        <td width="*" class="header" align="center">Info</td>
         <td width="10%" class="header" align="center">Status</td>
     </tr>
 <? 	OpenDb();
@@ -65,9 +65,9 @@ require_once("../include/sessionchecker.php");
         <td><?=$row['keterangan'] ?></td>
         <td align="center">
 			<? if ($row['aktif'] == 1) 
-					echo 'Aktif';
+					echo 'Active';
 				else
-					echo 'Tidak Aktif';
+					echo 'Inactive';
 			?>		
         </td> 
     </tr>

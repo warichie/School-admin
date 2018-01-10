@@ -169,15 +169,15 @@ function show_laporan() {
 	var tanggal2 = escape(thn2 + "-" + bln2 + "-" + tgl2);
 	
 	if (idtahunbuku.length == 0) {
-		alert ('Tahun buku tidak boleh kosong !');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('departemen').focus();
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -292,7 +292,7 @@ function panggil(elem){
 <td rowspan="3" width="60%">
     <table border="0" width = "100%">
     <tr>
-        <td width="15%" class="news_content1">Departemen </font></td>
+        <td width="15%" class="news_content1">Department </font></td>
         <td colspan="4"><select name="departemen" class="cmbfrm" id="departemen" style="width:188px" onchange="change_dep()">
           <? 	$sql = "SELECT departemen FROM departemen WHERE aktif = 1 ORDER BY urutan";
             $result = QueryDb($sql);
@@ -304,7 +304,7 @@ function panggil(elem){
           </option>
           <? } ?>
         </select>
-          <span class="news_content1">Tahun Buku</span><strong>&nbsp;</strong>
+          <span class="news_content1">Fiscal Year</span><strong>&nbsp;</strong>
           <select name="idtahunbuku" id="idtahunbuku" onchange="change_tahunbuku()" style="width:160px">        
         <? 	if ($departemen != "") 
 			{ 
@@ -337,10 +337,10 @@ function panggil(elem){
          </td>
     </tr>
     <tr>
-    	<td class="news_content1">Kategori&nbsp;</td>
+    	<td class="news_content1">Category&nbsp;</td>
       	<td colspan="4">    
         <select name="idkategori" class="cmbfrm" id="idkategori" style="width:205px" onchange="change_kate()" >
-        <option value="-1">(Semua Kategori)</option>
+        <option value="-1">(All Category)</option>
         <?
         $sql = "SELECT kode, kategori FROM $db_name_fina.kategoripenerimaan ORDER BY urutan";
         $result = QueryDb($sql);
@@ -361,11 +361,11 @@ function panggil(elem){
 					
 		$n1 = JmlHari($bln1, $thn1);
 		$n2 = JmlHari($bln2, $thn2);	?>          
-        <td class="news_content1">Tanggal </td>
+        <td class="news_content1">Date </td>
         <td width="10">
         	<div id="InfoTgl1"> 
             <select name="tgl1" class="cmbfrm" id = "tgl1" onchange="change_tgl1()">  
-            	<option value="">[Tgl]</option>      
+            	<option value="">[Date]</option>      
 			<? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -382,11 +382,11 @@ function panggil(elem){
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
             </select> 
-            <span class="news_content1">s/d        </span></td>
+            <span class="news_content1">to        </span></td>
         <td width="10">
          	<div id="InfoTgl2">
             <select name="tgl2" class="cmbfrm" id="tgl2" onchange="change_tgl2()">
-            	<option value="">[Tgl]</option>
+            	<option value="">[Date]</option>
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -407,9 +407,9 @@ function panggil(elem){
     </table>
 	</td>
  	<td rowspan="2" width="*" valign="middle">
-        <a href="#" onclick="show_laporan()"><img src="../img/view.png" border="0" height="48"  width="48" id="tabel" onmouseover="showhint('Klik untuk menampilkan data jurnal penerimaan!', this, event, '120px')"/></a>    </td>
+        <a href="#" onclick="show_laporan()"><img src="../img/view.png" border="0" height="48"  width="48" id="tabel" onmouseover="showhint('Click to show data jurnal penerimaan', this, event, '120px')"/></a>    </td>
 	<td width="40%" align="right" valign="top">
-    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Jurnal Penerimaan</font>
+    	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Admission Journal</font>
 	  </td>
 </tr>
 <tr>	
@@ -438,17 +438,17 @@ if (isset($_REQUEST[showpembayaran]))
     <table border="0" width="100%" align="center">
     <tr>
         <td align="right">
-        <!--<a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;-->
-        <a href="JavaScript:cetak()"><img src="../img/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;        </td>
+        <!--<a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;-->
+        <a href="JavaScript:cetak()"><img src="../img/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;        </td>
     </tr>
     </table>
     <br />
     <table border="1" style="border-collapse:collapse;" cellpadding="5" cellspacing="0" width="100%" class="tab" bordercolor="#000000">
     <tr height="30">
-        <td width="4%" align="center" class="header">No</td>
-        <td width="15%" align="center" class="header">No. Jurnal/Tanggal</td>
-        <td width="35%" align="center" class="header">Transaksi</td>
-        <td align="center" class="header">Detail Jurnal</td>  
+        <td width="4%" align="center" class="header">#</td>
+        <td width="15%" align="center" class="header">Journal/Date</td>
+        <td width="35%" align="center" class="header">Transaction</td>
+        <td align="center" class="header">Journal Details</td>  
         <?	//if ((getLevel() != 2)) { ?>
         <!--<td width="3%" align="center" class="header">&nbsp;</td>--> 
         <? //} ?>
@@ -471,7 +471,7 @@ if (isset($_REQUEST[showpembayaran]))
         <td align="center" bgcolor="<?=$bgcolor ?>"><strong><?=$row['nokas']?></strong><br /><em><?=LongDateFormat($row['tanggal'])?></em></td>
         <td valign="top" bgcolor="<?=$bgcolor ?>"><?=$row['transaksi'] ?>
     <?	if (strlen($row['keterangan']) > 0 )  { ?>
-            <br /><strong>Keterangan:</strong><?=$row['keterangan'] ?> 
+            <br /><strong>Info:</strong><?=$row['keterangan'] ?> 
     <?	} ?>    
         </td>
         <td rowspan="2" valign="top" bgcolor="#E8FFE8">
@@ -491,26 +491,26 @@ if (isset($_REQUEST[showpembayaran]))
         </td>
 	<?	//if ((getLevel() != 2)) { ?>
         <!--<td rowspan="2" align="center">
-            <a href="JavaScript:edit(<?=$idjurnal ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Jurnal Penerimaan!', this, event, '80px')"/></a>
+            <a href="JavaScript:edit(<?=$idjurnal ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Admission Journal', this, event, '80px')"/></a>
     
         </td>-->
 	<?	//} ?>
     </tr>
     <tr>    
-        <td valign="top"><strong>Petugas: </strong><?=$row['petugas'] ?></td>
+        <td valign="top"><strong>Officer: </strong><?=$row['petugas'] ?></td>
         <td valign="top">
-        <strong>Sumber: </strong>
+        <strong>Source: </strong>
     <? 	switch($row['sumber']) {	
             case 'penerimaanjtt':
-                echo "Penerimaan Iuran Wajib Siswa"; break;
+                echo "Student Mandatory Contribution Admission"; break;
             case 'penerimaaniuran':
-                echo "Penerimaan Iuran Sukarela Siswa"; break;
+                echo "Student Contribution Admission"; break;
             case 'penerimaanlain':
-                echo "Penerimaan Lain-Lain"; break;
+                echo "Other Admission"; break;
 			case 'penerimaanjttcalon':
-                echo "Penerimaan Iuran Wajib Calon Siswa"; break;
+                echo "Student Candidate Mandatory Contribution Admission"; break;
 			case 'penerimaaniurancalon':
-                echo "Penerimaan Iuran Sukarela Calon Siswa"; break;
+                echo "Student Candidate Contribution Admission"; break;
         } ?>        </td>
     </tr>
     <tr style="height:2px">
@@ -545,19 +545,19 @@ if (isset($_REQUEST[showpembayaran]))
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left" class="news_content1">Halaman
+       	<td width="30%" align="left" class="news_content1">Page
         <select name="page" class="cmbfrm" id="page" onChange="change_page('XX')">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($page,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>        </td>
         <td align="center">
-        <!--input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+        <!--input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
             <?
             for($a=0;$a<$total;$a++){
                 if ($page==$a){
@@ -568,8 +568,8 @@ if (isset($_REQUEST[showpembayaran]))
                      
             }
             ?>
-             <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')"-->
-  		<td width="30%" align="right"><!--Jumlah baris per halaman
+             <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')"-->
+  		<td width="30%" align="right"><!--Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -582,7 +582,7 @@ if (isset($_REQUEST[showpembayaran]))
     <table width="100%" border="0" align="center">          
     <tr>
         <td height="300" align="center" valign="middle" class="err">
-            <b>Tidak ditemukan adanya data.</td>
+            <b>Data Not Found.</td>
     </tr>
     </table>  
 <? } ?>

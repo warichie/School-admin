@@ -75,12 +75,12 @@ function validate(){
 	var judul=document.getElementById('judul').value;
 	var pesan=tinyMCE.get('pesan').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Pesan');
+		alert ('Message Title should not leave empty');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (pesan.length==0){
-		alert ('Anda harus mengisikan data untuk Pesan');
+		alert ('Message should not leave empty');
 		document.getElementById('pesan').focus();
 		return false;
 	}
@@ -123,23 +123,23 @@ function simpan(){
 <input type="hidden" name="sender" id="sender" value="tambah" />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-	<td scope="row" align="left"><span class="style1" style="background-color:#CCCCCC"><strong><font size="2">Tulis pesan untuk Guru</font></strong><br />
+	<td scope="row" align="left"><span class="style1" style="background-color:#CCCCCC"><strong><font size="2">Write message for Teacher</font></strong><br />
     </span><br /></td>  
-    <!--td scope="row" align="left"><strong><font size="2" color="#999999">Pesan Baru :</font></strong><br /><br /></td-->
+    <!--td scope="row" align="left"><strong><font size="2" color="#999999">New Message :</font></strong><br /><br /></td-->
   </tr>
   <tr>
     <td scope="row" align="left">
     <table width="100%" border="0" cellspacing="2" cellpadding="2"  >
-  <tr >
-    <th width="134" scope="row"><div align="left">Judul</div></th>
+  <tr>
+    <th width="134" scope="row"><div align="left">Title</div></th>
     <td colspan="2"><input type="text" maxlength="254" name="judul" id="judul" size="50" /></td>
   </tr>
   <tr>
-    <th scope="row"><div align="left">Tanggal Tampil</div></th>
-    <td colspan="2"><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <th scope="row"><div align="left">Publish Date</div></th>
+    <td colspan="2"><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date(m)."-".date(Y); ?>"/><img title="Click to open the Calendar" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
   <tr>
-    <th colspan="3" valign="top" align="left" scope="row"  ><div align="left">Pesan<br />
+    <th colspan="3" valign="top" align="left" scope="row"  ><div align="left">Message<br />
         <textarea name="pesan" rows="25" id="pesan" style="width:100%"></textarea>
     </div></th>
     </tr>

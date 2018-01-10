@@ -32,7 +32,7 @@ $departemen="";
 if (isset($_REQUEST[departemen]))
 	$departemen=$_REQUEST[departemen];
 	
-$title = "Sekolah";
+$title = "School";
 if ($departemen=='yayasan')
 	$title = "";
 
@@ -104,10 +104,10 @@ function edit() {
 function hapus(bagian) {
 	var departemen=document.getElementById('departemen').value;
 	if (bagian=='header'){
-		if (confirm("Apakah anda yakin akan menghapus identitas sekolah ini?"))
+		if (confirm("Are you sure want to delete this school identity?"))
 			document.location.href = "identitas.php?op=delheader&departemen="+departemen;
 	} else if (bagian=='logo'){
-		if (confirm("Apakah anda yakin akan menghapus identitas sekolah ini?"))
+		if (confirm("Are you sure want to delete this school identity?"))
 			document.location.href = "identitas.php?op=dellogo&departemen="+departemen;
 	}
 }
@@ -135,11 +135,11 @@ function cetak(){
 
 	<table border="0"width="95%" align="center">
     <tr>
-        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Identitas Sekolah</font></td>
+        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">School Identity</font></td>
     </tr>
     <tr>
         <td align="right"><a href="../referensi.php" target="content">
-          <font size="1" face="Verdana" color="#000000"><b>Referensi</b></font></a>&nbsp>&nbsp <font size="1" face="Verdana" color="#000000"><b>Identitas Sekolah</b></font>
+          <font size="1" face="Verdana" color="#000000"><b>Reference</b></font></a>&nbsp;>&nbsp; <font size="1" face="Verdana" color="#000000"><b>School Identity/b></font>
         </td>
     </tr>
      <tr>
@@ -150,9 +150,9 @@ function cetak(){
     <table border="0" cellspacing="0" cellpadding="0" width="95%" align="center">
 		<tr>
 			<td height="50" valign="top">
-				<strong>Departemen : </strong>
+				<strong>Department : </strong>
 				<select name="departemen" id="departemen" onchange="chg_dep()">
-					<option value="yayasan" <?=StringIsSelected($departemen,'yayasan')?>>Umum</option>
+					<option value="yayasan" <?=StringIsSelected($departemen,'yayasan')?>>Public</option>
 					<?
 					$res = QueryDb("SELECT departemen FROM departemen WHERE aktif=1 ORDER BY urutan");
 					while ($r = @mysql_fetch_array($res)){
@@ -165,7 +165,7 @@ function cetak(){
 					?>
 				</select>
 			</td>
-			<td align="right"><a href="javascript:cetak()"><img border="0" src="../images/ico/print.png" />&nbsp;Cetak KOP Surat</a></td>
+			<td align="right"><a href="javascript:cetak()"><img border="0" src="../images/ico/print.png" />&nbsp;Print Letterhead</a></td>
 		</tr>
 	</table><br>
 	<?
@@ -192,8 +192,8 @@ function cetak(){
 			$foto = 0;
 	?>	
     	<td align="center" rowspan="2"> 
-		<font size = "2" color ="red"><b>Klik&nbsp;<a href="JavaScript:tambah_logo()" >		
-    	<font size = "2" color ="green">di sini</font></a>&nbsp;untuk memasukkan logo <?=$title?>.</b></font>
+		<font size = "2" color ="red"><b>Click&nbsp;<a href="JavaScript:tambah_logo()" >		
+    	<font size = "2" color ="green">here</font></a> to insert logo <?=$title?>.</b></font>
  	    	  
         </td>
 	<? } else { 
@@ -210,11 +210,11 @@ function cetak(){
         	<font size="6"><strong><?=$row['nama']?></strong></font><br />
         	<font size="2"><strong>
     	<? 	if ($row['alamat2'] <> "" && $row['alamat1'] <> "")
-            	echo "Lokasi 1: ";
+            	echo "Address 1: ";
 		  	if ($row['alamat1'] != "") 
 				echo $row['alamat1'];
 			if ($row['telp1'] != "" || $row['telp2'] != "") 
-				echo "<br>Telp. ";	
+				echo "<br>Phone ";	
 			if ($row['telp1'] != "" ) 
 				echo $row['telp1'];	
 			if ($row['telp1'] != "" && $row['telp2'] != "") 
@@ -226,11 +226,11 @@ function cetak(){
 			
 			if ($row['alamat2'] <> "" && $row['alamat1'] <> "") {
 				echo "<br>";
-            	echo "Lokasi 2: ";
+            	echo "Address 2: ";
 				echo $row['alamat2'];
 				
 				if ($row['telp3'] != "" || $row['telp4'] != "")
-					echo "<br>Telp. ";	
+					echo "<br>Phone ";	
 				if ($row['telp3'] != "" ) 
 					echo $row['telp3'];
 				if ($row['telp3'] != "" && $row['telp4'] != "") 
@@ -252,7 +252,7 @@ function cetak(){
         </td>  
     <? } else { 
 			?>    
-    	<td align="center" rowspan="2"><font size = "2" color ="red"><b>Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk memasukkan data.</b></font>
+    	<td align="center" rowspan="2"><font size = "2" color ="red"><b>Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit data.</b></font>
         </td> 
     <? } ?>   
     </tr>			 
@@ -261,14 +261,14 @@ function cetak(){
     <tr height="25"> 
 	<? 	if ($row['foto'] !="") {   	?>
 		<td align="center">
-            <a href="JavaScript:tambah_logo()"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Logo Sekolah!', this, event, '75px')" /></a>&nbsp;
-            <a href="JavaScript:hapus('logo')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Logo Sekolah!', this, event, '75px')"/></a>
+            <a href="JavaScript:tambah_logo()"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit School Logo', this, event, '75px')" /></a>&nbsp;
+            <a href="JavaScript:hapus('logo')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete School Logo', this, event, '75px')"/></a>
         </td>
      <? } ?>
      <? if (mysql_num_rows($result) >  0  && $row['nama'] != "") {	 ?>
         <td align="center">
-            <a href="JavaScript:edit()"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Header!', this, event, '85px')" /></a>&nbsp;
-            <a href="JavaScript:hapus('header')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Header!', this, event, '85px')"/></a>
+            <a href="JavaScript:edit()"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Header', this, event, '85px')" /></a>&nbsp;
+            <a href="JavaScript:hapus('header')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Header', this, event, '85px')"/></a>
         </td>
     <? } ?>
     </tr>

@@ -34,9 +34,9 @@ if ($nama!="")
 	$filter = $filter." nama LIKE '%$nama%' AND ";	
 echo "<table width='100%' border='1' class='tab'>
   <tr>
-	<td width='10' height='25' align='center' class='header'>No.</td>
-	<td width='100' height='25' align='center' class='header'>NIS</td>
-	<td width='*' height='25' align='center' class='header'>Nama</td>
+	<td width='10' height='25' align='center' class='header'>#</td>
+	<td width='100' height='25' align='center' class='header'>Student ID</td>
+	<td width='*' height='25' align='center' class='header'>Name</td>
 	<td width='30' height='25' align='center' class='header'>&nbsp;</td>
   </tr>";
 $sql = "SELECT * FROM siswa WHERE $filter aktif = 1 ORDER BY nama";
@@ -44,7 +44,7 @@ $result = QueryDb($sql);
 $num = @mysql_num_rows($result);
 if ($num==0){
 	echo "<tr>
-  			<td height='20' colspan='4' align='center' class='nodata'>Tidak ada Data</td>
+  			<td height='20' colspan='4' align='center' class='nodata'>Data Not Found.</td>
 		</tr>";	
 } else {
 	$cnt=1;

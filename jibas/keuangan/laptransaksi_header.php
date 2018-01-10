@@ -116,19 +116,19 @@ function show_laporan()
 	
 	if (idtahunbuku.length == 0) 
 	{	
-		alert ('Tahun Buku tidak boleh kosong!');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('departemen').focus();
 		return false;
 	} 
 	else if (tgl1.length == 0) 
 	{	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} 
 	else if (tgl2.length == 0) 
 	{	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -155,7 +155,7 @@ function change_tahunbuku()
 	<td rowspan="3" width="60%">
     <table width = "100%" border="0">
     <tr>
-        <td width="15%"><strong>Departemen </strong></font></td>
+        <td width="15%"><strong>Department </strong></font></td>
         <td colspan="4"> 
         <select name="departemen" id="departemen" onchange="change_dep()" onKeyPress="return focusNext('tgl1',event)" style="width:115px" onfocus="panggil('departemen')">
         <?	$dep = getDepartemen(getAccess());
@@ -165,7 +165,7 @@ function change_tahunbuku()
                 <option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?>><?=$value ?></option>
         <?  } ?>     
         </select>
-        <strong>Tahun Buku </strong>
+        <strong>Fiscal Year </strong>
         <select name="idtahunbuku" id="idtahunbuku" onchange="change_tahunbuku()" style="width:160px">
 <? 		if ($departemen != "") 
 		{ 
@@ -204,7 +204,7 @@ function change_tahunbuku()
 					
 		$n1 = JmlHari($bln1, $thn1);
 		$n2 = JmlHari($bln2, $thn2);	?>    
-        <td><strong>Tanggal </strong></td>
+        <td><strong>Date </strong></td>
         <td width="10">
         	<div id="InfoTgl1"> 
             <select name="tgl1" id="tgl1" onchange="change_tanggal()"  >  
@@ -224,7 +224,7 @@ function change_tahunbuku()
             <? for($i = $G_START_YEAR; $i <= $thn1+1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
-            </select> s/d        
+            </select> to        
         </td>
        	<td width="10">
          	<div id="InfoTgl2">
@@ -253,13 +253,13 @@ function change_tahunbuku()
     </table>
 	</td>
 	<td rowspan="3" width="*" valign="middle">
-	    <a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Klik untuk menampilkan data laporan transaksi keuangan!', this, event, '180px')" /></a>
+	    <a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Click to show transactions reports', this, event, '180px')" /></a>
     </td>
 	<td width="40%" align="right" valign="top">
-		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Transaksi Keuangan</font><br />
+		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Transaction Reports</font><br />
     	<a target="_parent" href="lapkeuangan.php">
-      	<font size="1" color="#000000"><b>Laporan Keuangan</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Transaksi Keuangan</b></font>
+      	<font size="1" color="#000000"><b>Finance Reports</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Transaction Reports</b></font>
 	</td>
 </tr>
 </table>

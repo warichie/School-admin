@@ -27,7 +27,7 @@ $utility=$_REQUEST['utility'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pencarian Siswa Main</title>
+<title>Main Search Student</title>
 	 
 </head>
 <frameset rows="15%,*" frameborder="no" border="0" framespacing="0">

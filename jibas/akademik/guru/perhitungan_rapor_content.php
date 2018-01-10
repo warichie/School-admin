@@ -103,10 +103,10 @@ function setaktif(replid,aktif) {
 	var nip = document.getElementById('nip_guru').value;
 	var id_pelajaran = document.getElementById('id_pelajaran').value;
 	if (aktif == 1) {
-		msg = "Apakah anda yakin akan mengubah bobot penilaian ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this Point Quality to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin akan mengubah bobot penilaian ini menjadi AKTIF?";
+		msg = "Are you sure want to change this Point Quality to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -130,7 +130,7 @@ function hapus(tingkat,aspek) {
 	var id = document.getElementById('id_pelajaran').value;
 	var nip = document.getElementById('nip_guru').value;
 	
-	if (confirm("Apakah anda yakin akan menghapus aspek penilaian ini?"))
+	if (confirm("Are you sure want to delete this Assessment Aspect?"))
 		document.location.href = "perhitungan_rapor_content.php?op=xm8r389xemx23xb2378e23&id_pelajaran="+id+"&id_tingkat="+tingkat+"&nip_guru="+nip+"&aspek="+aspek;
 }
 
@@ -141,7 +141,7 @@ function cetak() {
 	if (cetak == '1') 
 		newWindow('perhitungan_rapor_cetak.php?id_pelajaran='+id+'&nip_guru='+nip, 'CetakPerhitunganNilaiRapor','790','650','resizable=1,scrollbars=1,status=0,toolbar=0')
 	else 
-		alert ('Tidak ada data yang dapat dicetak');
+		alert ('No Printable data');
 }
 </script>
 </head>
@@ -155,11 +155,11 @@ function cetak() {
 <!-- TABLE TITLE -->
 <table border="0" width="100%">
 <tr>     
-  <td align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Aturan Perhitungan Nilai Rapor</font></td>
+  <td align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Report Card Calculation Rules</font></td>
 </tr>
 <tr>
   <td align="right" valign="top"><a onClick="javascript:top.content.location.href='../guru.php?page=p'" href="#">
-<font size="1" color="#000000"><b>Guru & Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Aturan Perhitungan Nilai Rapor</b></font></td>
+<font size="1" color="#000000"><b>Teacher and Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Report Card Calculation Rules</b></font></td>
 </tr>
 </table>
     
@@ -167,21 +167,21 @@ function cetak() {
 <table width="100%" border="0">   
 <tr>
     <td width="20%" rowspan="4"></td>
-    <td width="10%"><b>Departemen</b></td>
+    <td width="10%"><b>Department</b></td>
     <td><strong>: <?=$departemen ?></strong>
     <input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>">	
     </td>
     <td rowspan="2"></td>
 </tr>
 <tr>
-    <td><b>Pelajaran</b></td>
+    <td><b>Class Subject</b></td>
     <td><b>: <?=$pelajaran ?></b>	
     <input type="hidden" name="id_pelajaran" id="id_pelajaran" value="<?=$id_pelajaran ?>">   
 
     </td>
 </tr>
 <tr>
-    <td><b>Guru</b></td>
+    <td><b>Teacher</b></td>
     <td><b>: <?=$guru ?></b>
     <input type="hidden" name="nip_guru" id="nip_guru" value="<?=$nip_guru ?>" />
     </td>       
@@ -191,8 +191,8 @@ $result = QueryDb($sql);
 if (mysql_num_rows($result) > 0)
 { 
 ?>	
- 	<td align="right" colspan="2" valign="top"><a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;  
+ 	<td align="right" colspan="2" valign="top"><a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;  
    	</td>
 </tr>
 </table>
@@ -212,12 +212,12 @@ if (mysql_num_rows($result) > 0)
   		<br>
   		<fieldset>
         <legend>
-        <b>Tingkat <?=$row_tkt[tingkat] ?> &nbsp;&nbsp;&nbsp;
+        <b>Grade <?=$row_tkt[tingkat] ?> &nbsp;&nbsp;&nbsp;
 <?		if (@mysql_num_rows($result_at)>0)
 		{ 
 			$cetak = 1; ?>	
     		<a href = "JavaScript:tambah(<?=$row_tkt['replid']?>)">
-            <img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')">&nbsp;Input Aturan Perhitungan Nilai Rapor</a>
+            <img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')">&nbsp;Submit Report Card Calculation Rules</a>
 		</b>
         </legend>
         <br />
@@ -225,9 +225,9 @@ if (mysql_num_rows($result) > 0)
 	  	<!--<table border="1" width="100%" id="table<?=$cnt?>" class="tab">-->
     	<table class="tab" id="table<?=$cnt?>" border="1" style="border-collapse:collapse" width="100%" align="center">
 	  	<tr>
-			<td class="header" align="center" height="30" width="10%">No</td>
-			<td class="header" align="center" height="30">Aspek Penilaian</td>
-			<td class="header" align="center" height="30">Bobot Perhitungan Nilai Rapor </td>
+			<td class="header" align="center" height="30" width="10%">#</td>
+			<td class="header" align="center" height="30">Assessment Aspect</td>
+			<td class="header" align="center" height="30">Report Card Point Quality </td>
     	    <td class="header" colspan="2" height="30">&nbsp;</td>
 		</tr>
 <?		$i = 1;
@@ -246,23 +246,23 @@ if (mysql_num_rows($result) > 0)
 			{
 				if ($row_ju[2] == 1) 
 				{ ?>
-					<a href="JavaScript:setaktif(<?=$row_ju[3] ?>, <?=$row_ju[2] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')" /></a>&nbsp;
+					<a href="JavaScript:setaktif(<?=$row_ju[3] ?>, <?=$row_ju[2] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '50px')" /></a>&nbsp;
 			        <?=$row_ju[0]." = ".$row_ju[1]."<br>";
 				} 
 				else 
 				{ ?>
-					<a href="JavaScript:setaktif(<?=$row_ju[3] ?>, <?=$row_ju[2] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '50px')" /></a>&nbsp;
+					<a href="JavaScript:setaktif(<?=$row_ju[3] ?>, <?=$row_ju[2] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Inactive', this, event, '50px')" /></a>&nbsp;
 					<?=$row_ju[0]." = ".$row_ju[1]."<br>";
                 } // if ($row_ju[2] == 1) 
 			} // while($row_ju = mysql_fetch_row($result_ju))   ?>
 			</td>
     	 	<td align="center" width="*"> 
             	<a href = "JavaScript:edit('<?=$row_tkt['replid']?>','<?=$row_at[0]?>')">
-	            <img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah!', this, event, '50px')"></a>
+	            <img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit', this, event, '50px')"></a>
 <?			if (SI_USER_LEVEL() != $SI_USER_STAFF) 
 			{  ?>
             	<a href = "JavaScript:hapus('<?=$row_tkt['replid']?>','<?=$row_at[0]?>')">
-            	<img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus!', this, event, '50px')" /></a>    
+            	<img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete', this, event, '50px')" /></a>    
 <? 			} ?>
    			</td>
         </tr>
@@ -282,8 +282,8 @@ else
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.    
-		<br />Klik <a href="JavaScript:tambah(<?=$row_tkt['replid']?>)" ><font size = "2" color ="green">di sini</font></a> untuk mengisi data baru pada tingkat <?=$row_tkt['tingkat']?>. 
+    	<font size = "2" color ="red"><b>Data Not Found.    
+		<br />Click <a href="JavaScript:tambah(<?=$row_tkt['replid']?>)" ><font size = "2" color ="green">here</font></a> to submit a new data for Grade <?=$row_tkt['tingkat']?>. 
 		</b></font>
 		</td>
 		</tr>
@@ -308,8 +308,8 @@ else
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <?= $sql ?>
-        <br />Tambah tingkat kelas pada departemen <?=$departemen?> di menu referensi
+    	<font size = "2" color ="red"><b>Data Not Found. <?= $sql ?>
+        <br />Add class Grade on Department <?=$departemen?> in the Reference.
         </b></font>
 	</td>
 </tr>

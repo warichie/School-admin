@@ -44,7 +44,7 @@ $ndata = (int)FetchSingle($sql);
 
 if ($ndata == 0)
 {
-    $ERRMSG = "NIS atau PIN salah!";
+    $ERRMSG = "Wrong Student ID or PIN";
     include("infosiswa.login.php");
     exit();
 }
@@ -55,7 +55,7 @@ $_SESSION['islogin'] = true;
 ?>
 <script>
     $.ajax({
-        url : 'infosiswa/infosiswa.content.php?nis=<?=$nis?>&reporttype=PROFIL',
+        url : 'infosiswa/infosiswa.content.php?nis=<?=$nis?>&reporttype=PROFILE',
         type: 'get',
         success : function(html) {
             $('#is_main').html(html);

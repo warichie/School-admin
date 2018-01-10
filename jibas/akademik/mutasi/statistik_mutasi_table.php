@@ -84,16 +84,16 @@ function tampil(replid) {
 </script>
 <body>
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-&nbsp;&nbsp;&nbsp;<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+&nbsp;&nbsp;&nbsp;<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <table width="100%" border="0">
   <tr>
     <td>
     <table width="95%"  border="1" align="center" cellpadding="3" cellspacing="0" class="tab" id="table" bordercolor="#000000">
 	 <tr class="header">
-        <td height="30" align="center">No</td>
-		<td height="30" align="center">Jenis Mutasi</td>
-        <td height="30">Jumlah </td>
+        <td height="30" align="center">#</td>
+		<td height="30" align="center">Mutation Type</td>
+        <td height="30">Sum </td>
         <td height="30"></td>
       </tr>
  <?
@@ -106,13 +106,13 @@ $cnt=1;
 	$row2=@mysql_fetch_row($result2);
 
 ?>
-<tr><td><?=$cnt?></td><td><?=$row1[jenismutasi]?></td><td><?=$row2[0]?>&nbsp;siswa</td><td><img onClick="detail1('<?=$departemen?>','<?=$tahunawal?>','<?=$tahunakhir?>','<?=$row1[replid]?>')" src="../images/ico/lihat.png"></td></tr>
+<tr><td><?=$cnt?></td><td><?=$row1[jenismutasi]?></td><td><?=$row2[0]?>&nbsp;the student</td><td><img onClick="detail1('<?=$departemen?>','<?=$tahunawal?>','<?=$tahunakhir?>','<?=$row1[replid]?>')" src="../images/ico/lihat.png"></td></tr>
 <?
 $sql3="SELECT COUNT(*),YEAR(m.tglmutasi) FROM mutasisiswa m,siswa s,kelas k,tingkat ti,tahunajaran ta WHERE m.jenismutasi='$row1[replid]' AND YEAR(m.tglmutasi)<='$tahunakhir' AND YEAR(m.tglmutasi)>='$tahunawal' AND m.nis=s.nis AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND s.idkelas=k.replid AND ta.departemen='$departemen' AND ti.departemen='$departemen' GROUP BY YEAR(m.tglmutasi)";
 $result3=QueryDb($sql3);
 while ($row3=@mysql_fetch_row($result3)){
 ?>
-<tr><td>&nbsp;</td><td>-&nbsp;<?=$row3[1]?></td><td><?=$row3[0]?>&nbsp;siswa</td><td><img  onClick="detail2('<?=$departemen?>','<?=$row3[1]?>','<?=$row1[replid]?>')" src="../images/ico/lihat.png"></td></tr>
+<tr><td>&nbsp;</td><td>-&nbsp;<?=$row3[1]?></td><td><?=$row3[0]?>&nbsp;the student</td><td><img  onClick="detail2('<?=$departemen?>','<?=$row3[1]?>','<?=$row1[replid]?>')" src="../images/ico/lihat.png"></td></tr>
 <?
 }
 $cnt++;

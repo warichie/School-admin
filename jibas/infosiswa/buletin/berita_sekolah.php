@@ -42,10 +42,10 @@ require_once('../include/db_functions.php');
 <tr height="1000"><td valign="top">
 <!-- Content Begin Here......... -->
 <div align="right">
-<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Berita Sekolah</font><br />
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">School News</font><br />
            <a href="../center.php" target="framecenter">
-            <font size="1" color="#000000"><b>Home</b></font></a>&nbsp>&nbsp 
-            <font size="1" color="#000000"><b>Berita Sekolah</b></font><br /><br /><br /><br />
+            <font size="1" color="#000000"><b>Home</b></font></a>&nbsp;>&nbsp; 
+            <font size="1" color="#000000"><b>School News</b></font><br /><br /><br /><br />
            </div>
             
 <table width="100%" border="0" cellspacing="0">

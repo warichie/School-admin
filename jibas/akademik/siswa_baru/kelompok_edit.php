@@ -42,7 +42,7 @@ if (isset($_REQUEST['simpan'])) {
 	$result_cek = QueryDb($sql_cek);
 	
 	if (mysql_num_rows($result_cek) > 0) {
-		$ERROR_MSG = "Nama ".$_REQUEST['kelompok']." sudah digunakan!";
+		$ERROR_MSG = "Name ".$_REQUEST['kelompok']." has been used";
 		CloseDb();
 	} else {
 		$sql = "UPDATE jbsakad.kelompokcalonsiswa SET kelompok='".CQ($_REQUEST['kelompok'])."', idproses='$id', kapasitas='$_REQUEST[kapasitas]', keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid='$replid'";
@@ -82,7 +82,7 @@ if (isset($_REQUEST['keterangan']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Kelompok Calon Siswa]</title>
+<title>JIBAS SIMAKA [Edit Student Candidate Group]</title>
 <link href="../script/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -91,10 +91,10 @@ if (isset($_REQUEST['keterangan']))
 <script language="javascript">
 
 function validate() {
-	return validateEmptyText('kelompok', 'Nama Kelompok') && 
-		   validateEmptyText('kapasitas', 'Kapasitas') && 	
-		   validateNumber('kapasitas', 'Kapasitas') &&
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('kelompok', 'Group Name') && 
+		   validateEmptyText('kapasitas', 'Capacity') && 	
+		   validateNumber('kapasitas', 'Capacity') &&
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -127,7 +127,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Kelompok Calon Siswa :.
+    .: Edit Student Candidate Group :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -142,39 +142,39 @@ function panggil(elem){
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
 	<td><input type="text" name="departemen" id="departemen" size="10" value="<?=$departemen ?>" readonly class="disabled"/><input type="hidden" name="departemen" id="departemen" value ="<?=$departemen ?>" />
     
     </td>
 </tr>
 <tr>
-	<td><strong>Penerimaan</strong></td>
+	<td><strong>Admission</strong></td>
 	<td><input type="text" name="proses" id="proses" size="30" value="<?=$proses ?>" readonly class="disabled"/>
     	<input type="hidden" name="id" id="id" value="<?=$id ?>" />
     </td>
 </tr>
 <tr>
-    <td><strong>Kelompok</strong></td>
+    <td><strong>Group</strong></td>
     <td>
-    	<input type="text" name="kelompok" id="kelompok" size="30" maxlength="100" value="<?=$kelompok ?>" onFocus="showhint('Nama kelompok tidak boleh lebih dari 100 karakter!', this, event, '120px');panggil('kelompok')"  onKeyPress="return focusNext('kapasitas', event)"  />
+    	<input type="text" name="kelompok" id="kelompok" size="30" maxlength="100" value="<?=$kelompok ?>" onFocus="showhint('Group Name should not exceed 100 characters', this, event, '120px');panggil('kelompok')"  onKeyPress="return focusNext('kapasitas', event)"  />
     </td>
 </tr>
 <tr>
-	<td><strong>Kapasitas</strong></td>
+	<td><strong>Capacity</strong></td>
 	<td>
-    	<input type="text" name="kapasitas" id="kapasitas" size="3" maxlength="4" value="<?=$kapasitas ?>" onFocus="showhint('Kapasitas tidak boleh lebih dari 4 karakter!', this, event, '120px');panggil('kapasitas')"  onKeyPress="return focusNext('keterangan', event)"  />
+    	<input type="text" name="kapasitas" id="kapasitas" size="3" maxlength="4" value="<?=$kapasitas ?>" onFocus="showhint('Capacity should not exceed 4 characters', this, event, '120px');panggil('kapasitas')"  onKeyPress="return focusNext('keterangan', event)"  />
     </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onKeyPress="return focusNext('simpan', event)" onFocus="panggil('keterangan')"><?=$keterangan ?></textarea>
     </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="simpan" id="simpan" value="Simpan" class="but" onFocus="panggil('simpan')"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />
+    <input type="submit" name="simpan" id="simpan" value="Save" class="but" onFocus="panggil('simpan')"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />
     </td>
 </tr>
 <!-- END OF TABLE CONTENT -->

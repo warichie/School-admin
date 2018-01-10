@@ -90,7 +90,7 @@ define('USE_IMAGE_ERROR_HANDLER',true);
 
 // Should the library examine the global php_errmsg string and convert
 // any error in it to a graphical representation. This is handy for the
-// occasions when, for example, header files cannot be found and this results
+// occasions when, for example, header files should not be found and this results
 // in the graph not being created and just a 'red-cross' image would be seen.
 // This should be turned off for a production site.
 define('CATCH_PHPERRMSG',true);

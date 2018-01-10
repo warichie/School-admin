@@ -83,14 +83,14 @@ function scrollMiddle() {
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td colspan="2"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>JADWAL</strong></font></p></td>
+    <td colspan="2"><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>SCHEDULE</strong></font></p></td>
   </tr>
   <tr>
     <td colspan="2">&nbsp;</td>
   </tr>
   <tr>
-    <td width="81" align="right"><a href="jadwal/jadwal_kelas_main.php" onMouseOver="showhint('Jadwal Setiap Kelas', this, event, '100px')"><img src="images/jadwal_12.jpg" alt="" border="0"></a></td>
-    <td width="91%" align="left"><a href="jadwal/jadwal_kelas_main.php" onMouseOver="showhint('Jadwal Setiap Kelas', this, event, '100px')">Jadwal Setiap Kelas</a></td>
+    <td width="81" align="right"><a href="jadwal/jadwal_kelas_main.php" onMouseOver="showhint('Schedule for each Classes', this, event, '100px')"><img src="images/jadwal_12.jpg" alt="" border="0"></a></td>
+    <td width="91%" align="left"><a href="jadwal/jadwal_kelas_main.php" onMouseOver="showhint('Schedule for each Classes', this, event, '100px')">Schedule for each Classes</a></td>
   </tr>
   <tr>
     <td width="81">&nbsp;</td>
@@ -98,8 +98,8 @@ function scrollMiddle() {
   </tr>
   <? if (SI_USER_LEVEL()!=0){ ?>
   <tr>
-    <td width="81" align="right"><a href="jadwal/jadwal_guru_main.php" onMouseOver="showhint('Penyusunan Jadwal Setiap Guru', this, event, '100px')"><img src="images/jadwal_02.jpg" alt="" border="0"></a></td>
-    <td align="left"><a href="jadwal/jadwal_guru_main.php" onMouseOver="showhint('Penyusunan Jadwal Setiap Guru', this, event, '100px')">Jadwal Setiap Guru</a></td>
+    <td width="81" align="right"><a href="jadwal/jadwal_guru_main.php" onMouseOver="showhint('Manage Schedule for each Teachers', this, event, '100px')"><img src="images/jadwal_02.jpg" alt="" border="0"></a></td>
+    <td align="left"><a href="jadwal/jadwal_guru_main.php" onMouseOver="showhint('Manage Schedule for each Teachers', this, event, '100px')">Schedule for each Teachers</a></td>
   </tr>
   <? } ?>
 </table>

@@ -49,7 +49,7 @@ if (isset($_REQUEST['total'])) {
 
 if ($aktif) {
 	//echo 'halooo lagi masuk nih';
-	echo 'ada '.$_REQUEST['nis1'];
+	echo 'This data is existed '.$_REQUEST['nis1'];
 	//lagi();
 	//lagi();
 	//echo 'nisa '.$nisa[1];
@@ -66,7 +66,7 @@ if ($aktif) {
 }
 
 $status = 0;
-$st = array('Hadir', 'Ijin', 'Sakit', 'Alpha', '(tidak ada data)');
+$st = array('Attend', 'Consent', 'Ill', 'Absent', '(no data)');
 	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -75,7 +75,7 @@ $st = array('Hadir', 'Ijin', 'Sakit', 'Alpha', '(tidak ada data)');
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Siswa Pada Presensi Pelajaran]</title>
+<title>JIBAS SIMAKA [Add Student in Class Presence]</title>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -86,22 +86,22 @@ function siswa() {
 	var tingkat = document.getElementById('tingkat').value;
 	var tahunajaran = document.getElementById('tahunajaran').value;
 	var kelas = document.getElementById('kelas').value;
-	newWindow('daftarsiswa_coba.php?flag=0&departemen='+departemen+'&tingkat='+tingkat+'&tahunajaran='+tahunajaran+'&kelas='+kelas, 'Siswa','600','500','resizable=1,scrollbars=1,status=0,toolbar=0');
-	//newWindow('daftarsiswa.php?flag=0&departemen='+departemen+'&tingkat='+tingkat+'&tahunajaran='+tahunajaran+'&kelas='+kelas, 'Siswa','600','500','resizable=1,scrollbars=1,status=0,toolbar=0');
+	newWindow('daftarsiswa_coba.php?flag=0&departemen='+departemen+'&tingkat='+tingkat+'&tahunajaran='+tahunajaran+'&kelas='+kelas, 'Student','600','500','resizable=1,scrollbars=1,status=0,toolbar=0');
+	//newWindow('daftarsiswa.php?flag=0&departemen='+departemen+'&tingkat='+tingkat+'&tahunajaran='+tahunajaran+'&kelas='+kelas, 'Student','600','500','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
 function acceptSiswa(nis, nama, i) {	
 	//sendRequestText("presensi_get_siswa.php", show(), "nis"+i+"="+nis+"&nama"+i+"="+nama+"&i="+i);
 	sendRequestText("presensi_get_siswa.php", show, "nis"+i+"="+nis+"&nama"+i+"="+nama+"&i="+i);
 	
-	alert ('ada siswa dan pilih'+nis+' '+nama);
+	alert ('This data is existed and select '+nis+' '+nama);
 	//document.location.href="presensi_tambah_siswa.php?total="+nis;
 	//document.getElementById('nis'+i).value = nis;
 	//document.getElementById('nama'+i).value = nama;
 }
 
 function tambah() {		
-	alert ('udah kepilih');
+	alert ('Already selected');
 	//var siswa = document.getElementById("siswa").value;
 	//var pilih = document.getElementById("pilih").value;
 	window.close();
@@ -130,8 +130,8 @@ function show(x) {
 <table border="0" cellpadding="5" cellspacing="5" width="100%" align="center">
 <!-- TABLE UTAMA -->
 <tr>
-  <td><strong>Tambah Siswa pada Presensi Pelajaran</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="button" name="pilih" class="but" id="cari" value="Cari Siswa" onclick="siswa()" /></td></tr>
+  <td><strong>Add Student in Class Presence</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" name="pilih" class="but" id="cari" value="Search" onclick="siswa()" /></td></tr>
 
 <tr>
 <td align="left">
@@ -139,10 +139,10 @@ function show(x) {
 		
         <tr>		
 			<td class="header" align="center" width="5%"></td>
-			<td class="header" align="center" width="10%">NIS</td>
-			<td class="header" align="center" width="25%">Nama</td>
-            <td class="header" align="center" width="5%">Presensi</td>
-            <td class="header" align="center" width="53%">Catatan</td>
+			<td class="header" align="center" width="10%">Student ID</td>
+			<td class="header" align="center" width="25%">Name</td>
+            <td class="header" align="center" width="5%">Presence</td>
+            <td class="header" align="center" width="53%">Notes</td>
 		</tr>
 		<div id = "Info">
         	
@@ -160,8 +160,8 @@ function show(x) {
         <tr>        			
 			<td align="center">
             
-            <!--<a href="#null" onClick="newWindow('../library/daftarsiswa.php','Cari Siswa','520','450','resizable=0,scrollbars=1,status=0,toolbar=0');">-->
-            <a href="JavaScript:hapus()" title="Hapus"><img src="../images/ico/hapus.png" border="0"></a>
+            <!--<a href="#null" onClick="newWindow('../library/daftarsiswa.php','Cari Student','520','450','resizable=0,scrollbars=1,status=0,toolbar=0');">-->
+            <a href="JavaScript:hapus()" title="Delete"><img src="../images/ico/hapus.png" border="0"></a>
             </td>
 			<td align="center">
             <input type="text" name="nis<?=$j?>" id="nis<?=$j?>" readonly style="background-color:#CCCCCC" size="10" />          
@@ -187,8 +187,8 @@ function show(x) {
 </td></tr>
 <tr height="30">
 	<td align="center">
-    <input type="submit" name="simpan" value="Simpan" class="but" />
-    <input type="button" class="but" name="tutup" id="tutup" value="Tutup" onClick="parent.tutup()" /></td>
+    <input type="submit" name="simpan" value="Save" class="but" />
+    <input type="button" class="but" name="tutup" id="tutup" value="Close" onClick="parent.tutup()" /></td>
 </tr>	
 <!-- END OF TABLE UTAMA -->
 </table>

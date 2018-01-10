@@ -28,33 +28,33 @@ class PengumumanAjax{
 		//echo "</pre>";
 		$op = $_REQUEST['op'];
 		//echo $op;
-		//Pilih Pegawai
-		$bag = $_REQUEST['Bagian'];
+		//Select Pegawai
+		$bag = $_REQUEST['Section'];
 		//echo $bag;
 		
-		//Cari Pegawai
-		$NIP 	= $_REQUEST['NIP'];
+		//Search
+		$Employee ID 	= $_REQUEST['Employee ID'];
 		$Nama 	= $_REQUEST['Nama'];
 		
-		//Pilih Siswa
+		//Select Student
 		$dep 	= $_REQUEST['dep'];
 		$thn 	= $_REQUEST['thn'];
 		$tkt 	= $_REQUEST['tkt'];
 		$kls 	= $_REQUEST['kls'];
 		
-		//Cari Siswa
-		$NIS 	= $_REQUEST['NIS'];
+		//Cari Student
+		$Student ID 	= $_REQUEST['Student ID'];
 		
 		//Source
 		$Source = $_REQUEST['Source'];
 		$this->bag = $bag;
-		$this->NIP = $NIP;
-		$this->Nama = $Nama;
+		$this->Employee ID = $Employee ID;
+		$this->Name = $Nama;
 		$this->dep = $dep;
 		$this->thn = $thn;
 		$this->tkt = $tkt;
 		$this->kls = $kls;
-		$this->NIS = $NIS;
+		$this->Student ID = $Student ID;
 		$this->Source = $Source;
 		
 		if ($op=='GetTablePegawai')
@@ -76,29 +76,29 @@ class PengumumanAjax{
 		global $db_name_sdm;
 		global $db_name_fina;
 		global $db_name_user;
-		$Nama = $this->Nama;
+		$Nama = $this->Name;
 		$kls = $this->kls;
-		$NIS = $this->NIS;
+		$Student ID = $this->Student ID;
 		$Source = $this->Source;
 		?>
 		<link href="style/style.css" rel="stylesheet" type="text/css" />
 		
 		<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="TableSis">
 		  <tr class="Header">
-			<td width='50'>No</td>
-			<td width="100">NIS</td>
-            <td>Nama</td>
-			<td width="100">HP Siswa</td>
+			<td width='50'>#</td>
+			<td width="100">Student ID</td>
+            <td>Name</td>
+			<td width="100">Student Mobile Number</td>
 			<td><input type="checkbox" id="CheckAllSiswa"></td>
 		  </tr>
 		  <?
-			if ($Source=='Pilih'){
+			if ($Source=='Select'){
 				$sql = "SELECT nis, nama, hpsiswa, pinsiswa FROM $db_name_akad.siswa WHERE aktif=1 AND idkelas='$kls' ";
 			} else {
 				$sql = "SELECT nis, nama, hpsiswa, pinsiswa FROM $db_name_akad.siswa WHERE replid>0 ";
-				if ($NIS!="" && $NIS!="NIS Siswa")
-					$sql .= " AND nis LIKE '%$NIS%'";
-				if ($Nama!="" && $Nama!="Nama Siswa")
+				if ($Student ID!="" && $Student ID!="Student ID")
+					$sql .= " AND nis LIKE '%$Student ID%'";
+				if ($Nama!="" && $Nama!="Name Student")
 					$sql .= " AND nama LIKE '%$Nama%'";	
 			}
 			$sql .= "  ORDER BY nama";	
@@ -115,7 +115,7 @@ class PengumumanAjax{
 			<td class="td" align="left"><?=$row['hpsiswa']?></td>
 			<td class="td" align="center">
 			<? if (strlen($row['hpsiswa'])>0){ ?>
-			<!--span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hpsiswa']?>','<?=$row['nama']?>','<?=$row['nis']?>')"  />Pilih</span-->
+			<!--span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hpsiswa']?>','<?=$row['nama']?>','<?=$row['nis']?>')"  />Select</span-->
 			<input type="checkbox" class="checkboxsiswa" hp="<?=$row['hpsiswa']?>" nama="<?=$row['nama']?>" nip="<?=$row['nis']?>" pin="<?=$row['pinsiswa']?>">
 			<? } ?>
 			</td>
@@ -126,7 +126,7 @@ class PengumumanAjax{
 			} else {
 			?>
 		  <tr>
-			<td colspan="5" class="Ket" align="center">Tidak ada data</td>
+			<td colspan="5" class="Ket" align="center">Data Not Found.</td>
 		  </tr>
 		  <?
 			}
@@ -140,29 +140,29 @@ class PengumumanAjax{
 		global $db_name_sdm;
 		global $db_name_fina;
 		global $db_name_user;
-		$Nama = $this->Nama;
+		$Nama = $this->Name;
 		$kls = $this->kls;
-		$NIS = $this->NIS;
+		$Student ID = $this->Student ID;
 		$Source = $this->Source;
 		?>
 		<link href="style/style.css" rel="stylesheet" type="text/css" />
 		
 		<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="TableOr">
 		  <tr class="Header">
-			<td width='50'>No</td>
-			<td width='100'>NIS</td>
-			<td>Nama</td>
-			<td>No. HP Ortu</td>
+			<td width='50'>#</td>
+			<td width='100'>Student ID</td>
+			<td>Name</td>
+			<td>Parent Mobile Number</td>
 			<td><input type="checkbox" id="CheckAllOrtu"></td>
 		  </tr>
 		  <?
-			if ($Source=='Pilih'){
+			if ($Source=='Select'){
 				$sql = "SELECT * FROM $db_name_akad.siswa WHERE aktif=1 AND idkelas='$kls'";
 			} else {
 				$sql = "SELECT * FROM $db_name_akad.siswa WHERE replid>0";
-				if ($NIS!="" && $NIS!="NIS Siswa")
-					$sql .= " AND nis LIKE '%$NIS%'";
-				if ($Nama!="" && $Nama!="Nama Siswa")
+				if ($Student ID!="" && $Student ID!="Student ID")
+					$sql .= " AND nis LIKE '%$Student ID%'";
+				if ($Nama!="" && $Nama!="Name Student")
 					$sql .= " AND nama LIKE '%$Nama%'";	
 			}
 			$sql .= " ORDER BY nama";
@@ -185,7 +185,7 @@ class PengumumanAjax{
 			  if (strlen($row['namaayah'])==0)
 				  $nama = $row['nama'];
 			  ?>
-			<!--span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hportu']?>','<?=$nama?>','<?=$row['nis']?>')"  />Pilih</span-->
+			<!--span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hportu']?>','<?=$nama?>','<?=$row['nis']?>')"  />Select</span-->
 			<input type="checkbox" class="checkboxortu" hp="<?=$row['hportu']?>" nama="<?=$nama?>" nip="<?=$row['nis']?>" pinayah="<?=$row['pinortu']?>" pinibu="<?=$row['pinortuibu']?>">
 			<? } ?>
 			</td>
@@ -196,7 +196,7 @@ class PengumumanAjax{
 			} else {
 			?>
 		  <tr>
-			<td colspan="5" class="Ket" align="center">Tidak ada data</td>
+			<td colspan="5" class="Ket" align="center">Data Not Found.</td>
 		  </tr>
 		  <?
 			}
@@ -266,15 +266,15 @@ class PengumumanAjax{
 		global $db_name_user;
 		
 		$bag = $this->bag;
-		$NIP = $this->NIP;
-		$Nama = $this->Nama;
+		$Employee ID = $this->Employee ID;
+		$Nama = $this->Name;
 		$Source = $this->Source;
 		if ($bag=="")
 			$bag='-1';
-		if ($Source=='' || $Source=='Pilih'){
+		if ($Source=='' || $Source=='Select'){
 			$DispA = "style='display:block'";
 			$DispB = "style='display:none'";
-		} elseif ($Source=='Cari'){
+		} elseif ($Source=='Search'){
 			$DispA = "style='display:none'";
 			$DispB = "style='display:block'";
 		}
@@ -283,14 +283,14 @@ class PengumumanAjax{
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 		  <tr>
 			<td style="padding:5px">
-			<div style="width:230px; background-color:#CCC; height:18px; font-weight:bold; padding-top:4px; cursor:default; border:1px #666 solid" align="center" onclick="document.getElementById('PegSelect').style.display='block';document.getElementById('PegSearch').style.display='none';">Pilih Pegawai	</div>
+			<div style="width:230px; background-color:#CCC; height:18px; font-weight:bold; padding-top:4px; cursor:default; border:1px #666 solid" align="center" onclick="document.getElementById('PegSelect').style.display='block';document.getElementById('PegSearch').style.display='none';">Select Employee	</div>
 			<div id="PegSelect" <?=$DispA?>>
 				<table border="0" cellspacing="0" cellpadding="0">
 				  <tr>
-					<td style="padding-right:4px">Bagian</td>
+					<td style="padding-right:4px">Section</td>
 					<td class="td">
 					  <select id="CmbBagPeg" name="CmbBagPeg" class="Cmb" onchange="ChgCmbBagPeg(this.value)">
-						<option value="-1" <?=StringIsSelected('-1',$bag)?>>- Semua Bagian -</option>
+						<option value="-1" <?=StringIsSelected('-1',$bag)?>>- All Sections -</option>
 						<?
 							$sql = "SELECT bagian FROM $db_name_sdm.bagianpegawai";
 							$res = QueryDb($sql);
@@ -305,19 +305,19 @@ class PengumumanAjax{
 					</tr>
 				</table>
 			</div>
-			<div style="width:230px; background-color:#CCC; height:18px; font-weight:bold; padding-top:4px; cursor:default; border:1px #666 solid; margin-top:3px" align="center" onclick="document.getElementById('PegSearch').style.display='block';document.getElementById('PegSelect').style.display='none';document.getElementById('InpNIPPeg').focus()">Cari Pegawai</div>
+			<div style="width:230px; background-color:#CCC; height:18px; font-weight:bold; padding-top:4px; cursor:default; border:1px #666 solid; margin-top:3px" align="center" onclick="document.getElementById('PegSearch').style.display='block';document.getElementById('PegSelect').style.display='none';document.getElementById('InpNIPPeg').focus()">Search Employee</div>
 			<div id="PegSearch" <?=$DispB?>>
 				<table border="0" cellspacing="0" cellpadding="0">
 				  <tr>
-					<td style="padding-right:4px" valign="top" class="tdTop">NIP</td>
+					<td style="padding-right:4px" valign="top" class="tdTop">Employee ID</td>
 					<td class="td">
-						<input type="text" name="InpNIPPeg" id="InpNIPPeg" class="InputTxt" value="<?=$NIP?>" />
+						<input type="text" name="InpNIPPeg" id="InpNIPPeg" class="InputTxt" value="<?=$Employee ID?>" />
 						<div id="ErrInpNIPPeg" class="ErrMsg"></div>  
 					</td>
 					<td rowspan="2" align="center" valign="middle" class="td"><img src="images/ico/lihat.png" width="20" height="20" style="cursor:pointer" onclick="SearchPeg()" /></td>
 				  </tr>
 				  <tr>
-					<td style="padding-right:4px" valign="top" class="tdTop">Nama</td>
+					<td style="padding-right:4px" valign="top" class="tdTop">Name</td>
 					<td class="td">
 						<input type="text" name="InpNamaPeg" id="InpNamaPeg" class="InputTxt" value="<?=$Nama?>" />  
 						<div id="ErrInpNamaPeg" class="ErrMsg"></div>
@@ -332,10 +332,10 @@ class PengumumanAjax{
 			<div id="TablePegawai">
 			<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
 			  <tr class="Header">
-				<td width='50'>No</td>
-				<td width='100'>NIP</td>
-				<td>Nama</td>
-				<td>No. Ponsel</td>
+				<td width='50'>#</td>
+				<td width='100'>Employee ID</td>
+				<td>Name</td>
+				<td>Mobile</td>
 				<td><input type="checkbox" id="CheckAllPegawai"></td>
 			  </tr>
 			  <?
@@ -357,7 +357,7 @@ class PengumumanAjax{
 				<td class="td" align="center">
 				<? if (strlen($row['handphone'])>0){ ?>
 				<input type="checkbox" class="checkboxpegawai" hp="<?=$row['handphone']?>" nama="<?=$row['nama']?>" nip="<?=$row['nip']?>"  pin="<?=$row['pinpegawai']?>">
-				<!--span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center" />Pilih</span-->
+				<!--span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center" />Select</span-->
 				<? } ?>
 				</td>
 			  </tr>
@@ -367,7 +367,7 @@ class PengumumanAjax{
 				} else {
 				?>
 			  <tr>
-				<td colspan="4" class="Ket" align="center">Tidak ada data</td>
+				<td colspan="4" class="Ket" align="center">Data Not Found.</td>
 			  </tr>
 			  <?
 				}
@@ -389,11 +389,11 @@ class PengumumanAjax{
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td style="padding:5px">
-            <div style="width:400px; background-color:#CCC; height:18px; font-weight:bold; padding-top:4px; cursor:default; border:1px #666 solid" align="center" onclick="document.getElementById('SisSelect').style.display='block';document.getElementById('SisSearch').style.display='none';">Pilih Siswa	</div>
+            <div style="width:400px; background-color:#CCC; height:18px; font-weight:bold; padding-top:4px; cursor:default; border:1px #666 solid" align="center" onclick="document.getElementById('SisSelect').style.display='block';document.getElementById('SisSearch').style.display='none';">Select Student	</div>
             <div id="SisSelect" <?=$DispA?>>
                 <table border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td style="padding-right:4px">Departemen</td>
+                    <td style="padding-right:4px">Department</td>
                     <td class="td">
                       <select id="CmbDepSis" name="CmbDepSis" class="Cmb" onchange="ChgCmbDepSis()">
                             <?
@@ -409,7 +409,7 @@ class PengumumanAjax{
                             ?>
                         </select>
                       </td>
-                    <td class="td">Tingkat</td>
+                    <td class="td">Grade</td>
                     <td class="td">
                         <select id="CmbTktSis" name="CmbTktSis" class="Cmb" onchange="ChgCmbTktThnSis()">
                             <?
@@ -427,7 +427,7 @@ class PengumumanAjax{
                     </td>
                     </tr>
                   <tr>
-                    <td style="padding-right:4px">Tahun Ajaran</td>
+                    <td style="padding-right:4px">Year</td>
                     <td class="td">
                         <select id="CmbThnSis" name="CmbThnSis" class="Cmb" onchange="ChgCmbTktThnSis()">
                             <?
@@ -443,7 +443,7 @@ class PengumumanAjax{
                             ?>
                         </select>
                     </td>
-                    <td class="td">Kelas</td>
+                    <td class="td">Class</td>
                     <td class="td">
                         <select id="CmbKlsSis" name="CmbKlsSis" class="Cmb" onchange="ChgCmbKlsSis()">
                             <?
@@ -462,19 +462,19 @@ class PengumumanAjax{
                   </tr>
                 </table>
             </div>
-            <div style="width:400px; background-color:#CCC; height:18px; font-weight:bold; padding-top:4px; cursor:default; border:1px #666 solid; margin-top:3px" align="center" onclick="document.getElementById('SisSearch').style.display='block';document.getElementById('SisSelect').style.display='none';">Cari Siswa</div>
+            <div style="width:400px; background-color:#CCC; height:18px; font-weight:bold; padding-top:4px; cursor:default; border:1px #666 solid; margin-top:3px" align="center" onclick="document.getElementById('SisSearch').style.display='block';document.getElementById('SisSelect').style.display='none';">Search Student</div>
             <div id="SisSearch" style="display:none">
                 <table border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td style="padding-right:4px" valign="top" class="tdTop">NIS</td>
+                    <td style="padding-right:4px" valign="top" class="tdTop">Student ID</td>
                     <td class="td">
-                        <input type="text" name="InpNISSis" id="InpNISSis" class="InputTxt" value="<?=$NIS?>" />
+                        <input type="text" name="InpNISSis" id="InpNISSis" class="InputTxt" value="<?=$nis?>" />
                         <div id="ErrInpNISSis" class="ErrMsg"></div>  
                     </td>
                     <td rowspan="2" align="center" valign="middle" class="td"><img src="images/ico/lihat.png" width="20" height="20" style="cursor:pointer" onclick="SearchSis()" /></td>
                   </tr>
                   <tr>
-                    <td style="padding-right:4px" valign="top" class="tdTop">Nama</td>
+                    <td style="padding-right:4px" valign="top" class="tdTop">Name</td>
                     <td class="td">
                         <input type="text" name="InpNamaSis" id="InpNamaSis" class="InputTxt" value="<?=$Nama?>" />  
                         <div id="ErrInpNamaSis" class="ErrMsg"></div>
@@ -489,10 +489,10 @@ class PengumumanAjax{
             <div id="TableSiswa">
             <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
               <tr class="Header">
-                <td width='50'>No</td>
-                <td width='100'>NIS</td>
-				<td>Nama</td>
-                <td>No. Ponsel Siswa</td>
+                <td width='50'>#</td>
+                <td width='100'>Student ID</td>
+				<td>Name</td>
+                <td>Mobile</td>
                 <td>&nbsp;</td>
               </tr>
               <?
@@ -510,7 +510,7 @@ class PengumumanAjax{
                 <td class="td"><?=$row['hpsiswa']?></td>
                 <td class="td" align="center">
                 <? if (strlen($row['hpsiswa'])>0){ ?>
-                <span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hpsiswa']?>_<?=$row['hportu']?>','<?=$row['nama']?>_<?=$row['namaayah']?>','<?=$row['nis']?>')"  />Pilih</span>
+                <span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hpsiswa']?>_<?=$row['hportu']?>','<?=$row['nama']?>_<?=$row['namaayah']?>','<?=$row['nis']?>')"  />Select</span>
                 <? } ?>
                 </td>
               </tr>
@@ -520,7 +520,7 @@ class PengumumanAjax{
                 } else {
                 ?>
               <tr>
-                <td colspan="5" class="Ket" align="center">Tidak ada data</td>
+                <td colspan="5" class="Ket" align="center">Data Not Found.</td>
               </tr>
               <?
                 }
@@ -540,8 +540,8 @@ class PengumumanAjax{
 		global $db_name_user;		
 		
 		$bag = $this->bag;
-		$NIP = $this->NIP;
-		$Nama = $this->Nama;
+		$Employee ID = $this->Employee ID;
+		$Nama = $this->Name;
 		$Source = $this->Source;
 		if ($bag=="")
 			$bag='-1';
@@ -549,23 +549,23 @@ class PengumumanAjax{
 		<link href="style/style.css" rel="stylesheet" type="text/css" />
 		<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="TablePeg">
 		  <tr class="Header">
-			<td width='50'>No</td>
-			<td width='100'>NIP</td>
-			<td>Nama</td>
-			<td>No. Ponsel</td>
+			<td width='50'>#</td>
+			<td width='100'>Employee ID</td>
+			<td>Name</td>
+			<td>Mobile</td>
 			<td><input type="checkbox" id="CheckAllPegawai"></td>
 		  </tr>
 		  <?
-			if ($Source=='Pilih'){
+			if ($Source=='Select'){
 				if ($bag=='-1')
 					$sql = "SELECT * FROM $db_name_sdm.pegawai ORDER BY nama";
 				else
 					$sql = "SELECT * FROM $db_name_sdm.pegawai WHERE bagian='$bag' ORDER BY nama";
 			} else {
 				$sql = "SELECT * FROM $db_name_sdm.pegawai WHERE replid>0";
-				if ($NIP!="" && $NIP!="NIP Pegawai")
-					$sql .= " AND nip LIKE '%$NIP%'";
-				if ($Nama!="" && $Nama!="Nama Pegawai")
+				if ($Employee ID!="" && $Employee ID!="Employee ID")
+					$sql .= " AND nip LIKE '%$Employee ID%'";
+				if ($Nama!="" && $Nama!="Employee Name")
 					$sql .= " AND nama LIKE '%$Nama%'";	
 			}
 			//echo $sql;
@@ -582,7 +582,7 @@ class PengumumanAjax{
 			<td class="td"><?=$row['handphone']?></td>
 			<td class="td" align="center">
 			<? if (strlen($row['handphone'])>0){ ?>
-			<!--span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center"  />Pilih</span-->
+			<!--span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center"  />Select</span-->
 			<input type="checkbox" class="checkboxpegawai" hp="<?=$row['handphone']?>" nama="<?=$row['nama']?>" nip="<?=$row['nip']?>" pin="<?=$row['pinpegawai']?>">
 			<? } ?>
 			</td>
@@ -593,7 +593,7 @@ class PengumumanAjax{
 			} else {
 			?>
 		  <tr>
-			<td colspan="4" class="Ket" align="center">Tidak ada data</td>
+			<td colspan="4" class="Ket" align="center">Data Not Found.</td>
 		  </tr>
 		  <?
 			}

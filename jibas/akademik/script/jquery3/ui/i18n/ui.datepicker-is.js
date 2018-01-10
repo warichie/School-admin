@@ -10,7 +10,7 @@ jQuery(function($){
 		nextBigText: '&#x3e;&#x3e;', nextBigStatus: '',
 		currentText: '&Iacute; dag', currentStatus: '',
 		monthNames: ['Jan&uacute;ar','Febr&uacute;ar','Mars','Apr&iacute;l','Ma&iacute','J&uacute;n&iacute;',
-		'J&uacute;l&iacute;','&Aacute;g&uacute;st','September','Okt&oacute;ber','N&oacute;vember','Desember'],
+		'J&uacute;l&iacute;','&Aacute;g&uacute;st','September','Okt&oacute;ber','N&oacute;vember','December'],
 		monthNamesShort: ['Jan','Feb','Mar','Apr','Ma&iacute;','J&uacute;n',
 		'J&uacute;l','&Aacute;g&uacute;','Sep','Okt','N&oacute;v','Des'],
 		monthStatus: '', yearStatus: '',

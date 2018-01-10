@@ -48,11 +48,11 @@ $ntahun = mysql_num_rows($result);
 if ($ntahun == 0)
 {
   CloseDb();
-  echo "Belum ada data peminjaman<br>";
+  echo "No data.<br>";
   exit();
 }
 
-echo "Tahun: <select name='tahun' class='cmbfrm' id='tahun' style='width:150px' onChange=\"ChangePerpusOption('tahun')\">";
+echo "Year: <select name='tahun' class='cmbfrm' id='tahun' style='width:150px' onChange=\"ChangePerpusOption('tahun')\">";
 while($row = mysql_fetch_row($result))
 {
   if ($tahun == 0)
@@ -77,10 +77,10 @@ $cnt=1;
 <div style="height:15px">&nbsp;</div>
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
   <tr>
-    <td height="25" align="center" class="header">No</td>
-    <td height="25" width='350' align="center" class="header">Judul Pustaka</td>
-    <td height="25" align="center" class="header">Tgl Pinjam</td>
-    <td height="25" align="center" class="header">Tgl Kembali</td>
+    <td height="25" align="center" class="header">#</td>
+    <td height="25" width='350' align="center" class="header">Library Title</td>
+    <td height="25" align="center" class="header">Date Borrowed</td>
+    <td height="25" align="center" class="header">Return</td>
     <td align="center" class="header">Status</td>
   </tr>
   <? if (@mysql_num_rows($result)>0) { ?>
@@ -103,7 +103,7 @@ $cnt=1;
   <? } ?>
   <? } else { ?>
   <tr>
-    <td colspan="5" height="20" align="center">Belum ada data peminjaman</td>
+    <td colspan="5" height="20" align="center">Data Not Found.</td>
   </tr>
   <? } ?>
 </table>

@@ -58,7 +58,7 @@ $jenis = $row['replid'];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Input Manual Nilai Akhir</title>
+<title>Manual Final Point</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/tooltips.js"></script>
@@ -76,18 +76,18 @@ function validate(){
 	for (i=1;i<=num;i++) {			
 		var nau = document.getElementById("nau"+i).value;
 		if (nau.length == 0){
-			alert ('Anda harus mengisikan data untuk Nilai Akhir!');
+			alert ('You must enter a data for Final Point');
 			document.getElementById("nau"+y).focus();
 			return false;
 		} else {
 			if (isNaN(nau)){
-				alert ('Nilai Akhir harus berupa bilangan!');
+				alert ('Final Point must be numeric');
 				document.getElementById("nau"+i).focus();
 				return false;
 			}
 			
 			if (parseInt(nau) > 100){
-				alert ('Rentang Nilai Akhir antara 0 - 100!');
+				alert ('Final Point range is between 0 - 100');
 				document.getElementById("nau"+y).focus();
 				return false;
 			}
@@ -123,25 +123,25 @@ function focusNext(elemName, evt) {
     	<td>
         <table width="100%" border="0">
         <tr>        	
-            <td width="17%"><strong>Pelajaran</strong></td>
+            <td width="17%"><strong>Class Subject</strong></td>
             <td><strong>: <?=$namapel ?> </strong></td>
-            <td rowspan="3" align="right" valign="bottom"><strong><font size="4">HITUNG MANUAL</font></strong></td>
+            <td rowspan="3" align="right" valign="bottom"><strong><font size="4">MANUAL CALCULATION</font></strong></td>
         </tr>
         <tr>
-            <td><strong>Aspek Penilaian</strong></td>
+            <td><strong>Assessment Aspect</strong></td>
             <td><strong>: <?=$aspek?></strong></td>            
         </tr>
     	<tr>
-            <td><strong>Jenis Pengujian</strong></td>
+            <td><strong>Exam Type</strong></td>
             <td><strong>: <?=$namajenis?></strong></td>   
 		</tr>
         </table>
         <br />
         <table border="1" width="100%" id="table" class="tab">
         <tr>
-            <td height="30" class="headerlong" align="center" width="4%">No</td>
-            <td height="30" class="headerlong" align="center" width="10%">N I S</td>
-            <td height="30" class="headerlong" align="center" width="*">Nama</td>
+            <td height="30" class="headerlong" align="center" width="4%">#</td>
+            <td height="30" class="headerlong" align="center" width="10%">Student ID</td>
+            <td height="30" class="headerlong" align="center" width="*">Name</td>
         <?
         $sql_cek_ujian = "SELECT * FROM jbsakad.ujian WHERE idaturan=$idaturan AND idkelas=$kelas AND idsemester=$semester ORDER by tanggal ASC";
         //echo $sql_cek_ujian;
@@ -153,14 +153,14 @@ function focusNext(elemName, evt) {
             $tgl = explode("-",$row_cek_ujian['tanggal']);
             
         ?>
-           <td height="30" width="50" class="headerlong" align="center" onMouseOver="showhint('Deskripsi :\n <?=$row_cek_ujian[deskripsi]?>', this, event, '120px')"><?=$namajenis."-".$i?>&nbsp;
+           <td height="30" width="50" class="headerlong" align="center" onMouseOver="showhint('Description :\n <?=$row_cek_ujian[deskripsi]?>', this, event, '120px')"><?=$namajenis."-".$i?>&nbsp;
             <br /><?=$tgl[2]."/".$tgl[1]."/".substr($tgl[0],2)?>
             </td>
         <?
             $i++;
         }
         ?>
-            <td height="30" class="headerlong" align="center" width="50">Rata2 Siswa</td>
+            <td height="30" class="headerlong" align="center" width="50">Student Index</td>
             <td height="30" class="headerlong" align="center" width="50">NA <?=$namajenis?>
             </td>
         </tr>
@@ -235,14 +235,14 @@ function focusNext(elemName, evt) {
         </td>
     </tr>
     <tr>
-        <td><strong>* ada keterangan <strong></strong>
+        <td><strong>* No information<strong></strong>
         </td>
     </tr>
     <tr>
         <td align="center">
             <input type="hidden" name="action" id="action" value="manual" />
-            <input style="width:150px" type="button" name="simpan" id="simpan" value="Simpan Nilai Akhir" class="but" onclick="return validate();document.tampil_nilai_pelajaran.submit();">&nbsp;
-            <input style="width:150px" type="button" name="batal" value="Kembali" class="but" onClick="kembali();">
+            <input style="width:150px" type="button" name="simpan" id="simpan" value="Save Final Point" class="but" onclick="return validate();document.tampil_nilai_pelajaran.submit();">&nbsp;
+            <input style="width:150px" type="button" name="batal" value="Back" class="but" onClick="kembali();">
     
         </td>
     </tr>

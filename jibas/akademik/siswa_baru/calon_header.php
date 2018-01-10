@@ -46,7 +46,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pendataan Calon Siswa</title>
+<title>Student Candidate Data Collection</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
@@ -86,12 +86,12 @@ function show_calon() {
 	var kelompok = document.getElementById("kelompok").value;	
 	
 	if (proses.length == 0) {
-		alert ('Pastikan Proses Penerimaan ada dan statusnya aktif!');	
+		alert ('Make sure that Admission Process is existed and the status is active');	
 		document.getElementById("departemen").focus();
 		return false;
 	}	
 	if (kelompok.length == 0) {
-		alert ('Kelompok Calon Siswa tidak boleh kosong!');	
+		alert ('Student Candidate Group should not leave empty');	
 		document.getElementById("departemen").focus();
 		return false;
 	}	
@@ -166,7 +166,7 @@ function panggil(elem){
     <td rowspan="3" width="53%">
 	<table width = "100%" border = "0">
     <tr>
-      	<td align="left" width = "30%"><strong>Departemen</strong>
+      	<td align="left" width = "30%"><strong>Department</strong>
       	<td width="*">
         <select name="departemen" id="departemen" onchange="change_dep()" style="width:280px" onKeyPress="return focusNext('kelompok', event)" onfocus="panggil('departemen')">
 <? 		$dep = getDepartemen(SI_USER_ACCESS());    
@@ -179,7 +179,7 @@ function panggil(elem){
         </select></td>
   	</tr>
 	<tr>
-    	<td align="left"><strong>Proses Penerimaan</strong>
+    	<td align="left"><strong>Admission Process</strong>
         <td>
 <?			$sql = "SELECT replid,proses FROM prosespenerimaansiswa WHERE aktif=1 AND departemen='$departemen'";				
 			$result = QueryDb($sql);
@@ -196,7 +196,7 @@ function panggil(elem){
         </td>
     </tr>
     <tr>
-    	<td align="left" valign="top" ><strong>Kelompok</strong></td>
+    	<td align="left" valign="top" ><strong>Group</strong></td>
         <td>
         	<select name="kelompok" id="kelompok" onchange="change_kelompok(0)" style="width:280px" onKeyPress="return focusNext('tabel', event)" onfocus="panggil('kelompok')">
 <?			$sql = "SELECT replid,kelompok,kapasitas FROM kelompokcalonsiswa WHERE idproses = '$proses' ORDER BY kelompok";
@@ -213,18 +213,18 @@ function panggil(elem){
 <?			}	?>
     		</select>&nbsp;
 <?			if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	            <img src="../images/ico/tambah.png" onclick="tampil_kelompok();" onMouseOver="showhint('Tambah Kelompok!', this, event, '60px')"/>  
+	            <img src="../images/ico/tambah.png" onclick="tampil_kelompok();" onMouseOver="showhint('Add Group', this, event, '60px')"/>  
 <? 			} ?>
     	</td>
     </tr>
     </table>
 	</td>
-	<td width="*" rowspan="2" valign="middle"><a href="#" onclick="show_calon()"><img src="../images/view.png" name="tabel" width="48" height="48" border="0" id="tabel" onmouseover="showhint('Klik untuk menampilkan data calon siswa!', this, event, '120px')"/></a></td>
+	<td width="*" rowspan="2" valign="middle"><a href="#" onclick="show_calon()"><img src="../images/view.png" name="tabel" width="48" height="48" border="0" id="tabel" onmouseover="showhint('Click to show student candidate data', this, event, '120px')"/></a></td>
     <td width="45%" colspan = "2" align="right" valign="top">
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pendataan Calon Siswa</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Candidate Data Collection</font><br />
     <a href="../siswa_baru.php" target="content">
-        <font size="1" color="#000000"><b>Penerimaan Siswa Baru</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Pendataan Calon Siswa</b></font>	
+        <font size="1" color="#000000"><b>New Student Admission</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Student Candidate Data Collection</b></font>	
     </td>  
 </tr>
 <tr>	

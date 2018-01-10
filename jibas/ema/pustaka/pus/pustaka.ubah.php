@@ -58,14 +58,14 @@ $P->OnStart();
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="32"><img src="../img/movewait.gif"  border="0" /></td>
-            <td>&nbsp;<span class="news_title1">Please&nbsp;wait...</span></td>
+            <td>&nbsp;<span class="news_title1">Please wait...</span></td>
           </tr>
         </table>
     </div>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Ubah Pustaka</font><br />
-        <a href="pustaka.php" class="welc">Pustaka</a><span class="welc"> > Ubah Pustaka</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Edit Library</font><br />
+        <a href="pustaka.php" class="welc">Library</a><span class="welc"> > Edit Library</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$P->Content()?>

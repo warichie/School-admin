@@ -47,11 +47,11 @@ require_once('../include/db_functions.php');
 		$result = QueryDb($sql);
 		if (@mysql_num_rows($result) > 0){
 	?>	
-   	 	<font size="2" color="#757575"><b>Klik pada icon <img src="../images/ico/view_x.png" border="0"> di atas untuk melihat calon siswa sesuai dengan Departemen, Proses Penerimaan, dan Kelompok Calon Siswa terpilih
+   	 	<font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border="0"> above to show student candidate according to Department, Admission Process, and Student Candidate Group selected
     	</font>
     <? } else { ?>
-      	<font size = "2" color ="red"><b>Belum ada data Departemen.
-        <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+      	<font size = "2" color ="red"><b>No Department yet.
+        <br />Please make a new one in Department menu on Reference section.
         </b></font> 
    	<? } ?>
     	</td>

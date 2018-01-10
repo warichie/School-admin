@@ -71,9 +71,9 @@ function excel()
 <table border="0" cellpadding="2" cellspacing="0" align="center">
 <tr>
 	<td align="left" valign="top">
-    <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
-    <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka di Ms Excel!', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
+    <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
+    <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Open in Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
     </td>
 </tr>
 </table>           
@@ -108,7 +108,7 @@ for($k = 0; $k < count($darray); $k++)
 	$sql = "SELECT replid FROM tahunbuku WHERE departemen='$dept' AND aktif=1";
 	$idtahunbuku = FetchSingle($sql);
 	
-	// Ambil tanggal-tanggal transaksi yang terjadi pada rentang terpilih
+	// Ambil tanggal-tanggal transaksi yang terjadi on rentang selected
 	if ($idkategori == "JTT")
 	{
 		$sql = "SELECT DISTINCT p.tanggal 
@@ -164,7 +164,7 @@ for($k = 0; $k < count($darray); $k++)
 	
 	if ($n > 0)
 	{
-		// ambil nama-nama penerimaan pada departemen terpilih
+		// ambil nama-nama penerimaan on departemen selected
 		// parray -> penerimaan array
 		// m -> counter parray
 		$parray = array();
@@ -240,8 +240,8 @@ for($k = 0; $k < count($darray); $k++)
             </td>
         </tr>
         <tr>
-        	<td bgcolor="#FFECFF" width="25" align="center" valign="middle"><strong>No</strong></td>
-            <td bgcolor="#FFECFF" width="80" align="center" valign="middle"><strong>Tanggal</strong></td>
+        	<td bgcolor="#FFECFF" width="25" align="center" valign="middle"><strong>#</strong></td>
+            <td bgcolor="#FFECFF" width="80" align="center" valign="middle"><strong>Date</strong></td>
 <?			for($i = 0; $i < $m; $i++) 
 			{ 
 				$pen = $parray[$i][1] ?>
@@ -271,7 +271,7 @@ for($k = 0; $k < count($darray); $k++)
 		} 
 		
 		echo  "<tr height='40'>";
-		echo  "<td colspan='2' align='right' valign='middle' bgcolor='#333333'><font color='#ffffff'><strong>T O T A L</strong></font></td>";
+		echo  "<td colspan='2' align='right' valign='middle' bgcolor='#333333'><font color='#ffffff'><strong>Total</strong></font></td>";
 		$total = 0;
 		for($i = 0; $i < $m; $i++)
 		{

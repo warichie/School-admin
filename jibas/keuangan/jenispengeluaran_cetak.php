@@ -38,7 +38,7 @@ if (isset($_REQUEST['departemen']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Daftar Jenis Pengeluaran]</title>
+<title>JIBAS FINANCE [Daftar Jenis Expenditure]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -50,21 +50,21 @@ if (isset($_REQUEST['departemen']))
 <?=getHeader($departemen)?>
 
 
-<center><font size="4"><strong>DAFTAR JENIS PENGELUARAN</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>LIST JENIS PENGELUARAN</strong></font><br /> </center><br /><br />
 
 <table border="0">
 <tr>
-	<td><strong>Departemen : <?=$departemen ?></strong> </td>
+	<td><strong>Department : <?=$departemen ?></strong> </td>
 </tr>
 </table>
 <br />
 
 	<table id="table" class="tab" border="1" style="border-collapse:collapse" width="100%" bordercolor="#000000">
 	<tr height="30" align="center">
-        <td class="header" width="5%">No</td>
-        <td class="header" width="20%">Nama</td>
-        <td class="header" width="30%">Kode Rekening</td>
-        <td class="header" width="*">Keterangan</td>
+        <td class="header" width="5%">#</td>
+        <td class="header" width="20%">Name</td>
+        <td class="header" width="30%">Code Bank Account</td>
+        <td class="header" width="*">Info</td>
 	</tr>
 <?	OpenDb();
 	$sql = "SELECT * FROM datapengeluaran WHERE departemen='$departemen' ORDER BY replid";

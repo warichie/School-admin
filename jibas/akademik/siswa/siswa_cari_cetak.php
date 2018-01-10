@@ -31,7 +31,7 @@ $jenis=$_REQUEST['jenis'];
 $departemen=$_REQUEST['departemen'];
 $cari=$_REQUEST['cari'];
 
-$tipe = array("nisn" => "N I S N","nis" => "NIS", "nama" => "Nama","panggilan" => "Nama Panggilan", "agama" =>"Agama", "suku" => "Suku", "status" => "Status", "kondisi"=>"Kondisi Siswa", "darah"=>"Golongan Darah", "alamatsiswa" => "Alamat Siswa", "asalsekolah" => "Asal Sekolah", "namaayah" => "Nama Ayah", "namaibu" => "Nama Ibu", "alamatortu" => "Alamat Orang Tua", "keterangan" => "Keterangan");
+$tipe = array("nisn" => "National Student ID","nis" => "Student ID", "nama" => "Name","panggilan" => "Nickname", "agama" =>"Religion", "suku" => "Ethnicity", "status" => "Status", "kondisi"=>"Student Conditions", "darah"=>"Blood Type", "alamatsiswa" => "Student Address", "asalsekolah" => "Past School", "namaayah" => "Father Name", "namaibu" => "Mother Name", "alamatortu" => "Parent Address", "keterangan" => "Info");
 
 $urut = $_REQUEST['urut'];
 $urutan = $_REQUEST['urutan'];
@@ -45,7 +45,7 @@ $total = $_REQUEST['total'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Pencarian Siswa]</title>
+<title>JIBAS SIMAKA [Print Search Student]</title>
 </head>
 
 <body>
@@ -55,27 +55,27 @@ $total = $_REQUEST['total'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>PENCARIAN DATA SISWA</strong></font><br />
+  <font size="4"><strong>SEARCH STUDENT DATA</strong></font><br />
  </center><br /><br />
 <br />
 <table>
 <tr>
-	<td><strong>Departemen :&nbsp;<?=$departemen?></strong></td>
+	<td><strong>Department :&nbsp;<?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td>Pencarian berdasarkan <strong><?=$tipe[$jenis]?></strong> dengan keyword <strong><?=$cari?></strong></td>
+	<td>Search by <strong><?=$tipe[$jenis]?></strong> within keywords <strong><?=$cari?></strong></td>
 </table>
 <br />
 </span>
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">N I S</td>
-        <td width="15%" class="header" align="center">N I S N</td>
-        <td width="*" class="header" align="center">Nama</td>
-		<td width="25%" class="header" align="center">Tempat Tanggal Lahir</td>
-        <td width="8%" class="header" align="center">Tingkat</td>
-        <td width="8%" class="header" align="center">Kelas</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Student ID</td>
+        <td width="15%" class="header" align="center">National Student ID</td>
+        <td width="*" class="header" align="center">Name</td>
+		<td width="25%" class="header" align="center">Birth Place</td>
+        <td width="8%" class="header" align="center">Grade</td>
+        <td width="8%" class="header" align="center">Class</td>
         <td width="8%" class="header" align="center">Status</td>
     </tr>
 <? 	OpenDb();
@@ -108,9 +108,9 @@ $total = $_REQUEST['total'];
         <td align="center">
 		<?
 		if ($row_siswa['aktif']==1){
-			echo "Aktif";
+			echo "Active";
 		} elseif ($row_siswa['aktif']==0){
-			echo "Tidak Aktif ";
+			echo "Inactive";
 			if ($row_siswa['alumni']==1){
 				$sql_get_al="SELECT a.tgllulus FROM jbsakad.alumni a WHERE a.nis='$row_siswa[nis]'";	
 				$res_get_al=QueryDb($sql_get_al);
@@ -121,8 +121,8 @@ $total = $_REQUEST['total'];
 				$sql_get_mut="SELECT m.tglmutasi,j.jenismutasi FROM jbsakad.jenismutasi j, jbsakad.mutasisiswa m WHERE j.replid='$row_siswa[statusmutasi]' AND m.nis='$row_siswa[nis]' AND j.replid=m.jenismutasi";	
 				$res_get_mut=QueryDb($sql_get_mut);
 				$row_get_mut=@mysql_fetch_array($res_get_mut);
-				//echo "<br><a href=\"NULL\" onmouseover=\"showhint('".$row_get_mut[jenismutasi]."<br>".$row_get_mut['tglmutasi']."', this, event, '50px')\"><u>[Termutasi]</u></a>";
-				echo "<br><a style='cursor:pointer;' title='".$row_get_mut[jenismutasi]."\n Tgl ".LongDateFormat($row_get_mut['tglmutasi'])."'>[Termutasi]</a>";
+				//echo "<br><a href=\"NULL\" onmouseover=\"showhint('".$row_get_mut[jenismutasi]."<br>".$row_get_mut['tglmutasi']."', this, event, '50px')\"><u>[Mutated]</u></a>";
+				echo "<br><a style='cursor:pointer;' title='".$row_get_mut[jenismutasi]."\n Tgl ".LongDateFormat($row_get_mut['tglmutasi'])."'>[Mutated]</a>";
 			}
 		}
 		?></td>  
@@ -131,7 +131,7 @@ $total = $_REQUEST['total'];
 	CloseDb() ?>	
     </table>
 <!--<tr>
-    <td align="right">Halaman <strong><?=$page+1?></strong> dari <strong><?=$total?></strong> halaman</td>
+    <td align="right">Page <strong><?=$page+1?></strong> from <strong><?=$total?></strong> halaman</td>
 </tr>-->
 <!-- END TABLE CENTER -->    
 </table>

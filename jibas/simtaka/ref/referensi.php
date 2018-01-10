@@ -32,7 +32,7 @@ require_once("../inc/session.checker.php");
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <div id="title" align="center">
 	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-	<font style="font-size:18px; color:#999999">Referensi</font><br />
+	<font style="font-size:18px; color:#999999">Reference</font><br />
 </div>
 <br>
 <!-- ImageReady Slices (Untitled-3) -->

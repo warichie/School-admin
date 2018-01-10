@@ -81,7 +81,7 @@ function show(id){
 <div id="content">
     <table width="62%" border="0" id="slice_j">
       <tr>
-        <td><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>JADWAL</strong></font></p></td>
+        <td><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>SCHEDULE</strong></font></p></td>
       </tr>
       <tr>
         <td width="436">
@@ -90,7 +90,7 @@ function show(id){
             <td colspan="4">
                 <img src="images/jadwal_01.jpg" width="149" height="91" alt=""></td>
             <td rowspan="2">
-                <a href="jadwal/jadwal_guru_main.php" onMouseOver="showhint('Penyusunan Jadwal Setiap Guru', this, event, '100px')"><img src="images/jadwal_02.jpg" alt="" width="93" height="116" border="0"></a></td>
+                <a href="jadwal/jadwal_guru_main.php" onMouseOver="showhint('Manage Schedule for each Teachers', this, event, '100px')"><img src="images/jadwal_02.jpg" alt="" width="93" height="116" border="0"></a></td>
             <td colspan="3">
                 <img src="images/jadwal_03.jpg" width="185" height="91" alt=""></td>
             <td>
@@ -100,13 +100,13 @@ function show(id){
             <td rowspan="4">
                 <img src="images/jadwal_04.jpg" width="14" height="216" alt=""></td>
             <td rowspan="2">
-                <a href="jadwal/definisi_jam.php" onMouseOver="showhint('Pendefinisian Jam Belajar', this, event, '100px')"><img src="images/jadwal_05.jpg" alt="" width="66" height="90" border="0"></a></td>
+                <a href="jadwal/definisi_jam.php" onMouseOver="showhint('Session Defining', this, event, '100px')"><img src="images/jadwal_05.jpg" alt="" width="66" height="90" border="0"></a></td>
             <td colspan="2" rowspan="2">
                 <img src="images/jadwal_06.jpg" width="69" height="90" alt=""></td>
             <td rowspan="4">
                 <img src="images/jadwal_07.jpg" width="76" height="216" alt=""></td>
             <td rowspan="3">
-                <a href="jadwal/rekap_jadwal_main.php" onMouseOver="showhint('Rekapitulasi Jadwal', this, event, '100px')"><img src="images/jadwal_08.jpg" alt="" width="97" height="100" border="0"></a></td>
+                <a href="jadwal/rekap_jadwal_main.php" onMouseOver="showhint('Schedule Recapitulation', this, event, '100px')"><img src="images/jadwal_08.jpg" alt="" width="97" height="100" border="0"></a></td>
             <td rowspan="4">
                 <img src="images/jadwal_09.jpg" width="12" height="216" alt=""></td>
             <td>
@@ -122,7 +122,7 @@ function show(id){
             <td colspan="2" rowspan="2">
                 <img src="images/jadwal_11.jpg" width="125" height="126" alt=""></td>
             <td colspan="2" rowspan="2">
-                <a href="jadwal/jadwal_kelas_main.php" onMouseOver="showhint('Penyusunan Jadwal Setiap Kelas', this, event, '100px')"><img src="images/jadwal_12.jpg" alt="" width="103" height="126" border="0"></a></td>
+                <a href="jadwal/jadwal_kelas_main.php" onMouseOver="showhint('Manage Schedule for each Classes', this, event, '100px')"><img src="images/jadwal_12.jpg" alt="" width="103" height="126" border="0"></a></td>
             <td>
                 <img src="images/spacer.gif" width="1" height="10" alt=""></td>
         </tr>
@@ -159,7 +159,7 @@ function show(id){
     <!-- ----------------------------------------------------------------------------------------------------------------------- -->
     <table width="100%" border="0" cellspacing="0" cellpadding="0" id="slice_k">
         <tr>
-        <td><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>KALENDER AKADEMIK</strong></font></p></td>
+        <td><p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana" color="Gray"><strong>ACADEMIC CALENDAR</strong></font></p></td>
       </tr>
       <tr>
         <td>
@@ -174,7 +174,7 @@ function show(id){
             <td rowspan="4">
                 <img src="images/kalender_02.jpg" width="15" height="229" alt=""></td>
             <td>
-                <img src="images/kalender_03.jpg" width="72" height="77" alt="" style="cursor:pointer;" onClick="alert ('Untuk mendata Tahun Ajaran, \nSilakan masuk ke menu Tahun Ajaran di bagian Referensi');"></td>
+                <img src="images/kalender_03.jpg" width="72" height="77" alt="" style="cursor:pointer;" onClick="alert ('To collect data about Year of Teaching, \nPlease go to Year of Teaching menu on Reference section');"></td>
             <td colspan="3" rowspan="2">
                 <img src="images/kalender_04.jpg" width="217" height="89" alt=""></td>
             <td>
@@ -190,7 +190,7 @@ function show(id){
             <td rowspan="2">
                 <img src="images/kalender_06.jpg" width="72" height="140" alt=""></td>
             <td>
-                <a href="jadwal/kalender_main.php" onMouseOver="showhint('Pendataan Kalender Akademik', this, event, '100px')"><img src="images/kalender_07.jpg" alt="" width="126" height="129" border="0"></a></td>
+                <a href="jadwal/kalender_main.php" onMouseOver="showhint('Academic Calendar Data Collection', this, event, '100px')"><img src="images/kalender_07.jpg" alt="" width="126" height="129" border="0"></a></td>
             <td rowspan="2">
                 <img src="images/kalender_08.jpg" width="19" height="140" alt=""></td>
             <td>

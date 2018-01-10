@@ -71,7 +71,7 @@ else
 		{
 			?>
 			<script language="JavaScript">
-				alert("Status pengguna sedang tidak aktif!");
+				alert("User status is inactive");
 				document.location.href = "../akademik/";
 			</script>
 			<?
@@ -124,7 +124,7 @@ if (!$user_exists)
 {
 	?>
     <script language="JavaScript">
-        alert("Username atau password tidak cocok!");
+        alert("Username or password does not match");
         document.location.href = "../akademik/";
     </script>
     <?

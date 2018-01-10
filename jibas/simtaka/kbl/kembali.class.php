@@ -50,7 +50,7 @@ class CKembali
 			$sql = "SELECT * FROM pinjam WHERE kodepustaka='".$this->kodepustaka."' AND status=1";
 			//echo $sql;
 			$result = QueryDb($sql);
-			if ($this->kodepustaka=="Tidak ada Kode Pustaka yang sedang dipinjam")
+			if ($this->kodepustaka=="No Library Code is being borrowed")
 				$this->nothing=1;
 			else
 				$this->nothing=0;
@@ -131,12 +131,12 @@ class CKembali
         <table width="100%" border="0" cellspacing="2" cellpadding="0">
           <tr>
             <td>
-            	<fieldset><legend class="welc">Kode Pustaka</legend>
+            	<fieldset><legend class="welc">Library Code</legend>
    					<table width="100%" border="0" cellspacing="5" cellpadding="0">
                       <tr>
-                        <td width="10%" align="right"><strong>Kode Pustaka</strong></td>
+                        <td width="10%" align="right"><strong>Library Code</strong></td>
                         <td width="90%"><input name="kodepustaka" type="text" id="kodepustaka" value="<?=$this->kodepustaka?>" onkeypress="return KeyPress('kodepustaka',event)" size="55" />
-                        &nbsp;<input type="button" class="cmbfrm2" value="Proses" onclick="ProsesKode()" /></td>
+                        &nbsp;<input type="button" class="cmbfrm2" value="Proceed" onclick="ProsesKode()" /></td>
                       </tr>
                     </table>
                 </fieldset>
@@ -150,26 +150,26 @@ class CKembali
 		  ?>
           <tr>
             <td>
-            	<fieldset><legend class="welc">Informasi Peminjaman</legend>
+            	<fieldset><legend class="welc">Return Info</legend>
                 	<table width="100%" border="0" cellspacing="4" cellpadding="0">
                       <tr>
-                        <td width="8%" align="right">Anggota</td>
+                        <td width="8%" align="right">Member</td>
                         <td width="92%"><input name="anggota" id="anggota" type="text" value="<?=$this->idanggota?> - <?=$this->namaanggota?>" size="50" readonly="readonly" /></td>
                       </tr>
                       <tr>
-                        <td align="right">Judul&nbsp;Pustaka</td>
+                        <td align="right">Library Title</td>
                         <td><div id="title" class="btnfrm" style="height:30px">&nbsp;<?=$this->judul?></div></td>
                       </tr>
                       <tr>
-                        <td align="right">Tanggal&nbsp;Pinjam</td>
+                        <td align="right">Date Borrowed</td>
                         <td><input name="tglpinjam" id="tglpinjam" type="text" value="<?=LongDateFormat($this->tglpinjam)?>" readonly="readonly" /></td>
                       </tr>
                       <tr>
-                        <td align="right">Tanggal&nbsp;Kembali</td>
+                        <td align="right">Return</td>
                         <td><input name="tglkembali" id="tglkembali" type="text" value="<?=LongDateFormat($this->tglkembali)?>" readonly="readonly" /></td>
                       </tr>
                       <tr>
-                        <td align="right">Denda</td>
+                        <td align="right">Fine</td>
                         <td>
                         	<input name="dendanya" id="dendanya" type="text" value="<?=FormatRupiah($this->denda)?>" onfocus="unformatRupiah('dendanya')" onblur="formatRupiah('dendanya')" onkeyup="Copy('dendanya','denda')" />
                         	<input name="denda" id="denda" type="hidden" value="<?=$this->denda?>" />
@@ -177,7 +177,7 @@ class CKembali
                             <input name="telat" id="telat" type="hidden" value="<?=$this->telat?>" />                        </td>
                       </tr>
 					  <tr>
-                        <td align="right">Keterangan</td>
+                        <td align="right">Info</td>
                         <td><textarea name="keterangan" id="keterangan" class="btnfrm" cols="100"></textarea></td>
                       </tr>
                     </table>
@@ -186,12 +186,12 @@ class CKembali
           </tr>
           <tr>
           	<td>
-            	<fieldset><legend class="welc">Pengembalian</legend>
+            	<fieldset><legend class="welc">Return</legend>
                 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td align="center">
-                        	<input id="BtnKembali" type="button" class="cmbfrm2" value="Kembalikan Sekarang" onclick="Kembalikan()"  />&nbsp;
-                        	<input name="" type="button" class="cmbfrm2" value="Batal" onclick="BatalkanPengembalian()" />
+                        	<input id="BtnKembali" type="button" class="cmbfrm2" value="Return it now" onclick="Kembalikan()"  />&nbsp;
+                        	<input name="" type="button" class="cmbfrm2" value="Cancel" onclick="BatalkanPengembalian()" />
                         </td>
                       </tr>
                     </table>
@@ -203,7 +203,7 @@ class CKembali
 		  ?>
 		  <tr>
           	<td height="30" align="center" class="err">
-            	Pustaka dengan kode pustaka <?=$this->kodepustaka?>           	    sedang tidak dipinjam            </td>
+            	Library with libray code <?=$this->kodepustaka?>           	    is not being borrowed            </td>
           </tr>
 		  <?
           }
@@ -233,7 +233,7 @@ class CKembali
 					$row3 = @mysql_fetch_array($result3);
 					return $row3[nama];
 				} else {
-					return "Tanpa Nama";
+					return "No name.";
 				}
 			}
 		}

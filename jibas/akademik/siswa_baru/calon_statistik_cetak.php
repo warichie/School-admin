@@ -37,43 +37,43 @@ $tabel=$_REQUEST['tabel'];
 OpenDb();
 $i = 0;
 if ($iddasar!="12"){
-	if ($dasar == 'Golongan Darah') {
+	if ($dasar == 'Blood Type') {
 		$row = array('','A','AB','B','O');
-		$judul = array(1=>'Tidak ada data','A','AB','B','O');
+		$judul = array(1=>'No data.','A','AB','B','O');
 		$jum = count($row);	
-	} elseif ($dasar == 'Jenis Kelamin') {
+	} elseif ($dasar == 'Gender') {
 		$row = array('l','p');
-		$judul = array(1=>'Laki-laki','Perempuan');	
+		$judul = array(1=>'Male','Female');	
 		$jum = count($row);
-	} elseif ($dasar == 'Kewarganegaraan') {
-		$row = array('WNI','WNA');
-		$judul = array(1=>'WNI','WNA');	
+	} elseif ($dasar == 'Citizenship') {
+		$row = array('Indonesian Citizen','Other Citizen');
+		$judul = array(1=>'Indonesian Citizen','Other Citizen');	
 		$jum = count($row);
-	} elseif ($dasar == 'Status Aktif') {
+	} elseif ($dasar == 'Status Active') {
 		$row = array(1,0);
-		$judul = array(1 => 'Aktif','Tidak Aktif');
+		$judul = array(1 => 'Active','Inactive');
 		$jum = count($row);
-	} elseif ($dasar == 'Kondisi Siswa') {	
+	} elseif ($dasar == 'Student Conditions') {	
 		$query = "SELECT $tabel FROM jbsakad.kondisisiswa ORDER BY $tabel ";
 		$result = QueryDb($query);
 		$jum = @mysql_num_rows($result);
-	} elseif ($dasar == 'Status Siswa') {	
+	} elseif ($dasar == 'Student Status') {	
 		$query = "SELECT $tabel FROM jbsakad.statussiswa ORDER BY $tabel ";
 		$result = QueryDb($query);
 		$jum = @mysql_num_rows($result);
-	} elseif ($dasar == 'Pekerjaan Ayah' || $dasar == 'Pekerjaan Ibu') {	
+	} elseif ($dasar == 'Father Occupation' || $dasar == 'Mother Occupation') {	
 		$query = "SELECT pekerjaan FROM jbsumum.jenispekerjaan ORDER BY pekerjaan ";
 		$result = QueryDb($query);
 		$jum = @mysql_num_rows($result)+1;		
-	} elseif ($dasar == 'Pendidikan Ayah' || $dasar == 'Pendidikan Ibu') {	
+	} elseif ($dasar == 'Father Education' || $dasar == 'Mother Education') {	
 		$query = "SELECT pendidikan FROM jbsumum.tingkatpendidikan ORDER BY pendidikan ";
 		$result = QueryDb($query);
 		$jum = @mysql_num_rows($result)+1;
-	} elseif ($dasar == 'Penghasilan Orang Tua') {		
+	} elseif ($dasar == 'Parent Income') {		
 		$batas = array(0,1000000,2500000,5000000);
-		$judul = array(1 => '< Rp 1000000','Rp 1000000 s/d Rp 2500000','Rp 2500000 s/d Rp 5000000','> Rp 5000000');
+		$judul = array(1 => '< Rp 1000000','Rp 1000000 to Rp 2500000','Rp 2500000 to Rp 5000000','> Rp 5000000');
 		$jum = count($judul);
-	} elseif ($dasar == 'Agama' || $dasar == 'Suku') {		
+	} elseif ($dasar == 'Religion' || $dasar == 'Ethnicity') {		
 		$str = strtolower($dasar);
 		$query = "SELECT $tabel FROM jbsumum.$tabel ORDER BY $str";
 		$result = QueryDb($query);
@@ -84,31 +84,31 @@ if ($iddasar!="12"){
 	
 	for ($i=1;$i<=$jum;$i++) {	
 		$field = "";
-		if ($dasar == 'Golongan Darah' || $dasar == 'Jenis Kelamin' || $dasar == 'Kewarganegaraan' ) {		
+		if ($dasar == 'Blood Type' || $dasar == 'Gender' || $dasar == 'Citizenship' ) {		
 			$filter = "1 AND s.$tabel = '".$row[$i-1]."'";
-		} elseif ($dasar == 'Penghasilan Orang Tua' ) {			
+		} elseif ($dasar == 'Parent Income' ) {			
 			$field = ", penghasilanayah+penghasilanibu";
 			$filter = "1 AND ".$batas[$i-1]." < penghasilanayah+penghasilanibu < ".$batas[$i]." GROUP BY penghasilanayah+penghasilanibu";
 			if ($i == $jum) {
 				$filter = "1 AND ".$batas[$i-1]." > penghasilanayah+penghasilanibu GROUP BY penghasilanayah+penghasilanibu";
 			} 
-		} elseif ($dasar == 'Status Aktif') {
+		} elseif ($dasar == 'Status Active') {
 			$filter = $row[$i-1];		
-		} elseif ($dasar=='Agama' || $dasar=='Suku' || $dasar=='Status Siswa' || $dasar=='Kondisi Siswa' || $dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
+		} elseif ($dasar=='Religion' || $dasar=='Ethnicity' || $dasar=='Student Status' || $dasar=='Student Conditions' || $dasar=='Father Occupation' || $dasar=='Mother Occupation' || $dasar=='Father Education' || $dasar=='Mother Education') {
 			$row = @mysql_fetch_row($result);
 			$judul[$i] = $row[0];		
 			$filter = "1 AND s.$tabel = '$row[0]'";	
-			if ($dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
+			if ($dasar=='Father Occupation' || $dasar=='Mother Occupation' || $dasar=='Father Education' || $dasar=='Mother Education') {
 				if ($i == $jum) {
-					$judul[$i] = "Tidak ada data";
+					$judul[$i] = "No data.";
 					$filter = "1 AND s.$tabel is NULL";			
 				}
 			}
-		} elseif ($dasar == 'Tahun Kelahiran') {
+		} elseif ($dasar == 'Year of Birth') {
 			$field = ", YEAR(tgllahir)";
 			$filter = "1 GROUP BY YEAR(tgllahir)";	
 			$j = 1;
-		} elseif ($dasar == 'Usia') {
+		} elseif ($dasar == 'Age') {
 			$field = ", YEAR(now()) - YEAR(tgllahir)";
 			$filter = "1 GROUP BY YEAR(now()) - YEAR(tgllahir)";	
 			$j = 1;		
@@ -130,10 +130,10 @@ if ($iddasar!="12"){
 		
 		$result1 = QueryDb($query1);
 		while ($row1 = @mysql_fetch_row($result1)) {
-			if ($dasar=="Asal Sekolah" || $dasar=="Kode Pos Siswa" || $dasar=="Tahun Kelahiran" || $dasar=="Usia") { 
+			if ($dasar=="Past School" || $dasar=="Student Post Code" || $dasar=="Year of Birth" || $dasar=="Age") { 
 				$jdl = $row1[1];
 				if ($row1[1] == "") {
-					$jdl = "Tidak ada data";
+					$jdl = "No data.";
 				} 
 				$data[$j] = $row1[0];
 				$judul[$j] = $jdl;
@@ -188,7 +188,7 @@ if ($iddasar!="12"){
 	//=====================================================
 	
 	$sum = $j1 + $j2 +$j3 + $j4 + $j5;
-	$dasar="Penghasilan";
+	$dasar="Income";
 	$p[1]=round($j1/$sum*100,2);
 	$p[2]=round($j2/$sum*100,2);
 	$p[3]=round($j3/$sum*100,2);
@@ -203,7 +203,7 @@ if ($iddasar!="12"){
 	$jud[2]="Rp 1.000.000 - Rp 2.500.000";
 	$jud[3]="Rp 2.500.000 - Rp 5.000.000";
 	$jud[4]="> Rp 5.000.000";
-	$jud[5]="Tidak ada data";
+	$jud[5]="No data.";
 
 }
 if ($idproses!="-1"){
@@ -214,14 +214,14 @@ if ($idproses!="-1"){
 	$pros = $row_p['proses'];
 	CloseDb();
 } else {
-	$pros="(Semua Proses Penerimaan)";
+	$pros="(All Admission Process)";
 }
 
 if ($departemen!="-1"){
 	$dep = $departemen;
 	$depheader = $departemen;
 } else {
-	$dep="(Semua Departemen)";
+	$dep="(All Department)";
 	$depheader = 'yayasan';
 }
 ?>
@@ -229,7 +229,7 @@ if ($departemen!="-1"){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Cetak Statistik Penerimaan Siswa Baru]</title>
+<title>JIBAS SIMAKA [Print New Student Admission Statistic]</title>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 function wait() {
@@ -254,7 +254,7 @@ function show_wait(areaId) {
 
 <body topmargin="0" leftmargin="0">
 <div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <div id="grafik" align="left">
 <table width="780" border="0" >
@@ -263,16 +263,16 @@ function show_wait(areaId) {
   </tr>
   <tr><td><table width="100%" border="0" cellspacing="0">
   <tr height="50" valign="top">
-    <th colspan="2" scope="row"><div align="center" class="style1">Statistik Calon Siswa Berdasarkan <?=$dasar?></div></th>
+    <th colspan="2" scope="row"><div align="center" class="style1">Student Candidate Statistic based on <?=$dasar?></div></th>
     </tr>
   <tr>
-    <th width="22%" scope="row"><div align="left">Departemen</div></th>
+    <th width="22%" scope="row"><div align="left">Department</div></th>
     <td><div align="left">: 
       <?=$dep?>
     </div></td>
   </tr>
   <tr>
-    <th scope="row"><div align="left">Proses Penerimaan Siswa</div></th>
+    <th scope="row"><div align="left">Student Admission Process</div></th>
     <td><div align="left">: 
       <?=$pros?>
     </div></td>
@@ -304,8 +304,8 @@ function show_wait(areaId) {
     <!-- TABLE CONTENT -->    
 	<tr>
     	<td height="30" align="center" class="header" width="*"><?=$dasar?></td>
-    	<td height="30" align="center" class="header" width="20%">Jumlah</td>
-    	<td height="30" align="center" class="header" width="25%">Prosentase</td>
+    	<td height="30" align="center" class="header" width="20%">Sum</td>
+    	<td height="30" align="center" class="header" width="25%">Percentage</td>
     </tr>
 <?
 if ($iddasar!="12"){

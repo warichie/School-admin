@@ -45,8 +45,8 @@ $D->OnStart();
 <body>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Daftar Peminjaman Pustaka</font><br />
-        <a href="peminjaman.php" class="welc">Peminjaman</a><span class="welc"> > Daftar Peminjaman Pustaka</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Library Borrowing List</font><br />
+        <a href="peminjaman.php" class="welc">Borrowing</a><span class="welc"> > Library Borrowing List</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$D->Content()?>

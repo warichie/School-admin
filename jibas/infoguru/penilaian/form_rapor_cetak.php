@@ -47,7 +47,7 @@ $rowinfo = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Form Pengisian Nilai Rapor Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Assessment Report Form]</title>
 <style type="text/css">
 <!--
 .style27 {color: #FF9900}
@@ -62,21 +62,21 @@ $rowinfo = mysql_fetch_array($result);
 
 <?=getHeader($rowinfo['dep'])?>
 <center>
-  <font size="4"><strong>FORM PENGISIAN NILAI RAPOR SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT ASSESSMENT REPORT CARD FORM</strong></font><br />
  </center><br /><br />
 <br />
 
 <table>
 <tr>
-    <td width="22%"><strong>Departemen</strong></td>
+    <td width="22%"><strong>Department</strong></td>
     <td width="45%"><strong>: <?=$rowinfo['departemen'] ?></strong></td>
-    <td width="15%"><strong>Kelas</strong></td>
+    <td width="15%"><strong>Class</strong></td>
     <td><strong>: <?=$rowinfo['tingkat'].' - '. $rowinfo['namakelas'];?></strong></td>
 </tr>
 <tr>
-    <td><strong>Tahun Ajaran</strong></td>
+    <td><strong>Year</strong></td>
    	<td><strong>: <?=$rowinfo['tahunajaran']?></strong></td>
-    <td><strong>Pelajaran</strong></td>
+    <td><strong>Class Subject</strong></td>
     <td><strong>: <?=$rowinfo['nama'];?></strong></td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ while($rowaspek = mysql_fetch_row($resaspek))
 	$aspek = $rowaspek[0];  
 	$aspekket = $rowaspek[1];  
 	
-	// Hitung jumlah bobot dan banyaknya aturan
+	// Hitung jumlah bobot and banyaknya aturan
 	$sql = "SELECT SUM(bobot) as bobotPK, COUNT(a.replid) 
 			  FROM jbsakad.aturannhb a, kelas k 
 			 WHERE a.nipguru = '$nip' AND a.idtingkat = k.idtingkat AND k.replid = '$kelas' 
@@ -118,14 +118,14 @@ while($rowaspek = mysql_fetch_row($resaspek))
 	$result_get_aturan_PK = QueryDb($sql);
 	$jum_PK = @mysql_num_rows($result_get_aturan_PK);	?>
     
-    <Strong>Aspek Penilaian: <?=$aspekket?></Strong>
+    <Strong>Assessment Aspect: <?=$aspekket?></Strong>
     <table width="100%" border="1" class="tab" id="table" bordercolor="#000000">  
   	<tr align="center">
-    	<td height="30" class="headerlong" width="4%" rowspan="2">No</td>
-        <td height="30" class="headerlong" width="10%" rowspan="2">N I S</td>
-        <td height="30" class="headerlong" width="*" rowspan="2">Nama</td>    	    
-        <td height="15" colspan="<?=(int)$jum_PK?>" class="headerlong">Nilai Akhir</td>
-		<td height="15" colspan="2" class="headerlong" width="13%"><span class="style1">Nilai <?=$aspekket?></span></td>
+    	<td height="30" class="headerlong" width="4%" rowspan="2">#</td>
+        <td height="30" class="headerlong" width="10%" rowspan="2">Student ID</td>
+        <td height="30" class="headerlong" width="*" rowspan="2">Name</td>    	    
+        <td height="15" colspan="<?=(int)$jum_PK?>" class="headerlong">Grade Point</td>
+		<td height="15" colspan="2" class="headerlong" width="13%"><span class="style1"><?=$aspekket?> Points</span></td>
     </tr>
     <tr height="15" class="header" align="center">
 	<?	$i = 0;
@@ -137,8 +137,8 @@ while($rowaspek = mysql_fetch_row($resaspek))
             	<span class="style1"><?= $row_PK['jenisujian']." (".$row_PK['bobot'].")" ?></span>
             </td>
     <?	} ?>
-		<td align="center" class="headerlong"><span class="style1">Angka</span></td>
-        <td align="center" class="headerlong"><span class="style1">Huruf</span></td>
+		<td align="center" class="headerlong"><span class="style1">Number</span></td>
+        <td align="center" class="headerlong"><span class="style1">Letter</span></td>
 	</tr>
 <?	//Mulai perulangan siswa
 	$sql = "SELECT replid, nis, nama 
@@ -183,7 +183,7 @@ while($rowaspek = mysql_fetch_row($resaspek))
 <table width="100%" border="0">
 <tr>
 	<td width="80%" align="left"></td>
-    <td width="20%" align="center"><br><br>Guru</td>
+    <td width="20%" align="center"><br><br>Teacher</td>
 </tr>
 <tr>
 	<td colspan="2" align="right">&nbsp;<br /><br /><br /><br /><br /></td>
@@ -191,7 +191,7 @@ while($rowaspek = mysql_fetch_row($resaspek))
 <tr>		
     <td></td>
     <td valign="bottom" align="center"><strong><?=$rowinfo['guru']?></strong>
-    <br /><hr /><strong>NIP. <?=$nip?></strong>
+    <br /><hr /><strong>Employee ID <?=$nip?></strong>
 </tr>
 </table>
 

@@ -88,7 +88,7 @@ class UserList{
 			  <tr>
 				<td height="50"  valign="top" align="right">
 				<div id="SubTitle" align="right">
-				<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Daftar Pengguna</span>
+				<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">User List</span>
 				</div>
 				</td>
 			  </tr>
@@ -102,7 +102,7 @@ class UserList{
 									<table border="0" cellspacing="0" cellpadding="2">
 									  <tr>
 										<td><img src="../images/ico/tambah.png" /></td>
-										<td>Tambah Pengguna</td>
+										<td>Add User</td>
 									  </tr>
 									</table>
 								</button>
@@ -138,12 +138,12 @@ class UserList{
 				?>
 				<table cellspacing="0" cellpadding="0" border="1" width="100%" class="tab">
 				<tr class="Header">
-					<td>No</td>
-					<td>NIP</td>
-					<td>Nama</td>
-                    <td>Tingkat</td>
-                    <td>Keterangan</td>
-                    <td>Login Terakhir</td>
+					<td>#</td>
+					<td>Employee ID</td>
+					<td>Name</td>
+                    <td>Level</td>
+                    <td>Info</td>
+                    <td>Last Login</td>
 					<td>&nbsp;</td>
 				</tr>
 				<?php
@@ -162,8 +162,8 @@ class UserList{
 					<td align="center">
 						<table border='0' cellpadding='2'>
 							<tr>
-								<td><img src='../images/ico/ubah.png' alt='Ubah' style='cursor:pointer' class='btnEdit' id='<?php echo $row[4] ?>'></td>
-								<td><img src='../images/ico/hapus.png' alt='Hapus' style='cursor:pointer' class='btnDel' id='<?php echo $row[4] ?>'></td>
+								<td><img src='../images/ico/ubah.png' alt='Edit' style='cursor:pointer' class='btnEdit' id='<?php echo $row[4] ?>'></td>
+								<td><img src='../images/ico/hapus.png' alt='Delete' style='cursor:pointer' class='btnDel' id='<?php echo $row[4] ?>'></td>
 							</tr>
 						</table>
 					</td>
@@ -175,7 +175,7 @@ class UserList{
 				</table>
 				<?php
 			} else {
-				echo "<div align='center' class='ui-state-highlight'>Tidak ditemukan data Pengguna</div>";
+				echo "<div align='center' class='ui-state-highlight'>User data not found</div>";
 			}
 		ob_flush();
 	}
@@ -195,7 +195,7 @@ class UserList{
 				$row = @mysql_fetch_row($res);
 				$num = $row[0];
 				if ($num>0)
-					echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Pengguna sudah terdaftar di Jibas SMS Gateway</div>";	
+					echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>User already registered at Jibas SMS Gateway</div>";	
 				else {
 					$sql = "SELECT COUNT(replid) FROM $db_name_user.login WHERE login='$nip'";
 					$res = QueryDb($sql);
@@ -211,20 +211,20 @@ class UserList{
 					if ($res){
 						echo "<script>parent.opener.location.href='userlist.php';window.close();</script>";
 					} else 
-						echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Gagal menyimpan Data Pengguna</div>";	
+						echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Save User Data Failed</div>";	
 				}
 				
 			}
 			?>
-			<title>Tambah Pengguna</title>
+			<title>Add User</title>
             <form action="userlist.php?cmd=add" method="post" onsubmit="return saveUser()">
             <input type="hidden" id="hp" name="hp" value="0" />
             <table border="0" cellspacing="0" cellpadding="2">
 				<tr height="25">
-					<td class="Header" colspan="3" align="center">Tambah Pengguna</td>
+					<td class="Header" colspan="3" align="center">Add User</td>
 				</tr>
 			  <tr>
-				<td>Pengguna</td>
+				<td>User</td>
 				<td>:</td>
 				<td>
                 	<table border="0" cellspacing="0" cellpadding="0">
@@ -242,14 +242,14 @@ class UserList{
 				<td><input type="text" id="password1" class='InputTxt' name="password1" style='width:98%' value="" /></td>
 			  </tr>
 			  <tr class='passfield'>
-			    <td>Password (ulangi)</td>
+			    <td>Password (confirm)</td>
 			    <td>:</td>
 			    <td><input type="text" id="password2" class='InputTxt' style='width:98%' value="" /></td>
 		      </tr>
               <tr class='hasspassword' style="display:none">
 			    <td></td>
 			    <td></td>
-			    <td><div class="ui-state-highlight">Pegawai <span class="nip"></span> - <span class="nama"></span> sudah memiliki password</div></td>
+			    <td><div class="ui-state-highlight">Employee <span class="nip"></span> - <span class="nama"></span> has password</div></td>
 		      </tr>
 			  <tr>
 				<td>Level</td>
@@ -261,13 +261,13 @@ class UserList{
 					</select>				</td>
 			  </tr>
 			  <tr>
-				<td>Keterangan</td>
+				<td>Info</td>
 				<td>:</td>
 				<td><textarea class="AreaTxt" name="ket" id="ket" rows='3'  style='width:99%'><?php echo stripslashes($ket) ?></textarea></td>
 			  </tr>
 			  <tr>
 				<td colspan='3' align='center'>
-					<input type='submit' value='Simpan' class="BtnSilver90" id='btnSave' name="op">&nbsp;<input onclick='window.close()' type='button' value='Tutup' class="BtnSilver90">				
+					<input type='submit' value='Save' class="BtnSilver90" id='btnSave' name="op">&nbsp;<input onclick='window.close()' type='button' value='Close' class="BtnSilver90">				
                 </td>
 			  </tr>
 			</table>
@@ -293,7 +293,7 @@ class UserList{
 				if ($res){
 					echo "<script>parent.opener.location.href='userlist.php';window.close();</script>";
 				} else 
-					echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Gagal menyimpan Data Pengguna</div>";	
+					echo "<div align='center' style='border:1px solid #ce0000; background-color:#fbd9d9;padding:4px;font-weight:bold;color:#4b4b4b;margin-bottom:5px'>Save User Data Failed</div>";	
 				
 			}
 			$sql = "SELECT login,tingkat,keterangan FROM $db_name_user.hakakses WHERE replid='$id'";
@@ -308,15 +308,15 @@ class UserList{
 			$row = @mysql_fetch_row($res);
 			$nama= $row[0];
 			?>
-			<title>Ubah Pengguna</title>
+			<title>Edit User</title>
             <form action="userlist.php?cmd=edit&id=<?php echo $id ?>" method="post" onsubmit="return saveUser()">
             <input type="hidden" id="hp" name="hp" value="0" />
             <table border="0" cellspacing="0" cellpadding="2">
 				<tr height="25">
-					<td class="Header" colspan="3" align="center">Ubah Pengguna</td>
+					<td class="Header" colspan="3" align="center">Edit User</td>
 				</tr>
 			  <tr>
-				<td>Pengguna</td>
+				<td>User</td>
 				<td>:</td>
 				<td>
                 	<table border="0" cellspacing="0" cellpadding="0">
@@ -337,13 +337,13 @@ class UserList{
 					</select>				</td>
 			  </tr>
 			  <tr>
-				<td>Keterangan</td>
+				<td>Info</td>
 				<td>:</td>
 				<td><textarea class="AreaTxt" name="ket" id="ket" rows='3'  style='width:99%'><?php echo stripslashes($ket) ?></textarea></td>
 			  </tr>
 			  <tr>
 				<td colspan='3' align='center'>
-					<input type='submit' value='Simpan' class="BtnSilver90" id='btnSave' name="op">&nbsp;<input onclick='window.close()' type='button' value='Tutup' class="BtnSilver90">				
+					<input type='submit' value='Save' class="BtnSilver90" id='btnSave' name="op">&nbsp;<input onclick='window.close()' type='button' value='Close' class="BtnSilver90">				
                 </td>
 			  </tr>
 			</table>

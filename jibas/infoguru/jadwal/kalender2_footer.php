@@ -124,7 +124,7 @@ if (($nday > 0) && ($nday < 7)) {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../style/style.css" />
 <link rel="stylesheet" href="../style/tooltips.css">
-<title>Kalender</title>
+<title>Calendar</title>
 <style>
 .thismonth {
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -205,15 +205,15 @@ function refresh() {
 
 <body>
 <input type="hidden" name="kalender" id="kalender" value="<?=$kalender?>" />
-<!--<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Penyusunan Jadwal Pernikahan</font><br />
-<a href="contoh/jadwalmain.php" style="color:#0000FF">Jadwal Pernikahan</a> > <strong>Penyusunan Jadwal Pernikahan</strong><br /><br /><br />-->
+<!--<font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Marital Schedule Preparation</font><br />
+<a href="contoh/jadwalmain.php" style="color:#0000FF">Marital Schedule</a> > <strong>Marital Schedule Preparation</strong><br /><br /><br />-->
 <table border="0" cellpadding="2" cellspacing="0" width="700">
 <tr><td width="70%" align="left">
-Bulan :
+Month :
 <input type="button" class="but" onclick="GoToLastMonth()" value="  <  ">
 <!--<select id="bulan" name="bulan" onchange="ChangeCal()">
 
-<? /*$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+<? /*$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");
   	for ($i = 1; $i <= 12; $i++) { ?>
 	<option value="<?=$i?>" <?=IntIsSelected($i, $bulan)?>><?=$namabulan[$i - 1]?></option>
 <? }*/ ?>
@@ -233,7 +233,7 @@ Bulan :
 </td>
 <td align="right">
 	<a href="JavaScript:refresh()"><img src="../images/ico/refresh.png" border="0" /> Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:CetakJadwal()"><img src="../images/ico/print.png" border="0" /> Cetak</a>&nbsp;&nbsp;
+    <a href="JavaScript:CetakJadwal()"><img src="../images/ico/print.png" border="0" /> Print</a>&nbsp;&nbsp;
 </td>
 </tr>
 </table>
@@ -246,13 +246,13 @@ Bulan :
 <? } ?>
 	
 <!--<tr height="30" bgcolor="#DFFFDF">       
-	<td width="100" align="center" style="background-color:#990000; color:#FFFFFF"><b>Minggu</b></td>
-    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Senin</b></td>
-    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Selasa</b></td>
-    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Rabu</b></td>
-    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Kamis</b></td>
-    <td width="100" align="center" style="background-color:#339900; color:#FFFFFF"><b>Jum'at</b></td>
-    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Sabtu</b></td>
+	<td width="100" align="center" style="background-color:#990000; color:#FFFFFF"><b>Sunday</b></td>
+    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Monday</b></td>
+    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Tuesday</b></td>
+    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Wednesday</b></td>
+    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Thursday</b></td>
+    <td width="100" align="center" style="background-color:#339900; color:#FFFFFF"><b>Friday</b></td>
+    <td width="100" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Saturday</b></td>
 </tr>-->
 
 <?
@@ -289,11 +289,11 @@ Bulan :
 		echo "<font class='$style'>$tgl</font><br>";
 		if($njadwal > 0) {
 			//echo "<font size='2' style='background-color: green; color: yellow; '>&nbsp;$njadwal&nbsp;</font>&nbsp;<img src='images/ico/lihat.png' border='0' onmouseover='GetJadwal(this,$tgl,$bln,$thn)'>&nbsp;";
-			//echo "<a href=\"JavaScript:CetakTanggal($tgl,$bln,$thn)\" title='Cetak'><img src='images/ico/print.png' border='0'></a>&nbsp;";	
+			//echo "<a href=\"JavaScript:CetakTanggal($tgl,$bln,$thn)\" title='Print'><img src='images/ico/print.png' border='0'></a>&nbsp;";	
 			echo "<font size='2' style='background-color: green; color: yellow; '>&nbsp;$njadwal&nbsp;</font>&nbsp;<img src='images/ico/lihat.png' border='0'>&nbsp;";
 			
 		}
-		//echo "<a href=\"JavaScript:Edit($tgl,$bln,$thn)\" title='Tambah/Edit Jadwal'><img src='images/ico/ujian.png' border='0'></a>";
+		//echo "<a href=\"JavaScript:Edit($tgl,$bln,$thn)\" title='Add/Edit Schedule'><img src='images/ico/ujian.png' border='0'></a>";
 		echo "</td>";
 	}
 	echo "</tr>";

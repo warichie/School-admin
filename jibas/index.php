@@ -174,14 +174,14 @@ if ($dbconnect)
 		 <!-- 
 			<a href="http://jibas.net/content/sms/sms.php" target="_blank">
 			<img id="btAutoResponse" src="images/btnmenu_green_p_11.png" onMouseOver="changeImage('btAutoResponse','images/btnmenu_green_a_11.png')" onMouseOut="changeImage('btAutoResponse','images/btnmenu_green_p_11.png')" border="0"
-				 class="vtip" title="Mengirim SMS nilai/kehadiran/keuangan siswa berdasarkan SMS permintaan dari orangtua">
+				 class="vtip" title="Sending reports/attendance/finance SMS based on SMS request from parents">
 			</a> -->	
 		</td>
 		<td align="center" width="150">
 		  <!-- 
 			<a href="http://jibas.net/content/phototake/phototake.php" target="_blank">
 			<img id="btPhotoTake" src="images/btnmenu_green_p_20.png" onMouseOver="changeImage('btPhotoTake','images/btnmenu_green_a_20.png')" onMouseOut="changeImage('btPhotoTake','images/btnmenu_green_p_20.png')" border="0"
-				 class="vtip" title="Membuat foto siswa & guru dari kamera/webcam">
+				 class="vtip" title="Creating students & teachers photos from camera/webcam">
 			</a> -->	
 		</td>
 	</tr>
@@ -198,35 +198,35 @@ if ($dbconnect)
 		<!--
 			<a href="http://jibas.net/content/sd/sd.php" target="_blank">
 			<img id="btSync" src="images/btnmenu_green_p_13.png" onMouseOver="changeImage('btSync','images/btnmenu_green_a_13.png')" onMouseOut="changeImage('btSync','images/btnmenu_green_p_13.png')" border="0"
-				 class="vtip" title="Mengirimkan data-data nilai/kehadiran/keuangan siswa supaya dapat tampil di JendelaSekolah">
+				 class="vtip" title="Sending reports/attendance/finance student data for JendelaSekolah display">
 			</a> -->	
 		</td>
 		<td align="center" width="120">
 		<!--
 			<a href="http://jibas.net/content/jendelasekolah/jendelasekolah.php" target="_blank">
 			<img id="btJendela" src="images/btnmenu_green_p_14.png" onMouseOver="changeImage('btJendela','images/btnmenu_green_a_14.png')" onMouseOut="changeImage('btJendela','images/btnmenu_green_p_14.png')" border="0"
-				 class="vtip" title="Media informasi dan komunikasi antara siswa, orangtua dan guru melalui Internet dan Mobile">
+				 class="vtip" title="Communication and information media of students, parents and teachers through Internet and Mobile">
 			</a> -->		
 		</td>
 		<td align="center" width="120">
 		<!--
 			<a href="http://jibas.net/content/br/br.php" target="_blank">
 			<img id="btBackup" src="images/btnmenu_green_p_15.png" onMouseOver="changeImage('btBackup','images/btnmenu_green_a_15.png')" onMouseOut="changeImage('btBackup','images/btnmenu_green_p_15.png')" border="0"
-				 class="vtip" title="Membuat data cadangan untuk keamanan dan ketersediaan data">
+				 class="vtip" title="Creating backup data for security and data availability">
 			</a> -->			
 		</td>
 		<td align="center" width="120">
 		    <!--
 			<a href="http://jibas.net/content/lu/lu.php" target="_blank">
 			<img id="btLiveUpdate" src="images/btnmenu_green_p_16.png" onMouseOver="changeImage('btLiveUpdate','images/btnmenu_green_a_16.png')" onMouseOut="changeImage('btLiveUpdate','images/btnmenu_green_p_16.png')" border="0"
-				 class="vtip" title="Memutakhirkan aplikasi dengan mudah dan cepat">
+				 class="vtip" title="Updating the application easily and fast">
 			</a> -->	
 		</td>
 		<td align="center" width="120">
 		<!--
 			<a href="http://support.jibas.net" target="_blank">
 			<img id="btSupport" src="images/btnmenu_green_p_17.png" onMouseOver="changeImage('btSupport','images/btnmenu_green_a_17.png')" onMouseOut="changeImage('btSupport','images/btnmenu_green_p_17.png')" border="0"
-				 class="vtip" title="Media layanan dan bantuan penggunaan aplikasi">
+				 class="vtip" title="Service media and application usage help">
 			</a>
 			-->	
 		</td>
@@ -235,7 +235,7 @@ if ($dbconnect)
 			<a href="http://www.jibas.net/forum" target="_blank">
 			<img id="btForum" src="images/btnmenu_green_p_18.png" onMouseOver="changeImage('btForum','images/btnmenu_green_a_18.png')"
 				 onMouseOut="changeImage('btForum','images/btnmenu_green_p_18.png')" border="0"
-				 class="vtip" title="Forum diskusi komunitas pengguna JIBAS">
+				 class="vtip" title="JIBAS users community discussion forum">
 			</a>
 			 -->		
 		</td>
@@ -254,8 +254,8 @@ if ($dbconnect)
 <td align="right" valign="middle">
 	versi <?=$G_VERSION." - ".$G_BUILDDATE?><br />
 	<a href="http://www.jibas.net" target="_blank" style="color:#fff; text-decoration:none;">
-	&nbsp;&nbsp;<strong>JIBAS</strong>: Jaringan Informasi Bersama Antar Sekolah</a><br />
-	&nbsp;&nbsp;Hak cipta &copy; 2009 <a href="http://www.indonesiamembaca.net" target="_blank" style="color:#00f6f3; text-decoration:underline;">Yayasan Indonesia Membaca</a><br>
+	&nbsp;&nbsp;<strong>JIBAS</strong>: Inter School Information Network</a><br />
+	&nbsp;&nbsp;Copyright &copy; 2009 <a href="http://www.indonesiamembaca.net" target="_blank" style="color:#00f6f3; text-decoration:underline;">Indonesia Read Foundation</a><br>
 </td>
 <td>
 	<a href="http://www.jibas.net" target="_blank">
@@ -277,7 +277,7 @@ include('partner.php');
 if ($_SESSION['lugetstatus'] && $_SESSION['lugetlid'] == $lid)
 	echo $_SESSION['lugetmessage'];
 else	
-	echo "Memeriksa Update ..."; 
+	echo "Checking Update ..."; 
 ?>
 </div>
 

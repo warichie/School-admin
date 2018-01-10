@@ -130,7 +130,7 @@ function refresh(kalender) {
 function hapus(replid) {
 	var departemen = document.getElementById('departemen').value;
 		
-	if (confirm("Apakah anda yakin akan menghapus kalender akademik ini?"))
+	if (confirm("Are you sure want to delete this Academic Calendar?"))
 		document.location.href = "daftar_kalender.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&departemen="+departemen+"&urut=<?=$urut?>&urutan=<?=$urutan?>";
 		
 }
@@ -138,14 +138,14 @@ function hapus(replid) {
 function aktif(replid)
 {
 	var departemen = document.getElementById('departemen').value;		
-	if (confirm("Apakah anda akan mengaktifkan kalender akademik ini?"))
+	if (confirm("Do you wanto to activate this Academic Calendar?"))
 		document.location.href = "daftar_kalender.php?op=c234907nxdhnqhwflqf23f3f33&replid="+replid+"&departemen="+departemen+"&urut=<?=$urut?>&urutan=<?=$urutan?>";		
 }
 
 function nonaktif(replid)
 {
 	var departemen = document.getElementById('departemen').value;		
-	if (confirm("Apakah anda akan menonaktifkan kalender akademik ini?"))
+	if (confirm("Do you want to inactivate this Academic Calendar?"))
 		document.location.href = "daftar_kalender.php?op=vmt489tukd9fcmf92kd2309scm2323rc3&replid="+replid+"&departemen="+departemen+"&urut=<?=$urut?>&urutan=<?=$urutan?>";		
 }
 
@@ -179,7 +179,7 @@ function ByeWin() {
 windowIMA=parent.opener.refresh_change(0,0);
 }
 </script>
-<title>JIBAS SIMAKA [Daftar Kalender Akademik]</title>
+<title>JIBAS SIMAKA [Academic Calendar List]</title>
 </head>
 
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#dcdfc4" onUnload="ByeWin()" onload="document.getElementById('departemen').focus()">
@@ -188,7 +188,7 @@ windowIMA=parent.opener.refresh_change(0,0);
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Kalender Akademik :.
+    .: Academic Calendar :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -204,7 +204,7 @@ windowIMA=parent.opener.refresh_change(0,0);
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <!-- TABLE LINK -->
     <tr>
-    	<td><strong>Departemen </strong>    	
+    	<td><strong>Department </strong>    	
         <select name="departemen" id="departemen" onChange="change_departemen()" >
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
 		foreach($dep as $value) {
@@ -229,8 +229,8 @@ windowIMA=parent.opener.refresh_change(0,0);
 			$jumlah = $row[0];
 			//echo 'ada row '.$row[0];
 		 ?> 
-         	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '80px')">&nbsp;Refresh</a>&nbsp;&nbsp;  
-				<a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Info Jadwal!', this, event, '80px')">&nbsp;Tambah Kalender Akademik</a>
+         	<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '80px')">&nbsp;Refresh</a>&nbsp;&nbsp;  
+				<a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add Schedule Info', this, event, '80px')">&nbsp;Add Academic Calendar</a>
          <? //} 
 		} 
 		?>   
@@ -254,9 +254,9 @@ if ($departemen <> "") {
     <br /> 
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left">
     <tr class="header" height="30" align="center">
-        <td width="10%">No</td>
-        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kalender','<?=$urutan?>')">Kalender Akademik <?=change_urut('kalender',$urut,$urutan)?></td>        
-        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('tglmulai','<?=$urutan?>')">Periode <?=change_urut('tglmulai',$urut,$urutan)?></td>                
+        <td width="10%">#</td>
+        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kalender','<?=$urutan?>')">Academic Calendar <?=change_urut('kalender',$urut,$urutan)?></td>        
+        <td width="*" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('tglmulai','<?=$urutan?>')">Period <?=change_urut('tglmulai',$urut,$urutan)?></td>                
         <td width="*">&nbsp;</td>
 	</tr>
     <?
@@ -267,15 +267,15 @@ if ($departemen <> "") {
     <tr height="25">
         <td align="center"><?=$cnt?></td>
         <td><?=$row['kalender']?></td>
-        <td><?=LongDateFormat($row['tglmulai']).' s/d '.LongDateFormat($row['tglakhir'])?></td>
+        <td><?=LongDateFormat($row['tglmulai']).' to '.LongDateFormat($row['tglakhir'])?></td>
         <td align="center">
 <?			if ($row['aktif'] == 1) { ?>
-			<a href="JavaScript:nonaktif(<?=$row['replid']?>)" ><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Set Aktif Kalender Akademik!', this, event, '80px')"></a>
+			<a href="JavaScript:nonaktif(<?=$row['replid']?>)" ><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Activate Academic Calendar', this, event, '80px')"></a>
 <?			} else { ?>
-			<a href="JavaScript:aktif(<?=$row['replid']?>)" ><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Set Non Aktif Kalender Akademik!', this, event, '80px')"></a>
+			<a href="JavaScript:aktif(<?=$row['replid']?>)" ><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Inactivate Academic Calendar', this, event, '80px')"></a>
 <?			} ?>
-        	<a href="#" onClick="newWindow('kalender_edit.php?replid=<?=$row['replid']?>',     'UbahKalender','440','280','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Kalender Akademik!', this, event, '80px')"></a>&nbsp;
-        	<a href="JavaScript:hapus(<?=$row['replid']?>)" ><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Kalender Akademik!', this, event, '80px')"></a>        </td>
+        	<a href="#" onClick="newWindow('kalender_edit.php?replid=<?=$row['replid']?>',     'UbahKalender','440','280','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Academic Calendar', this, event, '80px')"></a>&nbsp;
+        	<a href="JavaScript:hapus(<?=$row['replid']?>)" ><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete', this, event, '80px')"></a>        </td>
         
 	</tr> 
      
@@ -300,14 +300,14 @@ if ($departemen <> "") {
 	<tr>
 		<td align="center" valign="middle" height="150">
     	<? if ($jumlah == 0) { ?>
-        	<font size = "2" color ="red"><b>Belum ada data Tahun Ajaran.
-        	<br />Silahkan isi terlebih dahulu di menu Tahun Ajaran pada bagian Referensi.
+        	<font size = "2" color ="red"><b>No Year data yet.
+        	<br />Please make a new one in Year of Teaching menu on Reference section.
         	</b></font>
         
         <? } else { ?>
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+            <font size = "2" color ="red"><b>Data Not Found. 
             <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-            <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+            <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
             <? } ?>
             </b></font>  
    		<? } ?>
@@ -327,8 +327,8 @@ if ($departemen <> "") {
 		<td align="center" valign="middle" height="150">
     
     <? if ($departemen == "") { ?>
-		<font size = "2" color ="red"><b>Belum ada data Departemen.
-        <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+		<font size = "2" color ="red"><b>No Department yet.
+        <br />Please make a new one in Department menu on Reference section.
         </b></font>
     <? } ?>
         </td>
@@ -339,7 +339,7 @@ if ($departemen <> "") {
 </tr>
 <tr height="35">
 	<td colspan="3" align="center">   	
-       <input class="but" type="button" value="Tutup" onClick="tutup()">
+       <input class="but" type="button" value="Close" onClick="tutup()">
        <input type="hidden" name="kalender" id="kalender" value="<?=$kalender?>" />
    	</td>
 </tr>  

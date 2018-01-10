@@ -67,7 +67,7 @@ function edit(replid) {
 }
 
 function hapus(replid) {
-	if (confirm("Apakah anda yakin akan menghapus aspek penilaian ini?"))
+	if (confirm("Are you sure want to delete this Assessment Aspect?"))
 		document.location.href = "aspeknilai.php?op=xm8r389xemx23xb2378e23&replid="+replid;
 }
 
@@ -90,11 +90,11 @@ function cetak() {
 
 	<table border="0"width="95%" align="center">
     <tr>
-        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Aspek Penilaian</font></td>
+        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Assessment Aspect</font></td>
     </tr>
     <tr>
         <td align="right"><a href="../guru.php?page=p" target="content">
-          <font size="1" face="Verdana" color="#000000"><b>Guru & Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" face="Verdana" color="#000000"><b>Aspek Penilaian</b></font>
+          <font size="1" face="Verdana" color="#000000"><b>Teacher and Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" face="Verdana" color="#000000"><b>Assessment Aspect</b></font>
         </td>
     </tr>
      <tr>
@@ -113,18 +113,18 @@ function cetak() {
     <!-- TABLE CONTENT -->
     <tr><td align="right">
     
-    <a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;    
+    <a href="#" onClick="refresh()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;    
 <?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')" />&nbsp;Tambah Aspek Penilaian</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')" />&nbsp;Add Assessment Aspect</a>
 <?	} ?>    
     </td></tr>
     </table><br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="15%" class="header" align="center">Kode</td>
-        <td width="*" class="header" align="center">Aspek Penilaian</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="15%" class="header" align="center">Code</td>
+        <td width="*" class="header" align="center">Assessment Aspect</td>
         <?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
         <td width="8%" class="header">&nbsp;</td>
         <?	} ?>
@@ -138,8 +138,8 @@ function cetak() {
         <td><?=$row[2] ?></td>
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>         
 		<td align="center">
-            <a href="JavaScript:edit(<?=$row[0] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Departemen!', this, event, '80px')" /></a>&nbsp;
-            <a href="JavaScript:hapus(<?=$row[0] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Departemen!', this, event, '80px')"/></a>
+            <a href="JavaScript:edit(<?=$row[0] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Department', this, event, '80px')" /></a>&nbsp;
+            <a href="JavaScript:hapus(<?=$row[0] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete', this, event, '80px')"/></a>
         </td>
 <?		} ?>  
     </tr>
@@ -159,9 +159,9 @@ function cetak() {
 
 <tr>
 	<td align="center" valign="middle" height="250" colspan="2">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
+    	<font size = "2" color ="red"><b>Data Not Found.
        <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru.
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data.
         <? } ?>
         </p></b></font>
 	</td>

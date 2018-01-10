@@ -794,7 +794,7 @@
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
     <sql>SET foreign_key_checks=0;
-DELETE FROM pegawai WHERE NIP=&apos;&apos; ;
+DELETE FROM pegawai WHERE Employee ID=&apos;&apos; ;
 UPDATE pegawai SET tgl_lahir=&apos;2000-12-12&apos; WHERE tgl_lahir=&apos;0000-00-00&apos; ;
 SET foreign_key_checks=1;</sql>
     <insert_field/>

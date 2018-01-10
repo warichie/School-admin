@@ -50,7 +50,7 @@ if(isset($_REQUEST[semester])){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Cari Siswa</title>
+<title>Search Student</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" href="../css/mainmenu.css" type="text/css">
 
@@ -70,7 +70,7 @@ function tekan() {
 	
 	//alert(rno);
 	if (rno.length == 0) {
-			alert('Anda belum menentukan Siswa!');
+			alert('You have not specified the Student yet');
 			return false;
 		}
 	eval("nis = document.main.nis" + rno + ".value;");
@@ -104,8 +104,8 @@ openDB();
 <input type="hidden" value="<?=$semester ?>" name="semester">
 <table cellpadding="0" cellspacing="0" width="100%">
 	<tr>
-		<td class="header">Pilih Siswa</td>
-		<td class="header" align="right">Langkah 1 dari 2</td>
+		<td class="header">Select Student</td>
+		<td class="header" align="right">Step 1 from 2</td>
 	</tr>
 </table>
 
@@ -130,15 +130,15 @@ openDB();
 			  <td>
 			 	<table border='1' width='100%' id="table" class="tab">
 					<tr>
-						<td class='header' align='center' height='30'>NIS</td>
-						<td class='header' height='30'>Nama</td>
+						<td class='header' align='center' height='30'>Student ID</td>
+						<td class='header' height='30'>Name</td>
 	<?
 	$jml_data = @mysql_num_rows($result_sis);
 	
 	if($jml_data=="0"){
 		?>
 		<tr>
-				<td colspan='3' align='center'>Data Siswa Tidak Ada</td>
+				<td colspan='3' align='center'>Data Not Found.</td>
 		</tr>
 		<? 
 	}else{	
@@ -157,7 +157,7 @@ openDB();
 	?>
 	<tr>
 		<td colspan='3' align="right">
-		<input type='button' class='but' value='Pilih >>' name='pilih' onClick="tekan()"></td>
+		<input type='button' class='but' value='Select >>' name='pilih' onClick="tekan()"></td>
 		</form>
 		</tr>
 	</table>

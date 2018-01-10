@@ -56,7 +56,7 @@ $row = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan Presensi Siswa]</title>
+<title>JIBAS SIMAKA [Print Student Presence Report]</title>
 </head>
 
 <body>
@@ -67,20 +67,20 @@ $row = mysql_fetch_array($result);
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>LAPORAN PRESENSI PELAJARAN SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT LESSON PRESENCE REPORT CARD</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td><strong>Siswa</strong></td>
+	<td><strong>Student</strong></td>
     <td><strong>: <?=$nis.' - '.$row['nama']?></strong></td>
 </tr>
 <!--<tr>
-	<td><strong>Nama</strong></td>
+	<td><strong>Name</strong></td>
     <td><strong>: <?=$row['nama']?></strong></td>
 </tr>-->
 <tr>
-	<td><strong>Periode Presensi</strong></td>
-    <td><strong>: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></strong></td>
+	<td><strong>Period</strong></td>
+    <td><strong>: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -98,17 +98,17 @@ $row = mysql_fetch_array($result);
 	?>
 	
     <fieldset>
-        <legend><strong>Data Kehadiran</strong></legend>
+        <legend><strong>Attendance Data</strong></legend>
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
    	<tr>		
-    	<td width="5%" height="30" align="center" class="header">No</td>      	
-      	<td width="5%" height="30" align="center" class="header">Tanggal</td>            
-      	<td width="5%" height="30" align="center" class="header">Jam</td>        
-        <td width="5%" height="30" align="center" class="header">Kelas</td>
-      	<td width="*" height="30" align="center" class="header">Catatan</td>
-      	<td width="15%" height="30" align="center" class="header">Pelajaran</td>
-      	<td width="15%" height="30" align="center" class="header">Guru</td>
-      	<td width="25%" height="30" align="center" class="header">Materi</td>       
+    	<td width="5%" height="30" align="center" class="header">#</td>      	
+      	<td width="5%" height="30" align="center" class="header">Date</td>            
+      	<td width="5%" height="30" align="center" class="header">Time</td>        
+        <td width="5%" height="30" align="center" class="header">Class</td>
+      	<td width="*" height="30" align="center" class="header">Notes</td>
+      	<td width="15%" height="30" align="center" class="header">Class Subject</td>
+      	<td width="15%" height="30" align="center" class="header">Teacher</td>
+      	<td width="25%" height="30" align="center" class="header">Class Subject</td>       
     </tr>
 	<? 
     $cnt = 1;
@@ -138,18 +138,18 @@ $row = mysql_fetch_array($result);
 	?>
    	<br />
     <fieldset>
-        <legend><strong>Data Ketidakhadiran</strong></legend>
+        <legend><strong>Absent Data</strong></legend>
     
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center">
     <tr>		
-		<td width="5%" height="30" align="center" class="header">No</td>
-      	<td width="5%" height="30" align="center" class="header">Tanggal</td>            
-      	<td width="5%" height="30" align="center" class="header">Jam</td>
-        <td width="5%" height="30" align="center" class="header">Kelas</td>
-      	<td width="*" height="30" align="center" class="header">Catatan</td>
-      	<td width="15%" height="30" align="center" class="header">Pelajaran</td>
-      	<td width="15%" height="30" align="center" class="header">Guru</td>
-      	<td width="25%" height="30" align="center" class="header">Materi</td>      	
+		<td width="5%" height="30" align="center" class="header">#</td>
+      	<td width="5%" height="30" align="center" class="header">Date</td>            
+      	<td width="5%" height="30" align="center" class="header">Time</td>
+        <td width="5%" height="30" align="center" class="header">Class</td>
+      	<td width="*" height="30" align="center" class="header">Notes</td>
+      	<td width="15%" height="30" align="center" class="header">Class Subject</td>
+      	<td width="15%" height="30" align="center" class="header">Teacher</td>
+      	<td width="25%" height="30" align="center" class="header">Class Subject</td>      	
     </tr>
 	<? 
     $cnt = 1;
@@ -175,20 +175,20 @@ $row = mysql_fetch_array($result);
 	<br />
     <table width="100%" border="0" align="center">
     <tr>
-        <td width="21%"><b>Jumlah Kehadiran</b></td>
+        <td width="21%"><b>Sum Attend</b></td>
         <td><b>: <?=$jum_hadir ?></b></td>
     </tr>
     <tr>
-        <td><b>Jumlah Ketidakhadiran</b></td>
+        <td><b>Sum Absent</b></td>
         <td><b>: <?=$jum_absen ?></b></td>
     </tr>
     <tr>
-        <td><b>Jumlah Seharusnya</b></td>
+        <td><b>Due</b></td>
         <td><b>: <? $total = $jum_hadir+$jum_absen;
                 echo $total ?></b></td>
     </tr>
     <tr>
-        <td><b>Presentase Kehadiran</b></td>
+        <td><b>Attendance Percentage</b></td>
         <td><b>: <? 	if ($total == 0) 
                     $total = 1;
                 $prs = (( $jum_hadir/$total)*100) ;

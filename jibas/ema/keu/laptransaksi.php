@@ -116,19 +116,19 @@ function show_laporan()
 	
 	if (idtahunbuku.length == 0) 
 	{
-		alert ('Tahun Buku tidak boleh kosong!');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('departemen').focus();
 		return false;
 	} 
 	else if (tgl1.length == 0) 
 	{	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} 
 	else if (tgl2.length == 0) 
 	{	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -255,7 +255,7 @@ function panggil(elem)
 	<td rowspan="3" width="60%">
     <table width = "100%" border="0">
     <tr>
-        <td width="15%" class="news_content1">Departemen </font></td>
+        <td width="15%" class="news_content1">Department </font></td>
         <td colspan="4"> 
         <select name="departemen" class="cmbfrm" id="departemen" style="width:188px" onchange="change_dep()">
     	        <? 	$sql = "SELECT departemen FROM departemen WHERE aktif = 1 ORDER BY urutan";
@@ -268,7 +268,7 @@ function panggil(elem)
     	        </option>
    	              <? } ?>
   	        </select>
-        <span class="news_content1">Tahun Buku </span>
+        <span class="news_content1">Fiscal Year </span>
         <select name="idtahunbuku" id="idtahunbuku" onchange="change_dep()" style="width:160px">        
 <? 			if ($departemen != "") 
 			{ 
@@ -307,11 +307,11 @@ function panggil(elem)
 					
 			$n1 = JmlHari($bln1, $thn1);
 			$n2 = JmlHari($bln2, $thn2);	?>       
-        <td class="news_content1">Tanggal </td>
+        <td class="news_content1">Date </td>
         <td width="10">
         	<div id="InfoTgl1"> 
                <select name="tgl1" class="cmbfrm" id="tgl1" onchange="change_tgl1()">  
-           <option value="">[Tgl]</option>  
+           <option value="">[Date]</option>  
            <? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($tgl1,$i) ?> > <?=$i ?></option>
             <? } ?>
@@ -328,11 +328,11 @@ function panggil(elem)
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
             </select>
-            <span class="news_content1">            s/d        </span></td>
+            <span class="news_content1">            to        </span></td>
        	<td width="10">
          	<div id="InfoTgl2">
             <select name="tgl2" class="cmbfrm" id="tgl2" onchange="change_tgl2()">
-            <option value="">[Tgl]</option>  
+            <option value="">[Date]</option>  
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($tgl2,$i) ?> > <?=$i ?></option>
             <? } ?>
@@ -355,9 +355,9 @@ function panggil(elem)
     </table>
 	</td>
 	<td rowspan="3" width="*" valign="middle">
-	    <a href="#" onclick="show_laporan()"><img src="../img/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Klik untuk menampilkan data laporan transaksi keuangan!', this, event, '180px')" /></a>    </td>
+	    <a href="#" onclick="show_laporan()"><img src="../img/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Click to show transactions reports', this, event, '180px')" /></a>    </td>
 	<td width="40%" align="right" valign="top">
-		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="news_title2">Laporan Transaksi Keuangan</span>	</td>
+		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="news_title2">Transaction Reports</span>	</td>
 </tr>
 </table>
 </form>
@@ -420,19 +420,19 @@ if (isset($_REQUEST[showpembayaran]))
         <table border="0" width="100%" align="center">
         <tr>
             <td align="right">
-            <!--<a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;-->
-            <a href="JavaScript:cetak()"><img src="../img/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;            </td>
+            <!--<a href="#" onClick="refresh()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;-->
+            <a href="JavaScript:cetak()"><img src="../img/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;            </td>
         </tr>
         </table>
         <br />
         <table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="100%" align="left" bordercolor="#000000">
         <tr height="30" align="center">
-            <td width="4%" class="header" >No</td>
-            <td width="18%" class="header">No. Jurnal/Tanggal</td>
-            <td width="10%" class="header">Petugas</td>
-            <td width="*" class="header" >Transaksi</td>
-            <td width="15%" class="header">Debet</td>
-            <td width="15%" class="header">Kredit</td>
+            <td width="4%" class="header" >#</td>
+            <td width="18%" class="header">Journal/Date</td>
+            <td width="10%" class="header">Officer</td>
+            <td width="*" class="header" >Transaction</td>
+            <td width="15%" class="header">Debit</td>
+            <td width="15%" class="header">Credit</td>
         </tr>
     <?		if ($page==0)
                 $cnt = 0;
@@ -448,7 +448,7 @@ if (isset($_REQUEST[showpembayaran]))
             <td valign="top" align="center"><?=$row['petugas'] ?></td>
             <td align="left" valign="top"><?=$row['transaksi'] ?>
             <? if ($row['keterangan'] <> "") { ?>
-            <br /><strong>Keterangan: </strong><?=$row['keterangan'] ?>
+            <br /><strong>Info: </strong><?=$row['keterangan'] ?>
             <? } ?>
             </td>
             <td align="right" valign="top"><?=FormatRupiah($row['debet']) ?></td>
@@ -457,7 +457,7 @@ if (isset($_REQUEST[showpembayaran]))
     <?
             }
             CloseDb();
-        //echo 'total '.$total.' dan '.$page;	
+        //echo 'total '.$total.' and '.$page;	
         if ($total-1 == $page) {
             
             
@@ -465,7 +465,7 @@ if (isset($_REQUEST[showpembayaran]))
        
         <tr height="30">
             <td colspan="4" align="center" bgcolor="#999900">
-            <font color="#FFFFFF"><strong>T O T A L</strong></font>
+            <font color="#FFFFFF"><strong>Total</strong></font>
             </td>
             <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totaldebet) ?></strong></font></td>
             <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalkredit) ?></strong></font></td>
@@ -499,19 +499,19 @@ if (isset($_REQUEST[showpembayaran]))
         <td>
         <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
         <tr>
-            <td width="30%" align="left" class="news_content1">Halaman
+            <td width="30%" align="left" class="news_content1">Page
             <select name="page" class="cmbfrm" id="page" onChange="change_page('XX')">
             <?	for ($m=0; $m<$total; $m++) {?>
                  <option value="<?=$m ?>" <?=IntIsSelected($page,$m) ?>><?=$m+1 ?></option>
             <? } ?>
             </select>
-            dari <?=$total?> halaman
+            from <?=$total?> pages
             
             <? 
-         // Navigasi halaman berikutnya dan sebelumnya
+         // Navigasi halaman berikutnya and sebelumnya
             ?>            </td>
             <td align="center">
-        <!--input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+        <!--input <?=$disback?> type="button" class="cmbfrm2" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
             <?
             for($a=0;$a<$total;$a++){
                 if ($page==$a){
@@ -522,9 +522,9 @@ if (isset($_REQUEST[showpembayaran]))
                      
             }
             ?>
-             <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')"-->
+             <input <?=$disnext?> type="button" class="cmbfrm2" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')"-->
             </td>
-            <td width="30%" align="right"><!--Jumlah baris per halaman
+            <td width="30%" align="right"><!--Row per page
             <select name="varbaris" id="varbaris" onChange="change_baris()">
             <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
                 <option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -537,7 +537,7 @@ if (isset($_REQUEST[showpembayaran]))
         <table width="100%" border="0" align="center">          
         <tr>
             <td align="center" valign="middle" height="300">
-                <font size = "2" color ="red"><b>Tidak ditemukan adanya data.<br />Tambah data transaksi keuangan pada departemen <?=$departemen?> antara tanggal <?=LongDateFormat($tanggal1)?> s/d <?=LongDateFormat($tanggal2)?><br />.</font>
+                <font size = "2" color ="red"><b>Data Not Found<br />Add finance transaction on <?=$departemen?> between <?=LongDateFormat($tanggal1)?> to <?=LongDateFormat($tanggal2)?><br />.</font>
                 
             </td>
         </tr>

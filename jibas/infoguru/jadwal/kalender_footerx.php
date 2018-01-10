@@ -71,16 +71,16 @@ document.location.reload();
     <td><table width="70%"  border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="296" align="right">&nbsp;</td>
-    <td width="140" align="right" colspan="2"><a href="#" onClick="newWindow('tambah_kegiatan.php?kalender=<?=$_REQUEST['kalender'];?>','kalender','502','303','')"><img style="cursor:pointer" src="../images/ico/tambah.png" width="16" height="16" border="0">Tambah Kegiatan </a><a href="#" onClick="newWindow('cetak_kalenderakademik.php?replid=<?=$_REQUEST['kalender']; ?>','pdf','700','800','')"><? if(mysql_num_rows($result)!=0){?><img src="../images/ico/print.png" width="16" height="16" border="0" style="cursor:pointer" > Cetak
+    <td width="140" align="right" colspan="2"><a href="#" onClick="newWindow('tambah_kegiatan.php?kalender=<?=$_REQUEST['kalender'];?>','kalender','502','303','')"><img style="cursor:pointer" src="../images/ico/tambah.png" width="16" height="16" border="0">Add Activity </a><a href="#" onClick="newWindow('cetak_kalenderakademik.php?replid=<?=$_REQUEST['kalender']; ?>','pdf','700','800','')"><? if(mysql_num_rows($result)!=0){?><img src="../images/ico/print.png" width="16" height="16" border="0" style="cursor:pointer" > Print
         <? }?></a></td>
   </tr>
   <tr>
     <td colspan="3"><table id=table width="100%"  border="1" align="center" class="tab">
       <tr class="header">
-        <td width="50" height="30" align="center">No</td>
-        <td width="100" height="30" align="center">Tanggal Mulai </td>
-		 <td width="117" height="30" align="center">Tanggal Selesai</td>
-        <td width="319" height="30" align="center">Kegiatan</td>
+        <td width="50" height="30" align="center">#</td>
+        <td width="100" height="30" align="center">Start Date </td>
+		 <td width="117" height="30" align="center">End Date</td>
+        <td width="319" height="30" align="center">Activity</td>
         <td width="70" height="30">&nbsp;</td>
       </tr>
 	  <?
@@ -97,15 +97,15 @@ document.location.reload();
         <td height="25"><div align="justify"><?=$fetch['kegiatan']; ?>
           </div></td>
         <td height="25" align="center" bgcolor="#FFFFFF">
-        <!--<a href="JavaScript:lihat(<?=$fetch['replid']?>)"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('Lihat Siswa!', this, event, '50px')"/></a>-->
-        <img src="../images/ico/ubah.png" style="cursor:pointer" width="16" height="16" onClick="newWindow('edit_kegiatan.php?op=edit&replid=<?=$fetch['replid'];?>&kalender=<?=$_GET['kalender'];?>','kalender','525','313','')"> <img style="cursor:pointer" src="../images/ico/hapus.png" width="16" height="16" onClick="javascript:a=confirm('Apakah anda yakin untuk menghapus data ini?'); if(a==true){window.location='kalender_footer.php?op=dfgdf8e4o834uh349783&kalender=<?=$_GET['kalender'];?>&replid=<?=$fetch['replid']; ?>';}"></td>
+        <!--<a href="JavaScript:lihat(<?=$fetch['replid']?>)"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('See Student', this, event, '50px')"/></a>-->
+        <img src="../images/ico/ubah.png" style="cursor:pointer" width="16" height="16" onClick="newWindow('edit_kegiatan.php?op=edit&replid=<?=$fetch['replid'];?>&kalender=<?=$_GET['kalender'];?>','kalender','525','313','')"> <img style="cursor:pointer" src="../images/ico/hapus.png" width="16" height="16" onClick="javascript:a=confirm('Are you sure want to delete this data?'); if(a==true){window.location='kalender_footer.php?op=dfgdf8e4o834uh349783&kalender=<?=$_GET['kalender'];?>&replid=<?=$fetch['replid']; ?>';}"></td>
       </tr>
 	  <?
 	  	}
 	  }
 	  else
 	  {
-	  	echo "<tr><td align=center colspan=5 height='25' >Data tidak ada</td></tr>";
+	  	echo "<tr><td align=center colspan=5 height='25' >Data Not Found.</td></tr>";
 	  }
 	  ?>
     </table></td>

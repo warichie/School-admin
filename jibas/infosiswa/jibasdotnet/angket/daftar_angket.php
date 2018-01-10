@@ -67,7 +67,7 @@ function refresh() {
 }
 
 function hapus(replid) {
-	if (confirm("Apakah anda yakin akan menghapus judul angket ini?"))
+	if (confirm("Are you sure want to delete this questionnaire's title?"))
 		document.location.href = "daftar_angket.php?op=xm8r389xemx23xb2378e23&replid="+replid;
 }
 </script>
@@ -75,10 +75,10 @@ function hapus(replid) {
 <body>
 <table width="100%" border="0">
   <tr>
-    <td colspan="3">Daftar Angket</td>
+    <td colspan="3">Questionnaire List</td>
   </tr>
   <tr>
-    <td width="45">Tahun : </td>
+    <td width="45">Year : </td>
     <td width="118" align="left">
     <select name="tahun" id="tahun" onChange="change_thn()" style="width:100px">        	
        <option value="2008"> 2008 </option>
@@ -97,7 +97,7 @@ function hapus(replid) {
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td align="right"><a href="#" onClick="newWindow('../angket/Angket_add.php','','500','250','resizable=0,scrollbars=1,status=0,toolbar=0')">
-    	<img src="../../images/ico/tambah.png" alt="tambah" width="16" height="16" border="0"/>Tambah</a></td>
+    	<img src="../../images/ico/tambah.png" alt="tambah" width="16" height="16" border="0"/>Add</a></td>
   </tr>
 </table>
 
@@ -105,8 +105,8 @@ function hapus(replid) {
     <!-- TABLE CONTENT -->
     
     <tr height="30">    	
-    	<td width="13%" class="header" align="center">No</td>
-        <td colspan="2" align="center" class="header">Judul</td>
+    	<td width="13%" class="header" align="center">#</td>
+        <td colspan="2" align="center" class="header">Title</td>
     </tr>
     <? 	OpenDb();		
 	  $sql = "SELECT DISTINCT p.judul, p.tglmulai, p.tglakhir, p.jenis, p.replid FROM jbsvcr.angket p ORDER BY replid DESC";
@@ -118,7 +118,7 @@ function hapus(replid) {
        	<td height="25" align="center" style="cursor:pointer"><?=++$cnt?></td>
         <td height="25" style="cursor:pointer" width="65%" onclick="tampil('<?=$row[4]?>','<?=$row[0]?>','<?=$row[1]?>','<?=$row[2]?>','<?=$row[3]?>')"><?=$row[0]?></td>
         <td width="22%" style="cursor:pointer"><a href="#" onclick="newWindow('../angket/Angket_edit.php?replid=<?=$row[4]?>','','500','250','resizable=0,scrollbars=1,status=0,toolbar=0')" style="cursor:pointer;" title="Edit Berita ini !">
-           <img src="../../images/ico/ubah.png" alt="edit" style="border:0"/></a>&nbsp;&nbsp;<a href="#" onclick="hapus('<?=$row[4]?>')" style="cursor:pointer;" title="Hapus Berita ini !"><img src="../../images/ico/hapus.png" alt="hapus" style="border:0px;"/></a></td>
+           <img src="../../images/ico/ubah.png" alt="edit" style="border:0"/></a>&nbsp;&nbsp;<a href="#" onclick="hapus('<?=$row[4]?>')" style="cursor:pointer;" title="Delete this News"><img src="../../images/ico/hapus.png" alt="hapus" style="border:0px;"/></a></td>
     </tr>
     <? 	} ?>
     <!-- END TABLE CONTENT -->

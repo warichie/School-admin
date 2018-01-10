@@ -58,7 +58,7 @@ $namakelas = $row['kelas'];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Pendataan Siswa]</title>
+<title>JIBAS SIMAKA [Student Data Collection]</title>
 </head>
 
 <body >
@@ -68,19 +68,19 @@ $namakelas = $row['kelas'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DATA SISWA PER KELAS</strong></font><br />
+  <font size="4"><strong>STUDENT DATA BY CLASSES</strong></font><br />
  </center><br /><br />
  <table width="100%">    
 	<tr>
-		<td width="15%"><strong>Departemen</strong> </td> 
+		<td width="15%"><strong>Department</strong> </td> 
 		<td width="*"><strong>:&nbsp;<?=$departemen?></strong></td>
 	</tr>
     <tr>
-		<td><strong>Tahun Ajaran </strong></td>
+		<td><strong>Year </strong></td>
 		<td><strong>:&nbsp;<?=$namatahun?></strong></td>        		
     </tr>
     <tr>
-		<td><strong>Kelas</strong></td>
+		<td><strong>Class</strong></td>
 		<td><strong>:&nbsp;<?=$namatingkat." - ".$namakelas?></strong></td>        		
     </tr>
     
@@ -88,12 +88,12 @@ $namakelas = $row['kelas'];
 <br />
 <table border="1" width="100%" id="table" class="tab" bordercolor="#000000">
 <tr>		
-	<td height="30" align="center" class="header" width="4%">No</td>
-	<td height="30" align="center" class="header" width="10%">NIS</td>
-    <td height="30" align="center" class="header" width="10%">NISN</td>
-    <td height="30" align="center" class="header" width="25%">Nama</td>
-    <td height="30" align="center" class="header" width="20%">Asal Sekolah</td>
-    <td height="30" align="center" class="header" width="*">Tempat Tanggal Lahir</td>
+	<td height="30" align="center" class="header" width="4%">#</td>
+	<td height="30" align="center" class="header" width="10%">Student ID</td>
+    <td height="30" align="center" class="header" width="10%">National Student ID</td>
+    <td height="30" align="center" class="header" width="25%">Name</td>
+    <td height="30" align="center" class="header" width="20%">Past School</td>
+    <td height="30" align="center" class="header" width="*">Birth Place</td>
     <td height="30" align="center" class="header" width="10%">Status</td>
     
 </tr>
@@ -118,9 +118,9 @@ while ($row = @mysql_fetch_row($result)) {
 	<td height="25"><?=$row[3].', '.$row[6].'&nbsp;'.NamaBulan($row[7]).'&nbsp;'.$row[8]?></td>
 	<td height="25" align="center">
 	<?	if ($row[5] == 1) 
-       		echo 'Aktif'; 
+       		echo 'Active'; 
 		else
-			echo 'Tidak Aktif';			
+			echo 'Inactive';			
 	?></td>   
 </tr>
 <?	}	?>			
@@ -128,7 +128,7 @@ while ($row = @mysql_fetch_row($result)) {
    </td>
   </tr>
 <!--<tr>
-   	<td align="right">Halaman <strong><?=$page+1?></strong> dari <strong><?=$total?></strong> halaman</td>
+   	<td align="right">Page <strong><?=$page+1?></strong> from <strong><?=$total?></strong> halaman</td>
 </tr>-->  
 </table>
 </body>

@@ -33,7 +33,7 @@ $P = new Penilaian();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Penilaian</title>
+<title>Report Card</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <script language="javascript" src="penilaian.js"></script>
 <script language="javascript" src="../script/ShowError.js"></script>
@@ -43,8 +43,8 @@ $P = new Penilaian();
 </head>
 <body>
 <div id="SubTitle" align="right">
-<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Kirim Penilaian</span><br />
-<a href="penilaian.main.php">Penilaian</a> > Kirim Laporan Penilaian
+<span style="color:#F90; background-color:#F90; font-size:20px">&nbsp;</span>&nbsp;<span style="color:#060; font-size:16px; font-weight:bold">Send Report Card</span><br />
+<a href="penilaian.main.php">Report Card</a> > Send Reports
 </div>
 <?
 $P->Main();

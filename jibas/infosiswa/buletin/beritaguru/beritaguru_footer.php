@@ -117,7 +117,7 @@ function hapus(replid){
 	var page=document.getElementById("page").value;
 	var bulan=parent.beritaguru_header.document.getElementById("bulan").value;
 	var tahun=parent.beritaguru_header.document.getElementById("tahun").value;
-	if (confirm('Anda yakin akan menghapus berita ini dan lampiran-lampirannya ?')){ 
+	if (confirm('Are you sure want to delete this news and the attachments?')){ 
 		document.location.href="beritaguru_footer.php?op=bzux834hx8x7x934983xihxf084&replid="+replid+"&bulan="+bulan+"&tahun="+tahun+"&page="+page;
 	}
 }
@@ -141,19 +141,19 @@ function hapus(replid){
 	<?
 	if ($total!=0){
 	?>
-    Halaman : <select name="page" id="page" onchange="chg_page()">
+    Page : <select name="page" id="page" onchange="chg_page()">
 	<? for ($p=1;$p<=$total;$p++){ ?>
 		<option value="<?=$p-1?>" <?=StringIsSelected($page,$p-1)?>><?=$p;?></option>
 	<? } ?>
-	</select>&nbsp;dari&nbsp;<?=$total?>    
+	</select>&nbsp;from&nbsp;<?=$total?>    
     <? } ?>
 	<table width="100%" border="1" cellspacing="0" class="tab" id="table">
   <tr>
-    <th width="22" height="30" class="header" scope="row"><div align="center">No</div></th>
-    <td width="69" height="30" class="header"><div align="center">Tanggal</div></td>
-    <td width="*" height="30" class="header"><div align="center">Berita</div></td>
-    <td width="125" height="30" class="header"><div align="center">Penulis</div></td>
-    <td width="150" height="30" class="header"><div align="center">Lampiran</div></td>
+    <th width="22" height="30" class="header" scope="row"><div align="center">#</div></th>
+    <td width="69" height="30" class="header"><div align="center">Date</div></td>
+    <td width="*" height="30" class="header"><div align="center">News</div></td>
+    <td width="125" height="30" class="header"><div align="center">Author</div></td>
+    <td width="150" height="30" class="header"><div align="center">Attachment</div></td>
     <td width="70" height="30" class="header">&nbsp;</td>
   </tr>
   <?
@@ -186,13 +186,13 @@ function hapus(replid){
 	$sql2="SELECT direktori,namafile FROM jbsvcr.lampiranberitaguru WHERE idberita='$row1[replid]'";
 	$result2=QueryDb($sql2);
 	while ($row2=@mysql_fetch_array($result2)){
-		echo "<a title='Buka lampiran ini!' href=\"#\" onclick=newWindow('".$row2[direktori].$row2[namafile]."','View',640,480,'resizable=1'); ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row2['namafile']."</a><br>";
+		echo "<a title='Open this attachment' href=\"#\" onclick=newWindow('".$row2[direktori].$row2[namafile]."','View',640,480,'resizable=1'); ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row2['namafile']."</a><br>";
 	}
 	?>
     </td>
     <td><div align="center">
     <? if ($row1[nip]==$idguru){ ?>
-    <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1[replid]?>')" style="cursor:pointer;" title="Ubah Berita ini !" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1[replid]?>')" style="cursor:pointer;" title="Hapus Berita ini !" />
+    <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1[replid]?>')" style="cursor:pointer;" title="Edit this News" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1[replid]?>')" style="cursor:pointer;" title="Delete this News" />
     <? } ?>
 	</div></td>
   </tr>
@@ -201,7 +201,7 @@ function hapus(replid){
   } 
   } else {?>
    <tr>
-    <td scope="row" colspan="6"><div align="center">Tidak ada berita</div></th>
+    <td scope="row" colspan="6"><div align="center">No news.</div></th>
    </tr>
   <? } ?>
 </table>

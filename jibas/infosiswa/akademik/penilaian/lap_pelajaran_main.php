@@ -27,7 +27,7 @@ require_once('../../include/sessioninfo.php');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Nilai</title>
+<title>Index Report</title>
 </head>
 <frameset cols = "30%, *" border="1" frameborder="1">
 	<frame src = "lap_pelajaran_menu.php?nis_awal=<?=SI_USER_ID()?>"  noresize scrolling="no" style="border:1; border-right-color:#000000; border-right-style:solid" />

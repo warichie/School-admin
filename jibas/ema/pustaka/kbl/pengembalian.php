@@ -34,7 +34,7 @@ require_once("../inc/sessionchecker.php");
 <body>
 <div id="title" align="center">
 	<font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-	<font style="font-size:18px; color:#999999">Pengembalian</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+	<font style="font-size:18px; color:#999999">Return</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
 </div>
 <br>
 <!-- ImageReady Slices (Untitled-7) -->

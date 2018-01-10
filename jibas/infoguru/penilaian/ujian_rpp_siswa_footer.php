@@ -28,7 +28,7 @@ $pelajaran=$_REQUEST['pelajaran'];
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE> Content Penentuan Nilai Rapor </TITLE>
+<TITLE> Subject Matter Report Card Assessment </TITLE>
 </HEAD>
 <frameset cols="18%,*" border="1">
     <frame name="menu" src="ujian_rpp_siswa_menu.php?kelas=<?=$kelas?>&semester=<?=$semester?>&pelajaran=<?=$pelajaran?>" >

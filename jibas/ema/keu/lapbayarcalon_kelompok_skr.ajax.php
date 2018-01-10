@@ -67,7 +67,7 @@ if (isset($_REQUEST['urutan']))
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Pembayaran Calon Siswa Per Kelompok</title>
+<title>Student Candidate Payment Reports by Group</title>
 <script language="javascript" src="script/tooltips.js" ></script>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
@@ -173,15 +173,15 @@ $namakelompok = $row[0];
 	<br />
 	<table class="tab" id="table" border="1" cellpadding="5" style="border-collapse:collapse" cellspacing="0" width="<?=$table_width ?>" align="left" bordercolor="#000000">
     <tr height="30" align="center">
-        <td class="header" width="30">No</td>
-        <td class="header" width="90" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nopendaftaran','<?=$urutan?>')">No. Reg <?=change_urut('nopendaftaran',$urut,$urutan)?></td>
-        <td class="header" width="160" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Nama <?=change_urut('nama',$urut,$urutan)?></td>
-        <td class="header" width="75" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kelompok','<?=$urutan?>')">Kel <?=change_urut('kelompok',$urut,$urutan)?></td>
+        <td class="header" width="30">#</td>
+        <td class="header" width="90" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nopendaftaran','<?=$urutan?>')">Registration Number <?=change_urut('nopendaftaran',$urut,$urutan)?></td>
+        <td class="header" width="160" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>')">Name <?=change_urut('nama',$urut,$urutan)?></td>
+        <td class="header" width="75" onMouseOver="background='style/formbg2agreen.gif';height=30;" onMouseOut="background='style/formbg2.gif';height=30;" background="style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('kelompok','<?=$urutan?>')">Group <?=change_urut('kelompok',$urut,$urutan)?></td>
     <?	for($i = 0; $i < $max_n_bayar; $i++) { ?>
-        <td class="header" width="125">Bayaran-<?=$i + 1 ?></td>
+        <td class="header" width="125"><?=$i + 1 ?>-Payment</td>
     <?  } ?>
-        <td class="header" width="125">Total Pembayaran</td>
-        <!--<td class="header" width="200">Keterangan</td>-->
+        <td class="header" width="125">Total Payment</td>
+        <!--<td class="header" width="200">Info</td>-->
     </tr>
 <?
 
@@ -276,7 +276,7 @@ while ($row = mysql_fetch_array($result)) {
 	<input type="hidden" name="tes" id="tes" value="<?=$total?>"/>
 	<? if ($total-1 == $page) { ?>
 	<tr height="30">
-    	<td bgcolor="#999900" align="center" colspan="<?=4 + $max_n_bayar ?>"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+    	<td bgcolor="#999900" align="center" colspan="<?=4 + $max_n_bayar ?>"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td bgcolor="#999900" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($TotalPembayaran) ?></strong></font></td>
         <!--<td bgcolor="#999900">&nbsp;</td>-->
     </tr>
@@ -313,8 +313,8 @@ while ($row = mysql_fetch_array($result)) {
 <table width="100%" border="0" align="center">          
 <tr>
 	<td align="center" valign="middle" height="250">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
-        <br />Tambah data pembayaran pada departemen <?=$departemen?> <? if ($namakelompok) echo  ", kelompok ".$namakelompok ?> dan kategori <?=$namapenerimaan?> di menu Penerimaan Pembayaran pada bagian Penerimaan.
+    	<font size = "2" color ="red"><b>Data Not Found.
+        <br />Add payment data on Department <?=$departemen?> <? if ($namakelompok) echo  ", kelompok ".$namakelompok ?> and category <?=$namapenerimaan?> in the Admission Payment on Admission section.
         </b></font>
 	</td>
 </tr>

@@ -34,13 +34,13 @@ OpenDb();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pilih Diklat</title>
+<title>Select Education and Training</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <link rel="stylesheet" href="../script/mktree.css" />
 <script language="javascript" src="../script/mktree.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
-function Pilih(id, diklat) {
+function Select(id, diklat) {
 	opener.TerimaDiklat(id, diklat);
 	window.close();
 }
@@ -81,12 +81,12 @@ function traverse($idroot, $count)
 		
 		if ($nsubdir == 0)
 		{
-			$diklat = "<a href=\"#\" onclick=\"JavaScript:Pilih($id, '$diklat')\">$diklat</a>";
+			$diklat = "<a href=\"#\" onclick=\"JavaScript:Select($id, '$diklat')\">$diklat</a>";
 			echo "$space<li class='liBullet'>&nbsp;$diklat&nbsp;</li>\r\n";
 		}
 		else
 		{
-			$diklat = "<a href=\"#\" onclick=\"JavaScript:Pilih($id, '$diklat')\">$diklat</a>";
+			$diklat = "<a href=\"#\" onclick=\"JavaScript:Select($id, '$diklat')\">$diklat</a>";
 			echo "$space<li class='liClosed'>&nbsp;$diklat&nbsp;\r\n";
 			
 			echo "$space<ul>\r\n";
@@ -101,7 +101,7 @@ function traverse($idroot, $count)
 <tr>
 	<td width="100%" align="right" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:18px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Pilih Diklat</font><br />
+        <font class="subtitle">Select Education and Training</font><br />
         <a onclick="document.location.reload()" href="#">refresh</a>
     </td>
 </tr>
@@ -113,12 +113,12 @@ $sql = "SELECT replid, diklat FROM jbssdm.diklat WHERE rootid = 0";
 $result = QueryDb($sql);
 if (mysql_num_rows($result) == 0) 
 {
-	echo "Belum ada data";
+	echo "No data yet";
 } 
 else 
 {
 	echo "<ul class='mktree' id='tree1'>\r\n";
-	echo "<li class='liClosed'>&nbsp;DIKLAT&nbsp;\r\n";
+	echo "<li class='liClosed'>&nbsp;EDUCATION and TRAINING&nbsp;\r\n";
 	
 	while ($row = mysql_fetch_row($result)) 
 	{

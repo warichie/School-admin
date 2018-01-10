@@ -52,7 +52,7 @@ if (isset($_REQUEST['idtahunbuku']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Rugi Laba]</title>
+<title>JIBAS FINANCE [Profit Loss Reports]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -63,22 +63,22 @@ if (isset($_REQUEST['idtahunbuku']))
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>LAPORAN RUGI LABA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>PROFIT LOSS REPORTS</strong></font><br /> </center><br /><br />
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) ?> s/d <?=LongDateFormat($tanggal2) ?></strong></td>
+	<td><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) ?> to <?=LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 </table>
 <br />
 <table id="table" border="1" cellpadding="8" cellpadding="0" width="100%">
 <tr height="30">
-	<td colspan="6"><strong><font size="2">PENDAPATAN</font></strong></td>
+	<td colspan="6"><strong><font size="2">INCOME</font></strong></td>
 </tr>
 <?
 OpenDb();
@@ -86,7 +86,7 @@ $sql = "SELECT nama, kode, SUM(debet) AS debet, SUM(kredit) As kredit FROM ((
 SELECT DISTINCT j.replid, ra.nama, ra.kode, jd.debet, jd.kredit FROM rekakun ra, katerekakun k,
 jurnal j, jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode
 AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' 
-AND ra.kategori = 'PENDAPATAN' GROUP BY j.replid, ra.nama, ra.kode ORDER BY ra.kode) AS X) 
+AND ra.kategori = 'INCOME' GROUP BY j.replid, ra.nama, ra.kode ORDER BY ra.kode) AS X) 
 GROUP BY nama, kode";
 $result = QueryDb($sql);
 $cnt = 0;
@@ -113,20 +113,20 @@ if (mysql_num_rows($result) >0) {
 ?>
 <tr height="30">
 	<td>&nbsp;</td>
-    <td colspan="4"><strong>SUB TOTAL PENDAPATAN</strong></td>
+    <td colspan="4"><strong>INCOME SUBTOTAL</strong></td>
     <td align="right"><strong><?=FormatRupiah($totalpendapatan) ?></strong></td>
 </tr>
 <tr height="5">
 	<td colspan="6">&nbsp;</td>
 </tr>
 <tr height="30">
-	<td colspan="6"><strong><font size="2">BIAYA</font></strong></td>
+	<td colspan="6"><strong><font size="2">COST</font></strong></td>
 </tr>
 <?
 $sql = "SELECT nama, kode, SUM(debet) AS debet, SUM(kredit) As kredit FROM (( 
 SELECT DISTINCT j.replid, ra.nama, ra.kode, jd.debet, jd.kredit FROM rekakun ra, katerekakun k,
 jurnal j, jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode 
-AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'BIAYA' 
+AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'COST' 
 GROUP BY j.replid, ra.nama, ra.kode ORDER BY ra.kode) AS X) GROUP BY nama, kode";
 $result = QueryDb($sql);
 $cnt = 0;
@@ -153,7 +153,7 @@ if (mysql_num_rows($result) >0) {
 
 <tr height="30">
 	<td>&nbsp;</td>
-    <td colspan="4"><strong>SUB TOTAL BIAYA</strong></td>
+    <td colspan="4"><strong>COST SUBTOTAL</strong></td>
     <td align="right"><strong><?=FormatRupiah($totalbiaya) ?></strong></td>
 </tr>
 <tr height="5">

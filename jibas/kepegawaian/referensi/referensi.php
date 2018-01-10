@@ -24,23 +24,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link href="../style/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <table id="Table_01" width="554" height="309" border="0" cellpadding="0" cellspacing="0" align="center">
 <tr height="30">
 	<td colspan="6" align="center">
-    <h3>REFERENSI</h3>    </td>
+    <h3>REFERENCE</h3>    </td>
 </tr>
 <tr>
-	<td><a href="jabatan.php" title="Struktur Jabatan"><img src="../images/bkref_01.jpg" width="97" height="137" alt="" border="0"></a></td>
+	<td><a href="jabatan.php" title="Position Order"><img src="../images/bkref_01.jpg" width="97" height="137" alt="" border="0"></a></td>
 	<td><img src="../images/bkref_02.jpg" width="124" height="137" alt=""></td>
 	<td colspan="2">
-    	<a href="diklat.php" title="Pendidikan dan Pelatihan">
+    	<a href="diklat.php" title="Education and Training">
 		<img src="../images/bkref_03.jpg" width="111" height="137" alt="" border="0"></a></td>
 	<td><img src="../images/bkref_04.jpg" width="117" height="137" alt=""></td>
-	<td><a href="satker.php" title="Satuan Kerja">
+	<td><a href="satker.php" title="Work Unit">
 			<img src="../images/bkref_05.jpg" width="105" height="137" alt="" border="0"></a></td>
 </tr>
 <tr>
@@ -48,7 +48,7 @@
 			<img src="../images/bkref_06.jpg" width="554" height="39" alt=""></td>
 </tr>
 <tr>
-		<td><a href="jenjab.php" title="Jenis-Jenis Jabatan">
+		<td><a href="jenjab.php" title="Jenis-Position Type">
 			<img src="../images/bkref_07.jpg" width="97" height="132" alt="" border="0"></a></td>
 		<td colspan="2">
 			<img src="../images/bkref_08.jpg" width="125" height="132" alt=""></td>

@@ -36,7 +36,7 @@ $sql="SELECT YEAR(b.tanggal) as thn,MONTH(b.tanggal) as bln,DAY(b.tanggal) as tg
 $result=QueryDb($sql);
 $row=@mysql_fetch_array($result);
 CloseDb();
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");	
 $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -65,13 +65,13 @@ img{
   <tr>
     <td height="39" colspan="3" scope="row"><div align="center">
       <label>
-      <input name="button" type="submit" class="but" id="button" value="Tutup" onclick="window.close();" />
+      <input name="button" type="submit" class="but" id="button" value="Close" onclick="window.close();" />
       </label>
     </div></td>
   </tr>
   <tr>
     <td height="39" style="background-image:url(../../images_slice/buat_berita_01.jpg); background-repeat:no-repeat;" scope="row">&nbsp;</td>
-    <td style="background-image:url(../../images_slice/buat_berita_03.jpg); background-repeat:repeat-x;"><div align="left"><span class="style3">Berita Guru</span></div></td>
+    <td style="background-image:url(../../images_slice/buat_berita_03.jpg); background-repeat:repeat-x;"><div align="left"><span class="style3">Teacher News</span></div></td>
     <td width="21" style="background-image:url(../../images_slice/buat_berita_05.jpg); background-repeat:no-repeat;">&nbsp;</td>
   </tr>
   <tr>
@@ -79,27 +79,27 @@ img{
     <td bgcolor="#F1F1F1">
         <table width="100%" border="0" cellspacing="0" style="background-color:#f1f1f1;">
           <tr>
-            <td width="65" scope="row" align="left"><strong>Dari </strong></td>
+            <td width="65" scope="row" align="left"><strong>From </strong></td>
             <td width="8" scope="row" align="left">:</td>
             <td width="859" scope="row" align="left"><?=$row['nama']?></td>
           </tr>
           <tr>
-            <td align="left" scope="row"><strong>Tanggal </strong></td>
+            <td align="left" scope="row"><strong>Date </strong></td>
             <td align="left" scope="row">:</td>
             <td scope="row" align="left"><?=$tglberita?></td>
           </tr>
           <tr>
-            <td align="left" scope="row"><strong>Judul </strong></td>
+            <td align="left" scope="row"><strong>Title </strong></td>
             <td align="left" scope="row">:</td>
             <td scope="row" align="left"><?=$row['judul']?></td>
           </tr>
           <tr>
-            <td align="left" valign="top" scope="row"><strong>Abstrak </strong></td>
+            <td align="left" valign="top" scope="row"><strong>Abstract </strong></td>
             <td align="left" valign="top" scope="row">:</td>
             <td scope="row" align="left"><?=$row['abstrak']?><br><hr></td>
           </tr>
           <tr>
-            <td align="left" valign="top" scope="row"><strong>Berita </strong></td>
+            <td align="left" valign="top" scope="row"><strong>News </strong></td>
             <td align="left" valign="top" scope="row">:</td>
             <td scope="row" align="left"><?=$row['berita']?><br><hr></td>
           </tr>

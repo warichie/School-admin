@@ -24,7 +24,7 @@
 global $nisa;
 function lagi() {
 	coba(); 
-	echo '<br>lagi nyoba lagi'.$nisa[1];
+	echo '<br>Try again'.$nisa[1];
 }
 
 

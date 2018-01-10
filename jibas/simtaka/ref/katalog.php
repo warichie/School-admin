@@ -44,8 +44,8 @@ $K->OnStart();
 <body>
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Daftar Katalog Pustaka</font><br />
-        <a href="referensi.php" class="welc">Referensi</a><span class="welc"> > Daftar Katalog Pustaka</span><br /><br /><br />
+        <font style="font-size:18px; color:#999999">Library Catalogue List</font><br />
+        <a href="referensi.php" class="welc">Reference</a><span class="welc"> > Library Catalogue List</span><br /><br /><br />
     </div>
     <div id="content">
       <?=$K->Content()?>

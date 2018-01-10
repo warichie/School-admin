@@ -42,7 +42,7 @@ if (isset($_REQUEST[perpustakaan]))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Daftar Pustaka</title>
+<title>Library List</title>
 <link href="../sty/style.css" rel="stylesheet" type="text/css" />
 <script language="javascript">
 function chg_krit(){
@@ -61,7 +61,7 @@ function view(){
 	var kriteria = document.getElementById('kriteria').value;
 	var keyword = document.getElementById('keyword').value;
 	if (keyword=='' || keyword.length<3){
-		alert ('Anda harus mengisikan Kata Kunci\nKata kunci harus lebih dari 3 karakter');
+		alert ('Anda harus mengisikan Kata Kunci\nKata kunci harus lebih from 3 characters');
 		document.getElementById('keyword').focus();
 	} else {
 		document.location.href = "pustaka.php?op=view&kriteria="+kriteria+"&keyword="+keyword+"&perpustakaan="+perpustakaan;
@@ -80,7 +80,7 @@ function pilih(id){
 <body topmargin="0" leftmargin="0">
 	<div id="title" align="right">
         <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-        <font style="font-size:18px; color:#999999">Daftar Pustaka</font><br />
+        <font style="font-size:18px; color:#999999">Library List</font><br />
     </div>
     <div>
         <table width="100%" border="0" cellspacing="3" cellpadding="0">
@@ -88,7 +88,7 @@ function pilih(id){
             <td width="38%">&nbsp;&nbsp;&nbsp;
             <table width="100%" border="0" cellspacing="2" cellpadding="0">
               <tr>
-                <td>Perpustakaan</td>
+                <td>Library</td>
                 <td>
                 	<?
 					OpenDb();
@@ -102,7 +102,7 @@ function pilih(id){
                 	<select name="perpustakaan" id="perpustakaan" class="cmbfrm"  onchange="chg_krit()">
 					<?
                     if (SI_USER_LEVEL()!=2){
-                        echo "<option value='-1' ".IntIsSelected('-1',$perpustakaan).">(Semua)</option>";
+                        echo "<option value='-1' ".IntIsSelected('-1',$perpustakaan).">(All)</option>";
                     }
                     while ($row = @mysql_fetch_row($result)){
                     if ($perpustakaan == "")
@@ -116,19 +116,19 @@ function pilih(id){
                 </td>
               </tr>
               <tr>
-                <td>Cari&nbsp;berdasarkan&nbsp;</td>
+                <td>Sort by</td>
                 <td><select name="kriteria" class="cmbfrm" id="kriteria" style="width:145px" onchange="chg_krit()">
-                  <option value="judul" <?=StringIsSelected('judul',$kriteria)?>>Judul</option>
+                  <option value="judul" <?=StringIsSelected('judul',$kriteria)?>>Title</option>
                   <option value="keyword" <?=StringIsSelected('keyword',$kriteria)?>>Keyword</option>
                 </select></td>
               </tr>
               <tr>
-                <td>Kata Kunci</td>
+                <td>Keyword</td>
                 <td><input name="keyword" class="inputtxt" id="keyword" value="<?=$keyword?>" /></td>
               </tr>
             </table></td>
             <td width="5%"><a href="javascript:view()"><img src="../img/view.png" border="0" /></a></td>
-            <td width="57%" align="right"><input onclick="view_all()" name="button" type="submit" class="cmbfrm3" id="button" value="Tampilkan Semua" />
+            <td width="57%" align="right"><input onclick="view_all()" name="button" type="submit" class="cmbfrm3" id="button" value="Display All" />
             &nbsp;&nbsp;</td>
           </tr>
         </table>
@@ -137,9 +137,9 @@ function pilih(id){
 <div>
     <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
       <tr>
-        <td width="28" height="25" align="center" class="header">No</td>
-        <td width="275" height="25" align="center" class="header">Kode Pustaka</td>
-        <td width="788" height="25" align="center" class="header">Judul</td>
+        <td width="28" height="25" align="center" class="header">#</td>
+        <td width="275" height="25" align="center" class="header">Library Code</td>
+        <td width="788" height="25" align="center" class="header">Title</td>
         <td width="40" align="center" class="header">&nbsp;</td>
       </tr>
       <?
@@ -171,13 +171,13 @@ function pilih(id){
 			<td width="28" height="20" align="center" class="tab_content"><?=$cnt?></td>
 			<td height="20" class="tab_content"><div class="tab_content"><?=$row[2]?></div></td>
             <td height="20" class="tab_content"><div class="tab_content"><?=$row[1]?></div></td>
-			<td align="center" class="tab_content"><input name="button2" type="button" class="cmbfrm2" id="button2" value="Pilih" onclick="pilih('<?=$cnt?>')" /></td>
+			<td align="center" class="tab_content"><input name="button2" type="button" class="cmbfrm2" id="button2" value="Select" onclick="pilih('<?=$cnt?>')" /></td>
 		  </tr>
           <? $cnt++; ?>
 		  <? } ?>
       <? } else { ?>
       <tr>
-        <td height="20" colspan="4" align="center" class="nodata">Tidak ada data</td>
+        <td height="20" colspan="4" align="center" class="nodata">Data Not Found.</td>
       </tr>
       <? } ?>
     </table>
@@ -187,7 +187,7 @@ function pilih(id){
 	<? } ?>
 	<br />
 <div align="center">
-<input type="button" class="cmbfrm2" value="Tutup" onclick="window.close()" />
+<input type="button" class="cmbfrm2" value="Close" onclick="window.close()" />
 </div>    
 </body>
 </html>

@@ -59,7 +59,7 @@ $row = mysql_fetch_array($result);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Cetak Laporan  Siswa Tidak Hadir]</title>
+<title>JIBAS TEACHERS INFO [Print Absent Student Data Reports]</title>
 </head>
 
 <body>
@@ -70,15 +70,15 @@ $row = mysql_fetch_array($result);
 <?=getHeader($row[departemen])?>
 	
 <center>
-  <font size="4"><strong>LAPORAN DATA SISWA YANG TIDAK HADIR</strong></font><br />
+  <font size="4"><strong>ABSENT STUDENT DATA REPORT CARD</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td width="25%"><strong>Departemen</strong></td>
+	<td width="25%"><strong>Department</strong></td>
     <td><strong>: <?=$row['departemen']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><strong>: <?=$row['tahunajaran']?></strong></td>
 </tr>
 <tr>
@@ -86,16 +86,16 @@ $row = mysql_fetch_array($result);
     <td><strong>: <?=$row['semester']?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
-    <td><strong>: <? if ($tingkat == -1) echo "Semua Tingkat"; else echo $row['tingkat']; ?></strong></td>
+	<td><strong>Grade</strong></td>
+    <td><strong>: <? if ($tingkat == -1) echo "All Tingkat"; else echo $row['tingkat']; ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Kelas</strong></td>
-    <td><strong>: <? if ($kelas == -1) echo "Semua Kelas"; else echo $row['kelas']; ?></strong></td>
+	<td><strong>Class</strong></td>
+    <td><strong>: <? if ($kelas == -1) echo "All Classes"; else echo $row['kelas']; ?></strong></td>
 </tr>
 <tr>
-	<td><strong>Periode Presensi</strong></td>
-    <td><strong>: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></strong></td>
+	<td><strong>Period</strong></td>
+    <td><strong>: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></strong></td>
 </tr>
 </table>
 <br />
@@ -111,33 +111,33 @@ $row = mysql_fetch_array($result);
 
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
    	<tr height="30">
-    	<td class="header" align="center" width="5%">No</td>
-		<td class="header" align="center" width="8%">N I S</td>
-		<td class="header" align="center" width="15%">Nama</td>
+    	<td class="header" align="center" width="5%">#</td>
+		<td class="header" align="center" width="8%">Student ID</td>
+		<td class="header" align="center" width="15%">Name</td>
         <? if ($kelas == -1) { ?>
-        <td class="header" align="center" width="8%">Kelas</td>
+        <td class="header" align="center" width="8%">Class</td>
        	<? } ?>            
-		<td class="header" align="center" width="10%">Pelajaran</td>
-        <td class="header" align="center" width="5%">Tanggal</td>
-        <td class="header" align="center">Presensi</td>
-        <td class="header" align="center" width="10%">Keterangan</td>            
-        <td class="header" align="center" width="7%">Tlp Siswa</td>
-        <td class="header" align="center" width="10%">HP Siswa</td>
-        <td class="header" align="center" width="15%">Orang Tua</td>
-        <td class="header" align="center" width="7%">Tlp Ortu</td>
-        <td class="header" align="center" width="10%">HP Ortu</td>     
+		<td class="header" align="center" width="10%">Class Subject</td>
+        <td class="header" align="center" width="5%">Date</td>
+        <td class="header" align="center">Presence</td>
+        <td class="header" align="center" width="10%">Info</td>            
+        <td class="header" align="center" width="7%">Student Phone</td>
+        <td class="header" align="center" width="10%">Student Mobile</td>
+        <td class="header" align="center" width="15%">Parent</td>
+        <td class="header" align="center" width="7%">Parent Phone</td>
+        <td class="header" align="center" width="10%">Parent Mobile</td>     
     </tr>
 <?		
 	$cnt = 0;
 	while ($row = mysql_fetch_row($result)) { 
 		switch ($row[6]){
-			case 1 : $st="Ijin";
+			case 1 : $st="Consent";
 			break;
-			case 2 : $st="Sakit";
+			case 2 : $st="Ill";
 			break;	
-			case 3 : $st="Alpa";
+			case 3 : $st="Absent";
 			break;
-			case 4 : $st="Cuti";
+			case 4 : $st="Leave";
 			break;
 		}	
 ?>

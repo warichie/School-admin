@@ -109,15 +109,15 @@ function show_laporan() {
 	var tanggal2 = escape(thn2 + "-" + bln2 + "-" + tgl2);
 	
 	if (idtahunbuku.length == 0) {	
-		alert ('Tahun Buku tidak boleh kosong!');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('departemen').focus();
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -206,7 +206,7 @@ function change_tahunbuku()
 <td rowspan="3" width="60%">
     <table border="0" width = "100%">
     <tr>
-        <td width="15%"><strong>Departemen </strong></font></td>
+        <td width="15%"><strong>Department </strong></font></td>
         <td colspan="4">
         <select name="departemen" id="departemen" style="width:115px" onchange="change_dep()" onKeyPress="return focusNext('tgl1',event)" onfocus="panggil('departemen')">
         <?	$dep = getDepartemen(getAccess());
@@ -218,7 +218,7 @@ function change_tahunbuku()
         <?  } ?>     
         </select>
         &nbsp;
-        <strong>Tahun Buku </strong>
+        <strong>Fiscal Year </strong>
         <select name="idtahunbuku" id="idtahunbuku" onchange="change_tahunbuku()" style="width:160px">        
 <? 		if ($departemen != "") 
 		{ 
@@ -245,11 +245,11 @@ function change_tahunbuku()
            </td>
     </tr>
     <tr>
-        <td><strong>Tanggal </strong></td>
+        <td><strong>Date </strong></td>
         <td width="10">
             <div id="InfoTgl1">    
             <select name="tgl1" id = "tgl1" onchange="change_tgl1()" onfocus = "panggil('tgl1')" onKeyPress="focusNext('bln1',event)">
-            <option value="">[Tgl]</option>        
+            <option value="">[Date]</option>        
             <? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -265,11 +265,11 @@ function change_tahunbuku()
             <? for($i = $G_START_YEAR; $i <= $thn1+1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
-            </select> s/d        </td>
+            </select> to        </td>
         <td width="10">
          	<div id="InfoTgl2">
             <select name="tgl2" id="tgl2" onchange="change_tgl2()" onfocus ="panggil('tgl2')" onKeyPress="focusNext('bln2',event)">
-            <option value="">[Tgl]</option>
+            <option value="">[Date]</option>
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -291,13 +291,13 @@ function change_tahunbuku()
 
 	</td>
  	<td rowspan="2" width="*" valign="middle">
-        <a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Klik untuk menampilkan data laporan pengeluaran!', this, event, '200px')"/></a>
+        <a href="#" onclick="show_laporan()"><img src="images/view.png" border="0" height="48" width="48" id="tabel" onmouseover="showhint('Click to show expenditure reports', this, event, '200px')"/></a>
     </td>
 	<td width="40%" colspan="3" align="right" valign="top">
-	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Transaksi Pengeluaran</font><br />
+	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Reports Transaction Expenditure</font><br />
     <a target="_parent" href="pengeluaran.php">
-      <font size="1" color="#000000"><b>Pengeluaran</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Transaksi Pengeluaran</b></font>
+      <font size="1" color="#000000"><b>Expenditure</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Reports Transaction Expenditure</b></font>
 	</td>
 </tr>
 <tr>	

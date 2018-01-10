@@ -3772,7 +3772,7 @@ tinymce.html.Styles = function(settings, schema) {
 					continue;
 				}
 
-				// Get list of all parent nodes until we find a valid parent to stick the child into
+				// Get list of all parent nodes to we find a valid parent to stick the child into
 				parents = [node];
 				for (parent = node.parent; parent && !schema.isValidChild(parent.name, node.name) && !nonSplitableElements[parent.name]; parent = parent.parent)
 					parents.push(parent);
@@ -4686,7 +4686,7 @@ tinymce.dom = {};
 				}
 			});
 
-			// Wait until we can scroll, when we can the DOM is initialized
+			// Wait to we can scroll, when we can the DOM is initialized
 			if (doc.documentElement.doScroll && win === win.top) {
 				(function() {
 					try {
@@ -6942,7 +6942,7 @@ tinymce.dom.TreeWalker = function(start_node, root_node) {
 				depthDiff++;
 			}
 
-			// ascend the ancestor hierarchy until we have a common parent.
+			// ascend the ancestor hierarchy to we have a common parent.
 			for (sp = startNode.parentNode, ep = endNode.parentNode; sp != ep; sp = sp.parentNode, ep = ep.parentNode) {
 				startNode = sp;
 				endNode = ep;
@@ -7330,7 +7330,7 @@ tinymce.dom.TreeWalker = function(start_node, root_node) {
 				} else
 					checkRng.collapse(false);
 
-				// Walk character by character in text node until we hit the selected range endpoint, hit the end of document or parent isn't the right one
+				// Walk character by character in text node to we hit the selected range endpoint, hit the end of document or parent isn't the right one
 				// We need to walk char by char since rng.text or rng.htmlText will trim line endings
 				offset = 0;
 				while (checkRng.compareEndPoints(start ? 'StartToStart' : 'StartToEnd', rng) !== 0) {
@@ -7344,7 +7344,7 @@ tinymce.dom.TreeWalker = function(start_node, root_node) {
 				// Child position is after the selection endpoint
 				checkRng.collapse(true);
 
-				// Walk character by character in text node until we hit the selected range endpoint, hit the end of document or parent isn't the right one
+				// Walk character by character in text node to we hit the selected range endpoint, hit the end of document or parent isn't the right one
 				offset = 0;
 				while (checkRng.compareEndPoints(start ? 'StartToStart' : 'StartToEnd', rng) !== 0) {
 					if (checkRng.move('character', -1) === 0 || parent != checkRng.parentElement()) {
@@ -10134,7 +10134,7 @@ window.tinymce.dom.Sizzle = Sizzle;
 					startNode = startNode || container;
 					walker = new TreeWalker(startNode, dom.getParent(startNode.parentNode, dom.isBlock) || body);
 
-					// Walk left until we hit a text node we can move to or a block/br/img
+					// Walk left to we hit a text node we can move to or a block/br/img
 					while (node = walker[left ? 'prev' : 'next']()) {
 						// Found text node that has a length
 						if (node.nodeType === 3 && node.nodeValue.length > 0) {
@@ -10680,7 +10680,7 @@ window.tinymce.dom.Sizzle = Sizzle;
 					htmlParser.parse(tinymce.trim(args.getInner ? node.innerHTML : dom.getOuterHTML(node)), args)
 				);
 
-				// Replace all BOM characters for now until we can find a better solution
+				// Replace all BOM characters for now to we can find a better solution
 				if (!args.cleanup)
 					args.content = args.content.replace(/\uFEFF/g, '');
 
@@ -12485,10 +12485,10 @@ tinymce.create('tinymce.ui.Separator:tinymce.ui.Control', {
 				h1 = DOM.createHTML('span', {'class' : 'mceAction ' + s['class']}, '');
 
 			h1 += DOM.createHTML('span', {'class': 'mceVoiceLabel mceIconOnly', id: t.id + '_voice', style: 'display:none;'}, s.title);
-			h += '<td >' + DOM.createHTML('a', {role: 'button', id : t.id + '_action', tabindex: '-1', href : 'javascript:;', 'class' : 'mceAction ' + s['class'], onclick : "return false;", onmousedown : 'return false;', title : s.title}, h1) + '</td>';
+			h += '<td>' + DOM.createHTML('a', {role: 'button', id : t.id + '_action', tabindex: '-1', href : 'javascript:;', 'class' : 'mceAction ' + s['class'], onclick : "return false;", onmousedown : 'return false;', title : s.title}, h1) + '</td>';
 	
 			h1 = DOM.createHTML('span', {'class' : 'mceOpen ' + s['class']}, '<span style="display:none;" class="mceIconOnly" aria-hidden="true">\u25BC</span>');
-			h += '<td >' + DOM.createHTML('a', {role: 'button', id : t.id + '_open', tabindex: '-1', href : 'javascript:;', 'class' : 'mceOpen ' + s['class'], onclick : "return false;", onmousedown : 'return false;', title : s.title}, h1) + '</td>';
+			h += '<td>' + DOM.createHTML('a', {role: 'button', id : t.id + '_open', tabindex: '-1', href : 'javascript:;', 'class' : 'mceOpen ' + s['class'], onclick : "return false;", onmousedown : 'return false;', title : s.title}, h1) + '</td>';
 
 			h += '</tr></tbody>';
 			h = DOM.createHTML('table', { role: 'presentation',   'class' : 'mceSplitButton mceSplitButtonEnabled ' + s['class'], cellpadding : '0', cellspacing : '0', title : s.title}, h);
@@ -13870,7 +13870,7 @@ tinymce.create('tinymce.ui.Toolbar:tinymce.ui.Container', {
 			self.editorCommands = new tinymce.EditorCommands(self);
 
 			self.onExecCommand.add(function(editor, command) {
-				// Don't refresh the select lists until caret move
+				// Don't refresh the select lists to caret move
 				if (!/^(FontName|FontSize)$/.test(command))
 					self.nodeChanged();
 			});
@@ -18714,7 +18714,7 @@ tinymce.onAddEditor.add(function(tinymce, ed) {
 						newBlock = dom.create(blockName);
 						startNode.parentNode.insertBefore(newBlock, startNode);
 
-						// Start wrapping until we hit a block
+						// Start wrapping to we hit a block
 						node = startNode;
 						while (node && !dom.isBlock(node)) {
 							next = node.nextSibling;
@@ -18844,7 +18844,7 @@ tinymce.onAddEditor.add(function(tinymce, ed) {
 			function getEditableRoot(node) {
 				var root = dom.getRoot(), parent, editableRoot;
 
-				// Get all parents until we hit a non editable parent or the root
+				// Get all parents to we hit a non editable parent or the root
 				parent = node;
 				while (parent !== root && dom.getContentEditable(parent) !== "false") {
 					if (dom.getContentEditable(parent) === "true") {

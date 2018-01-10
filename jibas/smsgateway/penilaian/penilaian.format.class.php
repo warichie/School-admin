@@ -34,7 +34,7 @@ class FormatPenilaian{
             <td width="319" valign="top">
                 <div id="TabbedPanelsA" class="TabbedPanels">
                   <ul class="TabbedPanelsTabGroup">
-                    <li class="TabbedPanelsTab" tabindex="0"><strong>Format Pesan</strong></li>
+                    <li class="TabbedPanelsTab" tabindex="0"><strong>Message Format</strong></li>
                   </ul>
                   <div class="TabbedPanelsContentGroup">
                     <div class="TabbedPanelsContent" style="padding-top:5px; overflow:inherit">
@@ -49,8 +49,8 @@ class FormatPenilaian{
                             <?php
 							if ($_SESSION['tingkat']!='2'){
 							?>
-							<div class="BtnSilver" align="center" id="BtnEdit" onclick="Ubah()">Ubah</div>
-                            <div class="BtnSilver" align="center" id="BtnSave" style="display:none" onclick="Simpan()">Simpan</div>
+							<div class="BtnSilver" align="center" id="BtnEdit" onclick="Change()">Edit</div>
+                            <div class="BtnSilver" align="center" id="BtnSave" style="display:none" onclick="Simpan()">Save</div>
                             <?php 
 							}
 							?>
@@ -64,34 +64,34 @@ class FormatPenilaian{
             <td width="248" valign="top">
                 <div id="TabbedPanelsA" class="TabbedPanels">
                   <ul class="TabbedPanelsTabGroup">
-                    <li class="TabbedPanelsTab" tabindex="0"><strong>Ket.</strong></li>
+                    <li class="TabbedPanelsTab" tabindex="0"><strong>Info</strong></li>
                   </ul>
                   <div class="TabbedPanelsContentGroup">
                     <div class="TabbedPanelsContent" style="padding-top:5px; overflow:inherit">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tr>
                             <td class="td">[SISWA]</td>
-                            <td class="td">Nama Siswa</td>
+                            <td class="td">Student Name</td>
                           </tr>
                           <tr>
                             <td class="td">[TANGGAL1]</td>
-                            <td class="td">Tanggal Awal</td>
+                            <td class="td">Start Date</td>
                           </tr>
                           <tr>
                             <td class="td">[BULAN1]</td>
-                            <td class="td">Bulan Awal</td>
+                            <td class="td">Start Month</td>
                           </tr>
                           <tr>
                             <td class="td">[TANGGAL2]</td>
-                            <td class="td">Tanggal Akhir</td>
+                            <td class="td">End Date</td>
                           </tr>
                           <tr>
                             <td class="td">[BULAN2]</td>
-                            <td class="td">Bulan Akhir</td>
+                            <td class="td">End Month</td>
                           </tr>
                           <tr>
                             <td class="td">[PENGIRIM]</td>
-                            <td class="td">Pengirim</td>
+                            <td class="td">Sender</td>
                           </tr>
                       </table>
                    </div>
@@ -102,18 +102,18 @@ class FormatPenilaian{
           <tr><td colspan="2">&nbsp;</td></tr>
             <tr>
             <td colspan="2">
-        		<b>KETERANGAN FORMAT PESAN LAPORAN PENILAIAN</b><br /><br/>
+        		<b>REPORT CARD MESSAGE FORMAT INFORMATION</b><br /><br/>
                 <span class="Ket">
-                    jika mengirimkan informasi dengan format di bawah ini: <br />
-                    <b>Informasi penilaian [SISWA] antara tanggal [TANGGAL1]/[BULAN1] s/d [TANGGAL2]/[BULAN2]. Pengirim [PENGIRIM]</b><br /><br />
-                    maka informasi yang diterima oleh siswa: <br />
-                    <b>Informasi penilaian Jafar Ashiddiq antara tanggal 1/2 s/d 28/2, UTS FIS 80, PRAK FIS 77. Pengirim Bag.Akademik</b>
+                    if an information sent within this format below: <br />
+                    <b>Reports information of [SISWA] date [TANGGAL1]/[BULAN1] to [TANGGAL2]/[BULAN2]. Sender [PENGIRIM]</b><br /><br />
+                    then the student will receive: <br />
+                    <b>Reports information of Jafar Ashiddiq date 1/2 to 28/2, UTS FIS 80, PRAK FIS 77. Sender Bag.Akademik</b>
                 </span>
           </td>
           </tr>
         </table>
 		<?
-		//Kami informasikan presensi [SISWA] tanggal [TANGGAL1]/[BULAN1] s/d [TANGGAL2]/[BULAN2] hadir [HADIR] absen [ABSEN]. [PENGIRIM]
+		//Kami informasikan presensi [SISWA] tanggal [TANGGAL1]/[BULAN1] to [TANGGAL2]/[BULAN2] hadir [HADIR] absen [ABSEN]. [PENGIRIM]
 	}
 }
 ?>

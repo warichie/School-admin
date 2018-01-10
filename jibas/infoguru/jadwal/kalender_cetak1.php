@@ -54,17 +54,17 @@ $bulan2 = $row[2];
 $tahun2 = $row[3];
 $departemen = $row[7];
 $akademik = $row[4];
-$periode = LongDateFormat($row[5]).' s/d '.LongDateFormat($row[6]);
+$periode = LongDateFormat($row[5]).' to '.LongDateFormat($row[6]);
 
 if ($row[8] == 1) 
-	$aktif = 'Aktif';
+	$aktif = 'Active';
 else
-	$aktif = 'Tidak Aktif';
+	$aktif = 'Inactive';
 	
 if ($row[9] == 1) 
-	$terlihat = 'Terlihat';
+	$terlihat = 'Visible';
 else
-	$aktif = 'Tidak Terlihat';
+	$aktif = 'Hidden';
 
 
 
@@ -386,9 +386,9 @@ div.Section3
 <![endif]-->
 </head>
 
-<body lang=EN-US style='tab-interval:36.0pt'>
+<body lang='EN-US' style='tab-interval:36.0pt'>
 
-<div class=Section1>
+<div class='Section1'>
 <!--                      Hal 1             -->
 <table border="0" cellpadding="10" cellpadding="5" align="left">
 <tr class="style1"><td align="left" valign="top">
@@ -396,32 +396,32 @@ div.Section3
 <? include("../library/headercetak.php") ?>
 
 <center>
-  <font size="4"><strong>Kalender Akademik</strong></font><br />
+  <font size="4"><strong>Academic Calendar</strong></font><br />
  </center>
 <br /><br />
  	<table width="100%">    
 	<tr>
-		<td width="18%"><strong>Departemen</strong> </td> 
+		<td width="18%"><strong>Department</strong> </td> 
 		<td width="*"><strong>:&nbsp;<?=$departemen?></strong></td>
 	</tr>
     <tr>
-		<td><strong>Kalender Akademik</strong></td>
+		<td><strong>Academic Calendar</strong></td>
 		<td><strong>:&nbsp;<?=$akademik?></strong></td>        		
     </tr>
     <tr>
-		<td><strong>Periode</strong></td>
+		<td><strong>Period</strong></td>
 		<td><strong>:&nbsp;<?=$periode?></strong></td>        		
     </tr>
     <tr>
 		<td><strong>Status</strong></td>
-		<td><strong>:&nbsp;<?=$aktif?> dan <?=$terlihat?></strong></td>        		
+		<td><strong>:&nbsp;<?=$aktif?> and <?=$terlihat?></strong></td>        		
     </tr>
 	</table>
 	<br />
 	<table border="0" cellpadding="5" cellspacing="1" width="100%" style="border-color:#999999">
 	<tr height="30" bgcolor="#DFFFDF">
 		<td width="22%" align="center" style="background-color:#3366CC; color:#FFFFFF" rowspan="2" colspan="2">
-        <b>Kegiatan</b></td>
+        <b>Activity</b></td>
         <? 	$batasthn = $thn;
 			for ($i=$bln;$i<=$bln+5;$i++) { 	
 				$n = $i;

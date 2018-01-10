@@ -46,7 +46,7 @@ $D->OnStart();
 <body>
 	<div id="title" align="right" style="padding-bottom:5px">
     	<font style="background-color: rgb(255, 204, 102);" face="Verdana, Arial, Helvetica, sans-serif" size="4">&nbsp;</font>&nbsp;					
-        <span class="news_title2">Daftar Peminjaman Pustaka</span>
+        <span class="news_title2">Library Borrowing List</span>
     </div>
     <div id="content">
       <?=$D->Content()?>

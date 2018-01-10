@@ -87,10 +87,10 @@ function setaktif(replid, aktif) {
 	var departemen = document.getElementById('departemen').value;
 	
 	if (aktif == 1) {
-		msg = "Apakah anda yakin akan mengubah semester ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this semester to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin akan mengubah semester ini menjadi AKTIF?";
+		msg = "Are you sure want to change this semester to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -104,7 +104,7 @@ function edit(replid) {
 
 function hapus(replid) {
 	var departemen = document.getElementById('departemen').value;
-	if (confirm("Apakah anda yakin akan menghapus semester ini?"))
+	if (confirm("Are you sure want to delete this semester?"))
 		document.location.href = "semester.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&departemen="+departemen;
 }
 
@@ -133,7 +133,7 @@ function cetak() {
         </tr>
     <tr>
         <td align="right"><a href="../referensi.php" target="content">
-          <font size="1" color="#000000"><b>Referensi</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Semester</b></font></td>
+          <font size="1" color="#000000"><b>Reference</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Semester</b></font></td>
         </tr>
     <tr>
       <td align="left">&nbsp;</td>
@@ -144,7 +144,7 @@ function cetak() {
     <!-- TABLE LINK -->
     <tr>
     <td align="right" width="35%">
-     <strong>Departemen</strong>&nbsp;
+     <strong>Department</strong>&nbsp;
         <select name="departemen" id="departemen" onchange="tampil()">
           <?	$dep = getDepartemen(SI_USER_ACCESS());    
 	foreach($dep as $value) {
@@ -163,19 +163,19 @@ function cetak() {
 		if (@mysql_num_rows($result) > 0){
         ?> 
     <td align="right" width="60%">
-    <a href="#" onclick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onmouseover="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;   
-		<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
+    <a href="#" onclick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onmouseover="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;   
+		<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
 <? 	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onmouseover="showhint('Tambah!', this, event, '50px')"/>&nbsp;Tambah Semester</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onmouseover="showhint('Add', this, event, '50px')"/>&nbsp;Add Semester</a>
 <?	} ?>    </td></tr>
     </table><br />
     
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
     <!-- TABLE CONTENT -->
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
+    	<td width="4%" class="header" align="center">#</td>
         <td width="25%" class="header" align="center">Semester</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+        <td width="*" class="header" align="center">Info</td>
         <td width="10%" class="header" align="center">Status</td>
         <? 	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
         <td width="8%" class="header">&nbsp;</td>
@@ -193,21 +193,21 @@ function cetak() {
         <td align="center">
 <?		if (SI_USER_LEVEL() == $SI_USER_STAFF) {  
 			if ($row['aktif'] == 1) { ?> 
-            	<img src="../images/ico/aktif.png" border="0" onmouseover="showhint('Status Aktif!', this, event, '80px')"/>
+            	<img src="../images/ico/aktif.png" border="0" onmouseover="showhint('Status Active', this, event, '80px')"/>
 <?			} else { ?>                
-				<img src="../images/ico/nonaktif.png" border="0"  onmouseover="showhint('Status Tidak Aktif!', this, event, '80px')"/>
+				<img src="../images/ico/nonaktif.png" border="0"  onmouseover="showhint('Status Inactive', this, event, '80px')"/>
 <?			}
 		} else { 
 			if ($row['aktif'] == 1) { ?>
-				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/aktif.png" border="0"  onmouseover="showhint('Status Aktif!', this, event, '80px')"/></a>
+				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/aktif.png" border="0"  onmouseover="showhint('Status Active', this, event, '80px')"/></a>
 <?			} else { ?>
-				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/nonaktif.png" border="0" onmouseover="showhint('Status Tidak Aktif!', this, event, '80px')"/></a>
+				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/nonaktif.png" border="0" onmouseover="showhint('Status Inactive', this, event, '80px')"/></a>
 <?			} //end if
 		} //end if ?>        </td>
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>         
 		<td align="center">
-            <a href="JavaScript:edit(<?=$row['replid'] ?>)"><img src="../images/ico/ubah.png" border="0" onmouseover="showhint('Ubah Semester!', this, event, '80px')"/></a>&nbsp;
-            <a href="JavaScript:hapus(<?=$row['replid'] ?>)"><img src="../images/ico/hapus.png" border="0" onmouseover="showhint('Hapus Semester!', this, event, '80px')" /></a>
+            <a href="JavaScript:edit(<?=$row['replid'] ?>)"><img src="../images/ico/ubah.png" border="0" onmouseover="showhint('Edit Semester', this, event, '80px')"/></a>&nbsp;
+            <a href="JavaScript:hapus(<?=$row['replid'] ?>)"><img src="../images/ico/hapus.png" border="0" onmouseover="showhint('Delete Semester', this, event, '80px')" /></a>
        </td>
 <?		} ?> 
     </tr>
@@ -237,14 +237,14 @@ function cetak() {
 <tr>
 	<td align="center" valign="middle" height="200">
     <? if (isset($departemen)) {	?>
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+    	<font size = "2" color ="red"><b>Data Not Found. 
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
         </b></font>
    	 <? } else { ?>
-		<font size = "2" color ="red"><b>Belum ada data Departemen.
-        <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+		<font size = "2" color ="red"><b>No Department yet.
+        <br />Please make a new one in Department menu on Reference section.
         </b></font>
     <? } ?>
 	</td>

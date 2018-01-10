@@ -75,7 +75,7 @@ if (isset($_REQUEST['Simpan'])) {
 	$result_cek = QueryDb($sql_cek);
 	if (@mysql_num_rows($result_cek) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Kelas ".$kelas." sudah digunakan!";
+		$ERROR_MSG = "Class ".$kelas." has been used";
 	} else {
 		$sql = "UPDATE kelas SET kelas='$kelas',kapasitas='$_REQUEST[kapasitas]', nipwali='".trim($_REQUEST[nipwali])."', keterangan='$keterangan' WHERE replid= '$replid'";
 		
@@ -96,7 +96,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Ubah Kelas]</title>
+<title>JIBAS SIMAKA [Edit Class]</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
@@ -119,11 +119,11 @@ function tutup() {
 }
 
 function validate() {
-	return validateEmptyText('kelas', 'Nama Kelas') &&  
-		   validateEmptyText('nipwali', 'NIP dan Nama Wali Kelas') &&
-		   validateEmptyText('kapasitas', 'Kapasitas') &&
-		   validateNumber('kapasitas', 'Kapasitas Kelas') &&
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('kelas', 'Class Name') &&  
+		   validateEmptyText('nipwali', 'Employee ID and Homeroom Teacher Name') &&
+		   validateEmptyText('kapasitas', 'Capacity') &&
+		   validateNumber('kapasitas', 'Class Capacity') &&
+		   validateMaxText('keterangan', 255, 'Info');
 }
 
 function focusNext(elemName, evt) {
@@ -157,7 +157,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Kelas :.
+    .: Edit Class :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -171,45 +171,45 @@ function panggil(elem){
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
     <td><input type="text" size="10" readonly value="<?=$departemen?>" class="disabled"/>
     </td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
     <td><input type="text" size="10" readonly value="<?=$tingkat?>" class="disabled"/>
     </td>
 </tr>
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
     <td><input type="text" size="30" readonly value="<?=$tahunajaran?>" class="disabled"/></td>
 </tr>
 <tr>
-	<td ><strong>Kelas</strong></td>
-    <td><input type="text" name="kelas" id="kelas" size="10" onFocus="showhint('Kelas tidak boleh kosong !', this, event, '120px');panggil('kelas')" value="<?=$kelas?>" onKeyPress="return focusNext('nip', event)"/></td>
+	<td><strong>Class</strong></td>
+    <td><input type="text" name="kelas" id="kelas" size="10" onFocus="showhint('Class should not leave empty', this, event, '120px');panggil('kelas')" value="<?=$kelas?>" onKeyPress="return focusNext('nip', event)"/></td>
 </tr>
 <tr>
-    <td><strong>Wali Kelas</strong></td>
+    <td><strong>Homeroom Teacher</strong></td>
     <td>
     <input type="text" class="disabled" size="10" name="nip" id="nip" readonly value="<?=$nipwali?>" onClick="caripegawai()"/><input type="hidden" name="nipwali" id="nipwali" value="<?=$nipwali?>"/>
     <input type="text" class="disabled" name="nama" id="nama" size="25" readonly value="<?=$namawali?>" onClick="caripegawai()"/><input type="hidden" name="namawali" id="namawali" value="<?=$namawali?>"/>&nbsp;
-    <a href="JavaScript:caripegawai()"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('Cari Pegawai!', this, event, '50px')"/></a></td>
+    <a href="JavaScript:caripegawai()"><img src="../images/ico/lihat.png" border="0" onMouseOver="showhint('Search', this, event, '50px')"/></a></td>
 </tr>
 
 <tr>
-	<td><strong>Kapasitas</strong></td>
+	<td><strong>Capacity</strong></td>
 	<td>
-    	<input type="text" name="kapasitas" id="kapasitas" size="5" maxlength="3" onFocus="showhint('Kapasitas tidak boleh lebih dari 255 !', this, event, '120px');panggil('kapasitas')" value="<?=$kapasitas?>"  onKeyPress="return focusNext('keterangan', event)"/></td>
+    	<input type="text" name="kapasitas" id="kapasitas" size="5" maxlength="3" onFocus="showhint('Capacity should not exceed 255 ', this, event, '120px');panggil('kapasitas')" value="<?=$kapasitas?>"  onKeyPress="return focusNext('keterangan', event)"/></td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45"  onKeyPress="return focusNext('Simpan', event)" onFocus="panggil('keterangan')"><?=$keterangan?></textarea>    </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but"  onFocus="panggil('Simpan')"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but"  onFocus="panggil('Simpan')"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>

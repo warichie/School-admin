@@ -24,7 +24,7 @@
 require_once("include/sessionchecker.php");
 require_once("include/sessioninfo.php");
 ?>
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link href="images/jibas.ico" rel="shortcut icon" />
 <frameset rows="74,*,32" frameborder="0" border="0" framespacing="0">
 	<frame name="frameatas" src="frameatas.php" scrolling="no" noresize="noresize" />

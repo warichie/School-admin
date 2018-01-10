@@ -42,7 +42,7 @@ if (isset($_REQUEST['tanggal1']))
 
 if (isset($_REQUEST['tanggal2']))
 	$tanggal2 = $_REQUEST['tanggal2'];
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -50,7 +50,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Laporan Rugi Laba]</title>
+<title>JIBAS EMA [Print Profit Loss Reports]</title>
 </head>
 
 <body>
@@ -61,21 +61,21 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>LAPORAN RUGI LABA</strong></font><br />
+  <font size="4"><strong>PROFIT LOSS REPORTS</strong></font><br />
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="7%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="7%" class="news_content1"><strong>Department</strong></td>
     <td width="93%" class="news_content1">: 
       <?=$departemen ?></td>
     </tr>
 <tr>
-  <td class="news_content1"><strong>Tahun Buku</strong></td>
+  <td class="news_content1"><strong>Fiscal Year</strong></td>
   <td class="news_content1">: 
       <?=$ntahunbuku ?></td>
   </tr>
 <tr>
-  <td class="news_content1"><strong>Periode</strong></td>
+  <td class="news_content1"><strong>Period</strong></td>
   <td class="news_content1">:
     <?=$nperiode ?></td>
   </tr>
@@ -84,13 +84,13 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <?	OpenDb();
    	$sql = "SELECT nama, kode, SUM(debet) AS debet, SUM(kredit) As kredit FROM (( 
     SELECT DISTINCT j.replid, ra.nama, ra.kode, jd.debet, jd.kredit FROM $db_name_fina.rekakun ra, $db_name_fina.katerekakun k,
-    $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'PENDAPATAN' GROUP BY j.replid, ra.nama, ra.kode ORDER BY ra.kode) AS X) GROUP BY nama, kode";
+    $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'INCOME' GROUP BY j.replid, ra.nama, ra.kode ORDER BY ra.kode) AS X) GROUP BY nama, kode";
     
     $result = QueryDb($sql);
 	
 	$sql1 = "SELECT nama, kode, SUM(debet) AS debet, SUM(kredit) As kredit FROM (( 
     SELECT DISTINCT j.replid, ra.nama, ra.kode, jd.debet, jd.kredit FROM $db_name_fina.rekakun ra, $db_name_fina.katerekakun k,
-    $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'BIAYA' GROUP BY j.replid, ra.nama, ra.kode ORDER BY ra.kode) AS X) GROUP BY nama, kode";
+    $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'COST' GROUP BY j.replid, ra.nama, ra.kode ORDER BY ra.kode) AS X) GROUP BY nama, kode";
     
     $result1 = QueryDb($sql1);
 	if ((mysql_num_rows($result) > 0) || (mysql_num_rows($result1) > 0)) {
@@ -99,7 +99,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 ?>
     <table border="0" cellpadding="5" cellspacing="5" width="80%" style="background-image:url(../img/bttablelong.png); background-repeat:repeat-x" bgcolor="#eef5dd" align="center">
     <tr height="30">
-        <td colspan="6"><strong><font size="2">PENDAPATAN</font></strong></td>
+        <td colspan="6"><strong><font size="2">INCOME</font></strong></td>
     </tr>
     <?
   	$cnt = 0;
@@ -125,14 +125,14 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 	?>
     <tr height="30">
         <td>&nbsp;</td>
-        <td colspan="4"><strong>SUB TOTAL PENDAPATAN</strong></td>
+        <td colspan="4"><strong>INCOME SUBTOTAL</strong></td>
         <td align="right"><strong><?=FormatRupiah($totalpendapatan) ?></strong></td>
     </tr>
     <tr height="5">
         <td colspan="6">&nbsp;</td>
     </tr>
     <tr height="30">
-        <td colspan="6"><strong><font size="2">BIAYA</font></strong></td>
+        <td colspan="6"><strong><font size="2">COST</font></strong></td>
     </tr>
     <?
    
@@ -160,7 +160,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
     
     <tr height="30">
         <td>&nbsp;</td>
-        <td colspan="4"><strong>SUB TOTAL BIAYA</strong></td>
+        <td colspan="4"><strong>COST SUBTOTAL</strong></td>
         <td align="right"><strong><?=FormatRupiah($totalbiaya) ?></strong></td>
     </tr>
     <tr height="5">

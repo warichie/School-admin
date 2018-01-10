@@ -43,7 +43,7 @@ if ($kriteria!='all' && $kriteria!='tersedia')
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Katalog Umum</title>
+<title>General Catalogue</title>
 <link href="../sty/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../scr/tables.js"></script>
 <script type="text/javascript" src="../scr/tools.js"></script>
@@ -73,8 +73,8 @@ function ViewDetail(replid){
 <body leftmargin="0" topmargin="0" style="padding-left:25px; padding-bottom:25px; padding-right:25px; padding-top:25px; background-image:url(../img/Fiesta.jpg); background-attachment:fixed; margin-left:0px; margin-top:0px" <?=$onload?>>
 <div id="title" align="right">
     <font style="color:#FF9900; font-size:30px;"><strong>.:</strong></font>
-  <font style="font-size:18px; color:#999999">Katalog Umum</font><br />
-  <a href="../login.php" class="welc">Halaman Depan</a><span class="welc"> > Pencarian Katalog Buku</span><br /><br />
+  <font style="font-size:18px; color:#999999">General Catalogue</font><br />
+  <a href="../login.php" class="welc">Home</a><span class="welc"> > Search Book Catalogue</span><br /><br />
 </div>
 <div id="content">
 <div id="filter">
@@ -83,34 +83,34 @@ function ViewDetail(replid){
     <td width="52%" valign="top">
         <table width="58%" border="0" cellspacing="1" cellpadding="1">
           <tr>
-            <td width="23%"><strong>Tampilkan&nbsp;katalog&nbsp;buku&nbsp;berdasarkan</strong></td>
+            <td width="23%"><strong>Sort book catalogue by</strong></td>
             <td width="77%">
             <select name="kriteria" class="cmbfrm" id="kriteria" onchange="chgKrit()">
-                <option value="all" <?=StringIsSelected('all',$kriteria)?>>Semua Buku</option>
-                <option value="judul" <?=StringIsSelected('judul',$kriteria)?>>Judul</option>
+                <option value="all" <?=StringIsSelected('all',$kriteria)?>>All Books</option>
+                <option value="judul" <?=StringIsSelected('judul',$kriteria)?>>Title</option>
                 <option value="keyword" <?=StringIsSelected('keyword',$kriteria)?>>Keyword</option>
-                <option value="penulis" <?=StringIsSelected('penulis',$kriteria)?>>Penulis</option>
-                <option value="penerbit" <?=StringIsSelected('penerbit',$kriteria)?>>Penerbit</option>
-                <option value="tahun" <?=StringIsSelected('tahun',$kriteria)?>>Tahun Terbit</option>
-                <option value="kota" <?=StringIsSelected('kota',$kriteria)?>>Kota Penerbit</option>
-                <option value="tersedia" <?=StringIsSelected('tersedia',$kriteria)?>>Semua Buku Yang Tersedia</option>
+                <option value="penulis" <?=StringIsSelected('penulis',$kriteria)?>>Author</option>
+                <option value="penerbit" <?=StringIsSelected('penerbit',$kriteria)?>>Publisher</option>
+                <option value="tahun" <?=StringIsSelected('tahun',$kriteria)?>>Year Published</option>
+                <option value="kota" <?=StringIsSelected('kota',$kriteria)?>>Publisher City</option>
+                <option value="tersedia" <?=StringIsSelected('tersedia',$kriteria)?>>All Available Books</option>
             </select>
             </td>
           </tr>
           <? if ($kriteria!='all' && $kriteria!='tersedia'){ ?>
           <? 
 		  		if ($kriteria=='judul') 
-		  			$title='Judul';
+		  			$title='Title';
 				if ($kriteria=='keyword')
 					$title='Keyword';
 				if ($kriteria=='penulis')
-					$title='Penulis';
+					$title='Author';
 				if ($kriteria=='penerbit')
-					$title='Penerbit';
+					$title='Publisher';
 				if ($kriteria=='tahun')
-					$title='Tahun Terbit';
+					$title='Year Published';
 				if ($kriteria=='kota')
-					$title='Kota Penerbit';	
+					$title='Publisher City';	
 		  ?>
           <tr>
             <td align="right"><strong><?=$title?></strong></td>
@@ -127,20 +127,20 @@ function ViewDetail(replid){
 <? if ($op!='view') { ?>
 <table width="100" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>
-    <td class="welc">Tentukan&nbsp;Kriteria&nbsp;lalu&nbsp;klik&nbsp;ikon&nbsp;</td>
+    <td class="welc">Select&nbsp;Criteria&nbsp;then&nbsp;click&nbsp;on&nbsp;the&nbsp;icon&nbsp;</td>
     <td class="welc" height="300"><img src="../img/view.png" width="30" height="23" /></td>
-    <td class="welc">&nbsp;di&nbsp;atas&nbsp;untuk&nbsp;menampilkan&nbsp;data</td>
+    <td class="welc"> icon above&nbsp;to&nbsp;display&nbsp;the&nbsp;data</td>
   </tr>
 </table>
 <? } else { ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
   <tr>
-    <td height="25" align="center" class="header">No</td>
-    <td height="25" align="center" class="header">Judul</td>
-    <td height="25" align="center" class="header">Penulis</td>
-    <td height="25" align="center" class="header">Penerbit</td>
-    <td height="25" align="center" class="header">Jumlah Seluruhnya</td>
-    <td height="25" align="center" class="header">Tersedia</td>
+    <td height="25" align="center" class="header">#</td>
+    <td height="25" align="center" class="header">Title</td>
+    <td height="25" align="center" class="header">Author</td>
+    <td height="25" align="center" class="header">Publisher</td>
+    <td height="25" align="center" class="header">All Sum</td>
+    <td height="25" align="center" class="header">Available</td>
     <td align="center" class="header">&nbsp;</td>
   </tr>
 <?  
@@ -193,7 +193,7 @@ $cnt++;
 } else {
 ?>
   <tr>
-    <td height="20" colspan="7" align="center" class="nodata">Tidak ada data</td>
+    <td height="20" colspan="7" align="center" class="nodata">Data Not Found.</td>
   </tr>
 <? } ?>
 </table>

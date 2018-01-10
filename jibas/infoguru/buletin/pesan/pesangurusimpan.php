@@ -83,7 +83,7 @@ if ($success)
 	CommitTrans();
 	CloseDb();	?>
 <script language="javascript">
-	alert ('Pesan telah dikirim');
+	alert ('Message has been sent');
 	document.location.href="pesanguru_footer.php";
 </script>
 <?
@@ -93,7 +93,7 @@ else
 	RollbackTrans();
 	CloseDb(); ?>
 <script language="javascript">
-	alert ('Gagal mengirimkan pesan');
+	alert ('Failed to send the message');
 	document.location.href="pesanguru_footer.php";
 </script>
 <?	

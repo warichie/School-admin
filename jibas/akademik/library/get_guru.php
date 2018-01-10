@@ -37,9 +37,9 @@ require_once('../include/db_functions.php');
 ?>
 <table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0" bordercolor="#000000">
 <tr height="30">
-<td class="header" width="7%" align="center">No</td>
-    		<td class="header" width="15%" align="center">N I P</td>
-    		<td class="header" >Nama</td>
+<td class="header" width="7%" align="center">#</td>
+    		<td class="header" width="15%" align="center">Employee ID</td>
+    		<td class="header" >Name</td>
     		<td class="header" width="10%">&nbsp;</td>
 		</tr>
 		<?
@@ -54,12 +54,12 @@ require_once('../include/db_functions.php');
     		<td align="center"><?=$row[0] ?></td>
     		<td><?=$row[1] ?></td>
     		<td align="center">
-    		<input type="button" name="pilih" class="but" id="pilih" value="Pilih" onclick="pilih('<?=$row[0]?>', '<?=$row[1]	?>')" />
+    		<input type="button" name="pilih" class="but" id="pilih" value="Select" onclick="pilih('<?=$row[0]?>', '<?=$row[1]	?>')" />
     	   	</td>
 		</tr>
 		<? 	} ?>
 		<tr height="26">
 			<td colspan="4" align="center" >
-        	<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" /></td>
+        	<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" /></td>
 		</tr>	
 		</table>

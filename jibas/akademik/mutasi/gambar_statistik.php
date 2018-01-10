@@ -75,15 +75,15 @@ $plot->value->SetFormat('%d');
 //memasukkan kedalam grafik
 $graph->Add($plot);
 
-$graph->title->Set("Statistik Mutasi Siswa Departemen $departemen \n Tahun Mutasi $tahunawal s/d $tahunakhir");
-$graph->xaxis->title->Set("Jenis Mutasi");
-$graph->yaxis->title->Set("Jumlah Siswa");
+$graph->title->Set("Student Mutation Statistic Department $departemen \n Mutation Year $tahunawal to $tahunakhir");
+$graph->xaxis->title->Set("Mutation Type");
+$graph->yaxis->title->Set("Total Student");
 
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 $graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
-//Pengaturan sumbu x dan sumbu y
+//Settings sumbu x and sumbu y
 $graph->yaxis->HideZeroLabel();
 $graph->ygrid->SetFill(true,'#dedede','#FFFFFF');
 

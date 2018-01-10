@@ -31,7 +31,7 @@ $agama_kiriman=$_REQUEST['agama'];
 ?>
 
 <select name="agama" id="agama" class="ukuran" onKeyPress="return focusNext('suku', event)">
-	<option value="">[Pilih Agama]</option>
+	<option value="">[Select Religion]</option>
     <? // Olah untuk combo agama
 	 
 	OpenDb();
@@ -52,4 +52,4 @@ $agama_kiriman=$_REQUEST['agama'];
 	?>
     </select>	
 	
-    <img src="../images/ico/tambah.png" onclick="tambah_agama();" onMouseOver="showhint('Tambah Agama!', this, event, '50px')"/>
+    <img src="../images/ico/tambah.png" onclick="tambah_agama();" onMouseOver="showhint('Add Religion', this, event, '50px')"/>

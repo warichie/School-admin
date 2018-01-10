@@ -67,10 +67,10 @@ function setaktif(replid, aktif) {
 	var newaktif;
 	
 	if (aktif == 1) {
-		msg = "Apakah anda yakin akan mengubah kategori ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this category to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin akan mengubah kategori ini menjadi AKTIF?";
+		msg = "Are you sure want to change this category to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -83,7 +83,7 @@ function edit(replid) {
 }
 
 function hapus(replid) {
-	if (confirm("Apakah anda yakin akan menghapus kategori ini?"))
+	if (confirm("Are you sure want to delete this category?"))
 		document.location.href = "catatankategori.php?op=xm8r389xemx23xb2378e23&replid="+replid;
 }
 
@@ -106,13 +106,13 @@ function cetak() {
 
 	<table border="0"width="95%" align="center">
     <tr>
-        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Kategori Catatan </font></td>
+        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Notes Category </font></td>
     </tr>
     <tr>
         <td align="right">
          <a href="../catatankejadian.php" target="framecenter">
-          <font size="1" face="Verdana" color="#000000"><b>Catatan Kejadian Siswa</b></font></a>
-          &nbsp>&nbsp <font size="1" face="Verdana" color="#000000">Kategori Catatan </font>
+          <font size="1" face="Verdana" color="#000000"><b>Student Attendance Notes</b></font></a>
+          &nbsp;>&nbsp; <font size="1" face="Verdana" color="#000000">Notes Category </font>
         </td>
     </tr>
      <tr>
@@ -130,19 +130,19 @@ function cetak() {
     <!-- TABLE CONTENT -->
     <tr><td align="right">
     
-    <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;    
+    <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;    
 <?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')" />&nbsp;Tambah</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')" />&nbsp;Add</a>
 <?	} ?>    
     </td></tr>
     </table><br />
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="95%" align="center" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="49%" class="header" align="center">Kategori</td>
-        <td width="7%" class="header" align="center">Aktif</td>
-        <td width="30%" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="49%" class="header" align="center">Category</td>
+        <td width="7%" class="header" align="center">Active</td>
+        <td width="30%" class="header" align="center">Info</td>
         <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?> <td width="10%" class="header" align="center"></td><? } ?>
     </tr>
 <? 	
@@ -157,15 +157,15 @@ function cetak() {
         
 <?		if (SI_USER_LEVEL() == $SI_USER_STAFF) {  
 			if ($row[aktif] == 1) { ?> 
-            	<img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')"/>
+            	<img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '50px')"/>
 <?			} else { ?>                
-				<img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '50px')"/>
+				<img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Inactive', this, event, '50px')"/>
 <?			}
 		} else { 
 			if ($row[aktif] == 1) { ?>
-				<a href="JavaScript:setaktif(<?=$row[replid] ?>, <?=$row[aktif] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')"/></a>
+				<a href="JavaScript:setaktif(<?=$row[replid] ?>, <?=$row[aktif] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '50px')"/></a>
 <?			} else { ?>
-				<a href="JavaScript:setaktif(<?=$row[replid] ?>, <?=$row[aktif] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '50px')"/></a>
+				<a href="JavaScript:setaktif(<?=$row[replid] ?>, <?=$row[aktif] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Inactive', this, event, '50px')"/></a>
 <?			} //end if
 		} //end if ?>        
         
@@ -173,8 +173,8 @@ function cetak() {
         <td><?=$row[keterangan] ?></td>
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>         
 		<td align="center">
-            <a href="JavaScript:edit(<?=$row[replid] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Kategori!', this, event, '75px')" /></a>&nbsp;
-            <a href="JavaScript:hapus(<?=$row[replid] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Kategori!', this, event, '75px')"/></a>
+            <a href="JavaScript:edit(<?=$row[replid] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Category', this, event, '75px')" /></a>&nbsp;
+            <a href="JavaScript:hapus(<?=$row[replid] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Category', this, event, '75px')"/></a>
         </td>
 <?		} ?>  
     </tr>
@@ -189,7 +189,7 @@ function cetak() {
     </script>
 	<br>
 	<div align="left" style="margin-left:20px">
-		* Kategori Catatan Siswa hanya dapat dikelola oleh Administrator Jibas Infoguru
+		* Student Notes category managed only by a JIBAS Teacher Info Administrator 
 	</div>
 	</td></tr>
 <!-- END TABLE CENTER -->    
@@ -200,9 +200,9 @@ function cetak() {
 
 <tr>
 	<td align="center" valign="middle" height="250" colspan="2">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data.
+    	<font size = "2" color ="red"><b>Data Not Found.
        <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru.
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data.
         <? } ?>
         </p></b></font>
 	</td>

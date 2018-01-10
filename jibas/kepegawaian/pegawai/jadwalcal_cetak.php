@@ -28,7 +28,7 @@ require_once("../include/common.php");
 require_once('../include/theme.php');
 require_once("../include/sessioninfo.php");
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");
 OpenDb();
 
 $tglskrg = date("d");
@@ -158,7 +158,7 @@ if (($nday > 0) && ($nday < 7))
 }
 </style>
 
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 </head>
 
 <body style="background-color:#F3F3F3" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
@@ -167,19 +167,19 @@ if (($nday > 0) && ($nday < 7))
   <? include("../include/headercetak.php") ?>
   <div align="center">
   <br />
-  <span class="style2">Agenda untuk Bulan 
+  <span class="style2">Agenda for Month 
   <?=$namabulan[$bulan-1]." ".$tahun?><br /><br />
   </span>
 </div>
 <table border="1" bordercolor="#CCCCCC" cellpadding="5" cellspacing="0" width="490" style="border-color:#999999" align="center">
 <tr height="30" bgcolor="#DFFFDF">
-	<td width="70" class="redheader" align="center" style="background-color:#990000; color:#FFFFFF"><b>Minggu</b></td>
-    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Senin</b></td>
-    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Selasa</b></td>
-    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Rabu</b></td>
-    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Kamis</b></td>
-    <td width="70" class="greenheader" align="center" style="background-color:#339900; color:#FFFFFF"><b>Jum'at</b></td>
-    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Sabtu</b></td>
+	<td width="70" class="redheader" align="center" style="background-color:#990000; color:#FFFFFF"><b>Sunday</b></td>
+    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Monday</b></td>
+    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Tuesday</b></td>
+    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Wednesday</b></td>
+    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Thursday</b></td>
+    <td width="70" class="greenheader" align="center" style="background-color:#339900; color:#FFFFFF"><b>Friday</b></td>
+    <td width="70" class="header" align="center" style="background-color:#3366CC; color:#FFFFFF"><b>Saturday</b></td>
 </tr>
 <?
 for ($i = 0; $i < count($cal); $i++) 
@@ -244,9 +244,9 @@ while ($row = mysql_fetch_row($result)){
 	$result1 = QueryDb($sql1);
 	$row1 = mysql_fetch_row($result1);
 	if ($row1[0]>0)
-		$jumlah = $row1[0]." Orang";
+		$jumlah = $row1[0]." Person";
 	else 
-		$jumlah = "Tidak Ada";
+		$jumlah = "None";
 	echo "<tr>".
     "<td><strong>".$row[1]." : </strong> <span class=\"style1\">".$jumlah."</span></td>".
   	"</tr>";

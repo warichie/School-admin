@@ -62,12 +62,12 @@ OpenDb();
 	<table border="0"width="78%">
     <!-- TABLE TITLE -->
     <tr>
-        <td align="left"><font size="5" color="#660000"><b>TAHUN AJARAN</b></font></td>
+        <td align="left"><font size="5" color="#660000"><b>SEMESTER</b></font></td>
     </tr>
     <tr>
         <td align="left"><a href="../referensi.php" target="content">
-        <font size="1" color="#000000"><b>Referensi</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Tahun Ajaran</b></font>
+        <font size="1" color="#000000"><b>Reference</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Year</b></font>
         </td>
     </tr>
 	</table><br />
@@ -76,7 +76,7 @@ OpenDb();
     <!-- TABLE LINK -->
     <tr>
     <td align="left" width="40%">
-    Departemen:&nbsp;
+    Department:&nbsp;
     <select name="departemen" id="departemen">
 <?	$dep = getDepartemen(SI_USER_ACCESS());    
 	foreach($dep as $value) {
@@ -88,9 +88,9 @@ OpenDb();
     </td>
     <td align="right" width="60%">
     <a href="#" onclick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;Cetak</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>&nbsp;&nbsp;
 <?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" />&nbsp;Tambah Semester</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" />&nbsp;Add Semester</a>
 <?	} ?>    
     </td></tr>
     </table><br /><br />
@@ -98,12 +98,12 @@ OpenDb();
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="80%" align="left">
     <!-- TABLE CONTENT -->
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="25%" class="header">Tahun Ajaran</td>
-        <td width="40%" class="header">Tgl Mulai</td>
-        <td width="40%" class="header">Tgl Kahir</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="25%" class="header">Year</td>
+        <td width="40%" class="header">Start Date</td>
+        <td width="40%" class="header">End Date</td>
         <td width="15%" class="header" align="center">Status</td>
-        <td width="15%" class="header">Keterangan</td>
+        <td width="15%" class="header">Info</td>
         <td width="*" class="header">&nbsp;</td>
     </tr>
     <!-- 

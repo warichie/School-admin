@@ -67,21 +67,21 @@ function cetak() {
 	<td valign="top" background="" style="background-repeat:no-repeat; background-attachment:fixed">
   	<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
    	<tr>
-    	<td class="news_title1">Perubahan Data Jurnal Umum</td>
+    	<td class="news_title1">Public Journal Data Changing</td>
     	<td align="right">    	
-            <!--<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')" />&nbsp;Refresh</a>&nbsp;-->
-            <a href="JavaScript:cetak('jurnalumum')"><img src="../img/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;    	</td>
+            <!--<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')" />&nbsp;Refresh</a>&nbsp;-->
+            <a href="JavaScript:cetak('jurnalumum')"><img src="../img/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;    	</td>
     </tr>
     </table>
     <br />
     <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000">
     <tr height="30" align="center">
-        <td class="header" width="4%">No</td>
+        <td class="header" width="4%">#</td>
         <td class="header" width="10%">Status Data</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="15%">Keterangan</td>
-        <td class="header" width="*">Detail Jurnal</td>
-        <td class="header" width="15%">Petugas</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="15%">Info</td>
+        <td class="header" width="*">Journal Details</td>
+        <td class="header" width="15%">Officer</td>
     </tr>
     <?
     OpenDb();
@@ -100,10 +100,10 @@ function cetak() {
 			
         $status = $row['status'];
         $idaudit = $row['idaudit'];
-        $statusdata = "Data Lama";
+        $statusdata = "Old Data";
 		$bgcolor = "#FFFFFF";
         if ($row['status'] == 1) {
-            $statusdata = "Data Perubahan";
+            $statusdata = "Changed Data";
 			$bgcolor = "#FFFFB7";
 		}             
 		
@@ -111,18 +111,18 @@ function cetak() {
         
     <tr>
         <td rowspan="4" align="center" bgcolor="#CCCC66"><strong><?=++$no ?></strong></td>
-        <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Perubahan dilakukan oleh <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
+        <td colspan="6" align="left" bgcolor="#CCCC66"><font size="2"><em><strong>Changed by <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></font></td>
     </tr>
     <tr>
         <td colspan="6" bgcolor="#E5E5E5">
             <table cellpadding="0" cellspacing="0" style="border-collapse:collapse" width="100%" >
             <tr>
-                <td width="30%"><strong>No. Jurnal : </strong><?=$row['nokas'] ?>
-                <td valign="top" width="10%"><strong>Alasan : </td>
+                <td width="30%"><strong>Journal Number : </strong><?=$row['nokas'] ?>
+                <td valign="top" width="10%"><strong>Reasons : </td>
                 <td rowspan="2" valign="top"><strong><?=$row['alasan']?></strong></td>
             </tr>
             <tr>
-                <td><strong>Transaksi : </strong><?=$row['transaksi'] ?></td>
+                <td><strong>Transaction : </strong><?=$row['transaksi'] ?></td>
             </tr>
             </table>
         </td>     

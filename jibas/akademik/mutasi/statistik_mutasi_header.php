@@ -42,7 +42,7 @@ if (isset($_REQUEST['tahunawal']))
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Statistik Mutasi</title>
+<title>Mutation Statistic</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
@@ -56,13 +56,13 @@ function tampil(){
 	var tahunawal = document.getElementById("tahunawal").value;
 		
 	if (tahunakhir == "" || tahunawal == ""){
-		alert ('Belum ada siswa yang dimutasi pada departemen ini!');
+		alert ('No Student has been Mutated on this Department.');
 		document.getElementById("departemen").focus();
 		return false;
 	}
 	
 	if (tahunakhir<tahunawal){
-		alert ('Pastikan tahun akhir tidak kurang dari tahun awal');
+		alert ('Make sure that End Year is not less than Start Year');
 		return false;
 	}
 		
@@ -77,7 +77,7 @@ function change(){
 	//if (tahunakhir < tahunawal) 
 		
 	if (tahunakhir < tahunawal){
-		alert ('Tahun akhir tidak boleh !');
+		alert ('End Year should not ');
 		document.getElementById("tahunawal").focus();
 		return false;
 	}	
@@ -115,7 +115,7 @@ function focusNext(elemName, evt) {
 	<td rowspan="2" width="38%">
 	<table width = "100%" border = "0">
     <tr>
-        <td width="25%"><strong>Departemen</strong></td>
+        <td width="25%"><strong>Department</strong></td>
         <td width="*">
       	<select name="departemen" id="departemen" onChange="change_dep()"  style="width:100px" onKeyPress="return focusNext('tahunawal', event)">
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -129,7 +129,7 @@ function focusNext(elemName, evt) {
         </select></td>
 	</tr>
   	<tr>
-    	<td><strong>Periode</strong></td>
+    	<td><strong>Period</strong></td>
     	<td>
       	<select name="tahunawal" id="tahunawal" onChange="change()"  style="width:100px" onKeyPress="return focusNext('tahunakhir', event)">
         <?	OpenDb();
@@ -146,7 +146,7 @@ function focusNext(elemName, evt) {
 			CloseDb();
 		?>
       	</select>   
-    	s/d
+    	to
       	<select name="tahunakhir" id="tahunakhir" onChange="change()"  style="width:100px" onKeyPress="return focusNext('tabel', event)">
         <?	OpenDb();
 			$sql_thn_akhir="SELECT DISTINCT YEAR(tglmutasi) as tahunakhir FROM jbsakad.mutasisiswa WHERE departemen='$departemen' ORDER BY tahunakhir DESC";
@@ -165,12 +165,12 @@ function focusNext(elemName, evt) {
 		</td>
     </tr>
     </table></td>
-    <td valign="middle"><a href="#" onclick="tampil()"><img src="../images/view.png" width="48" height="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Klik untuk menampilkan statistik siswa yang dimutasi!', this, event, '200px')"></a></td>
+    <td valign="middle"><a href="#" onclick="tampil()"><img src="../images/view.png" width="48" height="48" border="0" name="tabel" id="tabel" onmouseover="showhint('Click to show Student Mutated Statistic', this, event, '200px')"></a></td>
     <td colspan="2" align="right" valign="top"> 
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Statistik Mutasi Siswa</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Mutation Statistic</font><br />
       <a href="../mutasi.php" target="content"> 
-      <font size="1" color="#000000"><b>Mutasi</b></font></a>&nbsp>&nbsp 
-      <font size="1" color="#000000"><b>Statistik Mutasi Siswa</b></font></td>
+      <font size="1" color="#000000"><b>Mutation</b></font></a>&nbsp;>&nbsp; 
+      <font size="1" color="#000000"><b>Student Mutation Statistic.</b></font></td>
 </tr>
 </table>
 </body>

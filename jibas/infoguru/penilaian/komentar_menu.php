@@ -59,7 +59,7 @@ if (isset($_REQUEST['kelas']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Komentar Nilai Rapor</title>
+<title>Report Card Comments</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -89,7 +89,7 @@ function change_urut(urut,urutan)
 	} else {
 	urutan="asc"
 	}
-	//if (confirm("Apakah anda yakin akan menghapus angkatan ini?"))
+	//if (confirm("Are you sure want to delete this Graduates?"))
 	document.location.href="komentar_menu.php?departemen=<?=$departemen?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahunajaran=<?=$tahunajaran?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&urut="+urut+"&urutan="+urutan;
 	
 }
@@ -137,20 +137,20 @@ function change_urut(urut,urutan)
     <td align="left" valign="top" colspan="2">       
 	<table border="1" width="100%" id="table" class="tab" bordercolor="#000000" >
 	<tr>		
-		<td width="3%" height="30" align="center" class="header">No</td>
+		<td width="3%" height="30" align="center" class="header">#</td>
 		<td height="30" onMouseOver="background='../style/formbg2agreen.gif';height=30;" 
         	onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" 
             onClick="change_urut('nama','<?=$urutan?>')">
-            <div align="center" class="style1"><strong><span class="style3">Siswa</span></strong></div>
+            <div align="center" class="style1"><strong><span class="style3">Student</span></strong></div>
         </td>
 	</tr>
 <? 	while ($row = @mysql_fetch_array($result)) 
 	{	?>
     <tr>        			
-		<td height="25" align="center" onclick="tampil('<?=$row[nis]?>')" style="cursor:pointer" title="Klik untuk menampilkan komentar rapor siswa ini">
+		<td height="25" align="center" onclick="tampil('<?=$row[nis]?>')" style="cursor:pointer" title="Click to show this student Report Card Comments">
 		<?=$cnt?>
         </td>
-  		<td height="25" onclick="tampil('<?=$row[nis]?>')" style="cursor:pointer" title="Klik untuk menampilkan komentar rapor <?=$row['nama']?>">
+  		<td height="25" onclick="tampil('<?=$row[nis]?>')" style="cursor:pointer" title="Click to show Report Card Comments <?=$row['nama']?>">
 		<?=$row['nis']?><br /><?=$row['nama']?>
         </td>
     </tr>

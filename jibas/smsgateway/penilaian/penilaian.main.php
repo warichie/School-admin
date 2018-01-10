@@ -32,7 +32,7 @@ require_once('../include/sessionchecker.php');
 </head>
 <body style="background-image:url(../images/BGPenilaian.jpg); background-repeat:no-repeat">
 <div align="center" style="font-family:Calibri; color:#666; font-weight:bold; font-size:20px; padding-bottom:10px">
-PENILAIAN
+REPORT CARD
 </div>
 <!-- ImageReady Slices (Untitled-1) -->
 <table id="Table_01" width="304" height="397" border="0" cellpadding="0" cellspacing="0" align='center'>
@@ -95,8 +95,8 @@ PENILAIAN
 </table>
 <!-- End ImageReady Slices -->
 <!-- End ImageReady Slices 
-<a href="penilaian.format.php">Format Pesan Laporan Penilaian</a><br />
-<a href="penilaian.php">Kirim Pesan Laporan Penilaian</a><br />
-<a href="penilaian.list.php">Daftar Pesan Laporan Penilaian</a>-->
+<a href="penilaian.format.php">Format Pesan Reports Penilaian</a><br />
+<a href="penilaian.php">Send Pesan Reports Penilaian</a><br />
+<a href="penilaian.list.php">Daftar Pesan Reports Penilaian</a>-->
 </body>
 </html>

@@ -21,11 +21,11 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <br><br><br><br><br><br>
-<h2>LOGIN SISWA</h2>
+<h2>STUDENT LOGIN</h2>
 <table border='0' cellpadding='2' cellspacing='2' align='center'>
 <tr>
     <td align='right'>
-        <font style='font-size:16px'>NIS:</font>
+        <font style='font-size:16px'>Student ID:</font>
     </td>
     <td align='left'>
         <input type='text' id='is_nis' style='font-size:16px' maxlength='14' size='14' value=''>

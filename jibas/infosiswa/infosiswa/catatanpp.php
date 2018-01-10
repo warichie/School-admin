@@ -27,7 +27,7 @@ require_once('../include/common.php');
 require_once('../include/config.php');
 require_once('../include/db_functions.php');
 $nis=$_REQUEST[nis];
-$bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$bulan_pjg = array(1=>'January','February','March','April','May','June','July','August','September','October','November','December');
 OpenDb();
 $sql_pel="SELECT pel.nama as namapelajaran, ppsiswa.statushadir as statushadir, pp.tanggal as tanggal, pp.jam as jam, pp.gurupelajaran as guru,ppsiswa.catatan as catatan,pel.replid as pelajaran FROM jbsakad.pelajaran pel, jbsakad.presensipelajaran pp, jbsakad.ppsiswa ppsiswa WHERE ppsiswa.nis='$nis' AND ppsiswa.idpp=pp.replid AND pel.replid=pp.idpelajaran AND ppsiswa.catatan<>'' GROUP BY pel.replid";
 $res_pel=QueryDb($sql_pel);
@@ -35,7 +35,7 @@ $res_pel=QueryDb($sql_pel);
 
 <table width="100%" border="0" cellspacing="5">
   <tr>
-    <td width="150" valign="top"><div id="thn_catatan">Pelajaran
+    <td width="150" valign="top"><div id="thn_catatan">Subject
       <select name="pel" id="pel" onChange="chg_pel_pp('<?=$nis?>')">
         <?
 	if (@mysql_num_rows($res_pel)>0){
@@ -50,7 +50,7 @@ $res_pel=QueryDb($sql_pel);
 	}
 	} else {
 	?>
-        <option value="">Tidak ada data</option>
+        <option value="">Data Not Found</option>
         <?
 	}
 	?>
@@ -65,17 +65,17 @@ $res_pel=QueryDb($sql_pel);
 		?>
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td align="right"><a href="#" onclick="cetak_pp('<?=$nis?>','<?=$pelajaran?>')"><img border="0" src="../images/ico/print.png" />&nbsp;Cetak</a></td>
+    <td align="right"><a href="#" onclick="cetak_pp('<?=$nis?>','<?=$pelajaran?>')"><img border="0" src="../images/ico/print.png" />&nbsp;Print</a></td>
   </tr>
 </table>
 <br />
         <? } ?>
  <table width="100%" border="1" cellspacing="0" class="tab">
   <tr class="header" height="30">
-    <td width="4%" align="center">No.</td>
+    <td width="4%" align="center">#</td>
     <td width="5%" align="center">Status</td>
-    <td width="25%" align="center">Tanggal-Jam</td>
-    <td width="38%" align="center">Guru</td>
+    <td width="25%" align="center">Date-Time</td>
+    <td width="38%" align="center">Teacher</td>
   </tr>
   <?
   if (@mysql_num_rows($res_pp)>0){
@@ -91,19 +91,19 @@ $res_pel=QueryDb($sql_pel);
 	<?
 	switch ($row_pp[statushadir]){
 	case 0:
-		echo "Hadir";
+		echo "Attend";
 		break;
 	case 1:
-		echo "Sakit";
+		echo "Ill";
 		break;
 	case 2:
-		echo "Ijin";
+		echo "Consent";
 		break;
 	case 3:
-		echo "Alpa";
+		echo "Absent";
 		break;
 	case 4:
-		echo "Cuti";
+		echo "Leave";
 		break;
 	}
 	?>
@@ -125,7 +125,7 @@ $res_pel=QueryDb($sql_pel);
   } } else { ?>
   ?>
   <tr>
-    <td align="center" colspan="5">Tidak ada Catatan</td>
+    <td align="center" colspan="5">No notes.</td>
   </tr>
   <?
   } ?>

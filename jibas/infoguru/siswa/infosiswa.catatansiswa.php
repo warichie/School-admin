@@ -37,12 +37,12 @@ $sql_year = "SELECT DISTINCT YEAR(tanggal) as tahun
 $res_year = QueryDb($sql_year);
 
 $tahun = "";
-$bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$bulan_pjg = array(1=>'January','February','March','April','May','June','July','August','September','October','November','December');
 ?>
 <table width="100%" border="0" cellspacing="5">
 <tr>
     <td width="150" height="30" valign="top">
-    <div id="thn_catatan">Tahun
+    <div id="thn_catatan">Year
     <select name="tahun" id="tahun" onChange="ChangeTahunCatatanSiswa('<?=$nis?>')">
 <?	if (@mysql_num_rows($res_year) > 0)
     {
@@ -55,7 +55,7 @@ $bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','
 	}
     else
     {	?>
-        <option value="">Tidak ada data</option>
+        <option value="">Data Not Found</option>
 <?	}	?>
     </select>
     </div>
@@ -63,7 +63,7 @@ $bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','
 	<div id="tabel_ck">
     <table width="100%" border="1" cellspacing="0" class="tab">
     <tr class="header" height="30">
-        <td width="50"><div align="center">Bulan</div></td>
+        <td width="50"><div align="center">Month</div></td>
         <td width="35%"><div align="center">#</div></td>
     </tr>
 <?  $sql = "SELECT MONTH(tanggal) AS bulan
@@ -80,7 +80,7 @@ $bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','
                          WHERE nis='$nis' AND MONTH(tanggal)='$row[bulan]' AND YEAR(tanggal)='$tahun'";
 		  	$res_cnt = QueryDb($sql_cnt);
 			$row_cnt = @mysql_fetch_row($res_cnt); ?>
-            <tr onClick="ShowCatatanSiswa('<?=$nis?>', '<?=$row[bulan]?>', '<?=$tahun?>')" style="cursor:pointer;" title="Klik untuk menampilkan daftar Catatan Siswa">
+            <tr onClick="ShowCatatanSiswa('<?=$nis?>', '<?=$row[bulan]?>', '<?=$tahun?>')" style="cursor:pointer;" title="Click to show Student Note list">
                 <td width="50"><?=$bulan_pjg[$row[bulan]]?></td>
                 <td><div align="center"><?=$row_cnt[0]?></div></td>
             </tr>
@@ -89,7 +89,7 @@ $bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','
     else
     {  ?>
             <tr>
-                <td colspan="2" align="center">Tidak ada Data</td>
+                <td colspan="2" align="center">Data Not Found.</td>
             </tr>
 <?  } ?>
     </table>

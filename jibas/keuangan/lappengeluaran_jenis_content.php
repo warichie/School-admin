@@ -83,22 +83,22 @@ function excel() {
    	<tr>
     	<td><strong><font size="2" color="#990000"><?=$nama ?></font></strong></td>
     	<td align="right">
-    	<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')" />&nbsp;Refresh</a>&nbsp;&nbsp;
-    	<a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
-        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Buka di Ms Excel!', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
+    	<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')" />&nbsp;Refresh</a>&nbsp;&nbsp;
+    	<a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
+        <a href="JavaScript:excel()"><img src="images/ico/excel.png" border="0" onMouseOver="showhint('Open in Excel', this, event, '50px')"/>&nbsp;Excel</a>&nbsp;
     	</td>
 	</tr>
 	</table>
     <br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
     <tr height="30" align="center" >
-        <td class="header" width="4%" >No</td>
-        <td class="header" width="10%">Tanggal</td>
-        <td class="header" width="20%">Pemohon</td>
-        <td class="header" width="10%">Penerima</td>
-        <td class="header" width="11%">Jumlah</td>
-        <td class="header" width="*">Keperluan</td>
-        <td class="header" width="7%">Petugas</td>
+        <td class="header" width="4%" >#</td>
+        <td class="header" width="10%">Date</td>
+        <td class="header" width="20%">Applicant</td>
+        <td class="header" width="10%">Recipient</td>
+        <td class="header" width="11%">Sum</td>
+        <td class="header" width="*">Necessities</td>
+        <td class="header" width="7%">Officer</td>
         <td class="header" width="*">&nbsp;</td>
     </tr>
 <?
@@ -138,21 +138,21 @@ function excel() {
         <td valign="top"><?=$row['penerima'] ?></td>
         <td align="right" valign="top"><?=FormatRupiah($row['jumlah']) ?></td>
         <td valign="top">
-        <strong>Keperluan: </strong><?=$row['keperluan'] ?><br />
-        <strong>Keterangan: </strong><?=$row['keterangan'] ?>
+        <strong>Necessities: </strong><?=$row['keperluan'] ?><br />
+        <strong>Info: </strong><?=$row['keterangan'] ?>
         </td>
         <td valign="top" align="center"><?=$row['petugas'] ?></td>
         <td valign="top" align="center">
-        <a href="JavaScript:cetakbukti('<?=$row['id'] ?>')"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak Bukti Pengeluaran Kas!', this, event, '100px')"/></a>&nbsp;
+        <a href="JavaScript:cetakbukti('<?=$row['id'] ?>')"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print Proof of Expenditure Kas', this, event, '100px')"/></a>&nbsp;
    <?  if (getLevel() != 2) { ?>
-        <a href="JavaScript:edit('<?=$row['id'] ?>')"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Pembayaran Pengeluaran!', this, event, '120px')"/></a>
+        <a href="JavaScript:edit('<?=$row['id'] ?>')"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Payment Expenditure', this, event, '120px')"/></a>
     <?  } ?>        
         </td>
     </tr>
 <? } ?>
     <tr height="30">
         <td colspan="3" align="center" bgcolor="#999900">
-        <font color="#FFFFFF"><strong>T O T A L</strong></font>
+        <font color="#FFFFFF"><strong>Total</strong></font>
         </td>
         <td align="right" bgcolor="#999900" colspan="2"><font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font></td>
         <td colspan="3" bgcolor="#999900">&nbsp;</td>

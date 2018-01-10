@@ -78,7 +78,7 @@ if(isset($_REQUEST["simpan"])) {
 
 <html>
 <head>
-<title>JIBAS SIMAKA [Input Data Nilai Akhir Ujian]</title>
+<title>JIBAS SIMAKA [Exam Final Point Data]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/validasi.js"></script>
@@ -98,17 +98,17 @@ function cek_form() {
   	var nilai = document.getElementById("nilai").value;
 	
 	if (nilai.length == 0) {
-		alert ('Anda harus mengisikan data untuk Nilai Akhir!');			
+		alert ('You must enter a data for Final Point');			
 		document.getElementById("nilai").focus();
 		return false;
 	} else {	
 		if (isNaN(nilai)){
-			alert ('Nilai Akhir harus berupa bilangan!');			
+			alert ('Final Point must be numeric');			
 			document.getElementById("nilai").focus();
 			return false;
 		}
 		if (parseInt(nilai)>100){
-			alert ('Rentang Nilai Akhir antara 0 - 100!');
+			alert ('Final Point range is between 0 - 100');
 			document.getElementById("nilai").focus();
 			return false;
 		}
@@ -134,31 +134,31 @@ function focusNext(elemName, evt) {
 	<table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
    	<!-- TABLE CONTENT -->
     <tr height="25">
-        <td colspan="2" class="header" align="center">Input Nilai Akhir Ujian</td>
+        <td colspan="2" class="header" align="center">Exam Final Point</td>
     </tr>    		
     <tr>
-        <td><strong>NIS</strong></td>
+        <td><strong>Student ID</strong></td>
         <td><input class="disabled" type="text" size="15" name="nis" value="<?=$nis ?>" readonly></td>
     </tr>
     <tr>
-        <td><strong>Nama</strong></td>
+        <td><strong>Name</strong></td>
         <td><input class="disabled" type="text" size="35" name="nama" value="<?=$nama?>" readonly></td>
     </tr>
     <tr>        
-       	<td><strong>Nilai Akhir</strong>
+       	<td><strong>Grade Point</strong>
         <td>
            	<input type="text" name="nilai" id="nilai" size="5" value="<?=$nilai?>" maxlength="5" onKeyPress="return focusNext('simpan',event)" <?=$aktif ?> >
        	</td>
     </tr>
     <tr>
         <td colspan="2">
-        <fieldset><legend><strong>Hitung Nilai Akhir <?=$jenis?> Berdasarkan </strong></legend>    
+        <fieldset><legend><strong>Calculate Final Point <?=$jenis?> based on </strong></legend>    
         <table width="100%" border="0">
         <tr>
-            <td width="5%"><input type="radio" name="tipe" id="tipe" value="otomatis" onClick="ambil('otomatis')" <? if ($tipe == 'otomatis') echo "checked"; ?> >
+            <td width="5%"><input type="radio" name="tipe" id="tipe" value="automatic" onClick="ambil('otomatis')" <? if ($tipe == 'automatic') echo "checked"; ?> >
             </td>
-            <td><strong>Perhitungan Otomatis</strong></td>
-            <!--<td width="40%"><strong>B. Perhitungan Manual</strong></td>-->
+            <td><strong>Auto Calculation</strong></td>
+            <!--<td width="40%"><strong>B. Manual Calculation</strong></td>-->
         </tr>
         <tr>
     		<td></td>
@@ -166,7 +166,7 @@ function focusNext(elemName, evt) {
     		<table id="table" class="tab" width="100%" border="1">
 			<tr height="30" class="header" align="center">				
                 <td width="85%"><?=$jenis?></td>
-				<td width="15%">Bobot</td>
+				<td width="15%">Quality</td>
 			</tr>
      	<?
 			
@@ -194,7 +194,7 @@ function focusNext(elemName, evt) {
         <tr>
         	<td><input type="radio" name="tipe" id="tipe" value="manual" onClick="ambil('manual')" <? if ($tipe == 'manual') echo "checked"; ?>>
             </td>
-            <td><strong>Perhitungan Manual</strong></td>
+            <td><strong>Manual Calculation</strong></td>
         </tr>
        
 		</table>
@@ -204,8 +204,8 @@ function focusNext(elemName, evt) {
     
     <tr>
         <td align="center" colspan="2">
-            <input type="submit" value="Simpan" name="simpan" id="simpan" class="but">
-            <input type="button" value="Tutup" name="batal" class="but" onClick="window.close();">
+            <input type="submit" value="Save" name="simpan" id="simpan" class="but">
+            <input type="button" value="Close" name="batal" class="but" onClick="window.close();">
          </td>
     </tr>
     </table>

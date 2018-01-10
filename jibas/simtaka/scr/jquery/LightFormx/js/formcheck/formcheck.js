@@ -147,13 +147,13 @@ var FormCheck = new Class({
 			select       : "Please choose a value"
 			*/
 
-			required     : "This field cannot be empty.",
-			alpha        : "Bagian isi hanya dapat diisi dengan karakter alphabet.",
-			alphanum     : "Bagian isi hanya dapat diisi dengan karakter alphanumerik.",
+			required     : "This field should not be empty.",
+			alpha        : "Section isi hanya dapat diisi dengan karakter alphabet.",
+			alphanum     : "Section isi hanya dapat diisi dengan karakter alphanumerik.",
 			nodigit      : "Cannot use numeric.",
 			digit        : "Silakan masukkan angka dengan benar.",
-			digitmin     : "Angka yang dimasukkan minimal %0",
-			digitltd     : "Bilangan harus diantara %0 dan %1",
+			digitmin     : "Angka entered minimal %0",
+			digitltd     : "Bilangan harus diantara %0 and %1",
 			number       : "Silakan masukkan angka dengan benar.",
 			email        : "Masukkan alamat email dengan benar: <br /><span>Contoh. namaAnda@domain.com</span>",
 			spamcheck    : "<span>2 + 3 = ???</span>",
@@ -162,12 +162,12 @@ var FormCheck = new Class({
 
 			confirm      : "This field is different from %0",
 			differs      : "This value must be different of %0",
-			length_str   : "Teks terlalu pendak, teks harus diantara %0 dan %1",
+			length_str   : "Teks terlalu pendak, teks harus diantara %0 and %1",
 			lengthmax    : "Teks terlalu pendek, pangjang teks maksimal adalah %0",
 			lengthmin    : "Teks terlalu pendek, pangjang teks minimal adalah %0",
-			checkbox     : "Silakan ceklist pada Checkbox ",
-			radios       : "Silakan pilih pada Radio",
-			select       : "Silakan Pilih"
+			checkbox     : "Silakan ceklist on Checkbox ",
+			radios       : "Silakan pilih on Radio",
+			select       : "Silakan Select"
 
 		},
 
@@ -254,7 +254,7 @@ var FormCheck = new Class({
 	_validate : function(el) {
 		el.errors = [];
 		el.isOk = true;
-		//On valide l'élément qui n'est pas un radio ni checkbox
+		//On valide l'ï¿½lï¿½ment qui n'est pas un radio ni checkbox
 		el.validation.each(function(rule) {
 			if(this._isChildType(el)) {
 				if (this._validateGroup(el) == false) {

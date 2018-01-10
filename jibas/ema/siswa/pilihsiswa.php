@@ -35,7 +35,7 @@ $SP = new CSiswa();
 <form name="frmPilih">
 <table width="100%" border="0" cellspacing="2" cellpadding="1">
   <tr>
-    <td width="8%" class="tab2">Departemen</td>
+    <td width="8%" class="tab2">Department</td>
     <td width="92%">
     <div id="depInfo">
     <?
@@ -45,7 +45,7 @@ $SP = new CSiswa();
     </td>
   </tr>
   <tr>
-    <td class="tab2">Tingkat</td>
+    <td class="tab2">Grade</td>
     <td>
     <div id="tktInfo">
     <?
@@ -55,7 +55,7 @@ $SP = new CSiswa();
     </td>
   </tr>
   <tr>
-    <td class="tab2">Kelas</td>
+    <td class="tab2">Class</td>
     <td>
     <div id="klsInfo">
     <?

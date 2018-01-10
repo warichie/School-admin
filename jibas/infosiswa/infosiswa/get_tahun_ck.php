@@ -33,7 +33,7 @@ $sql_year="SELECT DISTINCT YEAR(tanggal) as tahun FROM jbsvcr.catatansiswa WHERE
 //echo $sql_year;
 $res_year=QueryDb($sql_year);
 ?>
-Tahun
+Year
       <select name="tahun" id="tahun" onChange="chg_thn_ck('<?=$nis?>')">
         <?
 	if (@mysql_num_rows($res_year)>0){
@@ -48,7 +48,7 @@ Tahun
 	}
 	} else {
 	?>
-        <option value="">Tidak ada data</option>
+        <option value="">Data Not Found</option>
         <?
 	}
 	?>

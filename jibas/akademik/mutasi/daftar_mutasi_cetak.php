@@ -43,7 +43,7 @@ $total = $_REQUEST['total'];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Daftar Alumni]</title>
+<title>JIBAS SIMAKA [Alumni List]</title>
 </head>
 
 <body>
@@ -53,15 +53,15 @@ $total = $_REQUEST['total'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DAFTAR MUTASI SISWA</strong></font><br />
+  <font size="4"><strong>STUDENT MUTATION LIST</strong></font><br />
  </center><br /><br />
 <table>
 <tr>
-	<td><strong>Departemen</strong> </td> 
+	<td><strong>Department</strong> </td> 
 	<td><strong>:&nbsp;<?=$departemen?></strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Mutasi</strong></td>
+	<td><strong>Mutation Year</strong></td>
 	<td><strong>:&nbsp;<?=$tahun?></strong></td>
 </tr>
 
@@ -69,13 +69,13 @@ $total = $_REQUEST['total'];
     <br />
       <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="0" width="100%" align="center" bordercolor="#000000">
     <tr height="30" class="header" align="center">
-    	<td width="4%">No</td>
-        <td width="13%">N I S</td>
-        <td width="30%">Nama </td>
-        <td width="15%">Kelas Terakhir </td>
-		<td width="18%">Tanggal Mutasi </td>
-        <td width="22%">Jenis Mutasi </td>
-        <td width="*">Keterangan</td>
+    	<td width="4%">#</td>
+        <td width="13%">Student ID</td>
+        <td width="30%">Name </td>
+        <td width="15%">Last Class </td>
+		<td width="18%">Mutation Date</td>
+        <td width="22%">Mutation Type </td>
+        <td width="*">Info</td>
     </tr>
 <? 	
 	//$sql_siswa = "SELECT s.replid AS replidsiswa, s.nis, s.nama, k.kelas, m.tglmutasi, j.jenismutasi, m.keterangan, m.replid, t.tingkat FROM mutasisiswa m, kelas k, tingkat t, siswa s, jenismutasi j WHERE m.departemen='$departemen' AND k.idtingkat=t.replid AND k.replid=s.idkelas AND j.replid = m.jenismutasi AND s.nis = m.nis AND YEAR(tglmutasi) = '$tahun' ORDER BY $urut $urutan LIMIT ".(int)$page*(int)$varbaris.",$varbaris";
@@ -103,7 +103,7 @@ $total = $_REQUEST['total'];
     <!-- END TABLE CONTENT -->
     </table>
 <!--<tr>
-    <td align="right">Halaman <strong><?=$page+1?></strong> dari <strong><?=$total?></strong> halaman</td>
+    <td align="right">Page <strong><?=$page+1?></strong> from <strong><?=$total?></strong> halaman</td>
 </tr>-->
 </table>	
 </body>

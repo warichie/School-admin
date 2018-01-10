@@ -42,7 +42,7 @@ if (isset($_REQUEST['tanggal1']))
 
 if (isset($_REQUEST['tanggal2']))
 	$tanggal2 = $_REQUEST['tanggal2'];
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 
 $bln = 0;
 if (isset($_REQUEST['bln']))
@@ -57,7 +57,7 @@ if (isset($_REQUEST['thn']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Cetak Laporan Perubahan Modal]</title>
+<title>JIBAS EMA [Print Change of Capital Reports]</title>
 </head>
 
 <body>
@@ -68,21 +68,21 @@ if (isset($_REQUEST['thn']))
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>LAPORAN PERUBAHAN MODAL</strong></font><br />
+  <font size="4"><strong>CHANGE OF CAPITAL REPORTS</strong></font><br />
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="7%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="7%" class="news_content1"><strong>Department</strong></td>
     <td width="93%" class="news_content1">: 
       <?=$departemen ?></td>
     </tr>
 <tr>
-  <td class="news_content1"><strong>Tahun Buku</strong></td>
+  <td class="news_content1"><strong>Fiscal Year</strong></td>
   <td class="news_content1">: 
       <?=$ntahunbuku ?></td>
   </tr>
 <tr>
-  <td class="news_content1"><strong>Periode</strong></td>
+  <td class="news_content1"><strong>Period</strong></td>
   <td class="news_content1">:
     <?=$nperiode ?></td>
   </tr>
@@ -98,14 +98,14 @@ $last_date = $row[0];
 
 $sql = "SELECT SUM(jd.kredit - jd.debet) FROM $db_name_fina.rekakun ra, $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd 
 		WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND 
-			  j.tanggal BETWEEN '$tanggal1' AND '$last_date' AND ra.kategori IN ('PENDAPATAN', 'MODAL')";
+			  j.tanggal BETWEEN '$tanggal1' AND '$last_date' AND ra.kategori IN ('INCOME', 'CAPITAL')";
 $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
 $totalpendapatan = (float)$row[0];
 
 $sql = "SELECT SUM(jd.debet - jd.kredit) FROM $db_name_fina.rekakun ra, $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd 
 	    WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND 
-		      j.tanggal BETWEEN '$tanggal1' AND '$last_date' AND ra.kategori = 'BIAYA'";
+		      j.tanggal BETWEEN '$tanggal1' AND '$last_date' AND ra.kategori = 'COST'";
 $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
 $totalbiaya = (float)$row[0];
@@ -114,28 +114,28 @@ $modalawal = $totalpendapatan - $totalbiaya;
 
 $sql = "SELECT SUM(jd.kredit - jd.debet) FROM $db_name_fina.rekakun ra, $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd 
 	    WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND 
-		      j.tanggal BETWEEN '$first_date' AND '$tanggal2' AND ra.kategori = 'MODAL' AND jd.kredit > 0";
+		      j.tanggal BETWEEN '$first_date' AND '$tanggal2' AND ra.kategori = 'CAPITAL' AND jd.kredit > 0";
 $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
 $jinvestasi = (float)$row[0];
 
 $sql = "SELECT SUM(jd.debet - jd.kredit) FROM $db_name_fina.rekakun ra, $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd 
 	    WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND 
-		      j.tanggal BETWEEN '$first_date' AND '$tanggal2' AND ra.kategori = 'MODAL' AND jd.debet > 0";
+		      j.tanggal BETWEEN '$first_date' AND '$tanggal2' AND ra.kategori = 'CAPITAL' AND jd.debet > 0";
 $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
 $jpengambilan = (float)$row[0];
 
 $sql = "SELECT SUM(jd.kredit - jd.debet) FROM $db_name_fina.rekakun ra, $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd 
         WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND 
-		      j.tanggal BETWEEN '$first_date' AND '$tanggal2' AND ra.kategori = 'PENDAPATAN'";
+		      j.tanggal BETWEEN '$first_date' AND '$tanggal2' AND ra.kategori = 'INCOME'";
 $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
 $jpendapatan = (float)$row[0];
 
 $sql = "SELECT SUM(jd.debet - jd.kredit) FROM $db_name_fina.rekakun ra, $db_name_fina.jurnal j, $db_name_fina.jurnaldetail jd 
         WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' AND 
-		      j.tanggal BETWEEN '$first_date' AND '$tanggal2' AND ra.kategori = 'BIAYA'";
+		      j.tanggal BETWEEN '$first_date' AND '$tanggal2' AND ra.kategori = 'COST'";
 $result = QueryDb($sql);
 $row = mysql_fetch_row($result);
 $jbiaya = (float)$row[0];
@@ -146,23 +146,23 @@ $modalakhir = $modalawal + $jinvestasi - $jpengambilan + $jincome;
 ?>
 	<table border="0" cellpadding="8" cellspacing="5" align="center" width="70%" background="../img/bttable.png">
     <tr>
-        <td width="*">Modal di awal <?=NamaBulan($bln) . " " . $thn?></td>
+        <td width="*">Initial Capital <?=NamaBulan($bln) . " " . $thn?></td>
         <td align="right" width="200"><?=FormatRupiah($modalawal) ?></td>
         <td width="5">&nbsp;</td>
     </tr>
     <tr>
-        <td>Investasi pada <?=NamaBulan($bln) . " " . $thn?></td>
+        <td>Investment on <?=NamaBulan($bln) . " " . $thn?></td>
         <td align="right"><?=FormatRupiah($jinvestasi) ?></td>
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td>Pengambilan pada <?=NamaBulan($bln) . " " . $thn?></td>
+        <td>Taking on <?=NamaBulan($bln) . " " . $thn?></td>
         <td align="right"><?=FormatRupiah(-1 * $jpengambilan) ?></td>
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td><? if ($jpendapatan < $jbiaya) echo "Rugi"; else  echo "Laba"; ?>
-        pada <?=NamaBulan($bln) . " " . $thn?></td>
+        <td><? if ($jpendapatan < $jbiaya) echo "Loss"; else  echo "Profit"; ?>
+        on <?=NamaBulan($bln) . " " . $thn?></td>
         <td align="right"><?=FormatRupiah($jincome) ?></td>
         <td>&nbsp;</td>
     </tr>
@@ -173,7 +173,7 @@ $modalakhir = $modalawal + $jinvestasi - $jpengambilan + $jincome;
         <td><font size="3"><strong>+</strong></font></td>
     </tr>
     <tr>
-        <td>&nbsp;&nbsp;<font size="2"><strong>Modal per <?=LongDateFormat($tanggal2) ?></strong></font></td>
+        <td>&nbsp;&nbsp;<font size="2"><strong>Capital per <?=LongDateFormat($tanggal2) ?></strong></font></td>
         <td align="right" class="err"><font size="2"><strong><span class="style1"><?=FormatRupiah($modalakhir) ?></span></strong></font></td>
     </tr>
     </table>

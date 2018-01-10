@@ -39,14 +39,14 @@
 <body leftmargin="0" topmargin="0">
 <table border="0" cellpadding="0" cellspacing="0" width="80%" align="left">
 <tr><td valign="top" align="left">
-<p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="style1"><font face="Verdana" color="Gray">LAPORAN KEUANGAN</font></span></p>
+<p align="left">&nbsp;&nbsp;<font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<span class="style1"><font face="Verdana" color="Gray">LAPORAN FINANCE</font></span></p>
 <table width="100%" border="0" style="border-collapse:collapse" cellpadding="5" cellspacing="0">
 <tr>
-	<td colspan="5" align="center" bgcolor="#FFFFCC"><font size="2" color="#000033"><strong>Transaksi Penerimaan dan Pengeluaran</strong></font><br /></td>
+	<td colspan="5" align="center" bgcolor="#FFFFCC"><font size="2" color="#000033"><strong>Transaction Penerimaan and Expenditure</strong></font><br /></td>
 </tr>
 <tr>
 	<td width="40" align="right" valign="top" bgcolor="#FFFFCC"><a href="laptransaksi_main.php"><img src="images/documents_white_fav.png" border="0" height="75" /></a></td>
-    <td align="left" valign="middle" bgcolor="#FFFFCC"><a href="laptransaksi_main.php"><strong>Laporan Transaksi Keuangan</strong></a><br /><i>Menampilkan daftar setiap transaksi Penerimaan dan Pengeluaran</i> </td>
+    <td align="left" valign="middle" bgcolor="#FFFFCC"><a href="laptransaksi_main.php"><strong>Transaction Reports</strong></a><br /><i>Menampilkan daftar setiap transaksi Penerimaan and Expenditure</i> </td>
     <td width="10" bgcolor="#FFFFCC">&nbsp;</td>
     <td width="40" align="right" valign="top" bgcolor="#FFFFCC">&nbsp;</td>
     <td align="left" valign="middle" bgcolor="#FFFFCC">&nbsp;</td>
@@ -55,11 +55,11 @@
   <td colspan="5" align="center">&nbsp;</td>
 </tr>
 <tr>
-	<td colspan="5" align="center" bgcolor="#CCFFCC"><font size="2" color="#000033"><strong>Audit Perubahan Data</strong></font><br /></td>
+	<td colspan="5" align="center" bgcolor="#CCFFCC"><font size="2" color="#000033"><strong>Audit Data Changing</strong></font><br /></td>
 </tr>
 <tr>
 	<td width="40" align="right" valign="top" bgcolor="#CCFFCC"><a href="lapaudit_main.php"><img src="images/Draft.png" border="0" height="70" /></a></td>
-    <td align="left" valign="middle" bgcolor="#CCFFCC"><a href="lapaudit_main.php"><strong>Laporan Audit Perubahan Data Keuangan</strong></a><br /><i>Menampilkan daftar perubahan data keuangan baik pengubahan atau penghapusan</i> </td>
+    <td align="left" valign="middle" bgcolor="#CCFFCC"><a href="lapaudit_main.php"><strong>Finance Audit Data Reports</strong></a><br /><i>Menampilkan daftar perubahan data keuangan baik pengubahan or penghapusan</i> </td>
     <td width="10" bgcolor="#CCFFCC">&nbsp;</td>
     <td width="40" align="right" valign="top" bgcolor="#CCFFCC">&nbsp;</td>
     <td align="left" valign="middle" bgcolor="#CCFFCC">&nbsp;</td>
@@ -68,28 +68,28 @@
   <td colspan="5" align="center">&nbsp;</td>
 </tr>
 <tr>
-	<td colspan="5" align="center" bgcolor="#FFCCFF"><font size="2" color="#000033"><strong>Laporan Akunting</strong></font><br /></td>
+	<td colspan="5" align="center" bgcolor="#FFCCFF"><font size="2" color="#000033"><strong>Reports Akunting</strong></font><br /></td>
 </tr>
 <tr>
 	<td width="40" align="right" valign="top" bgcolor="#FFCCFF"><a href="lapbukubesar_main.php"><img src="images/Contacts.png" border="0" height="70" /></a></td>
-    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="lapbukubesar_main.php"><strong>Laporan Buku Besar</strong></a><br /><i>Riwayat jurnal setiap kode rekening akuntansi</i> </td>
+    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="lapbukubesar_main.php"><strong>Ledger Reports</strong></a><br /><i>Riwayat jurnal setiap kode rekening akuntansi</i> </td>
     <td width="10" bgcolor="#FFCCFF">&nbsp;</td>
    <td width="40" align="right" valign="top" bgcolor="#FFCCFF"><a href="lapneracaper_main.php"><img src="images/PIE DIAGRAM.png" border="0" height="70" /></a></td>
-    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="lapneracaper_main.php"><strong>Laporan Neraca Percobaan</strong></a><br /><i>Menampilkan posisi setiap kode rekening akuntansi per rentang waktu tertentu</i> </td>
+    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="lapneracaper_main.php"><strong>Trial Balance Sheet Reports</strong></a><br /><i>Menampilkan posisi setiap kode rekening akuntansi per rentang waktu tertentu</i> </td>
 </tr>
 <tr>
 	<td width="40" align="right" valign="top" bgcolor="#FFCCFF"><a href="laprugilaba_main.php"><img src="images/smile_4.png" border="0" height="70" /></a></td>
-    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="laprugilaba_main.php"><strong>Laporan Rugi Laba</strong></a><br /><i>Menampilkan laporan rugi laba dari pendapatan dan beban, terhitung dari mulai tahun buku</i> </td>
+    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="laprugilaba_main.php"><strong>Profit Loss Reports</strong></a><br /><i>Menampilkan laporan rugi laba from pendapatan and beban, terhitung from mulai tahun buku</i> </td>
     <td width="10" bgcolor="#FFCCFF">&nbsp;</td>
     <td width="40" align="right" valign="top" bgcolor="#FFCCFF"><a href="lapmodal_main.php"><img src="images/file_fav.png" border="0" height="75" /></a></td>
-    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="lapmodal_main.php"><strong>Laporan Perubahan Modal</strong></a><br /><i>Manampilkan perubahan modal terhitung dari mulai tahun buku</i> </td>
+    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="lapmodal_main.php"><strong>Change of Capital Reports</strong></a><br /><i>Manampilkan perubahan modal terhitung from mulai tahun buku</i> </td>
 </tr>
 <tr>
 	<td width="40" align="right" valign="top" bgcolor="#FFCCFF"><a href="lapneraca_main.php"><img  src="images/neraca.png" border="0" height="60" /></a></td>
-    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="lapneraca_main.php"><strong>Laporan Neraca</strong></a><br /><i>Menampilkan laporan keseimbangan antara aset yang dimiliki dan kewajiban yang harus dilunasi</i> </td>
+    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="lapneraca_main.php"><strong>Balance Sheet Reports</strong></a><br /><i>Menampilkan laporan keseimbangan between aset yang dimiliki and kewajiban yang harus dilunasi</i> </td>
     <td width="10" bgcolor="#FFCCFF">&nbsp;</td>
     <td width="40" align="right" valign="top" bgcolor="#FFCCFF"><a href="lapcashflow_main.php"><img src="images/Graphic1.png" border="0" height="70" /></a></td>
-    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="lapcashflow_main.php"><strong>Laporan Arus Kas</strong></a><br /><i>Menampilkan posisi keuangan dari aktifitas keuangan, investasi dan operasional</i> </td>
+    <td align="left" valign="middle" bgcolor="#FFCCFF"><a href="lapcashflow_main.php"><strong>Cash Flow Reports</strong></a><br /><i>Menampilkan posisi keuangan from aktifitas keuangan, investasi and operasional</i> </td>
 </tr>
 </table>
 

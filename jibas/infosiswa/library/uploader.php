@@ -81,7 +81,7 @@ if (isset($_REQUEST['simpan']) && isset($_FILES[foto]))
 		{
 		?>
 				<script language="javascript">
-					alert ('Berhasil upload gambar !\nSilakan pilih gambar dengan menekan tombol Pilih Gambar');
+					alert ('The image has been successfully uploaded \nPlease select an image by click on the Select Image button');
 					document.location.href="blank_uploader.php";
 				</script>
 <?		}
@@ -122,7 +122,7 @@ if (isset($_REQUEST['simpan']) && isset($_FILES[foto]))
 			var n=document.getElementById("nama").value;
 			var y=1;
 			if (x.length==0){
-				alert ('File tidak boleh kosong!');
+				alert ('File should not leave empty');
 				return false;
 			} else {
 				while (y<=3){
@@ -130,7 +130,7 @@ if (isset($_REQUEST['simpan']) && isset($_FILES[foto]))
 				var file=document.getElementById("foto").value;
 				if (file.length>0){
 					if (ext!='.JPG' && ext!='.jpg' && ext!='.Jpg' && ext!='.JPg' && ext!='.JPEG' && ext!='.jpeg'){
-						alert ('Format Gambar harus ber-extensi jpg atau JPG !');
+						alert ('Image should be jpg or JPG formatted');
 						document.getElementById("foto").value='';
 						document.getElementById("tr").style.background = "#FF8080" ;
 						return false;
@@ -140,7 +140,7 @@ if (isset($_REQUEST['simpan']) && isset($_FILES[foto]))
 				}
 			}
 			if (n.length==0){
-				alert ('Nama gambar harus diisi!');
+				alert ('Image name is required');
 				document.getElementById("nama").focus();
 				return false;
 			}
@@ -154,15 +154,15 @@ if (isset($_REQUEST['simpan']) && isset($_FILES[foto]))
     <div>
     <table border="1" cellpadding="2" cellspacing="0" width="100%">
     <tr id="tr" style="background:#99CCCC">
-        <td width="16%" align="left" >File Gambar :</td>
+        <td width="16%" align="left" >Image File :</td>
         <td width="84%" ><input size="60" name="foto" id="foto" type="file" onChange="chg()"><input type="hidden" name="ext" id="ext" size="30"></td>
     </tr>
     <tr>
-        <td align="left">Nama Gambar :</td>
+        <td align="left">Image Name :</td>
         <td align="left"><input type="text" name="nama" id="nama" size="30"></td>
     </tr>
     <tr>
-        <td align="left" bgcolor="#99CCCC">Keterangan :</td>
+        <td align="left" bgcolor="#99CCCC">Info :</td>
         <td align="left" bgcolor="#99CCCC"><input type="text" name="keterangan" id="keterangan" size="50"></td>
     </tr>
     <tr>

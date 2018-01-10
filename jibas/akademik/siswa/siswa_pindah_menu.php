@@ -55,7 +55,7 @@ switch ($jenis) {
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pindah Kelas[Menu]</title>
+<title>Class Transfer [Menu]</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -86,13 +86,13 @@ function cari_siswa_text() {
 	var jenis = "text";
 		
 	if (nis2.length == 0 && nama2.length == 0){
-		alert ("Masukkan NIS atau nama siswa untuk melakukan pencarian!");
+		alert ("Enter Student ID or Name to begin searching.");
 		document.getElementById("nis2").focus();
 		return false;
 	} else {
 		
 		if ((nis2.length < 3 && nis2.length != 0) || (nama2.length < 3 && nama2.length != 0)){
-			alert ('Keyword tidak boleh kurang dari 3 karakter');
+			alert ('Keyword should not less than 3 characters.');
 			return false;
 		}		
 	}
@@ -110,7 +110,7 @@ function cari_siswa_combo() {
 	//var warna_combo = "d5fcca";
 	
 	if (idkelas.length==0){
-		alert ('Belum ada kelas yang aktif pada tingkat yang terpilih!');
+		alert ('No Active Class in the Grade you entered.');
 		document.getElementById('idkelas').focus();
 		return false;
 	}
@@ -138,12 +138,12 @@ function focusNext(elemName, evt) {
 <input type="hidden" name="idtahunajaran" id="idtahunajaran" value="<?=$idtahunajaran?>" />
 
    	<fieldset>
-	<legend>Tampilkan daftar siswa berdasarkan</legend>
+	<legend>Sort by</legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr <? if ($pilihan=="1") { ?> style="background-color:#C0C0C0" <? } ?>>
     	<td width="10" align="center" valign="middle">
         	<img src="../images/ico/titik.png" width="5" height="5" align="top"/></td>
-        <td width="15%">Kelas</td>
+        <td width="15%">Class</td>
         <td width="*">
        	 	<select name="idkelas" id="idkelas" onChange="change_kelas()" style="width:145px;" onKeyPress="return focusNext('tampil', event)">        
 			<?	OpenDb();
@@ -160,15 +160,15 @@ function focusNext(elemName, evt) {
             <?	} ?>
             </select></td>
      	<td width="50">
-        	<input type="button" value="Tampil" id="tampil" class="but" onClick="cari_siswa_combo()" style="width:70px;" onMouseOver="showhint('Tampilkan daftar siswa berdasarkan kelas!', this, event, '135px')"/></td>
+        	<input type="button" value="Show" id="tampil" class="but" onClick="cari_siswa_combo()" style="width:70px;" onMouseOver="showhint('Sort by Class', this, event, '135px')"/></td>
     </tr>
     <tr <? if ($pilihan=="2") { ?> style="background-color:#C0C0C0" <? } ?>>
       	<td align="center" valign="middle">
         	<img src="../images/ico/titik.png" width="5" height="5" align="top" /></td>
-      	<td>Pencarian </td>
-        <td><b>NIS</b>&nbsp;&nbsp;<input type="text" name="nis2" id="nis2" size="10" value="<?=$nis?>"  onkeypress="return focusNext('cari', event)" />&nbsp;&nbsp;
-        <b>Nama</b>&nbsp;&nbsp;<input type="text" name="nama2" id="nama2" size="16" value="<?=$nama?>"  onkeypress="return focusNext('cari', event)" /></td>
-        <td><input type="button" value="Cari" id="cari" class="but" onClick="cari_siswa_text()" style="width:70px;" onmouseover="showhint('Tampilkan daftar siswa berdasarkan pencarian!', this, event, '150px')"/></td>   	
+      	<td>Search </td>
+        <td><b>Student ID</b>&nbsp;&nbsp;<input type="text" name="nis2" id="nis2" size="10" value="<?=$nis?>"  onkeypress="return focusNext('cari', event)" />&nbsp;&nbsp;
+        <b>Name</b>&nbsp;&nbsp;<input type="text" name="nama2" id="nama2" size="16" value="<?=$nama?>"  onkeypress="return focusNext('cari', event)" /></td>
+        <td><input type="button" value="Search" id="cari" class="but" onClick="cari_siswa_text()" style="width:70px;" onmouseover="showhint('Sort by Search', this, event, '150px')"/></td>   	
     </tr>
     </table>
     </fieldset>	

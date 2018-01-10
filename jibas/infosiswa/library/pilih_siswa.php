@@ -48,11 +48,11 @@ OpenDb();
 <tr>
     <td colspan="4">
     <input type="hidden" name="flag" id="flag" value="<?=$flag ?>" />
-    <font size="2" color="#000000"><strong>Daftar Siswa</strong></font><br />
+    <font size="2" color="#000000"><strong>Student List</strong></font><br />
     </td>
 </tr>
 <tr>
-    <td width="20%"><font color="#000000"><strong>Departemen</strong></font></td>
+    <td width="20%"><font color="#000000"><strong>Department</strong></font></td>
     <td><select name="depart" id="depart" onChange="change_departemen(0)" style="width:150px" onkeypress="return focusNext('tingkat', event)">
 	<?	$dep = getDepartemen(SI_USER_ACCESS());    
         foreach($dep as $value) {
@@ -64,7 +64,7 @@ OpenDb();
         <?	} ?>
   	</select>
     </td>
-    <td><font color="#000000"><strong>Tingkat</strong></font></td>
+    <td><font color="#000000"><strong>Grade</strong></font></td>
     <td>
             <select name="tingkat" id="tingkat" onChange="change()" style="width:150px;" onkeypress="return focusNext('kelas', event)">
         <?
@@ -80,7 +80,7 @@ OpenDb();
             </select></td>
 </tr>
 <tr>
-    <td><font color="#000000"><strong>Tahun Ajaran </strong></font></td>
+    <td><font color="#000000"><strong>Year </strong></font></td>
     <td><select name="tahunajaran" id="tahunajaran" onChange="change()" style="width:150px;" onkeypress="return focusNext('tingkat', event)">
    		 	<?
 			OpenDb();
@@ -102,7 +102,7 @@ OpenDb();
     		?>
     	</select>        </td>
         
-    <td><font color="#000000"><strong>Kelas</strong></font></td>
+    <td><font color="#000000"><strong>Class</strong></font></td>
     <td><select name="kelas" id="kelas" onChange="change_kelas()" style="width:150px">
 <?	if ($tahunajaran <> "") {
 		OpenDb();
@@ -137,10 +137,10 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 ?>
 	<table width="100%" id="table" class="tab" align="center" cellpadding="2" cellspacing="0" border="1">
 	<tr height="30">
-        <td class="header" width="7%" align="center" height="30">No</td>
-        <td class="header" width="15%" align="center" height="30">N I S</td>
-        <td class="header" align="center">Nama</td>
-        <td class="header" align="center">Kelas</td>
+        <td class="header" width="7%" align="center" height="30">#</td>
+        <td class="header" width="15%" align="center" height="30">Student ID</td>
+        <td class="header" align="center">Name</td>
+        <td class="header" align="center">Class</td>
         <td class="header" width="10%">&nbsp;</td>
 	</tr>
 <?
@@ -152,7 +152,7 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 		<td align="center"><?=$row[0] ?></td>
 		<td><?=$row[1] ?></td>
 		<td align="center"><?=$row[2] ?></td>
-		<td align="center"><input type="button" value="Pilih" onClick="pilih('<?=$row[0]?>','<?=$row[1]?>')"  class="but"></td>
+		<td align="center"><input type="button" value="Select" onClick="pilih('<?=$row[0]?>','<?=$row[1]?>')"  class="but"></td>
 	</tr>
 	<?
 	$cnt++;
@@ -165,8 +165,8 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />           
-		Tambah data siswa di menu Pendataan Siswa pada bagian Kesiswaan. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br />           
+		Add student data in the Student Data menu on Student section. </b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -178,8 +178,8 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 		<td>   
    
 	<br /><br />	
-	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />          
-		Tambah data Tahun Ajaran, Tingkat atau Kelas pada bagian Referensi. </b></font>	
+	<font size = "2" color ="red"><b>Data Not Found. <br />          
+		Add Year, Grade or Class data on Reference section. </b></font>	
 	<br /><br />
    		</td>
     </tr>
@@ -189,7 +189,7 @@ if ($kelas <> "" && $tingkat <> "" && $tahunajaran <> "") {
 </tr>
 <tr>
 	<td align="center" colspan="4">
-	<input type="button" class="but" name="tutup" id="tutup" value="Tutup" onclick="window.close()" style="width:80px;"/>
+	<input type="button" class="but" name="tutup" id="tutup" value="Close" onclick="window.close()" style="width:80px;"/>
 	</td>
 </tr>
 </table>

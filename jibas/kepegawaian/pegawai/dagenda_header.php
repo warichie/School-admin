@@ -28,7 +28,7 @@ require_once("../include/common.php")
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../style/style.css" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <script language="javascript">
 function Lihat() {
 	var bln1 = document.getElementById('bln1').value;
@@ -53,26 +53,26 @@ $Y = date('Y');
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 	<td width="60%" align="left">
-    	Bulan: 
+    	Month: 
         <select name="bln1" id="bln1" onchange="JavaScript:ShowBlank()">
 <?		for($i = 1; $i <= 12; $i++) { ?>        
 			<option value="<?=$i?>" <?=IntIsSelected($i, $M)?>><?=NamaBulan($i)?></option>
 <?		} ?>
         </select>
-        <input type="text" name="thn1" id="thn1" maxlength="4" size="4" value="<?=$Y?>" onchange="JavaScript:ShowBlank()" /> s/d 
+        <input type="text" name="thn1" id="thn1" maxlength="4" size="4" value="<?=$Y?>" onchange="JavaScript:ShowBlank()" /> to 
         <select name="bln2" id="bln2" onchange="JavaScript:ShowBlank()">
 <?		for($i = 1; $i <= 12; $i++) { ?>        
 			<option value="<?=$i?>" <?=IntIsSelected($i, $M)?>><?=NamaBulan($i)?></option>
 <?		} ?>
         </select>
         <input type="text" name="thn2" id="thn2" maxlength="4" size="4" value="<?=$Y?>"  onchange="JavaScript:ShowBlank()"/> &nbsp;&nbsp;
-        <input type="button" name="Lihat" value="Lihat" class="but" onclick="JavaScript:Lihat()" />
+        <input type="button" name="Lihat" value="See" class="but" onclick="JavaScript:Lihat()" />
         
     </td>
     <td width="40%" align="right">
 	    <font style="background-color:#FFCC33; font-size:14px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Daftar Agenda Kepegawaian</font><br />
-        <a href="pegawai.php" target="_parent">Kepegawaian</a> &gt; Daftar Agenda Kepegawaian
+        <font class="subtitle">Employee Affair Agenda List</font><br />
+        <a href="pegawai.php" target="_parent">Employee Affair</a> &gt; Employee Affair Agenda List
     </td>
 </tr>
 </table>

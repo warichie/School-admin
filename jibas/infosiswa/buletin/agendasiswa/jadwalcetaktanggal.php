@@ -29,7 +29,7 @@ $tgl = $_REQUEST['tgl'];
 $bln = $_REQUEST['bln'];
 $thn = $_REQUEST['thn'];
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");
 $fulltgl = $tgl . " " . $namabulan[$bln - 1] . " " . $thn;
 $fulltgl = strtoupper($fulltgl);
 
@@ -40,7 +40,7 @@ $tanggal = "$thn-$bln-$tgl";
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jadwal Pernikahan</title>
+<title>Marital Schedule</title>
 <link rel="stylesheet" type="text/css" href="style/tooltips.css">
 </head>
 <body>
@@ -52,18 +52,18 @@ $tanggal = "$thn-$bln-$tgl";
 
 <table border="0"width="100%" align="center">
 <tr>
-    <td align="left"><div align="center"><font size="2" color="#660000"><b>JADWAL PERNIKAHAN<BR />TANGGAL <?=$fulltgl ?></b></font></div></td>
+    <td align="left"><div align="center"><font size="2" color="#660000"><b>MARITAL SCHEDULE<BR />DATE <?=$fulltgl ?></b></font></div></td>
 </tr>
 </table>
 <br />
 
 <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="center">
 <tr height="30">
-    <td width="7%" class="header" align="center">No</td>
-    <td width="20%" align="center" class="header">Tempat/Jam</td>
-    <td width="25%" class="header">Penghulu</td>
-    <td width="25%" class="header">Pasangan</td>
-    <td width="*" class="header">Keterangan</td>
+    <td width="7%" class="header" align="center">#</td>
+    <td width="20%" align="center" class="header">Place/Time</td>
+    <td width="25%" class="header">Headman</td>
+    <td width="25%" class="header">Couples</td>
+    <td width="*" class="header">Info</td>
 </tr>
 <? 	OpenDb();
 $sql = "SELECT j.replid,jam,penghulu,nama,pasangan,tempat,keterangan FROM jadwal j, penghulu p WHERE j.penghulu = p.nip AND tanggal='$tanggal' ORDER BY jam ASC";    

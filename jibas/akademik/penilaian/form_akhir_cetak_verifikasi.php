@@ -61,7 +61,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Form Nilai Akhir]</title>
+<title>JIBAS SIMAKA [Print Final Point Form]</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/tables.js"></script>
@@ -149,10 +149,10 @@ function focusNext(elemName, evt) {
 	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
 	<tr height="25">
-        <td colspan="2" class="header" align="center">Cetak Form Nilai Akhir Berdasarkan Jenis Pengujian</td>
+        <td colspan="2" class="header" align="center">Print Final Point Form based on Exam Type</td>
     </tr>
     <tr>
-    	<td><strong>Aspek Penilaian</strong></td>
+    	<td><strong>Assessment Aspect</strong></td>
     	<td><select name="aspek" id="aspek" onChange="change_aspek()" style="width:150px" onKeyPress="return focusNext('aturan', event)">
 			<? 
 			$sql_daspen="SELECT DISTINCT a.dasarpenilaian, dp.keterangan
@@ -175,7 +175,7 @@ function focusNext(elemName, evt) {
 <?	if ($num_daspen>0)
 	{	?>
   	<tr>
-    	<td><strong>Jenis Pengujian</strong></td>
+    	<td><strong>Exam Type</strong></td>
     	<td>
         	<select name="aturan" id="aturan" style="width:150px" onKeyPress="return focusNext('cetak', event)" onChange="change_aturan()">
 			<?
@@ -207,20 +207,20 @@ function focusNext(elemName, evt) {
             {	
                 $but = "<input class=\"but\" type=\"button\" name=\"cetak\" id=\"cetak\" value=\"Cetak\" onClick=\"validate();\"  />";
             } else {
-                $ERROR_MSG = "Belum ada data ujian pada aspek penilaian dan jenis pengujian ini!";		
+                $ERROR_MSG = "No Exam data on Assessment Aspect and this Exam Type.";		
             }
         } 
 		else 
 		{
-            $ERROR_MSG = "Belum ada aturan penilaian yang tersimpan!";
+            $ERROR_MSG = "No Assessment Rules saved.";
         }
 	} 
 	else 
 	{ 
-		$ERROR_MSG = "Belum ada aspek penilaian yang tersimpan!"; ?>
+		$ERROR_MSG = "No Assessment Aspects saved."; ?>
 <? 	} ?>
   <tr><td colspan="2" align="center">
-  <?=$but?>&nbsp;&nbsp;<input class="but" type="button" name="tutup" value="Tutup" onClick="window.close()" />
+  <?=$but?>&nbsp;&nbsp;<input class="but" type="button" name="tutup" value="Close" onClick="window.close()" />
   </td></tr>
 <? if (strlen($ERROR_MSG) > 0) 
 	{ ?>

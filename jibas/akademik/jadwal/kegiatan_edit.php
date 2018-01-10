@@ -41,7 +41,7 @@ $result = QueryDb($sql);
 $row = mysql_fetch_array($result);
 $departemen = $row['departemen'];
 $akademik = $row['kalender'];
-$periode = LongDateFormat($row['tglmulai']).' s/d '.LongDateFormat($row['tglakhir']);
+$periode = LongDateFormat($row['tglmulai']).' to '.LongDateFormat($row['tglakhir']);
 $periode1 = RegularDateFormat($row['tglmulai']);
 $periode2 = RegularDateFormat($row['tglakhir']);
 $kegiatan = $row['kegiatan'];
@@ -68,7 +68,7 @@ if (isset($_REQUEST['Simpan'])) {
 		CloseDb();
 		?>
         <script language="javascript">
-			alert ('Nama kegiatan <?=$kegiatan?> sudah digunakan!');
+			alert ('Activity Name <?=$kegiatan?> has been used');
 		</script>
         <?	
 		
@@ -98,7 +98,7 @@ if (isset($_REQUEST['Simpan'])) {
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>JIBAS SIMAKA [Ubah Kegiatan Akademik]</title>
+<title>JIBAS SIMAKA [Edit Academic Activity]</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="../style/calendar-system.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -150,18 +150,18 @@ function validate(){
 	var thperiode1 = "";
 	
 	if (kegiatan.length == 0) {
-		alert("Anda harus mengisikan data untuk nama kegiatan");
+		alert("You must enter a data for Activity Name");
 		document.getElementById("kegiatan").focus();
 		return false;
 	}
 	
 	if (tglmulai.length == 0) {	
-		alert("Anda harus mengisikan data untuk tanggal mulai");
+		alert("You must enter a data for Start Date");
 		return false;
 	}
 	
 	if (tglakhir.length == 0) {	
-		alert("Anda harus mengisikan data untuk tanggal akhir");
+		alert("You must enter a data for End Date");
 		return false;
 	}
 			
@@ -235,47 +235,47 @@ function validate(){
 				
 			
 		if (thperiode > th) {
-			alert ('Pastikan tahun awal kegiatan berada dalam periode kalender akademik');			
+			alert ('Make sure that Start Year Activity is in the Academic Calendar Period range');			
 			return false;
 		} 
 		
 		if (th == thperiode && blnperiode > bln) {
-			alert ('Pastikan bulan awal kegiatan berada dalam periode kalender akademik');
+			alert ('Make sure that Start Month activity is in the Academic Calendar Period range');
 			return false; 
 		}	
 	
 		if (th == thperiode && bln == blnperiode && tglperiode > tgl ) { 
-			alert ('Pastikan tanggal awal kegiatan berada dalam periode kalender akademik');
+			alert ('Make sure that Start Date Activity is in the Academic Calendar Period range');
 			return false;
 		} 
 		
 		if (th1 > thperiode1) {
-			alert ('Pastikan tahun akhir kegiatan berada dalam periode kalender akademik');			
+			alert ('Make sure that End Year Activity is in the Academic Calendar Period range');			
 			return false;
 		} 
 	
 		if (th1 == thperiode1 && bln1 > blnperiode1) {
-			alert ('Pastikan bulan akhir kegiatan berada dalam periode kalender akademik');
+			alert ('Make sure that End Month Activity is in the Academic Calendar Period range');
 			return false; 
 		}	
 	
 		if (th1 == thperiode1 && bln1 == blnperiode1 && tgl1 > tglperiode1 ) { 
-			alert ('Pastikan tanggal akhir kegiatan berada dalam periode kalender akademik');
+			alert ('Make sure that End Date Activity is in the Academic Calendar Period range');
 			return false;
 		} 
 		
 		if (th > th1) {
-			alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+			alert ('End Year should not less than Start Year');
 			return false;
 		} 
 	
 		if (th == th1 && bln > bln1 ) {
-			alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+			alert ('End Month should not less than Start Month');
 			return false; 
 		}	
 	
 		if (th == th1 && bln == bln1 && tgl > tgl1 ) { 
-			alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');			
+			alert ('End Date should not less than Start Date');			
 			return false;
 		} 
 }
@@ -299,7 +299,7 @@ function focusNext(elemName, evt) {
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Ubah Kegiatan :.
+    .: Edit Activity :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -314,50 +314,50 @@ function focusNext(elemName, evt) {
 <table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr>
-	<td width="130"><strong>Departemen</strong></td>
+	<td width="130"><strong>Department</strong></td>
     <td><input type="text" class="disabled" name="departemen" size="10" value="<?=$departemen ?>" readonly/></td>
 </tr>
 <tr>
-	<td><strong>Kalender Akademik</strong></td>
+	<td><strong>Academic Calendar</strong></td>
     <td colspan="2"><input type="text" class="disabled" name="akademik" readonly  size="30" value="<?=$akademik?>" />
 	    <input type="hidden" name="kalender" id="kalender" value ="<?=$kalender ?>" />
     </td>
 </tr>
 <tr>
-	<td><strong>Periode</strong></td>
+	<td><strong>Period</strong></td>
     <td colspan="2"><input type="text" class="disabled" name="periode" readonly  size="40" value="<?=$periode?>" />
     <input type="hidden" name="periode1" id="periode1" value ="<?=$periode1 ?>" />
     <input type="hidden" name="periode2" id="periode2" value ="<?=$periode2 ?>" />
     </td>
 </tr>
 <tr>
-	<td><strong>Nama Kegiatan</strong></td>
-	<td colspan="2"><input type="text" name="kegiatan" id="kegiatan"  size="40" maxlength="50" value="<?=$kegiatan ?>" onFocus="showhint('Nama kegiatan tidak boleh lebih dari 50 karakter!', this, event, '120px')" onKeyPress="return focusNext('kegiatan', event)"/>
+	<td><strong>Activity Name</strong></td>
+	<td colspan="2"><input type="text" name="kegiatan" id="kegiatan"  size="40" maxlength="50" value="<?=$kegiatan ?>" onFocus="showhint('Activity Name should not exceed 50 characters', this, event, '120px')" onKeyPress="return focusNext('kegiatan', event)"/>
     </td>
 </tr>
 <tr>
-	<td><strong>Tanggal Mulai</strong></td>
+	<td><strong>Start Date</strong></td>
   	<td><input type="text" class="disabled" id="tglmulai" name="tglmulai" readonly  size="40" value="<?=$tglmulai?>"  onClick="Calendar.setup()"/>
-    <td width="180"><img src="../images/calendar.jpg" name="tabel"border="0" id="btntglmulai" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/></td>
+    <td width="180"><img src="../images/calendar.jpg" name="tabel"border="0" id="btntglmulai" onMouseOver="showhint('Open calendar', this, event, '100px')"/></td>
     
 </tr>
 <tr>
-	<td><strong>Tanggal Akhir</strong></td>
+	<td><strong>End Date</strong></td>
     <td><input type="text" class="disabled" id="tglakhir" name="tglakhir" readonly  size="40" value="<?=$tglakhir?>"  onClick="Calendar.setup()"/>
-    <td><img src="../images/calendar.jpg" name="tabel" border="0" id="btntglakhir" onMouseOver="showhint('Buka kalendar!', this, event, '100px')"/></td>   
+    <td><img src="../images/calendar.jpg" name="tabel" border="0" id="btntglakhir" onMouseOver="showhint('Open calendar', this, event, '100px')"/></td>   
 </tr>
 
 <tr>
 	<td colspan = "3" height="200" valign="top">
-	<fieldset><legend><b>Kegiatan</b></legend>
+	<fieldset><legend><b>Activity</b></legend>
     <br />
     <textarea name="keterangan" id="keterangan" rows="20" style="width:100%"><?=$keterangan?></textarea>
     </fieldset>
 </tr>
 <tr>
   <td colspan="5"><div align="center">
-    <input name="Simpan" id="Simpan" type="Submit" class="but" value="Simpan" >
-    <input name="Submit2" type="button" class="but" value="Tutup" onClick="window.close();">
+    <input name="Simpan" id="Simpan" type="Submit" class="but" value="Save" >
+    <input name="Submit2" type="button" class="but" value="Close" onClick="window.close();">
   </div></td>
   </tr>
 </table>

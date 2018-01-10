@@ -26,7 +26,7 @@ require_once("cek.php");
 if (isset($_REQUEST['theme']))
 	$theme=$_REQUEST['theme'];
 ?>
-<title>JIBAS - AKADEMIK</title>
+<title>JIBAS - ACADEMIC</title>
 <link href="images/jibas.ico" rel="shortcut icon" />
 <frameset border="0" frameborder="0" framespacing="0" rows="87,*,41">
 	<frame name="frametop" src="frametop.php" scrolling="no" noresize="noresize" />

@@ -50,25 +50,25 @@ $namatingkat = $row['tingkat'];
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Form Presensi Pelajaran]</title>
+<title>JIBAS SIMAKA [Print Class Presence Form]</title>
 </head>
 
 <body>
 <?=getHeader($departemen)?>
 <center>
-  <font size="4"><strong>FORM PRESENSI PELAJARAN </strong></font><br />
+  <font size="4"><strong>LESSON PRESENCE FORM </strong></font><br />
  </center><br /><br />
 
 <br />
 	<table>
 	<tr>
-		<td width="10%"><strong>Departemen</strong></td>		
+		<td width="10%"><strong>Department</strong></td>		
 		<td width="40%"><strong>:&nbsp;<?=$departemen ?></strong></td>
-        <td width="11%"><strong>Tanggal </strong>
+        <td width="11%"><strong>Date </strong>
         <td><strong>: ______________________________</strong></td>
 	</tr>
 	<tr>
-		<td><strong>Tahun Ajaran</strong></td>
+		<td><strong>Year</strong></td>
 		<td><strong>:&nbsp;<?=$namatahunajaran?></strong>
 		</td>
 		
@@ -76,17 +76,17 @@ $namatingkat = $row['tingkat'];
     <tr>
     	<td><strong>Semester</strong></td>
 		<td><strong>:&nbsp;<?=$namasemester?></strong></td>		
-		<td><strong>Nama Guru</strong></td>
+		<td><strong>Teacher Name</strong></td>
         <td><strong>: ______________________________</strong></td>
 		
 	<tr>
-		<td><strong>Kelas</strong></td>
+		<td><strong>Class</strong></td>
 		<td><strong>:&nbsp;<?=$namatingkat?>&nbsp;-&nbsp;<?=$namakelas?></strong></td>				
 	</tr>
     <tr>
-		<td><strong>Pelajaran</strong></td>
+		<td><strong>Class Subject</strong></td>
 		<td><strong>:&nbsp;<?=$namapelajaran?></strong></td>
-        <td><strong>Sebagai </strong></td>
+        <td><strong>On behalf </strong></td>
         <td><strong>: ______________________________</strong></td>		
 		
 	</tr>
@@ -94,37 +94,37 @@ $namatingkat = $row['tingkat'];
 		<td align="center" colspan="4">&nbsp;</td>
 	</tr>
 	<!--<tr>
-		<td ><strong>Tanggal</strong></td>
+		<td><strong>Date</strong></td>
 		<td colspan="4"><strong>: _________________</strong></td>
 	</tr>
 	<tr>
-		<td><p><strong>Guru</strong></td>
+		<td><p><strong>Teacher</strong></td>
 		<td><strong>: _____________________________</strong></td>
-		<td><strong>Sebagai : _________________</strong></td>
+		<td><strong>On behalf : _________________</strong></td>
 	</tr>-->
 	<tr>
-		<td valign="top"><strong>Materi</strong></td>
+		<td valign="top"><strong>Class Subject</strong></td>
 		<td valign="top" colspan="3"><strong>: 
         ___________________________________________________________________________
         <p> &nbsp; ___________________________________________________________________________
         </strong></td>
 	</tr>
 		<tr>
-		<td valign="top"><strong>Objektif</strong></td>
+		<td valign="top"><strong>Objective</strong></td>
 		<td valign="top" colspan="3"><strong>: 	
         ___________________________________________________________________________
         <p> &nbsp; ___________________________________________________________________________
         </strong></td>
 	</tr>
 	<tr>
-		<td valign="top"><strong>Refleksi</strong></td>
+		<td valign="top"><strong>Reflection</strong></td>
 		<td valign="top" colspan="3"><strong>: 
         ___________________________________________________________________________
         <p> &nbsp; ___________________________________________________________________________
         </strong></td>
 	</tr>
 	<tr>
-		<td valign="top"><strong>Materi Selanjutnya</strong></td>
+		<td valign="top"><strong>Next Subject Matter</strong></td>
 		<td valign="top" colspan="3"><strong>: 
         ___________________________________________________________________________
         <p> &nbsp; ___________________________________________________________________________
@@ -132,8 +132,8 @@ $namatingkat = $row['tingkat'];
 	</tr>
 
 	<tr>
-		<td><strong>Keterlambatan</strong></td>
-		<td colspan="2"><strong>: ______ menit</strong></td>
+		<td><strong>Late</strong></td>
+		<td colspan="2"><strong>: ______ minutes</strong></td>
 	</tr>
 </table>
 <br>
@@ -142,11 +142,11 @@ $namatingkat = $row['tingkat'];
     <td>
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
         <tr>
-            <td width="5%" height="30" align="center" class="header">No</td>
-            <td width="10%" height="30" align="center" class="header">N I S</td>
-            <td width="30%" height="30" align="center" class="header">Nama</td>
-            <td width="10%" height="30" align="center" class="header">Presensi</td>	
-            <td width="55%" height="30" align="center" class="header">Catatan</td>
+            <td width="5%" height="30" align="center" class="header">#</td>
+            <td width="10%" height="30" align="center" class="header">Student ID</td>
+            <td width="30%" height="30" align="center" class="header">Name</td>
+            <td width="10%" height="30" align="center" class="header">Presence</td>	
+            <td width="55%" height="30" align="center" class="header">Notes</td>
         </tr>
         
         <?
@@ -174,9 +174,9 @@ $namatingkat = $row['tingkat'];
     <td>
     <table width="100%" border="0">
         <tr>
-            <td width="25%" align="center">Ketua Kelas</td>
+            <td width="25%" align="center">Class Leader</td>
             <td width="50%" align="left"></td>
-            <td width="25%" align="center">Guru</td>
+            <td width="25%" align="center">Teacher</td>
         </tr>
         <tr>
             <td colspan="2" align="right">&nbsp;<br /><br /><br /><br /><br /></td>

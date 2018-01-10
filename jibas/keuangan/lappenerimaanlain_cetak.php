@@ -58,7 +58,7 @@ if (isset($_REQUEST['idpenerimaan']))
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Penerimaan Lain</title>
+<title>Another Admission Reports</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -82,12 +82,12 @@ $namapenerimaan = $row[0];
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td width="90"><strong>Tanggal </strong></td>
-    <td><strong>:  <?=LongDateFormat($tanggal1) . " s/d " . LongDateFormat($tanggal2) ?></strong></td>
+	<td width="90"><strong>Date </strong></td>
+    <td><strong>:  <?=LongDateFormat($tanggal1) . " to " . LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 
 </table>
@@ -95,12 +95,12 @@ $namapenerimaan = $row[0];
 
 <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 <tr height="30" align="center">
-	<td class="header" width="5%" align="center">No</td>
-    <td class="header" width="15%">Tanggal</td>
-  	<td class="header" width="15%">Sumber</td>
-    <td class="header" width="15%" align="right">Jumlah</td>
-    <td class="header" width="25%">Keterangan</td>
-    <td class="header" width="10%">Petugas</td>
+	<td class="header" width="5%" align="center">#</td>
+    <td class="header" width="15%">Date</td>
+  	<td class="header" width="15%">Source</td>
+    <td class="header" width="15%" align="right">Sum</td>
+    <td class="header" width="25%">Info</td>
+    <td class="header" width="10%">Officer</td>
 </tr>
 <? 
 OpenDb();
@@ -127,7 +127,7 @@ while ($row = mysql_fetch_array($result)) {
 }
 ?>
 <tr height="35">
-	<td bgcolor="#996600" colspan="3" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+	<td bgcolor="#996600" colspan="3" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
     <td bgcolor="#996600" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($tot) ?></strong></font></td>
     <td bgcolor="#996600" colspan="2">&nbsp;</td>
 </tr>

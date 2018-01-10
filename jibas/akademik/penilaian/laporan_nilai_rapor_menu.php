@@ -77,7 +77,7 @@ $naspek = mysql_num_rows($res);
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Komentar Nilai Rapor</title>
+<title>Report Card Comments</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -145,21 +145,21 @@ function cetak_rapor_kelas()
 <table border="0" width="100%" align="center">
 <!-- TABLE CENTER -->
 <tr height="30" bgcolor="#CCCCCC">
-  <td align="center" colspan="2" valign="middle"><input class="but" type="button" name="cetak" id="cetak" value="Cetak Rapor Kelas <?=$row1['kelas']?>" onclick="cetak_rapor_kelas();" /></td>
+  <td align="center" colspan="2" valign="middle"><input class="but" type="button" name="cetak" id="cetak" value="Print Report Card <?=$row1['kelas']?>" onclick="cetak_rapor_kelas();" /></td>
 </tr>
 </table><br />
 
 <table border="1" width="100%" id="table" class="tab" bordercolor="#000000">
     <tr>		
-        <td width="3%" height="30" align="center" class="header">No</td>
-        <td height="30" class="header"><div align="center" class="style1"><strong><span class="style3">Siswa</span></strong></div></td>
+        <td width="3%" height="30" align="center" class="header">#</td>
+        <td height="30" class="header"><div align="center" class="style1"><strong><span class="style3">Student</span></strong></div></td>
     </tr>
     <? while ($row = @mysql_fetch_array($result)) {	?>
     <tr>        			
-        <td height="25" align="center" onclick="tampil('<?=$row[nis]?>')" style="cursor:pointer" title="Klik untuk menampilkan komentar rapor siswa ini"><?=$cnt?><input type="hidden" name="replid<?=$cnt?>" value="<?=$row['replid']?>">
+        <td height="25" align="center" onclick="tampil('<?=$row[nis]?>')" style="cursor:pointer" title="Click to show this student Report Card Comments"><?=$cnt?><input type="hidden" name="replid<?=$cnt?>" value="<?=$row['replid']?>">
         <input type="hidden" name="nis<?=$cnt?>" value="<?=$row['nis']?>"></td>
         
-        <td height="25" onclick="tampil('<?=$row[nis]?>')" style="cursor:pointer" title="Klik untuk menampilkan komentar rapor <?=$row['nama']?>"><?=$row['nis']?><br /><b><?=$row['nama']?></b></td>
+        <td height="25" onclick="tampil('<?=$row[nis]?>')" style="cursor:pointer" title="Click to show Report Card Comments <?=$row['nama']?>"><?=$row['nis']?><br /><b><?=$row['nama']?></b></td>
     </tr>
     <?		$cnt++;
     } 
@@ -172,7 +172,7 @@ Tables('table', 1, 0);
 </script> 
 </form>
 <?  } else {
-	echo '<br> Belum ada data';
+	echo '<br> No data.';
 	}
 ?>
 

@@ -36,7 +36,7 @@ $op	= $_REQUEST['op'];
 $Type		= $_REQUEST['Type'];
 $Dep		= $_REQUEST['Dep'];
 $Kls		= $_REQUEST['Kls'];
-$NIS		= $_REQUEST['NIS'];
+$Student ID		= $_REQUEST['Student ID'];
 $IDPel		= $_REQUEST['IDPel'];
 $IDUjian	= $_REQUEST['IDUjian'];
 $NumData	= $_REQUEST['NumData'];
@@ -58,7 +58,7 @@ if ($op=='SavePenilaian')
 {
 	if ($Type=='0')
 	{
-		$NIS = $NIS;	
+		$Student ID = $Student ID;	
 	}
 	else
 	{
@@ -74,13 +74,13 @@ if ($op=='SavePenilaian')
 		}
 		
 		$res = QueryDb($sql);
-		$NIS = "";
+		$Student ID = "";
 		while ($row = @mysql_fetch_row($res))
 		{
-			if ($NIS == "")
-				$NIS = $row[0];
+			if ($Student ID == "")
+				$Student ID = $row[0];
 			else
-				$NIS = $NIS.','.$row[0];
+				$Student ID = $Student ID.','.$row[0];
 		}
 	}
 	
@@ -89,9 +89,9 @@ if ($op=='SavePenilaian')
 	$dt = split('-',$x[0]);
 	$smsgeninfo .= $dt[2].'-'.$SMonth[$dt[1]-1].'-'.$dt[0]."<br>";
 	if ($Type=='0'){
-		$smsgeninfo .= "NIS : ".$NIS;
+		$smsgeninfo .= "National Student ID : ".$Student ID;
 	} else {
-		$smsgeninfo .= "Dept : ".$Dep.", Kelas : ";
+		$smsgeninfo .= "Dept : ".$Dep.", Class : ";
 		if ($Kls=='-1'){
 			$smsgeninfo .= "All";
 		} else {
@@ -103,21 +103,21 @@ if ($op=='SavePenilaian')
 	}
 	
 	if ($IDPel=='-1'){
-		$smsgeninfo .= ", Penilaian : All";
+		$smsgeninfo .= ", Reports : All";
 	} else {
 		$sql = "SELECT nama FROM $db_name_akad.pelajaran WHERE replid='$IDPel'";
 		$res = QueryDb($sql);
 		$row = @mysql_fetch_row($res);
-		$smsgeninfo .= ", Penilaian : ".$row[0];
+		$smsgeninfo .= ", Reports : ".$row[0];
 	}
 
 	if ($IDUjian=='-1'){
-		$smsgeninfo .= ", Jenis Ujian : All";
+		$smsgeninfo .= ", Exam Type : All";
 	} else {
 		$sql = "SELECT jenisujian FROM $db_name_akad.jenisujian WHERE replid='$IDUjian'";
 		$res = QueryDb($sql);
 		$row = @mysql_fetch_row($res);
-		$smsgeninfo .= ", Jenis Ujian : ".$row[0];
+		$smsgeninfo .= ", Exam Type : ".$row[0];
 	}
 	
 	$smsgeninfo .= ", Pengirim : ".$Sender;
@@ -127,14 +127,14 @@ if ($op=='SavePenilaian')
 	$res = QueryDb($sql);
 	
 	$NIS2 = "";
-	$ALLNIS	= split(',',$NIS);
+	$ALLNIS	= split(',',$Student ID);
 	for ($i=0;$i<count($ALLNIS);$i++){
 		if ($NIS2 == "")
 			$NIS2 = "'".trim($ALLNIS[$i])."'";
 		else
 			$NIS2 = $NIS2.",'".trim($ALLNIS[$i])."'";
 	}
-	//echo "Jumlah".count($ALLNIS);
+	//echo "Sum".count($ALLNIS);
 	//exit;
 	$x	= split('-',$Date1);
 	$Tgl1 = $x[2];
@@ -150,7 +150,7 @@ if ($op=='SavePenilaian')
 	$res = QueryDb($sql);
 	$row = @mysql_fetch_row($res);
 	$format = $row[0];
-	$Receiver = 0;
+	$Recipient = 0;
 	for ($i=0;$i<count($ALLNIS);$i++){
 		$nisnya = trim($ALLNIS[$i]);
 		//echo "<span style='background-color:#FF0000; font-family:Courier'>".$ALLNIS[$i]."</span><br>";
@@ -193,7 +193,7 @@ if ($op=='SavePenilaian')
 			
 		$sql = "SELECT replid,idpelajaran,idjenis FROM $db_name_akad.ujian WHERE tanggal>='$Date1' AND tanggal<='$Date2' AND idkelas='$idkelas' AND idsemester='$idsemester' $filter ORDER BY replid DESC LIMIT $NumData";
 		//echo $sql."<br>";
-		//echo " NIS ".$ALLNIS[$i]."_";
+		//echo " Student ID ".$ALLNIS[$i]."_";
 		$res = QueryDb($sql);
 		$x	 = @mysql_num_rows($res);
 		//echo "Jumlah nilai".$x."<br>";
@@ -280,7 +280,7 @@ if ($op=='SavePenilaian')
 				$sql = "INSERT INTO outboxhistory SET InsertIntoDB=now(), SendingDateTime='$SendDate', Text='$TextMsg', DestinationNumber='$nohp', SenderID='$Sender', idsmsgeninfo=$idsmsgeninfo";
 				QueryDb($sql);
 
-				$Receiver++;
+				$Recipient++;
 			}
 			if ($KeSiswa==1 && $hpsiswa!=''){
 				$nohp = $hpsiswa;
@@ -293,7 +293,7 @@ if ($op=='SavePenilaian')
 
 				$sql = "INSERT INTO outboxhistory SET InsertIntoDB=now(), SendingDateTime='$SendDate', Text='$TextMsg', DestinationNumber='$nohp', SenderID='$Sender', idsmsgeninfo=$idsmsgeninfo";
 				QueryDb($sql);
-				$Receiver++;
+				$Recipient++;
 			}
 		}
 		//echo $filterpesan."<br>";
@@ -303,5 +303,5 @@ if ($op=='SavePenilaian')
 
 ?>
 <script language='javascript'>
-	parent.bottom.PenilaianAfterSend('<?=$Receiver?>');
+	parent.bottom.PenilaianAfterSend('<?=$Recipient?>');
 </script>

@@ -23,8 +23,8 @@
 <?
 require_once("sessionchecker.php");
 
-$SMonth = array('Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des');
-$LMonth = array('Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$SMonth = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
+$LMonth = array('January','February','March','April','May','June','July','Augist','September','October','November','December');
 $Alphabet = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 function RandStr($length) 
 {

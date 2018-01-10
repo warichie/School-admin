@@ -32,7 +32,7 @@ require_once("../include/sessioninfo.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS Kepegawaian</title>
+<title>JIBAS Employee Affair</title>
 <link rel="stylesheet" href="../style/style.css" />
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -49,7 +49,7 @@ function Cetak() {
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><td align="center">
-	<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;Cetak</a>&nbsp;
+	<a href="JavaScript:Cetak()"><img src="../images/ico/print.png" border="0" />&nbsp;Print</a>&nbsp;
     <a href="JavaScript:Refresh()"><img src="../images/ico/refresh.png" border="0" />&nbsp;Refresh</a>
 </td></tr>
 </table>
@@ -77,9 +77,9 @@ function Cetak() {
 		}
 		CloseDb();
 		
-		$legend_y = array("Nikah", "Belum");
+		$legend_y = array("Married", "Not Married");
 		
-		$title = "<font face='Arial' size='-1' color='black'>Statistik Pegawai<br>Berdasarkan Status Pernikahan Per Satuan Kerja</font>"; 
+		$title = "<font face='Arial' size='-1' color='black'>Employee Statistic<br>Based on Marital Status Per Work Unit</font>"; 
 		
 		$graph = new CAsBarDiagram;
 		$graph->bwidth = 10; // set one bar width, pixels

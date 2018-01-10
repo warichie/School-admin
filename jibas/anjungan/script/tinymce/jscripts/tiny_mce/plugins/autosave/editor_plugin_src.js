@@ -217,7 +217,7 @@
 
 			self.key = PLUGIN_NAME + ed.id;
 
-			// Loop though each storage engine type until we find one that works
+			// Loop though each storage engine type to we find one that works
 			tinymce.each([
 				function() {
 					// Try HTML5 Local Storage

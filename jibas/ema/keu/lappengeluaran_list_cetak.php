@@ -40,14 +40,14 @@ if (isset($_REQUEST['idtahunbuku']))
 
 $ndepartemen = $departemen;
 $ntahunbuku = getname2('tahunbuku',$db_name_fina.'.tahunbuku','replid',$idtahunbuku);
-$nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
+$nperiode = LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS EMA [Daftar Pengeluaran]</title>
+<title>JIBAS EMA [Expenditure List]</title>
 </head>
 
 <body>
@@ -58,21 +58,21 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <? getHeader($departemen) ?>
 	
 <center>
-  <font size="4"><strong>DAFTAR LAPORAN PENGELUARAN</strong></font><br />
+  <font size="4"><strong>EXPENDITURE LIST</strong></font><br />
  </center><br /><br />
 <table width="100%">
 <tr>
-	<td width="7%" class="news_content1"><strong>Departemen</strong></td>
+	<td width="7%" class="news_content1"><strong>Department</strong></td>
     <td width="93%" class="news_content1">: 
       <?=$departemen ?></td>
 </tr>
 <tr>
-  <td class="news_content1"><strong>Tahun Buku</strong></td>
+  <td class="news_content1"><strong>Fiscal Year</strong></td>
   <td class="news_content1">: 
       <?=$ntahunbuku ?></td>
   </tr>
 <tr>
-  <td class="news_content1"><strong>Periode</strong></td>
+  <td class="news_content1"><strong>Period</strong></td>
   <td class="news_content1">:
     <?=$nperiode ?></td>
   </tr>
@@ -86,9 +86,9 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
         ?>    
             <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
             <tr height="30" align="center">
-                <td width="10%" class="header">No</td>
-                <td width="50%" class="header">Pengeluaran</td>
-              <td width="*" class="header">Jumlah</td>
+                <td width="10%" class="header">#</td>
+                <td width="50%" class="header">Expenditure</td>
+              <td width="*" class="header">Sum</td>
             </tr>
             <?
             
@@ -107,7 +107,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             CloseDb();
             ?>
             <tr height="30">
-                <td bgcolor="#999900" colspan="2" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+                <td bgcolor="#999900" colspan="2" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
               <td bgcolor="#999900" align="right">
               <font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font>		</td>
             </tr>
@@ -122,7 +122,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
             <table width="100%" border="0" align="center">          
             <tr>
                 <td align="center" valign="middle" height="300">    
-                    <span class="err">Tidak ditemukan adanya data.</span>
+                    <span class="err">Data Not Found</span>
               </td>
             </tr>
             </table>  

@@ -75,7 +75,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Angkatan</title>
+<title>Graduates</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -103,10 +103,10 @@ function setaktif(replid, aktif) {
 	var departemen = document.getElementById('departemen').value;
 	
 	if (aktif == 1) {
-		msg = "Apakah anda yakin akan mengubah angkatan ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this Graduates to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin akan mengubah angkatan ini menjadi AKTIF?";
+		msg = "Are you sure want to change this Graduates to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -120,7 +120,7 @@ function edit(replid) {
 
 function hapus(replid) {
 	var departemen = document.getElementById('departemen').value;
-	if (confirm("Apakah anda yakin akan menghapus angkatan ini?"))
+	if (confirm("Are you sure want to delete this Graduates?"))
 		document.location.href = "angkatan.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&departemen="+departemen+"&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -166,12 +166,12 @@ function change_baris() {
 	<table border="0"width="95%" align="center">
     <!-- TABLE TITLE -->
     <tr>
-        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Angkatan</font></td>
+        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Graduates</font></td>
    	</tr>
     <tr>
         <td align="right"><a href="../referensi.php" target="content">
-          <font size="1" color="#000000"><b>Referensi</b></font></a>&nbsp>&nbsp 
-          <font size="1" color="#000000"><b>Angkatan</b></font> </td>
+          <font size="1" color="#000000"><b>Reference</b></font></a>&nbsp;>&nbsp; 
+          <font size="1" color="#000000"><b>Graduates</b></font> </td>
         </tr>
     <tr>
       <td align="left">&nbsp;</td>
@@ -182,7 +182,7 @@ function change_baris() {
     <!-- TABLE LINK -->
     <tr>
     	<td align="right" width="35%">
-    	<strong>Departemen&nbsp;</strong>
+    	<strong>Department&nbsp;</strong>
             <select name="departemen" id="departemen" onChange="tampil()">
             <?	$dep = getDepartemen(SI_USER_ACCESS());    
 				foreach($dep as $value) {
@@ -214,19 +214,19 @@ function change_baris() {
 	?>	
     	<input type="hidden" name="total" id="total" value="<?=$total?>"/>
     	<td align="right">
-    <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onmouseover="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
+    <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onmouseover="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+    <a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
 <?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onmouseover="showhint('Tambah!', this, event, '50px')"/>&nbsp;Tambah Angkatan</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onmouseover="showhint('Add', this, event, '50px')"/>&nbsp;Add Graduates</a>
 <?	} ?>    </td></tr>
     </table><br />  
       
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
     <!-- TABLE CONTENT -->
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="25%" class="header" align="center" >Angkatan</td>
-        <td width="*" class="header" align="center">Keterangan</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="25%" class="header" align="center" >Graduates</td>
+        <td width="*" class="header" align="center">Info</td>
         <td width="10%" class="header" align="center">Status</td>
         <?	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
         <td width="8%" class="header">&nbsp;</td>
@@ -249,21 +249,21 @@ function change_baris() {
         <td align="center">
 <?		if (SI_USER_LEVEL() == $SI_USER_STAFF) {  
 			if ($row['aktif'] == 1) { ?> 
-            	<img src="../images/ico/aktif.png" border="0" onmouseover="showhint('Status Aktif!', this, event, '80px')"/>
+            	<img src="../images/ico/aktif.png" border="0" onmouseover="showhint('Status Active', this, event, '80px')"/>
 <?			} else { ?>                
-				<img src="../images/ico/nonaktif.png" border="0" onmouseover="showhint('Status Tidak Aktif!', this, event, '80px')"/>
+				<img src="../images/ico/nonaktif.png" border="0" onmouseover="showhint('Status Inactive', this, event, '80px')"/>
 <?			}
 		} else { 
 			if ($row['aktif'] == 1) { ?>
-				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/aktif.png" border="0" onmouseover="showhint('Status Aktif!', this, event, '80px')"/></a>
+				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/aktif.png" border="0" onmouseover="showhint('Status Active', this, event, '80px')"/></a>
 <?			} else { ?>
-				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/nonaktif.png" border="0" onmouseover="showhint('Status Tidak Aktif!', this, event, '80px')"/></a>
+				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/nonaktif.png" border="0" onmouseover="showhint('Status Inactive', this, event, '80px')"/></a>
 <?			} //end if
 		} //end if ?>        </td>
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?> 
         <td align="center">
-            <a href="JavaScript:edit(<?=$row['replid'] ?>)"><img src="../images/ico/ubah.png" border="0" onmouseover="showhint('Ubah Angkatan!', this, event, '80px')"/></a>&nbsp;
-            <a href="JavaScript:hapus(<?=$row['replid'] ?>)"><img src="../images/ico/hapus.png" border="0" onmouseover="showhint('Hapus Angkatan!', this, event, '80px')"/></a>
+            <a href="JavaScript:edit(<?=$row['replid'] ?>)"><img src="../images/ico/ubah.png" border="0" onmouseover="showhint('Edit Graduates', this, event, '80px')"/></a>&nbsp;
+            <a href="JavaScript:hapus(<?=$row['replid'] ?>)"><img src="../images/ico/hapus.png" border="0" onmouseover="showhint('Delete Graduates', this, event, '80px')"/></a>
         </td>
 <?		} ?>
     </tr>
@@ -298,20 +298,20 @@ function change_baris() {
     <td>
     <table border="0"width="95%" align="center" cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="30%" align="left">Halaman
+       	<td width="30%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> halaman
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -322,9 +322,9 @@ function change_baris() {
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="30%" align="right">Jumlah baris per halaman
+        <td width="30%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -350,14 +350,14 @@ function change_baris() {
 <tr>
 	<td align="center" valign="middle" height="200">
     <? if ($departemen != "") {	?>
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+    	<font size = "2" color ="red"><b>Data Not Found. 
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
         </b></font>
     <? } else { ?>
-		<font size = "2" color ="red"><b>Belum ada data Departemen.
-        <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+		<font size = "2" color ="red"><b>No Department yet.
+        <br />Please make a new one in Department menu on Reference section.
         </b></font>
     <? } ?>
 	</td>

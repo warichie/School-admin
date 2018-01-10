@@ -80,7 +80,7 @@ $result_bln=QueryDb($sql_bln);
     }
     
     function DelGambar(id) {
-        if (confirm("Apakah anda yakin akan menghapus gambar ini?")) {
+        if (confirm("Are you sure want to delete this image?")) {
             document.location.href = "UploaderBrowser2.php?op=09vn4230984cn2048723n98423&replid="+id;
         }
     }
@@ -103,7 +103,7 @@ $result_bln=QueryDb($sql_bln);
 <body>
     <form id="form1" runat="server">
     <div>
-    Bulan: 
+    Month: 
 	<select name="bt" id="bt" onchange="chgbln()">
 	<?
 	if (@mysql_num_rows($result_bln)>0){
@@ -146,7 +146,7 @@ $result_bln=QueryDb($sql_bln);
                           <?=$row[keterangan]?>
                           <br />
                           <img src="../images/ico/lihat.png" style="cursor:pointer;" onclick="OpenGambar('<?=$WEB_UPLOAD_DIR."gambarpesan/".$row[tahun].$row[bulan]."/".$row[namagambar]?>')" />
-                          <input type="submit" name="ambil" id="ambil" value="Pilih" class="but" onclick="PilihGambar('<?=$WEB_UPLOAD_DIR."gambarpesan/".$row[tahun].$row[bulan]."/".$row[namagambar]?>')"/>
+                          <input type="submit" name="ambil" id="ambil" value="Select" class="but" onclick="PilihGambar('<?=$WEB_UPLOAD_DIR."gambarpesan/".$row[tahun].$row[bulan]."/".$row[namagambar]?>')"/>
                         <img src="../images/ico/hapus.png" style="cursor:pointer;" onclick="DelGambar('<?=$row[replid]?>')" /></div></td>
                       </tr>
                     </table>

@@ -38,10 +38,10 @@ function Send(){
 		var NISList = document.getElementById('NISList').value;
 		NISList = trimAll(NISList);
 		if (NISList==''){
-			ShowError('ErrNISList','Silakan masukan NIS \n dipisahkan koma jika lebih dari 1','NISList');
+			ShowError('ErrNISList','Silakan masukan Student ID \n dipisahkan koma jika lebih from 1','NISList');
 			return false;
 		}
-		addr2 += "&Type=0&NIS="+NISList;
+		addr2 += "&Type=0&Student ID="+NISList;
 	} else {
 		var Kls 	= document.getElementById('kls').value;
 		var Dep 	= document.getElementById('dep').value;
@@ -86,7 +86,7 @@ function Send(){
 	//alert (Date1+"\n"+Date2+"\n"+Dt1+"\n"+Dt2+"\n");
 	if (Date1<Date2){
 		
-		ShowError('ErrPresDate','Periode awal harus lebih kecil dari periode akhir!','');
+		ShowError('ErrPresDate','Start period should less than last period!','');
 		return false;
 	} else {
 		addr2 += "&Date1="+Dt2+"&Date2="+Dt1;
@@ -96,18 +96,18 @@ function Send(){
 	var Sender = document.getElementById('Sender').value;
 	if (Sender==''){
 		//alert ('Tgl1 > Tgl2');
-		ShowError('ErrSenderName','Silakan isi nama pengirim!','Sender');
+		ShowError('ErrSenderName','Please enter a sender name!','Sender');
 		return false;
 	} else {
 		addr2 += "&Sender="+Sender;
 	}
 	
-	//Tujuan
+	//Destination
 	var kesiswa = document.getElementById('kesiswa').checked;
 	var keortu = document.getElementById('keortu').checked;
 	if (!kesiswa && !keortu){
 		//alert ('Tgl1 > Tgl2');
-		ShowError('ErrDestination','Silakan pilih tujuan pesan akan dikirim!','');
+		ShowError('ErrDestination','Please choose a message destination!','');
 		return false;
 	} else {
 		if (kesiswa)
@@ -123,7 +123,7 @@ function Send(){
 	parent.HiddenFrame.location.href="SendMessage.php?op=SavePresensi"+addr2;
 }
 function PresensiAfterSend(nope){
-	var msg = "<img src='../images/ico/unblock.png' />&nbsp;Berhasil mengirim laporan presensi ke "+nope+" penerima.";
+	var msg = "<img src='../images/ico/unblock.png' />&nbsp;Attendance report has sent successfully to "+nope+" penerima.";
 	//var tbl = document.getElementById('TableLogs');
 	//var row = tbl.insertRow(0);
 	//var cell = row.insertCell(0);

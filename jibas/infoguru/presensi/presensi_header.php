@@ -94,7 +94,7 @@ if (isset($_REQUEST['tampil'])) {
 <?		}
 	} else {
 		CloseDb();			
-		$ERROR_MSG = " Waktu data presensi tidak boleh melebihi batas tahun ajaran!";
+		$ERROR_MSG = "Presence Time should not exceed Year of Teaching";
 	}
 }
 	
@@ -105,7 +105,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Presensi Pelajaran</title>
+<title>Class Presence</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
@@ -200,24 +200,24 @@ function show() {
 	var tanggal = document.getElementById("tanggal").value;
 	
 	if (tingkat.length == 0){
-		alert ('Tingkat tidak boleh kosong!');
+		alert ('Grade should not leave empty');
 	} else if (kelas.length == 0) {	
-		alert ('Kelas tidak boleh kosong!');
+		alert ('Class should not leave empty');
 		document.getElementById("kelas").focus();
 	} else if (pelajaran.length == 0){
-		alert ('Pelajaran tidak boleh kosong!');
+		alert ('Class Subject should not leave empty');
 		document.getElementById("pelajaran").focus();
 	} else if (jam.length == 0|| menit.length == 0){
-		alert ('Jam dan menit tidak boleh kosong dan harus lengkap!');
+		alert ('Hours and minutes should not leave empty and should complete');
 		document.getElementById("jam").focus();
 	} else if (isNaN(jam) || isNaN(menit)){
-		alert ('Jam dan menit harus berupa bilangan!');
+		alert ('Hours and minutes must be numeric');
 		document.getElementById("jam").focus();
 	} else if (jam > 24) {
-		alert ('Jam tidak boleh lebih besar dari 24 jam');
+		alert ('Hour must not bigger than 24 hours');
 		document.getElementById("jam").focus();
 	} else if (menit > 59){	
-		alert ('Menit tidak boleh lebih atau sama dengan 60 menit');
+		alert ('Minute should not exceed or equal to 60 minutes');
 		document.getElementById("menit").focus();			
 	} else {		
 		parent.header.location.href = "presensi_header.php?departemen="+departemen+"&semester="+semester+"&tahunajaran="+tahunajaran+"&tingkat="+tingkat+"&pelajaran="+pelajaran+"&kelas="+kelas+"&jam="+jam+"&menit="+menit+"&tanggal="+tanggal+"&tampil=1";
@@ -253,7 +253,7 @@ function focusNext(elemName, evt) {
 	<td width="70%">
 	<table width = "100%" border = "0">
     <tr>
-    	<td width="14%"><strong>Departemen </strong></td>
+    	<td width="14%"><strong>Department </strong></td>
     	<td> 
     	<select name="departemen" id="departemen" onChange="change_dep()" style="width:250px;" onKeyPress="return focusNext('departemen', event)">
 		<?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -263,7 +263,7 @@ function focusNext(elemName, evt) {
 		<option value="<?=$value ?>" <?=StringIsSelected($value, $departemen) ?> > <?=$value ?> </option>
 <?	} ?>
 		</select>        </td>
-        <td><strong>Tahun Ajaran</strong></td>
+        <td><strong>Year</strong></td>
       	<td>
         <?  OpenDb();
 			$sql = "SELECT replid,tahunajaran, tglmulai, tglakhir FROM tahunajaran WHERE departemen = '$departemen' AND aktif=1 ORDER BY replid DESC";
@@ -277,7 +277,7 @@ function focusNext(elemName, evt) {
         </td> 
     </tr>
     <tr>
-    	<td><strong>Tingkat </strong></td>
+    	<td><strong>Grade </strong></td>
     	<td>
 		<select name="tingkat" id="tingkat" onChange="change_tingkat()" style="width:250px;" onKeyPress="return focusNext('kelas', event)">
           <?	OpenDb();
@@ -308,7 +308,7 @@ function focusNext(elemName, evt) {
             <input type="hidden" name="semester" id="semester" value="<?=$row['replid']?>">      	</td>
     </tr>
     <tr>
-   		<td><strong>Kelas </strong></td>
+   		<td><strong>Class </strong></td>
     	<td>
         	<select name="kelas" id="kelas" onChange="change()" style="width:250px;" onKeyPress="return focusNext('pelajaran', event)">
 			<?	OpenDb();
@@ -326,16 +326,16 @@ function focusNext(elemName, evt) {
 			} //while
 			?>
     		</select>        </td>
-        <td><strong>Tanggal </strong></td>
+        <td><strong>Date </strong></td>
         <td><input type="text" onClick="showCal('Calendar3');panggil()" style="width:140px;" name="tanggal" id ="tanggal" readonly class="disabled" value = "<?=$tgl?>" />
          
-        <a href="javascript:showCal('Calendar3');panggil()"><img src="../images/calendar.jpg" border="0" onMouseOver="showhint('Buka kalender!', this, event, '100px')"></a>
+        <a href="javascript:showCal('Calendar3');panggil()"><img src="../images/calendar.jpg" border="0" onMouseOver="showhint('Buka kalender', this, event, '100px')"></a>
         </td>
         
     </tr>
     <tr>
     	
-        <td align="left"><strong>Pelajaran</strong></td>
+        <td align="left"><strong>Class Subject</strong></td>
       	<td>
         	<select name="pelajaran" id="pelajaran" onChange="change()" style="width:250px;" onKeyPress="return focusNext('jam', event)">
    		 	<?
@@ -354,21 +354,21 @@ function focusNext(elemName, evt) {
 			}
     		?>
     		</select>		</td> 
-            <td><strong>Jam</strong></td>
+            <td><strong>Time</strong></td>
         <td><input type="text" name="jam" id="jam" size="3" maxlength="2" value="<?=$jam?>" onKeyPress="return focusNext('menit', event)"/> : 
         	<input type="text" name="menit" id="menit" size="3" maxlength="2" value="<?=$menit?>" onKeyPress="return enter('tabel', event)"/>             
-        	(Jam:Menit)    	</td> 
+        	(Hours:Minutes)    	</td> 
       	
     </tr>
 	</table>
     </td>
-    <td width="*" rowspan="4" align="left" valign="middle"><a href="#" onClick="show()" ><img src="../images/ico/view.png" onMouseOver="showhint('Klik untuk menampilkan presensi berdasarkan pelajaran!', this, event, '150px')" name="tabel" width="48" height="48" border="0" id="tabel2"/></a></td>
+    <td width="*" rowspan="4" align="left" valign="middle"><a href="#" onClick="show()" ><img src="../images/ico/view.png" onMouseOver="showhint('Click to show presensi berdasarkan pelajaran', this, event, '150px')" name="tabel" width="48" height="48" border="0" id="tabel2"/></a></td>
     <td width="*" align="right" valign="top">
-    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Presensi Pelajaran</font><br />
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Class Presence</font><br />
     <a href="../presensi.php?page=pp" target="framecenter">
-    <font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-    <font size="1" color="#000000"><b>Presensi Pelajaran </b></font><p>
-    <a href="javascript:tampil()"><font size="1" color="#000000"><b>[Lihat Data Presensi Pelajaran]</b></font></a>
+    <font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+    <font size="1" color="#000000"><b>Class Presence </b></font><p>
+    <a href="javascript:tampil()"><font size="1" color="#000000"><b>[See Class Presence Data]</b></font></a>
     </td>
 </tr>
 </table>

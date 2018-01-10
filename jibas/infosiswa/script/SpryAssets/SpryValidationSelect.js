@@ -47,7 +47,7 @@ Spry.Widget.ValidationSelect = function(element, opts)
 
 	// Unfortunately in some browsers like Safari, the Stylesheets our
 	// page depends on may not have been loaded at the time we are called.
-	// This means we have to defer attaching our behaviors until after the
+	// This means we have to defer attaching our behaviors to after the
 	// onload event fires, since some of our behaviors rely on dimensions
 	// specified in the CSS.
 

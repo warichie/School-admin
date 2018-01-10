@@ -46,7 +46,7 @@ CloseDb();
 $cek = 0;
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
-	//echo "Masuk";
+	//echo "Login";
 	//exit;
 	$rootfolder_db=trim($_REQUEST[fullpath]);
 	//if ($rootfolder=="../../upload/filesharing/"){
@@ -82,7 +82,7 @@ if (isset($_REQUEST['Simpan'])) {
 <link rel="stylesheet" type="text/css" href="../../style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="../../script/SpryAssets/SpryValidationTextField.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Tambah Folder]</title>
+<title>JIBAS TEACHERS INFO [Add Folder]</title>
 <script language="JavaScript" src="../../script/tooltips.js"></script>
 <script language="javascript" src="../../script/tables.js"></script>
 <script language="javascript" src="../../script/tools.js"></script>
@@ -92,7 +92,7 @@ if (isset($_REQUEST['Simpan'])) {
 function validate(){
 var folder=document.getElementById('folder').value;
 if (folder.length==0){
-	alert ('Anda harus mengisikan nama untuk Folder yang akan dibuat!');
+	alert ('Folder name is required');
 	document.getElementById('folder').focus();	
 	return false;
 	}
@@ -125,28 +125,28 @@ function acceptPegawai(nip, nama) {
 <table border="0" width="95%" cellspacing="0" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td colspan="2" class="header"><div align="center">Buat Folder Baru</div></td>
+<td colspan="2" class="header"><div align="center">Make New Folder</div></td>
 </tr>
 <tr>
-  <td width="110" height="25" align="right" bgcolor="#CCCCCC"><div align="left"><strong>Tujuan&nbsp;:&nbsp;</strong></div></td>
+  <td width="110" height="25" align="right" bgcolor="#CCCCCC"><div align="left"><strong>Destination&nbsp;:&nbsp;</strong></div></td>
   <td width="846" height="25" align="left" bgcolor="#CCCCCC">&nbsp;<strong><?="(root)/".$fullpath?></strong>
   <input name="fullpath" id="fullpath" type="hidden" readonly value="<?=$dfullpath?>" size="256" /><input name="idroot" id="idroot" type="hidden" readonly value="<?=$iddir?>" /></td>
 </tr>
 <tr>
-  <td align="right"><div align="left"><strong>Nama&nbsp;Folder&nbsp;:&nbsp;</strong></div></td>
+  <td align="right"><div align="left"><strong>Folder&nbsp;Name&nbsp;:&nbsp;</strong></div></td>
   <td height="25" align="left">&nbsp;<input name="folder" id="folder" type="text" <? if (SI_USER_ID()=="LANDLORD" || SI_USER_ID()=="landlord"){ ?> readonly onClick="caripegawai()" <? } ?>/>&nbsp;<? if (SI_USER_ID()=="LANDLORD" || SI_USER_ID()=="landlord"){ ?><img src="../../images/ico/cari.png" border="0" onClick="caripegawai()"/><? } ?> </td>
 </tr>
 <? if (SI_USER_ID()=="LANDLORD" || SI_USER_ID()=="landlord"){ ?>
 <tr>
   <td height="30" colspan="2" align="center" bgcolor="#CCCCCC"> 
-  <div align="center" class="style1">* Untuk menambah folder Guru, lebih baik gunakan NIP supaya lebih mudah diakses</div>
+  <div align="center" class="style1">* To add a folder for the Teacher, it is recommended to use Employee ID for easy access</div>
   </td>
 </tr>
 <? } ?>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -158,7 +158,7 @@ function acceptPegawai(nip, nama) {
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 </body>
 </html>
 <script language="javascript">

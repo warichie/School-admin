@@ -74,7 +74,7 @@ if (isset($_REQUEST['hapus']))
 	{
 		?>
 		<script language="javascript" type="text/javascript">
-			alert ('Komentar sudah dihapus');
+			alert ('Comments successfully deleted');
 		</script>
 		<?	
 	}
@@ -94,7 +94,7 @@ $jum = @mysql_num_rows($result); ?>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Komentar Nilai Rapor</title>
+<title>Report Card Comments</title>
 <script language="JavaScript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
@@ -112,7 +112,7 @@ function ubah(replid,state)
 
 function ver() 
 {
-	if (confirm('Anda yakin akan menghapus seluruh komentar di Kelas ini?'))	
+	if (confirm('Are you sure want to delete All Comments in this Class?'))	
 		return true;
 	else 
 		return false;
@@ -146,8 +146,8 @@ function change_urut(urut,urutan)
 <br>
 <table width="100%" border="1" cellspacing="0" class="tab" id="table">
   <tr>		
-	<th width="3%" height="30" align="center"  background="../style/formbg2.gif" ><span class="style3">No</span></td>
-	<th height="30" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nis','<?=$urutan?>');"><div align="center" class="style1"><strong><span class="style2">NIS&nbsp;</span>&nbsp;
+	<th width="3%" height="30" align="center"  background="../style/formbg2.gif" ><span class="style3">#</span></td>
+	<th height="30" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nis','<?=$urutan?>');"><div align="center" class="style1"><strong><span class="style2">Student ID&nbsp;</span>&nbsp;
          <? if ($urut=="nis"){
 				if ($urutan=="asc"){
 					echo "<img src='../images/ico/descending copy.png' />";
@@ -158,7 +158,7 @@ function change_urut(urut,urutan)
 				echo "<img src='../images/ico/blank.gif' />";
 			} ?>
 			</strong></div></td>
-		  <th height="30" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>');"><div align="center" class="style1"><strong><span class="style2">Nama&nbsp;</span>&nbsp;
+		  <th height="30" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('nama','<?=$urutan?>');"><div align="center" class="style1"><strong><span class="style2">Name&nbsp;</span>&nbsp;
 	          <? if ($urut=="nama"){
 		if ($urutan=="asc"){
 			echo "<img src='../images/ico/descending copy.png' />";
@@ -169,7 +169,7 @@ function change_urut(urut,urutan)
 		}
 		?>
 		  </strong></div></td>
-          <th background="../style/formbg2.gif"><div align="center"><span class="style3">Komentar</span></div></td>
+          <th background="../style/formbg2.gif"><div align="center"><span class="style3">Comments</span></div></td>
           <th background="../style/formbg2.gif">&nbsp;</td>
 		</tr>
 		 <? 	if ($jum > 0) { 
@@ -197,7 +197,7 @@ function change_urut(urut,urutan)
 			  	else 
 				{
 					echo "<input type='hidden' name='replid$cnt' value='0'>";
- 				   echo "<font color='#9a9a9a'>Belum ada komentar</font>";  
+ 				   echo "<font color='#9a9a9a'>No komentar</font>";  
 				}
 ?>
             </div></td>
@@ -206,11 +206,11 @@ function change_urut(urut,urutan)
 			//if (SI_USER_LEVEL() != $SI_USER_STAFF) {
 			if ($ada_komentar<>"")
 			{ ?>
-              <img src="../images/ico/ubah.png" border="0" onClick="ubah('<?=$row2[1]?>','1')" style="cursor:pointer" title="Ubah Komentar Siswa Ini"/>	
+              <img src="../images/ico/ubah.png" border="0" onClick="ubah('<?=$row2[1]?>','1')" style="cursor:pointer" title="Edit Komentar Student Ini"/>	
 <?		   } 
 			else
 			{ ?>
-				<img src="../images/ico/tambah.png" border="0" onClick="ubah('<?=$row2[1]?>','0')" style="cursor:pointer" title="Input Komentar Siswa Ini"/>
+				<img src="../images/ico/tambah.png" border="0" onClick="ubah('<?=$row2[1]?>','0')" style="cursor:pointer" title="Submit Comments Student Ini"/>
 <?			} ?>            	
 		  </div></td>
         </tr>
@@ -218,7 +218,7 @@ function change_urut(urut,urutan)
 		}
 		} else { 
   ?> 
-  <tr><td colspan="5" ><div align="center">Tidak ada siswa</div></td></tr>
+  <tr><td colspan="5" ><div align="center">No student</div></td></tr>
 <? } ?>
 </table>
 

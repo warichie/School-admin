@@ -76,7 +76,7 @@ function cetak() {
 			  (SELECT DISTINCT j.replid, ra.nama, ra.kode, jd.debet, jd.kredit 
 			     FROM rekakun ra, katerekakun k, jurnal j, jurnaldetail jd 
 			     WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' 
-			     AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'PENDAPATAN' 
+			     AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'INCOME' 
 			     GROUP BY j.replid, ra.nama, ra.kode 
 			     ORDER BY ra.kode) AS X
 			) GROUP BY nama, kode";	
@@ -86,7 +86,7 @@ function cetak() {
 	           (SELECT DISTINCT j.replid, ra.nama, ra.kode, jd.debet, jd.kredit 
 			      FROM rekakun ra, katerekakun k, jurnal j, jurnaldetail jd 
 				  WHERE jd.idjurnal = j.replid AND jd.koderek = ra.kode AND j.idtahunbuku = '$idtahunbuku' 
-				  AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'BIAYA' 
+				  AND j.tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND ra.kategori = 'COST' 
 				  GROUP BY j.replid, ra.nama, ra.kode 
 				  ORDER BY ra.kode) AS X
 		     ) GROUP BY nama, kode";
@@ -98,15 +98,15 @@ function cetak() {
     <table border="0" width="80%" align="center">
     <tr>
         <td align="right">
-        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
+        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
         </td>
     </tr>
     </table>
     </br>
     <table border="0" cellpadding="5" cellspacing="5" width="80%" style="background-image:url(../img/bttablelong.png); background-repeat:repeat-x" bgcolor="#eef5dd" align="center">
     <tr height="30">
-        <td colspan="6"><strong><font size="2">PENDAPATAN</font></strong></td>
+        <td colspan="6"><strong><font size="2">INCOME</font></strong></td>
     </tr>
     <?
   	$cnt = 0;
@@ -134,14 +134,14 @@ function cetak() {
 	?>
     <tr height="30">
         <td>&nbsp;</td>
-        <td colspan="4"><strong>SUB TOTAL PENDAPATAN</strong></td>
+        <td colspan="4"><strong>INCOME SUBTOTAL</strong></td>
         <td align="right"><strong><?=FormatRupiah($totalpendapatan) ?></strong></td>
     </tr>
     <tr height="5">
         <td colspan="6">&nbsp;</td>
     </tr>
     <tr height="30">
-        <td colspan="6"><strong><font size="2">BIAYA</font></strong></td>
+        <td colspan="6"><strong><font size="2">COST</font></strong></td>
     </tr>
     <?
    
@@ -169,7 +169,7 @@ function cetak() {
     
     <tr height="30">
         <td>&nbsp;</td>
-        <td colspan="4"><strong>SUB TOTAL BIAYA</strong></td>
+        <td colspan="4"><strong>COST SUBTOTAL</strong></td>
         <td align="right"><strong><?=FormatRupiah($totalbiaya) ?></strong></td>
     </tr>
     <tr height="5">
@@ -186,7 +186,7 @@ function cetak() {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="300">
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data transaksi keuangan pada departemen <?=$departemen?> antara tanggal <?=LongDateFormat($tanggal1)?> s/d <?=LongDateFormat($tanggal2)?><br />.</font>
+            <font size = "2" color ="red"><b>No transactions found on Department <?=$departemen?> between <?=LongDateFormat($tanggal1)?> to <?=LongDateFormat($tanggal2)?><br />.</font>
             
         </td>
     </tr>

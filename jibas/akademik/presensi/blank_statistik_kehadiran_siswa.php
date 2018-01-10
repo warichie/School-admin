@@ -36,8 +36,8 @@
     <!-- TABLE TITLE -->
     <tr>
     	<td align="center">
-        <font size="2" color="#757575"><b>Klik ikon <img src="../images/ico/view_x.png" border="0"> di
-        atas untuk menampilkan Statistik Kehadiran Siswa</b></font>        </td>
+        <font size="2" color="#757575"><b>Click on <img src="../images/ico/view_x.png" border="0"> 
+        above to show Student Presence Statistic.</b></font>        </td>
    	</tr>
     </table>    </td>
 </tr>

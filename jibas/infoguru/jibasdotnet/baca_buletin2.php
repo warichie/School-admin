@@ -55,7 +55,7 @@ $row_prof=@mysql_fetch_array($res_prof);
   </tr>
   <tr>
     <td height="20" colspan="3" >&nbsp;&nbsp;<input name="ubah" type="button" class="but" style="width:100px;" value="My Profile" onClick="document.location.href='profile.php';">
-    <!--&nbsp;<input name="tema" type="button" class="header" style="width:100px;" value="Tema Profil">&nbsp;<input name="ngobrol" type="button" class="header" style="width:100px;" value="Ajak Ngobrol">&nbsp;<input name="pesan" type="button" class="header" style="width:100px;" value="Kirim Pesan">--></td>
+    <!--&nbsp;<input name="tema" type="button" class="header" style="width:100px;" value="Profile Theme">&nbsp;<input name="ngobrol" type="button" class="header" style="width:100px;" value="Chat">&nbsp;<input name="pesan" type="button" class="header" style="width:100px;" value="Send Message">--></td>
   </tr>
   <tr>
     <td width="19" height="20" style="background-image:url(../images_slice/bg_profil80_01.png); background-repeat:no-repeat; background-position:right;">&nbsp;</td>
@@ -67,7 +67,7 @@ $row_prof=@mysql_fetch_array($res_prof);
     <td style="background-image:url(../images_slice/bg_profil80_08.png); background-repeat:repeat;" valign="top">
 <table width="100%" border="0" cellspacing="0">
  <tr>
-    <th height="30" scope="row" align="center"><input class="but" type="button" value="Kembali" onclick="window.self.history.back();" /></th>
+    <th height="30" scope="row" align="center"><input class="but" type="button" value="Back" onclick="window.self.history.back();" /></th>
   </tr>
   <tr>
     <th scope="row">

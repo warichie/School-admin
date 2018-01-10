@@ -45,7 +45,7 @@ if (isset($_REQUEST['id']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Daftar Siswa]</title>
+<title>JIBAS SIMAKA [Student List]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <link rel="stylesheet" type="text/css" href="../script/tooltips.css" />
 <script src="../script/SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
@@ -95,7 +95,7 @@ function carilah(){
 	var nama = document.getElementById('nama').value;
 	
 	if (nis == "" && nama == "") {
-		alert ('NIS atau Nama Siswa tidak boleh kosong!');
+		alert ('Student ID or Name should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}	
@@ -258,7 +258,7 @@ function change_urut(urut,urutan,tipe) {
 
 <body style="background-color:#FFFFFF">
 <!--<div id="waitBox" style="position:absolute; visibility:hidden;">
-<img src="../images/movewait.gif" border="0" />&nbsp;please wait...
+<img src="../images/movewait.gif" border="0" />Please wait...
 </div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="58">
@@ -276,8 +276,8 @@ function change_urut(urut,urutan,tipe) {
     	<td width="100%" bgcolor="#FFFFFF" valign="top">
 			<div id="TabbedPanels1" class="TabbedPanels">
 				<ul class="TabbedPanelsTabGroup">
-					<li class="TabbedPanelsTab">Pilih Siswa</li>
-					<li class="TabbedPanelsTab">Cari Siswa</li>
+					<li class="TabbedPanelsTab">Select Student</li>
+					<li class="TabbedPanelsTab">Search Student</li>
 				</ul>
 				<div class="TabbedPanelsContentGroup">
 					<div class="TabbedPanelsContent" id="pilih"></div>

@@ -69,7 +69,7 @@ if (mysql_num_rows($result_cek) > 0) {*/
 	if ($sum > 0) {
 	?>
 		<script language="javascript">
-			alert ('Ada presensi antara tanggal <?=LongDateFormat($row[tanggal1])." s/d ".LongDateFormat($row[tanggal2])?>!');		
+			alert ('Ada presensi between <?=LongDateFormat($row[tanggal1])." to ".LongDateFormat($row[tanggal2])?>');		
 			parent.isi.location.href = "blank_presensi.php?tipe='harian'";
 			//window.self.history.back();
 			//window.history.back();
@@ -82,10 +82,10 @@ if (mysql_num_rows($result_cek) > 0) {*/
 	 
 ?>
 	<script language="javascript">
-	//alert ('Pastikan presensi <?=$tgl1." ".NamaBulan($bln1)." ".$th1." s/d ".$tgl2." ".NamaBulan($bln2)." ".$th2?>');		
-	//alert ('Pastikan waktu presensi berada dalam batas <?=TglTextLong($awal)?>-<?=TglTextLong($akhir)?> periode Tahun Ajaran <?=$tahunajaran?>');
-	 //Waktu data presensi tidak boleh melebihi batas <br /><?=TglTextLong($awal)?>-<?=TglTextLong($akhir)?> pada tahun ajaran <?=$tahunajaran?>.</b></font>
-		alert ('Pastikan waktu presensi berada dalam periode tahun ajaran!');
+	//alert ('Make sure that presensi <?=$tgl1." ".NamaBulan($bln1)." ".$th1." to ".$tgl2." ".NamaBulan($bln2)." ".$th2?>');		
+	//alert ('Make sure that Presence time berada dalam batas <?=TglTextLong($awal)?>-<?=TglTextLong($akhir)?> periode Year of Teaching <?=$tahunajaran?>');
+	 //Presence time should not exceed <br /><?=TglTextLong($awal)?>-<?=TglTextLong($akhir)?> on the teaching year <?=$tahunajaran?>.</b></font>
+		alert ('Make sure that Presence time in the teaching period range');
 		window.history.back();
 	
 	</script>
@@ -114,7 +114,7 @@ if ($success) {
 	if ($sum > 0) {
 	?>
 		<script language="javascript">
-			alert ('Ada presensi antara tanggal <?=LongDateFormat($row[tanggal1])." s/d ".LongDateFormat($row[tanggal2])?>!');		
+			alert ('Ada presensi between <?=LongDateFormat($row[tanggal1])." to ".LongDateFormat($row[tanggal2])?>');		
 			parent.isi.location.href = "blank_presensi.php?tipe='harian'";
 			//window.self.history.back();
 			//window.history.back();
@@ -146,7 +146,7 @@ if ($success) {
 	?>
 
 <script language="javascript">
-	alert ('Data telah tersimpan');
+	alert ('Data saved successfully');
 	parent.menu.location.href="input_presensi_menu.php?semester=<?=$semester?>&kelas=<?=$kelas?>&bln=<?=$bln?>&th=<?=$th?>";
 	parent.isi.location.href = "blank_presensi.php?tipe='harian'";
 	
@@ -156,7 +156,7 @@ if ($success) {
 	RollbackTrans();
 ?>
 <script language="javascript">
-	alert ('Data gagal disimpan');
+	alert ('Failed to save data');
 </script>
 <? 
 }

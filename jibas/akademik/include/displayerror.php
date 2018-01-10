@@ -57,11 +57,11 @@ if ($_SESSION['errno'] != 0)
 	
 	if ($_SESSION['errtype'] == 1 && $_SESSION['errno'] == 1451) 
 	{
-		$errstr  = "<center><br><br><br><br><br><br><font familiy='Verdana' color='#666666' size='2' style='text-decoration:none'><strong>Maaf, anda tidak dapat menghapus data ini, karena telah digunakan oleh data lainnya!</strong></font><br><br><br><br><br><br></center>";
+		$errstr  = "<center><br><br><br><br><br><br><font family='Verdana' color='#666666' size='2' style='text-decoration:none'><strong>Sorry, you should not delete this data, because it is used by another data</strong></font><br><br><br><br><br><br></center>";
 	}
 	else 
 	{	
-		$errstr  = "<center><h2>Maaf, telah terjadi kesalahan</h2></center>\n";
+		$errstr  = "<center><h2>Sorry, an error has occured</h2></center>\n";
 		
 		// errno 1146 : Table '%s.%s' doesn't exist 
 		// errno 1449 : The user specified as a definer ('root'@'%') does not exist
@@ -69,9 +69,9 @@ if ($_SESSION['errno'] != 0)
 		if (in_array($_SESSION['errno'], array(1146, 1449, 2006)))
 		{
 			$errstr .= "<center>
-							Ada kesalahan pada instalasi atau konfigurasi basis data. Silahkan periksa kembali instalasi dan konfigurasi basis data yang digunakan.
-							Anda bisa mencari solusi perbaikannya di <a style='color:blue; text-decoration:underline;' target='_blank' href='http://forum.jibas.net'>Forum Diskusi JIBAS</a>
-							atau <a style='color:blue; text-decoration:underline;' target='_blank' href='http://support.jibas.net'>Support Center JIBAS</a> 
+							There is an error in the installation process or a database configuration failure. Please check them back.
+							You can find a solution at <a style='color:blue; text-decoration:underline;' target='_blank' href='http://forum.jibas.net'>JIBAS Forums</a>
+							or <a style='color:blue; text-decoration:underline;' target='_blank' href='http://support.jibas.net'>JIBAS Support Center</a> 
 							</font><br><br></center>";
 			$_SESSION['issend'] = false;				
 		}
@@ -79,36 +79,36 @@ if ($_SESSION['errno'] != 0)
 		if ($_SESSION['issend'])
 		{
 	      $errstr .= "<p align='center'>
-							Jalankan <font style='text-weight:bold; color:green'><strong>JIBAS Live Update</strong></font> untuk memperbaiki masalah ini
-							atau cari solusi perbaikannya di <a style='color:blue; text-decoration:underline;' target='_blank' href='http://forum.jibas.net'>Forum Diskusi JIBAS</a>.
-							Jika masalah masih terjadi, laporkan kesalahan berikut ke <a style='color:blue; text-decoration:underline;' target='_blank' href='http://support.jibas.net'>Support Center JIBAS</a></p>\n";
+							Run <font style='text-weight:bold; color:green'><strong>JIBAS Live Update</strong></font> to fix the issue
+							or find a solution at <a style='color:blue; text-decoration:underline;' target='_blank' href='http://forum.jibas.net'>JIBAS Forums</a>.
+							If the issue persists, send the report below to <a style='color:blue; text-decoration:underline;' target='_blank' href='http://support.jibas.net'>JIBAS Support Center</a></p>\n";
 		}
 		
 		$errstr .= "<table border='1' cellpadding='0' cellspacing='0' style='border-width: 1px; border-collapse: collapse' width='100%'>\r\n";
 		$errstr .= "<tr>\r\n";
-		$errstr .= "<td width='15%' style='background-color:#CCC' align='left'><strong>Waktu</strong></td>\r\n";
+		$errstr .= "<td width='15%' style='background-color:#CCC' align='left'><strong>Time</strong></td>\r\n";
 		$errstr .= "<td align='left'>" . date('d-M-Y H:i:s') . "</td>\r\n";
 		$errstr .= "</tr>\r\n";
 		$errstr .= "<tr>\r\n";
-		$errstr .= "<td style='background-color:#CCC' align='left'><strong>Tipe</strong></td>\r\n";
+		$errstr .= "<td style='background-color:#CCC' align='left'><strong>Type</strong></td>\r\n";
 		$errstr .= "<td align='left'>" . $_SESSION['errtype'] . "</td>\r\n";
 		$errstr .= "</tr>\r\n";
 		$errstr .= "<tr>\r\n";
-		$errstr .= "<td style='background-color:#CCC' align='left'><strong>Berkas</strong></td>\r\n";
+		$errstr .= "<td style='background-color:#CCC' align='left'><strong>File</strong></td>\r\n";
 		$errstr .= "<td align='left'>" . $_SESSION['errfile'] . "</td>\r\n";
 		$errstr .= "</tr>\r\n";
 		$errstr .= "<tr>\r\n";
-		$errstr .= "<td style='background-color:#CCC' align='left'><strong>Kode</strong></td>\r\n";
+		$errstr .= "<td style='background-color:#CCC' align='left'><strong>Code</strong></td>\r\n";
 		$errstr .= "<td align='left'>" . $_SESSION['errno'] . "</td>\r\n";
 		$errstr .= "</tr>\r\n";
 		$errstr .= "<tr>\r\n";
-		$errstr .= "<td colspan='2' align='left'><strong>Pesan:</strong><br>" . $_SESSION['errmsg'] . "</td>\r\n";
+		$errstr .= "<td colspan='2' align='left'><strong>Message:</strong><br>" . $_SESSION['errmsg'] . "</td>\r\n";
 		$errstr .= "</tr>\r\n";
 		$errstr .= "</table><br><br>\r\n";
-		$errstr .= "<center><input type='button' class='but' value='Kembali' onclick=\"window.history.go(-1);\">\r\n";
+		$errstr .= "<center><input type='button' class='but' value='Back' onclick=\"window.history.go(-1);\">\r\n";
 		
 		if ($_SESSION['issend'])
-			$errstr .= "<input type='submit' class='but' value='Kirim' ></center>\r\n";
+			$errstr .= "<input type='submit' class='but' value='Send' ></center>\r\n";
 	}
 	echo $html1 . $errstr . $html2;
 	

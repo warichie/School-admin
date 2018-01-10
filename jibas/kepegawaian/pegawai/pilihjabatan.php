@@ -32,12 +32,12 @@ OpenDb();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pilih Jabatan</title>
+<title>Select Position</title>
 <link rel="stylesheet" href="../style/style.css" />
 <link rel="stylesheet" href="../script/mktree.css" />
 <script language="javascript" src="../script/mktree.js"></script>
 <script language="javascript">
-function Pilih(id, jabatan) {
+function Select(id, jabatan) {
 	opener.TerimaJabatan(id, jabatan);
 	window.close();
 }
@@ -75,7 +75,7 @@ function traverse($idroot, $count)
 		$jab   = $row[2];
 		$nsubdir = getNSubDir($idjab);
 		
-		$sing = "<a href=\"#\" onclick=\"JavaScript:Pilih($idjab, '$jab')\">$sing</a>";
+		$sing = "<a href=\"#\" onclick=\"JavaScript:Select($idjab, '$jab')\">$sing</a>";
 				
 	
 		if ($nsubdir == 0) {
@@ -94,7 +94,7 @@ function traverse($idroot, $count)
 <tr>
 	<td width="100%" align="right" style="border-bottom:thin dashed #CCCCCC; border-top:none; border-left:none; border-right:none;">
         <font style="background-color:#FFCC33; font-size:18px">&nbsp;&nbsp;</font>
-        <font class="subtitle">Pilih Jabatan</font><br />
+        <font class="subtitle">Select Position</font><br />
         <a onclick="document.location.reload()" href="#">refresh</a>
     </td>
 </tr>
@@ -106,7 +106,7 @@ $sql = "SELECT replid, singkatan, jabatan FROM jabatan WHERE rootid=0";
 $result = QueryDb($sql);
 if (mysql_num_rows($result) == 0) 
 {
-	echo "Belum ada data";
+	echo "No data yet";
 } 
 else 
 {
@@ -116,7 +116,7 @@ else
 	$jab   = $row[2]; 
 	$nsubdir = getNSubDir($idjab);
 	
-	//$sing = "<a href=\"#\" onclick=\"JavaScript:Pilih($idjab, '$jab')\">$sing</a>";
+	//$sing = "<a href=\"#\" onclick=\"JavaScript:Select($idjab, '$jab')\">$sing</a>";
 	
 	echo "<ul class='mktree' id='tree1'>\r\n";
 	if ($nsubdir == 0) {

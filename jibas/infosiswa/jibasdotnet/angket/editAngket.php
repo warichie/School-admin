@@ -91,7 +91,7 @@ if ($sender=="Simpan"){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOSISWA [Input Data Angket]</title>
+<title>JIBAS STUDENT INFO [Questionnaire Data]</title>
 <link rel="stylesheet" type="text/css" href="../../style/style.css" />
 <link href="../../SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
 <script src="../../SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -101,12 +101,12 @@ if ($sender=="Simpan"){
 function validate() {
 	var tanya=document.getElementById('tanya').value;
 	if (tanya.length==0){
-		alert ('Anda harus mengisikan data untuk Pertanyaan Angket');
+		alert ('You must enter a data for Questionnaire Questions');
 		document.getElementById('tanya').focus();
 		return false;
 	}
 	if (tanya.length>=1000){
-		alert ('Karakter maksimal untuk Pertanyaan Angket adalah 255 karakter !');
+		alert ('Max characters for Questionnaire Questions is 255 characters');
 		document.getElementById('tanya').focus();
 		return false;
 	}
@@ -131,27 +131,27 @@ if (jenis=='1'){
 <input type="hidden" name="replidnya" id="replidnya" value="<?=$id ?>" />
 <table class="tab" id="table" border="0" cellpadding="2" style="border-collapse:collapse; margin-top:10px;" cellspacing="2" width="*" align="center">
   <tr>
-    <td colspan="4" class="header" style="text-align:center">INPUT PERTANYAAN ANGKET</td>
+    <td colspan="4" class="header" style="text-align:center">QUESTIONNAIRE QUESTIONS</td>
   </tr>
   <tr>
-    <td width="81" style="text-align:left">Pertanyaan    </td>
+    <td width="81" style="text-align:left">Question    </td>
     <td width="18" style="text-align:left">&nbsp;:</td>
     <td width="184">&nbsp;
     	<textarea name="tanya" id="tanya" cols="26" rows="5" onKeyPress="return focusNext('jenis', event)"></textarea></td>
     <td width="16">&nbsp;</td>
   </tr>
   <tr>
-    <td>Jenis</td>
+    <td>Type</td>
     <td>&nbsp;:</td>
     <td width="184">&nbsp;
    	  <input type="radio" id="jenis" name="jenis" value="1" onchange="lihat(1)"/>
-   	  &nbsp;Pilihan&nbsp;&nbsp;&nbsp;
+   	  &nbsp;Selection&nbsp;&nbsp;&nbsp;
         <input type="radio" id="jenis" name="jenis" value="2" checked="checked"  onchange="lihat(2)"/>
-        &nbsp;Isian&nbsp;&nbsp;&nbsp;    </td>
+        &nbsp;Content&nbsp;&nbsp;&nbsp;    </td>
     <td width="16">&nbsp;</td>
   </tr>
   <tr id="tampil" style="visibility:hidden; position:absolute">
-  	<td>Pilihan</td>
+  	<td>Selection</td>
     <td>
     </td>
     <td>    	<table>
@@ -201,8 +201,8 @@ if (jenis=='1'){
   <tr>
     <td align="center">&nbsp;    </td>
     <td colspan="2" align="center">&nbsp;<br />
-     <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" title="Simpan Angket Ini"/>&nbsp;
-     <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" /></td>
+     <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" title="Save this Questionnaire"/>&nbsp;
+     <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" /></td>
     <td align="center">&nbsp;</td>
   </tr>
 </table>

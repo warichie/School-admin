@@ -39,12 +39,12 @@
 <table border="0" width="100%">
 <tr>
     <td width="67%" align="left">
-    <input type="button" value="Upload Gambar" onclick="upload()" class="but" />&nbsp;&nbsp;
-    <input type="button" value="Lihat Gambar" onclick="browse()" class="but" />&nbsp;&nbsp;
-    <input type="button" value="Tutup" onclick="parent.close();" class="but" />&nbsp;&nbsp;
+    <input type="button" value="Image Upload" onclick="upload()" class="but" />&nbsp;&nbsp;
+    <input type="button" value="Browse Image" onclick="browse()" class="but" />&nbsp;&nbsp;
+    <input type="button" value="Close" onclick="parent.close();" class="but" />&nbsp;&nbsp;
     </td>
     <td width="33%" align="right">
-    <font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="5" color="Gray">Upload Gambar</font><br />
+    <font size="5" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="5" color="Gray">Upload Image</font><br />
     </td>
 </tr>
 </table>    

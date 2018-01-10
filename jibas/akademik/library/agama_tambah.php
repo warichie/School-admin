@@ -47,10 +47,10 @@ if (isset($_POST['simpan'])) {
 	
 	if (mysql_num_rows($hasil) > 0){
 		CloseDb();
-		$ERROR_MSG = "Agama $agama sudah digunakan!";	
+		$ERROR_MSG = "Religion $agama has been used";	
 	} else if (mysql_num_rows($result1) > 0) {		
 		CloseDb();
-		$ERROR_MSG = "Urutan $urutan sudah digunakan!";	
+		$ERROR_MSG = "Sort $urutan has been used";	
 		$cek = 1;
 	} else{
 		$sql = "INSERT INTO jbsumum.agama SET agama='$agama',urutan=$urutan";
@@ -82,7 +82,7 @@ switch ($cek) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Tambah Agama]</title>
+<title>JIBAS SIMAKA [Add Religion]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tables.js"></script>
@@ -91,10 +91,10 @@ switch ($cek) {
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript">
 function validate() {
-	return validateEmptyText('agama', 'Nama Agama') && 
-		   validateEmptyText('urutan', 'Urutan Agama') &&
-		   validateNumber('urutan', 'Urutan Agama') &&
-		   validateMaxText('agama', 20, 'Nama Agama');
+	return validateEmptyText('agama', 'Religion Name') && 
+		   validateEmptyText('urutan', 'Religion Sort') &&
+		   validateNumber('urutan', 'Religion Sort') &&
+		   validateMaxText('agama', 20, 'Religion Name');
 }
 
 function focusNext(elemName, evt) {
@@ -126,7 +126,7 @@ function panggil(elem){
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Tambah Agama :.
+    .: Add Religion :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -139,17 +139,17 @@ function panggil(elem){
 	<table border="0" width="95%" cellpadding="2" cellspacing="2" align="center">
 	<!-- TABLE CONTENT -->
     <tr>
-        <td width="35%"><strong>Nama Agama</strong></td>
+        <td width="35%"><strong>Religion Name</strong></td>
         <td><input name="agama" id="agama" maxlength="20" size="30" onFocus="panggil('agama')" value = "<?=$agama?>" onKeyPress="return focusNext('urutan', event)"/></td>
     </tr>
     <tr>
-        <td><strong>Urutan </strong></td>
-        <td><input name="urutan" id="urutan" maxlength="1" size="2" onFocus="showhint('Urutan tampil Agama!', this, event, '80px');panggil('urutan')" value="<?=$urutan?>" onKeyPress="return focusNext('Simpan', event)"></td>
+        <td><strong>Sort </strong></td>
+        <td><input name="urutan" id="urutan" maxlength="1" size="2" onFocus="showhint('Religion display', this, event, '80px');panggil('urutan')" value="<?=$urutan?>" onKeyPress="return focusNext('Simpan', event)"></td>
         </tr>       
     <tr>
         <td align="center" colspan="2">
-            <input class="but" type="submit" value="Simpan" id="Simpan" name="simpan" onFocus="panggil('Simpan')">
-            <input class="but" type="button" value="Tutup" onClick="window.close();">
+            <input class="but" type="submit" value="Save" id="Simpan" name="simpan" onFocus="panggil('Simpan')">
+            <input class="but" type="button" value="Close" onClick="window.close();">
         </td>
     </tr>
     </table>

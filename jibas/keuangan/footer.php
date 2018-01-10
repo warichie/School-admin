@@ -62,10 +62,10 @@ document.location.reload();
     <td background="<?=GetThemeDir() ?>bgmain_18a.jpg" valign="bottom">	</td>
     </tr>
 <tr height="42" valign="top">
-    <td background="<?=GetThemeDir() ?>bgmain_22a.jpg" align="left"><span class="style1"><span class="style1">Selamat Datang 
+    <td background="<?=GetThemeDir() ?>bgmain_22a.jpg" align="left"><span class="style1"><span class="style1">Welcome 
       <?
 	if ($_SESSION['namakeuangan']=="landlord"){
-		echo  "Administrator JIBAS [Keuangan]";
+		echo  "Administrator JIBAS [Finance]";
 		} else {
 		echo  $_SESSION['namakeuangan'];
 		}

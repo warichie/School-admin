@@ -102,7 +102,7 @@ if (isset($_REQUEST['Simpan']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tambah Riwayat Gaji</title>
+<title>Add Salary History</title>
 <link rel="stylesheet" href="../style/style<?=GetThemeDir2()?>.css" />
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/rupiah.js"></script>
@@ -110,9 +110,9 @@ if (isset($_REQUEST['Simpan']))
 <script language="javascript">
 function validate() {
 	return validateEmptyText('gaji', 'Gaji Pegawai') && 
-		   validateEmptyText('thn', 'Tahun Kenaikan Gaji Pegawai') && 
-  		   validateInteger('thn', 'Tahun Kenaikan Gaji Pegawai') && 
-		   validateLength('thn', 'Tahun Kenaikan Gaji Pegawai', 4);
+		   validateEmptyText('thn', 'Year Kenaikan Gaji Pegawai') && 
+  		   validateInteger('thn', 'Year Kenaikan Gaji Pegawai') && 
+		   validateLength('thn', 'Year Kenaikan Gaji Pegawai', 4);
 }
 
 function focusNext(elemName, evt) {
@@ -133,20 +133,20 @@ function focusNext(elemName, evt) {
 <input type="hidden" name="nip" id="nip" value="<?=$nip?>" />
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr height="30">
-	<td width="100%" class="header" align="center">Tambah Riwayat Gaji</td>
+	<td width="100%" class="header" align="center">Add Salary History</td>
 </tr>
 <tr>
 	<td width="100%" align="center">
     
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
-        <td align="right" valign="top" width="22%"><strong>Gaji :</strong></td>
+        <td align="right" valign="top" width="22%"><strong>Salary :</strong></td>
         <td width="*" align="left" valign="top">
 	        <input type="text" value="<?=$gaji?>" name="gaji" id="gaji" size="15" maxlength="15" style="text-align:right;" onBlur="formatRupiah('gaji')" onFocus="unformatRupiah('gaji')" />
         </td>
 	</tr>
 	<tr>
-        <td align="right" valign="top"><strong>Tanggal :</strong></td>
+        <td align="right" valign="top"><strong>Date :</strong></td>
         <td width="*" align="left" valign="top">
         <select id="tgl" name="tgl" onKeyPress="return focusNext('bln', event)">
     <?	for ($i = 1; $i <= 31; $i++) { ?>    
@@ -162,13 +162,13 @@ function focusNext(elemName, evt) {
         </td>
 	</tr>
 	<tr>
-    	<td align="right">SK : </td>
+    	<td align="right">Legal Number : </td>
 	    <td align="left" valign="top">
         <input type="text" name="txSK" value="<?=$sk?>" id="txSK" size="30" maxlength="100" onKeyPress="return focusNext('txKeterangan', event)" />
         </td>
     </tr>
     <tr>
-    	<td align="right" valign="top">Keterangan : </td>
+    	<td align="right" valign="top">Info : </td>
 	    <td align="left" valign="top">
         <textarea id="keterangan" name="keterangan" rows="2" cols="40"><?=$keterangan?></textarea>
         </td>
@@ -176,8 +176,8 @@ function focusNext(elemName, evt) {
     <tr>
     	<td align="right" valign="top">&nbsp;</td>
 	    <td align="left" valign="top">
-        <input type="submit" value="Simpan" name="Simpan" class="but" />
-        <input type="button" value="Tutup" onClick="window.close()" class="but" />
+        <input type="submit" value="Save" name="Simpan" class="but" />
+        <input type="button" value="Close" onClick="window.close()" class="but" />
         </td> 
     </tr>
     </table>

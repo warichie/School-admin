@@ -93,7 +93,7 @@ function hapus(replid){
 	var page=document.getElementById("page").value;
 	var bulan=parent.beritasekolah_header.document.getElementById("bulan").value;
 	var tahun=parent.beritasekolah_header.document.getElementById("tahun").value;
-	if (confirm('Anda yakin akan menghapus berita ini ?')){ 
+	if (confirm('Are you sure want to delete this news?')){ 
 		document.location.href="beritasekolah_footer.php?op=bzux834hx8x7x934983xihxf084&replid="+replid+"&bulan="+bulan+"&tahun="+tahun+"&page="+page;
 	}
 }
@@ -113,10 +113,10 @@ function setaktif(replid, aktif) {
 	var newaktif;
 	
 	if (aktif == 1) {
-		msg = "Apakah anda yakin mengubah status buletin ini menjadi TIDAK AKTIF?";
+		msg = "Are you sure want to change this bulletin status to INACTIVE?";
 		newaktif = 0;
 	} else	{	
-		msg = "Apakah anda yakin mengubah status buletin ini menjadi AKTIF?";
+		msg = "Are you sure want to change this bulletin status to ACTIVE?";
 		newaktif = 1;
 	}
 	
@@ -160,22 +160,22 @@ function setaktif(replid, aktif) {
 		}
 	
 	?>
-    Halaman : 
-	<input <?=$disback?> type="button" class="but" title="Sebelumnya" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    Page : 
+	<input <?=$disback?> type="button" class="but" title="Previous" name="back" value="<" onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 	<select name="page" id="page" onchange="chg_page()">
 	<? for ($p=1;$p<=$total;$p++){ ?>
 		<option value="<?=$p-1?>" <?=StringIsSelected($page,$p-1)?>><?=$p;?></option>
 	<? } ?>
 	</select>   
-    <input <?=$disnext?> type="button" class="but" name="next" title="Selanjutnya" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">&nbsp;dari&nbsp;<?=$total?> 
+    <input <?=$disnext?> type="button" class="but" name="next" title="Next" value=">" onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">&nbsp;from&nbsp;<?=$total?> 
 	<? } ?><br><br>
 	<table width="100%" border="1" cellspacing="0" class="tab" id="table">
   <tr>
-    <th width="21" height="30" class="header" scope="row"><div align="center">No</div></th>
-    <td width="68" height="30" class="header"><div align="center">Tanggal</div></td>
-    <td width="405" height="30" class="header"><div align="center">Berita</div></td>
-    <td width="178" height="30" class="header"><div align="center">Penulis</div></td>
-    <td width="106" height="30" class="header"><div align="center">Jenis Berita</div></td>
+    <th width="21" height="30" class="header" scope="row"><div align="center">#</div></th>
+    <td width="68" height="30" class="header"><div align="center">Date</div></td>
+    <td width="405" height="30" class="header"><div align="center">News</div></td>
+    <td width="178" height="30" class="header"><div align="center">Author</div></td>
+    <td width="106" height="30" class="header"><div align="center">News Type</div></td>
     <td width="62" class="header"><div align="center">Status</div></td>
     <td width="108" height="30" class="header">&nbsp;</td>
   </tr>
@@ -184,7 +184,7 @@ function setaktif(replid, aktif) {
   
 
   $sql1="SELECT b.replid as replid, b.judul as judul, DATE_FORMAT(b.tanggal, '%e %b %Y') as tanggal, TIME_FORMAT(b.tanggal, '%H:%i') as waktu, ".
-  		"IF(b.jenisberita=1,'Darurat',IF(b.jenisberita=2,'Umum','Sekolah')) as berita, b.abstrak as abstrak, b.isi as isi, b.aktif, b.idpengirim as idpengirim FROM jbsvcr.beritasekolah b ".
+  		"IF(b.jenisberita=1,'Important',IF(b.jenisberita=2,'General','Sekolah')) as berita, b.abstrak as abstrak, b.isi as isi, b.aktif, b.idpengirim as idpengirim FROM jbsvcr.beritasekolah b ".
 		"WHERE MONTH(b.tanggal)='$bulan' AND YEAR(b.tanggal)='$tahun' ORDER BY replid DESC LIMIT ".(int)$page*(int)$varbaris.",$varbaris";
   //echo $sql1;
   $result1=QueryDb($sql1);
@@ -206,9 +206,9 @@ function setaktif(replid, aktif) {
     <td><?
 		
 	if ($row1['idpengirim']=="adminsiswa"){
-		echo "Administrator Siswa";
+		echo "Student Administrator";
 	} elseif ($row1['idpengirim']=="landlord") {
-			echo "Administrator JIBAS InfoSiswa";
+			echo "JIBAS Student Info Administrator";
 	} else {
 	$rs=QueryDb("SELECT nama FROM jbssdm.pegawai WHERE nip='$row1[idpengirim]'");
 	if (@mysql_num_rows($rs)>0){
@@ -227,15 +227,15 @@ function setaktif(replid, aktif) {
 	<?
 	  if($row1['aktif']==1){ ?>
 	    <a href="JavaScript:setaktif(<?=$row1['replid'] ?>, <?=$row1['aktif'] ?>)">
-        <img src="../../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')"/></a>
+        <img src="../../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Active', this, event, '50px')"/></a>
 	<?  } else{ ?>
         <a href="JavaScript:setaktif(<?=$row1['replid'] ?>, <?=$row1['aktif'] ?>)">
-        <img src="../../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '50px')"/></a>
+        <img src="../../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Inactive', this, event, '50px')"/></a>
     <? } ?>   
     </td>
     <td><div align="center">
     <? if ($row1[nip]==$idguru){ ?>
-    <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1[replid]?>','<?=$page?>')" style="cursor:pointer;" title="Ubah Berita ini !" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1[replid]?>')" style="cursor:pointer;" title="Hapus Berita ini !" />
+    <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1[replid]?>','<?=$page?>')" style="cursor:pointer;" title="Edit this News" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1[replid]?>')" style="cursor:pointer;" title="Delete this News" />
     <? } ?>
 	</div></td>
   </tr>
@@ -244,7 +244,7 @@ function setaktif(replid, aktif) {
   } 
   } else {?>
    <tr>
-    <td scope="row" colspan="7"><div align="center">Tidak ada berita</div></th>   </tr>
+    <td scope="row" colspan="7"><div align="center">No news.</div></th>   </tr>
   <? } ?>
 </table>
 

@@ -87,17 +87,17 @@ function cetak() {
     <!-- TABLE TITLE -->
     <tr>
         <td align="right">
-        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;
+        <a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="JavaScript:cetak()"><img src="images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;
         </td>
     </tr>
     </table>
     <br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
     <tr height="30" align="center">
-        <td width="10%" class="header">No</td>
-        <td width="50%" class="header">Pengeluaran</td>
-        <td width="*" class="header">Jumlah</td>
+        <td width="10%" class="header">#</td>
+        <td width="50%" class="header">Expenditure</td>
+        <td width="*" class="header">Sum</td>
     </tr>
     <?
     
@@ -116,7 +116,7 @@ function cetak() {
     CloseDb();
     ?>
     <tr height="30">
-        <td bgcolor="#999900" colspan="2" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+        <td bgcolor="#999900" colspan="2" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td bgcolor="#999900" align="right">
         	<font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font>		</td>
     </tr>
@@ -131,8 +131,8 @@ function cetak() {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="300">    
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data.         
-            <br />Tambah data pengeluaran pada departemen <?=$departemen?> antara tanggal <?=LongDateFormat($tanggal1)." s/d ".LongDateFormat($tanggal2) ?> di menu Pembayaran Pengeluaran pada bagian Pengeluaran.
+            <font size = "2" color ="red"><b>Data Not Found.         
+            <br />Add data pengeluaran on Department <?=$departemen?> between <?=LongDateFormat($tanggal1)." to ".LongDateFormat($tanggal2) ?> in thePembayaran Expenditure on bagian Expenditure.
             </b></font>
         </td>
     </tr>

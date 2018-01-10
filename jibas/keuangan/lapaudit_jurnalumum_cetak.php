@@ -49,7 +49,7 @@ $tgl2 = explode(' ',$tanggal2);
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Audit Perubahan Data Jurnal Umum]</title>
+<title>JIBAS FINANCE [Data Changing Audit Reports Jurnal Public]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -65,23 +65,23 @@ $tgl2 = explode(' ',$tanggal2);
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong></td>
 </tr>
 <tr>
-	<td width="90"><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tgl1[0]) . " s/d 	" . LongDateFormat($tgl2[0]) ?></strong></td>
+	<td width="90"><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tgl1[0]) . " to 	" . LongDateFormat($tgl2[0]) ?></strong></td>
 </tr>
 </table>
 <br />
 <table class="tab" id="table" border="1" width="100%" align="left" cellpadding="5" cellspacing="0" bordercolor="#000000">
 <tr height="30" align="center">
-	<td class="header" width="4%">No</td>
+	<td class="header" width="4%">#</td>
     <td class="header" width="10%">Status Data</td>
-    <td class="header" width="10%">Tanggal</td>
-    <td class="header" width="15%">Keterangan</td>
-    <td class="header" width="*">Detail Jurnal</td>
-    <td class="header" width="15%">Petugas</td>
+    <td class="header" width="10%">Date</td>
+    <td class="header" width="15%">Info</td>
+    <td class="header" width="*">Journal Details</td>
+    <td class="header" width="15%">Officer</td>
 </tr>
 <?
 OpenDb();
@@ -92,28 +92,28 @@ $no = 0;
 while ($row = mysql_fetch_array($result)) {
 	$status = $row['status'];
 	$idaudit = $row['idaudit'];
-	$statusdata = "Data Lama";
+	$statusdata = "Old Data";
 	$bgcolor = "#FFFFFF";
 	if ($row['status'] == 1) {
-		$statusdata = "Data Perubahan";
+		$statusdata = "Changed Data";
 		$bgcolor = "#FFFFB7";
 	}       
 		
 	if ($cnt % 2 == 0) { ?>
 	<tr>
 		<td rowspan="4" align="center" bgcolor="#CCCC66"><strong><?=++$no ?></strong></td>
-        <td colspan="6" align="left" bgcolor="#CCCC66"><em><strong>Perubahan dilakukan oleh <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></td>
+        <td colspan="6" align="left" bgcolor="#CCCC66"><em><strong>Changed by <?=$row['petugasubah'] . " tanggal " . $row['tanggalubah'] ?></strong></em></td>
 	</tr>
     <tr>
     	<td colspan="6" bgcolor="#E5E5E5">
         	<table cellpadding="0" cellspacing="0" style="border-collapse:collapse" width="100%" >
             <tr>
-                <td width="20%"><strong>No. Jurnal : </strong><?=$row['nokas'] ?>
-                <td valign="top" width="7%"><strong>Alasan : </td>
+                <td width="20%"><strong>Journal Number : </strong><?=$row['nokas'] ?>
+                <td valign="top" width="7%"><strong>Reasons : </td>
                 <td rowspan="2" valign="top"></strong><?=$row['alasan']?></td>
             </tr>
             <tr>
-                <td><strong>Transaksi : </strong><?=$row['transaksi'] ?></td>
+                <td><strong>Transaction : </strong><?=$row['transaksi'] ?></td>
             </tr>
             </table>
       	</td>

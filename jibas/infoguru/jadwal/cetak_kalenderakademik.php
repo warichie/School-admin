@@ -51,14 +51,14 @@ $result=QueryDb($query);
 <? include("../library/headercetak.php") ?>
 
 <center>
-  <font size="3"><strong>Kalender Akademik</strong></font><br />
+  <font size="3"><strong>Academic Calendar</strong></font><br />
  </center><br /><br />
 <table width="100%" border="1" class="tab" id="table">
   <tr>
-    <td width="3%" height="30" class="header"><div align="center">No</div></td>
-    <td width="19%" height="30" class="header"><div align="center">Tanggal Mulai</div></td>
-    <td width="22%" height="30" class="header"><div align="center">Tanggal Selesai</div></td>
-    <td width="56%" height="30" class="header"><div align="center">Kegiatan</div></td>
+    <td width="3%" height="30" class="header"><div align="center">#</div></td>
+    <td width="19%" height="30" class="header"><div align="center">Start Date</div></td>
+    <td width="22%" height="30" class="header"><div align="center">End Date</div></td>
+    <td width="56%" height="30" class="header"><div align="center">Activity</div></td>
   </tr>
   <?
   $cnt=1;

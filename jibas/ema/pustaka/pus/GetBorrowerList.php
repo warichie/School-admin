@@ -34,9 +34,9 @@ $cnt=1;
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab">
   <tr>
-    <td height="25" align="center" class="header">No</td>
-    <td height="25" align="center" class="header">Judul Pustaka</td>
-    <td height="25" align="center" class="header">Tgl Pinjam</td>
+    <td height="25" align="center" class="header">#</td>
+    <td height="25" align="center" class="header">Library Title</td>
+    <td height="25" align="center" class="header">Date Borrowed</td>
     <td height="25" align="center" class="header">&nbsp;</td>
   </tr>
   <? while ($row = @mysql_fetch_row($result)) { ?>

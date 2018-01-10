@@ -35,16 +35,16 @@
     <!-- TABLE TITLE -->
     <tr>
      
-      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Pendataan Guru</font></div></td>
+      <td width="50%" align="right" valign="top"><div align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Teacher Data Collection</font></div></td>
     </tr>
     
     <tr>
       <td align="left" valign="top"><div align="right"><a href="../guru.php?page=g" target="content">
-        <font size="1" color="#000000"><b>Guru & Pelajaran</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Guru</b></font> </div></td>
+        <font size="1" color="#000000"><b>Teacher and Class Subject</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Teacher</b></font> </div></td>
     </tr>
     
 	</table><br><br><br><br><br><br><br><br><br><br>
-        <font size="2" color="#757575"><b>Klik pada tombol "<strong>Tampilkan Semua Guru</strong>" atau <em>hyperlink</em> "<strong>Pelajaran</strong>" di panel kiri untuk menampilkan pendataan guru</b></font>    </td>
+        <font size="2" color="#757575"><b>Click on <strong>Show All Teachers</strong> or <em>hyperlink</em> <strong>Class Subject</strong> on the left panel to see Teacher Data Collection.</b></font>    </td>
 </tr>
 </table>
 </body>

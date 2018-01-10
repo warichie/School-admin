@@ -97,7 +97,7 @@ class RecountNilaiRapor
 		if ($this->idpemkon == 0)
 			return;
 			
-		// -- Ambil data bobot dan jenisujian
+		// -- Ambil data bobot and jenisujian
 		$sql = "SELECT j.jenisujian AS jenisujian, a.bobot AS bobot, a.replid, a.idjenisujian 
 				  FROM jbsakad.aturannhb a, jbsakad.jenisujian j, kelas k 
 				 WHERE a.idtingkat = k.idtingkat AND k.replid = '$this->idkelas' AND a.nipguru = '$this->nip' 
@@ -115,7 +115,7 @@ class RecountNilaiRapor
 		if ($this->idpemkon == 0)
 			return;
 			
-		// -- Ambil data siswa
+		// -- Ambil student data
 		$sql = "SELECT nis FROM jbsakad.siswa WHERE idkelas='$this->idkelas' AND aktif=1 ORDER BY nama";
 		$res = QueryDb($sql);
 		

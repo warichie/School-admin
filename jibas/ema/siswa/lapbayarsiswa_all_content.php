@@ -49,8 +49,8 @@ $departemen=$row_dep[departemen];
 CloseDb();
 
 /*
-$conn = @mysql_connect($db_host2, $db_user2, $db_pass2) or trigger_error("Can not connect to database server", E_USER_ERROR);
-$sel = @mysql_select_db($db_name2, $conn) or trigger_error("Can not open the database", E_USER_ERROR);
+$conn = @mysql_connect($db_host2, $db_user2, $db_pass2) or trigger_error("Cannot connect to database server", E_USER_ERROR);
+$sel = @mysql_select_db($db_name2, $conn) or trigger_error("Cannot open database", E_USER_ERROR);
 $res2 = mysqli_query("SELECT id, tahunbuku FROM tahunbuku WHERE ".
 //"clientid='$G_CL_ID' AND region='$G_CL_REG' AND location='$G_CL_LOC' AND ".
 "aktif = 1 AND departemen = '$departemen'") or trigger_error("Failed to execute sql query: $sql", E_USER_ERROR);
@@ -95,11 +95,11 @@ $kelas = $row[1];
 ?>
 <div align="left" style="margin-left:1px">
 <div align="left" class="nm">
-	<span style="background-color:#FF9900">&nbsp;&nbsp;</span>&nbsp;<span class="nm">Data Pembayaran</span>
+	<span style="background-color:#FF9900">&nbsp;&nbsp;</span>&nbsp;<span class="nm">Payment Data</span>
 </div><br />
 <? if (($nwajib + $niuran) >  0) {
 	//CloseDb();
-	//echo "<br><br><br><br><br><center><i>Tidak ada data pembayaran siswa tersebut di rentang tanggal terpilih</i></center>";
+	//echo "<br><br><br><br><br><center><i>No payment student data tersebut di rentang tanggal selected.</i></center>";
 	//exit();
 ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
@@ -146,19 +146,19 @@ while ($row = mysql_fetch_array($result)) {
         <td colspan="4" bgcolor="#99CC00"><font size="2"><strong><em><?=$namapenerimaan?></em></strong></font></td>
     </tr>    
     <tr height="25">
-        <td width="20%" bgcolor="#CCFF66"><strong>Total Bayaran</strong> </td>
+        <td width="20%" bgcolor="#CCFF66"><strong>Total Payment</strong> </td>
         <td width="15%" bgcolor="#FFFFFF" align="right"><?=FormatRupiah($besar) ?></td>
-        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Pembayaran Terakhir</strong></td>
-        <td width="43%" bgcolor="#CCFF66" align="center"><strong>Keterangan</strong></td>
+        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Last Payment</strong></td>
+        <td width="43%" bgcolor="#CCFF66" align="center"><strong>Info</strong></td>
     </tr>
     <tr height="25">
-        <td bgcolor="#CCFF66"><strong>Jumlah Pembayaran</strong> </td>
+        <td bgcolor="#CCFF66"><strong>Payment Amount</strong> </td>
         <td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($pembayaran) ?></td>
         <td bgcolor="#FFFFFF" align="center" valign="top" rowspan="2"><?=FormatRupiah($byrakhir) . "<br><i>" . $tglakhir . "</i>" ?> </td>
         <td bgcolor="#FFFFFF" align="left" valign="top" rowspan="2"><?=$keterangan ?></td>
     </tr>
     <tr height="25">
-        <td bgcolor="#CCFF66"><strong>Sisa Bayaran</strong> </td>
+        <td bgcolor="#CCFF66"><strong>Remaining Payment</strong> </td>
         <td bgcolor="#FFFFFF" align="right"><?=FormatRupiah($sisa) ?></td>
     </tr>
     <tr height="3">
@@ -198,9 +198,9 @@ while ($row = mysql_fetch_array($result)) {
         <td colspan="4" bgcolor="#99CC00"><font size="2"><strong><em><?=$namapenerimaan?></em></strong></font></td>
     </tr>  
    	<tr height="25">
-        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Total Pembayaran</strong> </td>
-        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Pembayaran Terakhir</strong></td>
-        <td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><strong>Keterangan</strong></td>
+        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Total Payment</strong> </td>
+        <td width="22%" bgcolor="#CCFF66" align="center"><strong>Last Payment</strong></td>
+        <td width="50%" colspan="2" bgcolor="#CCFF66" align="center"><strong>Info</strong></td>
     </tr>
     <tr height="25">
         <td bgcolor="#FFFFFF" align="center"><?=FormatRupiah($pembayaran) ?></td>
@@ -221,7 +221,7 @@ while ($row = mysql_fetch_array($result)) {
     <table width="100%" border="0" align="center">          
     <tr>
         <td align="center" valign="middle" height="250">    
-            <font size = "2" color ="red"><b>Tidak ditemukan adanya data.         
+            <font size = "2" color ="red"><b>Data Not Found.         
             </font>
         </td>
     </tr>

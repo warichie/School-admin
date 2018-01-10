@@ -63,7 +63,7 @@ else
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Refleksi Mengajar</title>
+<title>Teaching Reflection Report</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/tools.js"></script>
@@ -98,7 +98,7 @@ function tampil() {
 	var nama = document.getElementById('namaguru').value;
 	
 	if (nip.length == 0){
-		alert ('Nip dan Nama Guru tidak boleh kosong !');
+		alert ('Teacher ID and Name should not leave empty');
 		return false;
 	}
 	
@@ -133,17 +133,17 @@ function change_tgl1() {
 	var tgl = parseInt(document.main.tgl1.value);
 	
 	if (th > th1) {
-		alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+		alert ('End Year should not less than Start Year');
 		//return false;
 	} 
 	
 	if (th == th1 && bln > bln1 ) {
-		alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+		alert ('End Month should not less than Start Month');
 		//return false; 
 	}	
 	
 	if (th == th1 && bln == bln1 && tgl > tgl1 ) { 
-		alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');
+		alert ('End Date should not less than Start Date');
 		//return false;
 	}		
 	sendRequestText("../library/gettanggal.php", show1, "tahun="+th+"&bulan="+bln+"&tgl="+tgl);	
@@ -159,17 +159,17 @@ function change_tgl2() {
 	var tgl = parseInt(document.main.tgl2.value);
 	
 	if (th1 > th) {
-		alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+		alert ('End Year should not less than Start Year');
 		//return false;
 	} 
 	
 	if (th1 == th && bln1 > bln ) {
-		alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+		alert ('End Month should not less than Start Month');
 		//return false; 
 	}	
 	
 	if (th1 == th && bln1 == bln && tgl1 > tgl ) { 
-		alert ('Pastikan batas tanggal akhir tidak kurang dari batas tanggal awal');
+		alert ('End Date should not less than Start Date');
 		//return false;
 	}		
 	sendRequestText("../library/gettanggal.php", show2, "tahun="+th+"&bulan="+bln+"&tgl="+tgl);	
@@ -184,7 +184,7 @@ function show2(x) {
 }
 
 function validate() {
-	return validateEmptyText('nip', 'NIP guru');
+	return validateEmptyText('nip', 'Teacher ID');
 }
 </script>
 </head>
@@ -201,7 +201,7 @@ function validate() {
     <!-- TABLE TITLE -->
    
 	<tr>
-    	<td width="5%"><strong>Guru</strong></td>
+    	<td width="5%"><strong>Teacher</strong></td>
         <td><strong>
           <input name="nip" type="text" class="disabled" id="nip" value="<?=$_REQUEST['nip'] ?>" size="12" readonly onclick="pegawai()"/>
           <input type="hidden" name="nipguru" id="nipguru" value="<?=$_REQUEST['nip'] ?>"/>
@@ -209,14 +209,14 @@ function validate() {
             <input type="hidden" name="namaguru" id="namaguru" value="<?=$_REQUEST['nama'] ?>"/>
 			</strong>
         	<a href="JavaScript:pegawai()"><img src="../images/ico/cari.png" border="0" /></a></td> 
-      	<td rowspan="2" align="left" valign="middle"><a href="#" onclick="tampil()" ><img src="../images/view.png" alt="Tampilkan Tabel" height="30" border="0" name="tabel" id="tabel2"/></a></td>
-        <td width="45%" align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Refleksi Mengajar</font><br />
+      	<td rowspan="2" align="left" valign="middle"><a href="#" onclick="tampil()" ><img src="../images/view.png" alt="Show Table" height="30" border="0" name="tabel" id="tabel2"/></a></td>
+        <td width="45%" align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Teaching Reflection Report</font><br />
     <a href="../presensi.php?flag=1" target="framecenter">
-      <font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-        <font size="1" color="#000000"><b>Laporan Refleksi Mengajar</b></font></td> 
+      <font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+        <font size="1" color="#000000"><b>Teaching Reflection Report</b></font></td> 
     </tr>
     <tr>
-    	<td><strong>Tgl</strong></td>
+    	<td><strong>Date</strong></td>
         <td>
         	<select name="tgl1" id = "tgl1Info" onchange="change_tgl1()" onfocus = "panggil()">
 		<? 	for($i=1;$i<=$n;$i++){   ?>      
@@ -232,7 +232,7 @@ function validate() {
         <?  for($i=$th1-10;$i<=$th1;$i++){ ?>
           	<option value="<?=$i?>" <?=IntIsSelected($th1, $i)?>><?=$i?></option>	   
        	<?	} ?>	
-        	</select> s/d 
+        	</select> to 
     		<select name="tgl2" id = "tgl2Info" onchange="change_tgl2()" onfocus = "panggil()">
 		<? 	for($i=1;$i<=$n;$i++){   ?>      
 		    <option value="<?=$i?>" <?=IntIsSelected($tgl2, $i)?>><?=$i?></option>

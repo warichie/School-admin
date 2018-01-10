@@ -79,7 +79,7 @@ if ($op == "xm8r389xemx23xb2378e23") {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Presensi Siswa</title>
+<title>Student Presence Report</title>
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -88,7 +88,7 @@ function hapus(replid) {
 	var tglawal = document.getElementById('tglawal').value;
 	var tglakhir = document.getElementById('tglakhir').value;	
 	var nis = document.getElementById('nis').value;
-	if (confirm("Apakah anda yakin akan menghapus data presensi ini?"))
+	if (confirm("Are you sure want to delete this presence data?"))
 		document.location.href = "lap_siswa_footer.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&nis="+nis+"&tglawal="+tglawal+"&tglakhir="+tglakhir+"&urut=<?=$urut?>&urutan=<?=$urutan?>&urut1=<?=$urut1?>&urutan1=<?=$urutan1?>";
 }
 
@@ -167,9 +167,9 @@ if ($jum_hadir > 0 || $jum_absen > 0) { ?>
     <!-- TABLE LINK -->
     <tr>
    		<td align="right">
-        <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-        <a href="#" onclick="excel()"><img src="../images/ico/excel.png" border="0" onmouseover="showhint('Cetak dalam format Excel!', this, event, '80px')"/>&nbsp;Cetak Excel</a>&nbsp;&nbsp;
-        <a href="#" onclick="cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;&nbsp;
+        <a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+        <a href="#" onclick="excel()"><img src="../images/ico/excel.png" border="0" onmouseover="showhint('Excel', this, event, '80px')"/>&nbsp;Excel</a>&nbsp;&nbsp;
+        <a href="#" onclick="cetak()"><img src="../images/ico/print.png" border="0" onmouseover="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;&nbsp;
         
        
         </td> 	
@@ -179,17 +179,17 @@ if ($jum_hadir > 0 || $jum_absen > 0) { ?>
 	?>
 	
     <fieldset>
-        <legend><strong>Data Kehadiran</strong></legend>
+        <legend><strong>Attendance Data</strong></legend>
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
    	<tr height="30" align="center" class="header">		
-    	<td width="5%">No</td>      	
-      	<td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('p.tanggal','<?=$urutan?>')">Tgl <?=change_urut('p.tanggal',$urut,$urutan)?></td>            
-      	<td width="6%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('p.jam','<?=$urutan?>')">Jam <?=change_urut('p.jam',$urut,$urutan)?></td>
-        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('k.kelas','<?=$urutan?>')">Kelas <?=change_urut('k.kelas',$urut,$urutan)?></td>
-      	<td width="*" >Catatan</td>
-      	<td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('l.nama','<?=$urutan?>')">Pelajaran <?=change_urut('l.nama',$urut,$urutan)?></td>
-      	<td width="12%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('g.nama','<?=$urutan?>')">Guru <?=change_urut('g.nama',$urut,$urutan)?></td>
-      	<td width="25%" height="30" align="center" class="header">Materi</td>
+    	<td width="5%">#</td>      	
+      	<td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('p.tanggal','<?=$urutan?>')">Date <?=change_urut('p.tanggal',$urut,$urutan)?></td>            
+      	<td width="6%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('p.jam','<?=$urutan?>')">Hour <?=change_urut('p.jam',$urut,$urutan)?></td>
+        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('k.kelas','<?=$urutan?>')">Class <?=change_urut('k.kelas',$urut,$urutan)?></td>
+      	<td width="*" >Notes</td>
+      	<td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('l.nama','<?=$urutan?>')">Subject <?=change_urut('l.nama',$urut,$urutan)?></td>
+      	<td width="12%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut('g.nama','<?=$urutan?>')">Teacher <?=change_urut('g.nama',$urut,$urutan)?></td>
+      	<td width="25%" height="30" align="center" class="header">Class Subject</td>
     <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>  	
         <td width="3%" height="30" align="center" class="header"></td>
     <?		} ?>    
@@ -210,7 +210,7 @@ if ($jum_hadir > 0 || $jum_absen > 0) { ?>
       	<td height="25"><?=$row[8]?></td>
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>    	
         <td height="25" align="center">
-        <a title="Hapus" href="JavaScript:hapus(<?=$row[9] ?>)"><img src="../images/ico/hapus.png" border="0" /></a>
+        <a title="Delete" href="JavaScript:hapus(<?=$row[9] ?>)"><img src="../images/ico/hapus.png" border="0" /></a>
   		</td>
 <?		} ?>      
     </tr>
@@ -235,18 +235,18 @@ if ($jum_hadir > 0 || $jum_absen > 0) { ?>
    
    <br />
     <fieldset>
-        <legend><strong>Data Ketidakhadiran</strong></legend>
+        <legend><strong>Absent Data</strong></legend>
     
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center">
     <tr align="center" class="header" height="30">		
-		<td width="5%">No</td>      	
-      	<td width="5%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut1('p.tanggal','<?=$urutan1?>')">Tgl <?=change_urut('p.tanggal',$urut1,$urutan1)?></td>            
-      	<td width="6%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut1('p.jam','<?=$urutan1?>')">Jam <?=change_urut('p.jam',$urut1,$urutan1)?></td>
-        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut1('k.kelas','<?=$urutan1?>')">Kelas <?=change_urut('k.kelas',$urut1,$urutan1)?></td>
-      	<td width="25%">Catatan</td>
-      	<td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut1('l.nama','<?=$urutan1?>')">Pelajaran <?=change_urut('l.nama',$urut1,$urutan1)?></td>
-      	<td width="12%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut1('g.nama','<?=$urutan1?>')">Guru <?=change_urut('g.nama',$urut1,$urutan1)?></td>
-      	<td width="25%">Materi</td>
+		<td width="5%">#</td>      	
+      	<td width="5%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut1('p.tanggal','<?=$urutan1?>')">Date <?=change_urut('p.tanggal',$urut1,$urutan1)?></td>            
+      	<td width="6%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut1('p.jam','<?=$urutan1?>')">Hour <?=change_urut('p.jam',$urut1,$urutan1)?></td>
+        <td width="7%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut1('k.kelas','<?=$urutan1?>')">Class <?=change_urut('k.kelas',$urut1,$urutan1)?></td>
+      	<td width="25%">Notes</td>
+      	<td width="15%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut1('l.nama','<?=$urutan1?>')">Subject <?=change_urut('l.nama',$urut1,$urutan1)?></td>
+      	<td width="12%" onMouseOver="background='../style/formbg2agreen.gif';height=30;" onMouseOut="background='../style/formbg2.gif';height=30;" background="../style/formbg2.gif" style="cursor:pointer;" onClick="change_urut1('g.nama','<?=$urutan1?>')">Teacher <?=change_urut('g.nama',$urut1,$urutan1)?></td>
+      	<td width="25%">Class Subject</td>
  <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>    
       	<td width="3%" height="30" align="center" class="header"></td>
  <?		} ?>      
@@ -267,7 +267,7 @@ if ($jum_hadir > 0 || $jum_absen > 0) { ?>
         <td height="25"><?=$row1[8]?></td>
 <?		if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>         
 		<td height="25" align="center">
-        <a title="Hapus" href="JavaScript:hapus(<?=$row1[9] ?>)"><img src="../images/ico/hapus.png" border="0" /></a>
+        <a title="Delete" href="JavaScript:hapus(<?=$row1[9] ?>)"><img src="../images/ico/hapus.png" border="0" /></a>
     		</td>   
 <?		} ?>     
 	</tr>
@@ -287,20 +287,20 @@ if ($jum_hadir > 0 || $jum_absen > 0) { ?>
 	<td><br />
     <table width="100%" border="0" align="center">
     <tr>
-        <td width="17%"><b>Jumlah Kehadiran</b></td>
+        <td width="17%"><b>Sum Attend</b></td>
         <td><b>: <?=$jum_hadir ?></b></td>
     </tr>
     <tr>
-        <td><b>Jumlah Ketidakhadiran</b></td>
+        <td><b>Sum Absent</b></td>
         <td><b>: <?=$jum_absen ?></b></td>
     </tr>
     <tr>
-        <td><b>Jumlah Seharusnya</b></td>
+        <td><b>Due</b></td>
         <td><b>: <? $total = $jum_hadir+$jum_absen;
                 echo $total ?></b></td>
     </tr>
     <tr>
-        <td><b>Presentase Kehadiran</b></td>
+        <td><b>Attendance Percentage</b></td>
         <td><b>: <? 	if ($total == 0) 
                     $total = 1;
                 $prs = (( $jum_hadir/$total)*100) ;
@@ -312,7 +312,7 @@ if ($jum_hadir > 0 || $jum_absen > 0) { ?>
 	<table width="100%" border="0" align="center">          
 	<tr>
 		<td align="center" valign="middle" height="300">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br />Tambah data presensi siswa dengan NIS <?=$nis?> di menu Presensi Pelajaran pada bagian Presensi.</b></font>
+    	<font size = "2" color ="red"><b>Data Not Found. <br />Add student presence data of Student ID <?=$nis?> in the Class Presence on Presence section.</b></font>
 		</td>
 	</tr>
 	</table>

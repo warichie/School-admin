@@ -40,7 +40,7 @@ $result = QueryDb($sql);
 $row = @mysql_fetch_array($result);
 CloseDb();
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = array("January","February","March","April","May","June","July","August","September","October","November","December");
 
 $tglberita = $row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 ?>
@@ -48,7 +48,7 @@ $tglberita = $row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Berita Guru</title>
+<title>Teacher News</title>
 <script language="javascript" src="../../script/tools.js"></script>
 <link href="../../style/style.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
@@ -72,7 +72,7 @@ $tglberita = $row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 	<tr>
 	  <td background="../../images/BGNews_04.png"></td>
 	  <td width="759" align="left" background="../../images/BGNews_05.png">
-      <div align="left" style="padding-bottom:10px"><span style="color:#339900; font-size:20px; font-weight:bold">.:</span><span style="color:#FF6600; font-family:Calibri; font-size:16px; font-weight:bold; ">Berita Guru</span></div>
+      <div align="left" style="padding-bottom:10px"><span style="color:#339900; font-size:20px; font-weight:bold">.:</span><span style="color:#FF6600; font-family:Calibri; font-size:16px; font-weight:bold; ">Teacher News</span></div>
       </td>
 	  <td width="425" align="right" valign="top" background="../../images/BGNews_05.png"><img src="../../images/ico/closelabel_transp.gif" width="19" height="22" style="cursor:pointer" onclick="window.close();" /></td>
 	  <td background="../../images/BGNews_06.png"></td>

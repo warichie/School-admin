@@ -70,7 +70,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jadwal Guru</title>
+<title>Teacher Schedule</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -119,14 +119,14 @@ function tampil(){
 	var tahunajaran = document.getElementById('tahunajaran').value;
 	
 	if (nip==""){
-		alert ('NIP guru tidak boleh kosong !');		
+		alert ('Teacher ID should not leave empty');		
 		return false;
 	} else if (tahunajaran==""){
-		alert ('Tahun Ajaran tidak boleh kosong !');	
+		alert ('Year of Teaching should not leave empty');	
 		document.getElementById('tahunajaran').focus();
 		return false;			
 	} else if (info_jadwal==""){
-		alert ('Info Jadwal tidak boleh kosong !');	
+		alert ('Schedule Info should not leave empty');	
 		document.getElementById('info_jadwal').focus();
 		return false;
 	} else {	
@@ -169,7 +169,7 @@ function focusNext(elemName, evt) {
     <td width="50%">
 	<table width = "100%" border = "0" cellpadding="0" cellspacing="0">
     <tr>
-		<td width="22%"><strong>Tahun Ajaran </strong></td>
+		<td width="22%"><strong>Year </strong></td>
     	<td width="*">
         <input type="hidden" name="nipguru" id="nipguru" value="<?=SI_USER_ID() ?>"/>
     	
@@ -207,7 +207,7 @@ function focusNext(elemName, evt) {
   	</tr>
     
    	<tr>
-        <td><strong>Info Jadwal</strong></td>
+        <td><strong>Schedule Info</strong></td>
         <td colspan="3"><select name="info_jadwal" id="info_jadwal" onChange="change(0)" style="width:285px">
           <? 	OpenDb();
             $sql_info_jadwal="SELECT i.replid, i.deskripsi, i.aktif FROM jbsakad.infojadwal i, tahunajaran a WHERE i.idtahunajaran = a.replid AND a.departemen = '$departemen' AND i.idtahunajaran = '$tahunajaran' ORDER BY i.aktif DESC";						            
@@ -231,12 +231,12 @@ function focusNext(elemName, evt) {
     </table>
     </td>
 	<td valign="middle" rowspan="2" width="*" >
-       	<a href="#" onClick="tampil()"><img src="../images/ico/view.png" height="48" width="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Klik untuk menampilkan jadwal guru!', this, event, '80px')"/></a>   	</td>
+       	<a href="#" onClick="tampil()"><img src="../images/ico/view.png" height="48" width="48" border="0" name="tabel" id="tabel"  onmouseover="showhint('Click to show Teacher Schedule', this, event, '80px')"/></a>   	</td>
     <td valign="top" align="right" width="50%">
-		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Jadwal Berdasarkan Guru</font><br />
+		<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Teacher Schedule</font><br />
    		<a href="../jadwal.php" target="framecenter">
-        <font size="1" color="#000000"><b>Jadwal</b></font></a>&nbsp>&nbsp 
-		<font size="1" color="#000000"><b>Jadwal Berdasarkan Guru</b></font> 	
+        <font size="1" color="#000000"><b>Schedule</b></font></a>&nbsp;>&nbsp; 
+		<font size="1" color="#000000"><b>Teacher Schedule</b></font> 	
 	</td>
 </tr>
 

@@ -25,7 +25,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pembayaran DSP</title>
+<title>Payment DSP</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 <script language="javascript" src="script/rupiah.js"></script>
@@ -49,14 +49,14 @@ function show_input(no) {
 <tr><td align="left">
 <!-- BOF CONTENT -->
 
-	<font size="5" color="#660000"><b>Pendataan DSP</b></font><br />
-	<a href="index.php" style="color:#0000FF">Menu Utama</a> > <strong>Pendataan DSP</strong>
+	<font size="5" color="#660000"><b>Data Collection DSP</b></font><br />
+	<a href="index.php" style="color:#0000FF">Main Menu</a> > <strong>Data Collection DSP</strong>
     <br /><br /><br />
     <a href="JavaScript:refresh()">Refresh</a><br />
         
     <table border="0" width="70%">
     <tr>
-    	<td width="120">Siswa:</td>
+    	<td width="120">Student:</td>
     	<td><input type="text" name="nis" id="nis" readonly style="background-color:#CCCC99" size="15" /><input type="text" name="nama" id="nama" readonly style="background-color:#CCCC99" size="30" />&nbsp;<a href="#" onclick="cari_siswa()"><img src="images/ico/lihat.png" border="0" /></a> </td>
     </tr>
     <tr>
@@ -69,9 +69,9 @@ function show_input(no) {
     <tr>
     	<td class="header" width="6%" align="center">Cicilan</td>
         <td class="header" width="16%" align="center">Besar</td>
-        <td class="header" width="16%" align="center">Tgl Jatuh Tempo<br /><i>dd-mm-yy</i></td>
-        <td class="header" width="16%" align="center">Pembayaran</td>
-        <td class="header" width="16%" align="center">Tgl Pembayaran<br /><i>dd-mm-yy</i></td>
+        <td class="header" width="16%" align="center">Date Jatuh Tempo<br /><i>dd-mm-yy</i></td>
+        <td class="header" width="16%" align="center">Payment</td>
+        <td class="header" width="16%" align="center">Date Payment<br /><i>dd-mm-yy</i></td>
     </tr>
     <tr height="35" bgcolor="#FFFF99">
         <td style="background-color:#33CCCC" align="center">1</td>
@@ -90,7 +90,7 @@ function show_input(no) {
     </tr>
     <? } ?> 
     <tr height="40">
-    	<td style="background-color:#999966" align="center"><strong>T O T A L</strong></td>
+    	<td style="background-color:#999966" align="center"><strong>Total</strong></td>
         <td style="background-color:#999966" align="center"><input type="text" readonly name="totalbesar" id="totalbesar" size="12"/></td>
         <td style="background-color:#999966" align="center">&nbsp;</td>
         <td style="background-color:#999966" align="center"><input type="text" readonly name="pbayar" id="pbayar" size="12"/></td>

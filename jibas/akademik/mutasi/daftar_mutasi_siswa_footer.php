@@ -79,14 +79,14 @@ if ($op=="fdh6rt5dgh98rth658rg48ger"){ //Hapus siswa
 		if ($from_left!=1){
 		?>
 		<SCRIPT type="text/javascript" language="javascript">
-		alert ('Gagal menghapus data !');
+		alert ('Failed to delete data');
 		refresh();	
 		</script>
 		<?
 		} else {
 		?>
 		<SCRIPT type="text/javascript" language="javascript">
-		alert ('Gagal menghapus data !');
+		alert ('Failed to delete data');
 		refresh2();
 		</script>
 		<?
@@ -94,7 +94,7 @@ if ($op=="fdh6rt5dgh98rth658rg48ger"){ //Hapus siswa
 		}
 		
 }
-if ($op=="jkds7o34jd98wejbf9uwe"){ //Aktifkan kembali
+if ($op=="jkds7o34jd98wejbf9uwe"){ //Reactivated
 
 	BeginTrans();
 	$success=0;
@@ -124,14 +124,14 @@ if ($op=="jkds7o34jd98wejbf9uwe"){ //Aktifkan kembali
 		if ($from_left!=1){
 		?>
 		<SCRIPT type="text/javascript" language="javascript">
-			alert ('Gagal mengaktifkan siswa !');
+			alert ('Gagal mengaktifkan siswa ');
 			document.location.href="daftar_mutasi_siswa_footer.php?departemen=<?=$departemen?>&tahun=<?=$tahun?>";
 		</script>
 		<?
 		} else {
 		?>
 		<SCRIPT type="text/javascript" language="javascript">
-			alert ('Gagal mengaktifkan siswa !');
+			alert ('Gagal mengaktifkan siswa ');
 			document.location.href="daftar_mutasi_siswa_footer.php?from_left=1&departemen=<?=$departemen?>&tahun=<?=$tahun?>";
 		</script>
 		<?
@@ -144,7 +144,7 @@ if ($op=="jkds7o34jd98wejbf9uwe"){ //Aktifkan kembali
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Daftar Mutasi Siswa</title>
+<title>Student Mutation List</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <SCRIPT type="text/javascript" language="JavaScript" src="../script/tables.js"></SCRIPT>
 	<SCRIPT type="text/javascript" language="javascript" src="../script/common.js"></script>
@@ -164,22 +164,22 @@ if ($op=="jkds7o34jd98wejbf9uwe"){ //Aktifkan kembali
 </head>
 <script language="javascript">
 function aktifkan(nis){
-	if (confirm('Anda yakin akan mengaktifkan kembali siswa ini ?')){
+	if (confirm('Are you sure want to reactivate this Student?')){
 	document.location.href="daftar_mutasi_siswa_footer.php?departemen=<?=$departemen?>&tahun=<?=$tahun?>&op=jkds7o34jd98wejbf9uwe&nis="+nis;
 }
 }
 function aktifkan2(nis){
-	if (confirm('Anda yakin akan mengaktifkan kembali siswa ini ?')){
+	if (confirm('Are you sure want to reactivate this Student?')){
 	document.location.href="daftar_mutasi_siswa_footer.php?from_left=1&departemen=<?=$departemen?>&tahun=<?=$tahun?>&op=jkds7o34jd98wejbf9uwe&nis="+nis;
 }
 }
 function hapus(nis){
-	if (confirm('Anda yakin akan menghapus data siswa ini ?')){
+	if (confirm('Are you sure want to delete this Student data?')){
 		document.location.href="daftar_mutasi_siswa_footer.php?departemen=<?=$departemen?>&tahun=<?=$tahun?>&op=fdh6rt5dgh98rth658rg48ger&nis="+nis;
 	}
 }
 function hapus(nis){
-	if (confirm('Anda yakin akan menghapus data siswa ini ?')){
+	if (confirm('Are you sure want to delete this Student data?')){
 		document.location.href="daftar_mutasi_siswa_footer.php?from_left=1&departemen=<?=$departemen?>&tahun=<?=$tahun?>&op=fdh6rt5dgh98rth658rg48ger&nis="+nis;
 	}
 }
@@ -198,16 +198,16 @@ function refresh2(){
   
     <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#666666">
       <tr>
-        <td colspan="2"><div align="right"><? if ($from_left!=0){ ?><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Daftar Siswa yang dimutasi</font><br />
-            <a href="../mutasi.php" target="content"> <font size="1" color="#000000"><b>Mutasi</b></font></a>&nbsp>&nbsp <font size="1" color="#000000"><b>Daftar Siswa yang dimutasi</b></font><? } ?><br><br>
+        <td colspan="2"><div align="right"><? if ($from_left!=0){ ?><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Student Mutation List</font><br />
+            <a href="../mutasi.php" target="content"> <font size="1" color="#000000"><b>Mutation</b></font></a>&nbsp;>&nbsp; <font size="1" color="#000000"><b>Student Mutation List</b></font><? } ?><br><br>
           <input name="action" type="hidden" id="action2" value="<? if(!empty($_GET['action'])) echo $_GET['action'] ; else echo "tambahJenisMutasi" ;?>">
           <input name="state" type="hidden" id="state2" value="jenis"><? if(mysql_num_rows($result_mutasi)<>0)
 		  	{ 
 			if ($from_left!=1){	?>
-          <a href="#" onClick="newWindow('daftar_mutasi_cetak.php?tampil=tampil&departemen=<?=$departemen?>&tahun=<?=$tahun?>','',819,754,'')" onMouseOver="showhint('Cetak Daftar Siswa Yang Sudah dimutasi', this, event, '80px')"><img src="../images/ico/print.png" border="0">Cetak</a><? 
+          <a href="#" onClick="newWindow('daftar_mutasi_cetak.php?tampil=tampil&departemen=<?=$departemen?>&tahun=<?=$tahun?>','',819,754,'')" onMouseOver="showhint('Print Student Mutated List', this, event, '80px')"><img src="../images/ico/print.png" border="0">Print</a><? 
 				} else {
 			?>
-			 <a href="#" onClick="newWindow('daftar_mutasi_cetak.php?tampil=tampil&departemen=<?=$departemen?>','',819,754,'')" onMouseOver="showhint('Cetak Daftar Siswa Yang Sudah dimutasi', this, event, '80px')"><img src="../images/ico/print.png" border="0">Cetak</a>
+			 <a href="#" onClick="newWindow('daftar_mutasi_cetak.php?tampil=tampil&departemen=<?=$departemen?>','',819,754,'')" onMouseOver="showhint('Print Student Mutated List', this, event, '80px')"><img src="../images/ico/print.png" border="0">Print</a>
 			<?
 			}
 			}?><br>
@@ -216,12 +216,12 @@ function refresh2(){
       <tr>
         <td><table width="100%" border="1" class="tab" align="center" cellpadding="0" cellspacing="0" id="table">
           <tr class="header">
-            <td width="33" height="30"><div align="center">No</div></td>
-            <td width="136" height="30"><div align="center">NIS</div></td>
-            <td width="142" height="30"><div align="center">Nama</div></td>
-            <td width="97" height="30"><div align="center">Tanggal Mutasi</div></td>
-            <td width="104" height="30"><div align="center">Jenis Mutasi </div></td>
-            <td width="92" height="30"><div align="center">Keterangan Mutasi</div></td>
+            <td width="33" height="30"><div align="center">#</div></td>
+            <td width="136" height="30"><div align="center">Student ID</div></td>
+            <td width="142" height="30"><div align="center">Name</div></td>
+            <td width="97" height="30"><div align="center">Mutation Date</div></td>
+            <td width="104" height="30"><div align="center">Mutation Type </div></td>
+            <td width="92" height="30"><div align="center">Info</div></td>
             <td width="78" height="30"><div align="center"></div></td>
           </tr>
 		  <? 
@@ -236,16 +236,16 @@ function refresh2(){
             <td height="25"><?=TglTextLong($row_mutasi[4])?></td>
             <td height="25"><?=$row_mutasi[3]?></td>
             <td height="25"><?=$row_mutasi[5]?></td>
-            <td height="25"><a href="#" onClick="newWindow('../library/detail_siswa.php?replid=<?=$row_mutasi[6]?>', 'DetailSiswa','660','657','resizable=0,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/lihat.png" border="0" width="16" height="16" onMouseOver="showhint('Lihat Detail Siswa', this, event, '120px')"></a>
+            <td height="25"><a href="#" onClick="newWindow('../library/detail_siswa.php?replid=<?=$row_mutasi[6]?>', 'DetailSiswa','660','657','resizable=0,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/lihat.png" border="0" width="16" height="16" onMouseOver="showhint('See Student Details', this, event, '120px')"></a>
             <? if ($from_left!=1) { ?>
-            <a href="#" onclick="newWindow('ubah_mutasi_siswa.php?tampil=tampil&nis=<?=$row_mutasi[0]?>&departemen=<?=$departemen?>&tahun=<?=$tahun?>&pop=1','UbahMutasiSiswa',488,406,'resizable=0,scrollbars=0,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" width="16" height="16" onMouseOver="showhint('Ubah Status Mutasi', this, event, '120px')"></a>
+            <a href="#" onclick="newWindow('ubah_mutasi_siswa.php?tampil=tampil&nis=<?=$row_mutasi[0]?>&departemen=<?=$departemen?>&tahun=<?=$tahun?>&pop=1','UbahMutasiSiswa',488,406,'resizable=0,scrollbars=0,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" width="16" height="16" onMouseOver="showhint('Edit Mutation Status', this, event, '120px')"></a>
             <? } else { ?>
-             <a href="ubah_mutasi_siswa.php?tampil=tampil&nis=<?=$row_mutasi[0]?>&departemen=<?=$departemen?>&tahun=<?=$tahun?>"><img src="../images/ico/ubah.png" border="0" width="16" height="16" onMouseOver="showhint('Ubah Status Mutasi', this, event, '120px')"></a>
+             <a href="ubah_mutasi_siswa.php?tampil=tampil&nis=<?=$row_mutasi[0]?>&departemen=<?=$departemen?>&tahun=<?=$tahun?>"><img src="../images/ico/ubah.png" border="0" width="16" height="16" onMouseOver="showhint('Edit Mutation Status', this, event, '120px')"></a>
              <? } ?>
              &nbsp;
-             <? if ($from_left!=1){ ?><img src="../images/ico/refresh.png" width="16" height="16" onClick="aktifkan('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Aktifkan kembali', this, event, '120px')"> &nbsp;<img src="../images/ico/hapus.png" width="16" height="16" onClick="hapus('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Hapus Siswa', this, event, '120px')">
+             <? if ($from_left!=1){ ?><img src="../images/ico/refresh.png" width="16" height="16" onClick="aktifkan('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Reactivated', this, event, '120px')"> &nbsp;<img src="../images/ico/hapus.png" width="16" height="16" onClick="hapus('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Delete Student', this, event, '120px')">
              <? } else { ?>
-             <img src="../images/ico/refresh.png" width="16" height="16" onClick="aktifkan2('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Aktifkan kembali', this, event, '120px')"> &nbsp;<img src="../images/ico/hapus.png" width="16" height="16" onClick="hapus2('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Hapus Siswa', this, event, '120px')">
+             <img src="../images/ico/refresh.png" width="16" height="16" onClick="aktifkan2('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Reactivated', this, event, '120px')"> &nbsp;<img src="../images/ico/hapus.png" width="16" height="16" onClick="hapus2('<?=$row_mutasi[0]?>')"  onMouseOver="showhint('Delete Student', this, event, '120px')">
              <? } ?></td>
           </tr>
 		  <?
@@ -254,7 +254,7 @@ function refresh2(){
 		  	{
 		?>
 		<tr>
-			<td height="25" colspan="8" align="center"> <em>Data Belum Ada Siswa yang sudah dimutasi</em></td>
+			<td height="25" colspan="8" align="center"> <em>No Data Found.</em></td>
 		</tr>	
 		<?	
 			}

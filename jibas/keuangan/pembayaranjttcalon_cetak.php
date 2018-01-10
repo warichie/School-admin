@@ -47,7 +47,7 @@ $departemen = $row[0];
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Penerimaan Pembayaran Calon Siswa]</title>
+<title>JIBAS FINANCE [Penerimaan Payment Student Candidate]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -62,7 +62,7 @@ $departemen = $row[0];
 
 <table border="0">
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
     <td><strong>: 
 <?	$sql = "SELECT departemen FROM tahunbuku WHERE replid='$idtahunbuku'"; 	
 	$result = QueryDb($sql);    
@@ -71,7 +71,7 @@ $departemen = $row[0];
     </strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Buku</strong></td>
+	<td><strong>Fiscal Year</strong></td>
     <td><strong>:
 <?	$sql = "SELECT tahunbuku FROM tahunbuku WHERE replid='$idtahunbuku'"; 	
 	$result = QueryDb($sql);    
@@ -81,7 +81,7 @@ $departemen = $row[0];
 </tr>
 
 <tr>
-	<td><strong>Kategori</strong></td>
+	<td><strong>Category</strong></td>
     <td><strong>:
 <?	$sql = "SELECT kategori FROM kategoripenerimaan WHERE kode='$idkategori' ORDER BY urutan";	
 	$result = QueryDb($sql);    
@@ -90,7 +90,7 @@ $departemen = $row[0];
     </strong></td>
 </tr>
 <tr>
-	<td><strong>Jenis Penerimaan</strong></td>
+	<td><strong>Acquisition Type</strong></td>
     <td><strong>:
 <?	$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'"; 			
 	$result = QueryDb($sql);    
@@ -159,15 +159,15 @@ else
         if ($edit == 0 && $bayar > 0) 
 		{
             $dis = "disabled style='background-color:#CCCC99'";
-            $action = "Ubah";
+            $action = "Change";
             $nedit = 1;
         }			
     ?>        
         <tr height="25">
-            <td colspan="3" class="header" align="center">Pembayaran yang Harus Dilunasi</td>
+            <td colspan="3" class="header" align="center">Payment yang Harus Dilunasi</td>
         </tr>
         <tr>
-            <td width="25%"><strong>Pembayaran</strong></td>                
+            <td width="25%"><strong>Payment</strong></td>                
             <td><strong>: 
 			<?	$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'"; 			
                 $result = QueryDb($sql);    
@@ -176,7 +176,7 @@ else
 			</strong></td>
         </tr>
         <tr>
-            <td><strong>Jumlah</strong></td>
+            <td><strong>Sum</strong></td>
             <td colspan="2"><strong>: <?=FormatRupiah($besar) ?></strong>
             </td>
         </tr>
@@ -184,15 +184,15 @@ else
             <td><strong>Status</strong></td>
             <td><strong>:</strong> 
             <? 
-            $info = "<font color=red><strong>Belum Lunas</strong></font>";
+            $info = "<font color=red><strong>No Paid Off Yet</strong></font>";
             if ($lunas == 1)
-                $info = "<font color=blue><strong>Lunas</strong></font>";
+                $info = "<font color=blue><strong>Paid Off</strong></font>";
             echo  $info;
             ?>
             </td>
         </tr>
         <tr>
-            <td valign="top"><strong>Keterangan</strong></td>
+            <td valign="top"><strong>Info</strong></td>
             <td valign="top"><strong>:</strong></td>
         </tr>
         <tr>
@@ -207,42 +207,42 @@ else
         <legend></legend>
         <table border="0" width="100%" cellpadding="2" cellspacing="2">
         <tr height="25">
-            <td colspan="4" class="header" align="center">Data Calon Siswa</td>
+            <td colspan="4" class="header" align="center">Student Candidate Data</td>
         </tr>
         <tr valign="top">                    
-            <td width="27%"><strong>No Pendaftaran</strong></td>
+            <td width="27%"><strong>Registration Number</strong></td>
             <td><strong>:</strong></td>
             <td><strong><?=$no ?></strong> </td><td rowspan="5" width="25%">
             <img src='<?="library/gambar.php?replid=".$replid."&table=jbsakad.calonsiswa";?>' width='100' height='100'></td>
         </tr>
         <tr>
-            <td valign="top"><strong>Nama</strong></td>
+            <td valign="top"><strong>Name</strong></td>
             <td valign="top"><strong>:</strong></td> 
             <td><strong><?=$nama ?></strong></td>
         </tr>
         <tr>
-            <td valign="top"><strong>Proses</strong></td>
+            <td valign="top"><strong>Process</strong></td>
             <td valign="top"><strong>:</strong></td>
             <td><strong><?=$namaproses ?></strong></td>
         </tr>
         <tr>
-            <td valign="top"><strong>Kelompok</strong></td>
+            <td valign="top"><strong>Group</strong></td>
             <td valign="top"><strong>:</strong></td>
             <td><strong><?=$namakelompok ?></strong></td>
         </tr>
         <tr>
-            <td><strong>HP</strong></td>
+            <td><strong>Mobile</strong></td>
              <td><strong>:</strong></td>
             <td><strong><?=$hp ?></strong></td>
         </tr>
         <tr>
-            <td><strong>Telepon</strong></td>
+            <td><strong>Phone</strong></td>
              <td><strong>:</strong></td>
             <td><strong><?=$telpon ?></strong></td>
         </tr>
         
         <tr>
-            <td valign="top"><strong>Alamat</strong></td>
+            <td valign="top"><strong>Address</strong></td>
             <td valign="top"><strong>:</strong></td>
             <td colspan="2" valign="top" height="58"><strong>
               <?=$alamattinggal ?>
@@ -267,9 +267,9 @@ else
 		  ORDER BY p.tanggal ASC";
     $result = QueryDb($sql);
    
-    $info = "Pembayaran Pertama";
+    $info = "Payment Pertama";
 	if (mysql_num_rows($result) > 1) 
-		$info = "Pembayaran Cicilan";
+		$info = "Payment Cicilan";
         
 ?> 
     <fieldset>
@@ -278,12 +278,12 @@ else
      <br />
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
     <tr height="30" align="center">
-        <td class="header" width="5%">No</td>
-        <td class="header" width="20%">No. Jurnal/Tgl</td>
+        <td class="header" width="5%">#</td>
+        <td class="header" width="20%">Journal/Date</td>
         <td class="header" width="15%">Besar</td>
 		<td class="header" width="15%">Diskon</td>
-        <td class="header" width="*">Keterangan</td>
-        <td class="header" width="15%">Petugas</td>
+        <td class="header" width="*">Info</td>
+        <td class="header" width="15%">Officer</td>
     </tr>
     <? 
       
@@ -306,7 +306,7 @@ else
         }
         $sisa = $besar - $total - $total_diskon;?>
     <tr height="35">
-        <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+        <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
         <td bgcolor="#996600" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font></td>
 		<td bgcolor="#996600" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($total_diskon) ?></strong></font></td>
         <td bgcolor="#996600" align="right"><font color="#FFFFFF">Sisa <strong><?=FormatRupiah($sisa) ?></strong></font></td>

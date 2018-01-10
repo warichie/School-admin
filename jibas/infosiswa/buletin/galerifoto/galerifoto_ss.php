@@ -118,12 +118,12 @@ function show(id){
 <body>
 <table width="100%" border="0" cellspacing="5">
   <tr>
-    <td align="left"><font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Galeri Foto</font><br />
-        <a href="../../home.php"  target="framecenter">Home</a> > <strong>Galeri Foto</strong><br />
+    <td align="left"><font size="4" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" color="Gray">Photo Gallery</font><br />
+        <a href="../../home.php"  target="framecenter">Home</a> > <strong>Photo Gallery</strong><br />
       <br /></td>
     <td align="right" valign="bottom">
 	<a href="galerifoto.php"><img src="../../images/ico/thumbnail.gif" border="0">&nbsp;Thumbnails</a>&nbsp;&nbsp;
-	<a href="#" onClick="newWindow('tambahfoto.php?pagesource=ss','TambahFoto','550','207','resizable=1,scrollbars=0,status=0,toolbar=0');"><img src="../../images/ico/tambah.png" border="0" />&nbsp;Tambah Foto</a><br>
+	<a href="#" onClick="newWindow('tambahfoto.php?pagesource=ss','TambahFoto','550','207','resizable=1,scrollbars=0,status=0,toolbar=0');"><img src="../../images/ico/tambah.png" border="0" />&nbsp;Add Photo</a><br>
 	</td>
   </tr>
   <tr>
@@ -189,7 +189,7 @@ function show(id){
 <? 	   } else { ?>
             <table width="100%" border="0" cellspacing="0" align="center">
             <tr>
-              <td><div align="center"><em>Tidak ada foto</em></div></td>
+              <td><div align="center"><em>No photo.</em></div></td>
             </tr>
             </table>
 <? 	   } ?>

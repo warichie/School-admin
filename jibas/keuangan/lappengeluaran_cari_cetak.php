@@ -66,7 +66,7 @@ $total = $_REQUEST['total'];
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Pengeluaran]</title>
+<title>JIBAS FINANCE [Expenditure Reports]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -77,16 +77,16 @@ $total = $_REQUEST['total'];
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>LAPORAN PENGELUARAN</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>EXPENDITURE REPORTS</strong></font><br /> </center><br /><br />
 
 <table border="0">
 <tr>
-	<td width="90"><strong>Departemen </strong></td>
+	<td width="90"><strong>Department </strong></td>
     <td><strong>: <?=$departemen ?></strong> </td>
 </tr>
 <tr>
-	<td width="90"><strong>Tanggal </strong></td>
-    <td><strong>: <?=LongDateFormat($tanggal1) . " s/d 	" . LongDateFormat($tanggal2) ?></strong></td>
+	<td width="90"><strong>Date </strong></td>
+    <td><strong>: <?=LongDateFormat($tanggal1) . " to 	" . LongDateFormat($tanggal2) ?></strong></td>
 </tr>
 
 </table>
@@ -94,14 +94,14 @@ $total = $_REQUEST['total'];
 
 <table id="table" class="tab" border="1" style="border-collapse:collapse" width="100%" bordercolor="#000000">
 <tr height="30" align="center">
-	<td class="header" width="4%">No</td>
-    <td class="header" width="8%" >Tanggal</td>
-    <td class="header" width="15%">Pengeluaran</td>
-    <td class="header" width="18%">Pemohon</td>
-    <td class="header" width="10%">Penerima</td>
-    <td class="header" width="12%">Jumlah</td>
-    <td class="header" width="*">Keperluan</td>
-    <td class="header" width="7%">Petugas</td>
+	<td class="header" width="4%">#</td>
+    <td class="header" width="8%" >Date</td>
+    <td class="header" width="15%">Expenditure</td>
+    <td class="header" width="18%">Applicant</td>
+    <td class="header" width="10%">Recipient</td>
+    <td class="header" width="12%">Sum</td>
+    <td class="header" width="*">Necessities</td>
+    <td class="header" width="7%">Officer</td>
 </tr>
 <?
 OpenDb();
@@ -160,8 +160,8 @@ while ($row = mysql_fetch_array($result)) {
     <td valign="top"><?=$row['penerima'] ?></td>
     <td align="right" valign="top"><?=FormatRupiah($row['jumlah']) ?></td>
     <td valign="top">
-    <strong>Keperluan: </strong><?=$row['keperluan'] ?><br />
-    <strong>Keterangan: </strong><?=$row['keterangan'] ?>
+    <strong>Necessities: </strong><?=$row['keperluan'] ?><br />
+    <strong>Info: </strong><?=$row['keterangan'] ?>
 	</td>
     <td valign="top" align="center"><?=$row['petugas'] ?></td>
 </tr>
@@ -171,7 +171,7 @@ CloseDb();
 ?>
 <tr height="30">
 	<td colspan="5" align="center" bgcolor="#999900">
-    <font color="#FFFFFF"><strong>T O T A L</strong></font>
+    <font color="#FFFFFF"><strong>Total</strong></font>
     </td>
     <td align="right" bgcolor="#999900"><font color="#FFFFFF"><strong><?=FormatRupiah($totalbiaya) ?></strong></font></td>
     <td colspan="2" bgcolor="#999900">&nbsp;</td>

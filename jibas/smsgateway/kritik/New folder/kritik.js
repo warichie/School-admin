@@ -9,7 +9,7 @@ function insRow(Content){
 	/*<span class='Link'>+6285624084062</span>#>09 November 2010 14:34:59#>Ini loh krtik sayah#>6#>ELLYF*/
 	//alert(Content);
 	row.style.backgroundColor = "#ffda09";
-	row.style.fontWeight = "BOLD";
+	row.style.fontWeight = "bold";
 	y 	= Content.split('#>');
 	row.id = y[3];
 	row.style.pointer='pointer';
@@ -205,7 +205,7 @@ function DeleteSMS(ID){
 	sendRequestText('kritik.ajax.php',ShowMessage2,'KritikID='+ID+'&op=DeleteSMS');
 }
 function DeleteRow(r,ID){
-	if (confirm('Anda yakin akan menghapus Saran/Kritik ini?'))
+	if (confirm('Are you sure want to delete Saran/Kritik ini?'))
 	{
 		DeleteSMS(ID);
 		var i=r.parentNode.parentNode.rowIndex;

@@ -30,7 +30,7 @@ $dep_asal=$_REQUEST['dep_asal'];
 $sekolah = $_REQUEST['sekolah'];
 ?>
 	<select name="sekolah" id="sekolah" onKeyPress="return focusNext('ketsekolah', event)" style="width:150px;">
-     <option value="">[Pilih Asal Sekolah]</option>
+     <option value="">[Select Past School]</option>
      <? // Olah untuk combo sekolah
 	OpenDb();
 	$sql_sekolah="SELECT sekolah FROM jbsakad.asalsekolah WHERE departemen='$dep_asal' ORDER BY sekolah";

@@ -36,14 +36,14 @@
     <tr>
      
       <td width="50%" align="right" valign="top">
-      <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Laporan Nilai Pelajaran</font><br />
+      <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Class Index Report</font><br />
      </td>
     </tr>
 	</table>
 <br><br>
 <br>
 <br><br><br><br><br><br>
-      <font size="2" color="#757575"><b>Klik pada Pelajaran untuk menampilkan nilai pelajaran tersebut</b></font></td>
+      <font size="2" color="#757575"><b>Click on the Class Subject to view</b></font></td>
 </tr>
 </table>
 </body>

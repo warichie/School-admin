@@ -94,12 +94,12 @@ function validate(){
 	var judul=document.getElementById('judul').value;
 	var catatan=tinyMCE.get('catatan').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Catatan');
+		alert ('You must enter a data for Notes Title');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (catatan.length==0){
-		alert ('Anda harus mengisikan data untuk Catatan');
+		alert ('You must enter a data for Notes');
 		document.getElementById('catatan').focus();
 		return false;
 	}
@@ -115,10 +115,10 @@ function validate(){
 <input name="idkategori" type="hidden" value="<?=$idkategori?>" id="idkategori" />
 <table width="100%" border="0" cellspacing="5">
   <tr>
-    <td colspan="2"><strong><font size="2" color="#999999">Ubah Catatan :</font></strong><br /><br /></td>
+    <td colspan="2"><strong><font size="2" color="#999999">Edit Notes :</font></strong><br /><br /></td>
   </tr>
   <tr>
-    <td width="66"><strong>Kategori </strong></td>
+    <td width="66"><strong>Category </strong></td>
     <td width="1149">
     <select name="kategori" id="kategori" >
     <?
@@ -131,7 +131,7 @@ function validate(){
 		echo "<option value='".$row[replid]."'".StringIsSelected($row[replid],$idkategori).">".$row[kategori]."</option>";
 	}
 	} else {
-		echo "<option value=''>Tidak ada kategori</option>";
+		echo "<option value=''>No category</option>";
 	}
     CloseDb();
 	?>
@@ -139,22 +139,22 @@ function validate(){
     </td>
   </tr>
   <tr>
-    <td><strong>Tanggal </strong></td>
-    <td><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=$tanggal?>"/><img title="Klik untuk membuka kalender !" src="../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <td><strong>Date </strong></td>
+    <td><input title="Click to open the Calendar" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=$tanggal?>"/><img title="Click to open the Calendar" src="../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
   <tr>
-    <td><strong>Judul </strong></td>
+    <td><strong>Title </strong></td>
     <td><input name="judul" type="text" id="judul" size="35" maxlength="254" value="<?=$judul?>" /></td>
   </tr>
   <tr>
-    <td colspan="2" align="left"><strong>Catatan </strong>
+    <td colspan="2" align="left"><strong>Notes </strong>
       <div align="center"><br />
           <textarea name="catatan" rows="25" id="catatan" style="width:100%"><?=$catatan?></textarea>
     </div></td>
   </tr>
   <tr>
     <td colspan="2"><div align="center">
-      <input name="simpan" type="submit" class="but" id="simpan" value="Simpan" />
+      <input name="simpan" type="submit" class="but" id="simpan" value="Save" />
     </div></td>
   </tr>
 </table>

@@ -2,7 +2,7 @@ function getfresh(){
 	document.location.href = "anggota.php";
 }
 function hapus(id){
-	if (confirm('Anda yakin akan menghapus anggota ini?'))
+	if (confirm('Are you sure want to delete this member?'))
 		document.location.href = "anggota.php?op=del&id="+id;
 }
 function tambah(){
@@ -18,12 +18,12 @@ function validate(){
 	var nama = document.getElementById('nama').value;
 	var alamat = document.getElementById('alamat').value;
 	if (nama.length==0){
-		alert ('Anda harus mengisikan nilai untuk nama!');
+		alert ('You must enter a value for name');
 		document.getElementById('nama').focus();
 		return false;
 	}
 	if (alamat.length==0){
-		alert ('Anda harus mengisikan nilai untuk alamat!');
+		alert ('You must enter a value for address');
 		document.getElementById('alamat').focus();
 		return false;
 	}
@@ -36,9 +36,9 @@ function setaktif(id,newaktif){
 	var msg;
 	if (newaktif==1)
 	{
-		msg='Apakah Anda yakin akan mengaktifkan anggota ini?';
+		msg='Are you sure want to activate this member?';
 	} else {
-		msg='Apakah Anda yakin akan menonaktifkan anggota ini?';
+		msg='Are you sure want to inactivated this member?';
 	}
 	if (confirm(msg))
 	{

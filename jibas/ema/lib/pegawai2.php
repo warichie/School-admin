@@ -38,7 +38,7 @@ if (isset($_REQUEST['bagian']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMTAKA[Daftar Pegawai]</title>
+<title>JIBAS SIMTAKA [Employee List]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 <script language="JavaScript" src="../script/tables.js"></script>
 <script language="JavaScript" src="../script/tools.js"></script>
@@ -217,7 +217,7 @@ function carilah(){
 	var bagian = document.getElementById('bag').value;
 	
 	if (nip == "" && nama == "") {
-		alert ('NIP atau Nama Pegawai tidak boleh kosong!');
+		alert ('Employee ID or Name should not leave empty');
 		document.getElementById("nama").focus();	
 		return false;
 	}
@@ -251,8 +251,8 @@ function cari(x) {
     	<td width="100%" bgcolor="#FFFFFF" valign="top">
         <div id="tabs">
             <ul>
-                <li><a href="#panel" onclick="view_tab_daftar()">Daftar Pegawai</a></li>
-                <li><a href="#panel" onclick="view_tab_cari()">Cari Pegawai</a></li>
+                <li><a href="#panel" onclick="view_tab_daftar()">Employee List</a></li>
+                <li><a href="#panel" onclick="view_tab_cari()">Search Employee</a></li>
             </ul>
             <div id="panel">
                 <script language="javascript">

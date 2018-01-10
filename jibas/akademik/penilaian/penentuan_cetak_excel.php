@@ -72,7 +72,7 @@ $namapel = $row[0];
 </head>
 <body>
 <?
-//cek keberadaan nap dan idinfo
+//cek keberadaan nap and idinfo
 $idinfo = 0;
 $nap_ada = 0;
 $sql = "SELECT replid FROM jbsakad.infonap WHERE idpelajaran='$pelajaran' AND idsemester='$semester' AND idkelas='$kelas'";
@@ -92,7 +92,7 @@ if (mysql_num_rows($res) > 0)
 	$nap_ada = $row[0];
 }
 
-// Hitung jumlah bobot dan banyaknya aturan
+// Hitung jumlah bobot and banyaknya aturan
 $sql = "SELECT SUM(bobot) as bobotPK, COUNT(a.replid) 
 		  FROM jbsakad.aturannhb a, kelas k 
 		 WHERE a.nipguru='$nip' AND a.idtingkat=k.idtingkat AND k.replid='$kelas' 
@@ -135,11 +135,11 @@ while ($row = @mysql_fetch_array($res))
     
 	<table width="100%" border="1" class="tab" id="table" bordercolor="#000000">  
   	<tr align="center">
-    	<td height="30" class="headerlong" width="4%" rowspan="2">No</td>
-        <td height="30" class="headerlong" width="10%" rowspan="2">N I S</td>
-        <td height="30" class="headerlong" width="*" rowspan="2">Nama</td>    	    
-        <td height="15" colspan="<?=(int)$jum_PK?>" class="headerlong">Nilai Akhir</td>
-		<td height="15" colspan="2" class="headerlong" width="13%"><span class="style1">Nilai <?=$aspekket?></span></td>
+    	<td height="30" class="headerlong" width="4%" rowspan="2">#</td>
+        <td height="30" class="headerlong" width="10%" rowspan="2">Student ID</td>
+        <td height="30" class="headerlong" width="*" rowspan="2">Name</td>    	    
+        <td height="15" colspan="<?=(int)$jum_PK?>" class="headerlong">Grade Point</td>
+		<td height="15" colspan="2" class="headerlong" width="13%"><span class="style1"><?=$aspekket?> Points</span></td>
     </tr>
     <tr height="15" class="header" align="center">
 	<?	$i = 0;
@@ -150,8 +150,8 @@ while ($row = @mysql_fetch_array($res))
             	<span class="style1"><?= $row_PK['jenisujian']." (".$row_PK['bobot'].")" ?></span>
             </td>
     <?	} ?>
-		<td align="center" class="headerlong"><span class="style1">Angka</span></td>
-        <td align="center" class="headerlong"><span class="style1">Huruf</span></td>
+		<td align="center" class="headerlong"><span class="style1">Number</span></td>
+        <td align="center" class="headerlong"><span class="style1">Letter</span></td>
 	</tr>
 <?	//Mulai perulangan siswa
 	$sql = "SELECT replid, nis, nama 
@@ -197,7 +197,7 @@ while ($row = @mysql_fetch_array($res))
 		
 		if ($nilaiangka_pemkonsep == 0) 
 		{		
-			//Belum ada data nilai di database
+			//No points data di database
 			$jumlah = 0;
 			foreach ($ujian as $value) 
 			{		
@@ -221,11 +221,11 @@ while ($row = @mysql_fetch_array($res))
 	<?	} 
 		else 
 		{ 
-			//Ada data nilai di database
+			//Ada points data di database
 			$nilakhirpk = $row_get_nap_pemkonsep[1];
 			$warna = "";
 			if ($nilakhirpk < $row_get_nap_pemkonsep[2])
-				$warna = "onMouseOver=\"showhint('Nilai di bawah nilai standar kelulusan', this, event, '100px')\" class='text_merah'";	?>
+				$warna = "onMouseOver=\"showhint('The Point is below Standard Graduation Point', this, event, '100px')\" class='text_merah'";	?>
                 
 				<?=$nilakhirpk?>
                  

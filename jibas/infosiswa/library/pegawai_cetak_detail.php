@@ -37,7 +37,7 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<title>JIBAS SIMAKA [Cetak Data Pegawai]</title>
+<title>JIBAS SIMAKA [Print Employee Data]</title>
 </head>
 <table border="0" cellpadding="10" cellpadding="5" width="780" align="left">
 <tr>
@@ -46,10 +46,10 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
 <? include("../library/headercetak.php") ?>
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th colspan="2" scope="row"><div align="center"><font size="4"><strong>DATA PEGAWAI</strong></font></div></th>
+    <th colspan="2" scope="row"><div align="center"><font size="4"><strong>EMPLOYEE DATA</strong></font></div></th>
     </tr>
   <tr>
-    <th width="10%" scope="row"><div align="left"><strong>Bagian :</strong></div></th>
+    <th width="10%" scope="row"><div align="left"><strong>Section :</strong></div></th>
     <td width="90%">&nbsp;<?=$row_pegawai['bagian']?></td>
   </tr>
 </table>
@@ -60,19 +60,19 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
     <table border="0" cellpadding="0" style="border-collapse:collapse" cellspacing="0" width="100%">
     <tr height="30">
     	<td colspan="6" align="left">
-        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Data Pribadi</strong></font>
+        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Personal Data</strong></font>
         <hr width="300" style="line-height:1px; border-style:dashed" align="left" />
         </td>
     	</tr>
   	<tr height="20">
     	<td width="5%" rowspan="11">&nbsp;</td>
     	<td width="5%">1.</td>
-    	<td width="20%">NIP</td>
+    	<td width="20%">Employee ID</td>
     	<td height="25" >:&nbsp;<?=$row_pegawai['nip']?></td>
     	<td rowspan="19" valign="bottom" ><div align="center"><img src="../library/gambar.php?replid=<?=$row_pegawai['replid']?>&table=jbssdm.pegawai" width="120" height="150" border="0"/>
     	      <br />
   	  </div>
-    	  <div align="center"><br />Tanda Tangan<br /><br /><br /><br /><br />
+    	  <div align="center"><br />Signature<br /><br /><br /><br /><br />
     <strong>(<?=$row_pegawai['nama']?>, <?=$row_pegawai['gelar']?>)</strong></div>        </td>
     	<!--<td rowspan="7" align="center" width="150">
     	<img src="../library/gambar.php?replid=<?=$row_pegawai['replid']?>&table=jbssdm.pegawai" width="120" height="120" border="0"/>		
@@ -80,41 +80,41 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
   	</tr>
   	<tr height="20">
     	<td>2.</td>
-    	<td>Nama Pegawai</td><td></td>
+    	<td>Employee Name</td><td></td>
   	</tr>
   	<tr height="20" >    
-    	<td >&nbsp;</td>    
-    	<td >a. Lengkap </td>
+    	<td>&nbsp;</td>    
+    	<td>a. Full Name </td>
     	<td>:&nbsp;<?=$row_pegawai['nama']?> ,<?=$row_pegawai['gelar']?></td>
         </tr>
   	<tr height="20">
 	    <td>&nbsp;</td>
-    	<td>b. Panggilan </td>
+    	<td>b. Nickname </td>
     	<td>:&nbsp;<?=$row_pegawai['panggilan']?></td>
         </tr>
   	<tr height="20">    	
     	<td>3.</td>
-    	<td>Tempat Lahir</td>
+    	<td>Birth Place</td>
     	<td>:&nbsp;<?=$row_pegawai['tmplahir']?></td>
         </tr>
   	<tr height="20">    	
     	<td>4.</td>
-    	<td>Tanggal Lahir</td>
+    	<td>Date of Birth</td>
     	<td>:&nbsp;<?=format_tgl($row_pegawai['tgllahir'])?></td>
   	    </tr>
   	<tr height="20">    	
 	    <td>5.</td>
-    	<td>Agama</td>
+    	<td>Religion</td>
     	<td height="25" >:&nbsp;<?=$row_pegawai['agama']?></td>
         </tr>
   	<tr height="20" >    	
     	<td>6.</td>
-    	<td>Suku</td>
+    	<td>Ethnicity</td>
     	<td>:&nbsp;<?=$row_pegawai['suku']?></td>
   	    </tr>
   	<tr height="20" >    	
 	    <td>7.</td>
-    	<td>Nomor Identitas</td>
+    	<td>Employee ID</td>
     	<td>:&nbsp;<?=$row_pegawai['noid']?></td>
   	    </tr>
   	<tr height="20">
@@ -122,9 +122,9 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
     	<td>Status</td>
     	<td>:&nbsp;
 			<? 	if($row_pegawai['nikah']=="menikah")
-					echo "Menikah";
+					echo "Married";
 				if($row_pegawai['nikah']=="belum")
-					echo "Belum Menikah";
+					echo "Not Married";
 				if($row_pegawai['nikah']=="tak_ada")
 					echo "";?></td>
   	    </tr>
@@ -133,24 +133,24 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
   	</tr>
   	<tr height="30" >
     	<td colspan="4" align="left">
-        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Tempat Tinggal</strong></font>
+        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Residency Info</strong></font>
         <hr width="300" style="line-height:1px; border-style:dashed" align="left" />
         </td>
     	</tr>
   	<tr height="20">
     	<td rowspan="5">&nbsp;</td>    	
     	<td>9.</td>
-    	<td>Alamat</td>
+    	<td>Address</td>
     	<td>:&nbsp;<?=$row_pegawai['alamat']?></td>
  	    </tr>
  	<tr height="20" >    	
     	<td>10.</td>
-    	<td>Telepon</td>
+    	<td>Phone</td>
     	<td>:&nbsp;<?=$row_pegawai['telpon']?></td>
   	    </tr>
   	<tr height="20" >    	
 	    <td>11.</td>
-    	<td>HP</td>
+    	<td>Mobile</td>
     	<td>:&nbsp;<?=$row_pegawai['handphone']?></td>
   	    </tr>
   	<tr height="20">    	
@@ -158,19 +158,19 @@ $row_pegawai=@mysql_fetch_array($result_pegawai);
     	<td>Email</td>
    	 	<td>:&nbsp;<?=$row_pegawai['email']?></td>
   	    </tr>
-  	<tr >
+  	<tr>
     	<td  colspan="3" bgcolor="#FFFFFF">&nbsp;</td>
   	</tr>
   	<tr height="30">
     	<td colspan="4" align="left">
-        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Keterangan Lainnya</strong></font>
+        <font size="3" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="Gray"><strong>Others</strong></font>
         <hr width="300" style="line-height:1px; border-style:dashed" align="left" />
         </td>
     	</tr>
    	<tr height="20">
     	<td>&nbsp;</td>
     	<td>13.</td>
-    	<td>Keterangan</td>
+    	<td>Info</td>
     	<td>:&nbsp;<?=$row_pegawai['keterangan']?></td>
   	    </tr>
 	</table>

@@ -63,14 +63,14 @@ require_once('phonebook.class.php');
                         <td>
                             <table border="0" cellspacing="0" cellpadding="1">
                               <tr>
-                                <td>Jenis</td>
+                                <td>Type</td>
                                 <td>
                                     <select id="jenis" class="Cmb">
-                                        <option value="-1"> - Semua - </option>
-                                        <option value="0">Siswa</option>
-                                        <option value="1">Orangtua</option>
-                                        <option value="2">Pegawai</option>
-                                        <option value="3">Lainnya</option>
+                                        <option value="-1"> - All - </option>
+                                        <option value="0">Student</option>
+                                        <option value="1">Parent</option>
+                                        <option value="2">Employee</option>
+                                        <option value="3">Others</option>
                                     </select>
                                 </td>
                               </tr>
@@ -79,11 +79,11 @@ require_once('phonebook.class.php');
                         <td>
                             <table border="0" cellspacing="0" cellpadding="2">
                               <tr>
-                                <td>Huruf&nbsp;Depan&nbsp;</td>
+                                <td>First&nbsp;Letter&nbsp;</td>
                                 <td>
                                     <select id="alpha" class="Cmb">
                                         <?php
-                                        echo "<option value='-1'> - Semua - </option>";
+                                        echo "<option value='-1'> - All - </option>";
                                         foreach($Alphabet as $alp)
                                             echo "<option value='$alp'>$alp</option>";
                                         ?>
@@ -92,13 +92,13 @@ require_once('phonebook.class.php');
                                 </tr>
                             </table>
                         </td>
-                        <td><input type="button" class="BtnSilver90" id="btnview" value="Lihat" /></td>
+                        <td><input type="button" class="BtnSilver90" id="btnview" value="See" /></td>
                         <td rowspan="2">
                             <button type="button" class="Btn" id='btnAdd'>
                                 <table border="0" cellspacing="0" cellpadding="2">
                                   <tr>
                                     <td><img src="../images/ico/tambah.png" /></td>
-                                    <td>Tambah</td>
+                                    <td>Add</td>
                                   </tr>
                                 </table>
                             </button>
@@ -108,11 +108,11 @@ require_once('phonebook.class.php');
                         <td colspan="2">
                             <table border="0" cellspacing="0" cellpadding="2" width='100%'>
                               <tr>
-                                <td width='1'>Cari&nbsp;</td>
+                                <td width='1'>Search&nbsp;</td>
                                 <td width='1'>
                                     <select id="field" class="Cmb">
-                                        <option value="nohp">Nomor</option>
-                                        <option value="nama">Nama</option>
+                                        <option value="nohp">Mobile</option>
+                                        <option value="nama">Name</option>
                                     </select>
                                 </td>
                                 <td width='*'>
@@ -121,7 +121,7 @@ require_once('phonebook.class.php');
                               </tr>
                             </table>
                         </td>
-                        <td width="143"><input type="button" class="BtnSilver90" value="Cari"  id="btnsearch" /></td>
+                        <td width="143"><input type="button" class="BtnSilver90" value="Search"  id="btnsearch" /></td>
                       </tr>
                     </table>
                 </td>
@@ -130,7 +130,7 @@ require_once('phonebook.class.php');
                         <table border="0" cellspacing="0" cellpadding="2">
                           <tr>
                             <td><img src="../images/ico/down.png" /></td>
-                            <td>Import Data Siswa &amp; Pegawai</td>
+                            <td>Import Student &amp; Employee Data</td>
                           </tr>
                         </table>
                     </button>

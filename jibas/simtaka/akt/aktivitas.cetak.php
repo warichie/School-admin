@@ -30,14 +30,14 @@ OpenDb();
 $departemen='yayasan';
 $tglAwal = $_REQUEST[tglAwal];
 $tglAkhir = $_REQUEST[tglAkhir];
-$title = "<tr><td width='20'>Periode</td><td>&nbsp;:&nbsp;$tglAwal s.d. $tglAkhir</td></tr>";	
+$title = "<tr><td width='20'>Period</td><td>&nbsp;:&nbsp;$tglAwal to $tglAkhir</td></tr>";	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" type="text/css" href="../sty/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SimTaka [Cetak Daftar Aktivitas Perpustakaan]</title>
+<title>JIBAS SimTaka [Print Library Activity List]</title>
 </head>
 
 <body>
@@ -46,7 +46,7 @@ $title = "<tr><td width='20'>Periode</td><td>&nbsp;:&nbsp;$tglAwal s.d. $tglAkhi
 
 <?=GetHeader('alls')?>
 
-<center><font size="4"><strong>DATA AKTIVITAS PERPUSTAKAAN</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>LIBRARY ACTIVITY DATA</strong></font><br /> </center><br /><br />
 
 <br />
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:verdana; font-size:12px">
@@ -60,9 +60,9 @@ $title = "<tr><td width='20'>Periode</td><td>&nbsp;:&nbsp;$tglAwal s.d. $tglAkhi
 		<link href="../sty/style.css" rel="stylesheet" type="text/css">
         <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tab" id="table">
           <tr>
-            <td width="50" height="30" align="center" class="header">No</td>
-            <td width="80" height="30" align="left" class="header">Tanggal</td>
-            <td width="*" height="30" align="left" class="header">Aktivitas</td>
+            <td width="50" height="30" align="center" class="header">#</td>
+            <td width="80" height="30" align="left" class="header">Date</td>
+            <td width="*" height="30" align="left" class="header">Activity</td>
             <? if (IsAdmin()) { ?><? } ?>
 		  </tr>
           <?
@@ -83,7 +83,7 @@ $title = "<tr><td width='20'>Periode</td><td>&nbsp;:&nbsp;$tglAwal s.d. $tglAkhi
 		  } else {
 		  ?>
           <tr>
-            <td height="25" colspan="4" align="center" class="nodata">Tidak ada data</td>
+            <td height="25" colspan="4" align="center" class="nodata">Data Not Found.</td>
           </tr>
 		  <?
 		  }

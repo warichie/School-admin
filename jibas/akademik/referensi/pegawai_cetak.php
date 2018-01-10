@@ -43,7 +43,7 @@ $total = $_REQUEST['total'];
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Kepegawaian]</title>
+<title>JIBAS SIMAKA [Print Employee Affair]</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -57,17 +57,17 @@ $total = $_REQUEST['total'];
 <?=getHeader($departemen)?>
 
 <center>
-  <font size="4"><strong>DATA KEPEGAWAIAN</strong></font><br />
+  <font size="4"><strong>EMPLOYEMENT DATA</strong></font><br />
  </center><br /><br />
 <br />
-<strong>Bagian : <? if ($bagian == "-1") echo "Semua Bagian"; else echo $bagian;?></strong></font>
+<strong>Section : <? if ($bagian == "-1") echo "All Sections"; else echo $bagian;?></strong></font>
 <br /><br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
     <tr height="30">
-    	<td width="4%" class="header" align="center">No</td>
-        <td width="10%" class="header" align="center">NIP</td>
-        <td width="30%" class="header" align="center">Nama</td>
-		<td width="*" class="header" align="center">Tempat Tanggal Lahir</td>
+    	<td width="4%" class="header" align="center">#</td>
+        <td width="10%" class="header" align="center">Employee ID</td>
+        <td width="30%" class="header" align="center">Name</td>
+		<td width="*" class="header" align="center">Birth Place</td>
         <td width="10%" class="header" align="center">PIN</td>
         <td width="10%" class="header" align="center">Status</td>
    	</tr>
@@ -98,9 +98,9 @@ $total = $_REQUEST['total'];
         <td align="center">
         
 <?		if ($row_pegawai['aktif'] == 1) { 
-			echo "Aktif";
+			echo "Active";
 			} else { 	
-			echo "Tidak Aktif";
+			echo "Inactive";
 		}
 		?>       </td>
         </tr>
@@ -111,7 +111,7 @@ $total = $_REQUEST['total'];
 	</td>
 </tr>
 <!--<tr>
-   	<td align="right">Halaman <strong><?=$page+1?></strong> dari <strong><?=$total?></strong> halaman</td>
+   	<td align="right">Page <strong><?=$page+1?></strong> from <strong><?=$total?></strong> halaman</td>
 </tr>-->
 <!-- END TABLE CENTER -->    
 </table>

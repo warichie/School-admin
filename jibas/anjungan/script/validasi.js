@@ -23,7 +23,7 @@ function validateEmptyText(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (val.length == 0) {
-		alert("Anda harus mengisikan nilai untuk " + elementName);
+		alert("You must enter a value for " + elementName);
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -35,7 +35,7 @@ function validateEmptyTextMCE(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (val.length == 0) {
-		alert("Anda harus mengisikan teks untuk " + elementName);
+		alert("You must enter a text for " + elementName);
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -47,7 +47,7 @@ function validateMaxText(elementId, maxLen, elementName) {
 	val = vdtrim(val);
 	
 	if (val.length > maxLen) {
-		alert("Panjang untuk " + elementName + " tidak boleh melebihi " + maxLen + " karakter");
+		alert("Max character for " + elementName + " should not exceed " + maxLen + " characters");
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -105,7 +105,7 @@ function validateInteger(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (!vdIsInteger(val)) {
-		alert(elementName + " harus berupa bilangan integer");
+		alert(elementName + " should be an integer");
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -117,7 +117,7 @@ function validateDecimal(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (!vdIsFloat(val)) {
-		alert(elementName + " harus berupa bilangan riil");
+		alert(elementName + " should be numeric");
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -145,7 +145,7 @@ function validateChoice(elementId, elementName, choiceArr) {
 			if (choicestr.length > 0) choicestr = choicestr + ", ";
 			choicestr = choicestr + "" + choiceArr[i];
 		}
-		alert("Nilai " + elementName + " harus salah satu dari pilihan ( " + choicestr + " )!" );
+		alert("The value for " + elementName + " should have at least ( " + choicestr + " )");
 		document.getElementById(elementId).focus();
 		return false;
 	} else {
@@ -171,7 +171,7 @@ function validateRange(elementId, elementName, minRange, maxRange) {
 	if ((input >= minRange) && (input <= maxRange)) {
 		return true;
 	} else {
-		alert('Rentang nilai untuk ' + elementName + ' haruslah berada di antara ' + minRange + ' s/d ' + maxRange);
+		alert('The value range for ' + elementName + ' must be between ' + minRange + ' to ' + maxRange);
 		document.getElementById(elementId).focus();		
 		return false;
 	}
@@ -181,7 +181,7 @@ function validateLength(elementId, elementName, len) {
 	var input = document.getElementById(elementId).value;
 	
 	if (input.length != len) {
-		alert('Panjang ' + elementName + ' haruslah ' + len + ' digit!');
+		alert('Maximum for ' + elementName + ' should be ' + len + ' digit');
 		document.getElementById(elementId).focus();		
 		return false;
 	} else {
@@ -194,7 +194,7 @@ function validateNumber(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (!vdIsNumber(val)) {
-		alert(elementName + " harus berupa bilangan");
+		alert(elementName + " should be numeric");
 		document.getElementById(elementId).focus();
 		return false;
 	}
@@ -206,7 +206,7 @@ function validateEmptyTextMCE(elementId, elementName) {
 	val = vdtrim(val);
 	
 	if (val.length == 0) {
-		alert("Anda harus mengisikan teks untuk " + elementName);
+		alert("You must enter a text for " + elementName);
 		document.getElementById(elementId).focus();
 		return false;
 	}

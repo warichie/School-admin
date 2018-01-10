@@ -89,12 +89,12 @@ function validate(){
 	var judul=document.getElementById('judul').value;
 	var pesan=tinyMCE.get('pesan').getContent();
 	if (judul.length==0){
-		alert ('Anda harus mengisikan data untuk Judul Pesan');
+		alert ('Message Title should not leave empty');
 		document.getElementById('judul').focus();
 		return false;
 	}
 	if (pesan.length==0){
-		alert ('Anda harus mengisikan data untuk Pesan');
+		alert ('Message should not leave empty');
 		document.getElementById('pesan').focus();
 		return false;
 	}
@@ -115,25 +115,25 @@ function hapusfile(field){
 <input type="hidden" name="idguru" id="idguru" value="<?=$idguru?>" />
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td scope="row" align="left"><strong><font size="2" color="#999999">Balas Pesan :</font></strong><br /><br /></td>
+    <td scope="row" align="left"><strong><font size="2" color="#999999">Reply Message :</font></strong><br /><br /></td>
   </tr>
   <tr>
     <td scope="row" align="left">
     <table width="100%" border="0" cellspacing="2" cellpadding="2"  >
-  <tr >
-    <th width="134" scope="row"><div align="left">Kepada</div></th>
+  <tr>
+    <th width="134" scope="row"><div align="left">To</div></th>
     <td colspan="2"><input type="text" maxlength="254" name="receiver2" id="receiver2" size="50" value="[<?=$receiver?>] <?=$nama?>" disabled="disabled"/></td>
   </tr>
-  <tr >
-    <th width="134" scope="row"><div align="left">Judul</div></th>
+  <tr>
+    <th width="134" scope="row"><div align="left">Title</div></th>
     <td colspan="2"><input type="text" maxlength="254" name="judul" id="judul" size="50" value="Balasan : <?=$judul?>" /></td>
   </tr>
   <tr>
-    <th colspan="3" valign="top" align="left" scope="row"  ><div align="left"><fieldset><legend>Pesan</legend>
+    <th colspan="3" valign="top" align="left" scope="row"  ><div align="left"><fieldset><legend>Message</legend>
           <textarea name="pesan" rows="20" id="pesan" style="width:100%">
           <br /><br /><br />
           <div style='padding-left:10px'>
-		  <i style='color:#006633; font-size:10px' >--- Pesan asli dari <?=$nama?> (<?=$tgl?> <?=$waktu?>) --- </i><br />
+		  <i style='color:#006633; font-size:10px' >--- Original message from <?=$nama?> (<?=$tgl?> <?=$waktu?>) --- </i><br />
 		  <?=$pesan?>
 		  </div>
           </textarea>
@@ -141,7 +141,7 @@ function hapusfile(field){
     </tr>
   <tr>
     <th colspan="3" scope="row">
-	<button name="kirim" value="Kirim" type="submit" class="but style1" id="kirim" style="width:100px;" />Kirim
+	<button name="kirim" value="Send" type="submit" class="but style1" id="kirim" style="width:100px;" />Send
               </button>	
 	</th>
     </tr>

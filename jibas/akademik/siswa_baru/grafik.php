@@ -46,7 +46,7 @@ $iddasar=$_REQUEST['iddasar'];
 <table width="100%" border="0" cellpadding="2" cellspacing="2">
 <tr>
     <td align="center">
-    <a href="#" onclick="newWindow('calon_statistik_cetak.php?dasar=<?=$dasar?>&departemen=<?=$departemen?>&idproses=<?=$idproses?>&tabel=<?=$tabel?>&iddasar=<?=$iddasar?>&lup=no','Cetak',787,551,'resizable=1,scrollbars=1,status=0,toolbar=0');"><img src="../images/ico/print.png" border="0"/>&nbsp;Cetak</a>
+    <a href="#" onclick="newWindow('calon_statistik_cetak.php?dasar=<?=$dasar?>&departemen=<?=$departemen?>&idproses=<?=$idproses?>&tabel=<?=$tabel?>&iddasar=<?=$iddasar?>&lup=no','Print',787,551,'resizable=1,scrollbars=1,status=0,toolbar=0');"><img src="../images/ico/print.png" border="0"/>&nbsp;Print</a>
     </td>
 </tr>
 <tr>

@@ -45,7 +45,7 @@ $departemen =  $row[0];
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Penerimaan Pembayaran Sukarela]</title>
+<title>JIBAS FINANCE [Penerimaan Payment Sukarela]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -60,13 +60,13 @@ $departemen =  $row[0];
 <center><font size="4"><strong>PENERIMAAN PEMBAYARAN SUKARELA</strong></font><br /> </center><br /><br />
 <table border="0">
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
     <td><strong>: 
 <?=$departemen; ?>
     </strong></td>
 </tr>
 <tr>
-	<td><strong>Tahun Buku</strong></td>
+	<td><strong>Fiscal Year</strong></td>
     <td><strong>:
 <?	$sql = "SELECT tahunbuku FROM tahunbuku WHERE replid='$idtahunbuku'"; 	
 	$result = QueryDb($sql);    
@@ -76,7 +76,7 @@ $departemen =  $row[0];
 </tr>
 
 <tr>
-	<td><strong>Kategori</strong></td>
+	<td><strong>Category</strong></td>
     <td><strong>:
 <?	$sql = "SELECT kategori FROM kategoripenerimaan WHERE kode='$idkategori' ORDER BY urutan";	
 	$result = QueryDb($sql);    
@@ -85,7 +85,7 @@ $departemen =  $row[0];
     </strong></td>
 </tr>
 <tr>
-	<td><strong>Jenis Penerimaan</strong></td>
+	<td><strong>Acquisition Type</strong></td>
     <td><strong>:
 <?	$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'"; 			
 	$result = QueryDb($sql);    
@@ -130,37 +130,37 @@ $namapenerimaan = $row[0];
 <legend></legend>
 <table border="0" width="100%" cellpadding="2" cellspacing="2">
 <tr height="25">
-    <td colspan="4" class="header" align="center">Data Siswa</td>
+    <td colspan="4" class="header" align="center">Student Data</td>
 </tr>
 <tr valign="top">                    
-    <td width="5%"><strong>N I S</strong></td>
+    <td width="5%"><strong>Student ID</strong></td>
     <td><strong>:</strong></td>
     <td><strong><?=$nis ?></strong> </td><td rowspan="5" width="25%">
     <img src='<?="library/gambar.php?replid=".$replid."&table=jbsakad.siswa";?>' width='100' height='100'></td>
 </tr>
 <tr>
-    <td valign="top"><strong>Nama</strong></td>
+    <td valign="top"><strong>Name</strong></td>
     <td valign="top"><strong>:</strong></td> 
     <td><strong><?=$nama ?></strong></td>
 </tr>
 <tr>
-    <td><strong>Kelas</strong></td>
+    <td><strong>Class</strong></td>
      <td><strong>:</strong></td>
     <td><strong><?=$namatingkat.' - '.$namakelas ?></strong></td>
 </tr>
 <tr>
-    <td><strong>HP</strong></td>
+    <td><strong>Mobile</strong></td>
      <td><strong>:</strong></td>
     <td><strong><?=$hp ?></strong></td>
 </tr>
 <tr>
-    <td><strong>Telepon</strong></td>
+    <td><strong>Phone</strong></td>
      <td><strong>:</strong></td>
     <td><strong><?=$telpon ?></strong></td>
 </tr>
 
 <tr>
-    <td valign="top"><strong>Alamat</strong></td>
+    <td valign="top"><strong>Address</strong></td>
     <td valign="top"><strong>:</strong></td>
     <td colspan="2" rowspan="2" valign="top"><strong>
       <?=$alamattinggal ?>
@@ -188,11 +188,11 @@ $result = QueryDb($sql);
   
 <table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="center" bordercolor="#000000">
 <tr height="30" align="center">
-    <td class="header" width="5%">No</td>
-    <td class="header" width="20%">No. Jurnal/Tgl</td>
-    <td class="header" width="18%">Jumlah</td>
-    <td class="header" width="*">Keterangan</td>
-    <td class="header" width="15%">Petugas</td>
+    <td class="header" width="5%">#</td>
+    <td class="header" width="20%">Journal/Date</td>
+    <td class="header" width="18%">Sum</td>
+    <td class="header" width="*">Info</td>
+    <td class="header" width="15%">Officer</td>
 </tr>
 <? 
 
@@ -212,7 +212,7 @@ while ($row = mysql_fetch_array($result)) {
 }
 ?>
 <tr height="35">
-    <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+    <td bgcolor="#996600" colspan="2" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
     <td bgcolor="#996600" align="right"><font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font></td>
     <td bgcolor="#996600" colspan="3">&nbsp;</td>
 </tr>

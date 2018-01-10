@@ -43,7 +43,7 @@ CloseDb();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<title>JIBAS [Cetak Data Pegawai]</title>
+<title>JIBAS [Print Employee Data]</title>
 </head>
 <body>
 <table border="0" cellpadding="10" cellspacing="5" width="780" align="left">
@@ -53,13 +53,13 @@ CloseDb();
 <? getHeader($departemen) ?>
 
 <center>
-  <font size="4" class="nav_title"><strong>DATA PEGAWAI</strong></font><br />
+  <font size="4" class="nav_title"><strong>EMPLOYEE DATA</strong></font><br />
  </center><br /><br />
     <table width="100%">
     <tr>    	
     	<td align="center" width="150" valign="top">
         <img src="gambar.php?nip=<?=$row['nip']?>" width="120" height="120" /> 
-        <div align="center"><br /><br /><br />Tanda Tangan<br /><br /><br /><br /><br />
+        <div align="center"><br /><br /><br />Signature<br /><br /><br /><br /><br />
         <strong>(<?=$row['nama']?>)</strong></div>
         </td>
         <td>
@@ -69,73 +69,73 @@ CloseDb();
         <table border="0" cellpadding="0" style="border-collapse:collapse" cellspacing="0" width="100%">
           <tr class="header" height="30">
             <td align="center"><strong>A. </strong></td>
-            <td colspan="4"><strong>KETERANGAN PRIBADI</strong></td>
+            <td colspan="4"><strong>PERSONAL INFO</strong></td>
           </tr>
           <tr height="20">
             <td rowspan="10"></td>
             <td width="4%">1.</td>
-            <td colspan="2">Nama Pegawai </td>           
+            <td colspan="2">Name Pegawai </td>           
             <td width="5%" rowspan="10">&nbsp;</td>
           </tr>
           <tr height="20">
             <td>&nbsp;</td>
-            <td width="21%">a. Lengkap</td>
+            <td width="21%">a. Full Name</td>
             <td width="67%">:
               <?=$row['nama']?> <? if ($row['gelar']!="") echo ", ".$row[gelar]; ?></td>
           </tr>
           <tr height="20">
             <td>&nbsp;</td>
-            <td>b. Panggilan</td>
+            <td>b. Nickname</td>
             <td>:
               <?=$row['panggilan']?></td>
           </tr>
           <tr height="20">
-            <td >2.</td>
-            <td>Jenis Kelamin</td>
-            <td >:
+            <td>2.</td>
+            <td>Gender</td>
+            <td>:
               <? 	if ($row['kelamin']=="l")
-				echo "Laki-laki"; 
+				echo "Male"; 
 			if ($row['kelamin']=="p")
-				echo "Perempuan"; 
+				echo "Female"; 
 		?></td>
           </tr>
           <tr height="20">
             <td>3.</td>
-            <td>Tempat Lahir</td>
+            <td>Birth Place</td>
             <td>:
               <?=$row['tmplahir']?></td>
           </tr>
           <tr height="20">
             <td>4.</td>
-            <td>Tanggal Lahir</td>
+            <td>Date of Birth</td>
             <td>:
               <?=LongDateFormat($row['tgllahir']) ?></td>
           </tr>
           <tr height="20">
             <td>5.</td>
-            <td>Menikah</td>
+            <td>Marital Status</td>
             <td>:
       <? 	if ($row['nikah']=="menikah")
-				echo "Sudah Menikah"; 
+				echo "Married"; 
 			if ($row['nikah']=="belum")
-				echo "Belum Menikah"; 
+				echo "Not Married"; 
 		?></td>
           </tr>
           <tr height="20">
             <td>6.</td>
-            <td >Agama</td>
+            <td>Religion</td>
             <td>:
               <?=$row['agama']?></td>
           </tr>
           <tr height="20">
             <td>7.</td>
-            <td >Suku</td>
+            <td>Ethnicity</td>
             <td>:
               <?=$row['suku']?></td>
           </tr>
           <tr height="20">
             <td>8.</td>
-            <td >No. Identitas</td>
+            <td>Employee ID</td>
             <td>:
               <?=$row['noid']?></td>
           </tr>
@@ -146,24 +146,24 @@ CloseDb();
           </tr>
           <tr class="header" height="30">
             <td width="3%" align="center"><strong>B. </strong></td>
-            <td colspan="5"><strong>KETERANGAN TEMPAT TINGGAL</strong></td>
+            <td colspan="5"><strong>RESIDENCY INFO</strong></td>
           </tr>
           <tr height="20">
             <td rowspan="5"></td>
             <td>9.</td>
-            <td>Alamat</td>
+            <td>Address</td>
             <td colspan="2">:
               <?=$row['alamatsiswa']?></td>
           </tr>
           <tr height="20">
             <td>10.</td>
-            <td>Telepon</td>
+            <td>Phone</td>
             <td colspan="2">:
               <?=$row['telponsiswa']?></td>
           </tr>
           <tr height="20">
             <td>11.</td>
-            <td>Handphone</td>
+            <td>Mobile</td>
             <td colspan="2">:
               <?=$row['hpsiswa']?></td>
           </tr>
@@ -180,11 +180,11 @@ CloseDb();
           
           <tr height="30" class="header">
             <td align="center"><strong>C.</strong></td>
-            <td colspan="5"><strong>KETERANGAN LAINNYA</strong></td>
+            <td colspan="5"><strong>OTHERS</strong></td>
           </tr>
           <tr height="20">
             <td>13.</td>
-            <td >Keterangan</td>
+            <td>Info</td>
             <td colspan="2">: <?=$row['keterangan']?></td>
           </tr>        
         </table></td>

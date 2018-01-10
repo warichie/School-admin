@@ -33,21 +33,21 @@ OpenDb();
 <form name="frmCari">
 <table width="100%" border="0" cellspacing="3" cellpadding="1">
   <tr>
-    <td width="5%" class="tab2">No.&nbsp;Pendaftaran</td>
+    <td width="5%" class="tab2">Registation Number</td>
     <td width="95%">
     <div id="nisInfo">
     <input name="nopendaftaran" type="text" class="inputtxt" id="nopendaftaran"/>	
     </div>    </td>
   </tr>
   <tr>
-    <td class="tab2">Nama</td>
+    <td class="tab2">Name</td>
     <td>
     <div id="namaInfo">
     <input name="nama" type="text" class="inputtxt" id="nama"/>
     </div>    </td>
   </tr>
   <tr>
-    <td colspan="2" align="center" class="tab2"><input class="cmbfrm2" type="button" name="cari" id="cari" value="Cari Calon" onclick="CariCalon()" /></td>
+    <td colspan="2" align="center" class="tab2"><input class="cmbfrm2" type="button" name="cari" id="cari" value="Search Candidate" onclick="CariCalon()" /></td>
   </tr>
   
   <tr>

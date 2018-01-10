@@ -62,7 +62,7 @@ OpenDb();
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Statistik Harian Kehadiran Setiap Kelas</title>
+<title>Daily Presence Statistic for each Classes</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -95,23 +95,23 @@ function tampil() {
 	var tahunajaran = document.getElementById('tahunajaran').value;
 	
 	if (tahunajaran.length == 0) {
-		alert ('Pastikan tahunajaran sudah ada!');
+		alert ('Make sure that Year of Teaching is existed');
 		return false;
 	} else if (semester.length == 0) {
-		alert ('Pastikan semester sudah ada!');
+		alert ('Make sure that Semester is existed');
 		return false;
 	} else if (tingkat.length == 0) {
-		alert ('Pastikan tingkat sudah ada!');
+		alert ('Make sure that Grade is existed');
 		return false;
 	}
 		
 	if (th1 > th2) {
-		alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+		alert ('End Year should not less than Start Year');
 		return false;
 	} 
 	
 	if (th2 == th1 && bln2 < bln1 ) {
-		alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+		alert ('End Month should not less than Start Month');
 		return false; 
 	}	
 	
@@ -184,12 +184,12 @@ function change_tgl1() {
 	
 	
 	if (th > th1) {
-		alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+		alert ('End Year should not less than Start Year');
 		return false;
 	} 
 	
 	if (th == th1 && bln > bln1 ) {
-		alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+		alert ('End Month should not less than Start Month');
 		return false; 
 	}	
 }
@@ -202,12 +202,12 @@ function change_tgl2() {
 	var bln = parseInt(document.getElementById('bln2').value);
 		
 	if (th1 > th) {
-		alert ('Pastikan batas tahun akhir tidak kurang dari batas tahun awal');
+		alert ('End Year should not less than Start Year');
 		return false;
 	} 
 	
 	if (th1 == th && bln1 > bln ) {
-		alert ('Pastikan batas bulan akhir tidak kurang dari batas bulan awal');
+		alert ('End Month should not less than Start Month');
 		return false; 
 	}	
 		
@@ -236,7 +236,7 @@ function focusNext(elemName, evt) {
 	<td rowspan="3" width="55%">
 	<table width = "100%" border = "0">
     <tr>
-    	<td width="20%"><strong>Departemen </strong></td>
+    	<td width="20%"><strong>Department </strong></td>
     	<td> 
     	<select name="departemen" id="departemen" onChange="change_dep()" style="width:125px" onKeyPress="focusNext('tahunajaran',event)">
 		<?	$dep = getDepartemen(SI_USER_ACCESS());    
@@ -247,7 +247,7 @@ function focusNext(elemName, evt) {
 	<?	} ?>
 		</select></td>
         
-        <td width="25%"><strong>Tahun Ajaran </strong></td>
+        <td width="25%"><strong>Year </strong></td>
       	<td>
         	<select name="tahunajaran" id="tahunajaran" onchange="change_ajaran()" style="width:160px" onKeyPress="focusNext('tingkat',event)">
    		 	<?
@@ -260,7 +260,7 @@ function focusNext(elemName, evt) {
 				$tahunajaran = $row['replid'];			
 			$ada = "";
 			if ($row['aktif'])
-				$ada = "(Aktif)";					
+				$ada = "(Active)";					
 			?>
             
     		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tahunajaran)?> ><?=$row['tahunajaran'].' '.$ada?></option>
@@ -272,7 +272,7 @@ function focusNext(elemName, evt) {
        
     </tr>
 	<tr>
-   		<td><strong>Tingkat </strong></td>
+   		<td><strong>Grade </strong></td>
     	<td>
 		<select name="tingkat" id="tingkat" onchange="change()" style="width:125px" onKeyPress="focusNext('semester',event)">
         <?	OpenDb();
@@ -303,7 +303,7 @@ function focusNext(elemName, evt) {
 				$semester = $row['replid'];
 			$ada = "";
 			if ($row['aktif'])
-				$ada = "(Aktif)";
+				$ada = "(Active)";
 			?>
             
     		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $semester)?> ><?=$row['semester'].' '.$ada?></option>
@@ -314,7 +314,7 @@ function focusNext(elemName, evt) {
     		</select>		</td>
           </tr>
     <tr>   	
-       	<td><strong>Bulan </strong></td>
+       	<td><strong>Month </strong></td>
         <td colspan="3">
         <? if ($tahunajaran <> "") { 
 			OpenDb();
@@ -337,7 +337,7 @@ function focusNext(elemName, evt) {
           	<option value="<?=$i?>" <?=IntIsSelected($th1, $i)?>><?=$i?></option>	   
        	<?	} ?>	
         	</select> 
-            s/d 
+            to 
         	<select name="bln2" id ="bln2" onchange="change_tgl2()" onfocus = "panggil()" onKeyPress="focusNext('th2',event)">
         <? 	for ($i=1;$i<=12;$i++) { ?>
         	<option value="<?=$i?>" <?=IntIsSelected($bln2, $i)?>><?=$bulan[$i]?></option>	
@@ -351,11 +351,11 @@ function focusNext(elemName, evt) {
         	</select>        </td> 
        	</tr>   
 	</table>
-	<td rowspan="3" align="left" valign="middle"><a href="#" onclick="tampil()" ><img src="../images/view.png" onmouseover="showhint('Klik untuk menampilkan statistik kehadiran harian setiap kelas!', this, event, '160px')" height="48" width="48" border="0" name="tabel" id="tabel2"/></a></td>
-    <td width="*" rowspan="3" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Statistik Kehadiran Harian Setiap Kelas</font><br />
+	<td rowspan="3" align="left" valign="middle"><a href="#" onclick="tampil()" ><img src="../images/view.png" onmouseover="showhint('Click to show daily presence statistic for each classes', this, event, '160px')" height="48" width="48" border="0" name="tabel" id="tabel2"/></a></td>
+    <td width="*" rowspan="3" align="right" valign="top"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Daily Presence Statistic for each Classes</font><br />
     <a href="../presensi.php?page=ph" target="content">
-      <font size="1" color="#000000"><b>Presensi</b></font></a>&nbsp>&nbsp
-      <font size="1" color="#000000"><b>Statistik Kehadiran Harian Setiap Kelas</b></font></td>     
+      <font size="1" color="#000000"><b>Presence</b></font></a>&nbsp;>&nbsp;
+      <font size="1" color="#000000"><b>Daily Presence Statistic for each Classes</b></font></td>     
    
     </td>
 </tr>

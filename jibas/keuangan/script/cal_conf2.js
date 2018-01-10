@@ -12,6 +12,6 @@ setFormat("dd-mm-yyyy");
 setSize(200, 200, -200, 16);
 
 // setWeekDay(0);
-setMonthNames("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
+setMonthNames("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 // setDayNames("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-setLinkNames("[Tutup]", "[Clear]");
+setLinkNames("[Close]", "[Clear]");

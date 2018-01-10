@@ -94,7 +94,7 @@ function tambah() {
 }
 
 function del(agama) {
-	if (confirm("Apakah anda yakin akan menghapus agama "+agama+"?"))
+	if (confirm("Are you sure want to delete Religion "+agama+"?"))
 		document.location.href = "agama.php?op=del&nama_agama="+agama+"&page=<?=$page?>&hal=<?=$hal?>&varbaris=<?=$varbaris?>";
 }
 
@@ -136,7 +136,7 @@ function ByeWin() {
 windowIMA=opener.ref_del_agama();
 }
 </script>
-<title>JIBAS SIMAKA [Daftar Agama]</title>
+<title>JIBAS SIMAKA [Religion List]</title>
 </head>
 
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#dcdfc4" onUnload="ByeWin()">
@@ -145,7 +145,7 @@ windowIMA=opener.ref_del_agama();
 	<td width="28" background="../<?=GetThemeDir() ?>bgpop_01.jpg">&nbsp;</td>
     <td width="*" background="../<?=GetThemeDir() ?>bgpop_02a.jpg">
 	<div align="center" style="color:#FFFFFF; font-size:16px; font-weight:bold">
-    .: Agama :.
+    .: Religion :.
     </div>
 	</td>
     <td width="28" background="../<?=GetThemeDir() ?>bgpop_03.jpg">&nbsp;</td>
@@ -175,8 +175,8 @@ windowIMA=opener.ref_del_agama();
     <!-- TABLE LINK -->
     <tr>
         <td align="right">
-        	<a href="#" onClick="refresh();"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')">&nbsp;Refresh</a>&nbsp;&nbsp;
-            <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Agama!', this, event, '50px')">&nbsp;Tambah Agama</a></td>
+        	<a href="#" onClick="refresh();"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')">&nbsp;Refresh</a>&nbsp;&nbsp;
+            <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add Religion', this, event, '50px')">&nbsp;Add Religion</a></td>
     </tr>
 	</table>
 	</td>
@@ -186,8 +186,8 @@ windowIMA=opener.ref_del_agama();
     <br />
 	<table class="tab" id="table" border="1" style="border-collapse:collapse" width="100%" align="left" bordercolor="#000000">
 	<tr class="header" height="30" align="center">
-        <td width="10%">No</td>
-        <td width="*">Agama</td>
+        <td width="10%">#</td>
+        <td width="*">Religion</td>
         <td width="15%">&nbsp;</td>
 	</tr>
     <?
@@ -206,7 +206,7 @@ windowIMA=opener.ref_del_agama();
         <td><?=$row['agama']?></td>
         <td align="center">
         <a href="#" onClick="newWindow('agama_edit.php?replid=<?=$replid?>',
-        'UbahAgama','400','240','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Agama!', this, event, '50px')"></a>&nbsp;<a href="#" onclick="del('<?=$row['agama']?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus Agama!', this, event, '50px')"></a>        </td>
+        'UbahAgama','400','240','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Edit Religion', this, event, '50px')"></a>&nbsp;<a href="#" onclick="del('<?=$row['agama']?>')"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Delete Religion', this, event, '50px')"></a>        </td>
 	</tr> 
      
     <?
@@ -241,20 +241,20 @@ windowIMA=opener.ref_del_agama();
     <td>
     <table border="0"width="100%" align="center"cellpadding="0" cellspacing="0">	
     <tr>
-       	<td width="35%" align="left">Hal
+       	<td width="35%" align="left">Page
         <select name="hal" id="hal" onChange="change_hal()">
         <?	for ($m=0; $m<$total; $m++) {?>
              <option value="<?=$m ?>" <?=IntIsSelected($hal,$m) ?>><?=$m+1 ?></option>
         <? } ?>
      	</select>
-	  	dari <?=$total?> hal
+	  	from <?=$total?> pages
 		
 		<? 
-     // Navigasi halaman berikutnya dan sebelumnya
+     // Navigasi halaman berikutnya and sebelumnya
         ?>
         </td>
     	<!--td align="center">
-    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Sebelumnya', this, event, '75px')">
+    <input <?=$disback?> type="button" class="but" name="back" value=" << " onClick="change_page('<?=(int)$page-1?>')" onMouseOver="showhint('Previous', this, event, '75px')">
 		<?
 		/*for($a=0;$a<$total;$a++){
 			if ($page==$a){
@@ -265,9 +265,9 @@ windowIMA=opener.ref_del_agama();
 				 
 	    }*/
 		?>
-	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Berikutnya', this, event, '75px')">
+	     <input <?=$disnext?> type="button" class="but" name="next" value=" >> " onClick="change_page('<?=(int)$page+1?>')" onMouseOver="showhint('Next', this, event, '75px')">
  		</td-->
-        <td width="35%" align="right">Jml baris per hal
+        <td width="35%" align="right">Row per page
       	<select name="varbaris" id="varbaris" onChange="change_baris()">
         <? 	for ($m=5; $m <= $akhir; $m=$m+5) { ?>
         	<option value="<?=$m ?>" <?=IntIsSelected($varbaris,$m) ?>><?=$m ?></option>
@@ -286,9 +286,9 @@ windowIMA=opener.ref_del_agama();
    	</tr>
 	<tr>
 		<td align="center" valign="middle" height="200">
-    	<font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+    	<font size = "2" color ="red"><b>Data Not Found. 
         <? if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? } ?>
         </b></font>
         </td>
@@ -299,9 +299,9 @@ windowIMA=opener.ref_del_agama();
 </tr>
 <tr height="35">
 	<td colspan="3" align="center">
-   	<!--<input class="but" type="button" value="Tutup" onClick="window.close();">-->
+   	<!--<input class="but" type="button" value="Close" onClick="window.close();">-->
        <input type="hidden" name="agama_kiriman" id="agama_kiriman" value="<?=$agama_kiriman?>" />
-       <input class="but" type="button" value="Tutup" onClick="tutup()">
+       <input class="but" type="button" value="Close" onClick="tutup()">
    	</td>
 </tr>  
 </table>

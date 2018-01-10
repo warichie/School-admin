@@ -123,15 +123,15 @@ function show_laporan() {
 	var tanggal2 = escape(thn2 + "-" + bln2 + "-" + tgl2);
 	
 	if (idtahunbuku.length == 0) {	
-		alert ('Tahun Buku tidak boleh kosong!');
+		alert ('Fiscal Year should not leave empty');
 		document.getElementById('departemen').focus();
 		return false;
 	} else if (tgl1.length == 0) {	
-		alert ('Tanggal awal tidak boleh kosong!');	
+		alert ('Start Date should not leave empty');	
 		document.main.tgl1.focus();
 		return false;	
 	} else if (tgl2.length == 0) {	
-		alert ('Tanggal akhir tidak boleh kosong!');	
+		alert ('End Date should not leave empty');	
 		document.main.tgl2.focus();
 		return false;	
 	}
@@ -244,7 +244,7 @@ function panggil(elem){
 <td rowspan="3" width="60%">
     <table border="0" width = "100%">
     <tr>
-        <td width="15%"><span class="news_content1">Departemen</span> </font></td>
+        <td width="15%"><span class="news_content1">Department</span> </font></td>
         <td colspan="4">
         <select name="departemen" class="cmbfrm" id="departemen" style="width:188px" onchange="change_dep()">
     	        <? 	$sql = "SELECT departemen FROM departemen WHERE aktif = 1 ORDER BY urutan";
@@ -258,7 +258,7 @@ function panggil(elem){
    	              <? } ?>
   	        </select>
         &nbsp;
-        <span class="news_content1">Tahun Buku </span>
+        <span class="news_content1">Fiscal Year </span>
         <select name="idtahunbuku" id="idtahunbuku" onchange="change_tahunbuku()" style="width:160px">        
         <? 	if ($departemen != "") 
 			{ 
@@ -296,11 +296,11 @@ function panggil(elem){
 					
 		$n1 = JmlHari($bln1, $thn1);
 		$n2 = JmlHari($bln2, $thn2);	?>      
-        <td class="news_content1">Tanggal </td>
+        <td class="news_content1">Date </td>
         <td width="10">
             <div id="InfoTgl1">    
             <select name="tgl1" class="cmbfrm" id = "tgl1" onchange="change_tgl1()">
-            <option value="">[Tgl]</option>        
+            <option value="">[Date]</option>        
             <? for($i = 1; $i <= $n1; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl1) ?> > <?=$i ?></option>
             <? } ?>
@@ -317,11 +317,11 @@ function panggil(elem){
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $thn1) ?> > <?=$i ?></option>
             <? } ?>
             </select> 
-            <span class="news_content1">s/d</span> </td>
+            <span class="news_content1">to</span> </td>
         <td width="10">
          	<div id="InfoTgl2">
             <select name="tgl2" class="cmbfrm" id="tgl2" onchange="change_tgl2()">
-            <option value="">[Tgl]</option>
+            <option value="">[Date]</option>
             <? for($i = 1; $i <= $n2; $i++) { ?>
                 <option value="<?=$i ?>" <?=IntIsSelected($i, $tgl2) ?> > <?=$i ?></option>
             <? } ?>
@@ -343,9 +343,9 @@ function panggil(elem){
 
 	</td>
  	<td rowspan="2" width="*" valign="middle">
-        <a href="#" onclick="show_laporan()"><img src="../img/view.png" name="tabel" width="48" height="48" border="0" id="tabel" onmouseover="showhint('Klik untuk menampilkan data laporan pengeluaran!', this, event, '200px')"/></a>    </td>
+        <a href="#" onclick="show_laporan()"><img src="../img/view.png" name="tabel" width="48" height="48" border="0" id="tabel" onmouseover="showhint('Click to show expenditure reports', this, event, '200px')"/></a>    </td>
 	<td width="40%" colspan="3" align="right" valign="top">
-	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Laporan Pengeluaran</font>	</td>
+	<font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font color="Gray" size="4" face="Verdana, Arial, Helvetica, sans-serif" class="news_title2">Expenditure Reports</font>	</td>
 </tr>
 <tr>	
     <td align="right" valign="top">
@@ -379,16 +379,16 @@ if (isset($_REQUEST[showpembayaran]))
             <!-- TABLE TITLE -->
             <tr>
                 <td align="right">
-                <!--<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;-->
-                <a href="JavaScript:cetaklist()"><img src="../img/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')"/>&nbsp;Cetak</a>&nbsp;                </td>
+                <!--<a href="#" onClick="document.location.reload()"><img src="images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;-->
+                <a href="JavaScript:cetaklist()"><img src="../img/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')"/>&nbsp;Print</a>&nbsp;                </td>
             </tr>
             </table>
             <br />
             <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000">
             <tr height="30" align="center">
-                <td width="10%" class="header">No</td>
-                <td width="50%" class="header">Pengeluaran</td>
-                <td width="*" class="header">Jumlah</td>
+                <td width="10%" class="header">#</td>
+                <td width="50%" class="header">Expenditure</td>
+                <td width="*" class="header">Sum</td>
                 <td width="*" class="header">&nbsp;</td>
             </tr>
             <?
@@ -409,7 +409,7 @@ if (isset($_REQUEST[showpembayaran]))
             CloseDb();
             ?>
             <tr height="30">
-                <td bgcolor="#999900" colspan="2" align="center"><font color="#FFFFFF"><strong>T O T A L</strong></font></td>
+                <td bgcolor="#999900" colspan="2" align="center"><font color="#FFFFFF"><strong>Total</strong></font></td>
                 <td bgcolor="#999900" align="right">
                     <font color="#FFFFFF"><strong><?=FormatRupiah($total) ?></strong></font>		</td>
                 <td bgcolor="#999900" align="right">&nbsp;</td>
@@ -425,7 +425,7 @@ if (isset($_REQUEST[showpembayaran]))
             <table width="100%" border="0" align="center">          
             <tr>
                 <td align="center" valign="middle" height="300">    
-                    <span class="err">Tidak ditemukan adanya data.</span>
+                    <span class="err">Data Not Found</span>
                                   </td>
             </tr>
             </table>  

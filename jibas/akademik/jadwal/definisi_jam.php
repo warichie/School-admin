@@ -50,7 +50,7 @@ OpenDb();
 ?>
 <html>
 <head>
-<title>Definisi Jam Belajar</title>
+<title>Session Definition</title>
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
@@ -81,8 +81,8 @@ function refresh(){
 
 function hapusjam(replid){
 	var departemen = document.getElementById('departemen').value;
-	if (confirm('Apakah Anda yakin akan menghapus jam ini?')){
-		if (confirm('Menghapus jam akan membuat urutan jam menjadi tidak beraturan..\nAnda yakin akan menghapus jam ini?')){
+	if (confirm('Are you sure want to delete this Time (hour)?')){
+		if (confirm('Deleting the Hour will break the Time Sort.\nAre you sure want to delete this Time (hour)?')){
 			document.location.href="definisi_jam.php?op=xm8r389xemx23xb2378e23&replid="+replid+"&departemen="+departemen;
 		}
 	}
@@ -102,11 +102,11 @@ function hapusjam(replid){
 	<table border="0"width="95%" align="center">
     <!-- TABLE TITLE -->
     <tr>
-        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Definisi Jam Belajar</font></td>
+        <td align="right"><font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Session Definition</font></td>
     </tr>
     <tr>
         <td align="right"><a href="../jadwal.php" target="content">
-          <font size="1" face="Verdana" color="#000000"><b>Jadwal</b></font></a>&nbsp>&nbsp <font size="1" face="Verdana" color="#000000"><b>Definisi Jam Belajar</b></font>
+          <font size="1" face="Verdana" color="#000000"><b>Schedule</b></font></a>&nbsp;>&nbsp; <font size="1" face="Verdana" color="#000000"><b>Session Definition</b></font>
         </td>
     </tr>
     <tr>
@@ -119,7 +119,7 @@ function hapusjam(replid){
     <!-- TABLE LINK -->
     <tr>
     	<td align="right" width="35%">
-		<strong>Departemen</strong>    
+		<strong>Department</strong>    
         <select name="departemen" id="departemen" onChange="change_departemen()" >
         <?	$dep = getDepartemen(SI_USER_ACCESS());    
             foreach($dep as $value) {
@@ -138,18 +138,18 @@ function hapusjam(replid){
             if (mysql_num_rows($result_jam) > 0){
         ?>
         <td align="right">
-		<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh!', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
-		<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Cetak!', this, event, '50px')" />&nbsp;Cetak</a>&nbsp;&nbsp;
+		<a href="#" onClick="document.location.reload()"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '50px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+		<a href="JavaScript:cetak()"><img src="../images/ico/print.png" border="0" onMouseOver="showhint('Print', this, event, '50px')" />&nbsp;Print</a>&nbsp;&nbsp;
         <?	//if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah!', this, event, '50px')"/>&nbsp;Tambah Jam Belajar</a>
+	    <a href="JavaScript:tambah()"><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Add', this, event, '50px')"/>&nbsp;Add Session</a>
 		<?	//} ?>    
 		</td></tr>	
 	</table><br>
     <table class="tab" id="table" border="1" style="border-collapse:collapse" width="95%" align="center" bordercolor="#000000" />
     <!-- TABLE CONTENT -->
     <tr height="30" class="header" align="center">	
-		<td width="20%">Jam ke</td>
-	  	<td width="*">Waktu</td>
+		<td width="20%">Hour</td>
+	  	<td width="*">Time</td>
 	  	<?	//if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
         <td width="*"></td>
         <? // }?>
@@ -183,9 +183,9 @@ function hapusjam(replid){
 		<td><?=$jammulai.":".$menitmulai ?> - <?=$jamakhir.":".$menitakhir ?></td>
         <?	//if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>
         <td align="center" > 
-			<a href="#" onClick="newWindow('ubah_jam.php?replid=<?=$row_jam[0] ?>','UbahJamBelajar','350','300','resizable=1,scrollbars=1,status=0,toolbar=0')" onMouseOver="showhint('Ubah Jam Belajar!', this, event, '75px')">        
+			<a href="#" onClick="newWindow('ubah_jam.php?replid=<?=$row_jam[0] ?>','UbahJamBelajar','350','300','resizable=1,scrollbars=1,status=0,toolbar=0')" onMouseOver="showhint('Edit Session', this, event, '75px')">        
 			<img src="../images/ico/ubah.png" border="0" ></a>&nbsp;
-			<a href="JavaScript:hapusjam(<?=$row_jam[0]?>)" onMouseOver="showhint('Hapus Jam Belajar!', this, event, '75px')">
+			<a href="JavaScript:hapusjam(<?=$row_jam[0]?>)" onMouseOver="showhint('Delete', this, event, '75px')">
 			<img src="../images/ico/hapus.png" border="0"></a>					
         
        	</td>
@@ -213,14 +213,14 @@ function hapusjam(replid){
 <tr>
 	<td align="center" valign="middle" height="200">
      <? if (isset($departemen)) {	?>	
-        <font size = "2" color ="red"><b>Tidak ditemukan adanya data. 
+        <font size = "2" color ="red"><b>Data Not Found. 
         <? //if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
-        <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
+        <br />Click <a href="JavaScript:tambah()" ><font size = "2" color ="green">here</font></a> to submit a new data. 
         <? //} ?>
         </b></font>
   	 <? } else { ?> 
-          <font size = "2" color ="red"><b>Belum ada data Departemen.
-          <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
+          <font size = "2" color ="red"><b>No Department yet.
+          <br />Please make a new one in Department menu on Reference section.
           </b></font>
 	<? } ?>
 	</td>

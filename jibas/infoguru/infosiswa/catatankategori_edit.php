@@ -39,7 +39,7 @@ if (isset($_REQUEST['Simpan'])) {
 	
 	if (mysql_num_rows($result) > 0) {
 		CloseDb();
-		$ERROR_MSG = "Kategori $_REQUEST[kategori] sudah digunakan!";
+		$ERROR_MSG = "Category $_REQUEST[kategori] has been used";
 	} else {
 		$sql = "UPDATE jbsvcr.catatankategori SET kategori='$_REQUEST[kategori]',keterangan='$_REQUEST[keterangan]' WHERE replid='$replid'";
 		echo $sql;
@@ -72,7 +72,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Ubah Kategori Catatan Siswa]</title>
+<title>JIBAS TEACHERS INFO [Edit Student Notes Category]</title>
 <script src="../script/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
@@ -83,9 +83,9 @@ CloseDb();
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript">
 function validate() {
-	return validateEmptyText('kategori', 'Nama Kategori') &&
-		   validateMaxText('kategori', 255, 'Kategori') && 
-		   validateMaxText('keterangan', 255, 'Keterangan');
+	return validateEmptyText('kategori', 'Category Name') &&
+		   validateMaxText('kategori', 255, 'Category') && 
+		   validateMaxText('keterangan', 255, 'Info');
 }
 function focusNext(elemName, evt) {
     evt = (evt) ? evt : event;
@@ -106,22 +106,22 @@ function focusNext(elemName, evt) {
 <table border="0" width="100%" cellpadding="0" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td class="header" colspan="2" align="center">Ubah Catatan Kategori</td>
+<td class="header" colspan="2" align="center">Edit Category Notes</td>
 </tr>
 <tr>
-	<td width="216"><strong>Kategori</strong></td>
+	<td width="216"><strong>Category</strong></td>
 	<td width="757">
    	  <input type="text" name="kategori" id="kategori" size="10" maxlength="50" value="<?=$kategori ?>"  onKeyPress="return focusNext('keterangan', event)"/>    </td>
 </tr>
 <tr>
-	<td valign="top">Keterangan</td>
+	<td valign="top">Info</td>
 	<td>
     	<textarea name="keterangan" id="keterangan" rows="3" cols="45" onKeyPress="return focusNext('Simpan', event)"><?=$keterangan ?></textarea>    </td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="submit" name="Simpan" id="Simpan" value="Simpan" class="but" />&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="submit" name="Simpan" id="Simpan" value="Save" class="but" />&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -133,7 +133,7 @@ function focusNext(elemName, evt) {
 </script>
 <? } ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 </body>
 </html>

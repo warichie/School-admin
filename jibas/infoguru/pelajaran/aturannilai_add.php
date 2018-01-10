@@ -64,7 +64,7 @@ if (isset($_REQUEST['Simpan']))
 	if (mysql_num_rows($result) > 0) 
 	{
 		CloseDb();		
-		$ERROR_MSG = "Aspek $aspek sudah digunakan!";
+		$ERROR_MSG = "Aspect $aspek has been used";
 	} 
 	else 
 	{
@@ -100,7 +100,7 @@ if (isset($_REQUEST['Simpan']))
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS INFOGURU [Tambah Aturan Penentuan Grading Nilai]</title>
+<title>JIBAS TEACHERS INFO [Add Grade Point Rules]</title>
 <script src="../script/SpryAssets/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
@@ -121,30 +121,30 @@ function validate() {
 		if (nmin.length > 0){
 			isi = 1;		
 			if (isNaN(nmin)){
-				alert("Nilai minimum harus berupa bilangan");
+				alert("Minimum Point should be numeric");
 				document.getElementById('nmin'+i).focus();				
 				return false;
 			} else {					
 				if (nmax.length > 0){
 					if (isNaN(nmax)){
-						alert("Nilai maksimum harus berupa bilangan");
+						alert("Maximum Point should be numeric");
 						document.getElementById('nmax'+i).focus();				
 						return false;
 					}
 					
 				} else {
-					alert ("Anda harus mengisikan data untuk nilai maksimum"); 
+					alert ("You must enter a data for Maximum Point"); 
 					document.getElementById('nmax'+i).focus();				
 					return false;
 				} 				
 				if (grade.length > 0){
 					if (!isNaN(grade)){
-						alert("Grade nilai harus berupa huruf");
+						alert("Grade Point must be letters");
 						document.getElementById('grade'+i).focus();				
 						return false;
 					} 				
 				} else {
-					alert ("Anda harus mengisikan data untuk grade nilai"); 
+					alert ("You must enter a data for Grade Point rules"); 
 					document.getElementById('grade'+i).focus();				
 					return false;
 				} 
@@ -153,13 +153,13 @@ function validate() {
 		
 		if (nmax.length > 0){			
 			if (nmin.length == 0){
-				alert ("Anda harus mengisikan data untuk nilai minimum"); 
+				alert ("You must enter a data for Minimum Point"); 
 				document.getElementById('nmin'+i).focus();				
 				return false;
 			} 				
 			
 			if (grade.length == 0){
-				alert ("Anda harus mengisikan data untuk grade nilai"); 
+				alert ("You must enter a data for Grade Point rules"); 
 				document.getElementById('grade'+i).focus();				
 				return false;				 
 			}
@@ -168,7 +168,7 @@ function validate() {
 			nmax = parseInt(nmax);
 			nmin = parseInt(nmin);
 			if (nmax<nmin){
-				alert ("Nilai minimum harus lebih kecil dari nilai maksimum"); 
+				alert ("Minimum Point must less than maximum point"); 
 				document.getElementById('nmax'+i).focus();				
 				return false;
 			} 
@@ -176,13 +176,13 @@ function validate() {
 		//alert(nmin+'_'+nmax);
 		if (grade.length > 0){		
 			if (nmin.length == 0){
-				alert ("Anda harus mengisikan data untuk nilai minimum"); 
+				alert ("You must enter a data for Minimum Point"); 
 				document.getElementById('nmin'+i).focus();				
 				return false;
 			} 				
 			
 			if (nmax.length == 0){
-				alert ("Anda harus mengisikan data untuk grade nilai"); 
+				alert ("You must enter a data for Grade Point rules"); 
 				document.getElementById('grade'+i).focus();				
 				return false;
 				 
@@ -191,7 +191,7 @@ function validate() {
 	}		
 	
 	if (isi == 0) {
-		alert ("Anda harus mengisi setidaknya satu data untuk aturan grading");
+		alert ("You have to add at least one data for Grade rules");
 		document.getElementById('nmin1').focus;
 		return false; 
 	}
@@ -218,34 +218,34 @@ function focusNext(elemName, evt) {
 <table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
 <!-- TABLE CONTENT -->
 <tr height="25">
-<td class="header" colspan="2" align="center">Tambah Aturan Penentuan Grading Nilai</td>
+<td class="header" colspan="2" align="center">Add Grade Point Rules</td>
 </tr>
 <tr>
-	<td width="120"><strong>Departemen</strong></td>
+	<td width="120"><strong>Department</strong></td>
 	<td><input type="text" size="10" maxlength="50" class="disabled" readonly value="<?=$departemen ?>" />
     	<input type="hidden" name="departemen" id="departemen" value="<?=$departemen ?>" />    
 	</td>
 </tr>
 <tr>
-	<td><strong>Tingkat</strong></td>
+	<td><strong>Grade</strong></td>
 	<td><input type="text" size="10" maxlength="50" class="disabled" readonly value="<?=$tingkat ?>" />
         <input type="hidden" name="idtingkat" id="idtingkat" value="<?=$idtingkat ?>" /> 
 	
 	</td>
 </tr>
 <tr>
-	<td><strong>Pelajaran</strong></td>
+	<td><strong>Class Subject</strong></td>
 	<td><input type="text" size="30" maxlength="50" class="disabled" readonly value="<?=$pelajaran ?>" /><input type="hidden" name="pelajaran" id="pelajaran" value="<?=$pelajaran ?>" /> 	
 	</td>
 </tr>
 <tr>
-    <td><strong>Guru</strong></td>
+    <td><strong>Teacher</strong></td>
     <td>
         <input type="text" name="guru" id="guru" size="30" class="disabled" readonly value="<?=$guru ?>" /> <input type="hidden" name="nip" id="nip" value="<?=$nip ?>" /> 
         </td>
 </tr>
 <tr>
-	<td><strong>Aspek</strong></td>
+	<td><strong>Aspect</strong></td>
 	<td>
     	<select name="aspek" id="aspek">
 <?			$sql = "SELECT dasarpenilaian, keterangan 
@@ -274,12 +274,12 @@ function focusNext(elemName, evt) {
 </tr>
 <tr>
 	<td colspan = "2">
-	<fieldset><legend><b>Aturan Grading</b></legend>
+	<fieldset><legend><b>Grade Rules</b></legend>
 	<br />
 	<table width="100%" id="table" class="tab" border="0">
 	<tr height="30">		
-		<td class="header" align="center" width="10%">No</td>
-		<td class="header" align="center" width="70%" colspan="3">Nilai Min &nbsp;&nbsp;&nbsp; Nilai Maks</td>
+		<td class="header" align="center" width="10%">#</td>
+		<td class="header" align="center" width="70%" colspan="3">Min Point &nbsp;&nbsp;&nbsp; Max Point</td>
      	<td class="header" align="center" width="20%">Grade</td>
 	</tr>
 		<?
@@ -298,8 +298,8 @@ function focusNext(elemName, evt) {
 		?>
 	</table> 
     <div align="center">
-	<font color="red"><p><b>Ket: Nilai desimal harus berupa titik,
-    		<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grade berupa nilai mutu</b></p>
+	<font color="red"><p><b>PS: Decimal after period sign,
+    		<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grade is a Quality Point</b></p>
     </font>
 	</div>
 	</fieldset>
@@ -311,8 +311,8 @@ function focusNext(elemName, evt) {
 </tr>
 <tr>
 	<td colspan="2" align="center">
-    <input type="button" name="Simpan" id="Simpan" value="Simpan" class="but" onClick="return validate();document.getElementById('main').submit();"/>&nbsp;
-    <input type="button" name="Tutup" id="Tutup" value="Tutup" class="but" onClick="window.close()" />    </td>
+    <input type="button" name="Simpan" id="Simpan" value="Save" class="but" onClick="return validate();document.getElementById('main').submit();"/>&nbsp;
+    <input type="button" name="Tutup" id="Tutup" value="Close" class="but" onClick="window.close()" />    </td>
 </tr>
 <!-- END OF TABLE CONTENT -->
 </table>
@@ -329,7 +329,7 @@ function focusNext(elemName, evt) {
 CloseDb();
 ?>
 
-<!-- Pilih inputan pertama -->
+<!-- Select inputan pertama -->
 
 </body>
 </html>

@@ -94,7 +94,7 @@ if (isset($_REQUEST['kelas']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Laporan Penilaian Pelajaran</title>
+<title>Class Index Report</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
@@ -155,7 +155,7 @@ function tampil(pelajaran,kelas,nis,departemen) {
 <table border="0" width="100%" align="center" >
 <!-- TABLE CENTER -->
 <tr>	
-	<td width="38%"><strong>Departemen </strong></td>
+	<td width="38%"><strong>Department </strong></td>
     <td width="*"> 
     	<select name="departemen" id="departemen" onChange="change_dep()" style="width:100%">
 		<? for ($i=0;$i<sizeof($dep);$i++) {	?>        	
@@ -166,7 +166,7 @@ function tampil(pelajaran,kelas,nis,departemen) {
 </tr>
 
 <tr>
-	<td><strong>Tahun Ajaran</strong></td>
+	<td><strong>Year</strong></td>
    	<td><select name="tahunajaran" id="tahunajaran" onchange="change_ta()" style="width:100%">
    		<? for($k=0;$k<sizeof($ajaran);$k++) {?>
 			<option value="<?=$ajaran[$k][0] ?>" <?=IntIsSelected($ajaran[$k][0], $tahunajaran) ?> > 
@@ -176,7 +176,7 @@ function tampil(pelajaran,kelas,nis,departemen) {
 	</td>
 </tr>
 <tr>
-	<td><strong>Kelas </strong></td>
+	<td><strong>Class </strong></td>
    	<td><select name="kelas" id="kelas" onchange="change_kls()" style="width:100%">
    		<? for ($j=0;$j<sizeof($kls);$j++) {
 				if ($kls[$j][3] == $tahunajaran) {
@@ -193,8 +193,8 @@ function tampil(pelajaran,kelas,nis,departemen) {
     <!-- TABLE CONTENT -->
     
     <tr height="30">    	
-    	<td width="52" class="header" align="center">No</td>
-        <td colspan="2" align="center" class="header">Pelajaran</td>
+    	<td width="52" class="header" align="center">#</td>
+        <td colspan="2" align="center" class="header">Class Subject</td>
     </tr>
     <? 	OpenDb();		
 		$sql = "SELECT DISTINCT p.replid, p.nama FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.replid = n.idujian AND n.nis = '$nis' ORDER BY p.nama";

@@ -28,35 +28,35 @@ class Pengumuman{
           <tr>
             <td>
             <fieldset style="border: 1px solid rgb(51, 102, 153); background-color: rgb(255, 255, 255);">
-            <legend style="background-color: rgb(51, 102, 153); color: rgb(255, 255, 255); font-size: 10px; font-weight: bold; padding: 5px;">&nbsp;Pesan&nbsp;</legend>
+            <legend style="background-color: rgb(51, 102, 153); color: rgb(255, 255, 255); font-size: 10px; font-weight: bold; padding: 5px;">&nbsp;Message&nbsp;</legend>
             	<table width="245" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td width="94%" class="td"><strong>Pengirim&nbsp;:&nbsp;</strong><br /><input type="text" name="Sender" id="Sender" class="InputTxt" style="width:97%" /><div id="ErrSender" class="ErrMsg"></div></td>
+                    <td width="94%" class="td"><strong>Sender&nbsp;:&nbsp;</strong><br /><input type="text" name="Sender" id="Sender" class="InputTxt" style="width:97%" /><div id="ErrSender" class="ErrMsg"></div></td>
                   </tr>
                   <tr>
                     <td class="td">
-                    <strong>Pesan&nbsp;:&nbsp;</strong><br />
+                    <strong>Message&nbsp;:&nbsp;</strong><br />
                     <textarea onkeyup="MaxChar(this.value,160,'CharLeft')" name="Message" rows="9" class="AreaTxt" id="Message"  style="width:99%"></textarea>
                     <div align="right">
-                    <input type="text" name="CharLeft" id="CharLeft" value="160" readonly="readonly" style="border:none; width:30px; text-align:right" size="3" /> character left
+                    <input type="text" name="CharLeft" id="CharLeft" value="160" readonly="readonly" style="border:none; width:30px; text-align:right" size="3" /> characters left
                     </div>
                     <div id="ErrMessage" class="ErrMsg"></div>			</td>
                   </tr>
                   <tr>
                     <td class="td">
-                    Ket&nbsp;:&nbsp;<br />
+                    Info&nbsp;:&nbsp;<br />
                     <table border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td><strong>[NOINDUK]</strong></td>
-                        <td>:&nbsp;No&nbsp;Induk&nbsp;Pegawai/Siswa</td>
+                        <td>:&nbsp;Employee/Student&nbsp;Registration&nbsp;Number</td>
                       </tr>
 					  <tr>
                         <td><strong>[PIN]</strong></td>
-                        <td>:&nbsp;PIN&nbsp;Siswa&nbsp;atau&nbsp;Ortu&nbsp;atau&nbsp;Pegawai</td>
+                        <td>:&nbsp;Student&nbsp;PIN&nbsp;or&nbsp;Parent&nbsp;or&nbsp;Employee</td>
                       </tr>
                       <tr>
                         <td><strong>[NAMA]</strong></td>
-                        <td>:&nbsp;Nama&nbsp;Pegawai/Siswa</td>
+                        <td>:&nbsp;Employee/Student&nbsp;Name</td>
                       </tr>
                     </table></td>
                   </tr>
@@ -66,7 +66,7 @@ class Pengumuman{
             <!--
             <div id="TabbedPanelsA" class="TabbedPanels">
               <ul class="TabbedPanelsTabGroup">
-                <li class="TabbedPanelsTab" tabindex="0"><strong>Pesan</strong></li>
+                <li class="TabbedPanelsTab" tabindex="0"><strong>Message</strong></li>
               </ul>
               <div class="TabbedPanelsContentGroup">
                 <div class="TabbedPanelsContent">
@@ -102,11 +102,11 @@ class Pengumuman{
 	$min = $row[1];
 	?>
     <fieldset style="border: 1px solid rgb(51, 102, 153); background-color: rgb(255, 255, 255);">
-            <legend style="background-color: rgb(51, 102, 153); color: rgb(255, 255, 255); font-size: 10px; font-weight: bold; padding: 5px;">&nbsp;Jadwal&nbsp;Pengiriman&nbsp;</legend>
+            <legend style="background-color: rgb(51, 102, 153); color: rgb(255, 255, 255); font-size: 10px; font-weight: bold; padding: 5px;">&nbsp;Delivery&nbsp;Schedule&nbsp;</legend>
     <!--
     <div id="TabbedPanelsB" class="TabbedPanels">
       <ul class="TabbedPanelsTabGroup">
-        <li class="TabbedPanelsTab" tabindex="0"><strong>Jadwal Pengiriman</strong></li>
+        <li class="TabbedPanelsTab" tabindex="0"><strong>Schedule Pengiriman</strong></li>
       </ul>
       <div class="TabbedPanelsContentGroup">
         <div class="TabbedPanelsContent">
@@ -116,7 +116,7 @@ class Pengumuman{
                 <td style="padding-right:2px">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
-                        <td>Tanggal</td>
+                        <td>Date</td>
                         <td>
                             <table border="0" cellspacing="1" cellpadding="1">
                               <tr>
@@ -156,7 +156,7 @@ class Pengumuman{
                                 </tr>
                             </table>
                         </td>
-                        <td>Waktu</td>
+                        <td>Time</td>
                         <td align="left">
                         <table border="0" cellspacing="1" cellpadding="1">
                           <tr>
@@ -173,7 +173,7 @@ class Pengumuman{
                 <td  align="center" height="30">
                 <table align="center" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td><div align="center" class="BtnSilver90" onclick="Send();">Kirim</div></td>
+                    <td><div align="center" class="BtnSilver90" onclick="Send();">Send</div></td>
                   </tr>
                 </table>
                 </td>
@@ -191,11 +191,11 @@ class Pengumuman{
 	function SelectReceiver(){
 	?>
     <fieldset style="border: 1px solid rgb(51, 102, 153); background-color: rgb(255, 255, 255);">
-            <legend style="background-color: rgb(51, 102, 153); color: rgb(255, 255, 255); font-size: 10px; font-weight: bold; padding: 5px;">&nbsp;Pilih&nbsp;Penerima&nbsp;</legend>
+            <legend style="background-color: rgb(51, 102, 153); color: rgb(255, 255, 255); font-size: 10px; font-weight: bold; padding: 5px;">&nbsp;Select&nbsp;Recipient&nbsp;</legend>
             
     <!--<div id="TabbedPanelsC" class="TabbedPanels" style="z-index:0">
       <ul class="TabbedPanelsTabGroup">
-        <li class="TabbedPanelsTab" tabindex="0"><strong>Pilih Penerima</strong></li>
+        <li class="TabbedPanelsTab" tabindex="0"><strong>Select Penerima</strong></li>
       </ul>
       <div class="TabbedPanelsContentGroup" >
         <div class="TabbedPanelsContent">
@@ -203,10 +203,10 @@ class Pengumuman{
             -->
                 <div id="TabbedPanels1" class="TabbedPanels">
                   <ul class="TabbedPanelsTabGroup">
-                    <li class="TabbedPanelsTab" tabindex="0">Pegawai</li>
-                    <li class="TabbedPanelsTab" tabindex="0">Siswa</li>
-                    <li class="TabbedPanelsTab" tabindex="0">Orang Tua</li>
-                    <li class="TabbedPanelsTab" tabindex="0">Lainnya</li>
+                    <li class="TabbedPanelsTab" tabindex="0">Employee</li>
+                    <li class="TabbedPanelsTab" tabindex="0">Student</li>
+                    <li class="TabbedPanelsTab" tabindex="0">Parent</li>
+                    <li class="TabbedPanelsTab" tabindex="0">Others</li>
                   </ul>
                   <div class="TabbedPanelsContentGroup" style="height:203px; overflow:auto; width:100%; overflow-x:hidden">
                     <div class="TabbedPanelsContent" id="TabPegawai">
@@ -232,11 +232,11 @@ class Pengumuman{
 	function ReceiverList(){
 	?>
     <fieldset style="border: 1px solid rgb(51, 102, 153); background-color: rgb(255, 255, 255);">
-            <legend style="background-color: rgb(51, 102, 153); color: rgb(255, 255, 255); font-size: 10px; font-weight: bold; padding: 5px;">&nbsp;Daftar&nbsp;Penerima&nbsp;</legend>
+            <legend style="background-color: rgb(51, 102, 153); color: rgb(255, 255, 255); font-size: 10px; font-weight: bold; padding: 5px;">&nbsp;Recipient&nbsp;List&nbsp;</legend>
     <!--
     <div id="TabbedPanelsC" class="TabbedPanels">
       <ul class="TabbedPanelsTabGroup">
-        <li class="TabbedPanelsTab" tabindex="0"><strong>Penerima</strong></li>
+        <li class="TabbedPanelsTab" tabindex="0"><strong>Recipient</strong></li>
       </ul>
       <div class="TabbedPanelsContentGroup">
         <div class="TabbedPanelsContent">
@@ -244,10 +244,10 @@ class Pengumuman{
             <div id="DIVReceiptTable" style="overflow:auto; padding-left:2px">
             <table width="100%" border="1" class="tab" cellspacing="0" cellpadding="0" id="ReceiptTable">
               <tr class="Header">
-                <td width="15">No</td>
+                <td width="15">#</td>
                 <td><input type="checkbox" id="ChkCheckAll" onclick="CheckAllReceipt(this.checked)" /></td>
-                <td>No Ponsel</td>
-                <td>Nama</td>
+                <td>Mobile</td>
+                <td>Name</td>
               </tr>
             </table>
             </div>

@@ -61,7 +61,7 @@ $row = mysql_fetch_array($result);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan Harian Data Siswa yang Tidak Hadir]</title>
+<title>JIBAS SIMAKA [Print Absent Student Daily Reports]</title>
 <style type="text/css">
 <!--
 .style1 {
@@ -80,19 +80,19 @@ $row = mysql_fetch_array($result);
 
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th scope="row" colspan="10"><span class="style1">Laporan Harian Data Siswa yang Tidak Hadir</span></th>
+    <th scope="row" colspan="10"><span class="style1">Absent Student Daily Report Card</span></th>
   </tr>
 </table>
 <br />
 <table width="27%">
 <tr>
-	<td width="43%"><span class="style4">Departemen</span></td>
+	<td width="43%"><span class="style4">Department</span></td>
     <td width="57%" colspan="9"><span class="style4">: 
       <?=$row['departemen']?>
     </span></td>
 </tr>
 <tr>
-	<td><span class="style4">Tahun Ajaran</span></td>
+	<td><span class="style4">Year</span></td>
     <td colspan="9"><span class="style4">: 
       <?=$row['tahunajaran']?>
     </span></td>
@@ -104,20 +104,20 @@ $row = mysql_fetch_array($result);
     </span></td>
 </tr>
 <tr>
-	<td><span class="style4">Tingkat</span></td>
+	<td><span class="style4">Grade</span></td>
     <td colspan="9"><span class="style4">: 
-      <? if ($tingkat == -1) echo "Semua Tingkat"; else echo $row['tingkat']; ?>
+      <? if ($tingkat == -1) echo "All Tingkat"; else echo $row['tingkat']; ?>
     </span></td>
 </tr>
 <tr>
-	<td><span class="style4">Kelas</span></td>
+	<td><span class="style4">Class</span></td>
     <td colspan="9"><span class="style4">: 
-      <? if ($kelas == -1) echo "Semua Kelas"; else echo $row['kelas']; ?>
+      <? if ($kelas == -1) echo "All Classes"; else echo $row['kelas']; ?>
     </span></td>
 </tr>
 <tr>
-	<td><span class="style4">Periode Presensi</span></td>
-    <td colspan="9"><span class="style4">: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></span></td>
+	<td><span class="style4">Period</span></td>
+    <td colspan="9"><span class="style4">: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></span></td>
 </tr>
 </table>
 <br />
@@ -130,16 +130,16 @@ $row = mysql_fetch_array($result);
 ?>
 	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
    	<tr height="30" align="center">
-    	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>No</strong></td>
-		<td width="10%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>N I S</strong></td>
-        <td width="10%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Nama</strong></td>
-   		<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Kelas</strong></td>
-        <td width="*" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Ortu</strong></td>
-   		<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Hadir</strong></td>
-		<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Ijin</strong></td>            
-		<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Sakit</strong></td>
-        <td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Alpa</strong></td>
-        <td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Cuti</strong></td>
+    	<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>#</strong></td>
+		<td width="10%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Student ID</strong></td>
+        <td width="10%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Name</strong></td>
+   		<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Class</strong></td>
+        <td width="*" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Parent</strong></td>
+   		<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Attend</strong></td>
+		<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Consent</strong></td>            
+		<td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Ill</strong></td>
+        <td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Absent</strong></td>
+        <td width="5%" bgcolor="#CCCCCC" class="style6 style5 header"><strong>Leave</strong></td>
         
     </tr>
 <?		
@@ -170,17 +170,17 @@ $row = mysql_fetch_array($result);
 		  Telp: 
 		  <?=$row[11]?>
 		  <br />
-          HP Siswa: 
+          Student Mobile: 
           <?=$row[12]?>
           <br />
-          Email Siswa: 
+          Student Email: 
           <?=$row[13]?>      	
           </span></td>
   		-->
         <td valign="middle"><span class="style7">
          <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
-                <td width="27%" >Handphone</td>
+                <td width="27%" >Mobile</td>
                 <td>:&nbsp;</td>
                 <td width="90%" ><?=$row[8]?> </td>  
             </tr>                
@@ -198,22 +198,22 @@ $row = mysql_fetch_array($result);
                 </td>
             </tr>
             <tr>
-                <td valign="top">Alamat</strong></td>
+                <td valign="top">Address</strong></td>
                 <td valign="top">:&nbsp; </td>
               	<td><?=$row[10]?></td>
             </tr>
             <tr>
-                <td>Telepon</strong></td>
+                <td>Phone</strong></td>
               	<td>:&nbsp; </td>  
                 <td><?=$row[11]?></td>
             </tr>
             <tr>
-                <td>HP Siswa</strong></td>
+                <td>Student Mobile</strong></td>
               	<td>:&nbsp; </td>   
                 <td><?=$row[12]?></td>
             </tr>
             <tr>
-                <td>Email Siswa</strong></td>
+                <td>Student Email</strong></td>
               	<td>:&nbsp; </td>  
                 <td><?=$row[13]?></td>
             </tr>

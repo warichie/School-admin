@@ -63,7 +63,7 @@ $row = mysql_fetch_array($result);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS SIMAKA [Cetak Laporan  Siswa Tidak Hadir]</title>
+<title>JIBAS SIMAKA [Print Absent Student Data Reports]</title>
 <style type="text/css">
 <!--
 .style1 {
@@ -81,17 +81,17 @@ $row = mysql_fetch_array($result);
 <body>
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <th scope="row" colspan="12"><span class="style1">Laporan Data Siswa yang Tidak Hadir</span></th>
+    <th scope="row" colspan="12"><span class="style1">Absent Student Data Report Card</span></th>
   </tr>
 </table>
 <br />
 <table width="27%">
 <tr>
-	<td width="43%"><span class="style4">Departemen</span></td>
+	<td width="43%"><span class="style4">Department</span></td>
     <td width="57%" colspan="12"><span class="style4">: <?=$row['departemen']?></span></td>
 </tr>
 <tr>
-	<td><span class="style4">Tahun Ajaran</span></td>
+	<td><span class="style4">Year</span></td>
     <td colspan="12"><span class="style4">: <?=$row['tahunajaran']?></span></td>
 </tr>
 <tr>
@@ -99,16 +99,16 @@ $row = mysql_fetch_array($result);
     <td colspan="12"><span class="style4">: <?=$row['semester']?></span></td>
 </tr>
 <tr>
-	<td><span class="style4">Tingkat</span></td>
-    <td colspan="12"><span class="style4">: <? if ($tingkat == -1) echo "Semua Tingkat"; else echo $row['tingkat']; ?></span></td>
+	<td><span class="style4">Grade</span></td>
+    <td colspan="12"><span class="style4">: <? if ($tingkat == -1) echo "All Tingkat"; else echo $row['tingkat']; ?></span></td>
 </tr>
 <tr>
-	<td><span class="style4">Kelas</span></td>
-    <td colspan="12"><span class="style4">: <? if ($kelas == -1) echo "Semua Kelas"; else echo $row['kelas']; ?></span></td>
+	<td><span class="style4">Class</span></td>
+    <td colspan="12"><span class="style4">: <? if ($kelas == -1) echo "All Classes"; else echo $row['kelas']; ?></span></td>
 </tr>
 <tr>
-	<td><span class="style4">Periode Presensi</span></td>
-    <td colspan="12"><span class="style4">: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></span></td>
+	<td><span class="style4">Period</span></td>
+    <td colspan="12"><span class="style4">: <?=format_tgl($tglawal).' to '. format_tgl($tglakhir) ?></span></td>
 </tr>
 </table>
 <br />
@@ -123,31 +123,31 @@ $row = mysql_fetch_array($result);
 
     <table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
    	<tr height="30" align="center" bgcolor="#CCCCCC" class="style6 style5 header">
-    	<td width="5%">No</td>
-		<td width="8%">N I S</td>
-		<td width="15%">Nama</td>  
-        <td width="8%">Kelas</td>            
-		<td width="10%">Pelajaran</td>
-        <td width="5%">Tanggal</td>
-        <td>Presensi</td>
-        <td width="10%">Keterangan</td>            
-        <td width="7%">Tlp Siswa</td>
-        <td width="10%">HP Siswa</td>
-        <td width="15%">Orang Tua</td>
-        <td width="7%">Tlp Ortu</td>
-        <td width="10%">HP Ortu</td>     
+    	<td width="5%">#</td>
+		<td width="8%">Student ID</td>
+		<td width="15%">Name</td>  
+        <td width="8%">Class</td>            
+		<td width="10%">Class Subject</td>
+        <td width="5%">Date</td>
+        <td>Presence</td>
+        <td width="10%">Info</td>            
+        <td width="7%">Student Phone</td>
+        <td width="10%">Student Mobile</td>
+        <td width="15%">Parent</td>
+        <td width="7%">Parent Phone</td>
+        <td width="10%">Parent Mobile</td>     
     </tr>
 <?		
 	$cnt = 0;
 	while ($row = mysql_fetch_row($result)) { 
 		switch ($row[6]){
-			case 1 : $st="Ijin";
+			case 1 : $st="Consent";
 			break;
-			case 2 : $st="Sakit";
+			case 2 : $st="Ill";
 			break;	
-			case 3 : $st="Alpa";
+			case 3 : $st="Absent";
 			break;
-			case 4 : $st="Cuti";
+			case 4 : $st="Leave";
 			break;
 		}	
 ?>
